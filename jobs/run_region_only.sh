@@ -9,7 +9,8 @@
 mkdir -p logs
 
 module load Miniforge3
-source activate gavit
+source activate
+conda activate gavit
 
 echo "===== ENV INFO ====="
 which python
