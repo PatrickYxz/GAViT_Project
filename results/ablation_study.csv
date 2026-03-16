@@ -1,0 +1,13 @@
+Experiment,Variant,K,kNN_k,Grouping,GNN_Layers,GNN_Type,Val_Acc(%),Test_Acc(%),Delta_vs_Baseline(%),Notes
+1_baseline,Swin-T only,-,-,-,0,-,~96.0,~96.0,0.0,reference
+2_region_only,Swin-T + Region Grouping (no GNN),9,-,kmeans,0,-,,,,"pool region features directly, no graph"
+3_gavit_v1,Swin-T + Region + GAT,9,5,kmeans,2,GAT,,,,"full GAViT v1"
+4_ablation_K,GAViT K=4,4,3,kmeans,2,GAT,,,,
+4_ablation_K,GAViT K=9,9,5,kmeans,2,GAT,,,,
+4_ablation_K,GAViT K=16,16,5,kmeans,2,GAT,,,,
+5_ablation_edge,GAViT cosine-sim,9,5,kmeans,2,GAT,,,,"edge by cosine similarity threshold"
+5_ablation_edge,GAViT spatial-adj,9,-,spatial,2,GAT,,,,"edge by spatial adjacency"
+5_ablation_edge,GAViT kNN,9,5,kmeans,2,GAT,,,,"edge by kNN (default)"
+6_ablation_gnn,GAViT 1-layer GAT,9,5,kmeans,1,GAT,,,,
+6_ablation_gnn,GAViT 2-layer GAT,9,5,kmeans,2,GAT,,,,
+6_ablation_gnn,GAViT 2-layer GCN,9,5,kmeans,2,GCN,,,,

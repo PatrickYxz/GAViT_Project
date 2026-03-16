@@ -1,12 +1,17 @@
 import os
+import argparse
 import torch
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 import timm
 
-DATA_ROOT = r"C:\Users\Administrator\PycharmProjects\GAViT_Project\datasets\NWPU-RESISC45_split"  # 同样改路径
+parser = argparse.ArgumentParser()
+parser.add_argument("--ckpt",      default="checkpoints/best_swin.pth")
+parser.add_argument("--data_root", default="/home/yang1004/GAViT_Project/datasets/NWPU-RESISC45_split")
+parser.add_argument("--batch_size", type=int, default=32)
+args = parser.parse_args()
+
 NUM_CLASSES = 45
-BATCH_SIZE = 32
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 test_tf = transforms.Compose([
@@ -16,15 +21,15 @@ test_tf = transforms.Compose([
                          std=[0.229, 0.224, 0.225])
 ])
 
-test_set = datasets.ImageFolder(os.path.join(DATA_ROOT, "test"), transform=test_tf)
-test_loader = DataLoader(test_set, batch_size=BATCH_SIZE, shuffle=False)
+test_set    = datasets.ImageFolder(os.path.join(args.data_root, "test"), transform=test_tf)
+test_loader = DataLoader(test_set, batch_size=args.batch_size, shuffle=False, num_workers=4)
 
 model = timm.create_model(
     "swin_tiny_patch4_window7_224",
     pretrained=False,
     num_classes=NUM_CLASSES
 )
-model.load_state_dict(torch.load("checkpoints/best_swin.pth"))
+model.load_state_dict(torch.load(args.ckpt, map_location=DEVICE))
 model.to(DEVICE)
 model.eval()
 
@@ -39,4 +44,4 @@ with torch.no_grad():
         total += labels.size(0)
 
 acc = 100.0 * correct / total
-print(f"🎯 Test Accuracy: {acc:.2f}%")
+print(f"Test Accuracy: {acc:.1f}%")

@@ -1,0 +1,3 @@
+Model,Dataset,Val_Acc(%),Test_Acc(%),Params(M),Epochs,Batch_Size,LR,Optimizer,Scheduler,Backbone_Frozen,Notes
+Swin-T Baseline,NWPU-RESISC45,~96.0,~96.0,28.3,30,32,3e-4,AdamW,CosineAnnealing,No,pretrained ImageNet
+GAViT (K=9 kmeans kNN GAT2L),NWPU-RESISC45,,,,,32,3e-4,AdamW,CosineAnnealing,No,K=9 kNN-k=5 GAT 2layer 4heads

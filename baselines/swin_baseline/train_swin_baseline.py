@@ -9,7 +9,10 @@ import timm
 # =========================
 # 1. 配置
 # =========================
-DATA_ROOT = r"C:\Users\Administrator\PycharmProjects\GAViT_Project\datasets\NWPU-RESISC45_split"
+DATA_ROOT = os.environ.get(
+    "DATA_ROOT",
+    r"C:\Users\Administrator\PycharmProjects\GAViT_Project\datasets\NWPU-RESISC45_split"
+)
 NUM_CLASSES = 45
 BATCH_SIZE = 32
 EPOCHS = 30
@@ -44,14 +47,14 @@ train_loader = DataLoader(
     train_set,
     batch_size=BATCH_SIZE,
     shuffle=True,
-    num_workers=0
+    num_workers=4
 )
 
 val_loader = DataLoader(
     val_set,
     batch_size=BATCH_SIZE,
     shuffle=False,
-    num_workers=0
+    num_workers=4
 )
 
 
