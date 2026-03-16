@@ -182,20 +182,52 @@ GAViT_Project/
 
 ---
 
-## 九、GitHub 推送规范
+## 九、本地 ↔ 服务器同步工作流
+
+**代码同步通过 Git 完成，禁止手动上传文件。**
+
+远程仓库：`https://github.com/PatrickYxz/GAViT_Project.git`
+
+### 本地改完代码后（Windows）
+
+```bash
+git add 具体文件        # 不要用 git add -A，避免误提交敏感文件
+git commit -m "[类型] 简短描述"
+git push origin main
+```
+
+### 服务器端拉取并提交作业
+
+```bash
+cd ~/GAViT_Project
+git pull
+sbatch jobs/run_region_only.sh   # 或其他作业
+```
+
+### 服务器端首次克隆（仅一次）
+
+```bash
+cd ~
+git clone https://github.com/PatrickYxz/GAViT_Project.git
+```
+
+### 监控作业
+
+```bash
+squeue                          # 查看作业状态
+tail -f logs/作业名_JOBID.out   # 实时跟踪输出
+scancel JOBID                   # 取消作业
+```
+
+---
+
+## 十、GitHub commit 规范
 
 **每次完成以下操作后，必须推送到 GitHub**：
 - 完成新功能模块
 - 成功运行新实验并记录结果
 - 更新 research_diary.md
 - 修复重要 bug
-
-**推送命令**：
-```bash
-git add -A
-git commit -m "[类型] 简短描述 — 关键指标（如有）"
-git push origin main
-```
 
 **commit 类型前缀**：
 - `[feat]` — 新功能（如：新增 region grouping 模块）
