@@ -3,3 +3,9 @@ checkpoints/
 __pycache__/
 *.pyc
 .idea/
+.venv/
+logs/
+*.out
+*.err
+results/figures/*.png
+results/figures/*.jpg
