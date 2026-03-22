@@ -4,7 +4,7 @@
 #SBATCH --error=logs/gavit_train_%j.err
 #SBATCH --gpus=1
 #SBATCH --constraint=gpu
-#SBATCH --time=06:00:00
+#SBATCH --time=08:00:00
 
 mkdir -p logs
 
@@ -22,4 +22,16 @@ echo "===================="
 cd /home/yang1004/GAViT_Project/
 export DATA_ROOT=/home/yang1004/GAViT_Project/datasets/NWPU-RESISC45_split
 
-python train_gavit.py
+# ------------------------------------------------------------------
+# Experiment P2a: GAViT K=9 SpatialGrouping + 2-layer GAT
+# (pairs with P1 spatial to isolate the GNN contribution)
+# ------------------------------------------------------------------
+echo "===== Experiment: GAViT K=9 spatial + 2-layer GAT ====="
+python train_gavit.py --grouping spatial --num_regions 9 --knn_k 5 --gat_layers 2 --gat_heads 4
+
+# ------------------------------------------------------------------
+# Experiment P2b: GAViT K=9 KMeansGrouping + 2-layer GAT
+# (full model with learned grouping)
+# ------------------------------------------------------------------
+echo "===== Experiment: GAViT K=9 kmeans + 2-layer GAT ====="
+python train_gavit.py --grouping kmeans --num_regions 9 --knn_k 5 --gat_layers 2 --gat_heads 4

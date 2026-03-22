@@ -3,10 +3,14 @@ train_gavit.py — Training script for GAViT on NWPU-RESISC45.
 
 Usage:
     python train_gavit.py
+    python train_gavit.py --grouping spatial --num_regions 9
+    python train_gavit.py --grouping kmeans  --num_regions 9 --gat_layers 1
 
-Key hyperparameters are defined in the CONFIG section below.
+Key hyperparameters are defined in the CONFIG section below and can be
+overridden via command-line arguments.
 """
 
+import argparse
 import os
 import torch
 import torch.nn as nn
@@ -18,6 +22,23 @@ from models.gavit import GAViT
 from utils import set_seed
 
 # =============================================================================
+# ARGS
+# =============================================================================
+parser = argparse.ArgumentParser(description="Train GAViT on NWPU-RESISC45")
+parser.add_argument("--grouping",      type=str,   default="kmeans", choices=["kmeans", "spatial"])
+parser.add_argument("--num_regions",   type=int,   default=9)
+parser.add_argument("--knn_k",         type=int,   default=5)
+parser.add_argument("--gat_hidden",    type=int,   default=256)
+parser.add_argument("--gat_heads",     type=int,   default=4)
+parser.add_argument("--gat_layers",    type=int,   default=2)
+parser.add_argument("--dropout",       type=float, default=0.1)
+parser.add_argument("--epochs",        type=int,   default=30)
+parser.add_argument("--lr",            type=float, default=3e-4)
+parser.add_argument("--batch_size",    type=int,   default=32)
+parser.add_argument("--freeze_backbone", action="store_true")
+args = parser.parse_args()
+
+# =============================================================================
 # CONFIG
 # =============================================================================
 DATA_ROOT = os.environ.get(
@@ -25,23 +46,23 @@ DATA_ROOT = os.environ.get(
     r"C:\Users\Administrator\PycharmProjects\GAViT_Project\datasets\NWPU-RESISC45_split"
 )
 SAVE_DIR    = "checkpoints"
-CKPT_NAME   = "best_gavit.pth"
+CKPT_NAME   = f"best_gavit_K{args.num_regions}_{args.grouping}.pth"
 
 NUM_CLASSES = 45
-BATCH_SIZE  = 32
-EPOCHS      = 30
-LR          = 3e-4
+BATCH_SIZE  = args.batch_size
+EPOCHS      = args.epochs
+LR          = args.lr
 SEED        = 42
 
 # GAViT-specific
-NUM_REGIONS     = 9        # K: number of region nodes (try 4, 9, 16)
-KNN_K           = 5        # neighbours per node in the kNN graph
-GAT_HIDDEN      = 256      # per-head hidden dim in GAT
-GAT_HEADS       = 4        # number of GAT attention heads
-GAT_LAYERS      = 2        # number of stacked GAT layers
-DROPOUT         = 0.1
-GROUPING        = "kmeans" # "kmeans" or "spatial"
-FREEZE_BACKBONE = False    # set True to only train the graph head
+NUM_REGIONS     = args.num_regions
+KNN_K           = args.knn_k
+GAT_HIDDEN      = args.gat_hidden
+GAT_HEADS       = args.gat_heads
+GAT_LAYERS      = args.gat_layers
+DROPOUT         = args.dropout
+GROUPING        = args.grouping
+FREEZE_BACKBONE = args.freeze_backbone
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 

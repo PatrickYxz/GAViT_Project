@@ -26,6 +26,64 @@
 
 ---
 
+## 2026-03-22 — P2b 实验完成：GAViT K=9 KMeansGrouping + 2-layer GAT
+
+**完成内容**：
+- 在 NTU EEE GPU 服务器（NVIDIA RTX A5000）上运行 GAViT 完整模型（kmeans grouping）
+- 模型：GAViT | K=9 | grouping=kmeans | GAT 2L×4H | kNN k=5
+- 参数量：30,462,375（全部可训练，比 SpatialGrouping 版多约 290 万参数）
+- 训练配置：30 epoch，AdamW lr=3e-4，CosineAnnealingLR，batch_size=32
+
+**实验结果**：
+- Best Val Acc：**96.0%**（epoch 29）
+- 对比 Swin-T Baseline (~96.0%)：持平
+- 对比 SpatialGrouping + no GNN (96.2%)：-0.2%
+- 初步结论：kmeans 动态聚类引入了随机性，收敛更慢（epoch 1 train acc 仅 75.9% vs spatial 的 79.7%），最终性能与 baseline 持平
+
+**训练曲线观察**：
+- Epoch 1-10：收敛明显慢于 P1（epoch 10 val 92.2% vs P1 的 92.3%）
+- Epoch 18-30：缓慢爬升，train acc 趋近 100%，val acc 在 95-96% 区间波动
+- Checkpoint 保存至：`checkpoints/best_gavit.pth`（⚠️ 旧脚本名，argparse 未生效）
+
+**注意事项**：
+- 服务器拉取了 argparse 版本之前就已提交作业，导致只跑了 kmeans 一组，checkpoint 名为旧版 `best_gavit.pth`
+- P2a（spatial + GAT）**尚未跑**，需补跑以完成消融对比
+
+**下一步计划**：
+- [ ] push argparse 版 `train_gavit.py` → 服务器 git pull → 补跑 P2a（`--grouping spatial`）
+- [ ] 对比四组消融结果，绘制 bar chart
+- [ ] 分析 kmeans vs spatial 差异原因
+
+---
+
+## 2026-03-22 — P1 实验完成：Swin + SpatialGrouping K=9（无 GNN）
+
+**完成内容**：
+- 在 NTU EEE GPU 服务器（NVIDIA RTX A5000, 24GB）上运行 P1 实验
+- 模型：Swin-T + SpatialGrouping（K=9），无图推理层，直接 mean pool → FC 分类
+- 参数量：27,555,495（全部可训练）
+- 训练配置：30 epoch，AdamW lr=3e-4，CosineAnnealingLR，batch_size=32
+
+**实验结果**：
+- Best Val Acc：**96.2%**（epoch 27-28）
+- 对比 Swin-T Baseline (~96.0%)：+0.2%（微弱提升）
+- 结论：仅加 Region Grouping（无 GNN）相比 baseline 基本持平，说明区域表示本身信息量有限，需要图推理来充分利用区域间关系
+
+**训练曲线观察**：
+- Epoch 1-13：快速收敛，val acc 从 87% 升至 94%
+- Epoch 14-28：缓慢爬升，train acc 趋近 100%（过拟合迹象）
+- Best checkpoint 保存至：`checkpoints/best_region_only_K9_spatial.pth`
+
+**遇到的问题及解决方案**：
+- 无
+
+**下一步计划**：
+- [ ] **P2** 运行完整 GAViT v1（Swin + SpatialGrouping K=9 + 2-layer GAT）
+- [ ] 对比三组结果：Baseline vs +Region Grouping vs +Graph Reasoning
+- [ ] 保存训练曲线图至 `results/figures/`
+
+---
+
 ## 2026-03-17 — GAViT 核心模块实现完成
 
 **完成内容**：

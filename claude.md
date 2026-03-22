@@ -115,7 +115,10 @@ GAViT_Project/
 
 | 模型 | 数据集 | Val Acc | Test Acc | 备注 |
 |------|--------|---------|----------|------|
-| Swin-T Baseline | NWPU-RESISC45 | ~96% | ~96% | 30 epoch, AdamW, lr=3e-4, CosineAnnealing |
+| Swin-T Baseline | NWPU-RESISC45 | ~96.0% | ~96.0% | 30 epoch, AdamW, lr=3e-4, CosineAnnealing |
+| Swin + SpatialGrouping K=9 (no GNN) | NWPU-RESISC45 | 96.2% | — | 30 epoch, K=9 spatial, mean pool, 27.6M params |
+| GAViT K=9 spatial + GAT 2L | NWPU-RESISC45 | — | — | 待跑，补消融 |
+| GAViT K=9 kmeans + GAT 2L | NWPU-RESISC45 | 96.0% | — | 30 epoch, K=9 kmeans, kNN-k=5, 30.5M params |
 
 > **规则**：每次新实验完成后，将结果追加到此表格，注明超参数与实验条件。图像和混淆矩阵保存至 `results/figures/`。
 
@@ -125,7 +128,9 @@ GAViT_Project/
 
 - [x] **Baseline:** Swin-T only（~96%，已完成）
 - [x] **GAViT 核心模块实现**（models/ 目录，已完成）
-- [ ] **P1** Swin-T + Region Grouping only（无 GNN）← **当前任务**，先跑 spatial grouping（K=9），再跑 kmeans
+- [x] **P1** Swin + SpatialGrouping K=9（无 GNN）— Val Acc 96.2%（已完成）
+- [ ] **P2a** GAViT K=9 SpatialGrouping + 2-layer GAT ← **补跑**（消融必需）
+- [x] **P2b** GAViT K=9 KMeansGrouping + 2-layer GAT — Val Acc 96.0%（已完成）
 - [ ] **P2** 训练 GAViT v1，与 baseline 对比（K=9, kNN, 2-layer GAT）
 - [ ] **P2** 消融：K 的影响（4 vs 9 vs 16）
 - [ ] **P2** 消融：边构建策略（cosine similarity vs spatial adjacency vs kNN）
