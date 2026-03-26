@@ -27,7 +27,16 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import TwoSlopeNorm
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
-from sklearn.metrics import confusion_matrix
+try:
+    from sklearn.metrics import confusion_matrix
+except ImportError:
+    def confusion_matrix(y_true, y_pred, labels=None):
+        """Fallback confusion matrix without sklearn."""
+        n = len(labels)
+        cm = np.zeros((n, n), dtype=int)
+        for t, p in zip(y_true, y_pred):
+            cm[t, p] += 1
+        return cm
 from tqdm import tqdm
 
 from models.gavit import GAViT
@@ -37,7 +46,7 @@ from utils import set_seed
 # CONFIG
 # =============================================================================
 parser = argparse.ArgumentParser()
-parser.add_argument("--swin_ckpt",   type=str, default="checkpoints/best_swin.pth")
+parser.add_argument("--swin_ckpt",   type=str, default="baselines/swin_baseline/checkpoints/best_swin.pth")
 parser.add_argument("--gavit_ckpt",  type=str, default="checkpoints/best_gavit_K9_spatial.pth")
 parser.add_argument("--grouping",    type=str, default="spatial")
 parser.add_argument("--num_regions", type=int, default=9)

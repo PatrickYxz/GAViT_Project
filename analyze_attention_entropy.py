@@ -161,16 +161,18 @@ def extract_attention(model, img_tensor, num_regions, knn_k):
         h = region_feats.reshape(num_regions, -1)
         h = model.graph_reasoning.input_proj(h)
 
+        ei_last = None
         alpha_last = None
         for gat, norm in zip(model.graph_reasoning.gat_layers,
                               model.graph_reasoning.norms):
             residual = h
             h_out, (ei_ret, alpha) = gat(h, edge_index, return_attention_weights=True)
-            alpha_last = alpha  # (E, num_heads)
+            ei_last = ei_ret      # (2, E') — includes self-loops added by GATConv
+            alpha_last = alpha    # (E', num_heads)
             h = norm(h_out + residual)
             h = model.graph_reasoning.act(h)
 
-    return edge_index.cpu(), alpha_last.cpu(), num_regions
+    return ei_last.cpu(), alpha_last.cpu(), num_regions
 
 
 # =============================================================================

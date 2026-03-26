@@ -26,7 +26,7 @@ echo "========================================"
 echo "PART 1: Model Comparison (Confusion Matrix + Per-class Accuracy)"
 echo "========================================"
 python compare_models.py \
-    --swin_ckpt checkpoints/best_swin.pth \
+    --swin_ckpt baselines/swin_baseline/checkpoints/best_swin.pth \
     --gavit_ckpt checkpoints/best_gavit_K9_spatial.pth \
     --grouping spatial \
     --num_regions 9 \
