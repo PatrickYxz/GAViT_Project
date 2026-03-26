@@ -1,5 +1,5 @@
 Model,Dataset,Val_Acc(%),Test_Acc(%),Params(M),Epochs,Batch_Size,LR,Optimizer,Scheduler,Backbone_Frozen,Notes
 Swin-T Baseline,NWPU-RESISC45,~96.0,~96.0,28.3,30,32,3e-4,AdamW,CosineAnnealing,No,pretrained ImageNet
 Swin + SpatialGrouping K=9 (no GNN),NWPU-RESISC45,96.2,,27.6,30,32,3e-4,AdamW,CosineAnnealing,No,K=9 spatial grouping mean pool only
-GAViT K=9 spatial + GAT 2L,NWPU-RESISC45,,,,,32,3e-4,AdamW,CosineAnnealing,No,K=9 spatial kNN-k=5 GAT 2layer 4heads (TODO)
+GAViT K=9 spatial + GAT 2L,NWPU-RESISC45,96.5,,30.5,30,32,3e-4,AdamW,CosineAnnealing,No,K=9 spatial kNN-k=5 GAT 2layer 4heads; epoch 30 still rising
 GAViT K=9 kmeans + GAT 2L,NWPU-RESISC45,96.0,,30.5,30,32,3e-4,AdamW,CosineAnnealing,No,K=9 kmeans kNN-k=5 GAT 2layer 4heads

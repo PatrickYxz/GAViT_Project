@@ -119,6 +119,9 @@ GAViT_Project/
 | Swin + SpatialGrouping K=9 (no GNN) | NWPU-RESISC45 | 96.2% | — | 30 epoch, K=9 spatial, mean pool, 27.6M params |
 | GAViT K=9 spatial + GAT 2L | NWPU-RESISC45 | 96.5% | — | 30 epoch, K=9 spatial, kNN-k=5, 30.5M params；epoch 30 仍在上升 |
 | GAViT K=9 kmeans + GAT 2L | NWPU-RESISC45 | 96.0% | — | 30 epoch, K=9 kmeans, kNN-k=5, 30.5M params |
+| GAViT K=9 spatial + GAT 2L (spatial edge) | NWPU-RESISC45 | 96.2% | — | 30 epoch, edge=spatial adjacency |
+| GAViT K=9 spatial + GAT 2L (kNN edge) | NWPU-RESISC45 | 96.1% | — | 30 epoch, edge=cosine kNN（与之前 96.5% 差异因重跑随机性） |
+| GAViT K=9 spatial + GAT 2L (hybrid edge) | NWPU-RESISC45 | 96.0% | — | 30 epoch, edge=spatial+kNN 合并 |
 
 > **规则**：每次新实验完成后，将结果追加到此表格，注明超参数与实验条件。图像和混淆矩阵保存至 `results/figures/`。
 
@@ -131,13 +134,20 @@ GAViT_Project/
 - [x] **P1** Swin + SpatialGrouping K=9（无 GNN）— Val Acc 96.2%（已完成）
 - [x] **P2a** GAViT K=9 SpatialGrouping + 2-layer GAT — Val Acc 96.5%（已完成）
 - [x] **P2b** GAViT K=9 KMeansGrouping + 2-layer GAT — Val Acc 96.0%（已完成）
-- [x] **可视化** GAT 注意力可视化（`visualize_graph.py`，已完成，结果待改进）
-- [ ] **P2-edge** 消融：边构建策略（cosine kNN vs spatial adjacency vs 混合）← **当前优先**
-- [ ] **P2-test** 在 test set 上评估最优模型（`best_gavit_K9_spatial.pth`）
+- [x] **可视化** GAT 注意力可视化（已完成，但 attention ≠ 语义关联，解读方式需调整）
+- [x] **P2-edge** 消融：边构建策略（spatial 96.2% / kNN 96.1% / hybrid 96.0%，三者持平）
+- [x] **Edge对比可视化** `visualize_edge_comparison.py`（spatial vs kNN 注意力 side-by-side）
+- [ ] **注意力熵分析** 量化复杂场景 vs 均质场景的注意力分布差异 ← **当前优先**
+- [ ] **P2-test** 在 test set 上评估最优模型 + 混淆矩阵对比（Baseline vs GAViT）
 - [ ] **P2-K** 消融：K 的影响（4 vs 9 vs 16）
 - [ ] **P2-GNN** 消融：GNN 层数（1 vs 2 层，GAT vs GCN）
 - [ ] **P3** 在 AID 数据集上验证泛化性
 - [ ] **邮件** 给导师发进度汇报
+
+### 重要备注：GAT attention 的正确解读
+- GAT attention 权重反映"信息流方向"（从哪个邻居获取最多信息），不等于"语义关联度"
+- 模型倾向于从差异大的邻居吸收更多信息（互补性），而非从相似邻居
+- 展示 relational modeling 价值的更好方式：注意力熵对比、混淆矩阵差异、per-class 分析
 
 ---
 

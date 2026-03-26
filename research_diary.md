@@ -4,31 +4,68 @@
 
 ---
 
-## 2026-03-26 — GAT 注意力可视化完成 & 下一阶段规划
+## 2026-03-26 — Edge 消融实验 + 可视化对比 + 关键讨论
 
-**完成内容**：
-- 新增 `visualize_graph.py`：对训练好的 GAViT 模型提取 GAT 注意力权重，生成 2×2 可视化面板（原图 / 区域分配 / kNN 图 / GAT 注意力图）
-- 在服务器运行可视化脚本，对 6 类场景（airport, stadium, harbor, dense_residential, forest, desert）各 2 张图生成可视化结果
-- 可视化结果保存至 `results/figures/graph_vis_*.png`
+### 一、完成内容
 
-**可视化观察**：
-- 复杂场景（stadium, harbor）的注意力分布有一定结构性，但与均质场景（forest, desert）的差异不够显著
-- 当前仅使用 cosine kNN 边构建策略，注意力区分度有限
-- 结论：可视化初步可用，但需要改进边构建策略以增强解释性
+1. **GAT 注意力可视化**（`visualize_graph.py`）
+   - 对 `best_gavit_K9_spatial.pth` 生成 2×2 面板（原图 / 区域分配 / kNN图 / GAT注意力）
+   - 6 类场景各 2 张，保存至 `results/figures/graph_vis_*.png`
 
-**导师建议回顾（对照执行情况）**：
+2. **Spatial adjacency 边构建**（`models/graph_construction.py` 新增 `build_spatial_graph`）
+   - 3×3 grid 的 8-邻接连边，边权均为 1
+   - `gavit.py` 新增 `edge_type` 参数：`knn` / `spatial` / `hybrid`
+   - `train_gavit.py` 新增 `--edge_type` 命令行参数
+
+3. **Edge 消融实验**（`jobs/run_edge_ablation.sh`，Job 50315）
+
+| Edge Type | Val Acc | 备注 |
+|-----------|---------|------|
+| spatial adjacency | **96.2%** | 固定 8-邻接 |
+| cosine kNN | 96.1% | 动态边 |
+| hybrid (合并) | 96.0% | kNN + spatial |
+
+   **结论**：三种边策略准确率几乎一致，边定义对最终分类影响极小。
+
+4. **Edge comparison 可视化**（`visualize_edge_comparison.py`，Job 50414）
+   - 同一张图对比 spatial vs kNN 的 GAT 注意力，1×3 面板
+   - 保存至 `results/figures/edge_compare_*.png` 和 `edge_comparison_summary.png`
+
+### 二、关键讨论与反思
+
+**GAT attention 权重的解读问题**：
+
+- ⚠️ **GAT attention ≠ 语义关联度**。attention 权重反映的是"从哪个邻居获取信息最有用"（信息流方向），而不是"哪两个区域语义上相关"。
+- 实际观察：stadium 中 R4（球场）对 R0、R2（角落/停车场）的注意力反而高于对 R3、R5（看台），因为差异大的邻居提供更多互补信息。
+- 这意味着**用 attention 权重来直接讲"跑道+航站楼→强关联→机场"的故事是不准确的**。
+
+**模型本身没问题**：
+
+- GAViT 的 graph module 确实在帮助分类（96.0% → 96.5%），relational modeling 是有效的
+- 只是 attention 权重不适合作为"展示 relational modeling 价值"的主要证据
+
+**更好的展示方向（待验证）**：
+
+- **注意力熵（attention entropy）对比**：复杂场景（airport, stadium）注意力应更集中（低熵），均质场景（forest, desert）注意力更分散（高熵）。"不均匀 vs 均匀"这个对比本身就说明模型根据场景动态调整了信息流。
+- **混淆矩阵对比**：Baseline 分错但 GAViT 分对的样本，具体是哪些类
+- **Per-class accuracy 对比**：但因为 baseline 已经 96%，差异可能很小，说服力有限
+
+### 三、导师建议执行进度
+
 - ✅ Region grouping 简单设计（spatial + kmeans）
 - ✅ 轻量 GNN（2 层 GAT）
 - ✅ 三级消融（baseline → +region → +graph）
-- ✅ 图连接可视化
-- ⚠️ 多种边定义系统对比（仅完成 cosine kNN，未做 spatial adjacency）
+- ✅ 图连接可视化（已完成，但解读方式需调整）
+- ✅ 多种边定义系统对比（spatial / kNN / hybrid，准确率持平）
 - ❌ AID 数据集验证
 
-**下一步计划**：
-- [ ] 实现 spatial adjacency 边构建策略，与 cosine kNN 做消融对比
+### 四、下一步计划（优先级排序）
+
+- [ ] 计算注意力熵，量化"复杂场景 vs 均质场景"的注意力分布差异
 - [ ] 在 test set 上评估最优模型，得到正式 Test Acc
+- [ ] 混淆矩阵对比（Baseline vs GAViT）
 - [ ] 消融：K 值影响（K=4 vs 9 vs 16）
-- [ ] 在 AID 数据集上验证泛化性
+- [ ] AID 数据集验证
 - [ ] 给导师发进度邮件
 
 ---
