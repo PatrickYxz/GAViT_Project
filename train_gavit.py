@@ -47,7 +47,7 @@ DATA_ROOT = os.environ.get(
     r"C:\Users\Administrator\PycharmProjects\GAViT_Project\datasets\NWPU-RESISC45_split"
 )
 SAVE_DIR    = "checkpoints"
-CKPT_NAME   = f"best_gavit_K{args.num_regions}_{args.grouping}_{args.edge_type}.pth"
+CKPT_NAME   = f"best_gavit_K{args.num_regions}_{args.grouping}_{args.edge_type}_fusion.pth"
 
 NUM_CLASSES = 45
 BATCH_SIZE  = args.batch_size
