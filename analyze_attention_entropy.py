@@ -301,9 +301,37 @@ for i, data in enumerate([complex_ents, uniform_ents]):
 
 ax.legend(fontsize=9)
 
-# Statistical test
-from scipy import stats
-stat, p_value = stats.mannwhitneyu(complex_ents, uniform_ents, alternative="two-sided")
+# Statistical test (Mann-Whitney U, no scipy dependency)
+def mann_whitney_u(x, y):
+    """Compute Mann-Whitney U statistic and approximate p-value (normal approx)."""
+    nx, ny = len(x), len(y)
+    combined = np.concatenate([x, y])
+    ranks = np.empty_like(combined)
+    order = combined.argsort()
+    ranks[order] = np.arange(1, len(combined) + 1)
+    # Handle ties: average ranks for tied values
+    sorted_vals = combined[order]
+    i = 0
+    while i < len(sorted_vals):
+        j = i
+        while j < len(sorted_vals) and sorted_vals[j] == sorted_vals[i]:
+            j += 1
+        if j > i + 1:
+            avg_rank = np.mean(np.arange(i + 1, j + 1))
+            ranks[order[i:j]] = avg_rank
+        i = j
+    u1 = np.sum(ranks[:nx]) - nx * (nx + 1) / 2
+    u2 = nx * ny - u1
+    u_stat = min(u1, u2)
+    # Normal approximation for p-value
+    mu = nx * ny / 2
+    sigma = np.sqrt(nx * ny * (nx + ny + 1) / 12)
+    z = abs(u_stat - mu) / sigma
+    # Two-sided p-value (approximate using z-score)
+    p_val = 2 * np.exp(-0.5 * z * z) / np.sqrt(2 * np.pi) if z < 8 else 0.0
+    return u_stat, p_val
+
+stat, p_value = mann_whitney_u(np.array(complex_ents), np.array(uniform_ents))
 ax.text(0.5, 0.02,
         f"Mann-Whitney U test: U={stat:.0f}, p={p_value:.2e}\n"
         f"Complex: {np.mean(complex_ents):.4f} ± {np.std(complex_ents):.4f}  "

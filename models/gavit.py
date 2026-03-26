@@ -14,10 +14,12 @@ class GAViT(nn.Module):
 
     Pipeline:
         Image → Swin-T backbone → 49 tokens (7×7, 768-dim)
-              → Region Grouping   → K region nodes
-              → kNN Graph         → edge_index
-              → GAT Reasoning     → refined node features
-              → Mean Pool         → global descriptor
+              ├→ Mean Pool        → global backbone descriptor (768-dim)
+              └→ Region Grouping  → K region nodes
+                → kNN Graph       → edge_index
+                → GAT Reasoning   → refined node features
+                → Mean Pool       → graph descriptor (gat_hidden * gat_heads)
+              → Fusion (concat)   → (768 + gat_hidden * gat_heads)-dim
               → FC Classifier     → num_classes logits
 
     Args:
@@ -73,12 +75,13 @@ class GAViT(nn.Module):
             dropout=dropout,
         )
 
-        # --- Classifier ---
+        # --- Classifier (fusion: backbone global + graph-refined) ---
         graph_out_dim = self.graph_reasoning.out_dim
+        fused_dim = backbone_dim + graph_out_dim  # 768 + 1024 = 1792
         self.classifier = nn.Sequential(
-            nn.LayerNorm(graph_out_dim),
+            nn.LayerNorm(fused_dim),
             nn.Dropout(dropout),
-            nn.Linear(graph_out_dim, num_classes),
+            nn.Linear(fused_dim, num_classes),
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -94,10 +97,13 @@ class GAViT(nn.Module):
         # 1. Swin-T backbone → patch tokens
         tokens = self.backbone(x)                           # (B, 49, 768)
 
-        # 2. Region grouping → K region node features
+        # 2. Global backbone feature (preserve original Swin representation)
+        backbone_global = tokens.mean(dim=1)                # (B, 768)
+
+        # 3. Region grouping → K region node features
         region_features, _ = self.region_grouping(tokens)  # (B, K, 768)
 
-        # 3. Build batched graph
+        # 4. Build batched graph
         if self.edge_type == "spatial":
             edge_index, edge_weight, batch = build_spatial_graph(
                 K, B, x.device
@@ -105,7 +111,6 @@ class GAViT(nn.Module):
         elif self.edge_type == "hybrid":
             ei_knn, ew_knn, batch = build_knn_graph(region_features, k=self.knn_k)
             ei_sp, ew_sp, _      = build_spatial_graph(K, B, x.device)
-            # Merge edges (union), deduplicate
             edge_index  = torch.cat([ei_knn, ei_sp], dim=1)
             edge_weight = torch.cat([ew_knn, ew_sp], dim=0)
         else:  # "knn" (default)
@@ -113,15 +118,18 @@ class GAViT(nn.Module):
                 region_features, k=self.knn_k
             )
 
-        # 4. Flatten nodes for PyG: (B*K, 768)
+        # 5. Flatten nodes for PyG: (B*K, 768)
         x_nodes = region_features.reshape(B * K, -1)
 
-        # 5. GAT reasoning → updated node features
+        # 6. GAT reasoning → updated node features
         x_out = self.graph_reasoning(x_nodes, edge_index, edge_weight)  # (B*K, out_dim)
 
-        # 6. Graph-level pooling → (B, out_dim)
-        x_pooled = global_mean_pool(x_out, batch)
+        # 7. Graph-level pooling → (B, out_dim)
+        graph_global = global_mean_pool(x_out, batch)       # (B, 1024)
 
-        # 7. Classify
-        logits = self.classifier(x_pooled)                 # (B, num_classes)
+        # 8. Fusion: concat backbone global + graph-refined features
+        fused = torch.cat([backbone_global, graph_global], dim=1)  # (B, 1792)
+
+        # 9. Classify
+        logits = self.classifier(fused)                     # (B, num_classes)
         return logits
