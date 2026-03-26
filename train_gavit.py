@@ -32,6 +32,7 @@ parser.add_argument("--gat_hidden",    type=int,   default=256)
 parser.add_argument("--gat_heads",     type=int,   default=4)
 parser.add_argument("--gat_layers",    type=int,   default=2)
 parser.add_argument("--dropout",       type=float, default=0.1)
+parser.add_argument("--edge_type",    type=str,   default="knn", choices=["knn", "spatial", "hybrid"])
 parser.add_argument("--epochs",        type=int,   default=30)
 parser.add_argument("--lr",            type=float, default=3e-4)
 parser.add_argument("--batch_size",    type=int,   default=32)
@@ -46,7 +47,7 @@ DATA_ROOT = os.environ.get(
     r"C:\Users\Administrator\PycharmProjects\GAViT_Project\datasets\NWPU-RESISC45_split"
 )
 SAVE_DIR    = "checkpoints"
-CKPT_NAME   = f"best_gavit_K{args.num_regions}_{args.grouping}.pth"
+CKPT_NAME   = f"best_gavit_K{args.num_regions}_{args.grouping}_{args.edge_type}.pth"
 
 NUM_CLASSES = 45
 BATCH_SIZE  = args.batch_size
@@ -62,6 +63,7 @@ GAT_HEADS       = args.gat_heads
 GAT_LAYERS      = args.gat_layers
 DROPOUT         = args.dropout
 GROUPING        = args.grouping
+EDGE_TYPE       = args.edge_type
 FREEZE_BACKBONE = args.freeze_backbone
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -110,13 +112,14 @@ model = GAViT(
     gat_layers=GAT_LAYERS,
     dropout=DROPOUT,
     grouping=GROUPING,
+    edge_type=EDGE_TYPE,
     pretrained=True,
     freeze_backbone=FREEZE_BACKBONE,
 ).to(DEVICE)
 
 total_params   = sum(p.numel() for p in model.parameters())
 trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-print(f"Model: GAViT | K={NUM_REGIONS} | grouping={GROUPING} | "
+print(f"Model: GAViT | K={NUM_REGIONS} | grouping={GROUPING} | edge={EDGE_TYPE} | "
       f"GAT {GAT_LAYERS}L×{GAT_HEADS}H | kNN k={KNN_K}")
 print(f"Parameters: {total_params:,} total, {trainable_params:,} trainable")
 print(f"Device: {DEVICE}\n")

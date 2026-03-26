@@ -1,6 +1,62 @@
 from typing import Tuple
+import math
 import torch
 import torch.nn.functional as F
+
+
+def build_spatial_graph(
+    num_regions: int,
+    batch_size: int,
+    device: torch.device,
+) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    """
+    Build an undirected spatial adjacency graph for a grid of K regions.
+    Two regions are connected if they are neighbours in the grid
+    (8-connectivity: horizontal, vertical, diagonal).
+
+    Args:
+        num_regions: K (must be a perfect square, e.g. 4, 9, 16)
+        batch_size:  B
+        device:      torch device
+
+    Returns:
+        edge_index:  (2, B * E_per_graph)
+        edge_weight: (B * E_per_graph,)  — all ones (unweighted)
+        batch:       (B * K,)
+    """
+    K = num_regions
+    side = int(math.isqrt(K))
+    assert side * side == K, f"num_regions={K} must be a perfect square"
+
+    # Build adjacency for one graph
+    edges_src, edges_tgt = [], []
+    for i in range(K):
+        r, c = divmod(i, side)
+        for dr in [-1, 0, 1]:
+            for dc in [-1, 0, 1]:
+                if dr == 0 and dc == 0:
+                    continue
+                nr, nc = r + dr, c + dc
+                if 0 <= nr < side and 0 <= nc < side:
+                    j = nr * side + nc
+                    edges_src.append(i)
+                    edges_tgt.append(j)
+
+    src_local = torch.tensor(edges_src, device=device, dtype=torch.long)
+    tgt_local = torch.tensor(edges_tgt, device=device, dtype=torch.long)
+    E = len(edges_src)
+
+    # Replicate for each batch item with offset
+    edge_index_list = []
+    for b in range(batch_size):
+        offset = b * K
+        edge_index_list.append(torch.stack([src_local + offset, tgt_local + offset], dim=0))
+
+    edge_index  = torch.cat(edge_index_list, dim=1)             # (2, B*E)
+    edge_weight = torch.ones(batch_size * E, device=device)     # uniform weight
+    batch = torch.arange(batch_size, device=device).unsqueeze(1).expand(batch_size, K).reshape(-1)
+
+    return edge_index, edge_weight, batch
 
 
 def build_knn_graph(

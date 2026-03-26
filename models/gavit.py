@@ -4,7 +4,7 @@ from torch_geometric.nn import global_mean_pool
 
 from models.swin_backbone      import SwinBackbone
 from models.region_grouping    import KMeansGrouping, SpatialGrouping
-from models.graph_construction import build_knn_graph
+from models.graph_construction import build_knn_graph, build_spatial_graph
 from models.graph_reasoning    import GraphReasoning
 
 
@@ -23,12 +23,13 @@ class GAViT(nn.Module):
     Args:
         num_classes:     number of output classes (45 for NWPU-RESISC45)
         num_regions:     K, number of region nodes (try 4, 9, 16)
-        knn_k:           k for kNN graph construction
+        knn_k:           k for kNN graph construction (only used when edge_type='knn')
         gat_hidden:      per-head hidden dim in GAT layers
         gat_heads:       number of GAT attention heads
         gat_layers:      number of stacked GAT layers
         dropout:         dropout rate in GAT and classifier
         grouping:        'kmeans' or 'spatial'
+        edge_type:       'knn' (cosine kNN), 'spatial' (grid adjacency), or 'hybrid' (both)
         pretrained:      whether to load ImageNet weights for Swin-T
         freeze_backbone: freeze Swin-T weights (faster training, may hurt accuracy)
     """
@@ -43,6 +44,7 @@ class GAViT(nn.Module):
         gat_layers:      int   = 2,
         dropout:         float = 0.1,
         grouping:        str   = "kmeans",
+        edge_type:       str   = "knn",
         pretrained:      bool  = True,
         freeze_backbone: bool  = False,
     ):
@@ -60,6 +62,7 @@ class GAViT(nn.Module):
 
         self.num_regions = num_regions
         self.knn_k = min(knn_k, num_regions - 1)
+        self.edge_type = edge_type
 
         # --- Graph Reasoning ---
         self.graph_reasoning = GraphReasoning(
@@ -94,10 +97,21 @@ class GAViT(nn.Module):
         # 2. Region grouping → K region node features
         region_features, _ = self.region_grouping(tokens)  # (B, K, 768)
 
-        # 3. Build batched kNN graph
-        edge_index, edge_weight, batch = build_knn_graph(
-            region_features, k=self.knn_k
-        )                                                   # edge_index: (2, B*K*k)
+        # 3. Build batched graph
+        if self.edge_type == "spatial":
+            edge_index, edge_weight, batch = build_spatial_graph(
+                K, B, x.device
+            )
+        elif self.edge_type == "hybrid":
+            ei_knn, ew_knn, batch = build_knn_graph(region_features, k=self.knn_k)
+            ei_sp, ew_sp, _      = build_spatial_graph(K, B, x.device)
+            # Merge edges (union), deduplicate
+            edge_index  = torch.cat([ei_knn, ei_sp], dim=1)
+            edge_weight = torch.cat([ew_knn, ew_sp], dim=0)
+        else:  # "knn" (default)
+            edge_index, edge_weight, batch = build_knn_graph(
+                region_features, k=self.knn_k
+            )
 
         # 4. Flatten nodes for PyG: (B*K, 768)
         x_nodes = region_features.reshape(B * K, -1)
