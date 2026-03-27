@@ -4,6 +4,39 @@
 
 ---
 
+## 2026-03-27 — Backbone-Graph Fusion 架构实验（结果不理想）
+
+**完成内容**：
+- 修改 `gavit.py` 分类器架构：从纯 graph 特征改为 backbone global + graph global 拼接（768 + 1024 = 1792 维）
+- 动机：之前的 GAViT 分类器只用 graph module 输出，backbone 全局特征被丢弃，fusion 旨在让两者互补
+- 新建 `jobs/run_gavit_fusion.sh`，训练 50 epochs
+- Checkpoint 命名加上 `fusion` 标识：`best_gavit_K9_spatial_knn_fusion.pth`
+
+**实验结果**：
+- Best Val Acc：**95.9%**（epoch 47-48）
+- 对比原 GAViT（纯 graph 特征，96.5%）：**-0.6%**
+- 训练过程：Train Acc epoch 42 达到 100%，Val Acc 从 epoch 28 的 94.4% 缓慢爬升至 95.9%，50 epoch 仍在微弱上升
+
+| 模型 | Val Acc | 备注 |
+|------|---------|------|
+| GAViT K=9 spatial + GAT 2L（原版，纯 graph） | **96.5%** | 30 epochs |
+| GAViT K=9 spatial + GAT 2L（fusion, backbone+graph） | 95.9% | 50 epochs |
+
+**分析**：
+- Fusion 架构反而下降，可能原因：
+  1. **特征冗余**：backbone global avg pool 和 graph pool 后的特征高度重叠，拼接引入冗余
+  2. **维度膨胀**：分类器输入从 1024 → 1792，参数量增加但训练数据不变，加剧过拟合
+  3. **Train 100% vs Val 95.9%** 的 gap 明显大于原版，确认过拟合更严重
+- 结论：原版架构（graph module 输出直接分类）反而更优，graph module 已有效编码了 backbone 信息
+
+**下一步计划**：
+- [ ] 回退到原版架构（纯 graph 特征），继续后续分析
+- [ ] Per-class accuracy 对比（Baseline vs GAViT 原版）
+- [ ] 混淆矩阵对比
+- [ ] 注意力熵分析
+
+---
+
 ## 2026-03-26 — Edge 消融实验 + 可视化对比 + 关键讨论
 
 ### 一、完成内容

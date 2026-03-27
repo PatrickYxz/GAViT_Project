@@ -56,7 +56,10 @@ parser.add_argument("--gat_heads",   type=int, default=4)
 parser.add_argument("--gat_hidden",  type=int, default=256)
 parser.add_argument("--batch_size",  type=int, default=32)
 parser.add_argument("--seed",        type=int, default=42)
+parser.add_argument("--tag",         type=str, default="", help="suffix for output files, e.g. 'fusion'")
 args = parser.parse_args()
+
+TAG = f"_{args.tag}" if args.tag else ""
 
 DATA_ROOT = os.environ.get(
     "DATA_ROOT",
@@ -156,7 +159,7 @@ gavit_per_class = np.array(gavit_per_class)
 delta = gavit_per_class - swin_per_class
 
 # Save CSV
-csv_path = "results/per_class_accuracy.csv"
+csv_path = f"results/per_class_accuracy{TAG}.csv"
 with open(csv_path, "w") as f:
     f.write("class,swin_acc,gavit_acc,delta\n")
     for i in range(NUM_CLASSES):
@@ -184,7 +187,7 @@ ax.axvline(x=0, color="black", linewidth=0.8, linestyle="--")
 ax.invert_yaxis()
 
 plt.tight_layout()
-path1 = os.path.join(SAVE_DIR, "per_class_accuracy_delta.png")
+path1 = os.path.join(SAVE_DIR, f"per_class_accuracy_delta{TAG}.png")
 plt.savefig(path1, dpi=150, bbox_inches="tight")
 plt.close()
 print(f"Saved: {path1}")
@@ -238,7 +241,7 @@ axes[2].set_yticklabels(class_names, fontsize=5)
 plt.colorbar(im2, ax=axes[2], fraction=0.046, pad=0.04)
 
 plt.tight_layout()
-path2 = os.path.join(SAVE_DIR, "confusion_matrix_comparison.png")
+path2 = os.path.join(SAVE_DIR, f"confusion_matrix_comparison{TAG}.png")
 plt.savefig(path2, dpi=150, bbox_inches="tight")
 plt.close()
 print(f"Saved: {path2}")
@@ -274,7 +277,7 @@ if len(changed_idx) > 0:
 
     plt.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
     plt.tight_layout()
-    path3 = os.path.join(SAVE_DIR, "confusion_matrix_diff_zoomed.png")
+    path3 = os.path.join(SAVE_DIR, f"confusion_matrix_diff_zoomed{TAG}.png")
     plt.savefig(path3, dpi=150, bbox_inches="tight")
     plt.close()
     print(f"Saved: {path3}")

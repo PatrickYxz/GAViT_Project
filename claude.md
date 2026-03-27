@@ -122,6 +122,7 @@ GAViT_Project/
 | GAViT K=9 spatial + GAT 2L (spatial edge) | NWPU-RESISC45 | 96.2% | — | 30 epoch, edge=spatial adjacency |
 | GAViT K=9 spatial + GAT 2L (kNN edge) | NWPU-RESISC45 | 96.1% | — | 30 epoch, edge=cosine kNN（与之前 96.5% 差异因重跑随机性） |
 | GAViT K=9 spatial + GAT 2L (hybrid edge) | NWPU-RESISC45 | 96.0% | — | 30 epoch, edge=spatial+kNN 合并 |
+| GAViT K=9 spatial + GAT 2L (fusion) | NWPU-RESISC45 | 95.9% | — | 50 epoch, backbone+graph 拼接分类，过拟合，不如原版 |
 
 > **规则**：每次新实验完成后，将结果追加到此表格，注明超参数与实验条件。图像和混淆矩阵保存至 `results/figures/`。
 
