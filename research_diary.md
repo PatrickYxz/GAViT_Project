@@ -5,6 +5,79 @@
 
 ---
 
+## 2026-04-04 — GAViT v2 训练结果 + BigEarthNet 实验准备
+
+### 一、GAViT v2 训练 & 测试结果
+
+**训练结果**（Job 53893，NVIDIA RTX A5000）：
+- Model: GAViT | K=16 | grouping=attentive_spatial | edge=knn | integration=token_feedback | GAT 2L×4H
+- 参数量：31,386,920
+- **Best Val Acc：96.2%**（epoch 26）
+- 训练过程：epoch 25-30 val acc 在 95.9%–96.2% 波动，train acc epoch 29 达 100%
+
+**测试结果**（Job 54030，NVIDIA Tesla V100）：
+- **Test Acc：95.8%**（4526/4725）
+
+**完整对比**：
+
+| 模型 | Val Acc | Test Acc | Params |
+|------|---------|----------|--------|
+| Swin-T Baseline | ~96.0% | 96.3% | 27.5M |
+| GAViT v1 K=9 spatial + GAT 2L | 96.5% | 95.9% | 30.5M |
+| GAViT Fusion (backbone+graph concat) | 95.9% | 95.9% | 30.5M |
+| GAViT v2 K=16 attentive + token_feedback | 96.2% | 95.8% | 31.4M |
+
+**结论**：三种 GAViT 变体 test acc 均在 95.8-95.9%，与 baseline（96.3%）差 ~0.4%。与教授预判一致——NWPU-RESISC45 单标签数据集 global appearance 信号太强，graph module 增益天然受限。
+
+### 二、BigEarthNet 多标签实验准备
+
+按 Prof Wang 0327 建议，新增 BigEarthNet 实验以展示 graph module 在关系更重要场景的价值。
+
+**完成内容**：
+
+1. **`models/bigearth_dataset.py`** — BigEarthNet Dataset 类
+   - 支持 BigEarthNet-S2 格式（读取 B02/B03/B04 TIF 波段 → RGB）
+   - 内置 43→19 类标签映射（BigEarthNet-19 标准）
+   - 返回 19 维 binary label vector
+
+2. **`baselines/bigearth/prepare_bigearth.py`** — 数据准备脚本
+   - 自动下载官方 train/val/test split 列表
+   - 生成 split CSV 文件（patch_path + 19 维标签列）
+
+3. **`train_bigearth.py`** — 统一训练脚本
+   - 支持 `--model swin`（baseline）和 `--model gavit`（GAViT v2）
+   - Loss: BCEWithLogitsLoss（多标签）
+   - Metric: mAP（mean Average Precision）+ Macro-F1 @ 0.5
+
+4. **`test_bigearth.py`** — 测试脚本
+   - 输出 mAP / macro-F1 / micro-F1 + per-class AP
+
+5. **Slurm 作业脚本**：
+   - `jobs/run_bigearth_prepare.sh`
+   - `jobs/run_bigearth_train.sh`（依次训练 Swin baseline + GAViT v2）
+   - `jobs/run_bigearth_test.sh`
+
+6. **数据下载进行中**
+   - 服务器创建了 `/projects/gavitdata/`（SSD，150GB 配额）
+   - BigEarthNet-S2-v1.0 从 Zenodo 下载中（~65GB，约 6 小时）
+   - 下载链接：`https://zenodo.org/records/12687186/files/BigEarthNet-S2-v1.0.tar.gz?download=1`
+
+### 三、下一步计划（下载完成后按顺序执行）
+
+- [ ] 选择性解压 RGB 波段 + 标签 JSON，删掉 tar.gz
+  ```
+  tar -xzf BigEarthNet-S2-v1.0.tar.gz --wildcards '*_B02.tif' '*_B03.tif' '*_B04.tif' '*_labels_metadata.json'
+  rm BigEarthNet-S2-v1.0.tar.gz
+  ```
+- [ ] 运行 prepare 脚本生成 split CSV（`sbatch jobs/run_bigearth_prepare.sh`）
+- [ ] 训练 Swin baseline + GAViT v2（`sbatch jobs/run_bigearth_train.sh`）
+- [ ] 测试两个模型（`sbatch jobs/run_bigearth_test.sh`）
+- [ ] 对比结果：NWPU（graph 增益小）vs BigEarthNet（graph 增益预期更大）
+- [ ] NWPU 可视化：airport/bridge/church 的 region 分区和 graph 连接
+- [ ] 整理所有结果给导师发邮件
+
+---
+
 ## 2026-04-04 — GAViT v2 架构改进：AttentiveSpatialGrouping + Token Feedback
 
 **动机（基于 Prof Wang 0327 回复）**：
@@ -45,6 +118,7 @@
 **实验结果**：
 
 - **Best Val Acc：96.2%**（epoch 26）
+- **Test Acc：95.8%**（4526/4725）
 - 参数量：31,386,920（全部可训练）
 - Checkpoint：`checkpoints/best_gavit_K16_attentive_spatial_knn_token_feedback.pth`
 - 训练过程：epoch 25-30 val acc 在 95.9%–96.2% 之间波动，epoch 26 达峰；train acc 在 epoch 29 即达 100%，存在轻微过拟合
