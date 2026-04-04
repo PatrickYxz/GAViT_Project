@@ -3,7 +3,8 @@ train_gavit.py — Training script for GAViT on NWPU-RESISC45.
 
 Usage:
     python train_gavit.py
-    python train_gavit.py --grouping spatial --num_regions 9
+    python train_gavit.py --grouping attentive_spatial --num_regions 16 --integration token_feedback
+    python train_gavit.py --grouping spatial --num_regions 9 --integration fusion
     python train_gavit.py --grouping kmeans  --num_regions 9 --gat_layers 1
 
 Key hyperparameters are defined in the CONFIG section below and can be
@@ -25,14 +26,15 @@ from utils import set_seed
 # ARGS
 # =============================================================================
 parser = argparse.ArgumentParser(description="Train GAViT on NWPU-RESISC45")
-parser.add_argument("--grouping",      type=str,   default="kmeans", choices=["kmeans", "spatial"])
-parser.add_argument("--num_regions",   type=int,   default=9)
+parser.add_argument("--grouping",      type=str,   default="attentive_spatial", choices=["kmeans", "spatial", "attentive_spatial"])
+parser.add_argument("--num_regions",   type=int,   default=16)
 parser.add_argument("--knn_k",         type=int,   default=5)
 parser.add_argument("--gat_hidden",    type=int,   default=256)
 parser.add_argument("--gat_heads",     type=int,   default=4)
 parser.add_argument("--gat_layers",    type=int,   default=2)
 parser.add_argument("--dropout",       type=float, default=0.1)
 parser.add_argument("--edge_type",    type=str,   default="knn", choices=["knn", "spatial", "hybrid"])
+parser.add_argument("--integration",  type=str,   default="token_feedback", choices=["token_feedback", "fusion"])
 parser.add_argument("--epochs",        type=int,   default=30)
 parser.add_argument("--lr",            type=float, default=3e-4)
 parser.add_argument("--batch_size",    type=int,   default=32)
@@ -47,7 +49,7 @@ DATA_ROOT = os.environ.get(
     r"C:\Users\Administrator\PycharmProjects\GAViT_Project\datasets\NWPU-RESISC45_split"
 )
 SAVE_DIR    = "checkpoints"
-CKPT_NAME   = f"best_gavit_K{args.num_regions}_{args.grouping}_{args.edge_type}_fusion.pth"
+CKPT_NAME   = f"best_gavit_K{args.num_regions}_{args.grouping}_{args.edge_type}_{args.integration}.pth"
 
 NUM_CLASSES = 45
 BATCH_SIZE  = args.batch_size
@@ -64,6 +66,7 @@ GAT_LAYERS      = args.gat_layers
 DROPOUT         = args.dropout
 GROUPING        = args.grouping
 EDGE_TYPE       = args.edge_type
+INTEGRATION     = args.integration
 FREEZE_BACKBONE = args.freeze_backbone
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -113,6 +116,7 @@ model = GAViT(
     dropout=DROPOUT,
     grouping=GROUPING,
     edge_type=EDGE_TYPE,
+    integration=INTEGRATION,
     pretrained=True,
     freeze_backbone=FREEZE_BACKBONE,
 ).to(DEVICE)
@@ -120,7 +124,7 @@ model = GAViT(
 total_params   = sum(p.numel() for p in model.parameters())
 trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
 print(f"Model: GAViT | K={NUM_REGIONS} | grouping={GROUPING} | edge={EDGE_TYPE} | "
-      f"GAT {GAT_LAYERS}L×{GAT_HEADS}H | kNN k={KNN_K}")
+      f"integration={INTEGRATION} | GAT {GAT_LAYERS}L×{GAT_HEADS}H | kNN k={KNN_K}")
 print(f"Parameters: {total_params:,} total, {trainable_params:,} trainable")
 print(f"Device: {DEVICE}\n")
 

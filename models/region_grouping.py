@@ -131,3 +131,83 @@ class SpatialGrouping(nn.Module):
         region_features = torch.einsum("bnd,nk->bkd", tokens, self.weight)  # (B, K, D)
         assignments = self.assignment.unsqueeze(0).expand(B, -1)             # (B, N)
         return region_features, assignments
+
+
+class AttentiveSpatialGrouping(nn.Module):
+    """
+    Groups 7×7 patch tokens into K spatial macro-regions (like SpatialGrouping),
+    but uses a lightweight attention mechanism to weight tokens within each region
+    instead of simple mean pooling. This allows more informative tokens to
+    contribute more strongly to the region feature.
+
+    Args:
+        num_regions: K  (must be a perfect square, e.g. 16 for 4×4, 25 for 5×5)
+        grid_size:   H = W of the token grid (7 for Swin-T)
+        feat_dim:    token feature dimension (768 for Swin-T)
+    """
+
+    def __init__(self, num_regions: int = 16, grid_size: int = 7, feat_dim: int = 768):
+        super().__init__()
+        self.K = num_regions
+        self.grid_size = grid_size
+
+        k_side = int(math.sqrt(num_regions))
+        assert k_side * k_side == num_regions, (
+            f"AttentiveSpatialGrouping requires K to be a perfect square, got {num_regions}"
+        )
+
+        # Build assignment map (same logic as SpatialGrouping)
+        G = grid_size
+        assignment = torch.zeros(G * G, dtype=torch.long)
+        for i in range(G):
+            for j in range(G):
+                region_r = min(int(i / G * k_side), k_side - 1)
+                region_c = min(int(j / G * k_side), k_side - 1)
+                assignment[i * G + j] = region_r * k_side + region_c
+        self.register_buffer("assignment", assignment)  # (N,)
+
+        # Build one-hot membership mask (N, K)
+        N = G * G
+        one_hot = torch.zeros(N, num_regions)
+        one_hot.scatter_(1, assignment.unsqueeze(1), 1.0)
+        self.register_buffer("membership", one_hot)  # (N, K)
+
+        # Lightweight attention scorer: token -> scalar importance
+        self.attn = nn.Sequential(
+            nn.Linear(feat_dim, feat_dim // 4),
+            nn.GELU(),
+            nn.Linear(feat_dim // 4, 1),
+        )
+
+    def forward(self, tokens: torch.Tensor):
+        """
+        Args:
+            tokens: (B, N, D) where N = grid_size^2
+        Returns:
+            region_features: (B, K, D)
+            assignments:     (B, N)
+        """
+        B, N, D = tokens.shape
+        K = self.K
+
+        # Compute per-token attention scores: (B, N, 1)
+        scores = self.attn(tokens)  # (B, N, 1)
+
+        # Expand membership mask: (N, K) -> (1, N, K)
+        mask = self.membership.unsqueeze(0)  # (1, N, K)
+
+        # Mask scores: tokens not in a region get -inf
+        # scores: (B, N, 1) -> (B, N, K)  broadcast with mask
+        masked_scores = scores.expand(-1, -1, K)  # (B, N, K)
+        masked_scores = masked_scores.masked_fill(mask == 0, float('-inf'))
+
+        # Softmax over tokens (dim=1) within each region
+        attn_weights = torch.softmax(masked_scores, dim=1)  # (B, N, K)
+        # NaN safety: regions with 0 tokens (shouldn't happen, but just in case)
+        attn_weights = attn_weights.masked_fill(mask == 0, 0.0)
+
+        # Weighted aggregation: (B, K, D) = (B, N, K)^T @ (B, N, D)
+        region_features = torch.einsum("bnk,bnd->bkd", attn_weights, tokens)
+
+        assignments = self.assignment.unsqueeze(0).expand(B, -1)  # (B, N)
+        return region_features, assignments

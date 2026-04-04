@@ -123,6 +123,7 @@ GAViT_Project/
 | GAViT K=9 spatial + GAT 2L (kNN edge) | NWPU-RESISC45 | 96.1% | — | 30 epoch, edge=cosine kNN（与之前 96.5% 差异因重跑随机性） |
 | GAViT K=9 spatial + GAT 2L (hybrid edge) | NWPU-RESISC45 | 96.0% | — | 30 epoch, edge=spatial+kNN 合并 |
 | GAViT K=9 spatial + GAT 2L (fusion) | NWPU-RESISC45 | 95.9% | — | 50 epoch, backbone+graph 拼接分类，过拟合，不如原版 |
+| GAViT v2 K=16 attentive_spatial + token_feedback | NWPU-RESISC45 | — | — | 待训练，4×4 grid + attention weighting + token-level residual |
 
 > **规则**：每次新实验完成后，将结果追加到此表格，注明超参数与实验条件。图像和混淆矩阵保存至 `results/figures/`。
 
@@ -138,11 +139,13 @@ GAViT_Project/
 - [x] **可视化** GAT 注意力可视化（已完成，但 attention ≠ 语义关联，解读方式需调整）
 - [x] **P2-edge** 消融：边构建策略（spatial 96.2% / kNN 96.1% / hybrid 96.0%，三者持平）
 - [x] **Edge对比可视化** `visualize_edge_comparison.py`（spatial vs kNN 注意力 side-by-side）
-- [ ] **注意力熵分析** 量化复杂场景 vs 均质场景的注意力分布差异 ← **当前优先**
-- [ ] **P2-test** 在 test set 上评估最优模型 + 混淆矩阵对比（Baseline vs GAViT）
-- [ ] **P2-K** 消融：K 的影响（4 vs 9 vs 16）
+- [ ] **GAViT v2 训练** K=16 attentive_spatial + token_feedback（30 epochs） ← **当前优先**
+- [ ] **可视化验证** 对 airport/bridge/church 可视化 region 分区和 graph 连接
+- [ ] **BigEarthNet 实验** 多标签数据集，展示 graph module 在关系更重要场景的价值
+- [ ] **注意力熵分析** 量化复杂场景 vs 均质场景的注意力分布差异
+- [ ] **P2-test** 在 test set 上评估最优模型 + 混淆矩阵对比（Baseline vs GAViT v2）
+- [ ] **P2-K** 消融：K 的影响（4 vs 16 vs 25）
 - [ ] **P2-GNN** 消融：GNN 层数（1 vs 2 层，GAT vs GCN）
-- [ ] **P3** 在 AID 数据集上验证泛化性
 - [ ] **邮件** 给导师发进度汇报
 
 ### 重要备注：GAT attention 的正确解读

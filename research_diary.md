@@ -4,36 +4,118 @@
 
 ---
 
-## 2026-03-27 — Backbone-Graph Fusion 架构实验（结果不理想）
+## 2026-04-04 — GAViT v2 架构改进：AttentiveSpatialGrouping + Token Feedback
+
+**动机（基于 Prof Wang 0327 回复）**：
+
+教授指出当前 GAViT 的两个核心问题：
+1. **集成方式不当**：graph module 输出在分类器阶段才与 backbone 拼接（fusion），relational reasoning 没有影响表征本身。应让 graph 输出直接修改 token 特征。
+2. **Region 定义太粗糙**：3×3 spatial grid 分辨率不够，小结构被合并；mean pooling 没有区分 token 的重要性。应提高分辨率（4×4 或 5×5）并用 attention weighting 替代均值。
+
+此外教授指出 NWPU-RESISC45 作为单标签数据集，global appearance 已是很强信号，graph module 增益天然有限。建议新增 BigEarthNet（多标签）数据集实验。
+
+**完成内容**：
+
+1. **`models/region_grouping.py` — 新增 `AttentiveSpatialGrouping`**
+   - 支持任意完全平方数 K（默认 K=16，即 4×4 grid）
+   - 每个 region 内用 lightweight attention（2 层 MLP → scalar score → softmax）加权聚合 token，替代均值 pooling
+   - 信息量大的 token 贡献更多，使 region 特征更有语义代表性
+
+2. **`models/gavit.py` — 新增 `token_feedback` 集成模式**
+   - GAT 精炼 region features 后，通过 `feedback_proj`（Linear + LayerNorm）映射回 768 维
+   - 每个 token 通过 assignments 获取其所属 region 的精炼特征
+   - 残差更新：`updated_tokens = original_tokens + region_feedback`
+   - 在更新后的 tokens 上做 mean pool → 分类
+   - 旧的 `fusion` 模式保留，通过 `--integration` 参数切换
+
+3. **`train_gavit.py` — 新增命令行参数**
+   - `--grouping attentive_spatial`（新默认值）
+   - `--integration token_feedback`（新默认值）
+   - `--num_regions` 默认改为 16
+   - Checkpoint 命名包含 integration 类型
+
+**架构对比**：
+
+| 版本 | Region Grouping | 集成方式 | 分类器输入 |
+|------|----------------|----------|-----------|
+| v1 (legacy fusion) | SpatialGrouping 3×3, mean pool | 末端 concat | backbone_global(768) + graph_global(1024) = 1792 |
+| v2 (token feedback) | AttentiveSpatialGrouping 4×4, attention | token-level residual | updated tokens mean pool = 768 |
+
+**实验结果**：
+- 尚未训练，需在 GPU 服务器上运行
+
+**下一步计划**：
+- [ ] 在 GPU 服务器上训练 GAViT v2（K=16, attentive_spatial, token_feedback, 30 epochs）
+- [ ] 对比 v2 vs v1 vs Swin-T baseline
+- [ ] 可视化 region 分区和 graph 连接（airport, bridge, church）
+- [ ] 准备 BigEarthNet 数据集实验
+
+---
+
+## 2026-03-27 — Backbone-Graph Fusion 架构实验 + Test Set 分析
+
+### 一、Fusion 架构训练
 
 **完成内容**：
 - 修改 `gavit.py` 分类器架构：从纯 graph 特征改为 backbone global + graph global 拼接（768 + 1024 = 1792 维）
 - 动机：之前的 GAViT 分类器只用 graph module 输出，backbone 全局特征被丢弃，fusion 旨在让两者互补
 - 新建 `jobs/run_gavit_fusion.sh`，训练 50 epochs
-- Checkpoint 命名加上 `fusion` 标识：`best_gavit_K9_spatial_knn_fusion.pth`
+- Checkpoint：`best_gavit_K9_spatial_knn_fusion.pth`
 
-**实验结果**：
+**训练结果**：
 - Best Val Acc：**95.9%**（epoch 47-48）
-- 对比原 GAViT（纯 graph 特征，96.5%）：**-0.6%**
-- 训练过程：Train Acc epoch 42 达到 100%，Val Acc 从 epoch 28 的 94.4% 缓慢爬升至 95.9%，50 epoch 仍在微弱上升
+- 训练过程：Train Acc epoch 42 达到 100%，Val Acc 从 epoch 28 的 94.4% 缓慢爬升至 95.9%
 
-| 模型 | Val Acc | 备注 |
-|------|---------|------|
-| GAViT K=9 spatial + GAT 2L（原版，纯 graph） | **96.5%** | 30 epochs |
-| GAViT K=9 spatial + GAT 2L（fusion, backbone+graph） | 95.9% | 50 epochs |
+### 二、Fusion 模型 Test Set 分析
 
-**分析**：
-- Fusion 架构反而下降，可能原因：
-  1. **特征冗余**：backbone global avg pool 和 graph pool 后的特征高度重叠，拼接引入冗余
-  2. **维度膨胀**：分类器输入从 1024 → 1792，参数量增加但训练数据不变，加剧过拟合
-  3. **Train 100% vs Val 95.9%** 的 gap 明显大于原版，确认过拟合更严重
-- 结论：原版架构（graph module 输出直接分类）反而更优，graph module 已有效编码了 backbone 信息
+对 Fusion 模型跑了和原版 GAViT 相同的 per-class accuracy + 混淆矩阵分析（`compare_models.py --tag fusion`）。
 
-**下一步计划**：
-- [ ] 回退到原版架构（纯 graph 特征），继续后续分析
-- [ ] Per-class accuracy 对比（Baseline vs GAViT 原版）
-- [ ] 混淆矩阵对比
-- [ ] 注意力熵分析
+**整体结果**：
+
+| 模型 | Val Acc | Test Acc | vs Baseline (Test) |
+|------|---------|----------|-------------------|
+| Swin-T Baseline | ~96.0% | 96.3% | — |
+| GAViT 原版（纯 graph） | 96.5% | 95.9% | -0.4% |
+| GAViT Fusion（backbone+graph） | 95.9% | 95.9% | -0.4% |
+
+两个 GAViT 版本在 test set 上表现完全一致（95.9%），均比 baseline 低 0.4%。但考虑到这种量级的差距（~0.4%）在单次运行中不具备统计显著性，三个模型可视为持平。
+
+**Fusion Per-class 变化（vs Swin Baseline）**：
+
+提升最大：
+- roundabout: 97.1% → 100.0%（+2.9%）
+- terrace: 95.2% → 98.1%（+2.9%）
+- wetland: 89.5% → 91.4%（+1.9%）
+- ship: 96.2% → 98.1%（+1.9%）
+
+下降最大：
+- bridge: 99.0% → 94.3%（-4.8%）
+- airport: 98.1% → 95.2%（-2.9%）
+- church: 87.6% → 84.8%（-2.9%）
+- medium residential: 96.2% → 93.3%（-2.9%）
+- lake: 97.1% → 94.3%（-2.9%）
+
+**Sample-level 分析**：
+- Baseline 错 → Fusion 对（修复）：67 samples
+- Baseline 对 → Fusion 错（引入）：86 samples
+- 净改善：-19 samples
+
+**与原版 GAViT 的 per-class 对比**：
+- 两者模式类似：复杂场景（airport, bridge, church）均未改善
+- Fusion 波动幅度略小于原版（原版 palace -4.8%/lake -4.8%，Fusion 最大 bridge -4.8%）
+- 两者提升的类也类似（ship, wetland, terrace, roundabout）
+
+### 三、关键结论
+
+1. **Fusion vs 原版 GAViT**：两种架构在 test set 上结果一致（95.9%），简单拼接并未带来额外收益
+2. **两种 GAViT vs Baseline**：差距仅 0.4%，在单次运行中无统计显著性，三者可视为持平
+3. **复杂场景未受益**：airport、bridge、palace 等需要 relational reasoning 的类别，两种 GAViT 均未改善，反而有所下降
+4. **核心问题**：graph module 目前尚未展现出对复杂场景分类的独特价值
+
+### 四、下一步计划
+
+- [ ] 整理结果给导师发邮件，请教 graph module 与 backbone 的集成方式
+- [ ] 根据导师反馈决定后续方向
 
 ---
 
