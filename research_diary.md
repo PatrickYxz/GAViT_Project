@@ -1,3 +1,4 @@
+
 # Research Diary — GAViT Project
 
 > 记录每次重要进展、实验结果和 debug 过程。每次完成功能模块、获得新结果或修复重要 bug 后必须更新。
@@ -42,12 +43,25 @@
 | v2 (token feedback) | AttentiveSpatialGrouping 4×4, attention | token-level residual | updated tokens mean pool = 768 |
 
 **实验结果**：
-- 尚未训练，需在 GPU 服务器上运行
+
+- **Best Val Acc：96.2%**（epoch 26）
+- 参数量：31,386,920（全部可训练）
+- Checkpoint：`checkpoints/best_gavit_K16_attentive_spatial_knn_token_feedback.pth`
+- 训练过程：epoch 25-30 val acc 在 95.9%–96.2% 之间波动，epoch 26 达峰；train acc 在 epoch 29 即达 100%，存在轻微过拟合
+- 收敛特征：val acc 在 epoch 20 才突破 95.5%，收敛比 v1 慢（v1 epoch 20 已 ~96%），但最终结果持平
+
+**对比 v1（GAViT K=9 spatial + GAT 2L，96.5%）**：
+- Val Acc 96.2% vs 96.5%，略低 0.3%
+- 尽管 attentive grouping + token feedback 架构更复杂，性能未见提升，可能原因：
+  - K=16 比 K=9 区域更细，每个 region 内 token 数减少（~3 个），attention weighting 效果有限
+  - Token feedback 引入了更长的梯度路径，30 epoch 内收敛不充分
+  - NWPU-RESISC45 单标签数据集对 relational modeling 增益天然受限
 
 **下一步计划**：
-- [ ] 在 GPU 服务器上训练 GAViT v2（K=16, attentive_spatial, token_feedback, 30 epochs）
-- [ ] 对比 v2 vs v1 vs Swin-T baseline
-- [ ] 可视化 region 分区和 graph 连接（airport, bridge, church）
+- [ ] 在 test set 上评估 v2（运行 `test_gavit.py`，加载 v2 checkpoint）
+- [ ] 对比 v2 vs v1 vs Swin-T baseline 的混淆矩阵
+- [ ] 可视化 v2 region 分区和 graph 连接（airport, bridge, church）
+- [ ] 考虑延长训练至 50 epoch，或调整 lr schedule
 - [ ] 准备 BigEarthNet 数据集实验
 
 ---
