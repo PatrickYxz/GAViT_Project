@@ -1,11 +1,9 @@
+
 #!/bin/bash
 #SBATCH --job-name=BigEarth_DL
 #SBATCH --output=logs/bigearth_download_%j.out
 #SBATCH --error=logs/bigearth_download_%j.err
-#SBATCH --cpus-per-task=4
-#SBATCH --mem=8G
 #SBATCH --time=12:00:00
-#SBATCH --partition=cpu
 
 mkdir -p logs
 
