@@ -15,7 +15,7 @@ conda activate gavit
 cd /home/yang1004/GAViT_Project/
 
 # Adjust BIGEARTH_DIR to wherever you extracted BigEarthNet-RGB
-BIGEARTH_DIR=/home/yang1004/datasets/BigEarthNet-RGB
+BIGEARTH_DIR=/projects/gavitdata/BigEarthNet-v1.0
 
 echo "===== Preparing BigEarthNet-RGB splits ====="
 python baselines/bigearth/prepare_bigearth.py \
