@@ -126,8 +126,10 @@ if args.model == "swin":
                 nn.Linear(swin_dim, NUM_CLASSES),
             )
         def forward(self, x):
-            feat = self.backbone.forward_features(x)   # (B, H*W, C) or (B, C)
-            if feat.dim() == 3:
+            feat = self.backbone.forward_features(x)   # (B, H, W, C) or (B, H*W, C) or (B, C)
+            if feat.dim() == 4:
+                feat = feat.mean(dim=[1, 2])
+            elif feat.dim() == 3:
                 feat = feat.mean(dim=1)
             return self.classifier(feat)
 
