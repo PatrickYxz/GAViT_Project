@@ -99,7 +99,10 @@ def build_split_csv(patch_names: list, data_dir: str, out_csv: str):
             patch_dir  = os.path.join(data_dir, name)
             json_path  = os.path.join(patch_dir, f"{name}_labels_metadata.json")
 
-            if not os.path.isdir(patch_dir) or not os.path.exists(json_path):
+            # Skip if directory, JSON, or RGB band TIFs are missing
+            b04_path = os.path.join(patch_dir, f"{name}_B04.tif")
+            if not os.path.isdir(patch_dir) or not os.path.exists(json_path) \
+                    or not os.path.exists(b04_path):
                 skipped += 1
                 continue
 
