@@ -6,7 +6,7 @@
 #SBATCH --constraint=gpu
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32G
-#SBATCH --time=10:00:00
+#SBATCH --time=06:00:00
 
 mkdir -p logs
 
@@ -32,4 +32,6 @@ python train_bigearth.py \
     --num_regions 16 \
     --edge_type knn \
     --knn_k 5 \
-    --epochs 30
+    --epochs 30 \
+    --resume \
+    --start_epoch 25

@@ -6,7 +6,7 @@
 #SBATCH --constraint=gpu
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32G
-#SBATCH --time=08:00:00
+#SBATCH --time=16:00:00
 
 mkdir -p logs
 
@@ -26,4 +26,6 @@ export BIGEARTH_ROOT=/home/yang1004/GAViT_Project/datasets/BigEarthNet-RGB_split
 echo "===== BigEarthNet: Swin-T Baseline ====="
 python train_bigearth.py \
     --model swin \
-    --epochs 30
+    --epochs 30 \
+    --resume \
+    --start_epoch 17

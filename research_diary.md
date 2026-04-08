@@ -1,7 +1,30 @@
 
+
 # Research Diary — GAViT Project
 
 > 记录每次重要进展、实验结果和 debug 过程。每次完成功能模块、获得新结果或修复重要 bug 后必须更新。
+
+---
+
+## 2026-04-08 — BigEarthNet 训练超时修复：添加断点续训
+
+**问题**：
+- BigEarthNet Swin baseline（Job 56169）在 epoch 16/30 因 8h 时间限制被 SLURM 杀掉
+- BigEarthNet GAViT（Job 56170）在 epoch 24/30 因 10h 时间限制被杀掉
+- 估算：Swin 每 epoch ~29min（总需 ~14.5h），GAViT 每 epoch ~25min（总需 ~12.5h）
+
+**解决方案**：
+- `train_bigearth.py` 新增 `--resume` 参数，从已有 best checkpoint 加载模型权重继续训练
+- `train_bigearth.py` 新增 `--start_epoch` 参数，控制训练循环起始 epoch
+- 注意：仅恢复模型权重，optimizer/scheduler 状态不保存（影响极小，模型已接近收敛）
+
+**作业脚本更新**：
+- `run_bigearth_train_swin.sh`：时间 8h → 16h，添加 `--resume --start_epoch 17`
+- `run_bigearth_train_gavit.sh`：时间 10h → 6h，添加 `--resume --start_epoch 25`
+
+**下一步**：
+- [ ] Push 后在服务器 `git pull` 并重新 sbatch 两个作业
+- [ ] 训练完成后运行测试脚本对比 Swin vs GAViT 在 BigEarthNet 上的表现
 
 ---
 

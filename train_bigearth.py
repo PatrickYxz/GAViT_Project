@@ -53,6 +53,10 @@ parser.add_argument("--grouping",     type=str, default="attentive_spatial")
 parser.add_argument("--edge_type",    type=str, default="knn")
 parser.add_argument("--integration",  type=str, default="token_feedback")
 parser.add_argument("--dropout",      type=float, default=0.1)
+parser.add_argument("--resume",       action="store_true",
+                    help="Resume training from existing checkpoint")
+parser.add_argument("--start_epoch",  type=int, default=1,
+                    help="Epoch to resume from (for logging only)")
 args = parser.parse_args()
 
 SEED    = 42
@@ -154,6 +158,13 @@ else:  # gavit
 total_params = sum(p.numel() for p in model.parameters())
 print(f"Model: {args.model.upper()} | {total_params:,} params | Device: {DEVICE}")
 
+# Resume from checkpoint
+if args.resume and os.path.exists(CKPT_PATH):
+    print(f"Resuming from {CKPT_PATH} (start_epoch={args.start_epoch})")
+    model.load_state_dict(torch.load(CKPT_PATH, map_location=DEVICE))
+elif args.resume:
+    print(f"WARNING: --resume specified but {CKPT_PATH} not found. Training from scratch.")
+
 # =============================================================================
 # Loss / Optimizer / Scheduler
 # =============================================================================
@@ -201,7 +212,7 @@ print(f"\n{'='*60}")
 print(f"Training {args.model.upper()} on BigEarthNet-19 | {args.epochs} epochs")
 print(f"{'='*60}\n")
 
-for epoch in range(1, args.epochs + 1):
+for epoch in range(args.start_epoch, args.epochs + 1):
     model.train()
     total_loss = 0.0
     for imgs, labels in tqdm(train_loader, desc=f"Epoch [{epoch}/{args.epochs}] Train"):
