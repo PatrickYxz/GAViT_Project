@@ -235,13 +235,15 @@ def plot_panel_a(ax, img_np):
         pos = i * PATCH_SIZE
         ax.axhline(y=pos, color="white", linewidth=0.5, alpha=0.5)
         ax.axvline(x=pos, color="white", linewidth=0.5, alpha=0.5)
-    # Draw region boundaries (thicker)
-    for i in range(1, K_SIDE):
-        # Approximate region boundary positions
-        row_boundary = round(i / K_SIDE * GRID_SIZE) * PATCH_SIZE
-        col_boundary = round(i / K_SIDE * GRID_SIZE) * PATCH_SIZE
-        ax.axhline(y=row_boundary, color="yellow", linewidth=2, alpha=0.8)
-        ax.axvline(x=col_boundary, color="yellow", linewidth=2, alpha=0.8)
+    # Draw region boundaries (thicker) — compute from actual assignment logic
+    assignment = model.region_grouping.assignment.cpu().reshape(GRID_SIZE, GRID_SIZE).numpy()
+    for i in range(1, GRID_SIZE):
+        # Horizontal boundary: region changes between row i-1 and row i
+        if assignment[i, 0] != assignment[i - 1, 0]:
+            ax.axhline(y=i * PATCH_SIZE, color="yellow", linewidth=2, alpha=0.8)
+        # Vertical boundary: region changes between col i-1 and col i
+        if assignment[0, i] != assignment[0, i - 1]:
+            ax.axvline(x=i * PATCH_SIZE, color="yellow", linewidth=2, alpha=0.8)
     ax.set_title("(a) Image + 4x4 grid", fontsize=10, pad=4)
     ax.axis("off")
 
@@ -308,12 +310,13 @@ def plot_panel_c(ax, img_np, assignments, token_attn):
     modulated = img_np * attn_full[:, :, None]
     ax.imshow(np.clip(modulated, 0, 1))
 
-    # Draw region boundaries
-    for i in range(1, K_SIDE):
-        row_boundary = round(i / K_SIDE * GRID_SIZE) * PATCH_SIZE
-        col_boundary = round(i / K_SIDE * GRID_SIZE) * PATCH_SIZE
-        ax.axhline(y=row_boundary, color="yellow", linewidth=1.5, alpha=0.7)
-        ax.axvline(x=col_boundary, color="yellow", linewidth=1.5, alpha=0.7)
+    # Draw region boundaries from actual assignments
+    assign_grid = assignments.reshape(GRID_SIZE, GRID_SIZE).numpy()
+    for i in range(1, GRID_SIZE):
+        if assign_grid[i, 0] != assign_grid[i - 1, 0]:
+            ax.axhline(y=i * PATCH_SIZE, color="yellow", linewidth=1.5, alpha=0.7)
+        if assign_grid[0, i] != assign_grid[0, i - 1]:
+            ax.axvline(x=i * PATCH_SIZE, color="yellow", linewidth=1.5, alpha=0.7)
 
     # Show raw attention values on each patch
     for t in range(G * G):
