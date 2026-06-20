@@ -1,5 +1,7 @@
 
 
+
+
 # Research Diary — GAViT Project
 
 > 记录每次重要进展、实验结果和 debug 过程。每次完成功能模块、获得新结果或修复重要 bug 后必须更新。

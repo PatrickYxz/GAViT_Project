@@ -1,0 +1,46 @@
+class,swin_acc,gavit_acc,delta
+airplane,98.1,100.0,+1.9
+airport,98.1,96.2,-1.9
+baseball diamond,99.0,100.0,+1.0
+basketball court,97.1,96.2,-1.0
+beach,99.0,99.0,+0.0
+bridge,99.0,96.2,-2.9
+chaparral,100.0,100.0,+0.0
+church,87.6,86.7,-1.0
+circular farmland,100.0,99.0,-1.0
+cloud,100.0,99.0,-1.0
+commercial area,91.4,92.4,+1.0
+dense residential,96.2,95.2,-1.0
+desert,96.2,97.1,+1.0
+forest,97.1,93.3,-3.8
+freeway,96.2,93.3,-2.9
+golf course,100.0,100.0,+0.0
+ground track field,97.1,97.1,+0.0
+harbor,100.0,99.0,-1.0
+industrial area,93.3,93.3,+0.0
+intersection,96.2,95.2,-1.0
+island,100.0,99.0,-1.0
+lake,97.1,92.4,-4.8
+meadow,96.2,95.2,-1.0
+medium residential,96.2,93.3,-2.9
+mobile home park,98.1,98.1,+0.0
+mountain,93.3,96.2,+2.9
+overpass,96.2,95.2,-1.0
+palace,88.6,83.8,-4.8
+parking lot,99.0,98.1,-1.0
+railway,91.4,93.3,+1.9
+railway station,89.5,88.6,-1.0
+rectangular farmland,96.2,94.3,-1.9
+river,96.2,96.2,+0.0
+roundabout,97.1,99.0,+1.9
+runway,95.2,94.3,-1.0
+sea ice,98.1,98.1,+0.0
+ship,96.2,100.0,+3.8
+snowberg,99.0,99.0,+0.0
+sparse residential,94.3,94.3,+0.0
+stadium,97.1,97.1,+0.0
+storage tank,98.1,98.1,+0.0
+tennis court,99.0,98.1,-1.0
+terrace,95.2,97.1,+1.9
+thermal power station,96.2,96.2,+0.0
+wetland,89.5,93.3,+3.8
