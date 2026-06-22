@@ -1,7 +1,11 @@
 """
-prepare_bigearth.py — Prepare BigEarthNet-RGB splits.
+prepare_bigearth.py — Prepare BigEarthNet splits.
 
-Downloads official split lists and generates three CSV files:
+Supports two metadata layouts:
+  1. BigEarthNet v1.x patch folders with *_labels_metadata.json files.
+  2. BigEarthNet v2.0 nested tile/patch folders plus metadata.parquet.
+
+Generates three CSV files:
     datasets/BigEarthNet-RGB_split/train.csv
     datasets/BigEarthNet-RGB_split/val.csv
     datasets/BigEarthNet-RGB_split/test.csv
@@ -14,22 +18,57 @@ Usage:
         --data_dir /path/to/BigEarthNet-RGB \
         --out_dir  datasets/BigEarthNet-RGB_split
 
+    python baselines/bigearth/prepare_bigearth.py \
+        --data_dir /path/to/BigEarthNet-S2 \
+        --metadata_parquet /path/to/metadata.parquet \
+        --out_dir datasets/BigEarthNet-RGB_split
+
 Official split files (ben-scene-transfer) are downloaded automatically.
 If the server has no internet access, manually download and pass --split_dir.
 """
 
 import os
 import csv
-import json
+import ast
 import random
 import argparse
 import urllib.request
 from pathlib import Path
-from tqdm import tqdm
 
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-from models.bigearth_dataset import parse_labels, CLASSES_19, NUM_CLASSES
+
+try:
+    from tqdm import tqdm
+except ImportError:
+    def tqdm(iterable, **_kwargs):
+        return iterable
+
+# BigEarthNet v2.0 metadata.parquet already uses the 19-class nomenclature.
+CLASSES_19 = [
+    "Urban fabric",
+    "Industrial or commercial units",
+    "Arable land",
+    "Permanent crops",
+    "Pastures",
+    "Complex cultivation patterns",
+    "Land principally occupied by agriculture, with significant areas of natural vegetation",
+    "Agro-forestry areas",
+    "Broad-leaved forest",
+    "Coniferous forest",
+    "Mixed forest",
+    "Natural grassland and sparsely vegetated areas",
+    "Moors, heathland and sclerophyllous vegetation",
+    "Transitional woodland, shrub",
+    "Beaches, dunes, sands",
+    "Inland wetlands",
+    "Coastal wetlands",
+    "Inland waters",
+    "Marine waters",
+]
+
+CLASS_TO_IDX = {c: i for i, c in enumerate(CLASSES_19)}
+NUM_CLASSES = len(CLASSES_19)
 
 # Official split file URLs (BigEarthNet benchmark splits)
 SPLIT_URLS = {
@@ -66,6 +105,67 @@ def load_patch_names(split_csv: str) -> list:
             if row:
                 names.append(row[0].strip())
     return names
+
+
+def label_list_to_vec(labels) -> list:
+    """Convert BigEarthNet 19-class label names to a binary list."""
+    if labels is None:
+        labels = []
+    elif isinstance(labels, str):
+        try:
+            labels = ast.literal_eval(labels)
+        except (SyntaxError, ValueError):
+            labels = [labels]
+
+    label_vec = [0.0] * NUM_CLASSES
+    for label in labels:
+        if label in CLASS_TO_IDX:
+            label_vec[CLASS_TO_IDX[label]] = 1.0
+    return label_vec
+
+
+def patch_tile_id(patch_id: str) -> str:
+    """Return the parent Sentinel-2 tile id from a v2.0 patch id."""
+    return patch_id.rsplit("_", 2)[0]
+
+
+def resolve_patch_dir(data_dir: str, patch_id: str) -> str | None:
+    """Resolve either direct v1 layout or nested v2 tile/patch layout."""
+    direct = os.path.join(data_dir, patch_id)
+    if os.path.isdir(direct):
+        return direct
+
+    nested = os.path.join(data_dir, patch_tile_id(patch_id), patch_id)
+    if os.path.isdir(nested):
+        return nested
+
+    return None
+
+
+def has_rgb_bands(patch_dir: str, patch_id: str) -> bool:
+    return all(
+        os.path.exists(os.path.join(patch_dir, f"{patch_id}_{band}.tif"))
+        for band in ("B02", "B03", "B04")
+    )
+
+
+def split_name_from_metadata(value: str) -> str | None:
+    value = str(value).strip().lower()
+    if value in ("train", "training"):
+        return "train"
+    if value in ("val", "valid", "validation"):
+        return "val"
+    if value == "test":
+        return "test"
+    return None
+
+
+def write_split_csv(out_csv: str, rows: list[list]):
+    header = ["patch_path"] + [f"label_{i}" for i in range(NUM_CLASSES)]
+    with open(out_csv, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(header)
+        writer.writerows(rows)
 
 
 def make_random_split(all_patches: list, train=0.7, val=0.15, seed=42):
@@ -113,6 +213,62 @@ def build_split_csv(patch_names: list, data_dir: str, out_csv: str):
     print(f"  Written: {out_csv}  (skipped {skipped} missing patches)")
 
 
+def build_v2_split_csvs_from_records(records, data_dir: str, out_dir: str) -> dict:
+    """Build split CSVs from BigEarthNet v2.0 metadata records."""
+    os.makedirs(out_dir, exist_ok=True)
+    rows_by_split = {"train": [], "val": [], "test": []}
+    skipped = {"missing_patch": 0, "missing_bands": 0, "unknown_split": 0}
+
+    for record in tqdm(records, desc="metadata.parquet"):
+        patch_id = str(record["patch_id"])
+        split_name = split_name_from_metadata(record["split"])
+        if split_name is None:
+            skipped["unknown_split"] += 1
+            continue
+
+        patch_dir = resolve_patch_dir(data_dir, patch_id)
+        if patch_dir is None:
+            skipped["missing_patch"] += 1
+            continue
+        if not has_rgb_bands(patch_dir, patch_id):
+            skipped["missing_bands"] += 1
+            continue
+
+        rows_by_split[split_name].append([patch_dir] + label_list_to_vec(record["labels"]))
+
+    counts = {}
+    for split_name, rows in rows_by_split.items():
+        out_csv = os.path.join(out_dir, f"{split_name}.csv")
+        write_split_csv(out_csv, rows)
+        counts[split_name] = len(rows)
+        print(f"  Written: {out_csv}  ({len(rows)} rows)")
+
+    print("  Skipped:", skipped)
+    return counts
+
+
+def build_v2_split_csvs(metadata_parquet: str, data_dir: str, out_dir: str) -> dict:
+    try:
+        import pandas as pd
+    except ImportError as e:
+        raise RuntimeError(
+            "Reading metadata.parquet requires pandas and a parquet engine. "
+            "Install them with: pip install --user pandas pyarrow"
+        ) from e
+
+    df = pd.read_parquet(metadata_parquet)
+    required = {"patch_id", "labels", "split"}
+    missing = required - set(df.columns)
+    if missing:
+        raise ValueError(f"{metadata_parquet} is missing required columns: {sorted(missing)}")
+
+    return build_v2_split_csvs_from_records(
+        df[["patch_id", "labels", "split"]].to_dict("records"),
+        data_dir,
+        out_dir,
+    )
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_dir",  type=str, required=True,
@@ -123,11 +279,24 @@ def main():
     parser.add_argument("--split_dir", type=str, default=None,
                         help="Directory with pre-downloaded official split CSVs "
                              "(optional; auto-downloaded if not provided)")
+    parser.add_argument("--metadata_parquet", type=str, default=None,
+                        help="BigEarthNet v2.0 metadata.parquet. When set, this "
+                             "replaces v1 JSON/split-list preparation.")
     parser.add_argument("--no_official", action="store_true",
                         help="Skip official splits, use random 70/15/15 split instead")
     args = parser.parse_args()
 
     os.makedirs(args.out_dir, exist_ok=True)
+
+    if args.metadata_parquet:
+        print("Using BigEarthNet v2.0 metadata.parquet...")
+        build_v2_split_csvs(args.metadata_parquet, args.data_dir, args.out_dir)
+        print("\nDone. Class order:")
+        for i, c in enumerate(CLASSES_19):
+            print(f"  label_{i}: {c}")
+        return
+
+    from models.bigearth_dataset import parse_labels
 
     if args.no_official:
         print("Using random 70/15/15 split...")
@@ -154,7 +323,6 @@ def main():
         build_split_csv(patch_names, args.data_dir, out_csv)
 
     print("\nDone. Class order:")
-    from models.bigearth_dataset import CLASSES_19
     for i, c in enumerate(CLASSES_19):
         print(f"  label_{i}: {c}")
 
