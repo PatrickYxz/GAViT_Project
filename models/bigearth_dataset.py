@@ -166,7 +166,7 @@ class BigEarthNetDataset(Dataset):
     def __init__(self, patch_dirs: list, labels: np.ndarray, transform=None):
         assert len(patch_dirs) == len(labels)
         self.patch_dirs = patch_dirs
-        self.labels     = labels
+        self.labels     = np.asarray(labels, dtype=np.float32)
         self.transform  = transform
 
     def __len__(self):
