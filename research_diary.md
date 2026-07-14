@@ -8,6 +8,50 @@
 
 ---
 
+## 2026-07-14 — Featurize BigEarthNet Swin baseline 完整训练
+
+### 一、实验设置
+
+- 平台：Featurize（GPU 具体型号待从实例记录确认）
+- 数据集：BigEarthNet-19，多标签分类
+- 数据划分：Train 237,871 / Val 122,342 / Test 119,825
+- 模型：Swin-T baseline，27,535,501 参数
+- 初始化：本地持久化 `bigearth_files/model.safetensors`，避免 Featurize 访问 Hugging Face 的 TLS 失败
+- Seed：42
+- 训练：30 epochs，batch size 32，AdamW，lr 3e-4，weight decay 1e-4，CosineAnnealingLR
+- Loss：BCEWithLogitsLoss
+- 验证指标：macro mAP + macro-F1（threshold=0.5）
+- 启动入口：`train_bigearth_local.py`（临时为 Swin 注入本地 pretrained file）
+- 日志：`logs/bigearth_swin.log`
+- Checkpoint：`checkpoints/best_bigearth_swin.pth`，约 106 MB
+
+### 二、训练结果
+
+- 完成 30/30 epochs
+- **Best Validation mAP：78.8%**（准确 best epoch 待从完整日志提取）
+- Epoch 30 Loss：0.0223
+- Epoch 30 Val mAP：75.8%
+- Epoch 30 Val macro-F1：71.2%
+- 后期 Val mAP 从最佳值回落至 75.8%，存在过拟合迹象；正式比较应使用 best checkpoint，而不是最后一轮权重
+- 已观察到 epoch 24–30 单轮训练约 7:52–8:35；峰值显存、完整 wall time 和实际费用待补记
+
+### 三、存储与复现状态
+
+- BigEarthNet 图像位于实例本地 `/home/featurize/data/BigEarthNet-S2`，更换实例后需要重新添加
+- metadata、split CSV、本地预训练权重、日志和 checkpoint 位于 `/home/featurize/work/GAViT_Project`，更换实例后保留
+- 固定 split 已持久化在 `bigearth_files/splits`，无需随实例重新生成
+
+### 四、论文状态与下一步
+
+- 本次结果建立了 BigEarthNet 上的 Swin baseline，后续 GAViT 必须使用相同 split、训练设置和主要指标
+- **测试结果待完成**：Test mAP、macro-F1、micro-F1 和 per-class AP 尚未获得
+- [ ] 从完整日志确认 best epoch
+- [ ] 重新添加 BigEarthNet 后评估 `best_bigearth_swin.pth`
+- [ ] 记录测试 GPU、评估耗时、分类阈值和 per-class AP
+- [ ] 完成 baseline 测试后再决定 GAViT 正式训练配置，避免无意义训练
+
+---
+
 ## 2026-04-08 — BigEarthNet 训练超时修复：添加断点续训
 
 **问题**：
