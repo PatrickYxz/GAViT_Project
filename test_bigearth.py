@@ -27,6 +27,7 @@ from sklearn.metrics import average_precision_score, f1_score, classification_re
 
 from models.bigearth_dataset import BigEarthNetDataset, CLASSES_19, NUM_CLASSES
 from models.gavit import GAViT
+from models.swin_features import pool_swin_features
 from utils import set_seed
 
 # =============================================================================
@@ -99,8 +100,7 @@ if args.model == "swin":
             )
         def forward(self, x):
             feat = self.backbone.forward_features(x)
-            if feat.dim() == 3:
-                feat = feat.mean(dim=1)
+            feat = pool_swin_features(feat)
             return self.classifier(feat)
 
     model = SwinBaseline().to(DEVICE)

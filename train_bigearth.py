@@ -30,6 +30,7 @@ from sklearn.metrics import average_precision_score, f1_score
 
 from models.bigearth_dataset import BigEarthNetDataset, CLASSES_19, NUM_CLASSES
 from models.gavit import GAViT
+from models.swin_features import build_swin_model_kwargs, pool_swin_features
 from utils import set_seed
 
 # =============================================================================
@@ -53,6 +54,10 @@ parser.add_argument("--grouping",     type=str, default="attentive_spatial")
 parser.add_argument("--edge_type",    type=str, default="knn")
 parser.add_argument("--integration",  type=str, default="token_feedback")
 parser.add_argument("--dropout",      type=float, default=0.1)
+parser.add_argument("--pretrained_path", type=str, default=None,
+                    help="Local Swin-T pretrained weights; avoids online download")
+parser.add_argument("--checkpoint_path", type=str, default=None,
+                    help="Explicit output checkpoint path")
 parser.add_argument("--resume",       action="store_true",
                     help="Resume training from existing checkpoint")
 parser.add_argument("--start_epoch",  type=int, default=1,
@@ -66,8 +71,8 @@ set_seed(SEED)
 CKPT_NAME = f"best_bigearth_{args.model}"
 if args.model == "gavit":
     CKPT_NAME += f"_K{args.num_regions}_{args.grouping}_{args.edge_type}_{args.integration}"
-CKPT_PATH = os.path.join("checkpoints", f"{CKPT_NAME}.pth")
-os.makedirs("checkpoints", exist_ok=True)
+CKPT_PATH = args.checkpoint_path or os.path.join("checkpoints", f"{CKPT_NAME}.pth")
+os.makedirs(os.path.dirname(CKPT_PATH) or ".", exist_ok=True)
 
 # =============================================================================
 # Data
@@ -116,7 +121,8 @@ print(f"Train: {len(train_set):,}  |  Val: {len(val_set):,}")
 # =============================================================================
 if args.model == "swin":
     backbone = timm.create_model(
-        "swin_tiny_patch4_window7_224", pretrained=True, num_classes=0
+        "swin_tiny_patch4_window7_224",
+        **build_swin_model_kwargs(True, args.pretrained_path),
     )
     swin_dim = backbone.num_features  # 768
 
@@ -131,10 +137,7 @@ if args.model == "swin":
             )
         def forward(self, x):
             feat = self.backbone.forward_features(x)   # (B, H, W, C) or (B, H*W, C) or (B, C)
-            if feat.dim() == 4:
-                feat = feat.mean(dim=[1, 2])
-            elif feat.dim() == 3:
-                feat = feat.mean(dim=1)
+            feat = pool_swin_features(feat)
             return self.classifier(feat)
 
     model = SwinBaseline().to(DEVICE)
@@ -152,6 +155,7 @@ else:  # gavit
         edge_type=args.edge_type,
         integration=args.integration,
         pretrained=True,
+        pretrained_path=args.pretrained_path,
         freeze_backbone=False,
     ).to(DEVICE)
 

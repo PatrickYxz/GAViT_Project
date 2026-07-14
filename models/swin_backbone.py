@@ -2,6 +2,8 @@ import torch
 import torch.nn as nn
 import timm
 
+from models.swin_features import build_swin_model_kwargs
+
 
 class SwinBackbone(nn.Module):
     """
@@ -15,12 +17,16 @@ class SwinBackbone(nn.Module):
 
     HIDDEN_DIM = 768  # swin_tiny last-stage channel count
 
-    def __init__(self, pretrained: bool = True, freeze: bool = False):
+    def __init__(
+        self,
+        pretrained: bool = True,
+        freeze: bool = False,
+        pretrained_path: str | None = None,
+    ):
         super().__init__()
         self.swin = timm.create_model(
             "swin_tiny_patch4_window7_224",
-            pretrained=pretrained,
-            num_classes=0,   # removes the classification head
+            **build_swin_model_kwargs(pretrained, pretrained_path),
         )
         self.hidden_dim = self.HIDDEN_DIM
 

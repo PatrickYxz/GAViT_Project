@@ -43,6 +43,7 @@ class GAViT(nn.Module):
         edge_type:       'knn', 'spatial', or 'hybrid'
         integration:     'token_feedback' or 'fusion'
         pretrained:      whether to load ImageNet weights for Swin-T
+        pretrained_path: optional local Swin-T pretrained weight file
         freeze_backbone: freeze Swin-T weights
     """
 
@@ -59,13 +60,18 @@ class GAViT(nn.Module):
         edge_type:       str   = "knn",
         integration:     str   = "token_feedback",
         pretrained:      bool  = True,
+        pretrained_path: str | None = None,
         freeze_backbone: bool  = False,
     ):
         super().__init__()
         self.integration = integration
 
         # --- Backbone ---
-        self.backbone = SwinBackbone(pretrained=pretrained, freeze=freeze_backbone)
+        self.backbone = SwinBackbone(
+            pretrained=pretrained,
+            freeze=freeze_backbone,
+            pretrained_path=pretrained_path,
+        )
         backbone_dim = self.backbone.hidden_dim  # 768
 
         # --- Region Grouping ---
