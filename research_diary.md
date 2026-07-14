@@ -41,14 +41,54 @@
 - metadata、split CSV、本地预训练权重、日志和 checkpoint 位于 `/home/featurize/work/GAViT_Project`，更换实例后保留
 - 固定 split 已持久化在 `bigearth_files/splits`，无需随实例重新生成
 
-### 四、论文状态与下一步
+### 四、测试结果
+
+- 测试样本：119,825
+- 测试耗时：2:25（3,745 batches，25.68 it/s）
+- 分类阈值：0.5
+- **Test macro mAP：70.9%**
+- **Test macro-F1：64.2%**
+- **Test micro-F1：76.6%**
+- 测试日志：`logs/bigearth_swin_test_retry.log`
+
+Per-class AP：
+
+| Class | AP |
+|---|---:|
+| Urban fabric | 86.5% |
+| Industrial or commercial units | 52.4% |
+| Arable land | 93.3% |
+| Permanent crops | 58.8% |
+| Pastures | 86.2% |
+| Complex cultivation patterns | 68.0% |
+| Land principally occupied by agriculture, with significant areas of natural vegetation | 73.0% |
+| Agro-forestry areas | 87.3% |
+| Broad-leaved forest | 85.1% |
+| Coniferous forest | 93.5% |
+| Mixed forest | 89.3% |
+| Natural grassland and sparsely vegetated areas | 42.9% |
+| Moors, heathland and sclerophyllous vegetation | 56.8% |
+| Transitional woodland, shrub | 78.3% |
+| Beaches, dunes, sands | 13.3% |
+| Inland wetlands | 62.7% |
+| Coastal wetlands | 30.3% |
+| Inland waters | 90.9% |
+| Marine waters | 99.5% |
+
+### 五、测试脚本问题与修复
+
+- 第一次完整推理完成后，`average_precision_score` 报错：预测数组仍为三维。
+- 根因：`test_bigearth.py` 未处理 timm Swin 返回的 `(B, H, W, C)` 四维特征，分类器输出成为 `(B, H, W, 19)`；训练脚本已正确进行空间池化。
+- 修复：四维特征在维度 `(1, 2)` 上取均值，三维 token 特征在维度 `1` 上取均值。
+- 修复后先用 32 条样本 smoke test，再运行完整测试，避免重复浪费 GPU 时间。
+
+### 六、论文状态与下一步
 
 - 本次结果建立了 BigEarthNet 上的 Swin baseline，后续 GAViT 必须使用相同 split、训练设置和主要指标
-- **测试结果待完成**：Test mAP、macro-F1、micro-F1 和 per-class AP 尚未获得
 - [ ] 从完整日志确认 best epoch
-- [ ] 重新添加 BigEarthNet 后评估 `best_bigearth_swin.pth`
-- [ ] 记录测试 GPU、评估耗时、分类阈值和 per-class AP
-- [ ] 完成 baseline 测试后再决定 GAViT 正式训练配置，避免无意义训练
+- [ ] 补记训练和测试使用的 GPU 型号、峰值显存、完整 wall time 与实际费用
+- [ ] 固定 GAViT 正式训练配置，并先完成小规模 smoke test
+- [ ] 使用相同 split、epoch、batch size、seed 和指标训练及测试 GAViT
 
 ---
 
