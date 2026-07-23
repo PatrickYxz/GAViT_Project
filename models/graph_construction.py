@@ -90,18 +90,19 @@ def build_knn_graph(
     # Top-k neighbours per node
     topk_vals, topk_idx = sim.topk(k, dim=-1)  # (B, N, k)
 
-    # Source indices: same for every batch item (before offset)
-    src_local = torch.arange(N, device=features.device).unsqueeze(1).expand(N, k).reshape(-1)  # (N*k,)
+    # PyG propagates messages from edge_index[0] to edge_index[1]. Each query
+    # node must therefore be the target of edges from its selected neighbours.
+    query_local = torch.arange(N, device=features.device).unsqueeze(1).expand(N, k).reshape(-1)  # (N*k,)
 
     edge_index_list = []
     edge_weight_list = []
 
     for b in range(B):
-        tgt_local = topk_idx[b].reshape(-1)         # (N*k,)
-        weights    = topk_vals[b].reshape(-1)         # (N*k,)
+        neighbor_local = topk_idx[b].reshape(-1)      # (N*k,)
+        weights = topk_vals[b].reshape(-1)            # (N*k,)
         offset = b * N
-        src = src_local + offset
-        tgt = tgt_local + offset
+        src = neighbor_local + offset
+        tgt = query_local + offset
         edge_index_list.append(torch.stack([src, tgt], dim=0))  # (2, N*k)
         edge_weight_list.append(weights)
 
