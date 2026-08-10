@@ -7,6 +7,10 @@ from models.region_grouping    import KMeansGrouping, SpatialGrouping, Attentive
 from models.graph_construction import build_knn_graph, build_spatial_graph
 from models.graph_reasoning    import GraphReasoning
 
+VALID_GROUPINGS    = ("attentive_spatial", "spatial", "kmeans")
+VALID_EDGE_TYPES   = ("knn", "spatial", "hybrid")
+VALID_INTEGRATIONS = ("token_feedback", "fusion")
+
 
 class GAViT(nn.Module):
     """
@@ -64,6 +68,21 @@ class GAViT(nn.Module):
         freeze_backbone: bool  = False,
     ):
         super().__init__()
+
+        # Reject unknown configs explicitly instead of silently falling back
+        # to a different architecture (see research diary 2026-08-05, P5).
+        if grouping not in VALID_GROUPINGS:
+            raise ValueError(
+                f"Unknown grouping={grouping!r}. Valid: {VALID_GROUPINGS}"
+            )
+        if edge_type not in VALID_EDGE_TYPES:
+            raise ValueError(
+                f"Unknown edge_type={edge_type!r}. Valid: {VALID_EDGE_TYPES}"
+            )
+        if integration not in VALID_INTEGRATIONS:
+            raise ValueError(
+                f"Unknown integration={integration!r}. Valid: {VALID_INTEGRATIONS}"
+            )
         self.integration = integration
 
         # --- Backbone ---
@@ -81,7 +100,7 @@ class GAViT(nn.Module):
             )
         elif grouping == "spatial":
             self.region_grouping = SpatialGrouping(num_regions=num_regions)
-        else:
+        else:  # "kmeans" (validated above)
             self.region_grouping = KMeansGrouping(num_regions=num_regions)
 
         self.num_regions = num_regions
@@ -112,13 +131,15 @@ class GAViT(nn.Module):
                 nn.Dropout(dropout),
                 nn.Linear(backbone_dim, num_classes),
             )
-        else:  # "fusion" (legacy)
+        elif integration == "fusion":  # legacy
             fused_dim = backbone_dim + graph_out_dim  # 768 + 1024 = 1792
             self.classifier = nn.Sequential(
                 nn.LayerNorm(fused_dim),
                 nn.Dropout(dropout),
                 nn.Linear(fused_dim, num_classes),
             )
+        else:
+            raise ValueError(f"Unknown integration={integration!r}")
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
@@ -144,10 +165,12 @@ class GAViT(nn.Module):
             ei_sp, ew_sp, _      = build_spatial_graph(K, B, x.device)
             edge_index  = torch.cat([ei_knn, ei_sp], dim=1)
             edge_weight = torch.cat([ew_knn, ew_sp], dim=0)
-        else:  # "knn"
+        elif self.edge_type == "knn":
             edge_index, edge_weight, batch = build_knn_graph(
                 region_features, k=self.knn_k
             )
+        else:
+            raise ValueError(f"Unknown edge_type={self.edge_type!r}")
 
         # 4. Flatten nodes for PyG: (B*K, 768)
         x_nodes = region_features.reshape(B * K, -1)
@@ -175,11 +198,13 @@ class GAViT(nn.Module):
             pooled = updated_tokens.mean(dim=1)       # (B, 768)
             logits = self.classifier(pooled)           # (B, num_classes)
 
-        else:  # "fusion" (legacy)
+        elif self.integration == "fusion":  # legacy
             backbone_global = tokens.mean(dim=1)                      # (B, 768)
             graph_global = global_mean_pool(x_refined, batch)         # (B, 1024)
             fused = torch.cat([backbone_global, graph_global], dim=1) # (B, 1792)
             logits = self.classifier(fused)
+        else:
+            raise ValueError(f"Unknown integration={self.integration!r}")
 
         return logits
 

@@ -1,15 +1,19 @@
 """
 test_bigearth.py — Evaluate a BigEarthNet checkpoint on the test set.
 
+The GAViT architecture is reconstructed from the checkpoint's sidecar
+metadata (<ckpt>.meta.json) when available; explicit CLI overrides that
+conflict with the metadata are rejected. For legacy checkpoints without a
+sidecar, architecture falls back to the CLI flags below.
+
 Usage:
     # Swin-T baseline
     python test_bigearth.py --model swin \
-        --ckpt checkpoints/best_bigearth_swin.pth
+        --ckpt checkpoints/best_bigearth_swin_seed42.pth
 
     # GAViT v2
     python test_bigearth.py --model gavit \
-        --ckpt checkpoints/best_bigearth_gavit_K16_attentive_spatial_knn_token_feedback.pth \
-        --num_regions 16 --grouping attentive_spatial --integration token_feedback
+        --ckpt checkpoints/best_bigearth_gavit_K16_attentive_spatial_knn_k5_token_feedback_seed42.pth
 """
 
 import os
@@ -25,11 +29,14 @@ import timm
 from tqdm import tqdm
 from sklearn.metrics import average_precision_score, f1_score, classification_report
 
+from experiment_identity import validate_checkpoint_identity
 from models.bigearth_dataset import BigEarthNetDataset, CLASSES_19, NUM_CLASSES
 from models.gavit import GAViT
 from models.swin_features import pool_swin_features
-from utils import set_seed
+from utils import load_checkpoint_metadata, resolve_arch_config, set_seed
 
+# =============================================================================
+# Architecture flags default to None -> taken from checkpoint metadata
 # =============================================================================
 parser = argparse.ArgumentParser()
 parser.add_argument("--model",       type=str, required=True, choices=["swin", "gavit"])
@@ -38,20 +45,23 @@ parser.add_argument("--data_dir",    type=str,
                     default=os.environ.get("BIGEARTH_ROOT",
                         "datasets/BigEarthNet-RGB_split"))
 parser.add_argument("--batch_size",  type=int, default=32)
-parser.add_argument("--num_regions", type=int, default=16)
-parser.add_argument("--knn_k",       type=int, default=5)
-parser.add_argument("--gat_hidden",  type=int, default=256)
-parser.add_argument("--gat_heads",   type=int, default=4)
-parser.add_argument("--gat_layers",  type=int, default=2)
-parser.add_argument("--grouping",    type=str, default="attentive_spatial")
-parser.add_argument("--edge_type",   type=str, default="knn")
-parser.add_argument("--integration", type=str, default="token_feedback")
-parser.add_argument("--dropout",     type=float, default=0.1)
+parser.add_argument("--num_regions", type=int, default=None)
+parser.add_argument("--knn_k",       type=int, default=None)
+parser.add_argument("--gat_hidden",  type=int, default=None)
+parser.add_argument("--gat_heads",   type=int, default=None)
+parser.add_argument("--gat_layers",  type=int, default=None)
+parser.add_argument("--grouping",    type=str, default=None,
+                    choices=["kmeans", "spatial", "attentive_spatial"])
+parser.add_argument("--edge_type",   type=str, default=None,
+                    choices=["knn", "spatial", "hybrid"])
+parser.add_argument("--integration", type=str, default=None,
+                    choices=["token_feedback", "fusion"])
+parser.add_argument("--dropout",     type=float, default=None)
+parser.add_argument("--seed",        type=int, default=42)
 args = parser.parse_args()
 
-SEED   = 42
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-set_seed(SEED)
+set_seed(args.seed)
 
 # =============================================================================
 # Data
@@ -81,9 +91,32 @@ test_loader = DataLoader(test_set, batch_size=args.batch_size, shuffle=False,
 print(f"Test samples: {len(test_set):,}")
 
 # =============================================================================
-# Model
+# Model (architecture reconstructed from checkpoint metadata when available)
 # =============================================================================
+metadata = load_checkpoint_metadata(args.ckpt)
+if metadata is None:
+    print(f"WARNING: no sidecar metadata found for {args.ckpt}; "
+          "falling back to CLI architecture flags.")
+else:
+    validate_checkpoint_identity(
+        metadata,
+        expected_model=args.model,
+        expected_dataset="BigEarthNet-19",
+        expected_num_classes=NUM_CLASSES,
+    )
+
 if args.model == "swin":
+    swin_dropout = args.dropout
+    if metadata is not None:
+        swin_dropout = metadata.get("architecture", {}).get("dropout", 0.1)
+        if args.dropout is not None and args.dropout != swin_dropout:
+            raise ValueError(
+                f"--dropout {args.dropout} conflicts with checkpoint metadata "
+                f"(dropout={swin_dropout})"
+            )
+    if swin_dropout is None:
+        swin_dropout = 0.1
+
     backbone = timm.create_model(
         "swin_tiny_patch4_window7_224", pretrained=False, num_classes=0
     )
@@ -95,7 +128,7 @@ if args.model == "swin":
             self.backbone   = backbone
             self.classifier = nn.Sequential(
                 nn.LayerNorm(swin_dim),
-                nn.Dropout(args.dropout),
+                nn.Dropout(swin_dropout),
                 nn.Linear(swin_dim, NUM_CLASSES),
             )
         def forward(self, x):
@@ -104,23 +137,42 @@ if args.model == "swin":
             return self.classifier(feat)
 
     model = SwinBaseline().to(DEVICE)
+    print("Architecture source: " + ("metadata" if metadata else "cli"))
 else:
+    ARCH_DEFAULTS = {
+        "num_classes": NUM_CLASSES,
+        "num_regions": 16,
+        "knn_k":       5,
+        "gat_hidden":  256,
+        "gat_heads":   4,
+        "gat_layers":  2,
+        "dropout":     0.1,
+        "grouping":    "attentive_spatial",
+        "edge_type":   "knn",
+        "integration": "token_feedback",
+    }
+    arch, arch_source = resolve_arch_config(
+        {k: getattr(args, k) for k in ARCH_DEFAULTS if k != "num_classes"},
+        metadata,
+        ARCH_DEFAULTS,
+    )
+    print(f"Architecture source: {arch_source}")
     model = GAViT(
-        num_classes=NUM_CLASSES,
-        num_regions=args.num_regions,
-        knn_k=args.knn_k,
-        gat_hidden=args.gat_hidden,
-        gat_heads=args.gat_heads,
-        gat_layers=args.gat_layers,
-        dropout=args.dropout,
-        grouping=args.grouping,
-        edge_type=args.edge_type,
-        integration=args.integration,
+        num_classes=arch["num_classes"],
+        num_regions=arch["num_regions"],
+        knn_k=arch["knn_k"],
+        gat_hidden=arch["gat_hidden"],
+        gat_heads=arch["gat_heads"],
+        gat_layers=arch["gat_layers"],
+        dropout=arch["dropout"],
+        grouping=arch["grouping"],
+        edge_type=arch["edge_type"],
+        integration=arch["integration"],
         pretrained=False,
         freeze_backbone=False,
     ).to(DEVICE)
 
-model.load_state_dict(torch.load(args.ckpt, map_location=DEVICE))
+model.load_state_dict(torch.load(args.ckpt, map_location=DEVICE, weights_only=True))
 model.eval()
 print(f"Loaded: {args.ckpt}")
 

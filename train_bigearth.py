@@ -28,10 +28,20 @@ import timm
 from tqdm import tqdm
 from sklearn.metrics import average_precision_score, f1_score
 
+from experiment_identity import (
+    assert_clean_git_state,
+    assert_fresh_output_paths,
+    get_git_state,
+    metadata_path_for,
+    training_state_path_for,
+    validate_run_stage,
+    validate_run_tag,
+    write_checkpoint_metadata,
+)
 from models.bigearth_dataset import BigEarthNetDataset, CLASSES_19, NUM_CLASSES
 from models.gavit import GAViT
 from models.swin_features import build_swin_model_kwargs, pool_swin_features
-from utils import set_seed
+from utils import (load_checkpoint_metadata, save_checkpoint, set_seed)
 
 # =============================================================================
 # CONFIG
@@ -50,29 +60,50 @@ parser.add_argument("--knn_k",        type=int, default=5)
 parser.add_argument("--gat_hidden",   type=int, default=256)
 parser.add_argument("--gat_heads",    type=int, default=4)
 parser.add_argument("--gat_layers",   type=int, default=2)
-parser.add_argument("--grouping",     type=str, default="attentive_spatial")
-parser.add_argument("--edge_type",    type=str, default="knn")
-parser.add_argument("--integration",  type=str, default="token_feedback")
+parser.add_argument("--grouping",     type=str, default="attentive_spatial",
+                    choices=["kmeans", "spatial", "attentive_spatial"])
+parser.add_argument("--edge_type",    type=str, default="knn",
+                    choices=["knn", "spatial", "hybrid"])
+parser.add_argument("--integration",  type=str, default="token_feedback",
+                    choices=["token_feedback", "fusion"])
 parser.add_argument("--dropout",      type=float, default=0.1)
+parser.add_argument("--seed",         type=int, default=42)
+parser.add_argument("--run_stage",    type=str, required=True,
+                    choices=["smoke", "proxy", "formal"])
+parser.add_argument("--run_tag",      type=str, required=True,
+                    help="Unique artifact identity, e.g. corrected_knn_smoke")
 parser.add_argument("--pretrained_path", type=str, default=None,
                     help="Local Swin-T pretrained weights; avoids online download")
 parser.add_argument("--checkpoint_path", type=str, default=None,
                     help="Explicit output checkpoint path")
 parser.add_argument("--resume",       action="store_true",
                     help="Resume training from existing checkpoint")
-parser.add_argument("--start_epoch",  type=int, default=1,
-                    help="Epoch to resume from (for logging only)")
+parser.add_argument("--start_epoch",  type=int, default=None,
+                    help="Epoch to resume from; defaults to the value recorded "
+                         "in the checkpoint's train-state file")
 args = parser.parse_args()
 
-SEED    = 42
+SEED    = args.seed
+RUN_STAGE = validate_run_stage(args.run_stage)
+RUN_TAG = validate_run_tag(args.run_tag)
 DEVICE  = "cuda" if torch.cuda.is_available() else "cpu"
 set_seed(SEED)
 
+# Include knn_k and seed so multi-seed / multi-k runs never overwrite each other
 CKPT_NAME = f"best_bigearth_{args.model}"
 if args.model == "gavit":
-    CKPT_NAME += f"_K{args.num_regions}_{args.grouping}_{args.edge_type}_{args.integration}"
+    CKPT_NAME += (f"_K{args.num_regions}_{args.grouping}_{args.edge_type}"
+                  f"_k{args.knn_k}_{args.integration}")
+CKPT_NAME += f"_seed{SEED}_{RUN_STAGE}_{RUN_TAG}"
 CKPT_PATH = args.checkpoint_path or os.path.join("checkpoints", f"{CKPT_NAME}.pth")
+TRAIN_STATE_PATH = training_state_path_for(CKPT_PATH)
+META_PATH = metadata_path_for(CKPT_PATH)
 os.makedirs(os.path.dirname(CKPT_PATH) or ".", exist_ok=True)
+
+if RUN_STAGE == "formal":
+    assert_clean_git_state(get_git_state())
+if not args.resume:
+    assert_fresh_output_paths([CKPT_PATH, META_PATH, TRAIN_STATE_PATH])
 
 # =============================================================================
 # Data
@@ -162,19 +193,44 @@ else:  # gavit
 total_params = sum(p.numel() for p in model.parameters())
 print(f"Model: {args.model.upper()} | {total_params:,} params | Device: {DEVICE}")
 
-# Resume from checkpoint
-if args.resume and os.path.exists(CKPT_PATH):
-    print(f"Resuming from {CKPT_PATH} (start_epoch={args.start_epoch})")
-    model.load_state_dict(torch.load(CKPT_PATH, map_location=DEVICE))
-elif args.resume:
-    print(f"WARNING: --resume specified but {CKPT_PATH} not found. Training from scratch.")
-
 # =============================================================================
 # Loss / Optimizer / Scheduler
 # =============================================================================
 criterion = nn.BCEWithLogitsLoss()
 optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-4)
 scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.epochs)
+
+# Resume from checkpoint. Restores model weights plus optimizer/scheduler
+# state, best metric and next epoch from the train-state sidecar, so the LR
+# schedule continues its cosine decay instead of restarting at max LR, and a
+# resumed run can never overwrite a better best checkpoint with a worse one.
+best_mAP    = 0.0
+start_epoch = args.start_epoch or 1
+if args.resume and os.path.exists(CKPT_PATH):
+    model.load_state_dict(torch.load(CKPT_PATH, map_location=DEVICE, weights_only=True))
+    if os.path.exists(TRAIN_STATE_PATH):
+        state = torch.load(TRAIN_STATE_PATH, map_location=DEVICE, weights_only=True)
+        optimizer.load_state_dict(state["optimizer"])
+        scheduler.load_state_dict(state["scheduler"])
+        best_mAP    = state["best_mAP"]
+        start_epoch = args.start_epoch or (state["epoch"] + 1)
+        print(f"Resuming {CKPT_PATH}: epoch {start_epoch}, "
+              f"best mAP {best_mAP:.1f}%, optimizer/LR schedule restored")
+    else:
+        # Legacy checkpoint without train-state: rebuild the scheduler at the
+        # resumed position so the LR continues its cosine decay; restore best
+        # mAP from metadata if any.
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer, T_max=args.epochs, last_epoch=start_epoch - 1
+        )
+        meta = load_checkpoint_metadata(CKPT_PATH)
+        if meta and "best" in meta:
+            best_mAP = meta["best"]["value"]
+        print(f"Resuming {CKPT_PATH} at epoch {start_epoch} (no train-state "
+              f"file: optimizer state reset, scheduler fast-forwarded, "
+              f"best mAP restored to {best_mAP:.1f}%)")
+elif args.resume:
+    print(f"WARNING: --resume specified but {CKPT_PATH} not found. Training from scratch.")
 
 # =============================================================================
 # Eval helpers
@@ -211,12 +267,54 @@ def evaluate(loader):
 # =============================================================================
 # Training loop
 # =============================================================================
-best_mAP = 0.0
+metadata = {
+    "model":   args.model,
+    "dataset": "BigEarthNet-19",
+    "architecture": (
+        {
+            "num_classes": NUM_CLASSES,
+            "backbone":    "swin_tiny_patch4_window7_224",
+            "dropout":     args.dropout,
+        }
+        if args.model == "swin" else
+        {
+            "num_classes": NUM_CLASSES,
+            "num_regions": args.num_regions,
+            "knn_k":       args.knn_k,
+            "gat_hidden":  args.gat_hidden,
+            "gat_heads":   args.gat_heads,
+            "gat_layers":  args.gat_layers,
+            "dropout":     args.dropout,
+            "grouping":    args.grouping,
+            "edge_type":   args.edge_type,
+            "integration": args.integration,
+        }
+    ),
+    "training": {
+        "seed":         SEED,
+        "epochs":       args.epochs,
+        "batch_size":   args.batch_size,
+        "lr":           args.lr,
+        "weight_decay": 1e-4,
+        "optimizer":    "AdamW",
+        "scheduler":    "CosineAnnealingLR",
+        "loss":         "BCEWithLogitsLoss",
+        "f1_threshold": 0.5,
+    },
+    "execution": {
+        "run_stage": RUN_STAGE,
+        "run_tag": RUN_TAG,
+    },
+}
+
+if not args.resume:
+    write_checkpoint_metadata(CKPT_PATH, metadata)
+
 print(f"\n{'='*60}")
 print(f"Training {args.model.upper()} on BigEarthNet-19 | {args.epochs} epochs")
 print(f"{'='*60}\n")
 
-for epoch in range(args.start_epoch, args.epochs + 1):
+for epoch in range(start_epoch, args.epochs + 1):
     model.train()
     total_loss = 0.0
     for imgs, labels in tqdm(train_loader, desc=f"Epoch [{epoch}/{args.epochs}] Train"):
@@ -237,7 +335,14 @@ for epoch in range(args.start_epoch, args.epochs + 1):
 
     if val_mAP > best_mAP:
         best_mAP = val_mAP
-        torch.save(model.state_dict(), CKPT_PATH)
+        metadata["best"] = {"metric": "val_mAP", "value": round(val_mAP, 4),
+                            "epoch": epoch}
+        save_checkpoint(model, CKPT_PATH, metadata)
+        # Train-state sidecar enables exact resume (optimizer + LR schedule)
+        torch.save({"optimizer": optimizer.state_dict(),
+                    "scheduler": scheduler.state_dict(),
+                    "epoch": epoch, "best_mAP": best_mAP},
+                   TRAIN_STATE_PATH)
         print(f"  Best model saved -> {CKPT_PATH}")
 
 print(f"\nBest Validation mAP: {best_mAP:.1f}%")

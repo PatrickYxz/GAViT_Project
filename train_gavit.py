@@ -19,8 +19,17 @@ from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
+from experiment_identity import (
+    assert_clean_git_state,
+    assert_fresh_output_paths,
+    get_git_state,
+    metadata_path_for,
+    validate_run_stage,
+    validate_run_tag,
+    write_checkpoint_metadata,
+)
 from models.gavit import GAViT
-from utils import set_seed
+from utils import save_checkpoint, set_seed
 
 # =============================================================================
 # ARGS
@@ -38,6 +47,11 @@ parser.add_argument("--integration",  type=str,   default="token_feedback", choi
 parser.add_argument("--epochs",        type=int,   default=30)
 parser.add_argument("--lr",            type=float, default=3e-4)
 parser.add_argument("--batch_size",    type=int,   default=32)
+parser.add_argument("--seed",          type=int,   default=42)
+parser.add_argument("--run_stage",     type=str,   required=True,
+                    choices=["smoke", "proxy", "formal"])
+parser.add_argument("--run_tag",       type=str,   required=True,
+                    help="Unique artifact identity, e.g. corrected_knn_smoke")
 parser.add_argument("--freeze_backbone", action="store_true")
 args = parser.parse_args()
 
@@ -49,13 +63,19 @@ DATA_ROOT = os.environ.get(
     r"C:\Users\Administrator\PycharmProjects\GAViT_Project\datasets\NWPU-RESISC45_split"
 )
 SAVE_DIR    = "checkpoints"
-CKPT_NAME   = f"best_gavit_K{args.num_regions}_{args.grouping}_{args.edge_type}_{args.integration}.pth"
+RUN_STAGE   = validate_run_stage(args.run_stage)
+RUN_TAG     = validate_run_tag(args.run_tag)
+# Include knn_k and seed so multi-seed / multi-k runs never overwrite each other
+CKPT_NAME   = (f"best_gavit_K{args.num_regions}_{args.grouping}_{args.edge_type}"
+               f"_k{args.knn_k}_{args.integration}_seed{args.seed}"
+               f"_{RUN_STAGE}_{RUN_TAG}.pth")
+CKPT_PATH   = os.path.join(SAVE_DIR, CKPT_NAME)
 
 NUM_CLASSES = 45
 BATCH_SIZE  = args.batch_size
 EPOCHS      = args.epochs
 LR          = args.lr
-SEED        = 42
+SEED        = args.seed
 
 # GAViT-specific
 NUM_REGIONS     = args.num_regions
@@ -76,6 +96,9 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # =============================================================================
 set_seed(SEED)
 os.makedirs(SAVE_DIR, exist_ok=True)
+if RUN_STAGE == "formal":
+    assert_clean_git_state(get_git_state())
+assert_fresh_output_paths([CKPT_PATH, metadata_path_for(CKPT_PATH)])
 
 # =============================================================================
 # DATA
@@ -141,6 +164,39 @@ scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=EPOCHS)
 # =============================================================================
 # TRAINING LOOP
 # =============================================================================
+metadata = {
+    "model":   "gavit",
+    "dataset": "NWPU-RESISC45",
+    "architecture": {
+        "num_classes": NUM_CLASSES,
+        "num_regions": NUM_REGIONS,
+        "knn_k":       KNN_K,
+        "gat_hidden":  GAT_HIDDEN,
+        "gat_heads":   GAT_HEADS,
+        "gat_layers":  GAT_LAYERS,
+        "dropout":     DROPOUT,
+        "grouping":    GROUPING,
+        "edge_type":   EDGE_TYPE,
+        "integration": INTEGRATION,
+        "freeze_backbone": FREEZE_BACKBONE,
+    },
+    "training": {
+        "seed":        SEED,
+        "epochs":      EPOCHS,
+        "batch_size":  BATCH_SIZE,
+        "lr":          LR,
+        "weight_decay": 1e-4,
+        "optimizer":   "AdamW",
+        "scheduler":   "CosineAnnealingLR",
+        "loss":        "CrossEntropyLoss",
+    },
+    "execution": {
+        "run_stage": RUN_STAGE,
+        "run_tag": RUN_TAG,
+    },
+}
+write_checkpoint_metadata(CKPT_PATH, metadata)
+
 best_val_acc = 0.0
 
 for epoch in range(EPOCHS):
@@ -188,8 +244,10 @@ for epoch in range(EPOCHS):
 
     if val_acc > best_val_acc:
         best_val_acc = val_acc
-        save_path = os.path.join(SAVE_DIR, CKPT_NAME)
-        torch.save(model.state_dict(), save_path)
+        save_path = CKPT_PATH
+        metadata["best"] = {"metric": "val_acc", "value": round(val_acc, 4),
+                            "epoch": epoch + 1}
+        save_checkpoint(model, save_path, metadata)
         print(f"  Best model saved -> {save_path}")
 
 print(f"\nBest Validation Accuracy: {best_val_acc:.1f}%")

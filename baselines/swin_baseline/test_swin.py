@@ -1,12 +1,19 @@
-import os
 import argparse
+import os
+import sys
 import torch
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 import timm
 
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
+from experiment_identity import (  # noqa: E402
+    load_checkpoint_metadata,
+    validate_checkpoint_identity,
+)
+
 parser = argparse.ArgumentParser()
-parser.add_argument("--ckpt",      default="checkpoints/best_swin.pth")
+parser.add_argument("--ckpt",      default="checkpoints/best_swin_seed42.pth")
 parser.add_argument("--data_root", default="/home/yang1004/GAViT_Project/datasets/NWPU-RESISC45_split")
 parser.add_argument("--batch_size", type=int, default=32)
 args = parser.parse_args()
@@ -29,7 +36,18 @@ model = timm.create_model(
     pretrained=False,
     num_classes=NUM_CLASSES
 )
-model.load_state_dict(torch.load(args.ckpt, map_location=DEVICE))
+metadata = load_checkpoint_metadata(args.ckpt)
+if metadata is None:
+    print(f"WARNING: no sidecar metadata found for {args.ckpt}; "
+          "using the fixed NWPU Swin architecture.")
+else:
+    validate_checkpoint_identity(
+        metadata,
+        expected_model="swin",
+        expected_dataset="NWPU-RESISC45",
+        expected_num_classes=NUM_CLASSES,
+    )
+model.load_state_dict(torch.load(args.ckpt, map_location=DEVICE, weights_only=True))
 model.to(DEVICE)
 model.eval()
 

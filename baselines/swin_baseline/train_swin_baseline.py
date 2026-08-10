@@ -1,4 +1,6 @@
+import argparse
 import os
+import sys
 import torch
 import torch.nn as nn
 from torchvision import datasets, transforms
@@ -6,9 +8,29 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 import timm
 
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
+from experiment_identity import (  # noqa: E402
+    assert_clean_git_state,
+    assert_fresh_output_paths,
+    get_git_state,
+    metadata_path_for,
+    validate_run_stage,
+    validate_run_tag,
+    write_checkpoint_metadata,
+)
+from utils import save_checkpoint, set_seed  # noqa: E402
+
 # =========================
 # 1. 配置
 # =========================
+parser = argparse.ArgumentParser()
+parser.add_argument("--seed", type=int, default=42)
+parser.add_argument("--run_stage", type=str, required=True,
+                    choices=["smoke", "proxy", "formal"])
+parser.add_argument("--run_tag", type=str, required=True,
+                    help="Unique artifact identity, e.g. swin_smoke")
+args = parser.parse_args()
+
 DATA_ROOT = os.environ.get(
     "DATA_ROOT",
     r"C:\Users\Administrator\PycharmProjects\GAViT_Project\datasets\NWPU-RESISC45_split"
@@ -17,10 +39,44 @@ NUM_CLASSES = 45
 BATCH_SIZE = 32
 EPOCHS = 30
 LR = 3e-4
+SEED = args.seed
+RUN_STAGE = validate_run_stage(args.run_stage)
+RUN_TAG = validate_run_tag(args.run_tag)
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
+set_seed(SEED)
+
 SAVE_DIR = "checkpoints"
+# Seed in the filename so multi-seed runs never overwrite each other
+CKPT_NAME = f"best_swin_seed{SEED}_{RUN_STAGE}_{RUN_TAG}.pth"
+CKPT_PATH = os.path.join(SAVE_DIR, CKPT_NAME)
 os.makedirs(SAVE_DIR, exist_ok=True)
+if RUN_STAGE == "formal":
+    assert_clean_git_state(get_git_state())
+assert_fresh_output_paths([CKPT_PATH, metadata_path_for(CKPT_PATH)])
+
+METADATA = {
+    "model":   "swin",
+    "dataset": "NWPU-RESISC45",
+    "architecture": {
+        "num_classes": NUM_CLASSES,
+        "backbone":    "swin_tiny_patch4_window7_224",
+    },
+    "training": {
+        "seed":        SEED,
+        "epochs":      EPOCHS,
+        "batch_size":  BATCH_SIZE,
+        "lr":          LR,
+        "optimizer":   "AdamW",
+        "scheduler":   "CosineAnnealingLR",
+        "loss":        "CrossEntropyLoss",
+    },
+    "execution": {
+        "run_stage": RUN_STAGE,
+        "run_tag": RUN_TAG,
+    },
+}
+write_checkpoint_metadata(CKPT_PATH, METADATA)
 
 # =========================
 # 2. 数据
@@ -121,7 +177,9 @@ for epoch in range(EPOCHS):
     # ---- Save best ----
     if val_acc > best_val_acc:
         best_val_acc = val_acc
-        torch.save(model.state_dict(), os.path.join(SAVE_DIR, "best_swin.pth"))
-        print("✅ Best model saved")
+        METADATA["best"] = {"metric": "val_acc", "value": round(val_acc, 4),
+                            "epoch": epoch + 1}
+        save_checkpoint(model, CKPT_PATH, METADATA)
+        print(f"✅ Best model saved -> {CKPT_PATH}")
 
 print(f"\nBest Validation Accuracy: {best_val_acc:.2f}%")
