@@ -41,7 +41,12 @@ from experiment_identity import (
 from models.bigearth_dataset import BigEarthNetDataset, CLASSES_19, NUM_CLASSES
 from models.gavit import GAViT
 from models.swin_features import build_swin_model_kwargs, pool_swin_features
-from utils import (load_checkpoint_metadata, save_checkpoint, set_seed)
+from utils import (
+    load_checkpoint_metadata,
+    load_validated_training_state,
+    save_epoch_artifacts,
+    set_seed,
+)
 
 # =============================================================================
 # CONFIG
@@ -77,10 +82,7 @@ parser.add_argument("--pretrained_path", type=str, default=None,
 parser.add_argument("--checkpoint_path", type=str, default=None,
                     help="Explicit output checkpoint path")
 parser.add_argument("--resume",       action="store_true",
-                    help="Resume training from existing checkpoint")
-parser.add_argument("--start_epoch",  type=int, default=None,
-                    help="Epoch to resume from; defaults to the value recorded "
-                         "in the checkpoint's train-state file")
+                    help="Resume from the exact last-epoch training state")
 args = parser.parse_args()
 
 SEED    = args.seed
@@ -190,6 +192,27 @@ else:  # gavit
         freeze_backbone=False,
     ).to(DEVICE)
 
+ARCHITECTURE = (
+    {
+        "num_classes": NUM_CLASSES,
+        "backbone": "swin_tiny_patch4_window7_224",
+        "dropout": args.dropout,
+    }
+    if args.model == "swin" else
+    {
+        "num_classes": NUM_CLASSES,
+        "num_regions": args.num_regions,
+        "knn_k": args.knn_k,
+        "gat_hidden": args.gat_hidden,
+        "gat_heads": args.gat_heads,
+        "gat_layers": args.gat_layers,
+        "dropout": args.dropout,
+        "grouping": args.grouping,
+        "edge_type": args.edge_type,
+        "integration": args.integration,
+    }
+)
+
 total_params = sum(p.numel() for p in model.parameters())
 print(f"Model: {args.model.upper()} | {total_params:,} params | Device: {DEVICE}")
 
@@ -200,37 +223,28 @@ criterion = nn.BCEWithLogitsLoss()
 optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=1e-4)
 scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.epochs)
 
-# Resume from checkpoint. Restores model weights plus optimizer/scheduler
-# state, best metric and next epoch from the train-state sidecar, so the LR
-# schedule continues its cosine decay instead of restarting at max LR, and a
-# resumed run can never overwrite a better best checkpoint with a worse one.
-best_mAP    = 0.0
-start_epoch = args.start_epoch or 1
-if args.resume and os.path.exists(CKPT_PATH):
-    model.load_state_dict(torch.load(CKPT_PATH, map_location=DEVICE, weights_only=True))
-    if os.path.exists(TRAIN_STATE_PATH):
-        state = torch.load(TRAIN_STATE_PATH, map_location=DEVICE, weights_only=True)
-        optimizer.load_state_dict(state["optimizer"])
-        scheduler.load_state_dict(state["scheduler"])
-        best_mAP    = state["best_mAP"]
-        start_epoch = args.start_epoch or (state["epoch"] + 1)
-        print(f"Resuming {CKPT_PATH}: epoch {start_epoch}, "
-              f"best mAP {best_mAP:.1f}%, optimizer/LR schedule restored")
-    else:
-        # Legacy checkpoint without train-state: rebuild the scheduler at the
-        # resumed position so the LR continues its cosine decay; restore best
-        # mAP from metadata if any.
-        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-            optimizer, T_max=args.epochs, last_epoch=start_epoch - 1
-        )
-        meta = load_checkpoint_metadata(CKPT_PATH)
-        if meta and "best" in meta:
-            best_mAP = meta["best"]["value"]
-        print(f"Resuming {CKPT_PATH} at epoch {start_epoch} (no train-state "
-              f"file: optimizer state reset, scheduler fast-forwarded, "
-              f"best mAP restored to {best_mAP:.1f}%)")
-elif args.resume:
-    print(f"WARNING: --resume specified but {CKPT_PATH} not found. Training from scratch.")
+# Resume exclusively from the exact last-epoch state.  The best-model
+# checkpoint remains evaluation-only and is never used as optimizer state.
+best_mAP = 0.0
+start_epoch = 1
+resume_metadata = None
+if args.resume:
+    start_epoch, best_mAP = load_validated_training_state(
+        model,
+        optimizer,
+        scheduler,
+        CKPT_PATH,
+        map_location=DEVICE,
+        expected_model=args.model,
+        expected_dataset="BigEarthNet-19",
+        expected_num_classes=NUM_CLASSES,
+        expected_architecture=ARCHITECTURE,
+    )
+    resume_metadata = load_checkpoint_metadata(CKPT_PATH)
+    print(
+        f"Resuming {TRAIN_STATE_PATH}: epoch {start_epoch}, "
+        f"best mAP {best_mAP:.1f}%, model/optimizer/LR schedule restored"
+    )
 
 # =============================================================================
 # Eval helpers
@@ -267,29 +281,10 @@ def evaluate(loader):
 # =============================================================================
 # Training loop
 # =============================================================================
-metadata = {
+metadata = resume_metadata or {
     "model":   args.model,
     "dataset": "BigEarthNet-19",
-    "architecture": (
-        {
-            "num_classes": NUM_CLASSES,
-            "backbone":    "swin_tiny_patch4_window7_224",
-            "dropout":     args.dropout,
-        }
-        if args.model == "swin" else
-        {
-            "num_classes": NUM_CLASSES,
-            "num_regions": args.num_regions,
-            "knn_k":       args.knn_k,
-            "gat_hidden":  args.gat_hidden,
-            "gat_heads":   args.gat_heads,
-            "gat_layers":  args.gat_layers,
-            "dropout":     args.dropout,
-            "grouping":    args.grouping,
-            "edge_type":   args.edge_type,
-            "integration": args.integration,
-        }
-    ),
+    "architecture": ARCHITECTURE,
     "training": {
         "seed":         SEED,
         "epochs":       args.epochs,
@@ -333,16 +328,18 @@ for epoch in range(start_epoch, args.epochs + 1):
     print(f"Epoch [{epoch:2d}/{args.epochs}]  "
           f"Loss: {avg_loss:.4f}  |  Val mAP: {val_mAP:.1f}%  |  Val F1: {val_f1:.1f}%")
 
-    if val_mAP > best_mAP:
-        best_mAP = val_mAP
-        metadata["best"] = {"metric": "val_mAP", "value": round(val_mAP, 4),
-                            "epoch": epoch}
-        save_checkpoint(model, CKPT_PATH, metadata)
-        # Train-state sidecar enables exact resume (optimizer + LR schedule)
-        torch.save({"optimizer": optimizer.state_dict(),
-                    "scheduler": scheduler.state_dict(),
-                    "epoch": epoch, "best_mAP": best_mAP},
-                   TRAIN_STATE_PATH)
+    best_mAP, improved = save_epoch_artifacts(
+        model,
+        optimizer,
+        scheduler,
+        CKPT_PATH,
+        metadata,
+        epoch=epoch,
+        metric_name="val_mAP",
+        metric_value=val_mAP,
+        best_metric=best_mAP,
+    )
+    if improved:
         print(f"  Best model saved -> {CKPT_PATH}")
 
 print(f"\nBest Validation mAP: {best_mAP:.1f}%")

@@ -2,6 +2,7 @@
 
 from copy import deepcopy
 from datetime import datetime, timezone
+import hashlib
 import json
 import os
 import re
@@ -10,6 +11,17 @@ import subprocess
 
 VALID_RUN_STAGES = ("smoke", "proxy", "formal")
 RUN_TAG_PATTERN = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*\Z")
+RESUME_IDENTITY_KEYS = (
+    "model",
+    "dataset",
+    "architecture",
+    "training",
+    "execution",
+    "data",
+    "pretrained",
+    "best",
+    "checkpoint_sha256",
+)
 
 
 def _run_git(args: list[str], cwd: str | None) -> str | None:
@@ -75,6 +87,24 @@ def training_state_path_for(ckpt_path: str) -> str:
     """Return a last-epoch state path separate from the best checkpoint."""
     base, _ = os.path.splitext(ckpt_path)
     return base + ".last.train_state.pth"
+
+
+def resume_identity_for(metadata: dict) -> dict:
+    """Return the immutable experiment snapshot bound to a training state."""
+    return {
+        key: deepcopy(metadata[key])
+        for key in RESUME_IDENTITY_KEYS
+        if key in metadata
+    }
+
+
+def sha256_file(path: str) -> str:
+    """Return a file SHA-256 without loading the whole artifact into memory."""
+    digest = hashlib.sha256()
+    with open(path, "rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def assert_fresh_output_paths(paths: list[str]) -> None:
