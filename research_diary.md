@@ -8,6 +8,126 @@
 
 ---
 
+## 2026-08-12 — BigEarthNet corrected-kNN GAViT 正式训练与测试
+
+### 一、研究问题与实验身份
+
+- 研究问题：修正 cosine-kNN 的消息方向为 `selected_neighbor -> query` 后，当前 GAViT v2 是否优于历史错误方向结果，并缩小或逆转相对 Swin baseline 的差距。
+- 本次只改变 kNN 消息方向；数据划分、K=16 attentive spatial grouping、k=5、2-layer/4-head GAT、token feedback、优化器和训练轮数保持不变。
+- Git commit：`8cb8563`；训练 metadata 记录 `dirty=false`。
+- Featurize：NVIDIA GeForce RTX 4090（24,564 MiB）。
+- 训练前验证：`python -m unittest discover -s tests -v`，44 tests，全部通过。
+- 工程 smoke：256 train / 128 val，1 epoch，batch size 32；完成 forward、backward、validation 和隔离 checkpoint 保存，峰值 CUDA allocated 3.65 GiB。smoke 指标不作为论文性能证据。
+
+### 二、正式配置与命令
+
+- 数据集：BigEarthNet-19；固定 split 为 Train 237,871 / Val 122,342 / Test 119,825。
+- 预处理：resize 224×224；训练使用随机水平/垂直翻转；ImageNet mean/std normalization。
+- 模型：GAViT v2，31,366,926 参数；Swin-T backbone；K=16 `attentive_spatial`；corrected cosine-kNN `k=5`；GAT hidden=256、4 heads、2 layers；`token_feedback` integration；dropout=0.1。
+- 预训练来源：持久化本地 `bigearth_files/model.safetensors`。
+- 优化：30 epochs，batch size 32，seed 42，AdamW，lr 3e-4，weight decay 1e-4，CosineAnnealingLR，BCEWithLogitsLoss；F1 threshold=0.5。
+
+正式训练命令：
+
+```bash
+nohup python -u -c \
+'import runpy, torch, time; started=time.time(); runpy.run_path("train_bigearth.py", run_name="__main__"); print(f"Peak CUDA allocated: {torch.cuda.max_memory_allocated()/2**30:.2f} GiB"); print(f"Total wall time: {(time.time()-started)/3600:.2f} h")' \
+  --model gavit \
+  --data_dir bigearth_files/splits \
+  --epochs 30 \
+  --batch_size 32 \
+  --lr 3e-4 \
+  --num_regions 16 \
+  --knn_k 5 \
+  --gat_hidden 256 \
+  --gat_heads 4 \
+  --gat_layers 2 \
+  --grouping attentive_spatial \
+  --edge_type knn \
+  --integration token_feedback \
+  --dropout 0.1 \
+  --seed 42 \
+  --run_stage formal \
+  --run_tag corrected_knn_8cb8563_20260811 \
+  --pretrained_path bigearth_files/model.safetensors \
+  --checkpoint_path checkpoints/best_bigearth_gavit_K16_attentive_spatial_knn_k5_token_feedback_seed42_formal_corrected_knn_8cb8563_20260811.pth \
+  > logs/bigearth_gavit_corrected_knn_seed42_8cb8563_20260811.log 2>&1 &
+```
+
+正式测试命令：
+
+```bash
+nohup python -u test_bigearth.py \
+  --model gavit \
+  --data_dir bigearth_files/splits \
+  --ckpt checkpoints/best_bigearth_gavit_K16_attentive_spatial_knn_k5_token_feedback_seed42_formal_corrected_knn_8cb8563_20260811.pth \
+  --batch_size 32 \
+  > logs/bigearth_gavit_corrected_knn_seed42_8cb8563_20260811_test.log 2>&1 &
+```
+
+### 三、训练结果与资源
+
+- 完成 30/30 epochs；无 traceback、OOM 或中途终止。
+- **Best Validation mAP：78.5732%（epoch 17）**。
+- Epoch 30：loss 0.0817，Val mAP 76.7%，Val macro-F1 71.7%。
+- best 后验证 mAP 持续回落，存在明显后期过拟合；测试严格使用 epoch 17 best checkpoint，而不是 epoch 30 last state。
+- 峰值 CUDA allocated：3.65 GiB。
+- 训练总时长：6.49 h；实际费用待确认。
+- 测试：3,745 batches，3:16，19.06 batch/s。
+
+产物：
+
+- 训练日志：`logs/bigearth_gavit_corrected_knn_seed42_8cb8563_20260811.log`
+- 测试日志：`logs/bigearth_gavit_corrected_knn_seed42_8cb8563_20260811_test.log`
+- Best checkpoint：`checkpoints/best_bigearth_gavit_K16_attentive_spatial_knn_k5_token_feedback_seed42_formal_corrected_knn_8cb8563_20260811.pth`（约 120 MB）
+- Metadata：同名 `.meta.json`（best epoch 17，Git `8cb8563`，dirty=false）
+- Last training state：同名 `.last.train_state.pth`（epoch 30，约 360 MB，仅用于精确恢复，不用于本次测试）
+
+### 四、正式测试结果
+
+- **Test macro mAP：70.6%**
+- **Test macro-F1：65.4%**
+- **Test micro-F1：76.6%**
+- 分类阈值：0.5
+
+| Class | AP | vs Swin |
+|---|---:|---:|
+| Urban fabric | 86.2% | -0.3 pp |
+| Industrial or commercial units | 49.5% | -2.9 pp |
+| Arable land | 93.2% | -0.1 pp |
+| Permanent crops | 58.9% | +0.1 pp |
+| Pastures | 86.1% | -0.1 pp |
+| Complex cultivation patterns | 69.0% | +1.0 pp |
+| Land principally occupied by agriculture, with significant areas of natural vegetation | 72.5% | -0.5 pp |
+| Agro-forestry areas | 85.9% | -1.4 pp |
+| Broad-leaved forest | 85.6% | +0.5 pp |
+| Coniferous forest | 93.7% | +0.2 pp |
+| Mixed forest | 88.7% | -0.6 pp |
+| Natural grassland and sparsely vegetated areas | 44.0% | +1.1 pp |
+| Moors, heathland and sclerophyllous vegetation | 62.8% | +6.0 pp |
+| Transitional woodland, shrub | 78.8% | +0.5 pp |
+| Beaches, dunes, sands | 10.1% | -3.2 pp |
+| Inland wetlands | 63.1% | +0.4 pp |
+| Coastal wetlands | 21.8% | -8.5 pp |
+| Inland waters | 91.7% | +0.8 pp |
+| Marine waters | 99.7% | +0.2 pp |
+
+### 五、比较与结论
+
+| Model | Test mAP | Macro-F1 | Micro-F1 | 说明 |
+|---|---:|---:|---:|---|
+| Swin-T baseline | 70.9% | 64.2% | 76.6% | 相同正式 split，seed 42 |
+| Historical GAViT v2 | 70.4% | 待确认 | 待确认 | 修正消息方向前的历史结果 |
+| Corrected-kNN GAViT v2 | 70.6% | 65.4% | 76.6% | 本次正式结果，seed 42 |
+
+1. 修正消息方向后，GAViT 相对历史结果的 test mAP 提升 0.2 pp，说明方向错误有小幅负面影响，但不是性能差距的主要原因。
+2. Corrected GAViT 的 mAP 仍比 Swin 低 0.3 pp；单 seed 下不能声称 graph module 提升总体 mAP。
+3. Macro-F1 比 Swin 高 1.2 pp，micro-F1 持平；类别层面改善和退化并存，其中 Moors/... +6.0 pp，但 Coastal wetlands -8.5 pp。该结果值得在后续拓扑实验中继续观察，不能单独作为模型优越性的证据。
+4. 下一项论文问题应按已批准设计实现并验证 `sparse_hybrid_4n_top2`，以 corrected-kNN 结果作为同预算正式对照。当前代码尚未实现 `edge_type=sparse_hybrid`，不得直接用历史 `hybrid` 冒充。
+5. 在 sparse-hybrid 比较完成前，不追加 corrected-kNN 多 seed，也不启动 gated/cross-attention integration 实验。
+
+---
+
 ## 2026-07-14 — Featurize BigEarthNet Swin baseline 完整训练
 
 ### 一、实验设置
