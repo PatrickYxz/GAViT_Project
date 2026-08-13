@@ -31,7 +31,7 @@ parser.add_argument("--grouping",    type=str, default=None,
 parser.add_argument("--integration", type=str, default=None,
                     choices=["fusion", "token_feedback"])
 parser.add_argument("--edge_type",   type=str, default=None,
-                    choices=["knn", "spatial", "hybrid"])
+                    choices=["knn", "spatial", "hybrid", "sparse_hybrid"])
 parser.add_argument("--num_regions", type=int, default=None)
 parser.add_argument("--knn_k",       type=int, default=None)
 parser.add_argument("--gat_hidden",  type=int, default=None)

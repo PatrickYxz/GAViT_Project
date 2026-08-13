@@ -4,11 +4,15 @@ from torch_geometric.nn import global_mean_pool
 
 from models.swin_backbone      import SwinBackbone
 from models.region_grouping    import KMeansGrouping, SpatialGrouping, AttentiveSpatialGrouping
-from models.graph_construction import build_knn_graph, build_spatial_graph
+from models.graph_construction import (
+    build_knn_graph,
+    build_sparse_hybrid_graph,
+    build_spatial_graph,
+)
 from models.graph_reasoning    import GraphReasoning
 
 VALID_GROUPINGS    = ("attentive_spatial", "spatial", "kmeans")
-VALID_EDGE_TYPES   = ("knn", "spatial", "hybrid")
+VALID_EDGE_TYPES   = ("knn", "spatial", "hybrid", "sparse_hybrid")
 VALID_INTEGRATIONS = ("token_feedback", "fusion")
 
 
@@ -44,7 +48,7 @@ class GAViT(nn.Module):
         gat_layers:      number of stacked GAT layers
         dropout:         dropout rate
         grouping:        'kmeans', 'spatial', or 'attentive_spatial'
-        edge_type:       'knn', 'spatial', or 'hybrid'
+        edge_type:       'knn', 'spatial', 'hybrid', or 'sparse_hybrid'
         integration:     'token_feedback' or 'fusion'
         pretrained:      whether to load ImageNet weights for Swin-T
         pretrained_path: optional local Swin-T pretrained weight file
@@ -78,6 +82,11 @@ class GAViT(nn.Module):
         if edge_type not in VALID_EDGE_TYPES:
             raise ValueError(
                 f"Unknown edge_type={edge_type!r}. Valid: {VALID_EDGE_TYPES}"
+            )
+        if edge_type == "sparse_hybrid" and num_regions != 16:
+            raise ValueError(
+                "edge_type='sparse_hybrid' requires the approved 4x4 grid; "
+                f"observed num_regions={num_regions}"
             )
         if integration not in VALID_INTEGRATIONS:
             raise ValueError(
@@ -165,6 +174,10 @@ class GAViT(nn.Module):
             ei_sp, ew_sp, _      = build_spatial_graph(K, B, x.device)
             edge_index  = torch.cat([ei_knn, ei_sp], dim=1)
             edge_weight = torch.cat([ew_knn, ew_sp], dim=0)
+        elif self.edge_type == "sparse_hybrid":
+            edge_index, edge_weight, batch = build_sparse_hybrid_graph(
+                region_features
+            )
         elif self.edge_type == "knn":
             edge_index, edge_weight, batch = build_knn_graph(
                 region_features, k=self.knn_k

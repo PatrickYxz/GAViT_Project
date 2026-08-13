@@ -68,7 +68,7 @@ parser.add_argument("--gat_layers",   type=int, default=2)
 parser.add_argument("--grouping",     type=str, default="attentive_spatial",
                     choices=["kmeans", "spatial", "attentive_spatial"])
 parser.add_argument("--edge_type",    type=str, default="knn",
-                    choices=["knn", "spatial", "hybrid"])
+                    choices=["knn", "spatial", "hybrid", "sparse_hybrid"])
 parser.add_argument("--integration",  type=str, default="token_feedback",
                     choices=["token_feedback", "fusion"])
 parser.add_argument("--dropout",      type=float, default=0.1)
