@@ -19,13 +19,27 @@ ENTRY_POINTS = (
 )
 
 
-def string_constants(path: Path) -> set[str]:
+def edge_type_choices(path: Path) -> set[str]:
     tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
-    return {
-        node.value
-        for node in ast.walk(tree)
-        if isinstance(node, ast.Constant) and isinstance(node.value, str)
-    }
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.Call):
+            continue
+        if not any(
+            isinstance(argument, ast.Constant) and argument.value == "--edge_type"
+            for argument in node.args
+        ):
+            continue
+        for keyword in node.keywords:
+            if keyword.arg == "choices" and isinstance(
+                keyword.value, (ast.List, ast.Tuple)
+            ):
+                return {
+                    element.value
+                    for element in keyword.value.elts
+                    if isinstance(element, ast.Constant)
+                    and isinstance(element.value, str)
+                }
+    return set()
 
 
 class SparseHybridStaticContractTests(unittest.TestCase):
@@ -33,7 +47,7 @@ class SparseHybridStaticContractTests(unittest.TestCase):
         missing = [
             filename
             for filename in ENTRY_POINTS
-            if "sparse_hybrid" not in string_constants(ROOT / filename)
+            if "sparse_hybrid" not in edge_type_choices(ROOT / filename)
         ]
         self.assertEqual(missing, [])
 
