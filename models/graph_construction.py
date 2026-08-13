@@ -113,3 +113,115 @@ def build_knn_graph(
     batch = torch.arange(B, device=features.device).unsqueeze(1).expand(B, N).reshape(-1)  # (B*N,)
 
     return edge_index, edge_weight, batch
+
+
+def build_sparse_hybrid_graph(
+    features: torch.Tensor,
+    feature_k: int = 2,
+) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    """Build the fixed-budget K=16 sparse spatial-plus-feature graph.
+
+    Each query receives every four-neighbor region in the 4x4 grid plus its
+    two most similar non-spatial regions. Edges use PyG's
+    ``selected_neighbor -> query`` message direction. Spatial edges are
+    emitted before feature edges for each graph so diagnostics can separate
+    the 48/32 edge components without changing GAT computation.
+    """
+    if features.ndim != 3:
+        raise ValueError(
+            f"features must have shape (B, 16, D); observed ndim={features.ndim}"
+        )
+
+    batch_size, num_regions, _ = features.shape
+    if num_regions != 16:
+        raise ValueError(
+            "sparse_hybrid requires the approved 4x4 grid; "
+            f"observed num_regions={num_regions}"
+        )
+    if feature_k != 2:
+        raise ValueError(
+            "sparse_hybrid uses the approved top-2 feature budget; "
+            f"observed feature_k={feature_k}"
+        )
+
+    spatial_sources: list[int] = []
+    spatial_targets: list[int] = []
+    spatial_by_query: list[list[int]] = []
+    for query in range(num_regions):
+        row, col = divmod(query, 4)
+        neighbors = []
+        for delta_row, delta_col in ((-1, 0), (0, -1), (0, 1), (1, 0)):
+            neighbor_row = row + delta_row
+            neighbor_col = col + delta_col
+            if 0 <= neighbor_row < 4 and 0 <= neighbor_col < 4:
+                source = neighbor_row * 4 + neighbor_col
+                neighbors.append(source)
+                spatial_sources.append(source)
+                spatial_targets.append(query)
+        spatial_by_query.append(neighbors)
+
+    spatial_src = torch.tensor(
+        spatial_sources, device=features.device, dtype=torch.long
+    )
+    spatial_tgt = torch.tensor(
+        spatial_targets, device=features.device, dtype=torch.long
+    )
+
+    normalized = F.normalize(features, dim=-1)
+    similarity = torch.bmm(normalized, normalized.transpose(1, 2))
+    candidate_mask = torch.ones(
+        (num_regions, num_regions), device=features.device, dtype=torch.bool
+    )
+    for query, spatial_neighbors in enumerate(spatial_by_query):
+        candidate_mask[query, query] = False
+        candidate_mask[query, spatial_neighbors] = False
+    ranked_similarity = similarity.masked_fill(
+        ~candidate_mask.unsqueeze(0), float("-inf")
+    )
+    # Stable sorting gives the required lower-index tie break because the
+    # candidate axis is already in ascending region-index order.
+    feature_sources = torch.argsort(
+        ranked_similarity, dim=-1, descending=True, stable=True
+    )[:, :, :feature_k]
+    feature_weights = torch.gather(
+        similarity, dim=-1, index=feature_sources
+    )
+    feature_targets = (
+        torch.arange(num_regions, device=features.device)
+        .unsqueeze(1)
+        .expand(num_regions, feature_k)
+    )
+
+    edge_index_list = []
+    edge_weight_list = []
+    for batch_index in range(batch_size):
+        offset = batch_index * num_regions
+        spatial_edges = torch.stack(
+            [spatial_src + offset, spatial_tgt + offset], dim=0
+        )
+        feature_edges = torch.stack(
+            [
+                feature_sources[batch_index].reshape(-1) + offset,
+                feature_targets.reshape(-1) + offset,
+            ],
+            dim=0,
+        )
+        edge_index_list.append(torch.cat([spatial_edges, feature_edges], dim=1))
+        edge_weight_list.append(
+            torch.cat(
+                [
+                    torch.ones(48, device=features.device, dtype=features.dtype),
+                    feature_weights[batch_index].reshape(-1),
+                ]
+            )
+        )
+
+    edge_index = torch.cat(edge_index_list, dim=1)
+    edge_weight = torch.cat(edge_weight_list, dim=0)
+    batch = (
+        torch.arange(batch_size, device=features.device)
+        .unsqueeze(1)
+        .expand(batch_size, num_regions)
+        .reshape(-1)
+    )
+    return edge_index, edge_weight, batch
