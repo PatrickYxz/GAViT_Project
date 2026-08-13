@@ -8,6 +8,54 @@
 
 ---
 
+## 2026-08-13 — sparse_hybrid_4n_top2 本地代码完成，待 Featurize 工程验证
+
+### 研究假设与单一变量
+
+- 研究问题：在与 corrected cosine-kNN 相同的 80 条 pre-GAT 有向边预算下，
+  同时编码空间邻接与非局部特征相似性的稀疏图，是否能提供更符合导师建议、
+  更有意义的区域关系。
+- 唯一改变的主要变量是 graph topology。Swin-T、K=16
+  `attentive_spatial`、2-layer/4-head GAT、`token_feedback`、数据划分、优化器、
+  loss、scheduler、增强和阈值保持不变。
+- 新配置名为 `edge_type=sparse_hybrid`；历史 `edge_type=hybrid` 的 8-neighbor
+  加 kNN 直接拼接行为保持不变，不能用于本实验命名。
+
+### 实现与身份
+
+- 设计规格：`docs/superpowers/specs/2026-07-28-sparse-hybrid-graph-experiment-design.md`。
+- 实施计划 commit：`d53cb1d`。
+- 图构建 commit：`0be936a`。
+- GAViT 与四个 train/test CLI 接线 commit：`79faafa`。
+- 分支：`codex/sparse-hybrid-4n-top2`。
+- 每张 K=16 图构造 48 条四邻接空间边；每个 query 排除 self 和空间邻居后，
+  按 cosine similarity 选择 top-2，共 32 条特征边；合计 80 条唯一有向非自环边。
+- 全部边遵守 PyG 的 `neighbor -> query` 消息方向。cosine 数值只用于选择拓扑，
+  不传入 GAT 作为 message weight；相等分数按较小 region index 决定顺序。
+- `sparse_hybrid` 对 K!=16 和 feature_k!=2 fail closed；checkpoint 名称和
+  metadata 使用独立的 `edge_type=sparse_hybrid` 身份。
+
+### 本地已验证与尚缺验证
+
+- 本地 `python3 -m unittest tests.test_sparse_hybrid_static_contract
+  tests.test_experiment_identity -v`：18 tests 全部通过。
+- 本地 torch-free training-state 合约：10 tests 全部通过。
+- 修改过的 graph/model/train/test/test-suite 文件均通过 `py_compile`；
+  `git diff --check` 通过。
+- 已加入但**尚未在本地执行**的 PyTorch 测试覆盖：80-edge budget、48/32 分解、
+  四邻接无对角线、top-2 排除规则、tie-break、batch offset、无 self/重复/
+  cross-image edge、模型 forward/backward finite gradients，以及 metadata
+  round-trip logits。
+- 原因：本机 Python 环境没有 PyTorch/NumPy，按既定原则未在本地安装；这些
+  张量级测试必须在 Featurize 环境运行后才能标记为通过。
+- Featurize 必跑命令和 256/128、1-epoch smoke gate 已写入
+  `docs/featurize_runbook.md`。待记录：完整测试数量、GPU、峰值显存、throughput、
+  首轮耗时、checkpoint/metadata/last-state 路径和 smoke 结果。
+
+**当前结论：代码已实现，但工程 gate 尚未通过；未启动 proxy 或正式训练。**
+
+---
+
 ## 2026-08-12 — BigEarthNet corrected-kNN GAViT 正式训练与测试
 
 ### 一、研究问题与实验身份
@@ -123,7 +171,7 @@ nohup python -u test_bigearth.py \
 1. 修正消息方向后，GAViT 相对历史结果的 test mAP 提升 0.2 pp，说明方向错误有小幅负面影响，但不是性能差距的主要原因。
 2. Corrected GAViT 的 mAP 仍比 Swin 低 0.3 pp；单 seed 下不能声称 graph module 提升总体 mAP。
 3. Macro-F1 比 Swin 高 1.2 pp，micro-F1 持平；类别层面改善和退化并存，其中 Moors/... +6.0 pp，但 Coastal wetlands -8.5 pp。该结果值得在后续拓扑实验中继续观察，不能单独作为模型优越性的证据。
-4. 下一项论文问题应按已批准设计实现并验证 `sparse_hybrid_4n_top2`，以 corrected-kNN 结果作为同预算正式对照。当前代码尚未实现 `edge_type=sparse_hybrid`，不得直接用历史 `hybrid` 冒充。
+4. 本条形成时的下一项论文问题，是按已批准设计实现并验证 `sparse_hybrid_4n_top2`，以 corrected-kNN 结果作为同预算正式对照；该功能后来已于 2026-08-13 在 `codex/sparse-hybrid-4n-top2` 分支完成本地代码，但仍待 Featurize 工程验证。历史 `hybrid` 仍不得冒充该配置。
 5. 在 sparse-hybrid 比较完成前，不追加 corrected-kNN 多 seed，也不启动 gated/cross-attention integration 实验。
 
 ---

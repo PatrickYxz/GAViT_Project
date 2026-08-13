@@ -271,6 +271,85 @@ mv checkpoints/best_bigearth_swin.pth \
 
 如果正式 checkpoint 已存在，不要运行这条 `mv`；先确认文件时间和实验身份，避免覆盖有效结果。
 
+## Sparse Hybrid 4N Top-2 Engineering Gate
+
+`edge_type=sparse_hybrid` 只适用于 K=16。每张图必须构造 48 条双向物化的
+四邻接空间边，以及 32 条排除空间邻居后的 cosine top-2 特征边，总计 80 条
+唯一的有向非自环边。边方向必须为 `neighbor -> query`。这与 corrected-kNN
+的 80 条边保持相同的 pre-GAT 边数预算。
+
+先同步到包含 sparse-hybrid 实现和本段 runbook 的干净 Git commit，再检查身份：
+
+```bash
+cd /home/featurize/work/GAViT_Project
+git status --short --branch
+git rev-parse --short HEAD
+```
+
+在任何 smoke、proxy 或正式训练前，必须先运行完整测试：
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+重点确认以下张量级测试真实执行并通过，不能只看到其他测试为 green：
+
+- `tests.test_graph_construction.BuildSparseHybridGraphTests`
+- `tests.test_sparse_hybrid_model.SparseHybridModelTests`
+- `tests.test_checkpoint_roundtrip.CheckpointRoundTripTests`
+- `tests.test_checkpoint_roundtrip.TrainingStateTests`
+
+完整测试存在任何 error、failure 或 skipped sparse-hybrid test 时停止，不运行
+smoke。测试通过后，确认 256/128 的一次性 split 已按前文建立，然后以前台方式
+运行一轮，便于直接观察失败：
+
+```bash
+GAVIT_COMMIT=$(git rev-parse --short HEAD)
+
+python -u -c \
+'import runpy, torch, time; started=time.time(); runpy.run_path("train_bigearth.py", run_name="__main__"); print(f"Peak CUDA allocated: {torch.cuda.max_memory_allocated()/2**30:.2f} GiB"); print(f"Total wall time: {(time.time()-started)/3600:.2f} h")' \
+  --model gavit \
+  --data_dir /home/featurize/data/BigEarthNet-RGB_split_smoke \
+  --epochs 1 \
+  --batch_size 32 \
+  --lr 3e-4 \
+  --num_regions 16 \
+  --knn_k 5 \
+  --gat_hidden 256 \
+  --gat_heads 4 \
+  --gat_layers 2 \
+  --grouping attentive_spatial \
+  --edge_type sparse_hybrid \
+  --integration token_feedback \
+  --dropout 0.1 \
+  --seed 42 \
+  --run_stage smoke \
+  --run_tag "sparse_hybrid_4n_top2_${GAVIT_COMMIT}_smoke" \
+  --pretrained_path bigearth_files/model.safetensors \
+  --checkpoint_path "checkpoints/best_bigearth_gavit_sparse_hybrid_4n_top2_seed42_smoke_${GAVIT_COMMIT}.pth"
+```
+
+在另一个终端同时检查：
+
+```bash
+nvidia-smi --query-compute-apps=pid,process_name,used_memory \
+  --format=csv,noheader
+```
+
+smoke gate 只有同时满足以下条件才通过：
+
+- 日志确认 `Device: cuda`，模型为 GAViT，配置为 K=16、
+  `attentive_spatial`、`sparse_hybrid`、`token_feedback`。
+- 首个训练 batch、forward、backward 和 optimizer step 正常完成。
+- 1 epoch 训练和 128-sample validation 正常结束，无 NaN、Inf、OOM 或 traceback。
+- 独立的 best checkpoint、`.meta.json` 和 `.last.train_state.pth` 均已保存；
+  metadata 中 `architecture.edge_type` 为 `sparse_hybrid`。
+- 已记录峰值显存、首轮总耗时和 warmed throughput，并据此估算 proxy/正式成本。
+- smoke checkpoint 路径没有覆盖 corrected-kNN 或任何正式产物。
+
+在上述测试和 smoke 结果写入 `research_diary.md` 前，禁止启动五轮 proxy 或
+30 轮正式训练。smoke 指标只证明工程路径可运行，不能写入论文性能比较表。
+
 ## Full Training
 
 Featurize 不是 SLURM 集群，不使用 `sbatch`。经过 smoke test 后，Swin baseline 的已验证后台命令为：
@@ -317,10 +396,13 @@ ls -lh checkpoints/best_bigearth_swin.pth
 grep -E 'Epoch \[|Best Validation' logs/bigearth_swin.log | tail -n 15
 ```
 
-`--resume` 只恢复模型权重，不恢复 optimizer 或 scheduler 状态。使用前先从日志确定中断 epoch，并在研究日志中记录恢复边界：
+当前 `--resume` 必须同时找到匹配 metadata 的 `.last.train_state.pth`，并精确
+恢复 model、optimizer、scheduler、下一 epoch 和 best metric。metadata、架构
+或 checkpoint hash 不匹配会 fail closed；不要绕过校验，也不要回退到仅加载
+best 权重的历史恢复方式：
 
 ```bash
-python train_bigearth.py --resume --start_epoch N [其他原始参数]
+python train_bigearth.py --resume [与原实验完全一致的参数]
 ```
 
 ## Evaluation
@@ -378,4 +460,6 @@ ls -lh bigearth_files/model.safetensors
 
 ### checkpoint 被覆盖
 
-smoke test 和正式训练默认使用相同 checkpoint 名。启动前查看文件时间、大小和日志，并给 smoke checkpoint 改名。不要覆盖已经验证的 `best_bigearth_swin.pth`。
+当前正式入口用 `run_stage` 和 `run_tag` 隔离 artifact，并拒绝 fresh run 的路径
+碰撞。历史临时入口可能仍使用旧命名；启动前始终检查 checkpoint、metadata、
+last-state 和日志路径，不要覆盖已经验证的正式产物。
