@@ -15,6 +15,7 @@ RESUME_IDENTITY_KEYS = (
     "model",
     "dataset",
     "architecture",
+    "graph_topology",
     "training",
     "execution",
     "data",
@@ -22,6 +23,35 @@ RESUME_IDENTITY_KEYS = (
     "best",
     "checkpoint_sha256",
 )
+
+
+def graph_topology_identity(edge_type: str, *, knn_k: int) -> dict:
+    """Return an explicit, serializable description of graph construction."""
+    shared = {
+        "message_direction": "neighbor_to_query",
+        "cosine_role": "topology_only",
+    }
+    if edge_type == "sparse_hybrid":
+        return {
+            "name": "sparse_hybrid_4n_top2",
+            "spatial_connectivity": 4,
+            "feature_k": 2,
+            "spatial_directed_edges": 48,
+            "feature_directed_edges": 32,
+            "total_directed_edges": 80,
+            **shared,
+        }
+    if edge_type == "knn":
+        return {
+            "name": "corrected_knn",
+            "feature_k": knn_k,
+            **shared,
+        }
+    return {
+        "name": edge_type,
+        "knn_k": knn_k,
+        **shared,
+    }
 
 
 def _run_git(args: list[str], cwd: str | None) -> str | None:

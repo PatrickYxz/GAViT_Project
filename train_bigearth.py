@@ -31,6 +31,7 @@ from sklearn.metrics import average_precision_score, f1_score
 from experiment_identity import (
     assert_clean_git_state,
     assert_fresh_output_paths,
+    graph_topology_identity,
     get_git_state,
     metadata_path_for,
     training_state_path_for,
@@ -285,6 +286,10 @@ metadata = resume_metadata or {
     "model":   args.model,
     "dataset": "BigEarthNet-19",
     "architecture": ARCHITECTURE,
+    "graph_topology": (
+        graph_topology_identity(args.edge_type, knn_k=args.knn_k)
+        if args.model == "gavit" else None
+    ),
     "training": {
         "seed":         SEED,
         "epochs":       args.epochs,

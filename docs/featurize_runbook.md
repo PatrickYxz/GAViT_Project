@@ -343,7 +343,11 @@ smoke gate 只有同时满足以下条件才通过：
 - 首个训练 batch、forward、backward 和 optimizer step 正常完成。
 - 1 epoch 训练和 128-sample validation 正常结束，无 NaN、Inf、OOM 或 traceback。
 - 独立的 best checkpoint、`.meta.json` 和 `.last.train_state.pth` 均已保存；
-  metadata 中 `architecture.edge_type` 为 `sparse_hybrid`。
+  metadata 中 `architecture.edge_type` 为 `sparse_hybrid`，且
+  `graph_topology` 明确记录 `name=sparse_hybrid_4n_top2`、`feature_k=2`、
+  `spatial_directed_edges=48`、`feature_directed_edges=32` 和
+  `total_directed_edges=80`。CLI 的 `--knn_k 5` 用于保持控制组命令兼容，
+  不代表 sparse-hybrid 使用五条特征边。
 - 已记录峰值显存、首轮总耗时和 warmed throughput，并据此估算 proxy/正式成本。
 - smoke checkpoint 路径没有覆盖 corrected-kNN 或任何正式产物。
 

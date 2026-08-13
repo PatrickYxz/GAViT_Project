@@ -27,6 +27,48 @@ def require_helper(module, name):
 
 
 class CheckpointIdentityTests(unittest.TestCase):
+    def test_sparse_hybrid_topology_identity_is_explicit(self):
+        identity = load_identity_module()
+
+        self.assertEqual(
+            identity.graph_topology_identity("sparse_hybrid", knn_k=5),
+            {
+                "name": "sparse_hybrid_4n_top2",
+                "spatial_connectivity": 4,
+                "feature_k": 2,
+                "spatial_directed_edges": 48,
+                "feature_directed_edges": 32,
+                "total_directed_edges": 80,
+                "message_direction": "neighbor_to_query",
+                "cosine_role": "topology_only",
+            },
+        )
+
+    def test_knn_topology_identity_uses_configured_neighbor_count(self):
+        identity = load_identity_module()
+
+        self.assertEqual(
+            identity.graph_topology_identity("knn", knn_k=5),
+            {
+                "name": "corrected_knn",
+                "feature_k": 5,
+                "message_direction": "neighbor_to_query",
+                "cosine_role": "topology_only",
+            },
+        )
+
+    def test_resume_identity_binds_graph_topology_snapshot(self):
+        identity = load_identity_module()
+        metadata = {
+            "model": "gavit",
+            "graph_topology": {"name": "sparse_hybrid_4n_top2"},
+        }
+
+        self.assertEqual(
+            identity.resume_identity_for(metadata),
+            metadata,
+        )
+
     def test_checkpoint_identity_accepts_exact_match(self):
         identity = load_identity_module()
         metadata = {

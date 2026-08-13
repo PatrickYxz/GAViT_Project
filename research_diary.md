@@ -33,7 +33,10 @@
 - 全部边遵守 PyG 的 `neighbor -> query` 消息方向。cosine 数值只用于选择拓扑，
   不传入 GAT 作为 message weight；相等分数按较小 region index 决定顺序。
 - `sparse_hybrid` 对 K!=16 和 feature_k!=2 fail closed；checkpoint 名称和
-  metadata 使用独立的 `edge_type=sparse_hybrid` 身份。
+  metadata 使用独立的 `edge_type=sparse_hybrid` 身份，并显式保存
+  `graph_topology` 的 4-neighbor、feature_k=2、48/32/80 和消息方向快照；
+  `--knn_k 5` 只是与 corrected-kNN 控制命令保持兼容，不表示本拓扑选择五条
+  feature edges。resume identity 同时绑定该 topology 快照。
 
 ### 本地已验证与尚缺验证
 

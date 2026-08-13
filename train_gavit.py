@@ -23,6 +23,7 @@ from experiment_identity import (
     assert_clean_git_state,
     assert_fresh_output_paths,
     get_git_state,
+    graph_topology_identity,
     metadata_path_for,
     validate_run_stage,
     validate_run_tag,
@@ -180,6 +181,7 @@ metadata = {
         "integration": INTEGRATION,
         "freeze_backbone": FREEZE_BACKBONE,
     },
+    "graph_topology": graph_topology_identity(EDGE_TYPE, knn_k=KNN_K),
     "training": {
         "seed":        SEED,
         "epochs":      EPOCHS,

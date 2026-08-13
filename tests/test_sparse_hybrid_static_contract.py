@@ -17,6 +17,7 @@ ENTRY_POINTS = (
     "train_gavit.py",
     "test_gavit.py",
 )
+TRAIN_ENTRY_POINTS = ("train_bigearth.py", "train_gavit.py")
 
 
 def edge_type_choices(path: Path) -> set[str]:
@@ -60,6 +61,22 @@ class SparseHybridStaticContractTests(unittest.TestCase):
             if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
         }
         self.assertIn("build_sparse_hybrid_graph", calls)
+
+    def test_train_entry_points_record_explicit_graph_topology(self):
+        missing = []
+        for filename in TRAIN_ENTRY_POINTS:
+            tree = ast.parse(
+                (ROOT / filename).read_text(encoding="utf-8"),
+                filename=filename,
+            )
+            calls = {
+                node.func.id
+                for node in ast.walk(tree)
+                if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
+            }
+            if "graph_topology_identity" not in calls:
+                missing.append(filename)
+        self.assertEqual(missing, [])
 
 
 if __name__ == "__main__":
