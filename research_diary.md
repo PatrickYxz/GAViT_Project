@@ -27,6 +27,8 @@
 - 实施计划 commit：`d53cb1d`。
 - 图构建 commit：`0be936a`。
 - GAViT 与四个 train/test CLI 接线 commit：`79faafa`。
+- CLI/topology 静态契约收紧 commit：`2c3f85b`。
+- 显式 topology metadata 与 resume identity commit：`3bfd8d5`。
 - 分支：`codex/sparse-hybrid-4n-top2`。
 - 每张 K=16 图构造 48 条四邻接空间边；每个 query 排除 self 和空间邻居后，
   按 cosine similarity 选择 top-2，共 32 条特征边；合计 80 条唯一有向非自环边。
