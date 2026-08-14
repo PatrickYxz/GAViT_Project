@@ -8,6 +8,68 @@
 
 ---
 
+## 2026-08-14 — sparse_hybrid_4n_top2 Featurize 工程 gate 通过
+
+### 实验身份与验证环境
+
+- 分支：`codex/sparse-hybrid-4n-top2`；Git commit：`a28cbe1`。
+- Featurize GPU：NVIDIA GeForce RTX 4090（24,564 MiB）。
+- 固定 BigEarthNet-19 split 已核对：train 237,871 / val 122,342 /
+  test 119,825；原始图像位于实例本地
+  `/home/featurize/data/BigEarthNet-S2`。
+- 完整测试命令：`python -m unittest discover -s tests -v`。
+- 测试结果：59 tests，1.879 s，全部通过；无 failure、error 或 skipped
+  sparse-hybrid test。覆盖了 48/32/80 edge budget、top-2 排除规则、稳定
+  tie-break、batch offset、forward/backward finite gradients、checkpoint metadata
+  round-trip 和 training-state 恢复约束。
+
+### Smoke 配置与结果
+
+- 数据：一次性 256 train / 128 val split；1 epoch；batch size 32；seed 42。
+- 模型：GAViT，31,366,926 参数；Swin-T backbone；K=16
+  `attentive_spatial`；2-layer/4-head GAT（hidden 256）；
+  `edge_type=sparse_hybrid`；`token_feedback`；dropout 0.1。
+- 预训练权重：`bigearth_files/model.safetensors`；AdamW，lr `3e-4`，
+  weight decay `1e-4`，CosineAnnealingLR，BCEWithLogitsLoss。
+- run stage：`smoke`；run tag：
+  `sparse_hybrid_4n_top2_a28cbe1_smoke_retry_20260814_125255`。
+- 训练完成 8/8 batches，tqdm 平均 5.75 batch/s；该短跑吞吐仅用于工程
+  估算，不作为正式效率结果。
+- Epoch 1 loss：0.3408；Val macro mAP：47.7286%；Val macro-F1：15.9%。
+- 峰值 CUDA allocated：3.65 GiB；总 wall time：8.07 s。
+- 无 NaN、Inf、OOM 或 traceback；forward、backward、optimizer step、validation
+  和 artifact save 均完成。
+
+### 拓扑与产物验证
+
+- metadata 中 `architecture.edge_type=sparse_hybrid`。
+- `graph_topology` 明确记录：`name=sparse_hybrid_4n_top2`、
+  `spatial_connectivity=4`、`feature_k=2`、48 条空间有向边、32 条特征有向边、
+  总计 80 条唯一有向边、`message_direction=neighbor_to_query`、
+  `cosine_role=topology_only`。
+- Best checkpoint（约 120 MB）：
+  `checkpoints/best_bigearth_gavit_sparse_hybrid_4n_top2_a28cbe1_smoke_retry_20260814_125255.pth`。
+- Metadata（约 1.4 KB）：同 stem 的 `.meta.json`；best metric 为
+  `val_mAP=47.7286`，best epoch 1。
+- Last training state（约 360 MB）：同 stem 的 `.last.train_state.pth`；
+  last epoch 1，`best_metric=47.7285909477752`。
+- 日志：
+  `logs/sparse_hybrid_4n_top2_a28cbe1_smoke_retry_20260814_125255.log`。
+- 独立 artifact 校验脚本完成文件存在性、architecture、topology、best epoch 和
+  last-state 断言，输出 `SMOKE ARTIFACT VERIFICATION: OK`。
+
+### 异常与结论
+
+- 首次 smoke 在训练 8/8 后、无进度条的 validation 阶段被手动 `Ctrl+C`
+  中断，因此只写入初始 metadata（`best=None`），没有 checkpoint 或 last state；
+  使用新的 run identity 重试后完整通过。该中断不是模型或拓扑故障。
+- **工程 gate 已通过。** Smoke 指标只证明运行路径和产物契约正确，不进入
+  `results/bigearth_comparison.csv`，也不作为论文性能证据。
+- 下一步按既定漏斗运行固定 seed 42 的 5-epoch proxy；proxy 之前不启动 30-epoch
+  formal，也不追加其他拓扑或 integration 变量。
+
+---
+
 ## 2026-08-13 — sparse_hybrid_4n_top2 本地代码完成，待 Featurize 工程验证
 
 ### 研究假设与单一变量
