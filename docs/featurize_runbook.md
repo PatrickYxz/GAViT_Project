@@ -354,6 +354,112 @@ smoke gate 只有同时满足以下条件才通过：
 在上述测试和 smoke 结果写入 `research_diary.md` 前，禁止启动五轮 proxy 或
 30 轮正式训练。smoke 指标只证明工程路径可运行，不能写入论文性能比较表。
 
+## Fixed 10% Proxy Split and Five-Epoch Gate
+
+Sparse-hybrid smoke 通过并写入 `research_diary.md` 后，生成一次固定的 10%
+train/val proxy split。生成器在 seeds 42--141 的 100 个均匀随机候选中，选择
+train/val 共 38 个类别 prevalence 最大偏差最小的候选；缺少任何正类的候选会
+被拒绝。proxy 不读取 test split，生成结果供后续所有候选架构复用。
+
+先确认分支干净并运行完整测试：
+
+```bash
+cd /home/featurize/work/GAViT_Project
+git status --short --branch
+git rev-parse --short HEAD
+python -m unittest discover -s tests -v
+```
+
+生成持久化 proxy split；目标目录非空时脚本会拒绝覆盖：
+
+```bash
+python baselines/bigearth/prepare_proxy_split.py \
+  --input_dir bigearth_files/splits \
+  --output_dir bigearth_files/proxy_10pct_seed42 \
+  --fraction 0.1 \
+  --seed_start 42 \
+  --candidate_count 100
+```
+
+当前正式 split 的预期 proxy 行数为 23,787 train / 12,234 val，不包含表头。
+使用报告中的 SHA256、正类计数和行数做独立验证：
+
+```bash
+python - <<'PY'
+import csv
+import hashlib
+import json
+from pathlib import Path
+
+root = Path("bigearth_files/proxy_10pct_seed42")
+with (root / "prevalence.json").open(encoding="utf-8") as f:
+    report = json.load(f)
+
+expected_rows = {"train": 23787, "val": 12234}
+for split, expected in expected_rows.items():
+    csv_path = root / f"{split}.csv"
+    with csv_path.open(encoding="utf-8", newline="") as f:
+        rows = sum(1 for _ in csv.reader(f)) - 1
+    digest = hashlib.sha256(csv_path.read_bytes()).hexdigest()
+    split_report = report["splits"][split]
+    assert rows == expected == split_report["proxy_rows"]
+    assert digest == split_report["output_sha256"]
+    assert all(
+        item["proxy_positive_count"] > 0
+        for item in split_report["labels"].values()
+    )
+
+assert report["seed_start"] == 42
+assert report["seed_end"] == 141
+assert report["candidate_count"] == 100
+print("Selected seed:", report["selected_seed"])
+print("Maximum prevalence deviation:", report["selected_score"])
+print("PROXY SPLIT VERIFICATION: OK")
+PY
+```
+
+验证通过后，前台运行固定 seed 42 的五轮 sparse-hybrid proxy：
+
+```bash
+GAVIT_COMMIT=$(git rev-parse --short HEAD)
+PROXY_ID="sparse_hybrid_4n_top2_${GAVIT_COMMIT}_proxy_$(date +%Y%m%d_%H%M%S)"
+PROXY_CKPT="checkpoints/best_bigearth_gavit_${PROXY_ID}.pth"
+PROXY_LOG="logs/${PROXY_ID}.log"
+
+mkdir -p checkpoints logs
+set -o pipefail
+
+python -u -c \
+'import runpy, torch, time; started=time.time(); runpy.run_path("train_bigearth.py", run_name="__main__"); print(f"Peak CUDA allocated: {torch.cuda.max_memory_allocated()/2**30:.2f} GiB"); print(f"Wall time: {time.time()-started:.2f} s")' \
+  --model gavit \
+  --data_dir bigearth_files/proxy_10pct_seed42 \
+  --epochs 5 \
+  --batch_size 32 \
+  --lr 3e-4 \
+  --num_regions 16 \
+  --knn_k 5 \
+  --gat_hidden 256 \
+  --gat_heads 4 \
+  --gat_layers 2 \
+  --grouping attentive_spatial \
+  --edge_type sparse_hybrid \
+  --integration token_feedback \
+  --dropout 0.1 \
+  --seed 42 \
+  --run_stage proxy \
+  --run_tag "$PROXY_ID" \
+  --pretrained_path bigearth_files/model.safetensors \
+  --checkpoint_path "$PROXY_CKPT" \
+  2>&1 | tee "$PROXY_LOG"
+```
+
+训练期间在另一个终端检查 GPU 进程。五轮必须全部完成，且无 NaN、Inf、OOM、
+traceback、validation 或 checkpoint 失败。结束后确认 best checkpoint、
+`.meta.json`、`.last.train_state.pth` 和日志均存在，并把五轮指标、selected proxy
+seed、prevalence report hash、峰值显存、吞吐和 wall time 写入
+`research_diary.md`。proxy 指标不得写入 `results/bigearth_comparison.csv`；只要
+训练稳定，下一步仍是全量 30 轮正式 sparse-hybrid 对比。
+
 ## Full Training
 
 Featurize 不是 SLURM 集群，不使用 `sbatch`。经过 smoke test 后，Swin baseline 的已验证后台命令为：
