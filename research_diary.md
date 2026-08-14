@@ -86,8 +86,38 @@
   阶段报 `ModuleNotFoundError: torch`；这不是代码回归。Featurize 拉取实现后仍须
   运行完整 suite，预期总数由 59 增至 71，全部通过后才能生成 proxy split。
 - 生成、独立 hash/row/prevalence 校验和五轮前台训练命令已写入
-  `docs/featurize_runbook.md`；实际 selected proxy seed、分布报告 hash、五轮
-  指标、吞吐、显存和 wall time 待 Featurize 运行后补记。
+  `docs/featurize_runbook.md`；实际运行结果记录如下，分布报告 SHA256 尚待补记。
+
+### Fixed 10% proxy 实际运行结果
+
+- Featurize 在 commit `cd39be9` 上运行完整测试：71 tests，1.512 s，全部通过。
+- 生成器从 seeds 42--141 中选择 seed 137；train 23,787 / val 12,234；
+  train/val 共 38 个类别 prevalence 的最大绝对偏差为 `0.00394910`
+  （约 0.395 个百分点）。输出目录：
+  `bigearth_files/proxy_10pct_seed42`。独立报告 SHA256 待补记。
+- Proxy run stage：`proxy`；run tag：
+  `sparse_hybrid_4n_top2_cd39be9_proxy_20260814_133423`；训练 seed 42。
+- 模型和优化配置与计划一致：GAViT、K=16 `attentive_spatial`、
+  `sparse_hybrid` 4-neighbor + top-2、2-layer/4-head GAT、
+  `token_feedback`、batch size 32、lr `3e-4`、5 epochs。
+- 每轮 744 个训练 batch；训练吞吐依次为 13.68、13.80、13.88、13.89、
+  13.84 batch/s。Epoch 1--5 的 loss 为 0.2234、0.1852、0.1673、0.1492、
+  0.1330；Val macro mAP 为 65.5%、67.9%、70.7%、73.7%、74.8%；
+  Val macro-F1 为 56.3%、60.1%、60.7%、64.7%、67.3%。
+- Best Validation mAP：74.8325%（epoch 5）；峰值 CUDA allocated：3.65 GiB；
+  总 wall time：345.48 s（5.76 min，平均 69.10 s/epoch）。无 OOM、NaN、
+  traceback 或指标退化，loss 单调下降且 mAP/F1 总体持续上升。
+- Best checkpoint 保存到
+  `checkpoints/best_bigearth_gavit_sparse_hybrid_4n_top2_cd39be9_proxy_20260814_133423.pth`；
+  训练日志为 `logs/sparse_hybrid_4n_top2_cd39be9_proxy_20260814_133423.log`。
+  独立 artifact 校验确认同 stem 的 `.meta.json` 和 `.last.train_state.pth`
+  可读取；metadata best 为 `val_mAP=74.8325`、epoch 5，last state epoch 5，
+  Git identity 为 commit `cd39be9`、`dirty=false`，输出
+  `PROXY ARTIFACT VERIFICATION: OK`。
+- **多轮学习稳定性 proxy gate 已通过。** 该结果只支持启动固定 seed 42 的
+  全量 30-epoch formal；不与全量 corrected-kNN 指标直接比较，也不进入论文
+  结果表。按数据规模和本次 wall time 线性外推，formal 约 5.76 h；这是启动前
+  成本估算，不是实际耗时。
 
 ---
 
