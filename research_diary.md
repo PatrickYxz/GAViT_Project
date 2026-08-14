@@ -68,6 +68,27 @@
 - 下一步按既定漏斗运行固定 seed 42 的 5-epoch proxy；proxy 之前不启动 30-epoch
   formal，也不追加其他拓扑或 integration 变量。
 
+### Fixed 10% proxy 基础设施
+
+- 为避免直接付费运行全量五轮，已批准固定 10% train/val、5 epochs、training
+  seed 42 的 proxy 协议；proxy 只检查多轮学习稳定性，不替代全量 30-epoch
+  formal，也不进入论文结果表。
+- 设计 commit：`2ab6026`；实现 commit：`3f82563`。
+- 新增 `baselines/bigearth/prepare_proxy_split.py`：从 seeds 42--141 的 100 个
+  均匀随机候选中选择 train/val 共 38 个类别 prevalence 最大偏差最小者；任何
+  split 缺少正类的候选 fail closed，分数相同选择较小 seed。
+- 预期输出到 `bigearth_files/proxy_10pct_seed42`：23,787 train / 12,234 val、
+  `prevalence.json`、输入/输出 SHA256、每类正例数与 prevalence deviation；
+  test split 不参与生成或 proxy 训练，已有输出不会被覆盖。
+- 本地标准库定向测试：12 tests 全部通过；相关 torch-free 套件：53 tests
+  全部通过；生成器和测试通过 `py_compile`，`git diff --check` 通过。
+- 本地完整 discover 因环境没有 PyTorch，三个 PyTorch test module 在 import
+  阶段报 `ModuleNotFoundError: torch`；这不是代码回归。Featurize 拉取实现后仍须
+  运行完整 suite，预期总数由 59 增至 71，全部通过后才能生成 proxy split。
+- 生成、独立 hash/row/prevalence 校验和五轮前台训练命令已写入
+  `docs/featurize_runbook.md`；实际 selected proxy seed、分布报告 hash、五轮
+  指标、吞吐、显存和 wall time 待 Featurize 运行后补记。
+
 ---
 
 ## 2026-08-13 — sparse_hybrid_4n_top2 本地代码完成，待 Featurize 工程验证
