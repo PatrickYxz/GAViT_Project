@@ -8,6 +8,150 @@
 
 ---
 
+## 2026-08-17 — BigEarthNet sparse-hybrid 正式训练与测试（seed 42）
+
+### 一、研究问题与实验身份
+
+- 研究假设：在与 corrected cosine-kNN 相同的 80 条有向边预算下，以 48 条
+  K=16 四邻接空间边和 32 条排除空间邻居后的 cosine top-2 特征边组成
+  `sparse_hybrid_4n_top2`，能比纯 corrected-kNN 提供更有效的区域关系。
+- 唯一主要变量是 graph topology；backbone、grouping、region 数、GAT、
+  integration、数据划分、优化和 seed 均与 corrected-kNN control 保持一致。
+- 论文用途：进入 `results/bigearth_comparison.csv`，作为 BigEarthNet edge
+  topology 消融和候选最佳 GAViT；本条仍是单 seed 结果。
+- 分支：`codex/sparse-hybrid-4n-top2`；训练 Git commit：`cd39be9`；
+  metadata 记录 `dirty=false`。
+- run stage：`formal`；run tag：
+  `sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654`；seed 42。
+
+### 二、数据、模型与优化
+
+- BigEarthNet-19 固定 split：train 237,871 / val 122,342 / test 119,825。
+  正式测试前逐行验证 test CSV 所需 B02/B03/B04 文件：119,825/119,825
+  patch 完整，0 missing。
+- 预处理：resize 224x224；训练随机水平/垂直翻转；ImageNet mean/std
+  normalization。
+- 模型：GAViT，31,366,926 参数；Swin-T backbone；K=16
+  `attentive_spatial`；2-layer/4-head GAT（hidden 256）；dropout 0.1；
+  `token_feedback` integration。
+- 图：`edge_type=sparse_hybrid`；48 spatial + 32 feature = 80 条唯一有向边；
+  feature top-2；`neighbor_to_query`；cosine 只决定拓扑。
+- 预训练：`bigearth_files/model.safetensors`。
+- 优化：30 epochs，batch size 32，AdamW，lr `3e-4`，weight decay `1e-4`，
+  CosineAnnealingLR，BCEWithLogitsLoss；分类阈值 0.5。
+
+正式训练命令：
+
+```bash
+nohup python -u -c \
+'import runpy, torch, time; started=time.time(); runpy.run_path("train_bigearth.py", run_name="__main__"); print(f"Peak CUDA allocated: {torch.cuda.max_memory_allocated()/2**30:.2f} GiB"); print(f"Total wall time: {(time.time()-started)/3600:.2f} h")' \
+  --model gavit \
+  --data_dir bigearth_files/splits \
+  --epochs 30 \
+  --batch_size 32 \
+  --lr 3e-4 \
+  --num_regions 16 \
+  --knn_k 5 \
+  --gat_hidden 256 \
+  --gat_heads 4 \
+  --gat_layers 2 \
+  --grouping attentive_spatial \
+  --edge_type sparse_hybrid \
+  --integration token_feedback \
+  --dropout 0.1 \
+  --seed 42 \
+  --run_stage formal \
+  --run_tag sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654 \
+  --pretrained_path bigearth_files/model.safetensors \
+  --checkpoint_path checkpoints/best_bigearth_gavit_sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654.pth \
+  > logs/sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654.log 2>&1 &
+```
+
+### 三、训练结果与资源
+
+- 完成 30/30 epochs；无 traceback、OOM、NaN 或中途终止。
+- **Best Validation mAP：79.2087%（epoch 13）**；metadata 和 last state 的
+  best metric 一致，last state epoch 30。
+- Epoch 13 后训练 loss 继续下降，但验证 mAP 总体回落；epoch 17 短暂回到
+  78.9%，未超过 best。Epoch 30：loss 0.0834、Val mAP 76.9%、Val macro-F1
+  71.8%；相对 best mAP 下降 2.31 pp，存在明确后期过拟合。
+- 前五轮 Val mAP：74.3%、76.4%、76.9%、78.0%、78.1%；epoch 7 为 78.8%，
+  epoch 13 达峰；epoch 20--30 位于 76.9%--77.7%。测试严格使用 epoch 13
+  best checkpoint，而非 epoch 30 last state。
+- 训练设备：NVIDIA GeForce RTX 4090（24,564 MiB）；启动阶段约
+  14.10 train batch/s；峰值 CUDA allocated 3.65 GiB；总 wall time 6.64 h，
+  平均 wall time 约 13.28 min/epoch；实际费用待确认。
+- 训练日志：
+  `logs/sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654.log`。
+- Best checkpoint：
+  `checkpoints/best_bigearth_gavit_sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654.pth`；
+  同 stem 保存 `.meta.json` 和 `.last.train_state.pth`。
+
+### 四、正式测试
+
+正式测试命令：
+
+```bash
+nohup python -u -c \
+'import runpy, torch, time; started=time.time(); runpy.run_path("test_bigearth.py", run_name="__main__"); print(f"Peak CUDA allocated: {torch.cuda.max_memory_allocated()/2**30:.2f} GiB"); print(f"Test wall time: {time.time()-started:.2f} s")' \
+  --model gavit \
+  --data_dir bigearth_files/splits \
+  --ckpt checkpoints/best_bigearth_gavit_sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654.pth \
+  --batch_size 32 \
+  > logs/sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654_test_rtx3060_20260817_114017.log 2>&1 &
+```
+
+- 测试设备：NVIDIA GeForce RTX 3060（12,288 MiB）；3,745 batches；tqdm
+  10:33，5.91 batch/s；端到端 wall time 665.55 s（11.09 min）；峰值 CUDA
+  allocated 0.60 GiB。
+- **Test macro mAP：72.0%；macro-F1：66.0%；micro-F1：76.7%。**
+- 测试日志：
+  `logs/sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654_test_rtx3060_20260817_114017.log`。
+
+| Class | Sparse-hybrid AP | vs corrected-kNN | vs Swin |
+|---|---:|---:|---:|
+| Urban fabric | 86.3% | +0.1 pp | -0.2 pp |
+| Industrial or commercial units | 51.1% | +1.6 pp | -1.3 pp |
+| Arable land | 93.8% | +0.6 pp | +0.5 pp |
+| Permanent crops | 61.2% | +2.3 pp | +2.4 pp |
+| Pastures | 85.8% | -0.3 pp | -0.4 pp |
+| Complex cultivation patterns | 70.1% | +1.1 pp | +2.1 pp |
+| Land principally occupied by agriculture, with significant areas of natural vegetation | 73.7% | +1.2 pp | +0.7 pp |
+| Agro-forestry areas | 87.1% | +1.2 pp | -0.2 pp |
+| Broad-leaved forest | 86.0% | +0.4 pp | +0.9 pp |
+| Coniferous forest | 93.5% | -0.2 pp | +0.0 pp |
+| Mixed forest | 89.8% | +1.1 pp | +0.5 pp |
+| Natural grassland and sparsely vegetated areas | 42.1% | -1.9 pp | -0.8 pp |
+| Moors, heathland and sclerophyllous vegetation | 61.8% | -1.0 pp | +5.0 pp |
+| Transitional woodland, shrub | 78.8% | +0.0 pp | +0.5 pp |
+| Beaches, dunes, sands | 16.8% | +6.7 pp | +3.5 pp |
+| Inland wetlands | 64.1% | +1.0 pp | +1.4 pp |
+| Coastal wetlands | 34.7% | +12.9 pp | +4.4 pp |
+| Inland waters | 91.7% | +0.0 pp | +0.8 pp |
+| Marine waters | 99.6% | -0.1 pp | +0.1 pp |
+
+### 五、比较、解释与下一步
+
+| Model | Test mAP | Macro-F1 | Micro-F1 |
+|---|---:|---:|---:|
+| Swin-T baseline | 70.9% | 64.2% | 76.6% |
+| Corrected-kNN GAViT | 70.6% | 65.4% | 76.6% |
+| **Sparse-hybrid GAViT** | **72.0%** | **66.0%** | **76.7%** |
+
+1. 相对 corrected-kNN，sparse-hybrid 的 test mAP +1.4 pp、macro-F1 +0.6 pp、
+   micro-F1 +0.1 pp；相对 Swin 分别为 +1.1、+1.8、+0.1 pp。验证 mAP 也比
+   corrected-kNN best 78.5732% 高 0.6355 pp，验证和测试方向一致。
+2. mAP 增益主要来自 Coastal wetlands（+12.9 pp vs corrected）、Beaches
+   （+6.7 pp）、Permanent crops（+2.3 pp）等困难类别；micro-F1 几乎不变，
+   因此当前证据更支持“改善宏观/尾部类别表现”，而不是全面提高样本级预测。
+3. Natural grassland（-1.9 pp）和 Moors（-1.0 pp）相对 corrected 下降，
+   sparse topology 并非所有类别一致受益，后续应在论文中保留该限制。
+4. **seed 42 的研究假设得到支持，sparse-hybrid 暂定为最佳 GAViT。** 单 seed
+   不能声称稳定提升；不再搜索新 topology。下一步只为最终对比补齐 selected
+   GAViT 与 Swin baseline 的 seeds 43/44，并报告三 seeds 均值与标准差。
+
+---
+
 ## 2026-08-14 — sparse_hybrid_4n_top2 Featurize 工程 gate 通过
 
 ### 实验身份与验证环境
