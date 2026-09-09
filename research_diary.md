@@ -8,6 +8,182 @@
 
 ---
 
+## 2026-09-09 — run4 单变量实验 PASS；pin_memory 修复提交并推送（36345f7）
+
+- run4（仅验证 loader `pin_memory=True→False`）结果：主进程 RSS 全程平稳（~1.66GB，对比 run3 同期已 6.9GB 并线性冲向 23.3GB），MemAvailable 保持 ~22GB，全量 122342 张验证图与原指标计算完成，`diagnostic_exit=0`，`FULL VALIDATION DIAGNOSTIC PASS`。根因实锤：评估 loader 的 pin_memory 锁页主机内存池在小内存实例上耗尽 RAM。
+- 修复（hotfix，commit `36345f7d5ffccf714992120abe8e4f6b52d438c7`，分支 codex/sparse-hybrid-4n-top2，已推送 origin）：`train_bigearth.py` 验证 loader 与 `test_bigearth.py` 测试 loader 均改为 `pin_memory=False`（test 集 119825 图同路径同风险）；训练 loader 保持 `pin_memory=True`（epoch1 全程 7434 批 RSS 采样仅 1.9GB，证明训练路径无此问题，单变量原则不动）。纯资源改动，数据、模型、指标、评估顺序不变。
+- 本地验证：`py_compile` 通过；`python3 -m unittest tests.test_resource_probe tests.test_training_profile tests.test_experiment_identity tests.test_sparse_hybrid_static_contract` 37 项全部通过。
+- GAViT44 正式重启启动器已整理为 [docs/run_gavit44_3080.md](docs/run_gavit44_3080.md)：git pull 拉取修复、preflight 校验新 commit/3080/权重/全量 RGB、独立输出目录 `gavit44_3080_20260909`、退出码落盘 `train.exit`、主机可用内存每 30 秒记录 `memavail.log`、nohup 后台。训练参数与 2080 Ti 失败尝试完全一致（seed44、30 epochs、batch32、lr3e-4、K16 attentive_spatial、sparse_hybrid、token_feedback），run_tag `rtx3080_seed44_20260909`。
+- 预计耗时：每轮约 35~40 分钟（训练段 29.5 分钟 + 修复后验证约 7 分钟），30 轮约 18~20 小时。费用与时长待运行记录。
+- 披露事项：GAViT44 训练硬件为 RTX 3080（与 Swin44 配对时也用同一块 3080）；2080 Ti 的 epoch1 失败段不计入任何结果；pin_memory 修复属资源层改动，论文中按工程修复说明。
+- 本地 research_diary.md 与 docs/run_gavit44_3080.md 暂未提交（避免改变服务器 pull 目标 commit；训练启动后再提交推送）。
+
+---
+
+## 2026-09-09 — 静默中断根因确认：验证阶段主机内存耗尽触发 OOM killer
+
+- 三阶段诊断链条：短验证（70图）通过 → 训练→验证转换（3+3批）通过 → 全量验证（122342图）三次尝试。第一次在 2080 Ti 精确匹配处主动停止（用户已换卡 3080）；第二次前台运行整组进程消失且无 exit_status，判定网页终端 SIGHUP；第三次 nohup 后台仍整组消失，uptime 2h 排除实例重启。
+- 第四次（内存监控版，run3）拿到决定性证据：`diagnostic_exit=137`（SIGKILL），且仅 python 主进程被杀、bash/tee/awk 存活写下退出码——OOM killer 单杀最肥进程的典型签名。内核计数实锤：`system.slice/memory.events: oom_kill=4`、`apphub.service: oom_kill=1`。
+- 内存轨迹：验证开始后主进程 RSS 以约 8~9MB/batch 线性增长，2.3GB→6.9GB→13.6GB→19.9GB→23.3GB（4.5 分钟），MemAvailable 跌到 ~50MiB 后于 batch 3369/3824 被杀。DataLoader 子进程稳定在 5.2GB。
+- 代码排查（commit bb9f1cf）：`evaluate` 在 `torch.no_grad()` 下每批仅保留 `logits.cpu().numpy()`（~2.4KB），数据集读图在 worker 内无缓存——主进程没有与 8~9MB/batch 匹配的逻辑对象。每批 float32 图像 tensor 为 19.25MB，经 `pin_memory=True` 锁页内存池分配；锁页内存不可被内核回收，与"avail 归零且页面缓存无法挽救"的现象一致。当前主嫌疑：PyTorch 2.2.2 锁页主机内存池在该负载下复用失效。
+- 死亡史统一解释：Swin43 在 4090 实例（大内存）30 轮无恙；GAViT43 停于 epoch 21、GAViT44 停于 epoch1 训练段结束，均发生在验证窗口——三次静默中断同为验证期主机 OOM，不是平台故障、不是代码逻辑错误。数据集位于 /home/featurize/data 高速盘，位置无问题。
+- 进行中：run4 单变量验证实验——同一诊断仅将验证 loader `pin_memory=True→False`（训练 loader 不变），内存监控保留。若 RSS 平稳且 PASS 则实锤 pin_memory 锁页池；修复方案为正式训练代码验证 loader 关闭 pin_memory（纯资源改动，不改变数据/模型/指标语义），是否改动冻结训练代码由用户决定并记录。
+- 硬件/环境记录：RTX 3080（9874MiB，10GB 版）、24GB RAM、torch2.2.2+cu121、torch-geometric 2.8.0（WITH_PYG_LIB/WITH_TORCH_SCATTER/WITH_SOFTMAX 均为 False）。诊断脚本本地备份：`/tmp/gavit44-fullval.KTrcwi/`（bg3=内存监控版，bg4=pin_memory=False 单变量版）。
+
+---
+
+## 2026-09-09 — 用户主动换卡 RTX 3080；全量验证诊断重新定向
+
+- 第三阶段全量验证诊断首次执行在 GPU 身份检查处主动停止（`diagnostic_exit=1`）：脚本要求精确匹配失败现场的 `NVIDIA GeForce RTX 2080 Ti`，当前实例已不是该卡。脚本按设计拒绝了在意外硬件上继续，不是训练/验证路径出错。
+- 用户确认是有意将实例换成 RTX 3080（原 2080 Ti 实例不再使用；GAViT44 失败运行本就没有可恢复 checkpoint，无产物损失）。
+- 影响与披露：诊断目标从"在失败现场同款硬件上复现"变为"验证全量验证代码路径在规模下可完成"；在 3080 上通过不能复现或解释 2080 Ti 上的静默退出，只能作为代码路径无全量缺陷的旁证。
+- seed44 配对安排随之确定：GAViT44 与 Swin44 均在同一 RTX 3080 上执行（GAViT44 需重跑），论文披露硬件为 3080；不混用 2080 Ti 的训练段数据。
+- 诊断脚本已更新：GPU 打印（名称/显存/CUDA/cuDNN）前移到校验之前，校验改为 `endswith('RTX 3080')`；其余抽取逻辑、样本边界、看门狗与 20 分钟上限不变。本地 bash -n 与内嵌 Python AST 检查通过。
+- 待办：用户在新实例重新执行 `/tmp/gavit44-fullval.KTrcwi/diagnose_gavit44_fullval.sh`，回传 `diagnostic.log` 与 `exit_status.txt`；脚本仍只读旧 2080 Ti 目录的 `gavit.meta.json` 作身份参照（Featurize work 目录跨实例持久），不修改其中任何文件。
+
+---
+
+## 2026-09-09 — GAViT44首轮训练段后异常中断（原因待查，不重跑）
+
+- 用户已同意第三阶段全量验证诊断，20分钟预算。已准备 `/tmp/gavit44-fullval.KTrcwi/diagnose_gavit44_fullval.sh`，沿用刚通过的3批短训练（79图，原变换/AdamW/Cosine和训练片段），仅把验证范围扩大为全部122342图。抽取原load_split/train_tf/val_tf/evaluate，原batch32、4 workers、pin_memory、seed44和模型配置保持；验证3824批（末批6图），完整计算原AP/macro-F1，但不输出为论文性能结果，不保存权重或修改正式训练文件。
+- 全量诊断输出由服务器mktemp新建 `gavit44_fullvaldiag_XXXXXX`：完整模块/批次轨迹写diagnostic.log，终端显示前三批、每100批和最终批进度及异常；保留Python、tee和显示筛选各自退出码。每批完成后重置120秒无进展堆栈计时，避免在正常长任务中固定每分钟打印误导性Timeout；外层1200秒触发终止，必要时最多10秒强制清理。退出124仅表示此次人为时间限制，137单独不证明OOM；不自动延长、重试或启动正式训练。
+- 本地检查通过：Bash语法、Python编译、原代码抽取、完整3824批/122342图、提前结束/错误batch大小/读取异常四种替身迭代检查、进度次数及计时重置、终端筛选不丢异常堆栈、20分钟限制与退出码记录。真实GPU、全量图像解码及全量指标尚未运行；命令交由用户执行。即使全量验证通过，也不能替代7434个训练batch后的状态或解释原后台进程退出。
+- 训练→验证短诊断服务器回传通过：09-09 03:25:32—03:25:46 UTC（BEGIN至PASS约14秒），PID24721，目录 `/home/featurize/work/gavit44_transitiondiag_5HPWmR`，`diagnostic_exit=0 log_exit=0`。3批训练的forward/backward/optimizer均完成，训练iterator耗尽、scheduler.step、验证worker启动、3批验证及原AP/macro-F1全部返回。验证了所选79图短训练→70图验证的执行路径，未复现原退出，不据此宣称完整一轮或全量数据通过。回传文件 `/Users/patrick/.codex/attachments/527d985f-44d9-445b-8b9e-292998d76c02/pasted-text.txt`。
+- 两次短诊断均通过后的边界：尚未覆盖完整122342张验证图像、全量预测汇总、经过7434个训练batch后的权重/资源状态或原后台运行的外部终止事件；不能把未复现直接解释为平台强杀，也没有根因修复。建议下一步保持短训练及模型配置，仅扩展到完整验证集并保留批次定位日志；拟设20分钟上限，该扩大GPU诊断需用户确认。本轮仅记录证据，未准备/启动第三次GPU诊断、正式重试、换卡或依赖修改，不更新性能表。
+- 验证短诊断服务器回传通过：09-09 03:18:38—03:18:57 UTC（BEGIN至PASS约19秒），PID24474，目录 `/home/featurize/work/gavit44_valdiag_KUHfHp`；原evaluate处理batch32/32/6，数据读取、Swin、attentive_spatial、两层GAT、classifier、AP和macro-F1均完成，`diagnostic_exit=0 log_exit=0`。当前环境及val/预训练身份复核通过；PyG的WITH_PYG_LIB/WITH_TORCH_SCATTER/WITH_SOFTMAX为False，但本次所需路径可运行，不因此安装额外依赖。原始回传位于 `/Users/patrick/.codex/attachments/bcfa6752-2702-419f-97c3-c6b66bc0d439/pasted-text.txt`。
+- 本次外层bash提示here-document到EOF仍未匹配BASH；内部Python已完整执行、日志和退出码完整，因此不把该警告当模型错误，也不为这条警告重跑已通过的70图验证。该短诊断仅证明新初始化模型下所选70图及三批推理/指标可执行，不证明原故障已解决、不排除其余验证数据或长时间运行问题，也没有覆盖训练后worker/梯度模式转换。
+- 下一步针对缺失的训练→验证转换准备 `/tmp/gavit44-transition.LeJuqR/diagnose_gavit44_transition.sh`：复用第一份诊断，新增原训练变换、criterion/AdamW/Cosine设置和首轮验证调用之前的五条原训练语句，仅对独立模型执行3批训练（32/32/15，共79图），再执行原3批验证。train split SHA复核，4 workers/pin_memory/训练shuffle保持；5分钟上限，输出新建gavit44_transitiondiag目录，不写checkpoint、metadata或正式论文指标，不修改训练代码、依赖或自动提交正式重试。Bash/Python语法、原代码抽取、替身验证恰好3次backward/optimizer后scheduler、79/70样本边界和输出隔离检查通过；第二阶段服务器执行待回传。
+- 后续补齐的preflight.log（用户回传）：commit `bb9f1cff463c996bc5f72695af538898c91490eb`；Python3.11.8、torch2.2.2、torchvision0.17.2、CUDA运行时12.1、cuDNN8902、timm1.0.27、torch-geometric2.8.0、numpy1.26.4、scikit-learn1.9.0、rasterio1.4.4。预训练SHA256为 `f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36`；train237871，SHA256为 `25734fd9e8dc7fd78fb259e768ae91fe11b297e1caa50a2d57b74b0296413d8f`；val/test数量和SHA与09-08记录一致。仅凭版本不能认定依赖冲突，未升级或降级环境。
+- 系统证据补充（用户回传）：09-09 02:59:53 UTC查询，uptime起点为09-08 09:37:37；train.log最后修改09-08 10:49 UTC，不等于实际退出时刻。当前 `/sys/fs/cgroup/system.slice/apphub.service/memory.events` 的low/high/max/oom/oom_kill均0，memory.max为max，memory.peak不存在；dmesg拒绝访问，journalctl提示无权查看系统消息后显示No entries。没有支持OOM的正面证据，也不能用受限日志或当前cgroup快照完全排除历史终止事件。
+- 已转向代码路径定位：原evaluate不打印进度，验证后才打印指标及保存权重。源代码抽取的4个控制流检查验证了正常/异常验证时保存的先后关系，以及启动包装器对RuntimeError/SystemExit执行finally并传播异常；这些检查用替身对象，不是CUDA或数据解码实测。未发现启动器设置30分钟超时或吞普通异常。
+- 已准备独立分段诊断命令 `/tmp/gavit44-validation.eIZvr2/diagnose_gavit44_validation.sh`：抽取原val_tf/evaluate，只读原metadata、val split与预训练，选验证集前64张及最后6张，batch32、num_workers4、pin_memory=True；记录取batch、Swin/grouping/GAT/classifier和原指标计算的边界。没有backward/optimizer更新或checkpoint写入；输出由服务器mktemp创建在新的gavit44_valdiag目录，保存日志与退出码，5分钟上限只用于此诊断。使用新初始化模型，不能复现丢失的epoch1权重、完整训练→验证worker生命周期或全量数据；通过不代表原故障已解决。Bash语法、Python编译、函数抽取、样本选择及无训练/权重写入静态检查通过；服务器诊断尚未执行。
+- 用户检查 `/home/featurize/work/gavit44_2080ti_20260908/train.log`：最后记录为 `Epoch [1/30] Train` 的7434/7434批，耗时29:29、平均4.20it/s。没有第1轮验证指标、第2轮、最终Best Validation mAP或包装器finally资源统计。
+- `ps -p 3504`仅输出表头；`gavit.pth`、`gavit.last.train_state.pth`均不存在，只有1.1K的 `gavit.meta.json`（Sep8 10:20）。据此判定本次不是正常完成；仅完成第1轮训练段，未确认第1轮验证及保存成功。保留全部文件，不重新提交，不把该次结果写入性能比较表。
+- 当前训练代码在训练前写metadata；每轮结束先运行无进度条的 `evaluate(val_loader)`，输出验证指标后才调用 `save_epoch_artifacts`。因此metadata存在不证明训练完成；中断窗口在训练段末尾到首次验证/保存完成之前，不能精确到某一验证batch。
+- 包装器普通Python异常也应执行finally统计；当前日志没有这部分输出。强制终止（含OOM killer/平台操作）、底层崩溃、实例重启或日志写入异常均为待排查候选，没有内核/平台证据前不认定OOM或显存不足。验证代码累计的是19维预测与标签，不能仅因有数组累积就断言28GB RAM不足。
+- 当前已知输出中没有可用于恢复本次训练的完整checkpoint。下一步只读查看日志更新时间、输出目录其他文件、系统启动时间、内核OOM/segfault/NVRM记录和可用的cgroup内存事件；计数需结合时间/PID，不把共享cgroup历史事件直接归到3504。旧启动器未单独保存退出码，不能从消失PID事后推回退出原因。
+- 已知训练段资源：2080 Ti；历史运行中GPU采样约4.1GiB，非峰值；主进程RSS采样1942188KiB，非全作业RAM峰值。总运行时长、异常时间、峰值资源和实际费用均待确认。没有续训、代码变更、自动换卡或新付费任务。
+
+---
+
+## 2026-09-08 — 用户选择2080 Ti直接训练（启动成功；后续中断见09-09记录）
+
+- 用户随后补全日志：Train237871/Val122342；`Model: GAVIT | 31,366,926 params | Device: cuda`；`Epoch [1/30] Train`已到3338/7434批（45%），训练段已用13:39，tqdm显示剩余13:41、局部速度4.99it/s。结合PID3504/GPU进程证据，现确认GAViT seed44正式GPU训练已成功启动并推进；不需要重启或修改配置。
+- 同轮10:34:20资源快照：PID3504存活14:12、STAT=Dl、RSS1942188KiB（仅主进程）；GPU总占用4184MiB，PID占用4180MiB，瞬时利用率0%。这是采样值，不是峰值；单个D/0%快照不足以证明持续I/O卡死，完整进度日志已证明训练在推进。首轮验证、存盘、全作业RAM峰值和总耗时仍待确认。
+- 启动初期10:20:13回传：`Preflight passed`，GAViT44启动命令已提交，PID3504在5秒快照中存在；当时只打印参数、GPU4MiB/0%且无计算进程，因此当时仅记为“启动已提交”；后续补全日志才满足GPU启动确认标准。
+- 数据身份回传：val122342，SHA256 `1c6627cb48e33588538c4e411e4f1b94560827f27d59fb7aeb0ea2b5d30c2a45`；test119825，SHA256 `cea165a6443fc5ee44de0a3c55f53ce70505c4e25aba9ca8b52d76634df77204`。按所给命令，`Preflight passed`意味着三个split的RGB路径检查均通过；本次粘贴未包含train SHA256或软件版本，待完整preflight.log补齐，未独立读取服务器文件。
+- 用户09:39:37回传当前实例：NVIDIA GeForce RTX 2080 Ti、22528MiB、1MiB已用、无计算进程；驱动610.57.04，nvidia-smi显示CUDA UMD13.3（这不是PyTorch实际CUDA运行时版本）。commit bb9f1cf，Git状态命令无改动输出；预训练109M；CSV含表头分别237872/122343/119826；数据目录存在。完整RGB文件与PyTorch实际CUDA能力仍需启动命令检查。
+- 正式命令已整理为 [docs/run_gavit44_2080ti.md](docs/run_gavit44_2080ti.md)，直接调用原入口，独立目录 `/home/featurize/work/gavit44_2080ti_20260908/`；配置、seed和输出名在启动前固定。状态以本条顶部最新回传为准，首批已确认，首轮验证与产物待确认。
+- 本地检查：启动块通过 `bash -n`，两个内嵌Python片段通过AST语法检查，实际训练入口的argparse定义接受GAViT/seed44/30epochs/batch32/sparse_hybrid/formal参数；原训练代码无本轮差异。这些是命令静态检查，不是GPU运行测试。
+- 用户明确决定使用 RTX 2080 Ti 22GB，跳过原独立资源短测。同步更新 [排期](docs/thesis_schedule.md)，旧3060/3080工具不再作为启动入口；模型与训练代码未改。
+- 下一实验：BigEarthNet-19 sparse-hybrid GAViT seed44；研究问题为已有seed42/43提升是否在新增独立seed上成立，进入多seed核心对比表。相比既有GAViT固定架构，主要实验变量为seed；同时发生GPU更换，必须披露，不能把跨硬件方差解释成纯seed方差。
+- 后续在同一2080 Ti/软件环境补Swin44形成配对；不自动启动Swin或seed45。保持batch32、224输入、30 epochs、AdamW lr3e-4/wd1e-4、CosineAnnealingLR、BCE、threshold0.5、K16 attentive_spatial、sparse_hybrid和token_feedback。
+- 冻结训练commit仍为 `bb9f1cff463c996bc5f72695af538898c91490eb`；先检查当前服务器身份及完整数据，输出使用新的独立目录，不覆盖旧结果。保持原精度设置并记录，不因换卡改AMP/TF32。
+- 启动策略：直接正式训练，同时观察首批、首轮验证和checkpoint；不再单独跑资源smoke。单次正式任务可能在新硬件/环境首次运行时失败，该风险由本次选择保留。数据与文件防覆盖检查不取消。
+- 当前由用户在服务器执行并回传输出，本任务未直接访问服务器/已登录浏览器或代租实例。已确认启动和局部训练速度；完整首轮、全作业RAM、验证/测试指标及产物待回传，没有新论文性能结果或实际费用，不能标为实验完成。
+
+---
+
+## 2026-09-07 — 五周排期落盘与 3080/3060 资源短测准备
+
+- 用户确认开始执行；排期主记录为 [docs/thesis_schedule.md](docs/thesis_schedule.md)，暂按 09-07 至 10-11 五周安排，最终提交日待确认。
+- 当前 BigEarthNet 核心比较按最新导师要求至少再增加两个 seed；候选分配为 3080 10GB 配对 Swin44/GAViT44、3060 12GB 配对 Swin45/GAViT45。先以相同 seed42/小样本/配置测资源，不根据测试集分数决定机型。
+- 本轮只完成本地 W1-01—W1-03。新增 `tools/resource_probe.py`、`tools/profile_training.py` 和 [运行说明](docs/gpu_resource_probe.md)，未启动服务器短测或正式训练，没有新增论文指标。
+- 工具检查完整 train/val/test 的 RGB 路径、split 数量及身份，运行服务器完整测试后抽样 train4096/val1024；各模型一轮 smoke 保存 best、metadata、last-state、训练日志及资源报告。正式命令保持 batch32/30 epochs，需同 GPU/环境通过的配对 smoke 报告；短测不自动启动正式训练。
+- 已验证训练代码基线为 `bb9f1cff463c996bc5f72695af538898c91490eb`，训练入口、模型及原身份工具未修改。资源工具必须放在服务器训练目录外；本地新增文件尚未 commit/push。
+- 本地验证命令：`python3 -m unittest tests.test_resource_probe tests.test_training_profile tests.test_experiment_identity tests.test_sparse_hybrid_static_contract -v`；37 项通过（15 新增 + 22 既有）。`py_compile`、CLI help/只读 plan、差异空白检查及工具包解包一致性检查通过。
+- 独立审查因服务额度限制未运行；已由主执行者核对训练/产物接口。上述测试不代表 CUDA 运行通过。两张 GPU 的显存、主机 RAM、吞吐、总时长及实际费用全部待服务器实测；不沿用小 split RAM 外推全量峰值。
+- 工具包：`/private/tmp/gavit-resource-tools.v5MRYv/gavit-resource-tools-20260907.tar.gz`，仅含两个脚本和说明；SHA256 `3730a0f6185477689004fb3f224efd9a5d02553521c33edb1cbdf85b7b053ee6`。临时包若被系统清理，可由上述三个源文件重新打包。
+- 保留 seed43 的既有事实：Swin43 完成30轮，GAViT43 停于21轮、best为8轮，用户曾决定不续跑。未改历史结果，不把当前记录表述为四次同协议完整训练。
+- 下一步 W1-04：按运行说明在 3080 10GB 上执行配对资源短测，检查真实报告后再安排正式任务。未访问已登录 Featurize 浏览器、租用实例或改动服务器。
+
+---
+
+## 2026-09-02 — BigEarthNet sparse-hybrid 与 Swin 配对验证（seed 43）
+
+### 一、研究问题与实验身份
+
+- 研究问题：seed 42 上 `sparse_hybrid_4n_top2` 的 Test mAP、macro-F1、
+  micro-F1 均高于 Swin 后，同一提升方向能否在独立 seed 43 上复现。
+- 配对原则：只比较同一 seed 的 Swin43 与 sparse-hybrid GAViT43；固定
+  BigEarthNet-19 split、预处理、batch size 32、AdamW、lr `3e-4`、weight
+  decay `1e-4`、CosineAnnealingLR 和 threshold 0.5。
+- 分支：`codex/sparse-hybrid-4n-top2`；Git commit：`bb9f1cf`；两份 metadata
+  均记录 `dirty=false`、seed 43，checkpoint SHA256 校验一致。
+- 配对 driver：
+  `/home/featurize/work/run_gavit_seed43_pair_bb9f1cf_retry1.sh`；原计划依次
+  运行 Swin43 和 GAViT43，使用 `_retry1` 隔离此前失败产物。
+
+### 二、Swin43 完整训练与测试
+
+- 完成 30/30 epochs；参数量 27,535,501；训练设备 NVIDIA GeForce RTX
+  4090；峰值 CUDA allocated 3.56 GiB；训练 wall time 5.22 h。
+- Best Validation mAP：**78.3459%（epoch 6）**。
+- Epoch 30：Val mAP 75.8%、Val macro-F1 71.1%；相对 best 下降约
+  2.55 pp，后期过拟合明显。
+- Test mAP：**71.1%**；macro-F1：**64.1%**；micro-F1：**76.0%**。
+- 测试 wall time 234.20 s；测试峰值 CUDA allocated 0.58 GiB。
+- 训练日志：
+  `logs/final_multiseed_swin_bb9f1cf_seed43_retry1_train.log`。
+- 测试日志：
+  `logs/final_multiseed_swin_bb9f1cf_seed43_retry1_test.log`。
+- Best checkpoint：
+  `checkpoints/best_bigearth_swin_final_multiseed_bb9f1cf_seed43_retry1.pth`；
+  同 stem 的 `.meta.json` 和 `.last.train_state.pth` 均存在，last epoch 30。
+
+### 三、Sparse-hybrid GAViT43 训练边界与测试
+
+- 配置：31,366,926 参数；K=16 `attentive_spatial`；48 条四邻接空间边加
+  32 条排除空间邻居后的 cosine top-2 特征边；2-layer/4-head GAT（hidden
+  256）；`token_feedback`；dropout 0.1。
+- 原计划 30 epochs，实际保存到 epoch 21 后进程终止；driver 和训练日志未记录
+  traceback、OOM 或 Python 异常，外部终止原因待确认。该运行不得写成完成
+  30/30 epochs。
+- Best Validation mAP：**78.4728%（epoch 8）**；到 epoch 21 未出现更高
+  best。last state epoch 21，记录的 best metric 与 metadata 一致。
+- 结合本模型 seed 42 在 epoch 13 达峰后回落 2.31 pp、corrected-kNN seed 42
+  在 epoch 17 达峰后回落，以及 Swin43 在 epoch 6 达峰后回落的重复模式，
+  用户决定不再为本次运行续跑 epoch 22--30。正式表格必须保留这一提前停止
+  边界；测试严格使用 epoch 8 best checkpoint，而不是 epoch 21 last state。
+- 第一次 RTX 3060 测试因实例本地 BigEarthNet 尚缺一个 B04 文件而在首个
+  batch 前失败；保留失败日志。数据解压完成后使用独立 `retry2` 日志重新测试，
+  完成全量推理并得到：Test mAP **71.7%**、macro-F1 **65.7%**、micro-F1
+  **76.8%**。
+- 训练日志：
+  `logs/final_multiseed_sparse_hybrid_bb9f1cf_seed43_retry1_train.log`。
+- 成功测试日志：
+  `logs/final_multiseed_sparse_hybrid_bb9f1cf_seed43_retry1_test_retry2.log`。
+- Best checkpoint：
+  `checkpoints/best_bigearth_gavit_sparse_hybrid_4n_top2_final_multiseed_bb9f1cf_seed43_retry1.pth`；
+  同 stem 的 `.meta.json` 和 `.last.train_state.pth` 均存在，checkpoint hash
+  校验通过。
+- 本次简化测试命令未包裹 wall-time/CUDA 统计；测试耗时、测试峰值显存和
+  per-class AP 尚未从完整日志补记，当前标为待确认。
+
+### 四、同 seed 比较与当前结论
+
+| Model (seed 43) | Test mAP | Macro-F1 | Micro-F1 |
+|---|---:|---:|---:|
+| Swin-T baseline | 71.1% | 64.1% | 76.0% |
+| **Sparse-hybrid GAViT** | **71.7%** | **65.7%** | **76.8%** |
+| Delta (GAViT - Swin) | **+0.6 pp** | **+1.6 pp** | **+0.8 pp** |
+
+1. seed 43 上三个聚合指标均再次高于同 seed Swin，提升方向与 seed 42
+   （+1.1/+1.8/+0.1 pp）一致。当前两 seed 的平均配对增益约为 mAP
+   +0.85 pp、macro-F1 +1.70 pp、micro-F1 +0.45 pp；这里只是基于一位小数
+   汇总值的阶段性描述，不替代三 seed 均值与标准差。
+2. 两个 seed 的 macro-F1 增益最一致；mAP 为中等幅度提升，micro-F1 的增益
+   较小且 seed 间波动更明显。仍不能表述为所有类别都改善，seed43 per-class
+   AP 尚待提取。
+3. 结果支持“提升方向在 seed42/43 上可复现”，但 GAViT43 未完成原定30轮，
+   且最终稳定性结论仍缺配对的 Swin44/GAViT44。论文最终表必须披露本次
+   epoch21 停止边界，并在 seed44 完成后报告三 seed 均值与标准差。
+4. 后续若引入 early stopping，应预先定义 patience，并保持原定最大 epoch
+   和学习率调度身份；不能直接把 `--epochs` 改为 20，因为当前
+   `CosineAnnealingLR(T_max=args.epochs)` 会同时改变优化轨迹。
+
+---
+
 ## 2026-08-17 — BigEarthNet sparse-hybrid 正式训练与测试（seed 42）
 
 ### 一、研究问题与实验身份
