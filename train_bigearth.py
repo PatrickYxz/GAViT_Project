@@ -146,7 +146,7 @@ val_set      = BigEarthNetDataset(val_patches,   val_labels,   transform=val_tf)
 train_loader = DataLoader(train_set, batch_size=args.batch_size, shuffle=True,
                           num_workers=4, pin_memory=True)
 val_loader   = DataLoader(val_set,   batch_size=args.batch_size, shuffle=False,
-                          num_workers=4, pin_memory=True)
+                          num_workers=4, pin_memory=False)  # 2026-09-09 hotfix: pinned host pool exhausted 24GB RAM during full validation (OOM kill, exit 137); train loader proven fine, unchanged
 
 print(f"Train: {len(train_set):,}  |  Val: {len(val_set):,}")
 

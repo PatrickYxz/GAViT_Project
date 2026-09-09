@@ -87,7 +87,7 @@ test_tf = transforms.Compose([
 test_patches, test_labels = load_split(os.path.join(args.data_dir, "test.csv"))
 test_set    = BigEarthNetDataset(test_patches, test_labels, transform=test_tf)
 test_loader = DataLoader(test_set, batch_size=args.batch_size, shuffle=False,
-                         num_workers=4, pin_memory=True)
+                         num_workers=4, pin_memory=False)  # 2026-09-09 hotfix: same pinned-pool host OOM as the val loader; test set is 119825 images
 print(f"Test samples: {len(test_set):,}")
 
 # =============================================================================
