@@ -8,6 +8,38 @@
 
 ---
 
+## 2026-09-10 — GAViT44（seed44，RTX 3080）正式完成：best epoch 19，Test mAP 70.2%
+
+**实验身份**
+
+- 日期：训练 2026-09-09 06:52 UTC 启动；测试 2026-09-10。run_stage formal，run_tag `rtx3080_seed44_20260909`，seed 44。
+- Git commit：`36345f7d5ffccf714992120abe8e4f6b52d438c7`（pin_memory 修复版；服务器 git pull 后 preflight 校验 commit 一致、工作区干净）。
+- 完整命令：`python train_bigearth.py --model gavit --data_dir bigearth_files/splits --epochs 30 --batch_size 32 --lr 3e-4 --seed 44 --num_regions 16 --grouping attentive_spatial --edge_type sparse_hybrid --knn_k 5 --gat_hidden 256 --gat_heads 4 --gat_layers 2 --integration token_feedback --dropout 0.1 --run_stage formal --run_tag rtx3080_seed44_20260909 --pretrained_path bigearth_files/model.safetensors --checkpoint_path /home/featurize/work/gavit44_3080_20260909/gavit.pth`（经 runpy 包装器 nohup 启动，见 [docs/run_gavit44_3080.md](docs/run_gavit44_3080.md)）。
+
+**数据**：BigEarthNet-19 RGB；train 237871 / val 122342 / test 119825，三个 split 的 SHA256 与 preflight 记录一致；预训练权重 SHA256 `f7e995…a9d36`；标准增强与阈值 0.5。
+
+**模型**：GAViT v2 sparse-hybrid：K16、attentive_spatial、sparse_hybrid（4n top2）、GAT hidden256/heads4/layers2、token_feedback、dropout 0.1；参数 31.37M；Swin-T 骨干全量微调（freeze_backbone=False）。
+
+**优化**：计划 30 epochs；AdamW lr 3e-4、wd 1e-4；CosineAnnealingLR；BCEWithLogitsLoss；实际完成 26 epoch 后用户手动早停（见"解释"）。
+
+**资源**：RTX 3080（10GB，CUDA 12.1，cuDNN 8902），实例 24GB RAM；训练中观测显存 4272MiB（~4.2GiB）；吞吐 5.4~6.9 it/s；每轮约 19~23 分钟训练 + ~7 分钟验证 ≈ 24 分钟/轮；26 轮约 10.4 小时（待按日志时间戳精确核算）；费用待确认。`memavail.log` 全程稳定 ~21GB——pin_memory 修复后 26 次全量验证无任何内存压力，OOM 根因闭环。
+
+**输出**
+
+- 最佳轮 epoch 19：Val mAP 77.9%，Val macro-F1 72.3%；best checkpoint `gavit.pth` + sidecar `gavit.meta.json`。
+- 最终完成轮 epoch 26：Val mAP 76.9%，Val macro-F1 71.9%（按规则同时记录，不隐藏后期过拟合）。
+- 测试（best checkpoint，test_exit=0，3745 批 5:20 @11.69 it/s，架构自 sidecar 重建）：**Test mAP 70.2%，macro-F1 65.2%，micro-F1 77.1%**。per-class AP 已记录于 test.log——最低：Beaches/dunes/sands 9.7%、Coastal wetlands 18.0%、Natural grassland 41.8%、Industrial/commercial 48.7%；最高：Marine waters 99.7%、Coniferous forest 93.8%。
+- 产物（Featurize 持久盘）：`/home/featurize/work/gavit44_3080_20260909/{train.log,test.log,memavail.log,train.exit,test.exit,gavit.pth,gavit.meta.json}`。
+
+**解释**
+
+- 早停决策：epoch 19 达峰后 Val mAP 缓慢回落（77.9→76.9，约 1 点），用户据此在 epoch 26 完成后手动停训；随后用户在另一台服务器完整重跑全流程，后段轮次指标持续降低，二次独立确认过拟合形态（该重跑为用户自发验证，未纳入正式记录）。best-val-mAP 挑选规则未变，不属于事后改指标。
+- val→test 落差（77.9→70.2，约 7.7 点）与历史 run 一致（seed42/43 同样 val 系统性高于 test），属数据集固有现象，不是异常。
+- 2080 Ti 的 epoch1 失败段与第二次服务器重跑均不计入任何论文数字；pin_memory 修复为资源层改动，论文按工程修复披露。
+- 待办：同一块 3080 上执行 Swin44 配对（启动器 [docs/run_swin44_3080.md](docs/run_swin44_3080.md)），完成后更新对比表并计算 3+ seed 均值/方差。
+
+---
+
 ## 2026-09-09 — run4 单变量实验 PASS；pin_memory 修复提交并推送（36345f7）
 
 - run4（仅验证 loader `pin_memory=True→False`）结果：主进程 RSS 全程平稳（~1.66GB，对比 run3 同期已 6.9GB 并线性冲向 23.3GB），MemAvailable 保持 ~22GB，全量 122342 张验证图与原指标计算完成，`diagnostic_exit=0`，`FULL VALIDATION DIAGNOSTIC PASS`。根因实锤：评估 loader 的 pin_memory 锁页主机内存池在小内存实例上耗尽 RAM。
