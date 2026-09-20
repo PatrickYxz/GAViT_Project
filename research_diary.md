@@ -8,6 +8,15 @@
 
 ---
 
+## 2026-09-20 — AID统一入口整理为独立服务器同步分支
+
+- 用户确认继续准备服务器短测，并选择自行复制单行命令执行。新分支`codex/aid-entry-20260920`从既有模型版本8f2ed07建立，仅复制经过本地审查和测试的AID入口与测试；原研究工作树全部未提交实验记录保留。本分支历史日记没有包含其间尚未提交的实验分析，不作为最新整体实验档案。
+- 新入口提供固定数据清单、共同训练配置、smoke/calibrate/refit、OA/macro-F1/逐类正确率/混淆矩阵、checkpoint身份与源码校验。原有模型、训练入口和正式结果表未改动。
+- 既有本地验证74项测试与31个subtest通过；两模型合成数据CLI完成且保存/重建logit一致。隔离分支验证及限制见[记录](results/aid_entry_release_validation.md)。真实AID、ImageNet文件及CUDA双worker均待服务器验收，没有新正式指标。
+- [服务器指南](docs/run_aid.md)改用全新代码目录`/home/featurize/work/GAViT_AID_20260920`，复用旧持久目录中的预训练文件，依次预检数据、Swin smoke、GAViT smoke。此条记录的是同步准备，不声称用户已拉取代码或运行成功。
+
+---
+
 ## 2026-09-10 — GAViT44（seed44，RTX 3080）正式完成：best epoch 19，Test mAP 70.2%
 
 **实验身份**
