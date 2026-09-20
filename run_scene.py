@@ -11,6 +11,8 @@ def main():
     prepare.add_argument('--output', required=True)
     prepare.add_argument('--split-seed', type=int, default=42)
     prepare.add_argument('--val-split-seed', type=int, default=4242)
+    prepare.add_argument('--duplicate-policy', choices=['reject', 'group'], default='reject',
+                         help='group keeps same-class pixel duplicates in one split; never drops images')
     train = sub.add_parser('train', help='Run an explicit smoke/calibration/refit phase')
     train.add_argument('--model', choices=['swin', 'gavit'], required=True)
     train.add_argument('--phase', choices=['smoke', 'calibrate', 'refit'], default='smoke')
@@ -36,6 +38,12 @@ def main():
         from scene_classification.data import prepare_manifest
         manifest = prepare_manifest(args.pop('data_root'), args.pop('output'), **args)
         print(f'MANIFEST COMPLETE: {manifest["dataset"]}; counts={manifest["counts"]}', flush=True)
+        if 'duplicates' in manifest:
+            report = manifest['duplicates']
+            print(f'DUPLICATES: {len(report["groups"])} groups; {report["extra_copies"]} extra copies; '
+                  f'{report["unique_images"]} unique images; all kept within one split', flush=True)
+            for group in report['groups']:
+                print(f'  {group["split"]}: {", ".join(group["paths"])}', flush=True)
     elif command == 'train':
         from scene_classification.runner import RunConfig, run_training
         run_training(RunConfig(**args))

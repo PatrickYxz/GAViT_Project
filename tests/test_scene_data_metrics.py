@@ -65,6 +65,70 @@ class ManifestTests(unittest.TestCase):
             self.prepare()
         self.assertFalse(self.out.exists())
 
+    def test_grouped_duplicates_preserve_files_counts_and_disjoint_pixels(self):
+        # Replace an existing image's encoding and pixels: keep the same 20 paths.
+        with Image.open(self.root / 'alpha/00.png') as im:
+            im.save(self.root / 'alpha/01.png', format='BMP')
+        before = {p: p.read_bytes() for p in self.root.rglob('*') if p.is_file()}
+        data = module('data')
+        m = data.prepare_manifest(self.root, self.out, dataset='synthetic', duplicate_policy='group')
+        self.assertEqual(m['counts'], {'train': 8, 'val': 2, 'test': 10})
+        self.assertEqual(len(m['records']), 20)
+        self.assertEqual(before, {p: p.read_bytes() for p in before})
+        for split in ('train', 'val', 'test'):
+            selected = data.select_records(m, split)
+            self.assertEqual(len([r for r in selected if r['label'] == 0]),
+                             {'train': 4, 'val': 1, 'test': 5}[split])
+        for digest in {r['pixel_sha256'] for r in m['records']}:
+            self.assertEqual(len({r['split'] for r in m['records'] if r['pixel_sha256'] == digest}), 1)
+        self.assertEqual(m['duplicates']['unique_images'], 19)
+        self.assertEqual(m['duplicates']['extra_copies'], 1)
+        self.assertEqual(m['duplicates']['groups'][0]['paths'], ['alpha/00.png', 'alpha/01.png'])
+        self.assertEqual(data.load_manifest(self.out, self.root), m)
+        again = self.out.with_name('again.json')
+        data.prepare_manifest(self.root, again, dataset='synthetic', duplicate_policy='group')
+        self.assertEqual(self.out.read_bytes(), again.read_bytes())
+
+    def test_grouped_mode_still_rejects_conflicting_labels(self):
+        (self.root / 'beta/00.png').write_bytes((self.root / 'alpha/00.png').read_bytes())
+        with self.assertRaisesRegex(ValueError, 'different class labels'):
+            module('data').prepare_manifest(self.root, self.out, dataset='synthetic', duplicate_policy='group')
+        self.assertFalse(self.out.exists())
+
+    def test_grouped_mode_cannot_silently_relax_split_sizes(self):
+        # Two groups of five cannot supply the required one-image validation set.
+        for i in range(10):
+            Image.new('RGB', (16, 16), (0, (i // 5) * 10, 33)).save(self.root / 'alpha' / f'{i:02}.png')
+        with self.assertRaisesRegex(ValueError, 'exact split'):
+            module('data').prepare_manifest(self.root, self.out, dataset='synthetic', duplicate_policy='group')
+        self.assertFalse(self.out.exists())
+
+    def test_grouped_manifest_rejects_cross_split_duplicate_even_if_counts_match(self):
+        (self.root / 'alpha/01.png').write_bytes((self.root / 'alpha/00.png').read_bytes())
+        data = module('data')
+        m = data.prepare_manifest(self.root, self.out, dataset='synthetic', duplicate_policy='group')
+        first = next(r for r in m['records'] if r['path'] == 'alpha/00.png')
+        other = next(r for r in m['records'] if r['label'] == 0 and r['split'] != first['split'])
+        first['split'], other['split'] = other['split'], first['split']
+        self.out.write_text(json.dumps(m))
+        with self.assertRaisesRegex(ValueError, 'duplicate.*split'):
+            data.load_manifest(self.out, self.root)
+
+    def test_grouped_manifest_checks_duplicate_report(self):
+        (self.root / 'alpha/01.png').write_bytes((self.root / 'alpha/00.png').read_bytes())
+        data = module('data')
+        m = data.prepare_manifest(self.root, self.out, dataset='synthetic', duplicate_policy='group')
+        m['duplicates']['groups'] = []
+        self.out.write_text(json.dumps(m))
+        with self.assertRaisesRegex(ValueError, 'Duplicate report'):
+            data.load_manifest(self.out, self.root)
+
+    def test_unique_images_keep_previous_seeded_assignment_in_grouped_mode(self):
+        legacy = self.prepare()
+        grouped = module('data').prepare_manifest(self.root, self.out.with_name('grouped.json'),
+                                                 dataset='synthetic', duplicate_policy='group')
+        self.assertEqual(legacy['records'], grouped['records'])
+
     def test_corrupt_image_rejected(self):
         (self.root / 'alpha/00.png').write_bytes(b'not an image')
         with self.assertRaisesRegex(ValueError, 'image'):

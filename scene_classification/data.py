@@ -62,28 +62,75 @@ def _image_identity(path, dataset):
     return {'sha256': sha256_file(str(path)), 'pixel_sha256': pixels}
 
 
-def _assign(paths_by_class, protocol):
+def _take_exact(groups, count):
+    """First seeded subset reaching an exact image count, without splitting groups."""
+    reachable = {0: None}
+    for i, group in enumerate(groups):
+        for size in sorted(reachable, reverse=True):
+            total = size + len(group)
+            if total <= count and total not in reachable:
+                reachable[total] = (size, i)
+        if count in reachable:
+            break
+    if count not in reachable:
+        raise ValueError('Cannot form exact split sizes while keeping duplicate groups intact')
+    chosen = set()
+    while count:
+        count, i = reachable[count]
+        chosen.add(i)
+    return ([g for i, g in enumerate(groups) if i in chosen],
+            [g for i, g in enumerate(groups) if i not in chosen])
+
+
+def _assign(paths_by_class, protocol, pixel_hashes=None):
     assignments = {}
     for label, paths in enumerate(paths_by_class):
-        paths = sorted(paths)
-        random.Random(protocol['split_seed'] + label).shuffle(paths)
+        groups = {}
+        for path in sorted(paths):
+            key = pixel_hashes[path] if pixel_hashes is not None else path
+            groups.setdefault(key, []).append(path)
+        groups = list(groups.values())
+        random.Random(protocol['split_seed'] + label).shuffle(groups)
         n_pool = int(len(paths) * protocol['pool_ratio'])
-        pool, test = paths[:n_pool], paths[n_pool:]
+        pool, test = _take_exact(groups, n_pool)
         random.Random(protocol['val_split_seed'] + label).shuffle(pool)
         n_val = int(n_pool * protocol['val_fraction_of_pool'])
-        train, val = pool[n_val:], pool[:n_val]
+        val, train = _take_exact(pool, n_val)
         if not train or not val or not test:
             raise ValueError('Each class needs nonempty train/val/test (at least 10 images for synthetic/AID)')
         for split, members in [('train', train), ('val', val), ('test', test)]:
-            for path in members:
-                assignments[path] = (label, split)
+            for group in members:
+                for path in group:
+                    assignments[path] = (label, split)
     return assignments
 
 
-def prepare_manifest(root, output, *, dataset, split_seed=42, val_split_seed=4242):
+def _duplicate_report(records, *, check_splits=True):
+    pixels = {}
+    for record in records:
+        pixels.setdefault(record['pixel_sha256'], []).append(record)
+    groups = []
+    for digest, rows in pixels.items():
+        if len(rows) < 2:
+            continue
+        paths = sorted(r['path'] for r in rows)
+        if len({r['label'] for r in rows}) != 1:
+            raise ValueError(f'duplicate image pixels with different class labels: {paths}')
+        if check_splits and len({r['split'] for r in rows}) != 1:
+            raise ValueError(f'duplicate image pixels cross split boundaries: {paths}')
+        groups.append({'pixel_sha256': digest, 'label': rows[0]['label'],
+                       'paths': paths, 'split': rows[0].get('split')})
+    return {'unique_images': len(pixels), 'extra_copies': len(records) - len(pixels),
+            'groups': sorted(groups, key=lambda g: g['paths'])}
+
+
+def prepare_manifest(root, output, *, dataset, split_seed=42, val_split_seed=4242,
+                     duplicate_policy='reject'):
     root, output = Path(root).resolve(), Path(output)
     if output.exists():
         raise FileExistsError(output)
+    if duplicate_policy not in ('reject', 'group'):
+        raise ValueError('Unknown duplicate policy')
     names = sorted(p.name for p in root.iterdir() if p.is_dir() and not p.name.startswith('.'))
     by_class = [[p.relative_to(root).as_posix() for p in sorted((root / name).rglob('*'))
                  if p.is_file() and p.suffix.lower() in EXTENSIONS] for name in names]
@@ -92,22 +139,31 @@ def prepare_manifest(root, output, *, dataset, split_seed=42, val_split_seed=424
                 'val_fraction_of_pool': 0.2, 'split_seed': split_seed,
                 'val_split_seed': val_split_seed, 'rounding': 'floor_per_class',
                 'assignment': 'sorted_paths_python_random_seed_plus_class_index'}
-    assignment = _assign(by_class, protocol)
-    records, seen_pixels = [], {}
-    for relative in sorted(assignment):
+    if duplicate_policy == 'group':
+        protocol.update(version='scene-pool-group-v2', duplicate_policy='group_within_class',
+                        assignment='sorted_pixel_groups_seeded_exact_subset_v1')
+    labels = {path: label for label, paths in enumerate(by_class) for path in paths}
+    records = []
+    for relative in sorted(labels):
         path = root / relative
         if not path.resolve().is_relative_to(root):
             raise ValueError(f'Image path escapes data root: {relative}')
         identity = _image_identity(path, dataset)
-        digest = identity['pixel_sha256']
-        if digest in seen_pixels:
-            raise ValueError(f'duplicate image pixels: {relative} and {seen_pixels[digest]}')
-        seen_pixels[digest] = relative
-        label, split = assignment[relative]
-        records.append({'path': relative, 'label': label, 'split': split, **identity})
-    manifest = {'schema_version': 1, 'dataset': dataset, 'class_names': names,
+        records.append({'path': relative, 'label': labels[relative], **identity})
+    report = _duplicate_report(records, check_splits=False)
+    if duplicate_policy == 'reject' and report['groups']:
+        raise ValueError(f'duplicate image pixels: {report["groups"][0]["paths"]}; '
+                         'use --duplicate-policy group to keep same-class duplicates in one split')
+    pixel_hashes = {r['path']: r['pixel_sha256'] for r in records} if duplicate_policy == 'group' else None
+    assignment = _assign(by_class, protocol, pixel_hashes)
+    for record in records:
+        record['split'] = assignment[record['path']][1]
+    manifest = {'schema_version': 2 if duplicate_policy == 'group' else 1,
+                'dataset': dataset, 'class_names': names,
                 'protocol': protocol, 'counts': dict(Counter(r['split'] for r in records)),
                 'records': records}
+    if duplicate_policy == 'group':
+        manifest['duplicates'] = _duplicate_report(records)
     write_json(output, manifest)
     return manifest
 
@@ -115,22 +171,27 @@ def prepare_manifest(root, output, *, dataset, split_seed=42, val_split_seed=424
 def load_manifest(path, root):
     """Validate every record and image before any training; no path-root binding."""
     manifest = json.loads(Path(path).read_text(encoding='utf-8'))
-    if manifest.get('schema_version') != 1:
+    version = manifest.get('schema_version')
+    if type(version) is not int or version not in (1, 2):
         raise ValueError('Unsupported manifest version')
     dataset, names, records = manifest['dataset'], manifest['class_names'], manifest['records']
     _profile_check(dataset, names, len(records))
     if names != sorted(names):
         raise ValueError('Class map must be sorted')
     protocol = manifest['protocol']
-    if (protocol.get('version') != 'scene-pool-v1'
+    expected_protocol = (('scene-pool-v1', 'sorted_paths_python_random_seed_plus_class_index')
+                         if version == 1 else
+                         ('scene-pool-group-v2', 'sorted_pixel_groups_seeded_exact_subset_v1'))
+    if (protocol.get('version') != expected_protocol[0]
             or protocol.get('pool_ratio') != PROFILES[dataset][2]
             or protocol.get('val_fraction_of_pool') != 0.2
             or protocol.get('rounding') != 'floor_per_class'
-            or protocol.get('assignment') != 'sorted_paths_python_random_seed_plus_class_index'
+            or protocol.get('assignment') != expected_protocol[1]
+            or (version == 2 and protocol.get('duplicate_policy') != 'group_within_class')
             or any(type(protocol.get(k)) is not int for k in ('split_seed', 'val_split_seed'))):
         raise ValueError('Invalid split protocol')
     root = Path(root).resolve()
-    paths, pixels, by_class = set(), set(), [[] for _ in names]
+    paths, by_class = set(), [[] for _ in names]
     for record in records:
         relative, label = record['path'], record['label']
         rel = Path(relative)
@@ -145,12 +206,15 @@ def load_manifest(path, root):
         identity = _image_identity(full, dataset)
         if any(record.get(key) != digest for key, digest in identity.items()):
             raise ValueError(f'Image changed since manifest: {relative}')
-        if identity['pixel_sha256'] in pixels:
-            raise ValueError('duplicate image pixels')
         paths.add(relative)
-        pixels.add(identity['pixel_sha256'])
         by_class[label].append(relative)
-    expected = _assign(by_class, protocol)
+    report = _duplicate_report(records)
+    if version == 1 and report['groups']:
+        raise ValueError('duplicate image pixels')
+    if version == 2 and manifest.get('duplicates') != report:
+        raise ValueError('Duplicate report mismatch')
+    pixel_hashes = {r['path']: r['pixel_sha256'] for r in records} if version == 2 else None
+    expected = _assign(by_class, protocol, pixel_hashes)
     if any(expected[r['path']] != (r['label'], r['split']) for r in records):
         raise ValueError('Split assignment changed from frozen seeds')
     if dict(Counter(r['split'] for r in records)) != manifest['counts']:

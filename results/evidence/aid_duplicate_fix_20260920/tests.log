@@ -1,0 +1,13 @@
+............................................................ [ 62%]
+....................................               [100%]
+=============================== warnings summary ===============================
+../../../../../../private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/jit/frontend.py:1209: 20 warnings
+  /private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/jit/frontend.py:1209: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    elif isinstance(value, ast.Str):
+
+../../../../../../private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/jit/frontend.py:1210: 19 warnings
+  /private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/jit/frontend.py:1210: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead
+    s += value.s
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+96 passed, 39 warnings, 34 subtests passed in 10.52s

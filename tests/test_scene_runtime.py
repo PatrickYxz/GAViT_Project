@@ -114,6 +114,21 @@ class RuntimeTests(unittest.TestCase):
             self.assertEqual(json.loads((out / 'run.json').read_text())['status'], 'failed')
             self.assertFalse((out / 'best.pth').exists())
 
+    def test_grouped_manifest_reaches_training_and_checkpoint_identity(self):
+        from scene_classification.data import prepare_manifest
+        (self.root / 'alpha/01.png').write_bytes((self.root / 'alpha/00.png').read_bytes())
+        grouped = self.manifest.with_name('grouped.json')
+        manifest = prepare_manifest(self.root, grouped, dataset='synthetic', duplicate_policy='group')
+        cfg = self.config(manifest=str(grouped))
+        result = runtime().run_training(cfg)
+        self.assertEqual(result['status'], 'complete')
+        metadata = json.loads((Path(cfg.output) / 'best.meta.json').read_text())
+        self.assertEqual(metadata['data']['protocol'], manifest['protocol'])
+        evaluated = runtime().evaluate_checkpoint(str(Path(cfg.output) / 'best.pth'), str(grouped),
+            str(self.root), str(Path(cfg.output) / 'val_eval'), split='val', device='cpu',
+            batch_size=2, workers=0)
+        self.assertEqual(evaluated['samples'], 2)
+
     def test_training_config_is_model_independent(self):
         a, b = self.config(model='swin'), self.config(model='gavit')
         self.assertEqual(runtime().training_identity(a), runtime().training_identity(b))

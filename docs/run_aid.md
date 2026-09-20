@@ -1,12 +1,18 @@
 # AID 接入与服务器短测
 
-更新：2026-09-20。用于AID正式实验前的工程验收（E00）。本地统一入口已实现；用户确认服务器尚未准备 AID。真实数据预检、ImageNet权重加载与CUDA短测仍待执行，不能把本地合成图片测试写成AID实验结果。
+更新：2026-09-20。用于AID正式实验前的工程验收（E00）。服务器已下载并解压AID，旧版prepare发现Industrial类存在重复像素后退出；新版提供显式分组策略。完整数据预检、ImageNet权重加载与CUDA短测仍待验收，本地合成图片测试不作为AID实验结果。
 
 ## 1. 先准备数据和代码
 
+本次镜像解压有两层AID，服务器实际数据根目录为`/home/featurize/data/AID/AID`。服务器已回传旧版2ba112a；遇到重复图片错误后，先在现有分支执行以下更新，再使用下面的group命令：
+
+```bash
+git -C /home/featurize/work/GAViT_AID_20260920 pull --ff-only
+```
+
 AID应为30类、10000张600×600 RGB图像。数据来源及下载入口见[AID官方项目页](https://captain-whu.github.io/AID/)。如果平台数据集列表提供该数据，可直接在服务器添加；本次未确认平台是否收录，也未替用户下载数据。
 
-示例假设解压后直接呈现 `/home/featurize/data/AID/Airport/*.jpg` 等类别目录。若多嵌套了一层AID，应把`--data-root`指向实际包含30个类别文件夹的那层。**这些是路径示例，不是已核实的服务器目录。** 不需要为这一步恢复BigEarthNet原始TIF。
+本次类别目录为 `/home/featurize/data/AID/AID/Airport/*.jpg` 等。其他来源若层级不同，须将`--data-root`指向直接包含30个类别文件夹的那层。不需要为这一步恢复BigEarthNet原始TIF。
 
 代码分支为 `codex/aid-entry-20260920`，基于 `8f2ed07671ed50387998a46a2d2167a7a4dfc2ed`。在服务器用一个全新目录拉取，保留原有BigEarthNet实验目录及其修改。下面的同步命令在分支推送成功后执行；目标目录已存在时Git会拒绝，不删除目录强行重试。
 
@@ -33,14 +39,20 @@ python -c 'import torch, torchvision, timm, torch_geometric; print(torch.__versi
 ## 2. 生成一次固定划分
 
 ```bash
-python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py prepare --dataset AID --data-root /home/featurize/data/AID --output /home/featurize/work/aid_protocol_20260920_01.json
+python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py prepare --dataset AID --duplicate-policy group --data-root /home/featurize/data/AID/AID --output /home/featurize/work/aid_protocol_20260920_02.json
 ```
 
-此步骤检查原始尺寸/RGB、30类名称与总数、文件可读性、逐文件哈希和解码像素重复。只保存引用清单，不复制图片、不改变原文件；重复、缺失、损坏或不匹配会停止，不能靠删样本强行通过。
+此步骤检查原始尺寸/RGB、30类名称与总数、文件可读性、逐文件哈希和解码像素重复。只保存引用清单，不复制、删除或改变原文件。
+
+`--duplicate-policy group`明确启用schema 2 / `scene-pool-group-v2`：同一类别的相同解码像素构成不可拆组，整组只进入train、val或test中的一个；跨类别的相同图像仍拒绝。清单保存`duplicates`，包含唯一图像数、多余副本数、全部重复路径、哈希、类别和所属划分；CLI同时输出这些组。指标仍按保留的全部图片计算，重复图片不等于独立样本。Swin和GAViT必须使用同一清单。
+
+分组按组内最小路径排序、以固定seed打乱；确定性子集和先选精确50%池，再用内部seed从池中选精确20%val。按类保持原始图片数量而不是组数量；如果选定池无法在不拆组的前提下满足精确val数，会停止，不自动改比例、删图片或换seed。无重复的类别保持旧版路径划分。
+
+这是防止完全重复像素泄漏的自定义协议，不能称为AID官方固定划分，也不检测近似重复/地理重叠。默认不加该选项仍拒绝所有像素重复，旧schema 1清单照常加载。训练/评估前会重新验证图片哈希、分组报告、无跨划分重复以及seed对应的划分。
 
 外层训练池50%、其余test；池内20%用于val，预期train4000/val1000/test5000，最终以输出清单为准。分层按类取整、路径排序，split seed42和内部val seed4242与训练seed分开记录。换实例后保留清单，仅恢复相同图像并指向新的根目录。
 
-完成标志是`MANIFEST COMPLETE`。已有输出不会覆盖；失败后保留证据，后续新运行换新的编号。
+完成标志是`MANIFEST COMPLETE`及`DUPLICATES`报告（即使重复组数为0也会打印）。已有输出不会覆盖；失败后保留证据，后续新运行换新的编号。
 
 ## 3. 先Swin短测，成功后再GAViT
 
@@ -49,7 +61,7 @@ python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py prepare --dataset
 启动Swin（整行复制，无需创建Shell变量）：
 
 ```bash
-nohup python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py train --model swin --phase smoke --manifest /home/featurize/work/aid_protocol_20260920_01.json --data-root /home/featurize/data/AID --output /home/featurize/work/aid_swin_smoke_20260920_01 --pretrained-path /home/featurize/work/GAViT_Project/bigearth_files/model.safetensors --device cuda --batch-size 32 --workers 2 > /dev/null 2>&1 < /dev/null &
+nohup python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py train --model swin --phase smoke --manifest /home/featurize/work/aid_protocol_20260920_02.json --data-root /home/featurize/data/AID/AID --output /home/featurize/work/aid_swin_smoke_20260920_01 --pretrained-path /home/featurize/work/GAViT_Project/bigearth_files/model.safetensors --device cuda --batch-size 32 --workers 2 > /dev/null 2>&1 < /dev/null &
 ```
 
 ```bash
@@ -66,7 +78,7 @@ cat /home/featurize/work/aid_swin_smoke_20260920_01/run.json
 Swin通过后，单独启动GAViT：
 
 ```bash
-nohup python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py train --model gavit --phase smoke --manifest /home/featurize/work/aid_protocol_20260920_01.json --data-root /home/featurize/data/AID --output /home/featurize/work/aid_gavit_smoke_20260920_01 --pretrained-path /home/featurize/work/GAViT_Project/bigearth_files/model.safetensors --device cuda --batch-size 32 --workers 2 > /dev/null 2>&1 < /dev/null &
+nohup python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py train --model gavit --phase smoke --manifest /home/featurize/work/aid_protocol_20260920_02.json --data-root /home/featurize/data/AID/AID --output /home/featurize/work/aid_gavit_smoke_20260920_01 --pretrained-path /home/featurize/work/GAViT_Project/bigearth_files/model.safetensors --device cuda --batch-size 32 --workers 2 > /dev/null 2>&1 < /dev/null &
 ```
 
 ```bash
