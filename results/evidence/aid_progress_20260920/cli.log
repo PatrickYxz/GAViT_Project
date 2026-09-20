@@ -1,0 +1,15 @@
+IMAGE SCAN prepare: 0/600; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/600; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 250/600; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 500/600; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 600/600; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+MANIFEST COMPLETE: synthetic; counts={'train': 240, 'val': 60, 'test': 300}
+DUPLICATES: 1 groups; 1 extra copies; 599 unique images; all kept within one split
+  train: alpha/000.png, alpha/001.png
+IMAGE SCAN verify: 0/600; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/600; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 250/600; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 500/600; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 600/600; elapsed=0.0s (CPU decode + file/pixel hashes)
+prepare/load exits: 0; manifest bytes identical to 06fddd0

@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import random
 import re
+import time
 
 from PIL import Image
 
@@ -18,6 +19,13 @@ AID_CLASSES = set('airport bareland baseballfield beach bridge center church com
 PROFILES = {'AID': (30, 10000, 0.5, 600), 'NWPU-RESISC45': (45, 31500, 0.2, 256),
             'synthetic': (None, None, 0.5, None)}
 EXTENSIONS = {'.jpg', '.jpeg', '.png', '.bmp', '.tif', '.tiff'}
+
+
+def _scan_progress(phase, done, total, started):
+    if done in (0, 1, total) or done % 250 == 0:
+        elapsed = time.monotonic() - started
+        print(f'IMAGE SCAN {phase}: {done}/{total}; elapsed={elapsed:.1f}s '
+              '(CPU decode + file/pixel hashes)', flush=True)
 
 
 def write_json(path, value, *, replace=False):
@@ -144,12 +152,16 @@ def prepare_manifest(root, output, *, dataset, split_seed=42, val_split_seed=424
                         assignment='sorted_pixel_groups_seeded_exact_subset_v1')
     labels = {path: label for label, paths in enumerate(by_class) for path in paths}
     records = []
-    for relative in sorted(labels):
+    started = time.monotonic()
+    _scan_progress('prepare', 0, len(labels), started)
+    for done, relative in enumerate(sorted(labels), 1):
         path = root / relative
         if not path.resolve().is_relative_to(root):
             raise ValueError(f'Image path escapes data root: {relative}')
         identity = _image_identity(path, dataset)
         records.append({'path': relative, 'label': labels[relative], **identity})
+        _scan_progress('prepare', done, len(labels), started)
+    print('MANIFEST: checking duplicates and assigning splits', flush=True)
     report = _duplicate_report(records, check_splits=False)
     if duplicate_policy == 'reject' and report['groups']:
         raise ValueError(f'duplicate image pixels: {report["groups"][0]["paths"]}; '
@@ -192,7 +204,9 @@ def load_manifest(path, root):
         raise ValueError('Invalid split protocol')
     root = Path(root).resolve()
     paths, by_class = set(), [[] for _ in names]
-    for record in records:
+    started = time.monotonic()
+    _scan_progress('verify', 0, len(records), started)
+    for done, record in enumerate(records, 1):
         relative, label = record['path'], record['label']
         rel = Path(relative)
         if (rel.is_absolute() or '..' in rel.parts or rel.as_posix() != relative
@@ -208,6 +222,7 @@ def load_manifest(path, root):
             raise ValueError(f'Image changed since manifest: {relative}')
         paths.add(relative)
         by_class[label].append(relative)
+        _scan_progress('verify', done, len(records), started)
     report = _duplicate_report(records)
     if version == 1 and report['groups']:
         raise ValueError('duplicate image pixels')

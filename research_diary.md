@@ -8,6 +8,16 @@
 
 ---
 
+## 2026-09-20 — AID压缩包哈希确认；prepare被手动中断，补充扫描进度
+
+- 用户回传Git fast-forward 2ba112a→06fddd0及ZIP完整SHA256 `cdb1af67657ef1ed42ed481bf009df689ddc9ea13dfb6eb36277882312703bf7`，与固定来源预期一致；据服务器用户输出确认下载完整性，未在本地重新下载/哈希整个压缩包。
+- group prepare在`_image_identity`像素SHA256计算处收到Ctrl+C，抛KeyboardInterrupt。没有新的数据错误证据；未达到清单写入步骤，未完成全量预检，不能当作数据或GPU验收通过。日志没有开始时间，不能估算本次已运行多久或归因为性能故障。
+- 原入口只在全量扫描后打印结果，容易误以为卡住；新增开始、首张、每250张和最终张的已完成数量/总数、已用秒数并立即flush。prepare及训练/评估的load_manifest共用提示；不改变哈希、分组、seed、划分或输出清单内容。
+- 18项现有数据测试和5个subtest通过；实际CLI使用600张合成图含1组重复，prepare/load退出0，进度0/1/250/500/600均可见，清单与06fddd0逐字节一致。见[CLI证据](results/evidence/aid_progress_20260920/cli.log)。未新增仅镜像日志实现的单元测试。
+- 下一步同步代码后用新编号`aid_protocol_20260920_03.json`前台运行，等待MANIFEST COMPLETE及DUPLICATES；通过后再进行Swin GPU短测。没有要求重下/重解压，没有启动正式训练或改正式结果表。
+
+---
+
 ## 2026-09-20 — AID重复图片预检修复：保留原图并按像素组隔离划分
 
 - 用户服务器2ba112a运行prepare，在`Industrial/industrial_205.jpg`与`industrial_203.jpg`解码像素重复处退出。原入口对所有重复一律报错，未生成清单、未开始训练；此输出不证明ZIP整体哈希或所有图片均已验收。已有压缩包和图片保留，不要求重新下载/解压。

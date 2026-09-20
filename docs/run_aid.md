@@ -39,7 +39,7 @@ python -c 'import torch, torchvision, timm, torch_geometric; print(torch.__versi
 ## 2. 生成一次固定划分
 
 ```bash
-python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py prepare --dataset AID --duplicate-policy group --data-root /home/featurize/data/AID/AID --output /home/featurize/work/aid_protocol_20260920_02.json
+python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py prepare --dataset AID --duplicate-policy group --data-root /home/featurize/data/AID/AID --output /home/featurize/work/aid_protocol_20260920_03.json
 ```
 
 此步骤检查原始尺寸/RGB、30类名称与总数、文件可读性、逐文件哈希和解码像素重复。只保存引用清单，不复制、删除或改变原文件。
@@ -52,6 +52,8 @@ python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py prepare --dataset
 
 外层训练池50%、其余test；池内20%用于val，预期train4000/val1000/test5000，最终以输出清单为准。分层按类取整、路径排序，split seed42和内部val seed4242与训练seed分开记录。换实例后保留清单，仅恢复相同图像并指向新的根目录。
 
+扫描开始、首张、每250张及最后一张会输出`IMAGE SCAN prepare: 已完成/总数; elapsed=...`，会逐张进行CPU解码及文件/像素哈希检查。后续训练/评估前也会显示`IMAGE SCAN verify`。耗时取决于CPU和磁盘，不根据这次中断推断耗时。前台运行时Ctrl+C会终止检查；只有完整扫描和划分成功才会写出清单。
+
 完成标志是`MANIFEST COMPLETE`及`DUPLICATES`报告（即使重复组数为0也会打印）。已有输出不会覆盖；失败后保留证据，后续新运行换新的编号。
 
 ## 3. 先Swin短测，成功后再GAViT
@@ -61,7 +63,7 @@ python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py prepare --dataset
 启动Swin（整行复制，无需创建Shell变量）：
 
 ```bash
-nohup python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py train --model swin --phase smoke --manifest /home/featurize/work/aid_protocol_20260920_02.json --data-root /home/featurize/data/AID/AID --output /home/featurize/work/aid_swin_smoke_20260920_01 --pretrained-path /home/featurize/work/GAViT_Project/bigearth_files/model.safetensors --device cuda --batch-size 32 --workers 2 > /dev/null 2>&1 < /dev/null &
+nohup python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py train --model swin --phase smoke --manifest /home/featurize/work/aid_protocol_20260920_03.json --data-root /home/featurize/data/AID/AID --output /home/featurize/work/aid_swin_smoke_20260920_01 --pretrained-path /home/featurize/work/GAViT_Project/bigearth_files/model.safetensors --device cuda --batch-size 32 --workers 2 > /dev/null 2>&1 < /dev/null &
 ```
 
 ```bash
@@ -78,7 +80,7 @@ cat /home/featurize/work/aid_swin_smoke_20260920_01/run.json
 Swin通过后，单独启动GAViT：
 
 ```bash
-nohup python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py train --model gavit --phase smoke --manifest /home/featurize/work/aid_protocol_20260920_02.json --data-root /home/featurize/data/AID/AID --output /home/featurize/work/aid_gavit_smoke_20260920_01 --pretrained-path /home/featurize/work/GAViT_Project/bigearth_files/model.safetensors --device cuda --batch-size 32 --workers 2 > /dev/null 2>&1 < /dev/null &
+nohup python -u /home/featurize/work/GAViT_AID_20260920/run_scene.py train --model gavit --phase smoke --manifest /home/featurize/work/aid_protocol_20260920_03.json --data-root /home/featurize/data/AID/AID --output /home/featurize/work/aid_gavit_smoke_20260920_01 --pretrained-path /home/featurize/work/GAViT_Project/bigearth_files/model.safetensors --device cuda --batch-size 32 --workers 2 > /dev/null 2>&1 < /dev/null &
 ```
 
 ```bash
