@@ -18,6 +18,9 @@ Results saved to: checkpoints/best_bigearth_{model}.pth
 import os
 import csv
 import argparse
+import json
+from pathlib import Path
+import time
 import numpy as np
 
 import torch
@@ -42,6 +45,8 @@ from experiment_identity import (
 from models.bigearth_dataset import BigEarthNetDataset, CLASSES_19, NUM_CLASSES
 from models.gavit import GAViT
 from models.swin_features import build_swin_model_kwargs, pool_swin_features
+from grouping_identity import complete_grouping_architecture
+from soft_assignment_diagnostics import SoftAssignmentProbe
 from utils import (
     load_checkpoint_metadata,
     load_validated_training_state,
@@ -67,7 +72,7 @@ parser.add_argument("--gat_hidden",   type=int, default=256)
 parser.add_argument("--gat_heads",    type=int, default=4)
 parser.add_argument("--gat_layers",   type=int, default=2)
 parser.add_argument("--grouping",     type=str, default="attentive_spatial",
-                    choices=["kmeans", "spatial", "attentive_spatial"])
+                    choices=["kmeans", "spatial", "attentive_spatial", "soft_prototype"])
 parser.add_argument("--edge_type",    type=str, default="knn",
                     choices=["knn", "spatial", "hybrid", "sparse_hybrid"])
 parser.add_argument("--integration",  type=str, default="token_feedback",
@@ -85,6 +90,8 @@ parser.add_argument("--checkpoint_path", type=str, default=None,
 parser.add_argument("--resume",       action="store_true",
                     help="Resume from the exact last-epoch training state")
 args = parser.parse_args()
+if args.model == 'swin' and args.grouping == 'soft_prototype':
+    parser.error('soft_prototype grouping requires --model gavit')
 
 SEED    = args.seed
 RUN_STAGE = validate_run_stage(args.run_stage)
@@ -101,12 +108,15 @@ CKPT_NAME += f"_seed{SEED}_{RUN_STAGE}_{RUN_TAG}"
 CKPT_PATH = args.checkpoint_path or os.path.join("checkpoints", f"{CKPT_NAME}.pth")
 TRAIN_STATE_PATH = training_state_path_for(CKPT_PATH)
 META_PATH = metadata_path_for(CKPT_PATH)
+PROBE_PATH = Path(CKPT_PATH).with_suffix('.assignment_probe')
 os.makedirs(os.path.dirname(CKPT_PATH) or ".", exist_ok=True)
 
 if RUN_STAGE == "formal":
     assert_clean_git_state(get_git_state())
 if not args.resume:
     assert_fresh_output_paths([CKPT_PATH, META_PATH, TRAIN_STATE_PATH])
+    if args.grouping == 'soft_prototype':
+        assert_fresh_output_paths([str(PROBE_PATH)])
 
 # =============================================================================
 # Data
@@ -176,23 +186,6 @@ if args.model == "swin":
 
     model = SwinBaseline().to(DEVICE)
 
-else:  # gavit
-    model = GAViT(
-        num_classes=NUM_CLASSES,
-        num_regions=args.num_regions,
-        knn_k=args.knn_k,
-        gat_hidden=args.gat_hidden,
-        gat_heads=args.gat_heads,
-        gat_layers=args.gat_layers,
-        dropout=args.dropout,
-        grouping=args.grouping,
-        edge_type=args.edge_type,
-        integration=args.integration,
-        pretrained=True,
-        pretrained_path=args.pretrained_path,
-        freeze_backbone=False,
-    ).to(DEVICE)
-
 ARCHITECTURE = (
     {
         "num_classes": NUM_CLASSES,
@@ -213,6 +206,10 @@ ARCHITECTURE = (
         "integration": args.integration,
     }
 )
+if args.model == 'gavit':
+    ARCHITECTURE = complete_grouping_architecture(ARCHITECTURE)
+    model = GAViT(**ARCHITECTURE, pretrained=True, pretrained_path=args.pretrained_path,
+                  freeze_backbone=False).to(DEVICE)
 
 total_params = sum(p.numel() for p in model.parameters())
 print(f"Model: {args.model.upper()} | {total_params:,} params | Device: {DEVICE}")
@@ -242,6 +239,11 @@ if args.resume:
         expected_architecture=ARCHITECTURE,
     )
     resume_metadata = load_checkpoint_metadata(CKPT_PATH)
+    if args.grouping == 'soft_prototype':
+        requested = {'seed': SEED, 'epochs': args.epochs, 'batch_size': args.batch_size, 'lr': args.lr}
+        if (any(resume_metadata['training'].get(k) != v for k, v in requested.items())
+                or resume_metadata.get('execution') != {'run_stage': RUN_STAGE, 'run_tag': RUN_TAG}):
+            raise ValueError('Soft grouping resume training/execution identity mismatch')
     print(
         f"Resuming {TRAIN_STATE_PATH}: epoch {start_epoch}, "
         f"best mAP {best_mAP:.1f}%, model/optimizer/LR schedule restored"
@@ -310,11 +312,27 @@ metadata = resume_metadata or {
 if not args.resume:
     write_checkpoint_metadata(CKPT_PATH, metadata)
 
+probe = None
+if args.grouping == 'soft_prototype':
+    probe_inputs = torch.stack([val_set[i][0] for i in range(min(8, len(val_set)))])
+    probe = SoftAssignmentProbe(model, probe_inputs, val_patches[:len(probe_inputs)],
+                                PROBE_PATH, 'val', resume=args.resume)
+    if args.resume:
+        if probe.last_epoch != start_epoch - 1:
+            raise ValueError('Probe history does not match resumed training epoch')
+        probe.reconcile_snapshots(
+            best_epoch=metadata.get('best', {}).get('epoch'),
+            final_epoch=args.epochs if probe.last_epoch == args.epochs else None,
+        )
+    else:
+        probe.record(0, save_tensors=True)
+
 print(f"\n{'='*60}")
 print(f"Training {args.model.upper()} on BigEarthNet-19 | {args.epochs} epochs")
 print(f"{'='*60}\n")
 
 for epoch in range(start_epoch, args.epochs + 1):
+    epoch_start = time.perf_counter()
     model.train()
     total_loss = 0.0
     for imgs, labels in tqdm(train_loader, desc=f"Epoch [{epoch}/{args.epochs}] Train"):
@@ -346,5 +364,18 @@ for epoch in range(start_epoch, args.epochs + 1):
     )
     if improved:
         print(f"  Best model saved -> {CKPT_PATH}")
+    if probe:
+        # Measured epoch scope includes training, validation and checkpoint IO, not the probe.
+        if DEVICE == 'cuda':
+            torch.cuda.synchronize()
+        epoch_seconds = time.perf_counter() - epoch_start
+        record = probe.record(epoch, save_tensors=improved or epoch == args.epochs)
+        if improved:
+            probe.select_snapshot(epoch, 'best')
+        if epoch == args.epochs:
+            probe.select_snapshot(epoch, 'final')
+        print('SOFT EPOCH ' + json.dumps({'epoch': epoch, 'train_loss': avg_loss,
+            'val_mAP_percent': val_mAP, 'val_macro_f1_percent': val_f1,
+            'epoch_wall_seconds_excluding_probe': epoch_seconds, 'assignment_probe': record}), flush=True)
 
 print(f"\nBest Validation mAP: {best_mAP:.1f}%")

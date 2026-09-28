@@ -2,6 +2,7 @@ import os
 import random
 import numpy as np
 import torch
+from grouping_identity import complete_grouping_architecture
 
 from experiment_identity import (
     get_git_state,
@@ -142,10 +143,12 @@ def resolve_arch_config(cli_overrides: dict, metadata: dict | None,
             k: (cli_overrides[k] if cli_overrides.get(k) is not None else v)
             for k, v in defaults.items()
         }
+        if cfg.get('grouping') == 'soft_prototype' or 'soft_assignment' in cfg:
+            raise ValueError('soft_prototype evaluation requires checkpoint metadata with soft_assignment')
         return cfg, "cli"
 
     validate_complete_architecture(metadata, tuple(defaults))
-    arch = metadata["architecture"]
+    arch = complete_grouping_architecture(metadata["architecture"], checkpoint=True)
     cfg, conflicts = {}, []
     for k, default in defaults.items():
         meta_val = arch.get(k, default)
@@ -161,6 +164,11 @@ def resolve_arch_config(cli_overrides: dict, metadata: dict | None,
             + "\nDrop the conflicting flags, or point --ckpt at the "
               "checkpoint they were trained with."
         )
+    if 'soft_assignment' in arch:
+        override = cli_overrides.get('soft_assignment')
+        if override is not None and override != arch['soft_assignment']:
+            raise ValueError('CLI soft_assignment conflicts with checkpoint metadata')
+        cfg['soft_assignment'] = arch['soft_assignment']
     return cfg, "metadata"
 
 

@@ -5,16 +5,21 @@ from torchvision import transforms
 from torchvision.transforms import InterpolationMode
 
 from models.swin_backbone import SwinBackbone
+from grouping_identity import complete_grouping_architecture
 
 
-def architecture(model, num_classes):
+def architecture(model, num_classes, grouping=None):
     if model == 'swin':
+        if grouping is not None:
+            raise ValueError('Swin does not accept grouping')
         return {'num_classes': num_classes, 'backbone': 'swin_tiny_patch4_window7_224', 'dropout': 0.1}
     if model != 'gavit':
         raise ValueError(f'Unknown model: {model}')
-    return {'num_classes': num_classes, 'num_regions': 16, 'knn_k': 5,
+    if grouping not in (None, 'attentive_spatial', 'soft_prototype'):
+        raise ValueError(f'Unsupported scene grouping: {grouping}')
+    return complete_grouping_architecture({'num_classes': num_classes, 'num_regions': 16, 'knn_k': 5,
             'gat_hidden': 256, 'gat_heads': 4, 'gat_layers': 2, 'dropout': 0.1,
-            'grouping': 'attentive_spatial', 'edge_type': 'sparse_hybrid', 'integration': 'token_feedback'}
+            'grouping': grouping or 'attentive_spatial', 'edge_type': 'sparse_hybrid', 'integration': 'token_feedback'})
 
 
 class SwinClassifier(nn.Module):
@@ -27,8 +32,10 @@ class SwinClassifier(nn.Module):
         return self.classifier(self.backbone(images).mean(dim=1))
 
 
-def build_model(model, num_classes, pretrained_path=None):
-    config = architecture(model, num_classes)
+def build_model(model, num_classes, pretrained_path=None, *, architecture_config=None):
+    config = architecture(model, num_classes) if architecture_config is None else complete_grouping_architecture(architecture_config, checkpoint=True)
+    if config != architecture(model, num_classes, grouping=config.get('grouping')):
+        raise ValueError('Unsupported scene architecture configuration')
     if model == 'swin':
         return SwinClassifier(num_classes, pretrained_path)
     from models.gavit import GAViT
