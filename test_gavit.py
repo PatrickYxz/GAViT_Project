@@ -65,6 +65,8 @@ ARCH_DEFAULTS = {
     "integration": "token_feedback",
 }
 metadata = load_checkpoint_metadata(args.ckpt)
+if metadata and metadata.get('architecture', {}).get('grouping') == 'soft_prototype':
+    raise ValueError('soft_prototype checkpoints require run_scene.py evaluate with the scene manifest')
 if metadata is None:
     print(f"WARNING: no sidecar metadata found for {args.ckpt}; "
           "falling back to CLI architecture flags.")

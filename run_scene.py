@@ -15,6 +15,7 @@ def main():
                          help='group keeps same-class pixel duplicates in one split; never drops images')
     train = sub.add_parser('train', help='Run an explicit smoke/calibration/refit phase')
     train.add_argument('--model', choices=['swin', 'gavit'], required=True)
+    train.add_argument('--grouping', choices=['attentive_spatial', 'soft_prototype'])
     train.add_argument('--phase', choices=['smoke', 'calibrate', 'refit'], default='smoke')
     train.add_argument('--seed', type=int, default=42)
     train.add_argument('--pretrained-path')

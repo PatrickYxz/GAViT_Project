@@ -8,6 +8,16 @@
 
 ---
 
+## 2026-09-28 — 局部原型软分配独立发布与NWPU短测准备
+
+- 用户选择独立分支推送并创建PR。此分支从服务器现有`deb2b45`派生，只包含18个新模块相关代码/测试文件及本次发布说明、证据；原研究工作区其他未提交材料保留。这里未纳入其间的全部实验日记，不用此分支历史判断项目总体进度。
+- 新增`soft_prototype`：共享LN/768→128投影与图像内局部原型、cosine温度0.1、单次可微软分配，S/W分别用于软反馈/区域汇总；新增99840参数。Swin/16区域/GAT及48+32图边构造不变，旧分组默认路径保持；新配置严格写入并重建metadata。
+- scene/BigEarth入口与固定train/val/pool探针接通，保留epoch0/best/final；中断后基于已保存快照恢复别名并验证身份。候选完整CPU回归133项通过、44warnings、47.52秒、exit0；原始测试日志和30个源码哈希随分支保存。首次无Git导出/沙箱OpenMP导致的本地测试失败保留于原工作区，使用真正Git副本并获准沙箱外复测后通过，未改模型来绕过。
+- 服务器回传：clean deb2b45、RTX2080 Ti total22528/free22009 MiB、NWPU清单5040/1260/25200及8组同类重复组隔离，manifest SHA256 `ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e`。预训练SHA256 `f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36`匹配。
+- [独立服务器运行说明](docs/run_soft_assignment_nwpu.md)限定360train/90val、1轮、seed42工程短测；真实CUDA、多worker、S专属梯度、资源与精度尚未验收，未启动GPU或填入新成绩。BigEarth96/64短测、三模型正式消融及多seed继续待后续验证。
+
+---
+
 ## 2026-09-20 — AID压缩包哈希确认；prepare被手动中断，补充扫描进度
 
 - 用户回传Git fast-forward 2ba112a→06fddd0及ZIP完整SHA256 `cdb1af67657ef1ed42ed481bf009df689ddc9ea13dfb6eb36277882312703bf7`，与固定来源预期一致；据服务器用户输出确认下载完整性，未在本地重新下载/哈希整个压缩包。

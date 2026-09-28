@@ -1,9 +1,11 @@
 import torch
 import torch.nn as nn
 from torch_geometric.nn import global_mean_pool
+from grouping_identity import complete_grouping_architecture
 
 from models.swin_backbone      import SwinBackbone
 from models.region_grouping    import KMeansGrouping, SpatialGrouping, AttentiveSpatialGrouping
+from models.soft_region_grouping import SoftPrototypeGrouping
 from models.graph_construction import (
     build_knn_graph,
     build_sparse_hybrid_graph,
@@ -11,7 +13,7 @@ from models.graph_construction import (
 )
 from models.graph_reasoning    import GraphReasoning
 
-VALID_GROUPINGS    = ("attentive_spatial", "spatial", "kmeans")
+VALID_GROUPINGS    = ("attentive_spatial", "spatial", "kmeans", "soft_prototype")
 VALID_EDGE_TYPES   = ("knn", "spatial", "hybrid", "sparse_hybrid")
 VALID_INTEGRATIONS = ("token_feedback", "fusion")
 
@@ -70,6 +72,7 @@ class GAViT(nn.Module):
         pretrained:      bool  = True,
         pretrained_path: str | None = None,
         freeze_backbone: bool  = False,
+        soft_assignment: dict | None = None,
     ):
         super().__init__()
 
@@ -93,6 +96,12 @@ class GAViT(nn.Module):
                 f"Unknown integration={integration!r}. Valid: {VALID_INTEGRATIONS}"
             )
         self.integration = integration
+        grouping_config = dict(grouping=grouping, num_regions=num_regions,
+                               edge_type=edge_type, integration=integration)
+        if soft_assignment is not None:
+            grouping_config['soft_assignment'] = soft_assignment
+        grouping_config = complete_grouping_architecture(grouping_config)
+        self.grouping = grouping
 
         # --- Backbone ---
         self.backbone = SwinBackbone(
@@ -103,7 +112,11 @@ class GAViT(nn.Module):
         backbone_dim = self.backbone.hidden_dim  # 768
 
         # --- Region Grouping ---
-        if grouping == "attentive_spatial":
+        if grouping == "soft_prototype":
+            self.region_grouping = SoftPrototypeGrouping(
+                num_regions=num_regions, feat_dim=backbone_dim,
+                soft_assignment=grouping_config['soft_assignment'])
+        elif grouping == "attentive_spatial":
             self.region_grouping = AttentiveSpatialGrouping(
                 num_regions=num_regions, feat_dim=backbone_dim
             )
@@ -199,10 +212,21 @@ class GAViT(nn.Module):
 
             # Each token receives its region's refined feature
             # assignments: (B, N) with values in [0, K)
-            token_feedback = region_feedback.gather(
-                1,
-                assignments.unsqueeze(-1).expand(-1, -1, region_feedback.size(-1))
-            )  # (B, N, 768)
+            if self.grouping == 'soft_prototype':
+                if (assignments.shape != (B, tokens.shape[1], K)
+                        or not assignments.is_floating_point()
+                        or not torch.isfinite(assignments).all()
+                        or (assignments < 0).any()
+                        or not torch.allclose(assignments.sum(-1), torch.ones_like(assignments[..., 0]),
+                                              atol=1e-6, rtol=1e-6)
+                        or assignments.masked_select(~self.region_grouping.candidate_mask[None]).any()):
+                    raise ValueError('Invalid soft membership for token feedback')
+                token_feedback = torch.einsum('bnk,bkd->bnd', assignments, region_feedback)
+            else:
+                token_feedback = region_feedback.gather(
+                    1,
+                    assignments.unsqueeze(-1).expand(-1, -1, region_feedback.size(-1))
+                )  # (B, N, 768)
 
             # Residual update: original tokens + relational context
             updated_tokens = tokens + token_feedback  # (B, N, 768)

@@ -19,6 +19,8 @@ from torch.utils.data import DataLoader, Dataset
 from experiment_identity import (assert_clean_git_state, get_git_state, graph_topology_identity,
     load_checkpoint_metadata, sha256_file, write_checkpoint_metadata)
 from utils import save_checkpoint as _legacy_save_checkpoint, save_training_state, set_seed
+from grouping_identity import complete_grouping_architecture
+from soft_assignment_diagnostics import SoftAssignmentProbe
 from .data import load_manifest, select_records, write_json
 from .metrics import classification_metrics
 from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity
@@ -40,6 +42,7 @@ class RunConfig:
     train_per_class: int = 8
     val_per_class: int = 2
     calibration: str | None = None
+    grouping: str | None = None
 
 
 def training_identity(cfg):
@@ -93,6 +96,7 @@ def _run_output(output, phase):
 def _code_identity():
     root = Path(__file__).resolve().parents[1]
     files = [root / 'run_scene.py', root / 'utils.py', root / 'experiment_identity.py',
+             root / 'grouping_identity.py', root / 'soft_assignment_diagnostics.py',
              *sorted((root / 'scene_classification').glob('*.py')), *sorted((root / 'models').glob('*.py'))]
     return {'git': get_git_state(str(root)),
             'files_sha256': {str(p.relative_to(root)): sha256_file(str(p)) for p in files}}
@@ -210,9 +214,10 @@ def _checkpoint_metadata(checkpoint, manifest_path, manifest):
     meta = load_checkpoint_metadata(str(checkpoint))
     if not meta:
         raise ValueError('Checkpoint identity metadata missing')
+    arch = complete_grouping_architecture(meta.get('architecture'), checkpoint=True)
     if (meta.get('dataset') != manifest['dataset'] or meta.get('class_names') != manifest['class_names']
             or meta.get('data', {}).get('manifest_sha256') != sha256_file(str(manifest_path))
-            or meta.get('architecture') != architecture(meta.get('model'), len(manifest['class_names']))
+            or arch != architecture(meta.get('model'), len(manifest['class_names']), grouping=arch.get('grouping'))
             or meta.get('entry_version') != 'scene-v1'):
         raise ValueError('Checkpoint identity mismatch')
     if meta.get('checkpoint_sha256') != sha256_file(str(checkpoint)):
@@ -221,7 +226,8 @@ def _checkpoint_metadata(checkpoint, manifest_path, manifest):
 
 
 def _restore(checkpoint, meta, device):
-    model = build_model(meta['model'], meta['architecture']['num_classes']).to(device)
+    model = build_model(meta['model'], meta['architecture']['num_classes'],
+                        architecture_config=meta['architecture']).to(device)
     model.load_state_dict(torch.load(checkpoint, map_location=device, weights_only=True), strict=True)
     return model.eval()
 
@@ -254,7 +260,7 @@ def _train(cfg, out, start):
     training = training_identity(cfg)
     identity = {'model': cfg.model, 'seed': cfg.seed, 'manifest_sha256': sha256_file(cfg.manifest),
                 'pretrained_sha256': pretrained_hash, 'training': training,
-                'architecture': architecture(cfg.model, len(names)), 'code': code}
+                'architecture': architecture(cfg.model, len(names), grouping=cfg.grouping), 'code': code}
     epochs, source_identity = (1 if cfg.phase == 'smoke' else 30), None
     if cfg.phase == 'refit':
         if not cfg.calibration:
@@ -275,7 +281,8 @@ def _train(cfg, out, start):
     torch.backends.cudnn.allow_tf32 = False
     if device.type == 'cuda':
         torch.cuda.reset_peak_memory_stats(device)
-    model = build_model(cfg.model, len(names), cfg.pretrained_path).to(device)
+    model = build_model(cfg.model, len(names), cfg.pretrained_path,
+                        architecture_config=identity['architecture']).to(device)
     graph_capture, hook = capture_graph_once(model)
     optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=1e-4,
                                   betas=(0.9, 0.999), eps=1e-8)
@@ -315,6 +322,14 @@ def _train(cfg, out, start):
     check_rows = val_rows[:2] if val_rows else train_rows[:2]
     check_loader = _loader(cfg.data_root, check_rows, cfg, False)
     check_inputs = next(iter(check_loader))[0].to(device)
+    probe = None
+    if identity['architecture'].get('grouping') == 'soft_prototype':
+        probe_rows = (val_rows if val_rows else train_rows)[:8]
+        probe_data = SceneDataset(cfg.data_root, probe_rows, False)
+        probe_inputs = torch.stack([probe_data[i][0] for i in range(len(probe_data))])
+        probe = SoftAssignmentProbe(model, probe_inputs, [r['path'] for r in probe_rows],
+                                    out / 'assignment_probe', 'pool' if cfg.phase == 'refit' else 'val')
+        probe.record(0, save_tensors=True)
     selected_reference = None
     for epoch in range(1, epochs + 1):
         _sync(device)
@@ -346,7 +361,8 @@ def _train(cfg, out, start):
                'validation_seconds': val_seconds, 'validation': metrics}
         history.append(row)
         scheduler.step()
-        if metrics and metrics['oa_percent'] > best_score:
+        improved = metrics is not None and metrics['oa_percent'] > best_score
+        if improved:
             best_score, best_epoch = metrics['oa_percent'], epoch
             metadata['best'] = {'metric': 'val_OA', 'value': best_score, 'epoch': epoch}
             with torch.no_grad():
@@ -360,6 +376,12 @@ def _train(cfg, out, start):
         _save_checkpoint(model, out / 'last.pth', metadata)
         save_training_state(model, optimizer, scheduler, str(out / 'last.train_state.pth'),
                             epoch=epoch, best_metric=best_score, resume_identity=identity)
+        if probe:
+            row['assignment_probe'] = probe.record(epoch, save_tensors=improved or epoch == epochs)
+            if improved:
+                probe.select_snapshot(epoch, 'best')
+            if epoch == epochs:
+                probe.select_snapshot(epoch, 'final')
         write_json(out / 'history.json', history, replace=True)
         print(f'EPOCH {epoch}/{epochs}; loss={row["train_loss"]:.6f}; '
               f'val_OA={metrics["oa_percent"] if metrics else None}; train_s={train_seconds:.2f}', flush=True)
@@ -392,6 +414,8 @@ def _train(cfg, out, start):
               'cuda_peak_allocated_bytes': torch.cuda.max_memory_allocated(device) if device.type == 'cuda' else None,
               'cuda_peak_reserved_bytes': torch.cuda.max_memory_reserved(device) if device.type == 'cuda' else None,
               'memory_scope': 'entire run including checkpoint reconstruction', 'refit_source': source_identity}
+    if probe:
+        report['assignment_probe'] = probe.summary()
     write_json(out / 'run.json', report, replace=True)
     (out / 'run.exit').write_text('exit_code=0\n')
     print(f'SCENE {cfg.phase.upper()} COMPLETE: {out}', flush=True)

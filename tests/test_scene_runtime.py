@@ -41,9 +41,10 @@ class RuntimeTests(unittest.TestCase):
         return runtime().RunConfig(**kwargs)
 
     def test_real_models_train_save_reload_and_evaluate_validation(self):
-        for name in ('swin', 'gavit'):
-            with self.subTest(model=name):
-                cfg = self.config(model=name, output=str(Path(self.tmp.name) / name))
+        for name, grouping in (('swin', None), ('gavit', None), ('gavit', 'soft_prototype')):
+            with self.subTest(model=name, grouping=grouping):
+                extra = {'grouping': grouping} if grouping else {}
+                cfg = self.config(model=name, output=str(Path(self.tmp.name) / (name + str(grouping))), **extra)
                 report = runtime().run_training(cfg)
                 self.assertEqual(report['status'], 'complete')
                 self.assertEqual(report['final_epoch'], 1)
@@ -63,6 +64,11 @@ class RuntimeTests(unittest.TestCase):
                 if name == 'gavit':
                     self.assertEqual(metadata['graph_topology']['total_directed_edges'], 80)
                     self.assertEqual(report['graph_capture']['edges_per_image'], 80)
+                if grouping:
+                    self.assertEqual(metadata['architecture']['soft_assignment']['assignment_dim'], 128)
+                    self.assertEqual(report['assignment_probe']['split'], 'val')
+                    self.assertEqual(report['assignment_probe']['last_epoch'], 1)
+                    self.assertTrue((out / 'assignment_probe' / 'final.pt').is_file())
                 eval_out = out / 'val_eval'
                 result = runtime().evaluate_checkpoint(str(out / 'best.pth'), str(self.manifest),
                     str(self.root), str(eval_out), split='val', device='cpu', batch_size=2, workers=0)
@@ -164,6 +170,18 @@ class RuntimeTests(unittest.TestCase):
             wrong[key] = value
             with self.subTest(key=key, value=value), self.assertRaises(ValueError):
                 runtime().validate_calibration(wrong, expected)
+
+    def test_soft_calibration_cannot_be_refit_as_fixed_or_different_assignment(self):
+        soft = runtime().architecture('gavit', 30, grouping='soft_prototype')
+        fixed = runtime().architecture('gavit', 30)
+        source = {'status': 'complete', 'phase': 'calibrate', 'final_epoch': 30,
+                  'best_epoch': 9, 'architecture': soft}
+        self.assertEqual(runtime().validate_calibration(source, {'architecture': soft}), 9)
+        wrong = copy.deepcopy(soft)
+        wrong['soft_assignment']['assignment_temperature'] = 0.2
+        for arch in (fixed, wrong):
+            with self.assertRaises(ValueError):
+                runtime().validate_calibration(source, {'architecture': arch})
 
     def test_completed_report_must_match_checkpoint_sidecar(self):
         meta = {'model': 'swin', 'dataset': 'AID', 'training': {'seed': 42},
