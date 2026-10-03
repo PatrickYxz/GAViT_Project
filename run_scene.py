@@ -16,6 +16,8 @@ def main():
     train = sub.add_parser('train', help='Run an explicit smoke/calibration/refit phase')
     train.add_argument('--model', choices=['swin', 'gavit'], required=True)
     train.add_argument('--grouping', choices=['attentive_spatial', 'soft_prototype'])
+    train.add_argument('--token-refinement', choices=['residual_ffn_v1'],
+                       help='Bounded NWPU seed42 smoke/calibration trial; no refit/test')
     train.add_argument('--phase', choices=['smoke', 'calibrate', 'refit'], default='smoke')
     train.add_argument('--seed', type=int, default=42)
     train.add_argument('--pretrained-path')

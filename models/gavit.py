@@ -6,6 +6,7 @@ from grouping_identity import complete_grouping_architecture
 from models.swin_backbone      import SwinBackbone
 from models.region_grouping    import KMeansGrouping, SpatialGrouping, AttentiveSpatialGrouping
 from models.soft_region_grouping import SoftPrototypeGrouping
+from models.token_refinement import ResidualTokenFFN, validate_refinement
 from models.graph_construction import (
     build_knn_graph,
     build_sparse_hybrid_graph,
@@ -73,8 +74,13 @@ class GAViT(nn.Module):
         pretrained_path: str | None = None,
         freeze_backbone: bool  = False,
         soft_assignment: dict | None = None,
+        token_refinement: dict | None = None,
     ):
         super().__init__()
+        if token_refinement is not None:
+            validate_refinement(token_refinement)
+            if grouping != 'soft_prototype' or integration != 'token_feedback':
+                raise ValueError('Token refinement trial requires soft_prototype and token_feedback')
 
         # Reject unknown configs explicitly instead of silently falling back
         # to a different architecture (see research diary 2026-08-05, P5).
@@ -163,6 +169,8 @@ class GAViT(nn.Module):
         else:
             raise ValueError(f"Unknown integration={integration!r}")
 
+        self.token_refinement = ResidualTokenFFN(token_refinement) if token_refinement is not None else None
+
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
         Args:
@@ -230,6 +238,8 @@ class GAViT(nn.Module):
 
             # Residual update: original tokens + relational context
             updated_tokens = tokens + token_feedback  # (B, N, 768)
+            if self.token_refinement is not None:
+                updated_tokens = self.token_refinement(updated_tokens)
 
             # Global pool over updated tokens → classify
             pooled = updated_tokens.mean(dim=1)       # (B, 768)

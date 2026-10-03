@@ -23,7 +23,8 @@ from grouping_identity import complete_grouping_architecture
 from soft_assignment_diagnostics import SoftAssignmentProbe
 from .data import load_manifest, select_records, write_json
 from .metrics import classification_metrics
-from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity
+from .refinement_audit import RefinementAudit
+from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity, refinement_name
 
 
 @dataclass
@@ -43,6 +44,7 @@ class RunConfig:
     val_per_class: int = 2
     calibration: str | None = None
     grouping: str | None = None
+    token_refinement: str | None = None
 
 
 def training_identity(cfg):
@@ -217,7 +219,8 @@ def _checkpoint_metadata(checkpoint, manifest_path, manifest):
     arch = complete_grouping_architecture(meta.get('architecture'), checkpoint=True)
     if (meta.get('dataset') != manifest['dataset'] or meta.get('class_names') != manifest['class_names']
             or meta.get('data', {}).get('manifest_sha256') != sha256_file(str(manifest_path))
-            or arch != architecture(meta.get('model'), len(manifest['class_names']), grouping=arch.get('grouping'))
+            or arch != architecture(meta.get('model'), len(manifest['class_names']), grouping=arch.get('grouping'),
+                                    token_refinement=refinement_name(arch))
             or meta.get('entry_version') != 'scene-v1'):
         raise ValueError('Checkpoint identity mismatch')
     if meta.get('checkpoint_sha256') != sha256_file(str(checkpoint)):
@@ -238,6 +241,12 @@ def run_training(cfg):
 
 
 def _train(cfg, out, start):
+    if cfg.token_refinement is not None:
+        if (cfg.token_refinement != 'residual_ffn_v1' or cfg.phase not in ('smoke', 'calibrate')
+                or cfg.seed != 42 or cfg.model not in ('swin', 'gavit')
+                or (cfg.model == 'gavit' and cfg.grouping != 'soft_prototype')
+                or (cfg.phase == 'calibrate' and cfg.workers != 2)):
+            raise ValueError('FFN trial is limited to Swin/soft, seed42, smoke/calibrate and formal workers2')
     if cfg.phase not in ('smoke', 'calibrate', 'refit'):
         raise ValueError('Unknown phase')
     if cfg.batch_size < 1 or cfg.workers < 0 or min(cfg.train_per_class, cfg.val_per_class) < 1:
@@ -248,6 +257,9 @@ def _train(cfg, out, start):
         raise ValueError('Formal phases require pretrained weights')
     device = _device(cfg.device)
     manifest = load_manifest(cfg.manifest, cfg.data_root)
+    if (cfg.token_refinement is not None and manifest['dataset'] != 'NWPU-RESISC45'
+            and not (cfg.phase == 'smoke' and manifest['dataset'] == 'synthetic')):
+        raise ValueError('FFN trial is limited to NWPU (or synthetic smoke)')
     code = _code_identity()
     if cfg.phase != 'smoke':
         if manifest['dataset'] == 'synthetic' or device.type != 'cuda' or cfg.batch_size != 32:
@@ -257,10 +269,16 @@ def _train(cfg, out, start):
         raise ValueError('--calibration is only for refit')
     names = manifest['class_names']
     pretrained_hash = sha256_file(cfg.pretrained_path) if cfg.pretrained_path else None
+    if cfg.token_refinement and manifest['dataset'] == 'NWPU-RESISC45':
+        if (sha256_file(cfg.manifest) != 'ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e'
+                or pretrained_hash != 'f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36'
+                or manifest['counts'] != {'train': 5040, 'val': 1260, 'test': 25200}):
+            raise ValueError('FFN trial requires the frozen NWPU manifest and pretrained weights')
     training = training_identity(cfg)
     identity = {'model': cfg.model, 'seed': cfg.seed, 'manifest_sha256': sha256_file(cfg.manifest),
                 'pretrained_sha256': pretrained_hash, 'training': training,
-                'architecture': architecture(cfg.model, len(names), grouping=cfg.grouping), 'code': code}
+                'architecture': architecture(cfg.model, len(names), grouping=cfg.grouping,
+                                             token_refinement=cfg.token_refinement), 'code': code}
     epochs, source_identity = (1 if cfg.phase == 'smoke' else 30), None
     if cfg.phase == 'refit':
         if not cfg.calibration:
@@ -283,6 +301,7 @@ def _train(cfg, out, start):
         torch.cuda.reset_peak_memory_stats(device)
     model = build_model(cfg.model, len(names), cfg.pretrained_path,
                         architecture_config=identity['architecture']).to(device)
+    refinement_audit = RefinementAudit(model.token_refinement) if cfg.token_refinement else None
     graph_capture, hook = capture_graph_once(model)
     optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=1e-4,
                                   betas=(0.9, 0.999), eps=1e-8)
@@ -312,6 +331,8 @@ def _train(cfg, out, start):
                     if hasattr(module, 'drop_prob')},
                 'graph_attention_dropout': {name: float(module.dropout) for name, module in model.named_modules()
                     if type(module).__name__ == 'GATConv'}, 'command_argv': sys.argv}
+    if refinement_audit:
+        metadata['refinement_initial_state_sha256'] = refinement_audit.report['initial_state_sha256']
     write_json(out / 'config.json', {**asdict(cfg), 'resolved': metadata})
     write_json(out / 'selected_samples.json', {'train': [r['path'] for r in train_rows],
                                               'val': [r['path'] for r in val_rows]})
@@ -345,6 +366,10 @@ def _train(cfg, out, start):
                 raise ValueError('Nonfinite training loss')
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), float('inf'), error_if_nonfinite=True)
+            if refinement_audit:
+                refinement_audit.record_gradients()
+                if epoch == 1 and batch_index < 2:
+                    write_json(out / 'refinement_audit.json', refinement_audit.report, replace=True)
             optimizer.step()
             loss_sum += float(loss.detach()) * len(labels)
             seen += len(labels)
@@ -416,6 +441,11 @@ def _train(cfg, out, start):
               'memory_scope': 'entire run including checkpoint reconstruction', 'refit_source': source_identity}
     if probe:
         report['assignment_probe'] = probe.summary()
+    if refinement_audit:
+        report['token_refinement_audit'] = refinement_audit.finish(rebuilt.token_refinement)
+        write_json(out / 'refinement_audit.json', report['token_refinement_audit'], replace=True)
+        report['artifact_sha256'] = {name: sha256_file(str(out / name))
+            for name in ('best.pth', 'last.pth', 'last.train_state.pth')}
     write_json(out / 'run.json', report, replace=True)
     (out / 'run.exit').write_text('exit_code=0\n')
     print(f'SCENE {cfg.phase.upper()} COMPLETE: {out}', flush=True)
@@ -436,6 +466,8 @@ def evaluate_checkpoint(checkpoint, manifest_path, data_root, output, *, split='
         if code['files_sha256'] != meta.get('code', {}).get('files_sha256'):
             raise ValueError('Evaluation code identity changed from checkpoint; use the recorded source version')
         phase = meta['execution']['phase']
+        if 'token_refinement' in meta['architecture'] and (split != 'val' or phase not in ('smoke', 'calibrate')):
+            raise ValueError('FFN trial is limited to calibration validation; no refit/test')
         if phase == 'smoke' and split == 'test':
             raise ValueError('smoke checkpoint cannot evaluate test')
         if phase == 'refit' and split == 'val':
