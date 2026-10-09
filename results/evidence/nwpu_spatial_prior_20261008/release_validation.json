@@ -1,0 +1,52 @@
+{
+  "status": "release_tree_verified",
+  "date": "2026-10-09",
+  "base_commit": "058f1d8b79d0be538ec358eb742d2cd3992921d4",
+  "branch": "codex/soft-spatial-prior-nwpu-20261008",
+  "code_sha256": {
+    "grouping_identity.py": "e1940e5359d2711f9c5ebc8583badd7f2171d7d54449e7159e490260b2d8f6fe",
+    "models/soft_region_grouping.py": "2fc589790425c11f08a712019e40abdc2bd421636257cd7ec8a860ec41787676",
+    "run_scene.py": "fccba60f6533e4e208b7bc5c975c943e365cc5e0dffc43a9ed8cc0cb6e8c98f9",
+    "scene_classification/modeling.py": "a198202b58b4b2b6b06dd97e1e74bcbe05c8a91319bb4546a87308306929c3b9",
+    "scene_classification/runner.py": "4023f3f9ea34d48a4041cdff33040ba5e13f802d744f35a43f3a3827a2969188",
+    "tests/test_spatial_prior_grouping.py": "e8cb22e484df4f91066af941336ee356c6b6acd7ac191d7ea03e12b647c28f2f",
+    "tests/test_spatial_prior_runtime.py": "96d6d7382923b273823502d4d42c4341746b2e68cccf7b900ff40415b2962611",
+    "soft_assignment_diagnostics.py": "6c819fabb4e6bb28456d88b3f0e9f6843962028273abc66061d76e9724e72675",
+    "experiment_identity.py": "0e9530454ae7d2f159329710a430acc7a75c586739844c22c673f9ff899d5d9b",
+    "utils.py": "618f22cd80a6051dadc0730b7e67d5c19d5d66e3378ef461117ebe8aabd4ea08",
+    "models/__init__.py": "8815c8fde7ff63701a246e4a198d690e9777be18ac061672b5c3619ccb792436",
+    "models/bigearth_dataset.py": "1cb83ffc299f3927318f5bcef1694cdd33683a8d1ba5b1a87721d02fc67e281a",
+    "models/gavit.py": "39b2fd72be3afca0bb450ff5b700966c75c8aa277b2cf303b6c3faf129faba3e",
+    "models/graph_construction.py": "a0c36ceaf7a2f73b857c0eaac50df4abfb9c5617a4952f333a0dc514900dd8cc",
+    "models/graph_reasoning.py": "895825a417f627594fda8407cf1e980f8bcef398201c233e1c20d900ec9046da",
+    "models/region_grouping.py": "89cb8bb8a7e2ca76633a5a101285283e3275c95b1d77c442837c2e4159ecaca7",
+    "models/swin_backbone.py": "5046f36ab76556f8426fd096cae270b7dab0d24fa6e2c432839a3eb9f3cb1479",
+    "models/swin_features.py": "a4fa88cdf6ff811a2b6b51b512a99a01f6f53df3d57514458c4b0e7e25b9b06f",
+    "models/swin_region_only.py": "68d0c7ee95fa4a88c5a5b929e1e573195a7a9b1fe40a32480d64165c24c2d0c6",
+    "models/token_refinement.py": "b6da924ec782169df58c7c9fbc0e208e5d2aa25cad790d8376ab3f7624038072",
+    "scene_classification/__init__.py": "5d0cbbf6a7d6bac715d1592e07170da14b04b281577b631804486247a841a968",
+    "scene_classification/data.py": "ebcf0dd7585a060465df45bdf4e44ec7f47edd95f1fa8a12cbdd5723b948fa69",
+    "scene_classification/metrics.py": "6ef64ee533d0ca5c2dadae066a6254dcd4d107a24709b77009910067f37320b3",
+    "scene_classification/refinement_audit.py": "08fdff7df2306c2a03313201ba566cd67f3acfeef2b16ed86d9fac8b085d929c"
+  },
+  "full_release_tests": {
+    "passed": 162,
+    "warnings": 44,
+    "seconds": 56.35,
+    "exit_code": 0,
+    "command": "OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 /private/tmp/gavit-cache-qa-20261007/bin/python -m pytest tests -q --tb=short --durations=10",
+    "log": "release_tests.log",
+    "sha256": "ffb8853139d8babbaa474c9ca43f3872c3d2ca520c7866e4a3559eb303ce69db"
+  },
+  "scope": "Local offline CPU tests including synthetic images and original model entrypoints. CUDA/pretrained NWPU smoke pending. No server training started.",
+  "handoff_validation": "handoff_validation.json",
+  "publication_note": "Pre-commit validation record; final commit and remote ref are recorded in the publication receipt.",
+  "diff_check": {
+    "code_and_documents": "passed",
+    "raw_evidence_whitespace": "Excluded unmodified pytest error output and unified-patch context lines; preserving exact evidence bytes",
+    "raw_sha256": {
+      "results/evidence/nwpu_spatial_prior_20261008/entrypoints_missing_sklearn.log": "f05299d5d68316e84e596784a94a2b49b91997a75090f667bc4e7069f13abd00",
+      "results/evidence/nwpu_spatial_prior_20261008/spatial_prior_code.patch": "9a57c26297c46388401a27bcc182d1d1557ea2fc4283fdf48e3b83cebede5c6e"
+    }
+  }
+}

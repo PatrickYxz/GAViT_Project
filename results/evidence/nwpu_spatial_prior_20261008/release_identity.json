@@ -1,0 +1,34 @@
+{
+  "base_commit": "058f1d8b79d0be538ec358eb742d2cd3992921d4",
+  "candidate_status": "local_validated_not_committed_or_pushed",
+  "changed_files_sha256": {
+    "grouping_identity.py": "e1940e5359d2711f9c5ebc8583badd7f2171d7d54449e7159e490260b2d8f6fe",
+    "models/soft_region_grouping.py": "2fc589790425c11f08a712019e40abdc2bd421636257cd7ec8a860ec41787676",
+    "run_scene.py": "fccba60f6533e4e208b7bc5c975c943e365cc5e0dffc43a9ed8cc0cb6e8c98f9",
+    "scene_classification/modeling.py": "a198202b58b4b2b6b06dd97e1e74bcbe05c8a91319bb4546a87308306929c3b9",
+    "scene_classification/runner.py": "4023f3f9ea34d48a4041cdff33040ba5e13f802d744f35a43f3a3827a2969188",
+    "tests/test_spatial_prior_grouping.py": "e8cb22e484df4f91066af941336ee356c6b6acd7ac191d7ea03e12b647c28f2f",
+    "tests/test_spatial_prior_runtime.py": "96d6d7382923b273823502d4d42c4341746b2e68cccf7b900ff40415b2962611"
+  },
+  "unchanged_runtime_files_verified_against_base": [
+    "soft_assignment_diagnostics.py",
+    "experiment_identity.py",
+    "utils.py",
+    "models/__init__.py",
+    "models/bigearth_dataset.py",
+    "models/gavit.py",
+    "models/graph_construction.py",
+    "models/graph_reasoning.py",
+    "models/region_grouping.py",
+    "models/swin_backbone.py",
+    "models/swin_features.py",
+    "models/swin_region_only.py",
+    "models/token_refinement.py",
+    "scene_classification/__init__.py",
+    "scene_classification/data.py",
+    "scene_classification/metrics.py",
+    "scene_classification/refinement_audit.py"
+  ],
+  "patch_sha256": "9a57c26297c46388401a27bcc182d1d1557ea2fc4283fdf48e3b83cebede5c6e",
+  "server_runs_started": false
+}

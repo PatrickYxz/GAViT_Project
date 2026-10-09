@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "checks": [
+    "preflight accepted idle GPU and present paths",
+    "rejected dirty source, GPU job, low memory, changed GPU",
+    "missing image and existing output stop before train",
+    "readback works without FFN-only artifact_sha256",
+    "readback rejects changed checkpoint bytes"
+  ],
+  "scope": "model-free command fixtures, no server or training"
+}

@@ -5,12 +5,16 @@ from torchvision import transforms
 from torchvision.transforms import InterpolationMode
 
 from models.swin_backbone import SwinBackbone
-from grouping_identity import complete_grouping_architecture
+from grouping_identity import complete_grouping_architecture, soft_assignment_identity, spatial_prior_name
 from models.token_refinement import ResidualTokenFFN, refinement_identity, validate_refinement
 
 
-def architecture(model, num_classes, grouping=None, token_refinement=None):
+def architecture(model, num_classes, grouping=None, token_refinement=None, spatial_prior=None):
     extra = {}
+    if spatial_prior is not None:
+        if model != 'gavit' or grouping != 'soft_prototype' or token_refinement is not None:
+            raise ValueError('Spatial prior requires soft GAViT without token refinement')
+        extra['soft_assignment'] = soft_assignment_identity(spatial_prior)
     if token_refinement is not None:
         if (token_refinement != 'residual_ffn_v1'
                 or (model == 'gavit' and grouping != 'soft_prototype')):
@@ -52,7 +56,7 @@ def refinement_name(config):
 def build_model(model, num_classes, pretrained_path=None, *, architecture_config=None):
     config = architecture(model, num_classes) if architecture_config is None else complete_grouping_architecture(architecture_config, checkpoint=True)
     if config != architecture(model, num_classes, grouping=config.get('grouping'),
-                              token_refinement=refinement_name(config)):
+                              token_refinement=refinement_name(config), spatial_prior=spatial_prior_name(config)):
         raise ValueError('Unsupported scene architecture configuration')
     if model == 'swin':
         return SwinClassifier(num_classes, pretrained_path, config.get('token_refinement'))

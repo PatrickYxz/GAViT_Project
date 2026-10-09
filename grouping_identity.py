@@ -16,17 +16,42 @@ _SOFT = {
 }
 
 
-def soft_assignment_identity() -> dict:
-    return dict(_SOFT)
+_SPATIAL_SOFT = {
+    **_SOFT,
+    'assignment_version': 'local_prototype_cosine_spatial_v1',
+    'spatial_prior': 'anchor_gaussian_v1',
+    'spatial_prior_metric': 'squared_euclidean',
+    'spatial_prior_centers': 'fixed_membership_centroids',
+    'spatial_prior_scale_token_units': 1.75,
+    'spatial_prior_strength': 0.5,
+    'spatial_prior_position': 'post_temperature',
+}
+
+
+def soft_assignment_identity(spatial_prior=None) -> dict:
+    if spatial_prior is None:
+        return dict(_SOFT)
+    if spatial_prior == 'anchor_gaussian_v1':
+        return dict(_SPATIAL_SOFT)
+    raise ValueError(f'Unsupported spatial_prior: {spatial_prior!r}')
 
 
 def validate_soft_assignment(config: dict) -> dict:
-    if not isinstance(config, dict) or config.keys() != _SOFT.keys():
+    if not isinstance(config, dict):
         raise ValueError('soft_assignment must contain the complete versioned configuration')
-    for key, expected in _SOFT.items():
+    expected_config = (_SPATIAL_SOFT if config.get('assignment_version') ==
+                       _SPATIAL_SOFT['assignment_version'] else _SOFT)
+    if config.keys() != expected_config.keys():
+        raise ValueError('soft_assignment must contain the complete versioned configuration')
+    for key, expected in expected_config.items():
         if type(config[key]) is not type(expected) or config[key] != expected:
             raise ValueError(f'Unsupported soft_assignment {key}={config[key]!r}; expected {expected!r}')
     return dict(config)
+
+
+def spatial_prior_name(architecture_config: dict):
+    config = architecture_config.get('soft_assignment')
+    return None if config is None else validate_soft_assignment(config).get('spatial_prior')
 
 
 def complete_grouping_architecture(arch: dict, *, checkpoint: bool = False) -> dict:

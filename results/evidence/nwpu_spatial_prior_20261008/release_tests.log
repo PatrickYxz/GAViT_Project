@@ -1,0 +1,33 @@
+........................................................................ [ 44%]
+........................................................................ [ 88%]
+..................                                                       [100%]
+=============================== warnings summary ===============================
+../../../../../../private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/torch/jit/frontend.py:1209: 20 warnings
+  /private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/torch/jit/frontend.py:1209: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    elif isinstance(value, ast.Str):
+
+../../../../../../private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/torch/jit/frontend.py:1210: 19 warnings
+  /private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/torch/jit/frontend.py:1210: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead
+    s += value.s
+
+tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[swin-None]
+tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-attentive_spatial]
+tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-soft_prototype]
+tests/test_soft_entrypoints.py::test_new_mode_resume_uses_persisted_initial_probe[1]
+tests/test_soft_entrypoints.py::test_new_mode_resume_uses_persisted_initial_probe[2]
+  /private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/rasterio/__init__.py:366: NotGeoreferencedWarning: Dataset has no geotransform, gcps, or rpcs. The identity matrix will be returned.
+    dataset = writer(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================= slowest 10 durations =============================
+7.54s call     tests/test_scene_runtime.py::RuntimeTests::test_real_models_train_save_reload_and_evaluate_validation
+6.86s call     tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-soft_prototype]
+6.09s call     tests/test_soft_entrypoints.py::test_new_mode_resume_uses_persisted_initial_probe[1]
+5.99s call     tests/test_soft_entrypoints.py::test_new_mode_resume_uses_persisted_initial_probe[2]
+5.76s call     tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-attentive_spatial]
+5.13s call     tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[swin-None]
+3.33s call     tests/test_token_refinement_runtime.py::test_real_ffn_training_reloads_and_records_learning_before_pool[gavit]
+2.71s call     tests/test_token_refinement_runtime.py::test_real_ffn_training_reloads_and_records_learning_before_pool[swin]
+2.40s call     tests/test_soft_entrypoints.py::test_help_advertises_new_mode[train_bigearth.py]
+2.33s call     tests/test_scene_runtime.py::RuntimeTests::test_grouped_manifest_reaches_training_and_checkpoint_identity
+162 passed, 44 warnings in 56.35s

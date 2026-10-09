@@ -8,6 +8,16 @@
 
 ---
 
+## 2026-10-09 — 空间先验独立发布候选核验
+
+- 用户明确授权提交并推送独立分支 `codex/soft-spatial-prior-nwpu-20261008`。基于已发布058f1d8，5个运行文件及2个测试文件与10月8日已验收补丁逐字节相同，17个共享运行文件保持基底版本。原研究工作区与旧实验分支保留。
+- 候选只在soft S logits加入固定空间项：`cos/0.1 - 0.5 * ||(token - hard_region_centroid)/1.75||²`；保留attention pooling、80边图规则和配方，不增加学习参数、不开FFN。旧默认/权重保持兼容，新候选身份独立。
+- 实际发布目录的完整tests目录：162 passed / 44 warnings / exit0 / 56.35秒。此前开发目录92项局部验证记录保留。检查仅本地离线CPU/合成图片，不是NWPU效果或CUDA证据。
+- [冻结范围与服务器操作](docs/run_nwpu_spatial_prior_20261008.md)、[当前结果状态](results/nwpu_spatial_prior_trial.md)、[发布验证](results/evidence/nwpu_spatial_prior_20261008/release_validation.json)随源码保留。启动命令先检查源码/空闲GPU/原图/新输出，固定8线程；回传实际checkpoint SHA、重载、图边、硬件和耗时。命令fixture检查通过，不冒充实机运行。
+- 本次交付仅一轮360train/90val短测。完整NWPU校准待短测证据；没有代执行付费训练、BigEarthNet、refit/test、多seed或新的参数搜索。停止规则在训练前冻结，当前不宣称模型提升。
+
+---
+
 ## 2026-09-28 — 局部原型软分配独立发布与NWPU短测准备
 
 - 用户选择独立分支推送并创建PR。此分支从服务器现有`deb2b45`派生，只包含18个新模块相关代码/测试文件及本次发布说明、证据；原研究工作区其他未提交材料保留。这里未纳入其间的全部实验日记，不用此分支历史判断项目总体进度。

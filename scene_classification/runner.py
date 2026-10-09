@@ -19,7 +19,7 @@ from torch.utils.data import DataLoader, Dataset
 from experiment_identity import (assert_clean_git_state, get_git_state, graph_topology_identity,
     load_checkpoint_metadata, sha256_file, write_checkpoint_metadata)
 from utils import save_checkpoint as _legacy_save_checkpoint, save_training_state, set_seed
-from grouping_identity import complete_grouping_architecture
+from grouping_identity import complete_grouping_architecture, spatial_prior_name
 from soft_assignment_diagnostics import SoftAssignmentProbe
 from .data import load_manifest, select_records, write_json
 from .metrics import classification_metrics
@@ -45,6 +45,7 @@ class RunConfig:
     calibration: str | None = None
     grouping: str | None = None
     token_refinement: str | None = None
+    spatial_prior: str | None = None
 
 
 def training_identity(cfg):
@@ -220,7 +221,7 @@ def _checkpoint_metadata(checkpoint, manifest_path, manifest):
     if (meta.get('dataset') != manifest['dataset'] or meta.get('class_names') != manifest['class_names']
             or meta.get('data', {}).get('manifest_sha256') != sha256_file(str(manifest_path))
             or arch != architecture(meta.get('model'), len(manifest['class_names']), grouping=arch.get('grouping'),
-                                    token_refinement=refinement_name(arch))
+                                    token_refinement=refinement_name(arch), spatial_prior=spatial_prior_name(arch))
             or meta.get('entry_version') != 'scene-v1'):
         raise ValueError('Checkpoint identity mismatch')
     if meta.get('checkpoint_sha256') != sha256_file(str(checkpoint)):
@@ -241,6 +242,11 @@ def run_training(cfg):
 
 
 def _train(cfg, out, start):
+    if cfg.spatial_prior is not None:
+        if (cfg.spatial_prior != 'anchor_gaussian_v1' or cfg.phase not in ('smoke', 'calibrate')
+                or cfg.seed != 42 or cfg.model != 'gavit' or cfg.grouping != 'soft_prototype'
+                or cfg.token_refinement is not None or (cfg.phase == 'calibrate' and cfg.workers != 2)):
+            raise ValueError('Spatial prior trial requires soft GAViT, seed42, smoke/calibrate, no FFN and formal workers2')
     if cfg.token_refinement is not None:
         if (cfg.token_refinement != 'residual_ffn_v1' or cfg.phase not in ('smoke', 'calibrate')
                 or cfg.seed != 42 or cfg.model not in ('swin', 'gavit')
@@ -257,6 +263,9 @@ def _train(cfg, out, start):
         raise ValueError('Formal phases require pretrained weights')
     device = _device(cfg.device)
     manifest = load_manifest(cfg.manifest, cfg.data_root)
+    if (cfg.spatial_prior is not None and manifest['dataset'] != 'NWPU-RESISC45'
+            and not (cfg.phase == 'smoke' and manifest['dataset'] == 'synthetic')):
+        raise ValueError('Spatial prior trial is limited to NWPU (or synthetic smoke)')
     if (cfg.token_refinement is not None and manifest['dataset'] != 'NWPU-RESISC45'
             and not (cfg.phase == 'smoke' and manifest['dataset'] == 'synthetic')):
         raise ValueError('FFN trial is limited to NWPU (or synthetic smoke)')
@@ -269,6 +278,11 @@ def _train(cfg, out, start):
         raise ValueError('--calibration is only for refit')
     names = manifest['class_names']
     pretrained_hash = sha256_file(cfg.pretrained_path) if cfg.pretrained_path else None
+    if cfg.spatial_prior and manifest['dataset'] == 'NWPU-RESISC45':
+        if (sha256_file(cfg.manifest) != 'ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e'
+                or pretrained_hash != 'f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36'
+                or manifest['counts'] != {'train': 5040, 'val': 1260, 'test': 25200}):
+            raise ValueError('Spatial prior trial requires the frozen NWPU manifest and pretrained weights')
     if cfg.token_refinement and manifest['dataset'] == 'NWPU-RESISC45':
         if (sha256_file(cfg.manifest) != 'ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e'
                 or pretrained_hash != 'f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36'
@@ -278,7 +292,7 @@ def _train(cfg, out, start):
     identity = {'model': cfg.model, 'seed': cfg.seed, 'manifest_sha256': sha256_file(cfg.manifest),
                 'pretrained_sha256': pretrained_hash, 'training': training,
                 'architecture': architecture(cfg.model, len(names), grouping=cfg.grouping,
-                                             token_refinement=cfg.token_refinement), 'code': code}
+                                             token_refinement=cfg.token_refinement, spatial_prior=cfg.spatial_prior), 'code': code}
     epochs, source_identity = (1 if cfg.phase == 'smoke' else 30), None
     if cfg.phase == 'refit':
         if not cfg.calibration:
@@ -466,6 +480,8 @@ def evaluate_checkpoint(checkpoint, manifest_path, data_root, output, *, split='
         if code['files_sha256'] != meta.get('code', {}).get('files_sha256'):
             raise ValueError('Evaluation code identity changed from checkpoint; use the recorded source version')
         phase = meta['execution']['phase']
+        if spatial_prior_name(meta['architecture']) is not None and (split != 'val' or phase not in ('smoke', 'calibrate')):
+            raise ValueError('Spatial prior trial is limited to calibration validation; no refit/test')
         if 'token_refinement' in meta['architecture'] and (split != 'val' or phase not in ('smoke', 'calibrate')):
             raise ValueError('FFN trial is limited to calibration validation; no refit/test')
         if phase == 'smoke' and split == 'test':

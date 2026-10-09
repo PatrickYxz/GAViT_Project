@@ -28,6 +28,16 @@ class SoftPrototypeGrouping(AttentiveSpatialGrouping):
             (self.assignment[:, None] // 4 - regions[None] // 4).abs(),
             (self.assignment[:, None] % 4 - regions[None] % 4).abs())
         self.register_buffer('candidate_mask', distance <= self.config['assignment_radius'])
+        if self.config.get('spatial_prior') is not None:
+            # Centers of the actual unequal hard partitions, in token-pitch units.
+            positions = torch.stack(torch.meshgrid(
+                torch.arange(grid_size), torch.arange(grid_size), indexing='ij'), dim=-1)
+            positions = positions.reshape(-1, 2).float()
+            centers = self.membership.T @ positions / self.membership.sum(0)[:, None]
+            offset = (positions[:, None] - centers[None]) / self.config['spatial_prior_scale_token_units']
+            prior = -self.config['spatial_prior_strength'] * offset.square().sum(-1)
+            # Candidate-only key also rejects accidental strict loading as legacy.
+            self.register_buffer('spatial_log_prior', prior)
         self.assignment_observer = None
 
     def _validate_tokens(self, tokens):
@@ -48,6 +58,8 @@ class SoftPrototypeGrouping(AttentiveSpatialGrouping):
         raw = torch.einsum('bnk,bnd->bkd', w0, z)
         prototypes = F.normalize(raw, dim=-1, eps=self.config['assignment_norm_eps'])
         logits = torch.einsum('bnd,bkd->bnk', z, prototypes) / self.config['assignment_temperature']
+        if self.config.get('spatial_prior') is not None:
+            logits = logits + self.spatial_log_prior[None]
         log_s = logits.masked_fill(~self.candidate_mask[None], -torch.inf).log_softmax(-1)
         return log_s, w0, raw.norm(dim=-1), prototypes
 
