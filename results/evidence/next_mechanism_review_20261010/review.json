@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-10",
+  "scope": "Read-only source/cache-schema and experiment review; no remote cache bytes, new model code, GPU work or probe execution",
+  "question": "Does the frozen soft GAViT feedback depend on cross-region GAT messages, beyond the per-region learned transforms?",
+  "novelty_relative_to_completed_probes": "Alpha=0 removes all feedback including local transformations; self-loop-only retains frozen learned transforms but removes cross-region GAT edges.",
+  "cached_scope": {
+    "full_1260_feedback": "mean_tokens/mean_feedback/logits/classifier, no region nodes or edges",
+    "full_1260_pooling": "pooled/logits/classifier, no region nodes or edges",
+    "selected_90_pooling": "normal and membership_only S/W/regions/edges/pooled/logits; only normal is proposed for new question"
+  },
+  "proposed_sources": [
+    "/home/featurize/work/nwpu_pooling42_20261008_01/selected_cases.pt",
+    "/home/featurize/work/nwpu_feedback42_20261002_01/soft_cache.pt",
+    "/home/featurize/work/nwpu_ablation42_20260928_01/soft/best.pth"
+  ],
+  "proposed_probe": {
+    "mode": "CPU only, eval, no gradient, two predeclared conditions: original edges and self-loops only",
+    "samples": "existing fixed 90 val cases, no new selection",
+    "control": "independent mean_tokens from earlier feedback cache; replay original graph against stored pooled and logits before any interpretation",
+    "held_fixed": "regions, S, all parameters, feedback/readout formulas; classifier eval",
+    "avoid": "Do not reconstruct mean_tokens solely by subtracting the same replayed feedback from pooled: would make part of the check circular",
+    "end_condition": "one exploratory case probe only; no automatic full-val capture, edge sweep or training; missing/corrupt caches or mismatch stops"
+  },
+  "interpretation_limits": [
+    "Selected 90 cases do not provide population metrics or stable improvement",
+    "Self-only is inference intervention in a jointly trained model, not a trained no-graph baseline",
+    "Neighbor deletion changes attention normalization and is not parameter-neutral evidence of message harm alone",
+    "Backbone/soft pooling already mix information; self-only only removes GAT cross-region communication"
+  ],
+  "other_options_considered": {
+    "change_assignment_temperature_radius_or_spatial_strength": "No new evidence to justify another sweep of closed candidate",
+    "move_graph_to_earlier_Swin_stage_or_change_token_readout": "Potential architecture question, changes multiple dimensions and needs controlled design; not immediate paid trial"
+  },
+  "sources": [
+    {
+      "title": "Vision GNN: An Image is Worth Graph of Nodes",
+      "url": "https://papers.neurips.cc/paper_files/paper/2022/hash/3743e69c8e47eb2e6d3afaea80e439fb-Abstract-Conference.html",
+      "supports": "Distinguishes graph aggregation/update and per-node FFN transformation; not proof of GAViT gain"
+    },
+    {
+      "title": "Vision Transformer with Super Token Sampling",
+      "url": "https://arxiv.org/abs/2211.11167",
+      "supports": "Sampling, super-token attention and token upsampling are distinct design steps; does not establish appropriate GAViT grouping"
+    },
+    {
+      "title": "GATConv official docs",
+      "url": "https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.conv.GATConv.html",
+      "supports": "Neighborhood plus self attention, self-loops default; latest page 2.9.0, actual local 2.8.0 source also checked"
+    }
+  ],
+  "files_sha256": {
+    "models/gavit.py": "39b2fd72be3afca0bb450ff5b700966c75c8aa277b2cf303b6c3faf129faba3e",
+    "models/graph_reasoning.py": "895825a417f627594fda8407cf1e980f8bcef398201c233e1c20d900ec9046da",
+    "tools/diagnose_nwpu_pooling.py": "3a144266ef35b3df3a60cf3e8abd614f5186467510f1bb857c3019eac5b4967a",
+    "tools/diagnose_nwpu_feedback.py": "4cd5175261d271638a00e4a4c733f329ecde1c07b646b901c960f0181237eea3",
+    "tools/visualize_nwpu_regions.py": "35ed63ce1ceda120fe9b5e78b157032c5e89d6b351f0caf67e05eef19d4080ba",
+    "results/nwpu_feedback_sensitivity_seed42.md": "540ceafa5adfd6270c440816c1a596e8f73b16e7ed0236adfc6a369d8e5741b0",
+    "results/nwpu_ffn_calibration42_comparison.md": "16bfecdb29ffbc1d93547ef62ec5c3291fc6aa990b56d76749323e4ff51a70d1",
+    "results/nwpu_spatial_prior_trial.md": "2e1947595da2ca2257f056166ee3acb953528e26783da00bc398e3b516070d1f"
+  },
+  "status": "feasibility confirmed from source; concrete probe design proposed, implementation/execution not started"
+}

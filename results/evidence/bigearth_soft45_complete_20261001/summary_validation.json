@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "source_attachment": "/Users/patrick/.codex/attachments/7a201632-ae9b-4ac1-9ca2-705fa778b4cd/已粘贴的文本.txt",
+  "raw_source_sha256": "ee8f51425cb2538670c8253da4c7638ca3e7ffcec4d5488cec9b91f77f77552c",
+  "raw_bytes_preserved": true,
+  "parsing_note": "Terminal paste lacks opening outer brace. Prepended one brace only in parsed copy; excluded trailing shell prompt. summary.json is a structured transcription, not a byte-identical server download.",
+  "frozen_controls_match": true,
+  "frozen_arguments_match": true,
+  "frozen_splits_and_pretrained_match": true,
+  "frozen_architecture_and_training_match": true,
+  "approved_hardware_and_precision_match": true,
+  "local_launcher_sha256": "8ff8f6d36b6709f993b96f35dfb89b96422ea46fe104263e76bb35b553a12690",
+  "prior_metadata_and_metrics_exactly_match": true,
+  "full_resource_summary_received": true,
+  "resources": {
+    "queue_seconds": 53058.733037157,
+    "queue_hours": 14.738536954765832,
+    "outside_stage_timers_seconds": 58.027382378990296,
+    "actual_cost": null,
+    "train": {
+      "seconds": 52678.069085704,
+      "hours": 14.632796968251112,
+      "allocated_GiB": 3.659762382507324,
+      "reserved_GiB": 4.029296875,
+      "main_RSS_GiB": 1.9716567993164062
+    },
+    "test": {
+      "seconds": 322.6365690740058,
+      "hours": 0.08962126918722384,
+      "allocated_GiB": 0.5954151153564453,
+      "reserved_GiB": 1.02734375,
+      "main_RSS_GiB": 1.4748458862304688
+    }
+  },
+  "probe_scope": "Server-reported engineering checks on 8 fixed validation images, initial/best/final snapshots; no local probe tensors downloaded; no semantic or stability conclusion.",
+  "checkpoint_bytes_downloaded": false,
+  "predictions_recomputed": false,
+  "historical_csv_prefix_sha256": "6c9997dd7d914b878180c7d6a55d921e99fc33e3c0a42712a051f869b0b158f0",
+  "historical_csv_prefix_preserved": true
+}

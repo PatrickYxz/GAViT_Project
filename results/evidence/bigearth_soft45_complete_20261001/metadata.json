@@ -1,0 +1,69 @@
+{
+  "model": "gavit",
+  "dataset": "BigEarthNet-19",
+  "architecture": {
+    "num_classes": 19,
+    "num_regions": 16,
+    "knn_k": 5,
+    "gat_hidden": 256,
+    "gat_heads": 4,
+    "gat_layers": 2,
+    "dropout": 0.1,
+    "grouping": "soft_prototype",
+    "edge_type": "sparse_hybrid",
+    "integration": "token_feedback",
+    "soft_assignment": {
+      "assignment_version": "local_prototype_cosine_v1",
+      "assignment_dim": 128,
+      "assignment_radius": 1,
+      "assignment_metric": "chebyshev",
+      "assignment_temperature": 0.1,
+      "assignment_iterations": 1,
+      "assignment_projection": "shared_ln_linear_no_bias",
+      "assignment_init": "xavier_uniform",
+      "assignment_norm_eps": 1e-06,
+      "assignment_ln_eps": 1e-05,
+      "prototype_pooling": "fixed_region_attention",
+      "region_pooling": "attentive_log_membership",
+      "feedback_mapping": "soft_membership",
+      "graph_node_geometry": "anchor_index_prior"
+    }
+  },
+  "graph_topology": {
+    "name": "sparse_hybrid_4n_top2",
+    "spatial_connectivity": 4,
+    "feature_k": 2,
+    "spatial_directed_edges": 48,
+    "feature_directed_edges": 32,
+    "total_directed_edges": 80,
+    "message_direction": "neighbor_to_query",
+    "cosine_role": "topology_only"
+  },
+  "training": {
+    "seed": 45,
+    "epochs": 30,
+    "batch_size": 32,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "scheduler": "CosineAnnealingLR",
+    "loss": "BCEWithLogitsLoss",
+    "f1_threshold": 0.5
+  },
+  "execution": {
+    "run_stage": "formal",
+    "run_tag": "bigearth_soft45_20260930_01_gavit_train"
+  },
+  "best": {
+    "metric": "val_mAP",
+    "value": 78.7037,
+    "epoch": 11
+  },
+  "checkpoint_sha256": "4969f401bf297c3885ee0ac02938ae102413fc2e8c1bc8e0a628e9e918bd35e2",
+  "git": {
+    "commit": "ed480e6",
+    "dirty": false
+  },
+  "checkpoint_path": "/home/featurize/work/bigearth_soft45_20260930_01/gavit_train/gavit.pth",
+  "saved_at": "2026-09-30T10:47:39+00:00"
+}

@@ -1,0 +1,12 @@
+{
+  "mirror_url": "https://hf-mirror.net/datasets/Vision-Flan/vision-flan/resolve/a7fc1f3307439d00e39acb9a944356b346531ae9/shard_05/raw_dataset/AID.zip",
+  "http_status": 206,
+  "content_range": "bytes 0-255/2628474154",
+  "redirect_observed": false,
+  "range_bytes": 256,
+  "prefix_matches_huggingface": true,
+  "prefix_sha256": "88ca40c5d6891b7d3c729e26a36093e6f755909218846a717e1952c114304d61",
+  "expected_full_sha256_from_source": "cdb1af67657ef1ed42ed481bf009df689ddc9ea13dfb6eb36277882312703bf7",
+  "full_download_verified": false,
+  "featurize_connectivity_verified": false
+}

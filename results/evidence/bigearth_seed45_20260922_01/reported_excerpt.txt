@@ -1,0 +1,43 @@
+User-returned terminal excerpt; normalized underscores and removed duplicated tail.
+This is an excerpt transcription, not a byte-for-byte copy of the server run.log.
+Received in conversation dated 2026-09-23; server run directory date is 20260922.
+
+Epoch [30/30] Train: 100%|██████████| 7434/7434 [24:21<00:00, 5.09it/s]
+Epoch [30/30]  Loss: 0.0817  |  Val mAP: 76.6%  |  Val F1: 71.7%
+EPOCH RESOURCE {"epoch": 30, "train_loss": 0.08172658044316794, "val_mAP_percent": 76.61513448708149, "val_macro_f1_percent": 71.71295447541755, "next_epoch_lr": 0.0, "epoch_wall_seconds": 1824.7612908370065}
+
+Best Validation mAP: 78.3%
+STAGE COMPLETE gavit_train
+START gavit_test
+DEVICE {'gpu': 'NVIDIA GeForce RTX 2080 Ti', 'cuda': '12.1', 'cudnn': 8902, 'threads': 8, 'python': '3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]', 'packages': {'torch': '2.2.2', 'torchvision': '0.17.2', 'timm': '1.0.27', 'torch-geometric': '2.8.0', 'numpy': '1.26.4', 'scikit-learn': '1.9.0', 'pillow': '10.3.0'}, 'gpu_identity': 'GPU-0fa5e2ad-0028-881c-749b-3b88c01de00b, NVIDIA GeForce RTX 2080 Ti, 610.57.04'} PRECISION {'dtype': 'torch.float32', 'matmul_tf32': False, 'cudnn_tf32': True, 'amp': False}
+Test samples: 119,825
+Architecture source: metadata
+Loaded: /home/featurize/work/bigearth_seed45_20260922_01/gavit_train/gavit.pth
+Test: 100%|██████████| 3745/3745 [05:11<00:00, 12.00it/s]
+
+Test mAP   (macro): 70.3%
+Test F1    (macro): 64.3%
+Test F1    (micro): 76.7%
+
+Per-class Average Precision:
+86.3%  Urban fabric
+49.4%  Industrial or commercial units
+93.8%  Arable land
+60.8%  Permanent crops
+86.1%  Pastures
+70.1%  Complex cultivation patterns
+72.9%  Land principally occupied by agriculture, with significant areas of natural vegetation
+87.3%  Agro-forestry areas
+85.6%  Broad-leaved forest
+93.6%  Coniferous forest
+89.4%  Mixed forest
+47.6%  Natural grassland and sparsely vegetated areas
+60.0%  Moors, heathland and sclerophyllous vegetation
+77.9%  Transitional woodland, shrub
+9.7%  Beaches, dunes, sands
+63.2%  Inland wetlands
+10.7%  Coastal wetlands
+91.2%  Inland waters
+99.4%  Marine waters
+STAGE COMPLETE gavit_test
+BIGEARTH SEED45 COMPLETE /home/featurize/work/bigearth_seed45_20260922_01

@@ -1,0 +1,13 @@
+{
+  "argmax_changed_fraction": 0.3909297052154195,
+  "argmax_changed_mean_per_image": 19.155555555555555,
+  "feature_edges_common_fraction": 0.34444444444444444,
+  "feature_edges_different_fraction": 0.6555555555555556,
+  "feature_edges_common_mean": 11.022222222222222,
+  "soft_argmax_regions_present_min": 12,
+  "soft_argmax_regions_present_max": 16,
+  "derived_from": "SVG region-ID fill colors and data-source/data-target edge attributes, not raw S/W tensors",
+  "causal_evidence": false,
+  "compression_reduction_fraction": 0.8443411927520312,
+  "compact_MiB": 41.162779808044434
+}

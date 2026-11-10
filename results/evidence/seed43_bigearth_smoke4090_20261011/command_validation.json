@@ -1,0 +1,21 @@
+{
+  "status": "syntax_payload_identity_pass",
+  "launcher_sha256": "71b04d927f111c9d754e328a7e876cf6af7f428bbda22e1f9a9e31fced85c318",
+  "frozen_helper_sha256": "7346c6aa25426998f44eeb55aa9aa33c1f43357d4cbabb3951413e5aa8d1b832",
+  "source_hashes": {
+    "helper_source.py": "7346c6aa25426998f44eeb55aa9aa33c1f43357d4cbabb3951413e5aa8d1b832",
+    "prepare_source.py": "8ab94eee302b771bb3c042bef6b09cad6b3dfd8dbf2327e60b2fd8de32cfffce",
+    "train_reload_source.py": "ff03581c40352fb973cd62f93ccf7c4d82390dc66a1e080807ac8f99ec69b418"
+  },
+  "formal_helper_changed": false,
+  "checks": [
+    "Python AST",
+    "Bash/zsh syntax",
+    "compressed payload byte equality",
+    "existing formal helper unchanged",
+    "smoke gate/current preflight equality before output creation"
+  ],
+  "limits": [
+    "local stdlib check only; no new GPU training"
+  ]
+}

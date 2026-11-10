@@ -1,0 +1,14 @@
+{
+  "source_attachment": "/Users/patrick/.codex/attachments/6b059ae5-34f1-4184-9e23-4671eeb2206e/已粘贴的文本.txt",
+  "source_sha256": "98fae0c5b4cb9a1797ab0ae01d39bc0d33d089dde5e7d4d9b7e52b4ef3886618",
+  "transformation": "JSON extraction omits trailing shell prompt only; raw pasted bytes preserved.",
+  "received": "2026-09-22",
+  "scope": "106 epoch tuples from four seed44 stages plus two true-class rows from each of six test matrices.",
+  "not_received": [
+    "full history.json with per-epoch metrics and timings",
+    "full confusion matrices",
+    "per-image predictions",
+    "checkpoint bytes"
+  ],
+  "limitations": "No local inference; row margins do not identify the same individual samples changing predictions; no graph causal claim."
+}

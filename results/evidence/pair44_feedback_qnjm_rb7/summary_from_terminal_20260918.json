@@ -1,0 +1,64 @@
+{
+  "recorded_date": "2026-09-18",
+  "provenance": "user_pasted_terminal_excerpt_normalized_not_original_log_bytes",
+  "server_output": "/home/featurize/work/pair44_feedback_qnjm_rb7/diagnosis",
+  "completion_marker_returned": true,
+  "process_exit": 0,
+  "threshold": 0.5,
+  "intended_input_mode": "gallery",
+  "input_mode_basis": "previously_delivered_and_launched_command; report_header_not_yet_returned",
+  "counting_unit": "selected_image_class_case",
+  "unique_images": null,
+  "actual_gpu": null,
+  "cached_prediction_max_abs_error": null,
+  "full_run_json_read_locally": false,
+  "per_case_tensors_and_figures_inspected_locally": false,
+  "normalized_excerpt_sha256": "3196b6a03a7f492ad3572ad61fe36109d860533c69a0a44d379471775ea14e29",
+  "classes": [
+    {
+      "class_index": 11,
+      "n": 8,
+      "feedback_corrects": 1,
+      "feedback_breaks": 0,
+      "unchanged_correct": 4,
+      "unchanged_wrong": 3,
+      "normal_correct": 5,
+      "zero_correct": 4
+    },
+    {
+      "class_index": 14,
+      "n": 8,
+      "feedback_corrects": 2,
+      "feedback_breaks": 1,
+      "unchanged_correct": 3,
+      "unchanged_wrong": 2,
+      "normal_correct": 5,
+      "zero_correct": 4
+    },
+    {
+      "class_index": 16,
+      "n": 8,
+      "feedback_corrects": 0,
+      "feedback_breaks": 0,
+      "unchanged_correct": 4,
+      "unchanged_wrong": 4,
+      "normal_correct": 4,
+      "zero_correct": 4
+    }
+  ],
+  "totals": {
+    "n": 24,
+    "feedback_corrects": 3,
+    "feedback_breaks": 1,
+    "unchanged_correct": 11,
+    "unchanged_wrong": 9,
+    "normal_correct": 14,
+    "zero_correct": 12
+  },
+  "limitations": [
+    "Selected cases are not population metrics",
+    "JPEG inputs differ from original RGB",
+    "Zero feedback on a jointly trained model is not a trained ablation",
+    "No threshold flip does not imply unchanged scores or ranking"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "reported_log_and_metrics_audit_pass",
+  "checks": [
+    "three exits0 and queue/train/test completion markers",
+    "epoch30/finite final values/zero nextLR",
+    "119825samples/3745batches/threshold0.5",
+    "19class AP average equals precise mAP",
+    "test environment equals passed preflight",
+    "old43 controls/class names match current archived tables"
+  ],
+  "source_sha256": "806d5c105a49049a067dfd011f1469cfc5ba7f8735e68a445fd223c585cb4580",
+  "limits": [
+    "seed43 controls are rounded one-decimal metrics; deltas/means/SD involving them are approximate",
+    "fixed43 saved21 epochs/best8 vs Swin43 full30/best6 vs soft43 full30; code/historical hardware differ",
+    "server checkpoint/predictions/probe tensors not downloaded; saved result is user-returned evidence",
+    "best validation printed79.0 only; exact best/epoch and total/stage resource reports still pending",
+    "n=2 descriptive evidence; no significance/stability/causal claim"
+  ]
+}

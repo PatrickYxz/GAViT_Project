@@ -1,0 +1,9 @@
+{
+  "python_syntax": true,
+  "bash_syntax": true,
+  "zsh_syntax": true,
+  "missing_directory_handled": true,
+  "partial_run_handled": true,
+  "read_only_fixture_verified": true,
+  "server_execution": false
+}

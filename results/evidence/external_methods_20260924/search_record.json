@@ -1,0 +1,196 @@
+{
+  "checked_on": "2026-09-24",
+  "method": "GitHub connector repository search; author-paper and author-homepage review via web",
+  "scope": "query-specific results only; not proof code does not exist",
+  "queries": [
+    {
+      "query": "HGTNet",
+      "per_page": 10,
+      "page": 1,
+      "status": "fulfilled",
+      "is_error": false,
+      "repositories": [
+        {
+          "full_name": "Muhammad-Shakeel-Imran/HGTnetX",
+          "url": "https://github.com/Muhammad-Shakeel-Imran/HGTnetX"
+        },
+        {
+          "full_name": "Wushanzhi/HGTNet",
+          "url": "https://github.com/Wushanzhi/HGTNet"
+        },
+        {
+          "full_name": "torresleah3/hgtnet",
+          "url": "https://github.com/torresleah3/hgtnet"
+        }
+      ]
+    },
+    {
+      "query": "DFAGCN",
+      "per_page": 10,
+      "page": 1,
+      "status": "fulfilled",
+      "is_error": false,
+      "repositories": []
+    },
+    {
+      "query": "\"Hierarchical Graph-Enhanced Transformer\"",
+      "per_page": 10,
+      "page": 1,
+      "status": "fulfilled",
+      "is_error": false,
+      "repositories": []
+    },
+    {
+      "query": "\"Deep Feature Aggregation\"",
+      "per_page": 10,
+      "page": 1,
+      "status": "fulfilled",
+      "is_error": false,
+      "repositories": [
+        {
+          "full_name": "huaifeng1993/DFANet",
+          "url": "https://github.com/huaifeng1993/DFANet"
+        },
+        {
+          "full_name": "ChengXi-1217/DFAN-HAD",
+          "url": "https://github.com/ChengXi-1217/DFAN-HAD"
+        },
+        {
+          "full_name": "jandylin/DFANet_PyTorch",
+          "url": "https://github.com/jandylin/DFANet_PyTorch"
+        },
+        {
+          "full_name": "XT-1997/FDANET",
+          "url": "https://github.com/XT-1997/FDANET"
+        },
+        {
+          "full_name": "MaJinWakeUp/HeWR",
+          "url": "https://github.com/MaJinWakeUp/HeWR"
+        },
+        {
+          "full_name": "WYFFFFF/-CVPR2019--DFANet-Deep-Feature-Aggregation-for-Real-Time-Semantic-Segmentation-",
+          "url": "https://github.com/WYFFFFF/-CVPR2019--DFANet-Deep-Feature-Aggregation-for-Real-Time-Semantic-Segmentation-"
+        },
+        {
+          "full_name": "esnthere/VT-IQA",
+          "url": "https://github.com/esnthere/VT-IQA"
+        },
+        {
+          "full_name": "riyaj8888/DFANet_Keras",
+          "url": "https://github.com/riyaj8888/DFANet_Keras"
+        },
+        {
+          "full_name": "jingbo18/dfa-net",
+          "url": "https://github.com/jingbo18/dfa-net"
+        },
+        {
+          "full_name": "YvMohsin/DFANet",
+          "url": "https://github.com/YvMohsin/DFANet"
+        }
+      ]
+    },
+    {
+      "query": "\"3491335\" in:readme",
+      "per_page": 30,
+      "page": 1,
+      "status": "fulfilled",
+      "is_error": false,
+      "repositories": [],
+      "error": null
+    },
+    {
+      "query": "\"3071369\" in:readme",
+      "per_page": 30,
+      "page": 1,
+      "status": "fulfilled",
+      "is_error": false,
+      "repositories": [
+        {
+          "full_name": "haron-user/d4r_iza7",
+          "url": "https://github.com/haron-user/d4r_iza7"
+        },
+        {
+          "full_name": "trevormorg/tech-resources-exlybzwiz",
+          "url": "https://github.com/trevormorg/tech-resources-exlybzwiz"
+        }
+      ],
+      "error": null
+    },
+    {
+      "query": "HGTNet user:ovoyu",
+      "per_page": 30,
+      "page": 1,
+      "status": "fulfilled",
+      "is_error": true,
+      "repositories": [],
+      "error": [
+        {
+          "type": "text",
+          "text": "GitHub API error 422: {\"message\":\"Validation Failed\",\"errors\":[{\"message\":\"The listed users and repositories cannot be searched either because the resources do not exist or you do not have permission to view them.\",\"resource\":\"Search\",\"field\":\"q\",\"code\":\"invalid\"}],\"documentation_url\":\"https://docs.github.com/v3/search/\",\"status\":\"422\"}"
+        }
+      ]
+    },
+    {
+      "query": "DFAGCN in:readme",
+      "per_page": 30,
+      "page": 1,
+      "status": "fulfilled",
+      "is_error": false,
+      "repositories": [
+        {
+          "full_name": "FinetuneX-Lab/RSSC_Progress_Timeline",
+          "url": "https://github.com/FinetuneX-Lab/RSSC_Progress_Timeline"
+        }
+      ],
+      "error": null
+    }
+  ],
+  "candidates": [
+    {
+      "repository": "Wushanzhi/HGTNet",
+      "url": "https://github.com/Wushanzhi/HGTNet",
+      "description": "An edge-guided spatiotemporal mapping framework for center pivot irrigation systems",
+      "license": null,
+      "readme_sha": "8db81f9ba53b7fa0ef92cfdcb8c01d1d559fd32d",
+      "readme_excerpt": "# HGTNet\nAn edge-guided spatiotemporal mapping framework for center pivot irrigation systems\n",
+      "decision": "not_a_verified_implementation_of_Li_2024"
+    },
+    {
+      "repository": "torresleah3/hgtnet",
+      "url": "https://github.com/torresleah3/hgtnet",
+      "description": null,
+      "license": null,
+      "readme_sha": "26592c49f43475dcbfbc0e28a3c98586ee100134",
+      "readme_excerpt": "# hgtnet",
+      "decision": "not_a_verified_implementation_of_Li_2024"
+    },
+    {
+      "repository": "Muhammad-Shakeel-Imran/HGTnetX",
+      "url": "https://github.com/Muhammad-Shakeel-Imran/HGTnetX",
+      "description": "A computational framework pipeline for reconstructing horizontal gene transfer (HGT) networks within metagenomic samples by inferring  plasmid compatibility profiling and the characterization of TEs.",
+      "license": "MIT",
+      "readme_sha": "91afdada4171f7d571517f1cd924a5f5d1fa5850",
+      "readme_excerpt": "",
+      "decision": "not_a_verified_implementation_of_Li_2024"
+    }
+  ],
+  "additional_candidates": [
+    {
+      "repository": "haron-user/d4r_iza7",
+      "readme_sha": "ccee0c254b1de371fc381ea54dec5cb542d4dc55",
+      "decision": "unrelated_numeric_url_collision"
+    },
+    {
+      "repository": "trevormorg/tech-resources-exlybzwiz",
+      "readme_sha": "b2ec28f4ef2e70da6ac1b3955000a8ba36ebf8a1",
+      "decision": "unrelated_numeric_url_collision"
+    },
+    {
+      "repository": "FinetuneX-Lab/RSSC_Progress_Timeline",
+      "readme_sha": "386519941c1f10cd4942e6f2c8d182e5c0d52433",
+      "decision": "bibliography_only_not_author_implementation"
+    }
+  ],
+  "contacted_authors": false,
+  "downloaded_or_executed_model_code": false
+}

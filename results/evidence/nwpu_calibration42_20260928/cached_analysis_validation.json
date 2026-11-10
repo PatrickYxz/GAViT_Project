@@ -1,0 +1,30 @@
+{
+  "attachment_sha256": "0dc1ad22d15cf651ae6714d27a9d7b5d24817bd900ffd23032793f8561827f9d",
+  "completion_marker": true,
+  "common_identity_returned": {
+    "seed": true,
+    "counts": true,
+    "manifest_sha256": true,
+    "pretrained_sha256": true,
+    "training": true,
+    "code": true,
+    "hardware": true
+  },
+  "paired_counts_reconciled": true,
+  "curve_rows": {
+    "swin": 30,
+    "fixed": 30,
+    "soft": 30
+  },
+  "rounding_tolerance_OA_pp": 5.1e-05,
+  "derived": {
+    "OA_soft_minus_fixed_pp": 0.7142857142857224,
+    "OA_soft_minus_swin_pp": -0.4761904761904674,
+    "macro_F1_soft_minus_fixed_pp": 0.7891579011429286,
+    "macro_F1_soft_minus_swin_pp": -0.40583076823851627,
+    "soft_best_to_final_lost_images": 3,
+    "soft_extra_parameters_vs_fixed": 99840,
+    "estimated_refit_train_only_seconds": 3412.0454872183755
+  },
+  "scope": "User-pasted read-only server command output; original prediction CSVs and tensor files were not downloaded"
+}

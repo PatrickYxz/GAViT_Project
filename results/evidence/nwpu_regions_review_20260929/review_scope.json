@@ -1,0 +1,19 @@
+{
+  "review_date": "2026-09-30",
+  "source_sha256": "d92ad8c7b4464ebd0a055e685c4cfd99103f8962715d80280f1e04405b724027",
+  "all_main_panels_reviewed": 90,
+  "detailed_membership_cases": [
+    15,
+    27,
+    28,
+    46,
+    54,
+    60,
+    64,
+    68
+  ],
+  "rendering": "Offline SVG rendering via sharp; not interactive browser validation",
+  "raw_S_W_recomputed": false,
+  "source_checkpoint_downloaded": false,
+  "server_inference_rerun": false
+}

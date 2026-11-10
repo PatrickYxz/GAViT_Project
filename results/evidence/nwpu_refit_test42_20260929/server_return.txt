@@ -1,0 +1,196 @@
+base) ➜ ~ python -c 'import json; from pathlib import Path; p=Path("/home/featurize/work/nwpu_refit_test42_20260929_01"); print("QUEUE_EXIT",(p/"queue.exit").read_text().strip()); print((p/"queue_summary.json").read_text()); names=("swin","fixed","soft"); r={n:json.loads((p/(n+"_refit")/"run.json").read_text()) for n in names}; keys=("status","phase","model","architecture","seed","counts","final_epoch","checkpoint_sha256","refit_source","reload_max_logit_diff","graph_capture","elapsed_seconds","cuda_peak_allocated_bytes","cuda_peak_reserved_bytes"); print(json.dumps({n:{k:r[n][k] for k in keys} for n in names},indent=2)); print("STAGE_EXITS",{n+"_"+k:(p/(n+"_"+k)/"run.exit").read_text().strip() for n in names for k in ("refit","test")})'
+QUEUE_EXIT exit_code=0
+{
+  "status": "complete",
+  "elapsed_seconds": 3965.277424567,
+  "stages": [
+    {
+      "model": "swin",
+      "stage": "refit",
+      "process_exit": 0,
+      "checks_passed": true
+    },
+    {
+      "model": "fixed",
+      "stage": "refit",
+      "process_exit": 0,
+      "checks_passed": true
+    },
+    {
+      "model": "soft",
+      "stage": "refit",
+      "process_exit": 0,
+      "checks_passed": true
+    },
+    {
+      "model": "swin",
+      "stage": "test",
+      "process_exit": 0,
+      "checks_passed": true
+    },
+    {
+      "model": "fixed",
+      "stage": "test",
+      "process_exit": 0,
+      "checks_passed": true
+    },
+    {
+      "model": "soft",
+      "stage": "test",
+      "process_exit": 0,
+      "checks_passed": true
+    }
+  ],
+  "tests": {
+    "swin": {
+      "samples": 25200,
+      "oa_percent": 93.93253968253968,
+      "macro_f1_percent": 93.90914546819495,
+      "training_phase": "refit",
+      "fit_scope": "train_plus_val",
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "checkpoint_sha256": "0c89fd0d5c374b85cdba68893d2fe29c1a9c803ba582b2deb8975015f5da1c4d"
+    },
+    "fixed": {
+      "samples": 25200,
+      "oa_percent": 94.10317460317461,
+      "macro_f1_percent": 94.08993346277097,
+      "training_phase": "refit",
+      "fit_scope": "train_plus_val",
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "checkpoint_sha256": "38aa3d94c16a4d22710174ddc6cb6519cb5fdd272c4215ca7e15c8902a8f544e"
+    },
+    "soft": {
+      "samples": 25200,
+      "oa_percent": 93.86904761904762,
+      "macro_f1_percent": 93.854987219354,
+      "training_phase": "refit",
+      "fit_scope": "train_plus_val",
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "checkpoint_sha256": "2d25957190f3988136a721ae3c266b5785e99c0f9564ece611303a2186813b69"
+    }
+  }
+}
+
+{
+  "swin": {
+    "status": "complete",
+    "phase": "refit",
+    "model": "swin",
+    "architecture": {
+      "backbone": "swin_tiny_patch4_window7_224",
+      "dropout": 0.1,
+      "num_classes": 45
+    },
+    "seed": 42,
+    "counts": {
+      "train": 6300,
+      "val": 0
+    },
+    "final_epoch": 29,
+    "checkpoint_sha256": "0c89fd0d5c374b85cdba68893d2fe29c1a9c803ba582b2deb8975015f5da1c4d",
+    "refit_source": {
+      "best_checkpoint_sha256": "bbfd4e472739126276e79014f944f911d7b0abbc6f863bb291d799845b9cd0ea",
+      "run_json_sha256": "e2f0b8d5154cd345906442e35c35bb336d9f8373af736abff39078be5a3b7119"
+    },
+    "reload_max_logit_diff": 0.0,
+    "graph_capture": {},
+    "elapsed_seconds": 1108.584348596,
+    "cuda_peak_allocated_bytes": 3820762112,
+    "cuda_peak_reserved_bytes": 4112515072
+  },
+  "fixed": {
+    "status": "complete",
+    "phase": "refit",
+    "model": "gavit",
+    "architecture": {
+      "dropout": 0.1,
+      "edge_type": "sparse_hybrid",
+      "gat_heads": 4,
+      "gat_hidden": 256,
+      "gat_layers": 2,
+      "grouping": "attentive_spatial",
+      "integration": "token_feedback",
+      "knn_k": 5,
+      "num_classes": 45,
+      "num_regions": 16
+    },
+    "seed": 42,
+    "counts": {
+      "train": 6300,
+      "val": 0
+    },
+    "final_epoch": 29,
+    "checkpoint_sha256": "38aa3d94c16a4d22710174ddc6cb6519cb5fdd272c4215ca7e15c8902a8f544e",
+    "refit_source": {
+      "best_checkpoint_sha256": "1766fe7c330eb37fb350f0348bcd255bafc451b793411a927548ee005a140f67",
+      "run_json_sha256": "4d10169e3618252f079bce85094750eb0477e6caa8ad9a37f13394eecfbb81d8"
+    },
+    "reload_max_logit_diff": 9.5367431640625e-07,
+    "graph_capture": {
+      "actual_forward_checked": true,
+      "edges_per_image": 80,
+      "feature_edges": 32,
+      "spatial_edges": 48
+    },
+    "elapsed_seconds": 1257.2530604529998,
+    "cuda_peak_allocated_bytes": 3924574720,
+    "cuda_peak_reserved_bytes": 4162846720
+  },
+  "soft": {
+    "status": "complete",
+    "phase": "refit",
+    "model": "gavit",
+    "architecture": {
+      "dropout": 0.1,
+      "edge_type": "sparse_hybrid",
+      "gat_heads": 4,
+      "gat_hidden": 256,
+      "gat_layers": 2,
+      "grouping": "soft_prototype",
+      "integration": "token_feedback",
+      "knn_k": 5,
+      "num_classes": 45,
+      "num_regions": 16,
+      "soft_assignment": {
+        "assignment_dim": 128,
+        "assignment_init": "xavier_uniform",
+        "assignment_iterations": 1,
+        "assignment_ln_eps": 1e-05,
+        "assignment_metric": "chebyshev",
+        "assignment_norm_eps": 1e-06,
+        "assignment_projection": "shared_ln_linear_no_bias",
+        "assignment_radius": 1,
+        "assignment_temperature": 0.1,
+        "assignment_version": "local_prototype_cosine_v1",
+        "feedback_mapping": "soft_membership",
+        "graph_node_geometry": "anchor_index_prior",
+        "prototype_pooling": "fixed_region_attention",
+        "region_pooling": "attentive_log_membership"
+      }
+    },
+    "seed": 42,
+    "counts": {
+      "train": 6300,
+      "val": 0
+    },
+    "final_epoch": 28,
+    "checkpoint_sha256": "2d25957190f3988136a721ae3c266b5785e99c0f9564ece611303a2186813b69",
+    "refit_source": {
+      "best_checkpoint_sha256": "674da671e1df1618add93cd18e791e0a81fdfb77ce0dc13478eb963bfa29cc12",
+      "run_json_sha256": "9c1fa474d3f2e79203a1c245acfd15692a9a6e766acb71ef2566baff3d1bfd33"
+    },
+    "reload_max_logit_diff": 9.5367431640625e-07,
+    "graph_capture": {
+      "actual_forward_checked": true,
+      "edges_per_image": 80,
+      "feature_edges": 32,
+      "spatial_edges": 48
+    },
+    "elapsed_seconds": 1240.1981427700002,
+    "cuda_peak_allocated_bytes": 3931566592,
+    "cuda_peak_reserved_bytes": 4336910336
+  }
+}
+STAGE_EXITS {'swin_refit': 'exit_code=0', 'swin_test': 'exit_code=0', 'fixed_refit': 'exit_code=0', 'fixed_test': 'exit_code=0', 'soft_refit': 'exit_code=0', 'soft_test': 'exit_code=0'}
+(base) ➜ ~ 

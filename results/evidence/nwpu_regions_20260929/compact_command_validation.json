@@ -1,0 +1,7 @@
+{
+  "bash_syntax": true,
+  "zsh_syntax": true,
+  "payload_roundtrip": true,
+  "script_sha256": "5cca40dba77dd4f1ff1ecad301c3c28a631d77a8d1789d8a96f703d5d9855535",
+  "command_characters": 1498
+}

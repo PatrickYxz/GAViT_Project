@@ -1,0 +1,100 @@
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_6jf6j458/swin; PHASE smoke; preflight starting
+MODEL swin; DATASET synthetic; DEVICE CPU; PHASE smoke; train=30 val=30
+OMP: Error #179: Function Can't open SHM failed:
+OMP: System error #0: Undefined error: 0
+OMP: Error #179: Function Can't open SHM failed:
+OMP: System error #0: Undefined error: 0
+Traceback (most recent call last):
+  File "/private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1133, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 113, in get
+    if not self._poll(timeout):
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 257, in poll
+    return self._poll(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 440, in _poll
+    r = wait([self], timeout)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 1136, in wait
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 71223) is killed by signal: Abort trap: 6. 
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 84, in _run_output
+    yield out, start
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 223, in run_training
+    return _train(cfg, out, start)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 312, in _train
+    check_inputs = next(iter(check_loader))[0].to(device)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1329, in _next_data
+    idx, data = self._get_data()
+                ^^^^^^^^^^^^^^^^
+  File "/private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1295, in _get_data
+    success, data = self._try_get_data()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1146, in _try_get_data
+    raise RuntimeError(f'DataLoader worker (pid(s) {pids_str}) exited unexpectedly') from e
+RuntimeError: DataLoader worker (pid(s) 71223) exited unexpectedly
+Traceback (most recent call last):
+  File "/private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1133, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/queues.py", line 113, in get
+    if not self._poll(timeout):
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 257, in poll
+    return self._poll(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 440, in _poll
+    r = wait([self], timeout)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/multiprocessing/connection.py", line 1136, in wait
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/utils/data/_utils/signal_handling.py", line 66, in handler
+    _error_if_any_worker_fails()
+RuntimeError: DataLoader worker (pid 71223) is killed by signal: Abort trap: 6. 
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/run_scene.py", line 49, in <module>
+    main()
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/run_scene.py", line 41, in main
+    run_training(RunConfig(**args))
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 223, in run_training
+    return _train(cfg, out, start)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 312, in _train
+    check_inputs = next(iter(check_loader))[0].to(device)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1329, in _next_data
+    idx, data = self._get_data()
+                ^^^^^^^^^^^^^^^^
+  File "/private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1295, in _get_data
+    success, data = self._try_get_data()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/gavit-aid-qa-20260919/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1146, in _try_get_data
+    raise RuntimeError(f'DataLoader worker (pid(s) {pids_str}) exited unexpectedly') from e
+RuntimeError: DataLoader worker (pid(s) 71223) exited unexpectedly

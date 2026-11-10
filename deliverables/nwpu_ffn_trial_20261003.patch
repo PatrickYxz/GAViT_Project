@@ -1,0 +1,666 @@
+--- a/models/gavit.py
++++ b/models/gavit.py
+@@ -6,6 +6,7 @@
+ from models.swin_backbone      import SwinBackbone
+ from models.region_grouping    import KMeansGrouping, SpatialGrouping, AttentiveSpatialGrouping
+ from models.soft_region_grouping import SoftPrototypeGrouping
++from models.token_refinement import ResidualTokenFFN, validate_refinement
+ from models.graph_construction import (
+     build_knn_graph,
+     build_sparse_hybrid_graph,
+@@ -73,8 +74,13 @@
+         pretrained_path: str | None = None,
+         freeze_backbone: bool  = False,
+         soft_assignment: dict | None = None,
++        token_refinement: dict | None = None,
+     ):
+         super().__init__()
++        if token_refinement is not None:
++            validate_refinement(token_refinement)
++            if grouping != 'soft_prototype' or integration != 'token_feedback':
++                raise ValueError('Token refinement trial requires soft_prototype and token_feedback')
+ 
+         # Reject unknown configs explicitly instead of silently falling back
+         # to a different architecture (see research diary 2026-08-05, P5).
+@@ -162,6 +168,8 @@
+             )
+         else:
+             raise ValueError(f"Unknown integration={integration!r}")
++
++        self.token_refinement = ResidualTokenFFN(token_refinement) if token_refinement is not None else None
+ 
+     def forward(self, x: torch.Tensor) -> torch.Tensor:
+         """
+@@ -230,6 +238,8 @@
+ 
+             # Residual update: original tokens + relational context
+             updated_tokens = tokens + token_feedback  # (B, N, 768)
++            if self.token_refinement is not None:
++                updated_tokens = self.token_refinement(updated_tokens)
+ 
+             # Global pool over updated tokens → classify
+             pooled = updated_tokens.mean(dim=1)       # (B, 768)
+--- a/scene_classification/modeling.py
++++ b/scene_classification/modeling.py
+@@ -6,38 +6,56 @@
+ 
+ from models.swin_backbone import SwinBackbone
+ from grouping_identity import complete_grouping_architecture
++from models.token_refinement import ResidualTokenFFN, refinement_identity, validate_refinement
+ 
+ 
+-def architecture(model, num_classes, grouping=None):
++def architecture(model, num_classes, grouping=None, token_refinement=None):
++    extra = {}
++    if token_refinement is not None:
++        if (token_refinement != 'residual_ffn_v1'
++                or (model == 'gavit' and grouping != 'soft_prototype')):
++            raise ValueError('Unsupported token refinement candidate')
++        extra['token_refinement'] = refinement_identity()
+     if model == 'swin':
+         if grouping is not None:
+             raise ValueError('Swin does not accept grouping')
+-        return {'num_classes': num_classes, 'backbone': 'swin_tiny_patch4_window7_224', 'dropout': 0.1}
++        return {'num_classes': num_classes, 'backbone': 'swin_tiny_patch4_window7_224', 'dropout': 0.1, **extra}
+     if model != 'gavit':
+         raise ValueError(f'Unknown model: {model}')
+     if grouping not in (None, 'attentive_spatial', 'soft_prototype'):
+         raise ValueError(f'Unsupported scene grouping: {grouping}')
+     return complete_grouping_architecture({'num_classes': num_classes, 'num_regions': 16, 'knn_k': 5,
+             'gat_hidden': 256, 'gat_heads': 4, 'gat_layers': 2, 'dropout': 0.1,
+-            'grouping': grouping or 'attentive_spatial', 'edge_type': 'sparse_hybrid', 'integration': 'token_feedback'})
++            'grouping': grouping or 'attentive_spatial', 'edge_type': 'sparse_hybrid', 'integration': 'token_feedback', **extra})
+ 
+ 
+ class SwinClassifier(nn.Module):
+-    def __init__(self, num_classes, pretrained_path=None):
++    def __init__(self, num_classes, pretrained_path=None, token_refinement=None):
+         super().__init__()
+         self.backbone = SwinBackbone(pretrained=bool(pretrained_path), pretrained_path=pretrained_path)
+         self.classifier = nn.Sequential(nn.LayerNorm(768), nn.Dropout(0.1), nn.Linear(768, num_classes))
++        self.token_refinement = ResidualTokenFFN(token_refinement) if token_refinement is not None else None
+ 
+     def forward(self, images):
+-        return self.classifier(self.backbone(images).mean(dim=1))
++        tokens = self.backbone(images)
++        if self.token_refinement is not None:
++            tokens = self.token_refinement(tokens)
++        return self.classifier(tokens.mean(dim=1))
++
++
++def refinement_name(config):
++    if 'token_refinement' not in config:
++        return None
++    return validate_refinement(config['token_refinement'])['version']
+ 
+ 
+ def build_model(model, num_classes, pretrained_path=None, *, architecture_config=None):
+     config = architecture(model, num_classes) if architecture_config is None else complete_grouping_architecture(architecture_config, checkpoint=True)
+-    if config != architecture(model, num_classes, grouping=config.get('grouping')):
++    if config != architecture(model, num_classes, grouping=config.get('grouping'),
++                              token_refinement=refinement_name(config)):
+         raise ValueError('Unsupported scene architecture configuration')
+     if model == 'swin':
+-        return SwinClassifier(num_classes, pretrained_path)
++        return SwinClassifier(num_classes, pretrained_path, config.get('token_refinement'))
+     from models.gavit import GAViT
+     return GAViT(**config, pretrained=bool(pretrained_path), pretrained_path=pretrained_path)
+ 
+--- a/scene_classification/runner.py
++++ b/scene_classification/runner.py
+@@ -23,7 +23,8 @@
+ from soft_assignment_diagnostics import SoftAssignmentProbe
+ from .data import load_manifest, select_records, write_json
+ from .metrics import classification_metrics
+-from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity
++from .refinement_audit import RefinementAudit
++from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity, refinement_name
+ 
+ 
+ @dataclass
+@@ -43,6 +44,7 @@
+     val_per_class: int = 2
+     calibration: str | None = None
+     grouping: str | None = None
++    token_refinement: str | None = None
+ 
+ 
+ def training_identity(cfg):
+@@ -217,7 +219,8 @@
+     arch = complete_grouping_architecture(meta.get('architecture'), checkpoint=True)
+     if (meta.get('dataset') != manifest['dataset'] or meta.get('class_names') != manifest['class_names']
+             or meta.get('data', {}).get('manifest_sha256') != sha256_file(str(manifest_path))
+-            or arch != architecture(meta.get('model'), len(manifest['class_names']), grouping=arch.get('grouping'))
++            or arch != architecture(meta.get('model'), len(manifest['class_names']), grouping=arch.get('grouping'),
++                                    token_refinement=refinement_name(arch))
+             or meta.get('entry_version') != 'scene-v1'):
+         raise ValueError('Checkpoint identity mismatch')
+     if meta.get('checkpoint_sha256') != sha256_file(str(checkpoint)):
+@@ -238,6 +241,12 @@
+ 
+ 
+ def _train(cfg, out, start):
++    if cfg.token_refinement is not None:
++        if (cfg.token_refinement != 'residual_ffn_v1' or cfg.phase not in ('smoke', 'calibrate')
++                or cfg.seed != 42 or cfg.model not in ('swin', 'gavit')
++                or (cfg.model == 'gavit' and cfg.grouping != 'soft_prototype')
++                or (cfg.phase == 'calibrate' and cfg.workers != 2)):
++            raise ValueError('FFN trial is limited to Swin/soft, seed42, smoke/calibrate and formal workers2')
+     if cfg.phase not in ('smoke', 'calibrate', 'refit'):
+         raise ValueError('Unknown phase')
+     if cfg.batch_size < 1 or cfg.workers < 0 or min(cfg.train_per_class, cfg.val_per_class) < 1:
+@@ -248,6 +257,9 @@
+         raise ValueError('Formal phases require pretrained weights')
+     device = _device(cfg.device)
+     manifest = load_manifest(cfg.manifest, cfg.data_root)
++    if (cfg.token_refinement is not None and manifest['dataset'] != 'NWPU-RESISC45'
++            and not (cfg.phase == 'smoke' and manifest['dataset'] == 'synthetic')):
++        raise ValueError('FFN trial is limited to NWPU (or synthetic smoke)')
+     code = _code_identity()
+     if cfg.phase != 'smoke':
+         if manifest['dataset'] == 'synthetic' or device.type != 'cuda' or cfg.batch_size != 32:
+@@ -257,10 +269,16 @@
+         raise ValueError('--calibration is only for refit')
+     names = manifest['class_names']
+     pretrained_hash = sha256_file(cfg.pretrained_path) if cfg.pretrained_path else None
++    if cfg.token_refinement and manifest['dataset'] == 'NWPU-RESISC45':
++        if (sha256_file(cfg.manifest) != 'ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e'
++                or pretrained_hash != 'f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36'
++                or manifest['counts'] != {'train': 5040, 'val': 1260, 'test': 25200}):
++            raise ValueError('FFN trial requires the frozen NWPU manifest and pretrained weights')
+     training = training_identity(cfg)
+     identity = {'model': cfg.model, 'seed': cfg.seed, 'manifest_sha256': sha256_file(cfg.manifest),
+                 'pretrained_sha256': pretrained_hash, 'training': training,
+-                'architecture': architecture(cfg.model, len(names), grouping=cfg.grouping), 'code': code}
++                'architecture': architecture(cfg.model, len(names), grouping=cfg.grouping,
++                                             token_refinement=cfg.token_refinement), 'code': code}
+     epochs, source_identity = (1 if cfg.phase == 'smoke' else 30), None
+     if cfg.phase == 'refit':
+         if not cfg.calibration:
+@@ -283,6 +301,7 @@
+         torch.cuda.reset_peak_memory_stats(device)
+     model = build_model(cfg.model, len(names), cfg.pretrained_path,
+                         architecture_config=identity['architecture']).to(device)
++    refinement_audit = RefinementAudit(model.token_refinement) if cfg.token_refinement else None
+     graph_capture, hook = capture_graph_once(model)
+     optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=1e-4,
+                                   betas=(0.9, 0.999), eps=1e-8)
+@@ -312,6 +331,8 @@
+                     if hasattr(module, 'drop_prob')},
+                 'graph_attention_dropout': {name: float(module.dropout) for name, module in model.named_modules()
+                     if type(module).__name__ == 'GATConv'}, 'command_argv': sys.argv}
++    if refinement_audit:
++        metadata['refinement_initial_state_sha256'] = refinement_audit.report['initial_state_sha256']
+     write_json(out / 'config.json', {**asdict(cfg), 'resolved': metadata})
+     write_json(out / 'selected_samples.json', {'train': [r['path'] for r in train_rows],
+                                               'val': [r['path'] for r in val_rows]})
+@@ -345,6 +366,10 @@
+                 raise ValueError('Nonfinite training loss')
+             loss.backward()
+             torch.nn.utils.clip_grad_norm_(model.parameters(), float('inf'), error_if_nonfinite=True)
++            if refinement_audit:
++                refinement_audit.record_gradients()
++                if epoch == 1 and batch_index < 2:
++                    write_json(out / 'refinement_audit.json', refinement_audit.report, replace=True)
+             optimizer.step()
+             loss_sum += float(loss.detach()) * len(labels)
+             seen += len(labels)
+@@ -416,6 +441,11 @@
+               'memory_scope': 'entire run including checkpoint reconstruction', 'refit_source': source_identity}
+     if probe:
+         report['assignment_probe'] = probe.summary()
++    if refinement_audit:
++        report['token_refinement_audit'] = refinement_audit.finish(rebuilt.token_refinement)
++        write_json(out / 'refinement_audit.json', report['token_refinement_audit'], replace=True)
++        report['artifact_sha256'] = {name: sha256_file(str(out / name))
++            for name in ('best.pth', 'last.pth', 'last.train_state.pth')}
+     write_json(out / 'run.json', report, replace=True)
+     (out / 'run.exit').write_text('exit_code=0\n')
+     print(f'SCENE {cfg.phase.upper()} COMPLETE: {out}', flush=True)
+@@ -436,6 +466,8 @@
+         if code['files_sha256'] != meta.get('code', {}).get('files_sha256'):
+             raise ValueError('Evaluation code identity changed from checkpoint; use the recorded source version')
+         phase = meta['execution']['phase']
++        if 'token_refinement' in meta['architecture'] and (split != 'val' or phase not in ('smoke', 'calibrate')):
++            raise ValueError('FFN trial is limited to calibration validation; no refit/test')
+         if phase == 'smoke' and split == 'test':
+             raise ValueError('smoke checkpoint cannot evaluate test')
+         if phase == 'refit' and split == 'val':
+--- a/run_scene.py
++++ b/run_scene.py
+@@ -16,6 +16,8 @@
+     train = sub.add_parser('train', help='Run an explicit smoke/calibration/refit phase')
+     train.add_argument('--model', choices=['swin', 'gavit'], required=True)
+     train.add_argument('--grouping', choices=['attentive_spatial', 'soft_prototype'])
++    train.add_argument('--token-refinement', choices=['residual_ffn_v1'],
++                       help='Bounded NWPU seed42 smoke/calibration trial; no refit/test')
+     train.add_argument('--phase', choices=['smoke', 'calibrate', 'refit'], default='smoke')
+     train.add_argument('--seed', type=int, default=42)
+     train.add_argument('--pretrained-path')
+--- /dev/null
++++ b/models/token_refinement.py
+@@ -0,0 +1,41 @@
++"""One frozen residual FFN candidate for the NWPU calibration experiment."""
++import copy
++
++import torch
++from torch import nn
++
++
++def refinement_identity():
++    return {'version': 'residual_ffn_v1', 'position': 'before_mean_pool',
++            'input_dim': 768, 'hidden_dim': 192, 'bias': True, 'ln_eps': 1e-5,
++            'activation': 'gelu_exact', 'dropout': 0.0,
++            'init': 'fc1_xavier_uniform_bias_zero_fc2_zero', 'init_seed': 42003}
++
++
++def validate_refinement(config):
++    expected = refinement_identity()
++    if (not isinstance(config, dict) or set(config) != set(expected)
++            or any(type(config[k]) is not type(v) or config[k] != v for k, v in expected.items())):
++        raise ValueError('Unsupported token refinement identity')
++    return copy.deepcopy(config)
++
++
++class ResidualTokenFFN(nn.Module):
++    """Shared independently at each token; no token mixing or additional dropout."""
++    def __init__(self, config):
++        super().__init__()
++        self.config = validate_refinement(config)
++        # Include constructors in the isolated CPU RNG scope. Do not seed CUDA.
++        with torch.random.fork_rng(devices=[]):
++            torch.random.default_generator.manual_seed(self.config['init_seed'])
++            self.norm = nn.LayerNorm(768, eps=1e-5)
++            self.fc1 = nn.Linear(768, 192)
++            self.activation = nn.GELU(approximate='none')
++            self.fc2 = nn.Linear(192, 768)
++            nn.init.xavier_uniform_(self.fc1.weight)
++            nn.init.zeros_(self.fc1.bias)
++            nn.init.zeros_(self.fc2.weight)
++            nn.init.zeros_(self.fc2.bias)
++
++    def forward(self, tokens):
++        return tokens + self.fc2(self.activation(self.fc1(self.norm(tokens))))
+--- /dev/null
++++ b/scene_classification/refinement_audit.py
+@@ -0,0 +1,53 @@
++"""Small, observational audit for the bounded FFN training trial."""
++import hashlib
++import json
++import math
++
++import torch
++
++
++def state_sha256(module):
++    digest = hashlib.sha256()
++    for name, value in sorted(module.state_dict().items()):
++        value = value.detach().cpu().contiguous()
++        digest.update(json.dumps([name, str(value.dtype), list(value.shape)]).encode())
++        digest.update(value.numpy().tobytes())
++    return digest.hexdigest()
++
++
++class RefinementAudit:
++    def __init__(self, module):
++        self.module = module
++        self.report = {'parameters': sum(p.numel() for p in module.parameters()),
++                       'initial_state_sha256': state_sha256(module), 'gradient_steps': []}
++        self.handle = module.register_forward_hook(self._first_forward)
++
++    def _first_forward(self, _module, inputs, output):
++        inputs = inputs[0]
++        if inputs.ndim != 3 or tuple(inputs.shape[1:]) != (49, 768):
++            raise ValueError('FFN must run on tokens before pooling')
++        error = float((output.detach() - inputs.detach()).abs().max())
++        if not math.isfinite(error) or error != 0.0:
++            raise ValueError('FFN initial residual must be exactly zero')
++        self.report['first_forward'] = {'input_shape': list(inputs.shape), 'max_abs_residual': error}
++        self.handle.remove()
++
++    def record_gradients(self):
++        """First two backwards, before optimizer.step; does not alter tensors or RNG."""
++        if len(self.report['gradient_steps']) >= 2:
++            return
++        row = {'step': len(self.report['gradient_steps']) + 1}
++        for name in ('norm', 'fc1', 'fc2'):
++            grads = [p.grad for p in getattr(self.module, name).parameters()]
++            if any(g is None or not torch.isfinite(g).all() for g in grads):
++                raise ValueError(f'FFN missing/nonfinite gradient: {name}')
++            row[name] = sum(float(g.detach().abs().sum()) for g in grads)
++        if row['fc2'] <= 0 or (row['step'] == 2 and (row['fc1'] <= 0 or row['norm'] <= 0)):
++            raise ValueError('FFN failed to learn in the first two steps')
++        self.report['gradient_steps'].append(row)
++
++    def finish(self, selected_module):
++        self.handle.remove()
++        self.report['selected_state_sha256'] = state_sha256(selected_module)
++        self.report['final_state_sha256'] = state_sha256(self.module)
++        return self.report
+--- /dev/null
++++ b/tests/test_token_refinement.py
+@@ -0,0 +1,143 @@
++"""Protect placement, initialization fairness and checkpoint identity of the FFN trial."""
++import copy
++import importlib
++from unittest.mock import patch
++
++import pytest
++import torch
++
++from scene_classification.modeling import architecture, build_model
++from test_soft_gavit import TokenBackbone
++
++
++@pytest.fixture(autouse=True)
++def threads():
++    torch.set_num_threads(2)
++
++
++def candidate(name):
++    # Missing implementation must produce an assertion failure, not a broken import.
++    try:
++        return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
++                            token_refinement='residual_ffn_v1')
++    except TypeError as exc:
++        pytest.fail(f'FFN architecture selection is not implemented: {exc}')
++
++
++def construct(name, arch):
++    with patch('models.gavit.SwinBackbone', TokenBackbone), \
++            patch('scene_classification.modeling.SwinBackbone', TokenBackbone):
++        return build_model(name, 45, architecture_config=arch)
++
++
++@pytest.mark.parametrize('name', ['swin', 'gavit'])
++def test_identity_start_preserves_existing_parameters_rng_logits_and_old_loads(name):
++    new_arch = candidate(name)
++    old_arch = architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None)
++    assert 'token_refinement' not in old_arch
++    torch.manual_seed(42)
++    old = construct(name, old_arch).eval()
++    rng = torch.get_rng_state().clone()
++    torch.manual_seed(42)
++    new = construct(name, new_arch).eval()
++    assert torch.equal(rng, torch.get_rng_state())
++    old_state = old.state_dict()
++    assert all(torch.equal(v, new.state_dict()[k]) for k, v in old_state.items())
++    assert all(k.startswith('token_refinement.') for k in new.state_dict().keys() - old_state.keys())
++    images = torch.randn(2, 3, 16, 16)
++    with torch.no_grad():
++        torch.testing.assert_close(old(images), new(images), atol=0, rtol=0)
++    restored_old = construct(name, old_arch).eval()
++    restored_old.load_state_dict(old_state, strict=True)
++    with torch.no_grad():
++        torch.testing.assert_close(restored_old(images), old(images), atol=0, rtol=0)
++    with pytest.raises(RuntimeError):
++        restored_old.load_state_dict(new.state_dict(), strict=True)
++
++
++def test_both_models_get_identical_ffn_despite_different_construction_rng():
++    torch.manual_seed(1)
++    a = construct('swin', candidate('swin')).token_refinement
++    torch.manual_seed(99)
++    b = construct('gavit', candidate('gavit')).token_refinement
++    assert all(torch.equal(v, b.state_dict()[k]) for k, v in a.state_dict().items())
++    assert sum(p.numel() for p in a.parameters()) == 297408
++
++
++@pytest.mark.parametrize('name', ['swin', 'gavit'])
++def test_ffn_is_nonlinear_before_pool_and_reloads_after_learning(name):
++    arch = candidate(name)
++    model = construct(name, arch).eval()
++    ffn = model.token_refinement
++    images = torch.randn(2, 3, 16, 16)
++    optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=1e-4)
++    for step in range(2):
++        optimizer.zero_grad(set_to_none=True)
++        torch.nn.functional.cross_entropy(model(images), torch.tensor([1, 2])).backward()
++        assert torch.isfinite(ffn.fc2.weight.grad).all() and ffn.fc2.weight.grad.abs().sum() > 0
++        for p in (ffn.fc1.weight, ffn.norm.weight):
++            assert torch.isfinite(p.grad).all()
++            assert bool(p.grad.abs().sum() > 0) == (step == 1)
++        optimizer.step()
++    captured = {}
++
++    def backbone(_module, _args, output):
++        captured['tokens'] = output
++
++    def grouping(_module, _args, output):
++        captured['membership'] = output[1]
++
++    def feedback(_module, _args, output):
++        captured['feedback'] = output
++
++    def capture(_module, args, result):
++        captured['input'], captured['output'] = args[0], result
++
++    handle = ffn.register_forward_hook(capture)
++    handles = [model.backbone.register_forward_hook(backbone)]
++    if name == 'gavit':
++        handles.extend([model.region_grouping.register_forward_hook(grouping),
++                        model.feedback_proj.register_forward_hook(feedback)])
++    with torch.no_grad():
++        logits = model(images)
++    handle.remove()
++    for hook in handles:
++        hook.remove()
++    assert captured['input'].shape == (2, 49, 768)
++    expected_input = captured['tokens']
++    if name == 'gavit':
++        expected_input = expected_input + torch.einsum('bnk,bkd->bnd', captured['membership'], captured['feedback'])
++    torch.testing.assert_close(captured['input'], expected_input, atol=0, rtol=0)
++    with torch.no_grad():
++        expected = model.classifier(captured['output'].mean(1))
++        wrong = model.classifier(ffn(captured['input'].mean(1)))
++    torch.testing.assert_close(logits, expected, atol=0, rtol=0)
++    assert not torch.allclose(logits, wrong, atol=1e-7, rtol=1e-7)
++    rebuilt = construct(name, arch).eval()
++    rebuilt.load_state_dict(model.state_dict(), strict=True)
++    with torch.no_grad():
++        torch.testing.assert_close(rebuilt(images), logits, atol=0, rtol=0)
++
++
++def test_malformed_or_unapproved_refinement_cannot_silently_reconstruct():
++    arch = candidate('swin')
++    for value in (None, {}, 'residual_ffn_v1', {**arch['token_refinement'], 'hidden_dim': 384},
++                  {**arch['token_refinement'], 'init_seed': True}):
++        bad = copy.deepcopy(arch)
++        bad['token_refinement'] = value
++        with pytest.raises(ValueError, match='refinement'):
++            build_model('swin', 45, architecture_config=bad)
++    with pytest.raises(ValueError):
++        architecture('gavit', 45, grouping='attentive_spatial', token_refinement='residual_ffn_v1')
++
++
++def test_scope_rejects_refit_other_datasets_and_extra_seeds_before_model_allocation(tmp_path):
++    candidate('swin')
++    runner = importlib.import_module('scene_classification.runner')
++    for changes in ({'phase': 'refit'}, {'seed': 43}, {'model': 'gavit', 'grouping': None}):
++        kwargs = dict(model='swin', manifest='missing.json', data_root='missing',
++                      output=str(tmp_path / str(len(list(tmp_path.iterdir())))),
++                      token_refinement='residual_ffn_v1', random_init=True, device='cpu')
++        kwargs.update(changes)
++        with pytest.raises(ValueError, match='FFN trial'):
++            runner.run_training(runner.RunConfig(**kwargs))
+--- /dev/null
++++ b/tests/test_token_refinement_runtime.py
+@@ -0,0 +1,82 @@
++"""Real CPU lifecycle: FFN metadata, gradient audit, reload and bounded scope."""
++import json
++from unittest.mock import patch
++
++import pytest
++import torch
++
++from scene_classification import runner
++from scene_classification.data import prepare_manifest
++from test_scene_data_metrics import fixture
++
++
++def config(tmp_path, **changes):
++    root = tmp_path / 'images'
++    fixture(root)
++    manifest = tmp_path / 'manifest.json'
++    prepare_manifest(root, manifest, dataset='synthetic')
++    kwargs = dict(model='swin', manifest=str(manifest), data_root=str(root),
++                  output=str(tmp_path / 'run'), phase='smoke', device='cpu',
++                  random_init=True, batch_size=2, workers=0, train_per_class=2,
++                  val_per_class=1, token_refinement='residual_ffn_v1')
++    kwargs.update(changes)
++    return runner.RunConfig(**kwargs)
++
++
++@pytest.mark.parametrize('name', ['swin', 'gavit'])
++def test_real_ffn_training_reloads_and_records_learning_before_pool(tmp_path, name):
++    torch.set_num_threads(2)
++    cfg = config(tmp_path, model=name, grouping='soft_prototype' if name == 'gavit' else None)
++    report = runner.run_training(cfg)
++    assert report['status'] == 'complete' and report['final_epoch'] == 1
++    assert 'token_refinement_audit' in report, 'Missing initialization/actual learning audit'
++    audit = report['token_refinement_audit']
++    assert audit['parameters'] == 297408
++    assert audit['first_forward']['input_shape'][1:] == [49, 768]
++    assert audit['first_forward']['max_abs_residual'] == 0
++    assert len(audit['gradient_steps']) == 2
++    assert audit['gradient_steps'][0]['fc2'] > 0 and audit['gradient_steps'][0]['fc1'] == 0
++    assert audit['gradient_steps'][1]['fc1'] > 0 and audit['gradient_steps'][1]['norm'] > 0
++    assert audit['initial_state_sha256'] != audit['selected_state_sha256']
++    assert report['reload_max_logit_diff'] <= 1e-5
++    out = tmp_path / 'run'
++    assert (out / 'run.exit').read_text() == 'exit_code=0\n'
++    assert json.loads((out / 'refinement_audit.json').read_text()) == audit
++    meta = json.loads((out / 'best.meta.json').read_text())
++    assert meta['architecture']['token_refinement'] == report['architecture']['token_refinement']
++    assert meta['refinement_initial_state_sha256'] == audit['initial_state_sha256']
++    assert set(report['artifact_sha256']) == {'best.pth', 'last.pth', 'last.train_state.pth'}
++    scores = runner.evaluate_checkpoint(str(out / 'best.pth'), cfg.manifest, cfg.data_root,
++        str(out / 'eval'), split='val', device='cpu', workers=0, batch_size=2)
++    assert scores['samples'] == 2
++    with pytest.raises(ValueError, match='FFN trial'):
++        runner.evaluate_checkpoint(str(out / 'best.pth'), cfg.manifest, cfg.data_root,
++            str(out / 'test'), split='test', device='cpu')
++    original = (out / 'best.meta.json').read_bytes()
++    meta['architecture']['token_refinement']['hidden_dim'] = 384
++    (out / 'best.meta.json').write_text(json.dumps(meta))
++    with pytest.raises(ValueError, match='refinement'):
++        runner.evaluate_checkpoint(str(out / 'best.pth'), cfg.manifest, cfg.data_root,
++            str(out / 'corrupt'), split='val', device='cpu')
++    (out / 'best.meta.json').write_bytes(original)
++
++
++def test_aid_is_rejected_even_for_smoke(tmp_path):
++    cfg = config(tmp_path)
++    manifest = json.loads(open(cfg.manifest).read())
++    manifest['dataset'] = 'AID'
++    # Boundary already fully exercises real manifest verification in lifecycle tests.
++    with patch.object(runner, 'load_manifest', return_value=manifest):
++        with pytest.raises(ValueError, match='FFN trial'):
++            runner.run_training(cfg)
++    assert not (tmp_path / 'run' / 'best.pth').exists()
++
++
++def test_changed_nwpu_protocol_is_rejected_before_training(tmp_path):
++    cfg = config(tmp_path)
++    manifest = json.loads(open(cfg.manifest).read())
++    manifest['dataset'] = 'NWPU-RESISC45'
++    with patch.object(runner, 'load_manifest', return_value=manifest):
++        with pytest.raises(ValueError, match='frozen NWPU'):
++            runner.run_training(cfg)
++    assert not (tmp_path / 'run' / 'best.pth').exists()
+--- /dev/null
++++ b/docs/run_nwpu_ffn_trial_20261003.md
+@@ -0,0 +1,93 @@
++# NWPU seed42 有界 FFN 候选实验 — 2026-10-03
++
++状态：方案已批准；本页固定研究问题、参数和完成标准。新 FFN 版本尚未提交或发布，服务器新版本目录、完整 commit、实际 GPU 短测和正式训练均待确认。本页不提供指向不存在 release 的启动命令。
++
++## 研究问题与本次范围
++
++假设：在 mean pooling 前加入同一轻量非线性残差 FFN，是否改善 soft GAViT 对 token 与图反馈的利用，并使其校准表现超过同样增加 FFN 的 Swin。标准 FFN 本身不是方法创新；有收益也不等于已确定原模型的失败原因。
++
++唯一主要变量是 `token_refinement: none → residual_ffn_v1`。构成 Swin/soft GAViT × 无 FFN/有 FFN 的四格比较；无 FFN 两格复用已完成的 seed42 校准，不重训。两种模型都增加同一 FFN，避免把一般新增容量的收益直接归于图推理。
++
++本批仅新增两个 NWPU seed42、各 30 epoch 的 calibration：Swin+FFN 与 soft GAViT+FFN。正式训练前各做一次 1 epoch、每类 train8/val2 的工程 smoke（总计 360/90）。不增加 fixed+FFN，不搜索宽度/初始化/学习率，不自动 refit、test、扩 seed、跑 BigEarthNet 或失败后重试。
++
++旧 checkpoint 的反馈幅度诊断已完成，不能回答重新训练 FFN 的收益；更便宜的本地结构/梯度/身份测试和上述 GPU smoke 先排除工程问题。正式结果进入独立 NWPU FFN 校准四格表及成本、曲线、配对错误分析；不改写既有 test 主表或混入旧 70/15/15 协议约 96% 的结果。
++
++## 冻结的 FFN 与模型配置
++
++- 公式：`y = x + fc2(GELU(fc1(LayerNorm(x))))`，作用于每个 token；768 → 192 → 768，两层 Linear 均有 bias。
++- LayerNorm `eps=1e-5`；GELU 使用精确形式；FFN 内无 dropout。原分类头和图模块的 dropout 保持原配方。
++- 初始化：独立 CPU RNG seed42003，fc1 Xavier uniform、bias0；fc2 weight/bias 全0；不消耗原模型或训练数据的随机数流。两模型使用相同初始 FFN 权重。
++- Swin：backbone tokens → FFN → mean pool → 原分类头。soft GAViT：原 token feedback → FFN → mean pool → 原分类头；不改反馈幅度。
++- GAViT 保持 `soft_prototype`、K16、128 维共享投影、局部 Chebyshev 半径1、温度0.1、一次分配，`sparse_hybrid`、GAT hidden256/4heads/2layers、`token_feedback`；每图48空间边+32特征边。
++- FFN 新增参数 297,408；预计总参数 Swin 27,852,903、soft GAViT 31,784,168，须以新模型实际计数核对并保存。
++
++## 复用证据与冻结输入
++
++旧结果见 [校准比较](../results/nwpu_seed42_calibration_comparison.md)、[用户回传结构化证据](../results/evidence/nwpu_calibration42_20260928/server_return.json) 和 [只读诊断](../results/nwpu_seed42_cached_diagnosis.md)。这些是已归档的服务器回传；不声称本地独立下载权重或复跑前向。
++
++| 旧对照 | 最佳 val OA (%) | 同 checkpoint macro-F1 (%) | 最佳轮 | 正确数/1260 |
++|---|---:|---:|---:|---:|
++| Swin | 94.2063492063492 | 94.171552 | 29 | 1187 |
++| soft GAViT | 93.73015873015873 | 93.765721 | 28 | 1181 |
++
++- 旧发布版本：`ed480e60fea03ed786fdba70c144de5e815c34f5`；服务器旧代码目录 `/home/featurize/work/GAViT_SOFT_20260927`，该版本不含新 FFN 开关。
++- 旧产物根目录：`/home/featurize/work/nwpu_ablation42_20260928_01`，复用其 `swin`、`soft` 下的 run.json、history.json、validation_predictions.csv、validation_metrics.json 与 best.pth。
++- 旧 Swin best SHA256：`bbfd4e472739126276e79014f944f911d7b0abbc6f863bb291d799845b9cd0ea`。
++- 旧 soft best SHA256：`674da671e1df1618add93cd18e791e0a81fdfb77ce0dc13478eb963bfa29cc12`。
++- manifest：`/home/featurize/work/nwpu_protocol_20260927_02.json`；SHA256 `ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e`；train5040/val1260/test25200，总31500。同类重复像素组不跨 split，不重新 prepare。
++- 预训练：`/home/featurize/work/GAViT_Project/bigearth_files/model.safetensors`；SHA256 `f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36`。
++- 数据根目录：`/home/featurize/data/NWPU-RESISC45`。持久 ZIP 为 `/home/featurize/work/NWPU-RESISC45_a826b44.zip`，SHA256 `beeecd0b63656290ae6d65cf7763185b0c1c4c54a753ef8088d6fba3faaf1f53`。
++- 配方：RGB224、原共同增强和归一化、CrossEntropyLoss、batch32、workers2、seed42、AdamW lr3e-4/wd1e-4、betas0.9/0.999、eps1e-8、CosineAnnealingLR T_max30/eta_min0；FP32、无 AMP、两项 TF32 关闭、8 CPU 线程。
++- 旧硬件/运行时已确认 RTX2080Ti、torch2.2.2、CUDA12.1。新运行实测 GPU 型号/UUID、驱动、软件、精度和线程配置后保存；不能用旧记录冒充当前硬件，同型号不同物理卡也应注明。
++
++## 发布与执行门禁
++
++1. 本地实现和相关回归测试完成后，单独发布包含 FFN 的干净版本，记录完整 commit 和源码哈希。新发布 commit：**待填**；新服务器干净代码目录：**待填**。保留旧服务器代码与所有旧产物，不在脏目录强行 pull、覆盖修改或临时改正式模型。
++2. 新版本必须能从保存的 architecture/metadata 重建 FFN，校验 checkpoint hash 并通过重载。关闭开关的旧 checkpoint 保持兼容；非法数据集、seed、phase 或不匹配配置应拒绝。完成这些检查后再交付用户可复制的单行命令，无需上传工具包。
++3. 先读现有输入和输出，排除本批已完成/活动/失败产物；已有同身份结果先审计复用。核对清单、权重 SHA、旧对照身份和完整性、GPU 空闲及依赖，不无条件重装或重下载。
++4. `work` 保存代码、manifest、权重、日志和成果；`data` 是实例临时图像盘。仅在清单图片确实缺失时验证持久 ZIP 后恢复缺失图片，保留已有文件；完整图片仍须由入口逐图解码/哈希检查。不要因为换实例自动重新生成划分。
++5. 顺序执行 Swin+FFN smoke → soft GAViT+FFN smoke；每项输出独立。全部 smoke 与成本记录通过并写入日记后，再执行两项 30 epoch calibration。每阶段失败即停止，保留失败日志和产物，不覆盖目录或自动重试。
++
++拟定输出根目录 `/home/featurize/work/nwpu_ffn42_20261003_01`，子目录 `swin_ffn_smoke`、`soft_ffn_smoke`、`swin_ffn`、`soft_ffn`；目前仅为计划路径，启动前确认不存在并冻结。日志文件同名放在持久化 work，独立保存各阶段退出码和总摘要。
++
++## 精确入口参数提纲（不是可执行发布命令）
++
++入口是新发布版本的 `run_scene.py train`；新版本路径确认前禁止改用旧 release 执行。下面是待封装的参数集合，故意不填虚构的 Python 脚本路径。
++
++```text
++共同参数：
++--token-refinement residual_ffn_v1 --seed 42
++--manifest /home/featurize/work/nwpu_protocol_20260927_02.json
++--data-root /home/featurize/data/NWPU-RESISC45
++--pretrained-path /home/featurize/work/GAViT_Project/bigearth_files/model.safetensors
++--device cuda --batch-size 32 --workers 2
++
++Swin smoke：--model swin --phase smoke --train-per-class 8 --val-per-class 2
++soft smoke：--model gavit --grouping soft_prototype --phase smoke --train-per-class 8 --val-per-class 2
++Swin 校准：--model swin --phase calibrate
++soft 校准：--model gavit --grouping soft_prototype --phase calibrate
++各阶段另加 --output 对应独立子目录（最终绝对路径待发布时冻结）。
++```
++
++smoke 固定1轮，calibrate 固定30轮，由入口按 phase 确定；不添加不存在的 `--epochs` 参数。正式命令不得包含 `--random-init`、`--calibration`、refit 或 evaluate/test。初始化使用共同 ImageNet 预训练，不从旧校准 best 接续训练。
++
++## 运行证据与成本
++
++- 启动成功需同时看到进程、实际 GPU 显存、模型/设备与首个训练 batch；PID 或目录存在不足以确认。可用 `nvidia-smi` 与独立 launch.log 核查，`Ctrl+C` 退出 tail 不等于停止训练。
++- smoke 必须完成 forward、backward、optimizer step、360/90 train/val、checkpoint 保存及重载，无 NaN/Inf/OOM；soft 实际构造48+32边。验证 FFN 身份、相同初始化、有限梯度/参数更新，并保存入口要求的 soft 探针。
++- 每项须有进程 exit0、`run.exit` 为 `exit_code=0`、run.json `status=complete`，且 phase/seed/数量/架构/哈希相符。正式 history 到 epoch30，最佳与最终轮均保留；smoke checkpoint 不进入性能比较表。
++- 保存 GPU/软件、参数量、峰值 allocated/reserved 显存、纯训练吞吐、train/val/存盘时间和总墙钟。吞吐与阶段计时先明确是否含 IO/验证；没有公平纯前向测量时，不声称推理提速。
++- 旧 Swin+soft 两次校准全过程合计 `1394.24341203 + 1483.651305341 = 2877.894717371` 秒，约47分58秒，仅为旧版历史成本，不是 FFN 新版预算或测得耗时。
++- 新预算依据同机两个 GPU smoke 的训练/验证耗时、预检/存盘开销测量后估算，并用首个正式完整 epoch 更新。保存实测值及估算口径；小时价格未确认时不填写实际费用，不按局部进度条声称训练完成。
++
++## 结果记录与继续条件
++
++每模型按最高 val OA 选 best，平分取先达到者；macro-F1、per-class accuracy、混淆矩阵和逐样本预测都来自这个 checkpoint，不单独挑 macro-F1 最佳轮。保存 best/last 权重、配置/源码身份、history、验证 metrics/predictions/per-class、资源、日志及退出状态。
++
++四格表必须同时列旧 Swin、旧 soft、新 Swin+FFN、新 soft+FFN。按同1260条路径配对，报告双方正确/纠正/新增错误/双方错误、净正确数、OA与macro-F1差值及全部逐类变化；同时比较 soft+FFN 对旧 soft、对 Swin+FFN 和对旧 Swin，并报告各自 FFN 增量及成本。
++
++只有新 soft+FFN 的 val OA **同时严格大于** `94.2063492063492%`（旧 Swin）、新 Swin+FFN 的 val OA、`93.73015873015873%`（旧 soft），才进入“是否值得下一批多 seed”的讨论；相等不通过。仍须结合同 checkpoint macro-F1、配对损益与实测成本判断，过线不自动授权任何后续训练。
++
++任何一项未超过、只追平、收益仅体现为共同 FFN 容量增加、或成本不值得，都保留为负面/混合结果并收尾；不因分数不好临时改选轮、改主指标、调参或重跑。单 seed、经过选轮的 val 收益不能证明稳定性、显著性、语义区域更合理或 FFN 解决了因果根因；不利用已有 test 分数挑配置。
++
++完成回传后立即更新 `research_diary.md` 和本批独立校准结果表，明确哪些内容是实际服务器回传、哪些经过本地复算、哪些未下载独立验证。新模型正式 test、三个 seeds 的均值/标准差与公平推理效率仍是后续独立事项。

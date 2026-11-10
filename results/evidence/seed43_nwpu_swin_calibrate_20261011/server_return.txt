@@ -1,0 +1,142 @@
+ID 4127 OUTPUT /home/featurize/work/nwpu_three43_20261011_01
+(base) ➜ ~ tail -f /home/featurize/work/nwpu_three43_20261011_01/swin_calibrate.process.log
+IMAGE SCAN verify: 5000/31500; elapsed=3.6s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 5250/31500; elapsed=3.8s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 5500/31500; elapsed=4.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 5750/31500; elapsed=4.2s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 6000/31500; elapsed=4.3s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 6250/31500; elapsed=4.5s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 6500/31500; elapsed=4.7s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 6750/31500; elapsed=4.8s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 7000/31500; elapsed=5.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 7250/31500; elapsed=5.2s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 7500/31500; elapsed=23.4s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 7750/31500; elapsed=23.6s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 8000/31500; elapsed=23.8s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 8250/31500; elapsed=24.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 8500/31500; elapsed=24.2s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 8750/31500; elapsed=24.3s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 9000/31500; elapsed=24.5s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 9250/31500; elapsed=24.7s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 9500/31500; elapsed=24.9s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 9750/31500; elapsed=25.1s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 10000/31500; elapsed=25.2s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 10250/31500; elapsed=25.4s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 10500/31500; elapsed=25.6s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 10750/31500; elapsed=25.7s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 11000/31500; elapsed=25.9s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 11250/31500; elapsed=26.1s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 11500/31500; elapsed=26.3s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 11750/31500; elapsed=26.5s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 12000/31500; elapsed=26.6s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 12250/31500; elapsed=26.8s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 12500/31500; elapsed=27.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 12750/31500; elapsed=27.2s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 13000/31500; elapsed=27.4s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 13250/31500; elapsed=27.5s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 13500/31500; elapsed=27.7s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 13750/31500; elapsed=27.9s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 14000/31500; elapsed=28.1s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 14250/31500; elapsed=28.2s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 14500/31500; elapsed=28.4s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 14750/31500; elapsed=28.6s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 15000/31500; elapsed=28.7s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 15250/31500; elapsed=28.9s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 15500/31500; elapsed=29.1s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 15750/31500; elapsed=29.2s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 16000/31500; elapsed=29.4s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 16250/31500; elapsed=29.6s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 16500/31500; elapsed=29.8s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 16750/31500; elapsed=30.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 17000/31500; elapsed=30.1s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 17250/31500; elapsed=30.3s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 17500/31500; elapsed=30.5s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 17750/31500; elapsed=30.7s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 18000/31500; elapsed=30.8s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 18250/31500; elapsed=31.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 18500/31500; elapsed=31.2s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 18750/31500; elapsed=31.4s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 19000/31500; elapsed=31.5s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 19250/31500; elapsed=31.7s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 19500/31500; elapsed=31.9s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 19750/31500; elapsed=32.1s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20000/31500; elapsed=32.3s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20250/31500; elapsed=32.5s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20500/31500; elapsed=32.7s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20750/31500; elapsed=32.9s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 21000/31500; elapsed=33.1s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 21250/31500; elapsed=33.3s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 21500/31500; elapsed=33.5s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 21750/31500; elapsed=33.7s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 22000/31500; elapsed=33.9s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 22250/31500; elapsed=34.1s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 22500/31500; elapsed=34.3s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 22750/31500; elapsed=34.5s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 23000/31500; elapsed=34.7s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 23250/31500; elapsed=34.9s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 23500/31500; elapsed=35.1s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 23750/31500; elapsed=35.3s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 24000/31500; elapsed=35.5s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 24250/31500; elapsed=35.7s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 24500/31500; elapsed=35.8s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 24750/31500; elapsed=36.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 25000/31500; elapsed=36.2s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 25250/31500; elapsed=36.4s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 25500/31500; elapsed=36.6s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 25750/31500; elapsed=36.8s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 26000/31500; elapsed=37.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 26250/31500; elapsed=37.2s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 26500/31500; elapsed=37.4s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 26750/31500; elapsed=37.6s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 27000/31500; elapsed=37.8s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 27250/31500; elapsed=38.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 27500/31500; elapsed=38.2s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 27750/31500; elapsed=38.4s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 28000/31500; elapsed=38.6s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 28250/31500; elapsed=38.8s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 28500/31500; elapsed=39.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 28750/31500; elapsed=39.2s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 29000/31500; elapsed=39.4s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 29250/31500; elapsed=39.6s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 29500/31500; elapsed=39.8s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 29750/31500; elapsed=40.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 30000/31500; elapsed=40.2s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 30250/31500; elapsed=40.4s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 30500/31500; elapsed=40.6s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 30750/31500; elapsed=40.8s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 31000/31500; elapsed=41.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 31250/31500; elapsed=41.2s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 31500/31500; elapsed=41.4s (CPU decode + file/pixel hashes)
+MODEL swin; DATASET NWPU-RESISC45; DEVICE NVIDIA GeForce RTX 4090; PHASE calibrate; train=5040 val=1260
+TRAIN FIRST BATCH OK loss=4.019081; graph={}
+EPOCH 1/30; loss=1.214543; val_OA=75.95238095238095; train_s=11.50
+EPOCH 2/30; loss=0.533043; val_OA=83.57142857142857; train_s=11.33
+EPOCH 3/30; loss=0.376026; val_OA=83.80952380952381; train_s=11.05
+EPOCH 4/30; loss=0.301092; val_OA=86.11111111111111; train_s=11.04
+EPOCH 5/30; loss=0.222999; val_OA=85.39682539682539; train_s=11.07
+EPOCH 6/30; loss=0.223381; val_OA=86.74603174603175; train_s=11.03
+EPOCH 7/30; loss=0.182497; val_OA=85.71428571428571; train_s=11.04
+EPOCH 8/30; loss=0.190705; val_OA=86.58730158730158; train_s=11.09
+EPOCH 9/30; loss=0.099944; val_OA=87.53968253968254; train_s=11.40
+EPOCH 10/30; loss=0.103575; val_OA=90.15873015873017; train_s=11.69
+EPOCH 11/30; loss=0.069608; val_OA=90.63492063492063; train_s=11.25
+EPOCH 12/30; loss=0.059413; val_OA=89.36507936507937; train_s=11.08
+EPOCH 13/30; loss=0.066451; val_OA=89.52380952380952; train_s=11.05
+EPOCH 14/30; loss=0.041422; val_OA=90.39682539682539; train_s=11.16
+EPOCH 15/30; loss=0.030389; val_OA=91.19047619047619; train_s=10.99
+EPOCH 16/30; loss=0.029273; val_OA=90.95238095238095; train_s=10.98
+EPOCH 17/30; loss=0.020247; val_OA=92.53968253968254; train_s=11.16
+EPOCH 18/30; loss=0.027674; val_OA=90.71428571428571; train_s=11.23
+EPOCH 19/30; loss=0.009210; val_OA=91.98412698412699; train_s=11.26
+EPOCH 20/30; loss=0.005184; val_OA=91.5079365079365; train_s=11.01
+EPOCH 21/30; loss=0.005594; val_OA=92.6984126984127; train_s=11.06
+EPOCH 22/30; loss=0.002352; val_OA=92.38095238095238; train_s=11.00
+EPOCH 23/30; loss=0.003193; val_OA=93.0952380952381; train_s=11.15
+EPOCH 24/30; loss=0.002488; val_OA=92.93650793650794; train_s=11.28
+EPOCH 25/30; loss=0.002081; val_OA=92.46031746031746; train_s=11.31
+EPOCH 26/30; loss=0.003688; val_OA=93.0952380952381; train_s=11.29
+EPOCH 27/30; loss=0.001457; val_OA=93.01587301587301; train_s=11.20
+EPOCH 28/30; loss=0.002081; val_OA=93.0952380952381; train_s=11.01
+EPOCH 29/30; loss=0.001202; val_OA=93.0952380952381; train_s=11.63
+EPOCH 30/30; loss=0.001668; val_OA=93.0952380952381; train_s=11.49
+SCENE CALIBRATE COMPLETE: /home/featurize/work/nwpu_three43_20261011_01/swin_calibrate

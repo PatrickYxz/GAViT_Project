@@ -1,0 +1,4 @@
+MAGE SCAN verify: 10000/10000; elapsed=113.2s (CPU decode + file/pixel hashes)
+SCENE EVALUATION COMPLETE: /home/featurize/work/aid_gavit_test42_20260921_01; OA=96.9400%
+Swin: exit_code=0
+GAViT: exit_code=0

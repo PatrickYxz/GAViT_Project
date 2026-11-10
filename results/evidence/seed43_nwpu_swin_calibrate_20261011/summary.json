@@ -1,0 +1,39 @@
+{
+  "status": "SWIN43_CALIBRATE_COMPLETION_MARKER_RECEIVED",
+  "source_attachment": "/Users/patrick/.codex/attachments/c74e9725-9182-4c0b-b12d-a4da998274e8/\u5df2\u7c98\u8d34\u7684\u6587\u672c.txt",
+  "source_sha256": "5668f4e6484153590fa4df33aa9e153a0627d1215a422177387d3456b2ee7f56",
+  "output": "/home/featurize/work/nwpu_three43_20261011_01",
+  "stage": "swin_calibrate",
+  "device": "NVIDIA GeForce RTX 4090",
+  "counts": {
+    "train": 5040,
+    "val": 1260
+  },
+  "epochs_logged": 30,
+  "first_batch": true,
+  "first_batch_loss": 4.019081,
+  "completion_marker": true,
+  "best_val_oa_percent": 93.0952380952381,
+  "best_epoch_from_printed_history_first_tie": 23,
+  "tied_best_epochs": [
+    23,
+    26,
+    28,
+    29,
+    30
+  ],
+  "final_epoch_val_oa_percent": 93.0952380952381,
+  "final_epoch_train_loss": 0.001668,
+  "train_seconds_rounded_sum": 335.83,
+  "train_seconds_rounded_mean": 11.194333333333333,
+  "train_seconds_rounded_min": 10.98,
+  "train_seconds_rounded_max": 11.69,
+  "image_verify_elapsed_seconds": 41.4,
+  "nvidia_smi_received": false,
+  "checkpoint_sha256_received": false,
+  "macro_f1_received": false,
+  "stage_process_exit_or_queue_acceptance_received": false,
+  "queue_current_stage_confirmed": false,
+  "formal_test_received": false,
+  "limits": "Printed logs show real CUDA training and entry completion. Stage wrapper acceptance, exact checkpoint/metadata/best_epoch, resource totals and subsequent stage require queue report. Values are calibration validation only, not final test. Train_s excludes validation/save/probes and rounded sum is not wall time."
+}

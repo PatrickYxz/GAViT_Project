@@ -1,0 +1,77 @@
+{
+  "status": "CHECKED_LAUNCH_FIXTURES_PASS",
+  "cases": [
+    {
+      "case": "none",
+      "passed": true
+    },
+    {
+      "case": "nonzero",
+      "passed": true
+    },
+    {
+      "case": "seed",
+      "passed": true
+    },
+    {
+      "case": "recipe",
+      "passed": true
+    },
+    {
+      "case": "graph",
+      "passed": true
+    },
+    {
+      "case": "reload_nan",
+      "passed": true
+    },
+    {
+      "case": "weight",
+      "passed": true
+    },
+    {
+      "case": "source",
+      "passed": true
+    },
+    {
+      "case": "metadata",
+      "passed": true
+    },
+    {
+      "case": "probe",
+      "passed": true
+    },
+    {
+      "case": "loss",
+      "passed": true
+    },
+    {
+      "case": "bootstrap_accept_duplicate_preserved",
+      "passed": true
+    },
+    {
+      "case": "bootstrap_reject",
+      "passed": true
+    }
+  ],
+  "gpu_calls": 0,
+  "formal_helper_sha256": "bb50d71a98aaa44b14c7f604c2236218c8b663a90f1e89254d6fd524c0340e5e",
+  "helper_unchanged": true,
+  "user_cuda_completion_received": true,
+  "exact_server_artifact_values_not_yet_received": true,
+  "formal_training_started": false,
+  "current_gpu_uuid_from_preflight": "GPU-cede40c0-f93d-7c8e-1006-cf6183e53592",
+  "delivery_sha256": {
+    "check_smoke.py": "10f9d860f6803e336b5a87366d944ae47846db64a49fc426e166881aa9afbc7c",
+    "launch_nwpu_checked.py": "c625bacdd3561b42c837b950e86347c3d76eb06d6fda1dd33afa553acaf7b126",
+    "nwpu_launch_checked_command.txt": "2db08cda1a102b77441f2e7f1d8667a476c81ffcc06b00362b51c35cf6823f0b"
+  },
+  "command_checks": {
+    "python_ast": true,
+    "bash_syntax": true,
+    "zsh_syntax": true,
+    "single_line": true,
+    "payload_roundtrip": true
+  },
+  "boundary": "Completion marker confirms the frozen entry reached artifact save and reload checks; exact checkpoint/reload/software values are verified read-only by the checked launcher before any formal output or detached process is created. No local GPU work."
+}

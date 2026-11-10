@@ -1,0 +1,5 @@
+EPOCH 27/30; loss=0.001956; val_OA=97.2; train_s=25.03
+EPOCH 28/30; loss=0.000789; val_OA=97.1; train_s=25.42
+EPOCH 29/30; loss=0.001515; val_OA=97.1; train_s=25.42
+EPOCH 30/30; loss=0.000893; val_OA=97.1; train_s=25.12
+SCENE CALIBRATE COMPLETE: /home/featurize/work/aid_gavit_calibrate42_20260920_01

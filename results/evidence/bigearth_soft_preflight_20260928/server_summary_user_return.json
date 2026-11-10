@@ -1,0 +1,39 @@
+{
+  "status": "training_and_reload_complete",
+  "counts": {
+    "train": 96,
+    "val": 64
+  },
+  "device": "NVIDIA GeForce RTX 2080 Ti",
+  "epochs": 1,
+  "reload_max_logit_diff": 4.76837158203125e-07,
+  "graph": {
+    "edges_per_image": 80,
+    "spatial_edges": 48,
+    "feature_edges": 32,
+    "actual_forward_checked": true
+  },
+  "best": {
+    "metric": "val_mAP",
+    "value": 37.0547,
+    "epoch": 1
+  },
+  "checkpoint_sha256": "fbde01de1bea308b981623500274bdfea9799a7582abbd42c12688498944daef",
+  "training_entry_seconds": 24.3388815469998,
+  "total_seconds_including_reload": 26.110388832999888,
+  "cuda_peak_allocated_bytes": 3929639936,
+  "cuda_peak_reserved_bytes": 4334813184,
+  "main_process_max_rss_kib": 1865384,
+  "precision": {
+    "amp": false,
+    "matmul_tf32": false,
+    "cudnn_tf32": true
+  },
+  "probe_summary": {
+    "split": "val",
+    "samples": 8,
+    "output": "/home/featurize/work/bigearth_soft_smoke42_20260928_01/gavit.assignment_probe",
+    "last_epoch": 1,
+    "probe_seconds": 1.7130900709998969
+  }
+}

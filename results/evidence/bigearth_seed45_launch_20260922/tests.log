@@ -1,0 +1,9 @@
+START first
+child output
+START second
+child output
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.609s
+
+OK

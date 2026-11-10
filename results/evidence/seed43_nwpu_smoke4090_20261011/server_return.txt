@@ -1,0 +1,8 @@
+AGE SCAN verify: 31000/31500; elapsed=33.7s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 31250/31500; elapsed=33.9s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 31500/31500; elapsed=34.2s (CPU decode + file/pixel hashes)
+MODEL gavit; DATASET NWPU-RESISC45; DEVICE NVIDIA GeForce RTX 4090; PHASE smoke; train=360 val=90
+TRAIN FIRST BATCH OK loss=3.830680; graph={'edges_per_image': 80, 'spatial_edges': 48, 'feature_edges': 32, 'actual_forward_checked': True}
+EPOCH 1/1; loss=3.334170; val_OA=46.666666666666664; train_s=1.70
+SCENE SMOKE COMPLETE: /home/featurize/work/gpucheck_nwpu_soft43_4090_20261011_01
+(base) ➜ ~

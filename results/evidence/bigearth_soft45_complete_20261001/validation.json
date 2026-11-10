@@ -1,0 +1,32 @@
+{
+  "raw_bytes_archived": true,
+  "source_sha256": "7662b537686eb7addec602f2c7054cafc8097288370d9dfe99cba0bf8e9950ae",
+  "exit_codes": {
+    "run.exit": 0,
+    "gavit_train/run.exit": 0,
+    "gavit_test/run.exit": 0
+  },
+  "macro_ap_recomputed": true,
+  "checkpoint_reported_hashes_match": true,
+  "history_complete_returned_epochs": [
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "historical_csv_prefix_preserved": true,
+  "checkpoint_bytes_downloaded": false,
+  "predictions_recomputed": false,
+  "full_resource_summary_received": true,
+  "summary_validation": "summary_validation.json"
+}

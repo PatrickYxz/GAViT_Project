@@ -1,0 +1,24 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+_______ test_resume_reconciles_best_and_final_without_new_forward[False] _______
+tests/test_soft_assignment_diagnostics.py:133: in test_resume_reconciles_best_and_final_without_new_forward
+    restored.reconcile_snapshots(best_epoch=1, final_epoch=2)
+E   AttributeError: 'SoftAssignmentProbe' object has no attribute 'reconcile_snapshots'
+_______ test_resume_reconciles_best_and_final_without_new_forward[True] ________
+tests/test_soft_assignment_diagnostics.py:133: in test_resume_reconciles_best_and_final_without_new_forward
+    restored.reconcile_snapshots(best_epoch=1, final_epoch=2)
+E   AttributeError: 'SoftAssignmentProbe' object has no attribute 'reconcile_snapshots'
+=============================== warnings summary ===============================
+../../../../../../private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1209: 20 warnings
+  /private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1209: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    elif isinstance(value, ast.Str):
+
+../../../../../../private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1210: 19 warnings
+  /private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1210: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead
+    s += value.s
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_soft_assignment_diagnostics.py::test_resume_reconciles_best_and_final_without_new_forward[False]
+FAILED tests/test_soft_assignment_diagnostics.py::test_resume_reconciles_best_and_final_without_new_forward[True]
+2 failed, 5 deselected, 39 warnings in 1.62s

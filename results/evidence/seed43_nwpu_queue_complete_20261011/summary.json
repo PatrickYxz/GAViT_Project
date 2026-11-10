@@ -1,0 +1,53 @@
+{
+  "status": "ALL_NINE_STAGES_AND_QUEUE_COMPLETION_MARKER_RECEIVED",
+  "source_sha256": "62f5856d9c33cb87e84f55327690c1b6343c22de58f6b5c2311eb7f78f30c181",
+  "output": "/home/featurize/work/nwpu_three43_20261011_01",
+  "seed": 43,
+  "stages": [
+    {
+      "stage": "swin_calibrate",
+      "wall_seconds": 506.99266443600027
+    },
+    {
+      "stage": "fixed_calibrate",
+      "wall_seconds": 644.2168642800002
+    },
+    {
+      "stage": "soft_calibrate",
+      "wall_seconds": 644.5943015760004
+    },
+    {
+      "stage": "swin_refit",
+      "wall_seconds": 427.0522945289995
+    },
+    {
+      "stage": "fixed_refit",
+      "wall_seconds": 592.4828987789997
+    },
+    {
+      "stage": "soft_refit",
+      "wall_seconds": 623.4727110919994
+    },
+    {
+      "stage": "swin_test",
+      "wall_seconds": 54.97915275699961
+    },
+    {
+      "stage": "fixed_test",
+      "wall_seconds": 61.7625200249995
+    },
+    {
+      "stage": "soft_test",
+      "wall_seconds": 59.646505429999706
+    }
+  ],
+  "stage_wall_seconds_sum": 3615.199912903998,
+  "stage_wall_hours_sum": 1.0042221980288883,
+  "rental_rate_yuan_per_hour_user": 1.67,
+  "stage_runtime_cost_estimate_yuan": 1.6770510707082436,
+  "total_run_exit_directly_received": false,
+  "official_scores_directly_received": false,
+  "selected_epochs_directly_received": false,
+  "bigearth_preflight_received": false,
+  "boundary": "STAGE_COMPLETE follows stage process exit0 and artifact validation in the delivered helper; queue marker follows saved summary. Top-level final exit and official numbers await compact read-only return. Sum includes stage checks but not queue gaps, earlier preparation or rental idle time; cost is a stage-runtime estimate, not invoice."
+}

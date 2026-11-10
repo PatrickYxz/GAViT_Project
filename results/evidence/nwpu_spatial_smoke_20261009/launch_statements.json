@@ -1,0 +1,28 @@
+{
+  "checks": [
+    "import csv,io,json,hashlib,os,subprocess,sys; from pathlib import Path",
+    "p=Path(\"/home/featurize/work/GAViT_SPATIAL_20261008\"); s=Path(\"/home/featurize/work/nwpu_spatial42_smoke_20261008_01\"); o=Path(\"/home/featurize/work/nwpu_spatial42_calibrate_20261009_01\"); l=Path(str(o)+\".launch.log\"); d=Path(\"/home/featurize/data/NWPU-RESISC45\"); m=Path(\"/home/featurize/work/nwpu_protocol_20260927_02.json\"); pre=Path(\"/home/featurize/work/GAViT_Project/bigearth_files/model.safetensors\")",
+    "g=lambda *a:subprocess.check_output([\"git\",\"-C\",str(p),*a],text=True).strip(); sha=lambda f:hashlib.sha256(f.read_bytes()).hexdigest()",
+    "assert g(\"rev-parse\",\"HEAD\")==\"67fe84d431685cf2c7788edfae21fa4e9eb040a4\" and not g(\"status\",\"--porcelain\",\"--untracked-files=all\"),\"Wrong or modified source\"",
+    "assert not o.exists() and not l.exists(),\"Output/log exists; inspect before retrying\"",
+    "r=json.loads((s/\"run.json\").read_text()); assert (s/\"run.exit\").read_text().strip()==\"exit_code=0\" and r[\"status\"]==\"complete\" and r[\"phase\"]==\"smoke\" and r[\"seed\"]==42 and r[\"counts\"]=={\"train\":360,\"val\":90} and r[\"final_epoch\"]==1,\"Smoke identity mismatch\"",
+    "assert all(sha(p/k)==v for k,v in r[\"code\"][\"files_sha256\"].items()),\"Smoke/source mismatch\"",
+    "assert sha(m)==r[\"manifest_sha256\"]==\"ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e\" and sha(pre)==r[\"pretrained_sha256\"]==\"f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36\",\"Input identity mismatch\"",
+    "assert all((d/v[\"path\"]).is_file() for v in json.loads(m.read_text())[\"records\"]),\"NWPU images missing; restore ZIP first\"",
+    "sys.dont_write_bytecode=True; sys.path.insert(0,str(p)); import torch; from grouping_identity import soft_assignment_identity; from models.soft_region_grouping import SoftPrototypeGrouping; from scene_classification.runner import SceneDataset",
+    "torch.set_num_threads(8); q=s/\"assignment_probe\"; ident=json.loads((q/\"probe_manifest.json\").read_text()); ids=json.loads((s/\"selected_samples.json\").read_text())[\"val\"][:8]",
+    "assert ident[\"split\"]==\"val\" and len(ids)==len(set(ids))==8 and ident[\"sample_ids\"]==ids and ident[\"soft_assignment\"]==r[\"architecture\"][\"soft_assignment\"]==soft_assignment_identity(\"anchor_gaussian_v1\") and \"token_refinement\" not in r[\"architecture\"],\"Probe identity mismatch\"",
+    "data=SceneDataset(d,[{\"path\":n,\"label\":0} for n in ids],False); x=torch.stack([data[i][0] for i in range(8)]); assert list(x.shape)==ident[\"input_shape\"] and str(x.dtype)==ident[\"input_dtype\"] and hashlib.sha256(x.numpy().tobytes()).hexdigest()==ident[\"input_sha256\"],\"Probe pixels mismatch\"",
+    "names=(\"epoch_000.pt\",\"epoch_001.pt\",\"best.pt\",\"final.pt\"); a=[torch.load(q/n,map_location=\"cpu\",weights_only=True) for n in names]; assert [v[\"epoch\"] for v in a]==[0,1,1,1] and all(v[\"identity\"]==ident for v in a),\"Snapshot identity mismatch\"",
+    "mask=SoftPrototypeGrouping(soft_assignment=ident[\"soft_assignment\"]).candidate_mask; assert all(tuple(v[\"tensors\"][k].shape)==(8,49,16) and bool(torch.isfinite(v[\"tensors\"][k]).all()) and bool((v[\"tensors\"][k]>=0).all()) and int(torch.count_nonzero(v[\"tensors\"][k][:,~mask]))==0 for v in a for k in (\"S\",\"W\")),\"Invalid S/W\"",
+    "err={\"S_row\":max(float((v[\"tensors\"][\"S\"].sum(-1)-1).abs().max()) for v in a),\"W_column\":max(float((v[\"tensors\"][\"W\"].sum(1)-1).abs().max()) for v in a)}; assert max(err.values())<1e-5 and len({sha(q/n) for n in names[1:]})==1,\"Snapshot normalization/alias mismatch\"",
+    "rows=[json.loads(v) for v in (q/\"assignment_diagnostics.jsonl\").read_text().splitlines()]; assert [v[\"epoch\"] for v in rows]==[0,1] and all(v[\"split\"]==\"val\" and v[\"sample_ids\"]==ids for v in rows),\"Probe history mismatch\"",
+    "delta=float((a[1][\"tensors\"][\"S\"]-a[0][\"tensors\"][\"S\"]).abs().mean()); assert abs(delta-rows[1][\"mean_abs_delta_S\"])<1e-6 and rows[0][\"mean_abs_delta_S\"]==0,\"Probe delta mismatch\"",
+    "assert os.environ.get(\"CUDA_VISIBLE_DEVICES\") in (None,\"0\"),\"Unexpected GPU selection\"; gpu=list(csv.reader(io.StringIO(subprocess.check_output([\"nvidia-smi\",\"--query-gpu=name,memory.free,utilization.gpu\",\"--format=csv,noheader,nounits\"],text=True)))); assert len(gpu)==1 and \"2080 Ti\" in gpu[0][0] and int(gpu[0][1])>=8192 and int(gpu[0][2])<=5 and not subprocess.check_output([\"nvidia-smi\",\"--query-compute-apps=pid\",\"--format=csv,noheader,nounits\"],text=True).strip(),\"GPU busy or changed; inspect before running\"",
+    "print(\"SMOKE_CACHE_PASS\",json.dumps({**err,\"delta_S\":delta,\"input_sha256\":ident[\"input_sha256\"]}),flush=True)"
+  ],
+  "launch": [
+    "cmd=[sys.executable,\"-u\",str(p/\"run_scene.py\"),\"train\",\"--model\",\"gavit\",\"--grouping\",\"soft_prototype\",\"--spatial-prior\",\"anchor_gaussian_v1\",\"--phase\",\"calibrate\",\"--seed\",\"42\",\"--manifest\",str(m),\"--data-root\",str(d),\"--output\",str(o),\"--pretrained-path\",str(pre),\"--device\",\"cuda\",\"--batch-size\",\"32\",\"--workers\",\"2\"]",
+    "f=l.open(\"x\"); f.write(\"SMOKE_CACHE_PASS \"+json.dumps({**err,\"delta_S\":delta,\"input_sha256\":ident[\"input_sha256\"]})+\"\\n\"); f.flush(); child=subprocess.Popen(cmd,stdin=subprocess.DEVNULL,stdout=f,stderr=subprocess.STDOUT,start_new_session=True,env={**os.environ,\"OMP_NUM_THREADS\":\"8\",\"MKL_NUM_THREADS\":\"8\",\"PYTHONDONTWRITEBYTECODE\":\"1\",\"CUDA_VISIBLE_DEVICES\":\"0\"}); f.close(); print(\"PID:\",child.pid,\"OUTPUT:\",o); print(\"PROGRESS: tail -f\",l)"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "samples": 5000,
+  "both_correct": 4754,
+  "gavit_corrects": 93,
+  "gavit_breaks": 63,
+  "both_wrong": 90,
+  "net_correct": 30
+}

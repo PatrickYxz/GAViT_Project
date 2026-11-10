@@ -1,0 +1,32 @@
+[
+  {
+    "before": "synthetic_qa.svg",
+    "after": "compact_qa.svg",
+    "dimensions": {
+      "format": "raw",
+      "width": 1024,
+      "height": 410,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 1679360
+    },
+    "rendered_pixels_identical": true
+  },
+  {
+    "before": "synthetic_memberships.svg",
+    "after": "compact_memberships.svg",
+    "dimensions": {
+      "format": "raw",
+      "width": 1024,
+      "height": 356,
+      "channels": 4,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": true,
+      "size": 1458176
+    },
+    "rendered_pixels_identical": true
+  }
+]

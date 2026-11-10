@@ -1,0 +1,11 @@
+{
+  "source": "User terminal summary, preserved from pasted run document; raw server artifacts not downloaded",
+  "checks": "Run status/scope/reload and throughput arithmetic pass; cached S/W and input identity pending server CPU check",
+  "report_sha256": "7837861717dc5dc08c2f4544a368c86a7ea057c3a66c2b59efa6725866019bfd",
+  "allocated_GiB": 3.66156005859375,
+  "reserved_GiB": 4.0390625,
+  "outside_train_val_seconds": 89.7434748660001,
+  "previous_full_soft_calibration_minutes": 24.72752175568333,
+  "naive_smoke_train_val_extrapolation_minutes": 61.82952834099955,
+  "new_calibration_started": false
+}

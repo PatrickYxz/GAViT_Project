@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "checks": [
+    "bash/zsh syntax",
+    "Python syntax",
+    "4 training curves and 6 test matrices extracted on synthetic fixture",
+    "true/predicted orientation retained",
+    "earliest tie validated; wrong best epoch rejected"
+  ],
+  "scope": "read-only command simulation; no real history or confusion retrieved"
+}

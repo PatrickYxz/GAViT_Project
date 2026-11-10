@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "checks": [
+    "sequential_smoke_arguments_and_exclusive_claim_with_519MiB_idle_gpu",
+    "duplicate_preserves_previous_claim",
+    "missing_rejected_before_output_or_spawn",
+    "busy_rejected_before_output_or_spawn",
+    "dirty_rejected_before_output_or_spawn",
+    "real_bash_stops_second_stage_when_first_fails",
+    "readback_does_not_claim_completion_for_missing_outputs"
+  ],
+  "scope": "Local command/control-flow fixtures; no server, CUDA, or real training"
+}

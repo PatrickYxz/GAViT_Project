@@ -1,0 +1,76 @@
+{
+  "source": "user pasted final ten epochs; initial POCH normalized to EPOCH in copied log",
+  "reported_completion_marker": "SCENE CALIBRATE COMPLETE",
+  "final_epoch": 30,
+  "final_val_oa_percent": 96.3,
+  "visible_range_best": {
+    "epoch": 21,
+    "val_oa_percent": 96.9
+  },
+  "best_epoch_over_full_run": null,
+  "best_val_oa_over_full_run": null,
+  "run_exit_code": null,
+  "formal_gpu": null,
+  "rows": [
+    {
+      "epoch": 21,
+      "loss": 0.00378,
+      "val_oa_percent": 96.9,
+      "train_seconds": 25.14
+    },
+    {
+      "epoch": 22,
+      "loss": 0.004827,
+      "val_oa_percent": 96.2,
+      "train_seconds": 24.55
+    },
+    {
+      "epoch": 23,
+      "loss": 0.002269,
+      "val_oa_percent": 96.4,
+      "train_seconds": 31.2
+    },
+    {
+      "epoch": 24,
+      "loss": 0.001156,
+      "val_oa_percent": 96.3,
+      "train_seconds": 25.49
+    },
+    {
+      "epoch": 25,
+      "loss": 0.001067,
+      "val_oa_percent": 96.1,
+      "train_seconds": 25.13
+    },
+    {
+      "epoch": 26,
+      "loss": 0.000842,
+      "val_oa_percent": 96.2,
+      "train_seconds": 25.02
+    },
+    {
+      "epoch": 27,
+      "loss": 0.001095,
+      "val_oa_percent": 96.2,
+      "train_seconds": 26.04
+    },
+    {
+      "epoch": 28,
+      "loss": 0.001081,
+      "val_oa_percent": 96.3,
+      "train_seconds": 24.9
+    },
+    {
+      "epoch": 29,
+      "loss": 0.000549,
+      "val_oa_percent": 96.3,
+      "train_seconds": 24.93
+    },
+    {
+      "epoch": 30,
+      "loss": 0.000756,
+      "val_oa_percent": 96.3,
+      "train_seconds": 24.88
+    }
+  ]
+}

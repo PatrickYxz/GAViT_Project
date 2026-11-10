@@ -1,0 +1,7 @@
+{
+  "python_syntax": true,
+  "bash_syntax": true,
+  "zsh_syntax": true,
+  "schema_source": "Published scene_classification/runner.py predictions.csv and metrics.json output; cached_reader validation pattern reused",
+  "scope": "No real server prediction CSVs read locally; server result still pending"
+}

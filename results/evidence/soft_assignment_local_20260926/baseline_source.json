@@ -1,0 +1,25 @@
+{
+  "head": "8f2ed07671ed50387998a46a2d2167a7a4dfc2ed",
+  "files": {
+    "models/bigearth_dataset.py": "1cb83ffc299f3927318f5bcef1694cdd33683a8d1ba5b1a87721d02fc67e281a",
+    "models/swin_region_only.py": "68d0c7ee95fa4a88c5a5b929e1e573195a7a9b1fe40a32480d64165c24c2d0c6",
+    "models/__init__.py": "8815c8fde7ff63701a246e4a198d690e9777be18ac061672b5c3619ccb792436",
+    "models/region_grouping.py": "89cb8bb8a7e2ca76633a5a101285283e3275c95b1d77c442837c2e4159ecaca7",
+    "models/graph_construction.py": "a0c36ceaf7a2f73b857c0eaac50df4abfb9c5617a4952f333a0dc514900dd8cc",
+    "models/gavit.py": "dbc1704f36129c12c1d8f86836e64658f8b9af8d5de6a35e55a37be67f9a8822",
+    "models/swin_features.py": "a4fa88cdf6ff811a2b6b51b512a99a01f6f53df3d57514458c4b0e7e25b9b06f",
+    "models/graph_reasoning.py": "895825a417f627594fda8407cf1e980f8bcef398201c233e1c20d900ec9046da",
+    "models/swin_backbone.py": "5046f36ab76556f8426fd096cae270b7dab0d24fa6e2c432839a3eb9f3cb1479",
+    "scene_classification/metrics.py": "6ef64ee533d0ca5c2dadae066a6254dcd4d107a24709b77009910067f37320b3",
+    "scene_classification/runner.py": "46988e17225b92ec7473cd68bf50586752935e3fe617f1170e6982ce49e5befa",
+    "scene_classification/__init__.py": "5d0cbbf6a7d6bac715d1592e07170da14b04b281577b631804486247a841a968",
+    "scene_classification/modeling.py": "25f53d58d9ea7af64c43b9bdac640c5c0c68cb1f2a958a6e0cc0048e9af10d58",
+    "scene_classification/data.py": "ebcf0dd7585a060465df45bdf4e44ec7f47edd95f1fa8a12cbdd5723b948fa69",
+    "utils.py": "818d7863859bd3e391b66184e4d99194126b46b40f20e85fd224cb1817ea58d7",
+    "run_scene.py": "ac35cfc6113156d5f28df03968b33d9faaaa18c8616b546fc154e8eeacc645ae",
+    "train_bigearth.py": "f8df2619889f6d4094c874168c1e39c1bd435f722539934c7bb27cd5e9eb9bcd",
+    "test_bigearth.py": "d80c1b7677587fbda5a3fb2dadc4603f95c132dd34ebcebd1f6065ae5c2456f9",
+    "test_gavit.py": "d0001e34c205af81a9c70c64e7694427e3b44279ee4bc56325b6fd262ecee9c4",
+    "experiment_identity.py": "0e9530454ae7d2f159329710a430acc7a75c586739844c22c673f9ff899d5d9b"
+  }
+}

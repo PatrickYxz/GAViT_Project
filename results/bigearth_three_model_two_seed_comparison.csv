@@ -1,0 +1,7 @@
+seed,model,mAP_percent,macro_f1_percent,micro_f1_percent,precision,final_epoch,gpu,code
+43,swin,71.1,64.1,76.0,printed_one_decimal,30,RTX4090,bb9f1cf
+43,fixed,71.7,65.7,76.8,printed_one_decimal,21,RTX4090 train / RTX3060 test,bb9f1cf
+43,soft,72.86757085064232,66.67389161697625,76.90597117759339,full_returned,30,RTX4090,ed480e6
+45,swin,71.67692953551497,65.08421202330264,76.73226436237192,full_returned,30,RTX2080Ti,deb2b45
+45,fixed,70.25823624286052,64.29547698363885,76.70245685151849,full_returned,30,RTX2080Ti,deb2b45
+45,soft,70.83691875764855,64.86482283595696,76.38335430648769,full_returned,30,RTX2080Ti,ed480e6

@@ -1,0 +1,13 @@
+{
+  "source": "User pasted shell exit and traceback, followed by unzip command returning to prompt",
+  "output": "/home/featurize/work/aid_swin_calibrate43_20260921_01",
+  "observed_process_exit_code": 1,
+  "server_run_exit_received": false,
+  "failure_stage": "manifest image validation before model construction/training",
+  "missing_image": "/home/featurize/data/AID/AID/Airport/airport_1.jpg",
+  "instance_restart_as_cause": "plausible, not independently established",
+  "recovery_command": "unzip -n -q /home/featurize/work/AID_visionflan_20260920.zip -d /home/featurize/data",
+  "recovery_observation": "Returned to shell prompt without displayed errors; explicit exit code and full image validation not supplied",
+  "retry_output": "/home/featurize/work/aid_swin_calibrate43_20260921_02",
+  "retry_started": false
+}

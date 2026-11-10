@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-10",
+  "status": "passed",
+  "method": "Independent reread with Fraction arithmetic; no model tests or inference",
+  "checks": {
+    "all_three_archived_source_hashes_match": true,
+    "class_uniqueness_order_and_19_rows_both_tables": true,
+    "seed43_values_deltas_contributions_from_raw": true,
+    "four_seed_all_deltas_counts_mean_and_sample_variance": true,
+    "no_all_four_positive_or_negative_class": true,
+    "seed43_direction_counts_10_8_1": true,
+    "existing_aggregate_metrics_and_epoch_boundaries_preserved": true,
+    "analysis_and_summary_local_links_exist": true
+  },
+  "generated_output_sha256": {
+    "results/bigearth_seed43_per_class_comparison.csv": "d6b1e47a356f5195e9e080a1036a905e8007d78fdbc503ae48d63324c727fa48",
+    "results/bigearth_four_seed_per_class_comparison.csv": "2651da9ad54329ddc46172733e53cf15fefe0978d7230f6d4cc5a0e40c4af0b4",
+    "results/bigearth_four_seed_class_analysis.md": "9bb1f4994902109f07c13becc5a4b62be28bd5275fa4e7661efc29035dd00bc6"
+  }
+}

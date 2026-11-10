@@ -1,0 +1,11 @@
+{
+  "source": "User inline GAViT completion log, both exit codes, run.json and metrics summary on 2026-09-21",
+  "normalization": "Escaped underscores and Markdown-rendered __init__.py restored. Shared evaluation fields checked identical to pasted Swin report and reused; argv checkpoint/output updated exactly as reported. Formatting normalized, not a server-file byte copy.",
+  "exit_code": 0,
+  "completion_log_received": true,
+  "complete_metrics_received": false,
+  "checkpoint_downloaded": false,
+  "matched_local_source_files": 17,
+  "matched_refit_identity": true,
+  "matched_paired_evaluation_identity": true
+}

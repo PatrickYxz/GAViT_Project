@@ -1,0 +1,13 @@
+{
+  "source": "user pasted epochs27-30; initial POCH normalized to EPOCH",
+  "completion_marker": "SCENE CALIBRATE COMPLETE",
+  "final_epoch": 30,
+  "final_val_oa_percent": 97.1,
+  "visible_range_best": {
+    "epoch": 27,
+    "val_oa_percent": 97.2
+  },
+  "full_run_best_epoch": null,
+  "full_run_best_val_oa_percent": null,
+  "explicit_exit_code": null
+}

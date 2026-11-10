@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-11",
+  "status": "local_delivery_verified_server_pending",
+  "tests": {
+    "count": 21,
+    "exit_code": 0,
+    "log": "tests.log",
+    "environment": "/private/tmp/gavit-cache-qa-20261007/bin/python",
+    "scope": "9 new scheduling/identity cases plus 12 pinned helper regression cases; no full unrelated model suite"
+  },
+  "observed_red": [
+    "new launchers absent: 4 failures",
+    "missing history acceptance: 1 failure",
+    "partial checkpoint discovery absent: 1 failure"
+  ],
+  "initial_environment_failure": {
+    "test": "test_worker_records_exact_metrics_without_changing_save_return",
+    "reason": "default Python and project .venv lack torch",
+    "resolution": "existing QA environment reused; four helper tests and final combined21 passed"
+  },
+  "shell_commands": {
+    "nwpu_preflight_command.txt": {
+      "sha256": "27f8df154be2ea69bf6eb08cf02f200624a1d77f11d943f882ff3b5128350298",
+      "python_ast": true,
+      "bash_syntax": true,
+      "zsh_syntax": true,
+      "shell_layers": 1
+    },
+    "nwpu_launch_command.txt": {
+      "sha256": "5f553957227042aa8310b5df6810ba0dcf9fe41b86521aaa3c9daa2c0ed38e37",
+      "python_ast": true,
+      "bash_syntax": true,
+      "zsh_syntax": true,
+      "shell_layers": 1
+    },
+    "bigearth_preflight_command.txt": {
+      "sha256": "1a8cc18c2362a77cf091dea46f74ebda66dfe7d8ed9616e1fc8c838a17ddbba8",
+      "python_ast": true,
+      "bash_syntax": true,
+      "zsh_syntax": true,
+      "shell_layers": 1
+    },
+    "bigearth_launch_command.txt": {
+      "sha256": "7a98ab74f2bfa767e50042b8f8216c8b3be4c29dc0fe01f0d6820b310eaca073",
+      "python_ast": true,
+      "bash_syntax": true,
+      "zsh_syntax": true,
+      "shell_layers": 1
+    }
+  },
+  "detached_fixtures": {
+    "fixtures": [
+      {
+        "queue": "nwpu",
+        "preflight_rejected": false,
+        "passed": true,
+        "gpu_calls": 0,
+        "real_detached_child": true
+      },
+      {
+        "queue": "nwpu",
+        "preflight_rejected": true,
+        "passed": true,
+        "gpu_calls": 0,
+        "real_detached_child": false
+      },
+      {
+        "queue": "bigearth",
+        "preflight_rejected": false,
+        "passed": true,
+        "gpu_calls": 0,
+        "real_detached_child": true
+      },
+      {
+        "queue": "bigearth",
+        "preflight_rejected": true,
+        "passed": true,
+        "gpu_calls": 0,
+        "real_detached_child": false
+      }
+    ],
+    "payload_roundtrip": true,
+    "gpu_work_performed": false
+  },
+  "files_sha256": {
+    "tools/run_nwpu_seed43.py": "fb6935469b089471d3f1344676d402ebd038242350cfff872d7ab9c162f7f111",
+    "tools/run_bigearth_soft43.py": "37f05738b8fc99e20e95d4c84ba8392f8707b1175e58c838725fd34a40b0a07e",
+    "tests/test_seed43_launch.py": "493ef1ad57ab063c019ca174526e3465ea16875320afba4354546a16e71ea553",
+    "results/evidence/seed43_prepare_20261011/build_delivery.py": "6c169b1c786f609f0824b3d71cea60674532cab081e8d96bc8957fd997ce1e4d",
+    "results/evidence/seed43_prepare_20261011/launch_bigearth.py": "2b8c4f5ad17f1249f21149c47ab783df08990a010a2033cf7cb5ca4b230a7613",
+    "results/evidence/seed43_prepare_20261011/validate_delivery.py": "05954f508c493ac69111f076efdaccf183c4a82d609966c44a33d2a83d8f2a91",
+    "results/evidence/seed43_prepare_20261011/launch_nwpu.py": "52a1fdfcb20579ba201000fc2f73438e6d269630088f2df2525cacbd69c5a7b2",
+    "results/evidence/seed43_prepare_20261011/preflight_bigearth43.py": "6e47784ff9e3f4f85c99fd205d5a7c8dc5c04606bc0e1520b93bf14f41b533b4",
+    "results/evidence/seed43_prepare_20261011/bigearth_preflight_command.txt": "1a8cc18c2362a77cf091dea46f74ebda66dfe7d8ed9616e1fc8c838a17ddbba8",
+    "results/evidence/seed43_prepare_20261011/nwpu_launch_command.txt": "5f553957227042aa8310b5df6810ba0dcf9fe41b86521aaa3c9daa2c0ed38e37",
+    "results/evidence/seed43_prepare_20261011/bigearth_launch_command.txt": "7a98ab74f2bfa767e50042b8f8216c8b3be4c29dc0fe01f0d6820b310eaca073",
+    "results/evidence/seed43_prepare_20261011/nwpu_preflight_command.txt": "27f8df154be2ea69bf6eb08cf02f200624a1d77f11d943f882ff3b5128350298"
+  },
+  "real_server_preflight": "not executed",
+  "gpu_training_started": false,
+  "new_metrics": "pending",
+  "formal_model_code_changed": false,
+  "git_published": false
+}

@@ -1,0 +1,32 @@
+{
+  "status": "patch_applies_to_recorded_release_files",
+  "base_commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "base_files_verified": 30,
+  "source_dir": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2",
+  "patch": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/deliverables/nwpu_ffn_trial_20261003.patch",
+  "patch_sha256": "b9a6f20b3829a67050f95850d8666e0d868ae4f1293da987752db4053b88a2b6",
+  "release_files": [
+    "models/gavit.py",
+    "scene_classification/modeling.py",
+    "scene_classification/runner.py",
+    "run_scene.py",
+    "models/token_refinement.py",
+    "scene_classification/refinement_audit.py",
+    "tests/test_token_refinement.py",
+    "tests/test_token_refinement_runtime.py",
+    "docs/run_nwpu_ffn_trial_20261003.md"
+  ],
+  "files_sha256": {
+    "models/gavit.py": "39b2fd72be3afca0bb450ff5b700966c75c8aa277b2cf303b6c3faf129faba3e",
+    "scene_classification/modeling.py": "8a2beed6bcb35ba5f4695ec81a899d7cf7394ccbd858a6beb372b1bd3f1ca575",
+    "scene_classification/runner.py": "5d124ddfd03cb7340b8f65af8a56756d42ad1b2d1638b790373f192ead721f93",
+    "run_scene.py": "618d5cfc798db0a94d6ad74d513c7fb08a8bdf904f33f8e6e524d0be8cc64f03",
+    "models/token_refinement.py": "b6da924ec782169df58c7c9fbc0e208e5d2aa25cad790d8376ab3f7624038072",
+    "scene_classification/refinement_audit.py": "08fdff7df2306c2a03313201ba566cd67f3acfeef2b16ed86d9fac8b085d929c",
+    "tests/test_token_refinement.py": "ac0f612606b67f07d9f0f00ec36cb736935a12b3b8105d59e7e7bcda2942a76b",
+    "tests/test_token_refinement_runtime.py": "651e85e63fd0b1a6b32b38d84c3fa490e9dd3dcdba1dd10811ed634d9aaa2f0f",
+    "docs/run_nwpu_ffn_trial_20261003.md": "85503b620d52c55eb93eac834f9a39ad5e74e4c26d0ff05826c65a2f1c0cd093"
+  },
+  "scope": "File-tree patch application only; no Git commit, push or GPU run",
+  "patchcheck_dir": "/private/tmp/gavit-ffn-patchcheck-20261003"
+}

@@ -1,0 +1,253 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Swin / GAViT 验证样本对比</title><style>
+body{font:16px/1.6 system-ui,sans-serif;margin:28px;background:#f5f7f9;color:#172a3a}h1{font-size:25px}h2{font-size:17px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}article{padding:18px;background:white;border:1px solid #dbe2e8;border-radius:8px}
+img{display:block;width:224px;height:224px;max-width:100%;object-fit:contain;margin:12px auto;background:#eee}p{margin:8px 0}.labels,small{font-size:13px;color:#536373;overflow-wrap:anywhere}
+</style><h1>Swin / GAViT 验证样本对比</h1>
+<p>相同验证图片、原有权重；成败阈值0.5。每类保留双向分歧、共同正确和共同错误，并区分真实正负标签。</p>
+<p>样本在各组内按固定哈希顺序选择；补充样本仅供案例分析。可用/选中数量见 case_counts.csv，随机验证子集指标见 report.md。</p><main class="grid"><article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>Swin正确 / GAViT错误</strong> · 真实标签：不存在</p>
+<img src="images/row_11957.jpg" alt="验证图像 11957">
+<p>Swin 0.115 · GAViT 0.711</p>
+<p class="labels">全部真实标签：[&quot;Permanent crops&quot;, &quot;Complex cultivation patterns&quot;, &quot;Broad-leaved forest&quot;]</p>
+<small>CSV行号 11957（从0计） · uniform</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>Swin正确 / GAViT错误</strong> · 真实标签：不存在</p>
+<img src="images/row_103740.jpg" alt="验证图像 103740">
+<p>Swin 0.422 · GAViT 0.801</p>
+<p class="labels">全部真实标签：[&quot;Broad-leaved forest&quot;, &quot;Coniferous forest&quot;, &quot;Transitional woodland, shrub&quot;]</p>
+<small>CSV行号 103740（从0计） · uniform</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>Swin正确 / GAViT错误</strong> · 真实标签：存在</p>
+<img src="images/row_85909.jpg" alt="验证图像 85909">
+<p>Swin 0.532 · GAViT 0.255</p>
+<p class="labels">全部真实标签：[&quot;Arable land&quot;, &quot;Broad-leaved forest&quot;, &quot;Natural grassland and sparsely vegetated areas&quot;, &quot;Inland wetlands&quot;]</p>
+<small>CSV行号 85909（从0计） · uniform</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>Swin正确 / GAViT错误</strong> · 真实标签：存在</p>
+<img src="images/row_96821.jpg" alt="验证图像 96821">
+<p>Swin 0.500 · GAViT 0.146</p>
+<p class="labels">全部真实标签：[&quot;Urban fabric&quot;, &quot;Pastures&quot;, &quot;Coniferous forest&quot;, &quot;Natural grassland and sparsely vegetated areas&quot;]</p>
+<small>CSV行号 96821（从0计） · uniform</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>GAViT正确 / Swin错误</strong> · 真实标签：不存在</p>
+<img src="images/row_10837.jpg" alt="验证图像 10837">
+<p>Swin 0.781 · GAViT 0.248</p>
+<p class="labels">全部真实标签：[&quot;Arable land&quot;, &quot;Pastures&quot;, &quot;Complex cultivation patterns&quot;]</p>
+<small>CSV行号 10837（从0计） · uniform</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>GAViT正确 / Swin错误</strong> · 真实标签：不存在</p>
+<img src="images/row_109926.jpg" alt="验证图像 109926">
+<p>Swin 0.731 · GAViT 0.056</p>
+<p class="labels">全部真实标签：[&quot;Urban fabric&quot;, &quot;Arable land&quot;, &quot;Complex cultivation patterns&quot;]</p>
+<small>CSV行号 109926（从0计） · uniform</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>GAViT正确 / Swin错误</strong> · 真实标签：存在</p>
+<img src="images/row_105791.jpg" alt="验证图像 105791">
+<p>Swin 0.427 · GAViT 0.886</p>
+<p class="labels">全部真实标签：[&quot;Complex cultivation patterns&quot;, &quot;Natural grassland and sparsely vegetated areas&quot;, &quot;Transitional woodland, shrub&quot;]</p>
+<small>CSV行号 105791（从0计） · uniform</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>GAViT正确 / Swin错误</strong> · 真实标签：存在</p>
+<img src="images/row_103891.jpg" alt="验证图像 103891">
+<p>Swin 0.180 · GAViT 0.527</p>
+<p class="labels">全部真实标签：[&quot;Broad-leaved forest&quot;, &quot;Natural grassland and sparsely vegetated areas&quot;, &quot;Transitional woodland, shrub&quot;]</p>
+<small>CSV行号 103891（从0计） · uniform</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>共同正确</strong> · 真实标签：不存在</p>
+<img src="images/row_11826.jpg" alt="验证图像 11826">
+<p>Swin 0.000 · GAViT 0.002</p>
+<p class="labels">全部真实标签：[&quot;Coniferous forest&quot;, &quot;Beaches, dunes, sands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 11826（从0计） · focus_supplement</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>共同正确</strong> · 真实标签：不存在</p>
+<img src="images/row_35986.jpg" alt="验证图像 35986">
+<p>Swin 0.002 · GAViT 0.001</p>
+<p class="labels">全部真实标签：[&quot;Pastures&quot;]</p>
+<small>CSV行号 35986（从0计） · uniform</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>共同正确</strong> · 真实标签：存在</p>
+<img src="images/row_52772.jpg" alt="验证图像 52772">
+<p>Swin 0.775 · GAViT 0.655</p>
+<p class="labels">全部真实标签：[&quot;Arable land&quot;, &quot;Pastures&quot;, &quot;Complex cultivation patterns&quot;, &quot;Land principally occupied by agriculture, with significant areas of natural vegetation&quot;, &quot;Broad-leaved forest&quot;, &quot;Natural grassland and sparsely vegetated areas&quot;]</p>
+<small>CSV行号 52772（从0计） · uniform</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>共同正确</strong> · 真实标签：存在</p>
+<img src="images/row_65873.jpg" alt="验证图像 65873">
+<p>Swin 0.882 · GAViT 0.963</p>
+<p class="labels">全部真实标签：[&quot;Broad-leaved forest&quot;, &quot;Mixed forest&quot;, &quot;Natural grassland and sparsely vegetated areas&quot;, &quot;Transitional woodland, shrub&quot;]</p>
+<small>CSV行号 65873（从0计） · uniform</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>共同错误</strong> · 真实标签：不存在</p>
+<img src="images/row_64340.jpg" alt="验证图像 64340">
+<p>Swin 0.997 · GAViT 1.000</p>
+<p class="labels">全部真实标签：[&quot;Broad-leaved forest&quot;, &quot;Transitional woodland, shrub&quot;]</p>
+<small>CSV行号 64340（从0计） · uniform</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>共同错误</strong> · 真实标签：不存在</p>
+<img src="images/row_96832.jpg" alt="验证图像 96832">
+<p>Swin 0.674 · GAViT 0.670</p>
+<p class="labels">全部真实标签：[&quot;Pastures&quot;, &quot;Coniferous forest&quot;]</p>
+<small>CSV行号 96832（从0计） · uniform</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>共同错误</strong> · 真实标签：存在</p>
+<img src="images/row_105788.jpg" alt="验证图像 105788">
+<p>Swin 0.452 · GAViT 0.429</p>
+<p class="labels">全部真实标签：[&quot;Land principally occupied by agriculture, with significant areas of natural vegetation&quot;, &quot;Broad-leaved forest&quot;, &quot;Natural grassland and sparsely vegetated areas&quot;, &quot;Transitional woodland, shrub&quot;]</p>
+<small>CSV行号 105788（从0计） · uniform</small></article>
+<article><h2>Natural grassland and sparsely vegetated areas</h2>
+<p><strong>共同错误</strong> · 真实标签：存在</p>
+<img src="images/row_53227.jpg" alt="验证图像 53227">
+<p>Swin 0.249 · GAViT 0.452</p>
+<p class="labels">全部真实标签：[&quot;Pastures&quot;, &quot;Land principally occupied by agriculture, with significant areas of natural vegetation&quot;, &quot;Broad-leaved forest&quot;, &quot;Coniferous forest&quot;, &quot;Natural grassland and sparsely vegetated areas&quot;, &quot;Transitional woodland, shrub&quot;]</p>
+<small>CSV行号 53227（从0计） · uniform</small></article>
+<article><h2>Beaches, dunes, sands</h2>
+<p><strong>Swin正确 / GAViT错误</strong> · 真实标签：不存在</p>
+<img src="images/row_109786.jpg" alt="验证图像 109786">
+<p>Swin 0.006 · GAViT 0.762</p>
+<p class="labels">全部真实标签：[&quot;Urban fabric&quot;, &quot;Coniferous forest&quot;]</p>
+<small>CSV行号 109786（从0计） · uniform</small></article>
+<article><h2>Beaches, dunes, sands</h2>
+<p><strong>Swin正确 / GAViT错误</strong> · 真实标签：存在</p>
+<img src="images/row_83548.jpg" alt="验证图像 83548">
+<p>Swin 0.787 · GAViT 0.048</p>
+<p class="labels">全部真实标签：[&quot;Urban fabric&quot;, &quot;Pastures&quot;, &quot;Beaches, dunes, sands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 83548（从0计） · focus_supplement</small></article>
+<article><h2>Beaches, dunes, sands</h2>
+<p><strong>Swin正确 / GAViT错误</strong> · 真实标签：存在</p>
+<img src="images/row_19440.jpg" alt="验证图像 19440">
+<p>Swin 0.994 · GAViT 0.318</p>
+<p class="labels">全部真实标签：[&quot;Beaches, dunes, sands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 19440（从0计） · focus_supplement</small></article>
+<article><h2>Beaches, dunes, sands</h2>
+<p><strong>GAViT正确 / Swin错误</strong> · 真实标签：不存在</p>
+<img src="images/row_94065.jpg" alt="验证图像 94065">
+<p>Swin 0.521 · GAViT 0.237</p>
+<p class="labels">全部真实标签：[&quot;Permanent crops&quot;, &quot;Land principally occupied by agriculture, with significant areas of natural vegetation&quot;, &quot;Moors, heathland and sclerophyllous vegetation&quot;, &quot;Coastal wetlands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 94065（从0计） · uniform</small></article>
+<article><h2>Beaches, dunes, sands</h2>
+<p><strong>GAViT正确 / Swin错误</strong> · 真实标签：不存在</p>
+<img src="images/row_49689.jpg" alt="验证图像 49689">
+<p>Swin 0.581 · GAViT 0.031</p>
+<p class="labels">全部真实标签：[&quot;Pastures&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 49689（从0计） · uniform</small></article>
+<article><h2>Beaches, dunes, sands</h2>
+<p><strong>GAViT正确 / Swin错误</strong> · 真实标签：存在</p>
+<img src="images/row_83393.jpg" alt="验证图像 83393">
+<p>Swin 0.341 · GAViT 0.522</p>
+<p class="labels">全部真实标签：[&quot;Pastures&quot;, &quot;Beaches, dunes, sands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 83393（从0计） · focus_supplement</small></article>
+<article><h2>Beaches, dunes, sands</h2>
+<p><strong>共同正确</strong> · 真实标签：不存在</p>
+<img src="images/row_52994.jpg" alt="验证图像 52994">
+<p>Swin 0.000 · GAViT 0.000</p>
+<p class="labels">全部真实标签：[&quot;Urban fabric&quot;, &quot;Complex cultivation patterns&quot;, &quot;Natural grassland and sparsely vegetated areas&quot;, &quot;Transitional woodland, shrub&quot;]</p>
+<small>CSV行号 52994（从0计） · uniform</small></article>
+<article><h2>Beaches, dunes, sands</h2>
+<p><strong>共同正确</strong> · 真实标签：不存在</p>
+<img src="images/row_84689.jpg" alt="验证图像 84689">
+<p>Swin 0.000 · GAViT 0.000</p>
+<p class="labels">全部真实标签：[&quot;Arable land&quot;, &quot;Land principally occupied by agriculture, with significant areas of natural vegetation&quot;]</p>
+<small>CSV行号 84689（从0计） · uniform</small></article>
+<article><h2>Beaches, dunes, sands</h2>
+<p><strong>共同正确</strong> · 真实标签：存在</p>
+<img src="images/row_11994.jpg" alt="验证图像 11994">
+<p>Swin 1.000 · GAViT 1.000</p>
+<p class="labels">全部真实标签：[&quot;Coniferous forest&quot;, &quot;Transitional woodland, shrub&quot;, &quot;Beaches, dunes, sands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 11994（从0计） · focus_supplement</small></article>
+<article><h2>Beaches, dunes, sands</h2>
+<p><strong>共同正确</strong> · 真实标签：存在</p>
+<img src="images/row_93395.jpg" alt="验证图像 93395">
+<p>Swin 0.990 · GAViT 1.000</p>
+<p class="labels">全部真实标签：[&quot;Moors, heathland and sclerophyllous vegetation&quot;, &quot;Beaches, dunes, sands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 93395（从0计） · focus_supplement</small></article>
+<article><h2>Beaches, dunes, sands</h2>
+<p><strong>共同错误</strong> · 真实标签：存在</p>
+<img src="images/row_28439.jpg" alt="验证图像 28439">
+<p>Swin 0.483 · GAViT 0.251</p>
+<p class="labels">全部真实标签：[&quot;Arable land&quot;, &quot;Broad-leaved forest&quot;, &quot;Moors, heathland and sclerophyllous vegetation&quot;, &quot;Beaches, dunes, sands&quot;]</p>
+<small>CSV行号 28439（从0计） · focus_supplement</small></article>
+<article><h2>Beaches, dunes, sands</h2>
+<p><strong>共同错误</strong> · 真实标签：存在</p>
+<img src="images/row_20934.jpg" alt="验证图像 20934">
+<p>Swin 0.000 · GAViT 0.000</p>
+<p class="labels">全部真实标签：[&quot;Permanent crops&quot;, &quot;Broad-leaved forest&quot;, &quot;Coniferous forest&quot;, &quot;Beaches, dunes, sands&quot;, &quot;Coastal wetlands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 20934（从0计） · uniform</small></article>
+<article><h2>Coastal wetlands</h2>
+<p><strong>Swin正确 / GAViT错误</strong> · 真实标签：不存在</p>
+<img src="images/row_95355.jpg" alt="验证图像 95355">
+<p>Swin 0.029 · GAViT 0.674</p>
+<p class="labels">全部真实标签：[&quot;Arable land&quot;, &quot;Land principally occupied by agriculture, with significant areas of natural vegetation&quot;, &quot;Agro-forestry areas&quot;, &quot;Transitional woodland, shrub&quot;, &quot;Inland waters&quot;]</p>
+<small>CSV行号 95355（从0计） · uniform</small></article>
+<article><h2>Coastal wetlands</h2>
+<p><strong>Swin正确 / GAViT错误</strong> · 真实标签：存在</p>
+<img src="images/row_91192.jpg" alt="验证图像 91192">
+<p>Swin 0.538 · GAViT 0.011</p>
+<p class="labels">全部真实标签：[&quot;Arable land&quot;, &quot;Pastures&quot;, &quot;Broad-leaved forest&quot;, &quot;Coniferous forest&quot;, &quot;Coastal wetlands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 91192（从0计） · focus_supplement</small></article>
+<article><h2>Coastal wetlands</h2>
+<p><strong>Swin正确 / GAViT错误</strong> · 真实标签：存在</p>
+<img src="images/row_109999.jpg" alt="验证图像 109999">
+<p>Swin 0.667 · GAViT 0.296</p>
+<p class="labels">全部真实标签：[&quot;Coastal wetlands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 109999（从0计） · uniform</small></article>
+<article><h2>Coastal wetlands</h2>
+<p><strong>GAViT正确 / Swin错误</strong> · 真实标签：不存在</p>
+<img src="images/row_4312.jpg" alt="验证图像 4312">
+<p>Swin 0.622 · GAViT 0.031</p>
+<p class="labels">全部真实标签：[&quot;Pastures&quot;, &quot;Beaches, dunes, sands&quot;, &quot;Inland wetlands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 4312（从0计） · uniform</small></article>
+<article><h2>Coastal wetlands</h2>
+<p><strong>GAViT正确 / Swin错误</strong> · 真实标签：不存在</p>
+<img src="images/row_20932.jpg" alt="验证图像 20932">
+<p>Swin 0.880 · GAViT 0.077</p>
+<p class="labels">全部真实标签：[&quot;Marine waters&quot;]</p>
+<small>CSV行号 20932（从0计） · uniform</small></article>
+<article><h2>Coastal wetlands</h2>
+<p><strong>GAViT正确 / Swin错误</strong> · 真实标签：存在</p>
+<img src="images/row_117556.jpg" alt="验证图像 117556">
+<p>Swin 0.279 · GAViT 0.916</p>
+<p class="labels">全部真实标签：[&quot;Urban fabric&quot;, &quot;Arable land&quot;, &quot;Land principally occupied by agriculture, with significant areas of natural vegetation&quot;, &quot;Coniferous forest&quot;, &quot;Mixed forest&quot;, &quot;Coastal wetlands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 117556（从0计） · focus_supplement</small></article>
+<article><h2>Coastal wetlands</h2>
+<p><strong>GAViT正确 / Swin错误</strong> · 真实标签：存在</p>
+<img src="images/row_12039.jpg" alt="验证图像 12039">
+<p>Swin 0.044 · GAViT 0.503</p>
+<p class="labels">全部真实标签：[&quot;Coastal wetlands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 12039（从0计） · focus_supplement</small></article>
+<article><h2>Coastal wetlands</h2>
+<p><strong>共同正确</strong> · 真实标签：不存在</p>
+<img src="images/row_16274.jpg" alt="验证图像 16274">
+<p>Swin 0.000 · GAViT 0.000</p>
+<p class="labels">全部真实标签：[&quot;Coniferous forest&quot;, &quot;Transitional woodland, shrub&quot;]</p>
+<small>CSV行号 16274（从0计） · uniform</small></article>
+<article><h2>Coastal wetlands</h2>
+<p><strong>共同正确</strong> · 真实标签：不存在</p>
+<img src="images/row_32780.jpg" alt="验证图像 32780">
+<p>Swin 0.000 · GAViT 0.000</p>
+<p class="labels">全部真实标签：[&quot;Arable land&quot;, &quot;Complex cultivation patterns&quot;, &quot;Broad-leaved forest&quot;, &quot;Mixed forest&quot;]</p>
+<small>CSV行号 32780（从0计） · uniform</small></article>
+<article><h2>Coastal wetlands</h2>
+<p><strong>共同正确</strong> · 真实标签：存在</p>
+<img src="images/row_11915.jpg" alt="验证图像 11915">
+<p>Swin 0.733 · GAViT 0.922</p>
+<p class="labels">全部真实标签：[&quot;Arable land&quot;, &quot;Coastal wetlands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 11915（从0计） · uniform</small></article>
+<article><h2>Coastal wetlands</h2>
+<p><strong>共同正确</strong> · 真实标签：存在</p>
+<img src="images/row_90932.jpg" alt="验证图像 90932">
+<p>Swin 0.903 · GAViT 0.988</p>
+<p class="labels">全部真实标签：[&quot;Urban fabric&quot;, &quot;Complex cultivation patterns&quot;, &quot;Broad-leaved forest&quot;, &quot;Mixed forest&quot;, &quot;Coastal wetlands&quot;, &quot;Marine waters&quot;]</p>
+<small>CSV行号 90932（从0计） · focus_supplement</small></article>
+<article><h2>Coastal wetlands</h2>
+<p><strong>共同错误</strong> · 真实标签：存在</p>
+<img src="images/row_12033.jpg" alt="验证图像 12033">
+<p>Swin 0.001 · GAViT 0.000</p>
+<p class="labels">全部真实标签：[&quot;Urban fabric&quot;, &quot;Arable land&quot;, &quot;Permanent crops&quot;, &quot;Complex cultivation patterns&quot;, &quot;Broad-leaved forest&quot;, &quot;Mixed forest&quot;, &quot;Coastal wetlands&quot;]</p>
+<small>CSV行号 12033（从0计） · focus_supplement</small></article>
+<article><h2>Coastal wetlands</h2>
+<p><strong>共同错误</strong> · 真实标签：存在</p>
+<img src="images/row_20880.jpg" alt="验证图像 20880">
+<p>Swin 0.000 · GAViT 0.004</p>
+<p class="labels">全部真实标签：[&quot;Urban fabric&quot;, &quot;Arable land&quot;, &quot;Coniferous forest&quot;, &quot;Transitional woodland, shrub&quot;, &quot;Coastal wetlands&quot;]</p>
+<small>CSV行号 20880（从0计） · focus_supplement</small></article></main></html>

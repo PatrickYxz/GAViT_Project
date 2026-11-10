@@ -1,0 +1,19 @@
+{
+  "exact_source_roundtrip": true,
+  "shell_syntax": {
+    "bash": {
+      "exit": 0,
+      "stderr": ""
+    },
+    "zsh": {
+      "exit": 0,
+      "stderr": ""
+    }
+  },
+  "background_child_arguments": true,
+  "duplicate_launch_rejected": true,
+  "differing_staged_source_rejected": true,
+  "source_sha256": "35ed63ce1ceda120fe9b5e78b157032c5e89d6b351f0caf67e05eef19d4080ba",
+  "command_characters": 13359,
+  "scope": "Local mocked launch; no remote server or CUDA run"
+}

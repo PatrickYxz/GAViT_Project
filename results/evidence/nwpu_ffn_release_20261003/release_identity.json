@@ -1,0 +1,41 @@
+{
+  "status": "published_remote_verified",
+  "commit": "058f1d8b79d0be538ec358eb742d2cd3992921d4",
+  "parent": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "branch": "codex/token-ffn-nwpu-20261003",
+  "worktree": "/Users/patrick/.codex/worktrees/token-ffn-nwpu-release/GAViT_Project",
+  "files": [
+    "docs/run_nwpu_ffn_trial_20261003.md",
+    "models/gavit.py",
+    "models/token_refinement.py",
+    "run_scene.py",
+    "scene_classification/modeling.py",
+    "scene_classification/refinement_audit.py",
+    "scene_classification/runner.py",
+    "tests/test_token_refinement.py",
+    "tests/test_token_refinement_runtime.py"
+  ],
+  "files_sha256": {
+    "models/gavit.py": "39b2fd72be3afca0bb450ff5b700966c75c8aa277b2cf303b6c3faf129faba3e",
+    "scene_classification/modeling.py": "8a2beed6bcb35ba5f4695ec81a899d7cf7394ccbd858a6beb372b1bd3f1ca575",
+    "scene_classification/runner.py": "5d124ddfd03cb7340b8f65af8a56756d42ad1b2d1638b790373f192ead721f93",
+    "run_scene.py": "618d5cfc798db0a94d6ad74d513c7fb08a8bdf904f33f8e6e524d0be8cc64f03",
+    "models/token_refinement.py": "b6da924ec782169df58c7c9fbc0e208e5d2aa25cad790d8376ab3f7624038072",
+    "scene_classification/refinement_audit.py": "08fdff7df2306c2a03313201ba566cd67f3acfeef2b16ed86d9fac8b085d929c",
+    "tests/test_token_refinement.py": "ac0f612606b67f07d9f0f00ec36cb736935a12b3b8105d59e7e7bcda2942a76b",
+    "tests/test_token_refinement_runtime.py": "651e85e63fd0b1a6b32b38d84c3fa490e9dd3dcdba1dd10811ed634d9aaa2f0f",
+    "docs/run_nwpu_ffn_trial_20261003.md": "85503b620d52c55eb93eac834f9a39ad5e74e4c26d0ff05826c65a2f1c0cd093"
+  },
+  "tests": {
+    "command": "/private/tmp/gavit-feedback-qa-20261002/bin/python -m pytest tests -q",
+    "passed": 144,
+    "exit_code": 0,
+    "seconds": 51.17,
+    "warnings": 44
+  },
+  "independent_review": "9-file patch reviewed; no actionable issues; reviewer did not rerun tests or GPU",
+  "remote_push": "confirmed by push success and separate git ls-remote",
+  "server_smoke": "not_started",
+  "remote_head": "058f1d8b79d0be538ec358eb742d2cd3992921d4",
+  "server_commands": "docs/run_nwpu_ffn_smoke_20261003.md"
+}

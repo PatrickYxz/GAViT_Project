@@ -1,0 +1,21 @@
+[
+  "grouping_identity.py",
+  "models/soft_region_grouping.py",
+  "run_scene.py",
+  "scene_classification/modeling.py",
+  "scene_classification/runner.py",
+  "tests/test_spatial_prior_grouping.py",
+  "tests/test_spatial_prior_runtime.py",
+  "docs/run_nwpu_spatial_prior_20261008.md",
+  "results/nwpu_spatial_prior_trial.md",
+  "results/evidence/nwpu_spatial_prior_20261008/release_identity.json",
+  "results/evidence/nwpu_spatial_prior_20261008/local_validation.json",
+  "results/evidence/nwpu_spatial_prior_20261008/entrypoints_tests.log",
+  "results/evidence/nwpu_spatial_prior_20261008/entrypoints_missing_sklearn.log",
+  "results/evidence/nwpu_spatial_prior_20261008/spatial_prior_code.patch",
+  "results/evidence/nwpu_spatial_prior_20261008/release_tests.log",
+  "results/evidence/nwpu_spatial_prior_20261008/release_validation.json",
+  "results/evidence/nwpu_spatial_prior_20261008/handoff_commands.json",
+  "results/evidence/nwpu_spatial_prior_20261008/handoff_validation.json",
+  "research_diary.md"
+]

@@ -1,0 +1,20 @@
+tail -n 40 /home/featurize/work/nwpu_three43_20261011_01/run.log
+START swin_calibrate
+STAGE_COMPLETE swin_calibrate wall_seconds 506.99266443600027
+START fixed_calibrate
+STAGE_COMPLETE fixed_calibrate wall_seconds 644.2168642800002
+START soft_calibrate
+STAGE_COMPLETE soft_calibrate wall_seconds 644.5943015760004
+START swin_refit
+STAGE_COMPLETE swin_refit wall_seconds 427.0522945289995
+START fixed_refit
+STAGE_COMPLETE fixed_refit wall_seconds 592.4828987789997
+START soft_refit
+STAGE_COMPLETE soft_refit wall_seconds 623.4727110919994
+START swin_test
+STAGE_COMPLETE swin_test wall_seconds 54.97915275699961
+START fixed_test
+STAGE_COMPLETE fixed_test wall_seconds 61.7625200249995
+START soft_test
+STAGE_COMPLETE soft_test wall_seconds 59.646505429999706
+NWPU43_THREE_MODELS_COMPLETE

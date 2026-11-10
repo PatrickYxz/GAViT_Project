@@ -1,0 +1,16 @@
+{
+  "status": "artifact_gate_fixtures_pass",
+  "cases": [
+    "valid",
+    "bad_exit",
+    "bad_summary",
+    "bad_checkpoint",
+    "bad_metadata",
+    "bad_preflight",
+    "bad_subset",
+    "changed_wrapper",
+    "missing_probe"
+  ],
+  "count": 9,
+  "scope": "stdlib artifact corruption/reuse protection only; no model, CUDA, or real training launch"
+}

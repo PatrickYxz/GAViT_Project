@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "<frozen_handoff>", line 79, in preflight
+  File "<frozen_handoff>", line 25, in require
+RuntimeError: GPU differs from old estimate: GPU-b1911368-563d-916d-cb16-e7c2c9ead04a, NVIDIA GeForce RTX 4090, 610.57.04, 24564 MiB

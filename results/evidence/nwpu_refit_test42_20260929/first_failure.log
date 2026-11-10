@@ -1,0 +1,4 @@
+NWPU_REFIT_TEST_READY /private/tmp/nwpu-refit-queue-test-za8vz3ua/first_failure {'swin': 29, 'fixed': 29, 'soft': 28}
+START swin refit
+STAGE_FAILED swin refit
+NWPU_REFIT_TEST_FAILED /private/tmp/nwpu-refit-queue-test-za8vz3ua/first_failure

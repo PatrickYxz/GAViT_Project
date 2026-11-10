@@ -1,0 +1,176 @@
+{
+  "status": "complete",
+  "seed": 43,
+  "queue_elapsed_seconds": 22941.731309422998,
+  "hourly_yuan": 1.67,
+  "queue_time_estimated_yuan": 10.642414246315667,
+  "train": {
+    "final_epoch": 30,
+    "best": {
+      "metric": "val_mAP",
+      "value": 78.99,
+      "epoch": 8
+    },
+    "parameters": 31466766,
+    "counts": {
+      "train": 237871,
+      "val": 122342
+    },
+    "elapsed_seconds": 22679.135110003997,
+    "peak_cuda_allocated_bytes": 3932788736,
+    "peak_cuda_reserved_bytes": 4234149888,
+    "main_process_peak_rss_kib": 2147080,
+    "effective_train_images_per_second": 314.65617914380607,
+    "checkpoint_sha256": "c01403d67df77ec03f173877ca3466e1211d06015cd83dc89672629595e387a7",
+    "graph_capture": {
+      "normalization_errors": {
+        "S_row": 2.384185791015625e-07,
+        "W_column": 2.980232238769531e-07
+      },
+      "actual_forward_checked": true,
+      "images_checked": 8,
+      "snapshots_checked": 3,
+      "edges_per_image": 80,
+      "spatial_edges": 48,
+      "feature_edges": 32
+    },
+    "probe_summary": {
+      "split": "val",
+      "samples": 8,
+      "output": "/home/featurize/work/bigearth_soft43_20261011_01/gavit_train/gavit.assignment_probe",
+      "last_epoch": 30,
+      "probe_seconds": 1.2031661279925174
+    },
+    "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+    "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+    "splits": {
+      "train": [
+        237871,
+        "25734fd9e8dc7fd78fb259e768ae91fe11b297e1caa50a2d57b74b0296413d8f"
+      ],
+      "val": [
+        122342,
+        "1c6627cb48e33588538c4e411e4f1b94560827f27d59fb7aeb0ea2b5d30c2a45"
+      ],
+      "test": [
+        119825,
+        "cea165a6443fc5ee44de0a3c55f53ce70505c4e25aba9ca8b52d76634df77204"
+      ]
+    },
+    "hardware": {
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "cuda": "12.1",
+      "cudnn": 8902,
+      "threads": 8,
+      "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+      "packages": {
+        "torch": "2.2.2",
+        "torchvision": "0.17.2",
+        "timm": "1.0.27",
+        "torch-geometric": "2.8.0",
+        "numpy": "1.26.4",
+        "scikit-learn": "1.9.0",
+        "pillow": "10.3.0"
+      },
+      "gpu_identity": "GPU-cede40c0-f93d-7c8e-1006-cf6183e53592, NVIDIA GeForce RTX 4090, 610.57.04"
+    },
+    "precision": {
+      "dtype": "torch.float32",
+      "matmul_tf32": false,
+      "cudnn_tf32": true,
+      "amp": false
+    }
+  },
+  "test": {
+    "elapsed_seconds": 197.35320637500263,
+    "peak_cuda_allocated_bytes": 639322112,
+    "peak_cuda_reserved_bytes": 1103101952,
+    "main_process_peak_rss_kib": 1547016,
+    "checkpoint_sha256": "c01403d67df77ec03f173877ca3466e1211d06015cd83dc89672629595e387a7",
+    "hardware": {
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "cuda": "12.1",
+      "cudnn": 8902,
+      "threads": 8,
+      "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+      "packages": {
+        "torch": "2.2.2",
+        "torchvision": "0.17.2",
+        "timm": "1.0.27",
+        "torch-geometric": "2.8.0",
+        "numpy": "1.26.4",
+        "scikit-learn": "1.9.0",
+        "pillow": "10.3.0"
+      },
+      "gpu_identity": "GPU-cede40c0-f93d-7c8e-1006-cf6183e53592, NVIDIA GeForce RTX 4090, 610.57.04"
+    },
+    "precision": {
+      "dtype": "torch.float32",
+      "matmul_tf32": false,
+      "cudnn_tf32": true,
+      "amp": false
+    }
+  },
+  "history": {
+    "epochs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    "first": {
+      "epoch": 1,
+      "train_loss": 0.17760970160640674,
+      "val_mAP_percent": 73.08572895246323,
+      "val_macro_f1_percent": 62.62652959593008,
+      "next_epoch_lr": 0.00029917828430524096,
+      "epoch_wall_seconds": 827.1561823680004
+    },
+    "best": {
+      "epoch": 8,
+      "train_loss": 0.13054202278475438,
+      "val_mAP_percent": 78.99004691745016,
+      "val_macro_f1_percent": 71.95576173181863,
+      "next_epoch_lr": 0.00025036959095382875,
+      "epoch_wall_seconds": 755.2264967589981
+    },
+    "last": {
+      "epoch": 30,
+      "train_loss": 0.0600898171325303,
+      "val_mAP_percent": 75.6996819828042,
+      "val_macro_f1_percent": 71.3216787939595,
+      "next_epoch_lr": 0.0,
+      "epoch_wall_seconds": 754.0679998650012
+    }
+  },
+  "stage_exits": {
+    "gavit_train": "exit_code=0",
+    "gavit_test": "exit_code=0"
+  }
+}

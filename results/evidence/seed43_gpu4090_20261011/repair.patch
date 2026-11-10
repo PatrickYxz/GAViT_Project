@@ -1,0 +1,145 @@
+--- before/tools/run_nwpu_seed43.py
++++ tools/run_nwpu_seed43.py
+@@ -18,6 +18,7 @@
+ PRE_SHA = 'f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36'
+ DATA = Path('/home/featurize/data/NWPU-RESISC45')
+ NAMES = ('swin', 'fixed', 'soft')
++GPU_NAME = 'NVIDIA GeForce RTX 4090'
+ 
+ 
+ def require(ok, message):
+@@ -76,9 +77,16 @@
+     require(not prior, 'Existing seed43 artifacts: inspect for reuse before launch: ' + json.dumps(prior))
+     idle_gpu()
+     gpu = output(['nvidia-smi', '--query-gpu=uuid,name,driver_version,memory.total', '--format=csv,noheader'])
+-    require(len(gpu.splitlines()) == 1 and 'NVIDIA GeForce RTX 2080 Ti' in gpu, 'GPU differs from old estimate: ' + gpu)
++    rows = list(csv.reader(gpu.splitlines(), skipinitialspace=True))
++    require(len(rows) == 1 and len(rows[0]) == 4, 'One RTX 4090 GPU identity required: ' + gpu)
++    uuid, name, driver, memory = [field.strip() for field in rows[0]]
++    require(uuid.startswith('GPU-') and name == GPU_NAME and bool(driver), 'Expected RTX 4090 GPU: ' + gpu)
++    memory_parts = memory.split()
++    require(len(memory_parts) == 2 and memory_parts[0].isdigit() and memory_parts[1] == 'MiB'
++            and int(memory_parts[0]) > 0, 'Invalid GPU memory identity: ' + gpu)
+     return dict(status='NWPU43_PREFLIGHT_PASS', commit=COMMIT, manifest_sha256=MANIFEST_SHA,
+                 pretrained_sha256=PRE_SHA, seed=43, counts=m['counts'], gpu=gpu,
++                gpu_profile=dict(uuid=uuid, name=name, driver=driver, memory_mib=int(memory_parts[0])),
+                 stages=[s for s, _ in jobs(Path('/planned_output'))], training_started=False)
+ 
+ 
+--- before/tools/run_bigearth_soft43.py
++++ tools/run_bigearth_soft43.py
+@@ -17,7 +17,7 @@
+ COMMIT = 'ed480e60fea03ed786fdba70c144de5e815c34f5'
+ OLD_TOOL = Path('/home/featurize/work/bigearth_seed45_20260922_01/run_seed45.py')
+ OLD_SHA = '8ac0083f41ccfb38555ed428d99971d075cb1d7ec3e413b4fa56548dcc1d0369'
+-PREFLIGHT_SHA = '6e47784ff9e3f4f85c99fd205d5a7c8dc5c04606bc0e1520b93bf14f41b533b4'
++PREFLIGHT_SHA = '657ef1f6b9947888cfeb422d8d477f29b8015c8e0e999e2ff699226dc306f60d'
+ TRAINING = dict(seed=43,epochs=30,batch_size=32,lr=.0003,weight_decay=.0001,
+                 optimizer='AdamW',scheduler='CosineAnnealingLR',loss='BCEWithLogitsLoss',f1_threshold=.5)
+ ARCH = dict(num_classes=19,num_regions=16,knn_k=5,gat_hidden=256,gat_heads=4,gat_layers=2,
+--- before/tests/test_seed43_launch.py
++++ tests/test_seed43_launch.py
+@@ -26,6 +26,29 @@
+ 
+ 
+ class Seed43Tests(unittest.TestCase):
++    def test_nwpu_preflight_accepts_authorized_4090_and_rejects_other_cards(self):
++        m = load('run_nwpu_seed43')
++        row = 'GPU-b1911368-563d-916d-cb16-e7c2c9ead04a, NVIDIA GeForce RTX 4090, 610.57.04, 24564 MiB'
++        manifest = dict(dataset='NWPU-RESISC45', counts={'train':5040,'val':1260,'test':25200},
++                        records=[{'path':'fixture.jpg'}]*31500)
++        with patch.object(m,'identity'),patch.object(m,'read',return_value=manifest),patch.object(Path,'is_file',return_value=True),\
++             patch.object(m,'existing_runs',return_value=[]),patch.object(m,'idle_gpu'),patch.object(m,'output',return_value=row) as query:
++            ready=m.preflight()
++            self.assertEqual(ready['status'],'NWPU43_PREFLIGHT_PASS')
++            self.assertEqual(ready['gpu'],row)
++            self.assertFalse(ready['training_started'])
++            for bad in (row.replace('RTX 4090','RTX 2080 Ti'),row+'\n'+row,
++                        row.replace('GPU-b1911368-563d-916d-cb16-e7c2c9ead04a',''),
++                        row.replace('24564 MiB','unknown')):
++                with self.subTest(gpu=bad):
++                    query.return_value=bad
++                    with self.assertRaises(RuntimeError): m.preflight()
++
++    def test_bigearth_preflight_payload_hash_is_current(self):
++        m=load('run_bigearth_soft43')
++        p=ROOT/'results/evidence/seed43_gpu4090_20261011/preflight_bigearth43.py'
++        self.assertEqual(hashlib.sha256(p.read_bytes()).hexdigest(),m.PREFLIGHT_SHA)
++
+     def test_nwpu_failed_report_still_discovers_existing_checkpoint(self):
+         m=load('run_nwpu_seed43')
+         self.assertTrue(hasattr(m,'existing_runs'),'Partial checkpoint discovery not implemented')
+@@ -174,18 +197,18 @@
+         with self.assertRaises(RuntimeError): m.check_training(meta,history,30)
+ 
+     def test_bigearth_preflight_preserves_historical_epoch21_boundary(self):
+-        source = (ROOT/'results/evidence/seed43_prepare_20261011/preflight_bigearth43.py').read_text()
++        source = (ROOT/'results/evidence/seed43_gpu4090_20261011/preflight_bigearth43.py').read_text()
+         with tempfile.TemporaryDirectory() as td:
+             work=Path(td)/'work'; work.mkdir()
+             data=Path(td)/'data/BigEarthNet-S2'; data.mkdir(parents=True)
+             old=work/'bigearth_seed45_20260922_01'; old.mkdir()
+-            helper='''import hashlib,json\nfrom pathlib import Path\nFROZEN={"train":(237871,"a"),"val":(122342,"b"),"test":(119825,"c")}\nSPLITS=Path("/fixture")\ndef identity(): pass\ndef idle_gpu(): pass\ndef output(argv): return "uuid, NVIDIA GeForce RTX 2080 Ti, driver"\ndef digest(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()\ndef scan_split(path,count,sha,seen): return dict(count=count,sha256=sha,examples=[])\n'''
++            helper='''import hashlib,json\nfrom pathlib import Path\nFROZEN={"train":(237871,"a"),"val":(122342,"b"),"test":(119825,"c")}\nSPLITS=Path("/fixture")\ndef identity(): pass\ndef idle_gpu(): pass\ndef output(argv): return "GPU-fixture, NVIDIA GeForce RTX 4090, 610.57.04"\ndef digest(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()\ndef scan_split(path,count,sha,seen): return dict(count=count,sha256=sha,examples=[])\n'''
+             (old/'run_seed45.py').write_text(helper)
+             script=source.replace('/home/featurize/work',str(work)).replace('/home/featurize/data',str(Path(td)/'data')).replace('8ac0083f41ccfb38555ed428d99971d075cb1d7ec3e413b4fa56548dcc1d0369',hashlib.sha256(helper.encode()).hexdigest())
+-            torch=types.SimpleNamespace(cuda=types.SimpleNamespace(is_available=lambda:True,device_count=lambda:1,get_device_name=lambda i:'fixtureGPU'),
++            torch=types.SimpleNamespace(cuda=types.SimpleNamespace(is_available=lambda:True,device_count=lambda:1,get_device_name=lambda i:'NVIDIA GeForce RTX 4090'),
+                 version=types.SimpleNamespace(cuda='fixtureCUDA'),backends=types.SimpleNamespace(cudnn=types.SimpleNamespace(version=lambda:1,allow_tf32=True),cuda=types.SimpleNamespace(matmul=types.SimpleNamespace(allow_tf32=False))),
+                 set_num_threads=lambda i:None,get_num_threads=lambda:8,get_default_dtype=lambda:'float32',load=lambda p,**kw:json.loads(Path(p).read_text()))
+-            reference=dict(hardware=dict(gpu='fixtureGPU',cuda='fixtureCUDA',cudnn=1,threads=8,python=sys.version,
++            reference=dict(hardware=dict(gpu='NVIDIA GeForce RTX 2080 Ti',cuda='fixtureCUDA',cudnn=1,threads=8,python=sys.version,
+                 packages={n:'fixture' for n in ('torch','torchvision','timm','torch-geometric','numpy','scikit-learn','pillow')},gpu_identity='uuid, NVIDIA GeForce RTX 2080 Ti, driver'),
+                 precision=dict(dtype='float32',matmul_tf32=False,cudnn_tf32=True,amp=False))
+             ref=work/'bigearth_soft45_20260930_01'; ref.mkdir(); (ref/'preflight.json').write_text(json.dumps(reference))
+@@ -207,6 +230,18 @@
+             r=run()
+             self.assertEqual(r['controls']['gavit']['final_epoch'],21)
+             self.assertIn('different code',r['comparison_limitations'])
++            self.assertEqual(r['hardware']['gpu'],'NVIDIA GeForce RTX 4090')
++            self.assertTrue(r['physical_gpu_identity_changed'])
++            self.assertTrue(r['gpu_model_changed'])
++            torch.cuda.get_device_name=lambda i:'NVIDIA GeForce RTX 2080 Ti'
++            with self.assertRaisesRegex(AssertionError,'RTX 4090'): run()
++            torch.cuda.get_device_name=lambda i:'NVIDIA GeForce RTX 4090'
++            torch.version.cuda='changedCUDA'
++            with self.assertRaisesRegex(AssertionError,'Software'): run()
++            torch.version.cuda='fixtureCUDA'
++            torch.backends.cuda.matmul.allow_tf32=True
++            with self.assertRaisesRegex(AssertionError,'Precision'): run()
++            torch.backends.cuda.matmul.allow_tf32=False
+             ckpt.with_suffix('.last.train_state.pth').write_text(json.dumps({'epoch':30}))
+             with self.assertRaisesRegex(AssertionError,'saved epoch'):
+                 run()
+--- before/preflight_bigearth43.py
++++ preflight_bigearth43.py
+@@ -1,5 +1,6 @@
+ """Read-only identity/data gate for the authorized soft43 supplement."""
+ import hashlib
++import csv
+ import importlib.util
+ import json
+ from pathlib import Path
+@@ -28,7 +29,11 @@
+ precision = dict(dtype=str(torch.get_default_dtype()), matmul_tf32=torch.backends.cuda.matmul.allow_tf32,
+                  cudnn_tf32=torch.backends.cudnn.allow_tf32, amp=False)
+ reference = json.loads(Path('/home/featurize/work/bigearth_soft45_20260930_01/preflight.json').read_text())
+-assert all(hardware[k] == reference['hardware'][k] for k in ('gpu','cuda','cudnn','threads','python','packages')), 'Environment differs from validated soft45; inspect before paid launch'
++rows = list(csv.reader(hardware['gpu_identity'].splitlines(), skipinitialspace=True))
++assert len(rows) == 1 and len(rows[0]) == 3, 'One RTX 4090 GPU identity required'
++gpu_uuid, gpu_name, gpu_driver = [field.strip() for field in rows[0]]
++assert hardware['gpu'] == gpu_name == 'NVIDIA GeForce RTX 4090' and gpu_uuid.startswith('GPU-') and gpu_driver, 'Expected RTX 4090 GPU'
++assert all(hardware[k] == reference['hardware'][k] for k in ('cuda','cudnn','threads','python','packages')), 'Software differs from validated soft45; inspect before paid launch'
+ assert precision == reference['precision'], 'Precision differs from soft45'
+ controls = {}
+ control_names = {
+@@ -74,6 +79,8 @@
+ report = dict(status='BIGEARTH_SOFT43_PREFLIGHT_PASS', seed=43, controls=controls, splits=scans,
+     hardware=hardware, precision=precision, soft_commit=b.COMMIT, reference_commit='bb9f1cf',
+     reference_gpu_identity=reference['hardware']['gpu_identity'],
++    reference_gpu_model=reference['hardware']['gpu'],
++    gpu_model_changed=hardware['gpu'] != reference['hardware']['gpu'],
+     physical_gpu_identity_changed=hardware['gpu_identity'] != reference['hardware']['gpu_identity'],
+-    new_training_started=False, comparison_limitations='Fixed43 saved epoch21/best8; Swin43 epoch30/best6; historical 4090 train and 3060 fixed test; new soft43 uses full30 on current2080Ti, different code. Same seed does not remove these confounders.')
++    new_training_started=False, comparison_limitations='Fixed43 saved epoch21/best8; Swin43 epoch30/best6; historical 4090 train and 3060 fixed test; new soft43 uses full30 on current4090, different code. Same seed does not remove these confounders.')
+ print(json.dumps(report, indent=2), flush=True)

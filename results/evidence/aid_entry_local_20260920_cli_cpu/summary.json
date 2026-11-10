@@ -1,0 +1,128 @@
+{
+  "scope": "synthetic 30-class CPU CLI smoke; random initialization; no AID images",
+  "workers": 0,
+  "runs": [
+    {
+      "name": "prepare",
+      "command": [
+        "/private/tmp/gavit-aid-qa-20260919/bin/python",
+        "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/run_scene.py",
+        "prepare",
+        "--dataset",
+        "synthetic",
+        "--data-root",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/images",
+        "--output",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/manifest.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "swin",
+      "command": [
+        "/private/tmp/gavit-aid-qa-20260919/bin/python",
+        "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/run_scene.py",
+        "train",
+        "--model",
+        "swin",
+        "--output",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/swin",
+        "--random-init",
+        "--train-per-class",
+        "1",
+        "--val-per-class",
+        "1",
+        "--manifest",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/manifest.json",
+        "--data-root",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/images",
+        "--device",
+        "cpu",
+        "--batch-size",
+        "2",
+        "--workers",
+        "0"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "swin_evaluate",
+      "command": [
+        "/private/tmp/gavit-aid-qa-20260919/bin/python",
+        "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/run_scene.py",
+        "evaluate",
+        "--checkpoint",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/swin/best.pth",
+        "--output",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/swin/val_eval",
+        "--split",
+        "val",
+        "--manifest",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/manifest.json",
+        "--data-root",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/images",
+        "--device",
+        "cpu",
+        "--batch-size",
+        "2",
+        "--workers",
+        "0"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "gavit",
+      "command": [
+        "/private/tmp/gavit-aid-qa-20260919/bin/python",
+        "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/run_scene.py",
+        "train",
+        "--model",
+        "gavit",
+        "--output",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/gavit",
+        "--random-init",
+        "--train-per-class",
+        "1",
+        "--val-per-class",
+        "1",
+        "--manifest",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/manifest.json",
+        "--data-root",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/images",
+        "--device",
+        "cpu",
+        "--batch-size",
+        "2",
+        "--workers",
+        "0"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "gavit_evaluate",
+      "command": [
+        "/private/tmp/gavit-aid-qa-20260919/bin/python",
+        "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/run_scene.py",
+        "evaluate",
+        "--checkpoint",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/gavit/best.pth",
+        "--output",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/gavit/val_eval",
+        "--split",
+        "val",
+        "--manifest",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/manifest.json",
+        "--data-root",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_g7jdy9_x/images",
+        "--device",
+        "cpu",
+        "--batch-size",
+        "2",
+        "--workers",
+        "0"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "status": "complete"
+}

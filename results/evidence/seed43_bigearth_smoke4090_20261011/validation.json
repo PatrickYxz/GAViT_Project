@@ -1,0 +1,20 @@
+{
+  "status": "reported_CUDA_smoke_audit_pass",
+  "source": "structured transcription of user terminal return; not a server download",
+  "checks": [
+    "exit0/complete/96+64/epoch1/seed43",
+    "code/architecture/recipe match frozen helper",
+    "hardware/precision equal passed preflight",
+    "metadata/checkpoint SHA agreement in returned fields",
+    "finite loss/metric/reload <=1e-5",
+    "actual48+32 edges and three eight-image normalized snapshots"
+  ],
+  "allocated_gib": 3.6626949310302734,
+  "reserved_gib": 3.951171875,
+  "limits": [
+    "original checkpoint/probe tensors not downloaded",
+    "small-sample mAP/F1 not formal performance",
+    "formal30-epoch training/test not started",
+    "short-smoke time not a formal runtime estimate"
+  ]
+}

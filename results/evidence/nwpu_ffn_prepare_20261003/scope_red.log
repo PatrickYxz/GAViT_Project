@@ -1,0 +1,28 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________ test_changed_nwpu_protocol_is_rejected_before_training ____________
+
+tmp_path = PosixPath('/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-930/test_changed_nwpu_protocol_is_0')
+
+    def test_changed_nwpu_protocol_is_rejected_before_training(tmp_path):
+        cfg = config(tmp_path)
+        manifest = json.loads(open(cfg.manifest).read())
+        manifest['dataset'] = 'NWPU-RESISC45'
+        with patch.object(runner, 'load_manifest', return_value=manifest):
+>           with pytest.raises(ValueError, match='frozen NWPU'):
+E           Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_token_refinement_runtime.py:80: Failed
+----------------------------- Captured stdout call -----------------------------
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-930/test_changed_nwpu_protocol_is_0/run; PHASE smoke; preflight starting
+MODEL swin; DATASET NWPU-RESISC45; DEVICE CPU; PHASE smoke; train=4 val=2
+TRAIN FIRST BATCH OK loss=0.647206; graph={}
+EPOCH 1/1; loss=1.394347; val_OA=50.0; train_s=0.49
+SCENE SMOKE COMPLETE: /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-930/test_changed_nwpu_protocol_is_0/run
+=========================== short test summary info ============================
+FAILED tests/test_token_refinement_runtime.py::test_changed_nwpu_protocol_is_rejected_before_training
+1 failed in 3.41s

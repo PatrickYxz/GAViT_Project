@@ -1,0 +1,2 @@
+Shell job PID 2916: exit 1
+ValueError: Invalid image /home/featurize/data/AID/AID/Airport/airport_1.jpg: [Errno 2] No such file or directory: '/home/featurize/data/AID/AID/Airport/airport_1.jpg'

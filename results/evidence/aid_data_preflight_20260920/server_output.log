@@ -1,0 +1,5 @@
+IMAGE SCAN prepare: 10000/10000; elapsed=109.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+MANIFEST COMPLETE: AID; counts={'test': 5000, 'train': 4000, 'val': 1000}
+DUPLICATES: 1 groups; 1 extra copies; 9999 unique images; all kept within one split
+  train: Industrial/industrial_203.jpg, Industrial/industrial_205.jpg

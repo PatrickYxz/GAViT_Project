@@ -1,0 +1,236 @@
+{
+  "reviewed_date": "2026-09-19",
+  "source_attachment": "/Users/patrick/Downloads/feedback_cases.html",
+  "html_sha256": "bca16d0a7eab8deca452a0c1890367727eb1848b4e69084b6c875c4c83ba5c63",
+  "html_bytes": 1166876,
+  "server_source": "/home/featurize/work/pair44_feedback_k_7ehbne",
+  "checkpoint_sha256": "80af1f7a5f0c4a5c983aa542e20749a191150d91738ae95894b95c1aff4e65bd",
+  "device": "NVIDIA GeForce RTX 2080 Ti",
+  "provenance": "User-supplied HTML; no direct server access; offline parsing only",
+  "html_archive_byte_identical": true,
+  "png_svg_extraction": "Original PNG and 80-edge SVG are decoded unchanged from embedded base64; two displayed SVG layers are decoded unchanged",
+  "row_json_extraction": "Embedded row objects serialized using the producer format; resulting bytes match all four claimed original JSON hashes",
+  "all_four_flips_match_24_case_terminal_analysis": true,
+  "png_content_visually_reviewed": true,
+  "svg_structure_edges_and_geometry_reviewed": true,
+  "browser_page_layout_verified": false,
+  "new_inference_performed": false,
+  "new_training_performed": false,
+  "checks": [
+    {
+      "row_index": 97389,
+      "class_index": 11,
+      "label": 0,
+      "normal": 0.48578187823295593,
+      "zero": 0.9691051244735718,
+      "delta_logit": -3.502671718597412,
+      "cached_max_abs_error": 1.1920928955078125e-07,
+      "gate_max_abs_errors": {
+        "capture": 9.5367431640625e-07,
+        "reconstruction": 9.5367431640625e-07,
+        "zero_branch": 0.0,
+        "restoration": 5.960464477539063e-08
+      },
+      "edge_counts": {
+        "spatial": 48,
+        "feature": 32
+      },
+      "incoming_feature_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "asset_hashes_match": true,
+      "row_json_producer_serialization_hash_matches": true,
+      "filtered_svg_bytes_match": true,
+      "printed_terminal_values_match": true,
+      "png_size": [
+        224,
+        224
+      ],
+      "png_mode": "RGB"
+    },
+    {
+      "row_index": 14680,
+      "class_index": 11,
+      "label": 1,
+      "normal": 0.4704442322254181,
+      "zero": 0.9169636368751526,
+      "delta_logit": -2.520150661468506,
+      "cached_max_abs_error": 5.960464477539063e-08,
+      "gate_max_abs_errors": {
+        "capture": 1.1920928955078125e-07,
+        "reconstruction": 1.1920928955078125e-07,
+        "zero_branch": 0.0,
+        "restoration": 1.1920928955078125e-07
+      },
+      "edge_counts": {
+        "spatial": 48,
+        "feature": 32
+      },
+      "incoming_feature_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "asset_hashes_match": true,
+      "row_json_producer_serialization_hash_matches": true,
+      "filtered_svg_bytes_match": true,
+      "printed_terminal_values_match": true,
+      "png_size": [
+        224,
+        224
+      ],
+      "png_mode": "RGB"
+    },
+    {
+      "row_index": 28450,
+      "class_index": 14,
+      "label": 0,
+      "normal": 0.4517868161201477,
+      "zero": 0.9971612691879272,
+      "delta_logit": -6.055019855499268,
+      "cached_max_abs_error": 4.76837158203125e-07,
+      "gate_max_abs_errors": {
+        "capture": 2.384185791015625e-07,
+        "reconstruction": 2.384185791015625e-07,
+        "zero_branch": 0.0,
+        "restoration": 2.9802322387695312e-08
+      },
+      "edge_counts": {
+        "spatial": 48,
+        "feature": 32
+      },
+      "incoming_feature_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "asset_hashes_match": true,
+      "row_json_producer_serialization_hash_matches": true,
+      "filtered_svg_bytes_match": true,
+      "printed_terminal_values_match": true,
+      "png_size": [
+        224,
+        224
+      ],
+      "png_mode": "RGB"
+    },
+    {
+      "row_index": 4439,
+      "class_index": 14,
+      "label": 1,
+      "normal": 0.28115832805633545,
+      "zero": 0.9974296689033508,
+      "delta_logit": -6.899850368499756,
+      "cached_max_abs_error": 2.384185791015625e-07,
+      "gate_max_abs_errors": {
+        "capture": 0.0,
+        "reconstruction": 0.0,
+        "zero_branch": 0.0,
+        "restoration": 4.76837158203125e-07
+      },
+      "edge_counts": {
+        "spatial": 48,
+        "feature": 32
+      },
+      "incoming_feature_counts": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "asset_hashes_match": true,
+      "row_json_producer_serialization_hash_matches": true,
+      "filtered_svg_bytes_match": true,
+      "printed_terminal_values_match": true,
+      "png_size": [
+        224,
+        224
+      ],
+      "png_mode": "RGB"
+    }
+  ],
+  "limits": [
+    "No raw TIFF files or PT tensors were returned; raw input hashes and tensor-level inference are not independently recomputed.",
+    "run.json and loaded_model.json are represented by source hashes and selected metadata only, not independently returned full files.",
+    "HTML metadata visual_content_reviewed=false is the immutable generation-time state; this audit records the subsequent review.",
+    "Images are resized 224x224 RGB model inputs; visible appearance is not pixelwise ground truth.",
+    "Whole-feedback intervention does not establish edge-specific or background-specific causality."
+  ],
+  "archived_file_sha256": {
+    "evidence.json": "301a3534d7ab0ff4e528238b1938396e2e9ecfdc38537cd32922e96a1442daec",
+    "feedback_cases.html": "bca16d0a7eab8deca452a0c1890367727eb1848b4e69084b6c875c4c83ba5c63",
+    "row_14680.json": "464ad06ad4044f3d42951b09843abc5a4d121ff6fd60d3629f9fa0d976ee3def",
+    "row_14680.png": "10775d7f03c50e9d12626bd727432e77c26e28730f91c39e6cbb84452e9a051c",
+    "row_14680.svg": "6f8498e54612819a01873e602c0e6423385cde79da3fe5623c8dfe061ce775ae",
+    "row_14680_feature.svg": "4d435cfdca692696b2b7bc1dc130a52a5a23e5c51ca2622589d9263194c069f8",
+    "row_14680_spatial.svg": "5c6397eb2c2823e791a44025892d04ad69ce688c9c9d3b446b890ee49b790877",
+    "row_28450.json": "3b4eaac48690ac6557a48a45876fd513eac1dfd4b1d38e52f8ff533c0f1e6c8d",
+    "row_28450.png": "fcdd058ea7a82087b3f9abd807a2a76868a8907f7179ae9f1b8a1e35ea828d10",
+    "row_28450.svg": "5cdbac58b9082ba1886b544bdb2d5b5236e6180b565b0883b8d640e4cf21aad0",
+    "row_28450_feature.svg": "ac70f0603856be4561f96528acace574c747fe2d6b68e6e436776650f1ec596f",
+    "row_28450_spatial.svg": "418ab7591b0583e27b7a779de5c7a3343f7a0325f9600bb6f70477f76fbf9b10",
+    "row_4439.json": "ae5edf0d52ba90b28f61cc4c3514fa8954491314adee2a76dbb70c6b69f50b64",
+    "row_4439.png": "e767525e19cb9ce2f94676286358d170a41339264ecec5f7ec023fd553935b78",
+    "row_4439.svg": "bb2c27ef87f747b46f82df72053b98eed9f15f48da5d068c8141cdeb1637597f",
+    "row_4439_feature.svg": "ab0ef812759e949b2ecbe12da9fe3c0e54e3ab6ca4f569c0f7dca0055b6f6fb6",
+    "row_4439_spatial.svg": "57968d497efb57b9630a87d1df8825e04f1715b160fd74fe0c8d5cc25cd07468",
+    "row_97389.json": "5dbefe16e52efdf96322bd6da8ff8c63977492266e01342ff07c810743ac8e17",
+    "row_97389.png": "1375fde77fff8652dc24db7d380d4c7c453db07a3d13dcbe150ee7d025c815ca",
+    "row_97389.svg": "d9bf1e81556d4652a266711ab14cbf0e35545cc298d7fd2902a553c9adf8ad12",
+    "row_97389_feature.svg": "b353fc4f844d4d28d1b172845bc5346b547ecb81545038fb727df41843e9ff9d",
+    "row_97389_spatial.svg": "35941a8d311b959f0287cd00e51c10093c7149c3214d275df7201006d6471a3d"
+  }
+}

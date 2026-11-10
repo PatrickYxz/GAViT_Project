@@ -1,0 +1,25 @@
+{
+  "scope": "Synthetic image, randomly initialized full Swin-T and actual PyG, CPU; not trained weights or CUDA evidence",
+  "checks": {
+    "fixed": {
+      "S_row_error": 0.0,
+      "W_column_error": 1.1920928955078125e-07,
+      "spatial_edges": 48,
+      "feature_edges": 32,
+      "gat_self_loops_not_drawn": true,
+      "capture_max_logit_diff": 0.0,
+      "reconstruction_max_logit_diff": 0.0,
+      "restoration_max_logit_diff": 0.0
+    },
+    "soft": {
+      "S_row_error": 1.1920928955078125e-07,
+      "W_column_error": 2.384185791015625e-07,
+      "spatial_edges": 48,
+      "feature_edges": 32,
+      "gat_self_loops_not_drawn": true,
+      "capture_max_logit_diff": 0.0,
+      "reconstruction_max_logit_diff": 0.0,
+      "restoration_max_logit_diff": 0.0
+    }
+  }
+}

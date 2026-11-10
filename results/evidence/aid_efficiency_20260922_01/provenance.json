@@ -1,0 +1,14 @@
+{
+  "source": "/Users/patrick/.codex/attachments/80f9d7ab-5376-4c07-85c9-18ab36e6a04a/已粘贴的文本.txt",
+  "source_sha256": "f40cd0fad18b719e42dcfe2172de6d184e010661f0719cba64a7e7d6aecee474",
+  "archive_sha256": "f40cd0fad18b719e42dcfe2172de6d184e010661f0719cba64a7e7d6aecee474",
+  "normalization": "Extract one JSON object; preserve original pasted command, exit_code and shell prompt separately.",
+  "not_received": [
+    "original summary.json file bytes",
+    "original run.exit file bytes",
+    "run.log",
+    "stages/*.json raw timings and telemetry",
+    "checkpoint bytes"
+  ],
+  "completion_basis": "reported exit_code=0, complete summary, four zero stage exits; script requires successful stage validation before summary"
+}

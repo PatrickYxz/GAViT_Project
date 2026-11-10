@@ -1,0 +1,11 @@
+OURCE PASS: 90 cached validation cases; CPU only
+CACHE 30/90: PASS
+CACHE 60/90: PASS
+CACHE 90/90: PASS
+FIXED {"S_entropy_normalized_mean": 0.0, "W_neighbor_overlap_mean": 0.0, "W_effective_tokens_mean": 1.838518, "S_centroid_drift_mean": 0.0, "W_centroid_drift_mean": 0.050234, "W_center_rms_mean": 0.056126}
+SOFT {"S_entropy_normalized_mean": 0.741116, "W_neighbor_overlap_mean": 0.478292, "W_effective_tokens_mean": 7.015423, "S_centroid_drift_mean": 0.102003, "W_centroid_drift_mean": 0.181653, "W_center_rms_mean": 0.184898}
+UNIFORM_LOCAL {"S_entropy_normalized_mean": 1.0, "W_neighbor_overlap_mean": 0.640693, "W_effective_tokens_mean": 18.777516, "S_centroid_drift_mean": 0.120128, "W_centroid_drift_mean": 0.120128, "W_center_rms_mean": 0.264163}
+PAIRED {"both_correct": 82, "soft_corrects": 3, "soft_breaks": 0, "both_wrong": 5}
+SCOPE: weight/geometry only; selected val cases; no causal or feature-collapse conclusion.
+ASSIGNMENT CACHE COMPLETE /home/featurize/work/nwpu_assignment_cache42_20261007_01
+exit_code=0

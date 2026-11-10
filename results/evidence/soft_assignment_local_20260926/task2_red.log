@@ -1,0 +1,184 @@
+FFFFFFFFF                                                                [100%]
+=================================== FAILURES ===================================
+__________ test_normalization_locality_and_assignment_only_gradients ___________
+tests/test_soft_region_grouping.py:10: in layer
+    cls = importlib.import_module('models.soft_region_grouping').SoftPrototypeGrouping
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'models.soft_region_grouping'
+
+During handling of the above exception, another exception occurred:
+tests/test_soft_region_grouping.py:18: in test_normalization_locality_and_assignment_only_gradients
+    m = layer()
+tests/test_soft_region_grouping.py:12: in layer
+    pytest.fail(f'SoftPrototypeGrouping missing: {exc}')
+E   Failed: SoftPrototypeGrouping missing: No module named 'models.soft_region_grouping'
+__________ test_batch_isolation_repeatability_and_content_dependence ___________
+tests/test_soft_region_grouping.py:10: in layer
+    cls = importlib.import_module('models.soft_region_grouping').SoftPrototypeGrouping
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'models.soft_region_grouping'
+
+During handling of the above exception, another exception occurred:
+tests/test_soft_region_grouping.py:39: in test_batch_isolation_repeatability_and_content_dependence
+    m = layer().eval()
+tests/test_soft_region_grouping.py:12: in layer
+    pytest.fail(f'SoftPrototypeGrouping missing: {exc}')
+E   Failed: SoftPrototypeGrouping missing: No module named 'models.soft_region_grouping'
+______________ test_onehot_membership_reproduces_original_pooling ______________
+tests/test_soft_region_grouping.py:10: in layer
+    cls = importlib.import_module('models.soft_region_grouping').SoftPrototypeGrouping
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'models.soft_region_grouping'
+
+During handling of the above exception, another exception occurred:
+tests/test_soft_region_grouping.py:58: in test_onehot_membership_reproduces_original_pooling
+    soft = layer()
+tests/test_soft_region_grouping.py:12: in layer
+    pytest.fail(f'SoftPrototypeGrouping missing: {exc}')
+E   Failed: SoftPrototypeGrouping missing: No module named 'models.soft_region_grouping'
+___________ test_shared_attention_rng_and_projection_reproducibility ___________
+tests/test_soft_region_grouping.py:10: in layer
+    cls = importlib.import_module('models.soft_region_grouping').SoftPrototypeGrouping
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'models.soft_region_grouping'
+
+During handling of the above exception, another exception occurred:
+tests/test_soft_region_grouping.py:70: in test_shared_attention_rng_and_projection_reproducibility
+    soft = layer()
+tests/test_soft_region_grouping.py:12: in layer
+    pytest.fail(f'SoftPrototypeGrouping missing: {exc}')
+E   Failed: SoftPrototypeGrouping missing: No module named 'models.soft_region_grouping'
+_________________ test_degenerate_features_remain_finite[zero] _________________
+tests/test_soft_region_grouping.py:10: in layer
+    cls = importlib.import_module('models.soft_region_grouping').SoftPrototypeGrouping
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'models.soft_region_grouping'
+
+During handling of the above exception, another exception occurred:
+tests/test_soft_region_grouping.py:82: in test_degenerate_features_remain_finite
+    m = layer()
+tests/test_soft_region_grouping.py:12: in layer
+    pytest.fail(f'SoftPrototypeGrouping missing: {exc}')
+E   Failed: SoftPrototypeGrouping missing: No module named 'models.soft_region_grouping'
+______________ test_degenerate_features_remain_finite[identical] _______________
+tests/test_soft_region_grouping.py:10: in layer
+    cls = importlib.import_module('models.soft_region_grouping').SoftPrototypeGrouping
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'models.soft_region_grouping'
+
+During handling of the above exception, another exception occurred:
+tests/test_soft_region_grouping.py:82: in test_degenerate_features_remain_finite
+    m = layer()
+tests/test_soft_region_grouping.py:12: in layer
+    pytest.fail(f'SoftPrototypeGrouping missing: {exc}')
+E   Failed: SoftPrototypeGrouping missing: No module named 'models.soft_region_grouping'
+_______________ test_degenerate_features_remain_finite[opposite] _______________
+tests/test_soft_region_grouping.py:10: in layer
+    cls = importlib.import_module('models.soft_region_grouping').SoftPrototypeGrouping
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'models.soft_region_grouping'
+
+During handling of the above exception, another exception occurred:
+tests/test_soft_region_grouping.py:82: in test_degenerate_features_remain_finite
+    m = layer()
+tests/test_soft_region_grouping.py:12: in layer
+    pytest.fail(f'SoftPrototypeGrouping missing: {exc}')
+E   Failed: SoftPrototypeGrouping missing: No module named 'models.soft_region_grouping'
+__________ test_invalid_shapes_types_and_nonfinite_data_fail_clearly ___________
+tests/test_soft_region_grouping.py:10: in layer
+    cls = importlib.import_module('models.soft_region_grouping').SoftPrototypeGrouping
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'models.soft_region_grouping'
+
+During handling of the above exception, another exception occurred:
+tests/test_soft_region_grouping.py:100: in test_invalid_shapes_types_and_nonfinite_data_fail_clearly
+    layer(**kwargs)
+tests/test_soft_region_grouping.py:12: in layer
+    pytest.fail(f'SoftPrototypeGrouping missing: {exc}')
+E   Failed: SoftPrototypeGrouping missing: No module named 'models.soft_region_grouping'
+______ test_observer_receives_detached_current_tensors_without_retention _______
+tests/test_soft_region_grouping.py:10: in layer
+    cls = importlib.import_module('models.soft_region_grouping').SoftPrototypeGrouping
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1324: in _find_and_load_unlocked
+    ???
+E   ModuleNotFoundError: No module named 'models.soft_region_grouping'
+
+During handling of the above exception, another exception occurred:
+tests/test_soft_region_grouping.py:110: in test_observer_receives_detached_current_tensors_without_retention
+    m = layer()
+tests/test_soft_region_grouping.py:12: in layer
+    pytest.fail(f'SoftPrototypeGrouping missing: {exc}')
+E   Failed: SoftPrototypeGrouping missing: No module named 'models.soft_region_grouping'
+=========================== short test summary info ============================
+FAILED tests/test_soft_region_grouping.py::test_normalization_locality_and_assignment_only_gradients
+FAILED tests/test_soft_region_grouping.py::test_batch_isolation_repeatability_and_content_dependence
+FAILED tests/test_soft_region_grouping.py::test_onehot_membership_reproduces_original_pooling
+FAILED tests/test_soft_region_grouping.py::test_shared_attention_rng_and_projection_reproducibility
+FAILED tests/test_soft_region_grouping.py::test_degenerate_features_remain_finite[zero]
+FAILED tests/test_soft_region_grouping.py::test_degenerate_features_remain_finite[identical]
+FAILED tests/test_soft_region_grouping.py::test_degenerate_features_remain_finite[opposite]
+FAILED tests/test_soft_region_grouping.py::test_invalid_shapes_types_and_nonfinite_data_fail_clearly
+FAILED tests/test_soft_region_grouping.py::test_observer_receives_detached_current_tensors_without_retention
+9 failed in 0.34s

@@ -1,0 +1,7 @@
+{
+  "source": "User inline paired summary and two per_class.csv tables, 2026-09-21",
+  "normalization": "Escaped underscores and Markdown formatting restored; not server-file byte copies.",
+  "raw_predictions_received": false,
+  "full_confusion_matrices_received": false,
+  "checks": "30 matching classes/supports; 5000 per model; integer true positives; pooled OA and macro-F1 match reports; paired counts reconcile."
+}

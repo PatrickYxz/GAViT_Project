@@ -1,0 +1,1 @@
+User returned JSON following the supplied final artifact check; leading opening brace and preceding PASS line omitted in paste. Structured transcription with outer braces restored. In the supplied command, JSON is printed after all snapshot/archive/log assertions; no direct local access to server artifacts.

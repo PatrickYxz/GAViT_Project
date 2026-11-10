@@ -1,0 +1,25 @@
+{
+  "exit": "exit_code=0",
+  "status": "complete",
+  "error": null,
+  "phase": "calibrate",
+  "seed": 42,
+  "counts": {
+    "train": 5040,
+    "val": 1260
+  },
+  "best_epoch": 24,
+  "best_val_oa_percent": 92.38095238095238,
+  "final_epoch": 30,
+  "reload_max_logit_diff": 9.5367431640625e-07,
+  "elapsed_seconds": 2997.4381405579998,
+  "cuda_peak_allocated_bytes": 3932652032,
+  "checkpoint_sha256": "a1c7f3b173e369ec3d40e2122fec91fa9ebc70d39ac6a96f5db90017c76fb579",
+  "assignment_probe": {
+    "last_epoch": 30,
+    "output": "/home/featurize/work/nwpu_spatial42_calibrate_20261009_01/assignment_probe",
+    "probe_seconds": 7.659206321999761,
+    "samples": 8,
+    "split": "val"
+  }
+}

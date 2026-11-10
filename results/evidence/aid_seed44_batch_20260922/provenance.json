@@ -1,0 +1,17 @@
+{
+  "source_attachment": "/Users/patrick/.codex/attachments/68127453-b0b3-43a2-8c49-2ad2fa8ad2d2/已粘贴的文本.txt",
+  "source_sha256": "896c37d6e28cb9bd5a786946dd23c37820cdc0ef0d56c178764614398ae2c935",
+  "raw_copy": "reported_output.txt",
+  "normalized_json": "summary.json",
+  "received_date": "2026-09-22",
+  "transformation": "Extract JSON object; omit leading eaturize/work fragment and trailing shell prompt only.",
+  "evidence_scope": "User-returned server collector output. Six stage statuses/exit codes reported; common identity equality checked by collector.",
+  "not_returned": [
+    "original run.json/config.json/history.json files",
+    "full confusion matrices",
+    "predictions.csv rows",
+    "checkpoint bytes",
+    "full logs and queue completion marker"
+  ],
+  "warning": "Do not treat normalized JSON as server byte copy. Checkpoint hashes cross-checked between reports, not rehashed from local weights."
+}

@@ -1,0 +1,59 @@
+{
+  "grouping_red": {
+    "failed": 7,
+    "reason": "new preset argument absent",
+    "exit_code": 1
+  },
+  "runtime_red": {
+    "failed": 11,
+    "reason": "new CLI/config parameter absent",
+    "exit_code": 1
+  },
+  "initial_baseline": {
+    "passed": 14,
+    "seconds": 0.78,
+    "exit_code": 0
+  },
+  "core_regression": {
+    "passed": 64,
+    "warnings": 39,
+    "seconds": 17.45,
+    "exit_code": 0,
+    "command": "OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 /private/tmp/gavit-cache-qa-20261007/bin/python -m pytest tests/test_spatial_prior_grouping.py tests/test_spatial_prior_runtime.py tests/test_soft_region_grouping.py tests/test_grouping_identity.py tests/test_soft_gavit.py tests/test_soft_assignment_diagnostics.py tests/test_scene_runtime.py tests/test_token_refinement.py tests/test_token_refinement_runtime.py -q --tb=short"
+  },
+  "entrypoint_environment_attempts": [
+    {
+      "exit_code": 2,
+      "reason": "rasterio missing during collection"
+    },
+    {
+      "exit_code": 1,
+      "passed": 19,
+      "failed": 9,
+      "seconds": 28.16,
+      "reason": "sandbox OpenMP SHM failed in subprocess before project code"
+    },
+    {
+      "exit_code": 1,
+      "passed": 21,
+      "failed": 7,
+      "seconds": 8.52,
+      "reason": "sklearn absent in isolated env; log retained"
+    }
+  ],
+  "review": "Independent read-only audit found no blocking issues; candidate persistent buffer intentionally discriminates strict loading",
+  "server_runs_started": false,
+  "entrypoints_regression": {
+    "passed": 28,
+    "warnings": 5,
+    "seconds": 2807.53,
+    "exit_code": 0,
+    "log": "entrypoints_tests.log",
+    "log_sha256": "2d7052a77fe4f1c7dab0286c602ec2ba7b5edbab3ffbf8fd00f92f4b963a0c2d",
+    "scope": "offline CPU, synthetic TIFFs; real model train/reload/test/resume; no server or GPU",
+    "command": "OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 /private/tmp/gavit-cache-qa-20261007/bin/python -m pytest tests/test_soft_entrypoints.py tests/test_experiment_identity.py -q --tb=short"
+  },
+  "total_distinct_tests_passed": 92,
+  "patch_check": "git apply --check --reverse passed; source hashes matched; Bash/zsh syntax and Python readback compilation passed",
+  "status": "local_validation_complete_server_smoke_pending"
+}

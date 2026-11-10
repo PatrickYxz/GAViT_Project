@@ -1,0 +1,20 @@
+{
+  "status": "summary_arithmetic_and_records_pass",
+  "scope": "User-returned compact summary only; no independent server artifact download or model execution.",
+  "checks": [
+    "paired totals/marginals",
+    "OA recomputed from correct counts",
+    "metric deltas",
+    "feature-edge retention denominator32",
+    "report values",
+    "original return SHA",
+    "historical launch marked completed"
+  ],
+  "files_sha256": {
+    "results/nwpu_pooling_probe_seed42.md": "332b4895fee010ada7c488ae570991d3c166ee37d97ff754853bece827312bb5",
+    "results/evidence/nwpu_pooling_probe_20261008/server_return.txt": "4c26f029c70393a0ada44b76919b85a1c89e0cdb0c0a38a8ae4ff10a5d7b0d28",
+    "results/evidence/nwpu_pooling_probe_20261008/server_return_summary.json": "e1d25dab4bdc1b6e12e5240313f3f362494f1a80d2b8e7e3fbfb11a51260a289",
+    "docs/run_nwpu_pooling_probe_20261008.md": "12f53137d6c38d4ff866f1ab4ef417eda172044004f027bce194b4a8ccf66f2b",
+    "results/nwpu_assignment_cache42_20261007.md": "1c4356a6b9e7b352f1d85fbfca6cae90693cdf57a7cacc0cc766fc4bb43e7986"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "dataset": "BigEarthNet-19",
+  "seeds": [
+    42,
+    43,
+    44,
+    45
+  ],
+  "n": 4,
+  "models": {
+    "swin": {
+      "mAP_percent": {
+        "values": [
+          70.9,
+          71.1,
+          71.4,
+          71.67692953551497
+        ],
+        "mean": 71.26923238387874,
+        "sample_sd": 0.3407292619937379
+      },
+      "macro_f1_percent": {
+        "values": [
+          64.2,
+          64.1,
+          65.7,
+          65.08421202330264
+        ],
+        "mean": 64.77105300582566,
+        "sample_sd": 0.7610135260083256
+      },
+      "micro_f1_percent": {
+        "values": [
+          76.6,
+          76.0,
+          76.7,
+          76.73226436237192
+        ],
+        "mean": 76.50806609059298,
+        "sample_sd": 0.34335913499726917
+      }
+    },
+    "gavit": {
+      "mAP_percent": {
+        "values": [
+          72.0,
+          71.7,
+          70.2,
+          70.25823624286052
+        ],
+        "mean": 71.03955906071513,
+        "sample_sd": 0.9440963570644372
+      },
+      "macro_f1_percent": {
+        "values": [
+          66.0,
+          65.7,
+          65.2,
+          64.29547698363885
+        ],
+        "mean": 65.29886924590971,
+        "sample_sd": 0.7458912735736702
+      },
+      "micro_f1_percent": {
+        "values": [
+          76.7,
+          76.8,
+          77.1,
+          76.70245685151849
+        ],
+        "mean": 76.82561421287963,
+        "sample_sd": 0.18875938317508129
+      }
+    }
+  },
+  "paired_gavit_minus_swin": {
+    "mAP_percent": {
+      "values": [
+        1.0999999999999943,
+        0.6000000000000085,
+        -1.2000000000000028,
+        -1.4186932926544529
+      ],
+      "mean_pp": -0.22967332316361322,
+      "sample_sd_pp": 1.2664505934738326
+    },
+    "macro_f1_percent": {
+      "values": [
+        1.7999999999999972,
+        1.6000000000000085,
+        -0.5,
+        -0.7887350396637913
+      ],
+      "mean_pp": 0.5278162400840536,
+      "sample_sd_pp": 1.3610955182753328
+    },
+    "micro_f1_percent": {
+      "values": [
+        0.10000000000000853,
+        0.7999999999999972,
+        0.3999999999999915,
+        -0.029807510853430585
+      ],
+      "mean_pp": 0.31754812228664164,
+      "sample_sd_pp": 0.3685743922340871
+    }
+  },
+  "caveat": "Descriptive fixed-split summary of all predefined seeds42/43/44/45; ddof=1. Seeds42-44 retain original one-decimal reports; seed45 uses precise returned metrics, so aggregate precision is limited by historical rounding. Hardware/execution differ: GAViT43/44 historically stopped21/26; Swin44 observed through27 with final exit unconfirmed. Both45 completed30/30 with reported exit0. Not pure seed variance, equivalence or significance evidence. No scores excluded or replaced."
+}

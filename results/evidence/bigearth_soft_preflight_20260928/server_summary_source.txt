@@ -1,0 +1,1 @@
+User-pasted terminal return, 2026-09-28. First line pasted as xit_code=0, consistent with requested run.exit display; treated as exit_code=0 with leading e omitted. JSON transcribed from message; not a downloaded server original.

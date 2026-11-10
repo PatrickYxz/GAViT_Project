@@ -1,0 +1,6 @@
+Normalized user-pasted directory listing; not evidence that all selected band files exist.
+Command: ls -lah /home/featurize/data
+total 20K
+drwxr-xr-x   3 featurize featurize 4.0K Sep 18 10:48 .
+drwxr-x---  18 featurize featurize 4.0K Sep 18 11:53 ..
+drwxr-xr-x 117 featurize featurize  12K Sep 18 11:18 BigEarthNet-S2

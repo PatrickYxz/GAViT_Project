@@ -1,0 +1,50 @@
+{
+  "scope": "Local CPU real Swin/PyG, synthetic 120x120 uint16 TIFFs, random weights, workers0; no server or CUDA validation",
+  "fixture": "/private/tmp/gavit-be-launch-check-z4grg9dr",
+  "checks": [
+    "prepare_archive_crc_and_manifest",
+    "existing_output_rejected",
+    "missing_band_rejected",
+    "original_entry_96_64_train_validate_save",
+    "reload_actual_graph_and_exit_record"
+  ],
+  "summary": {
+    "status": "training_and_reload_complete",
+    "counts": {
+      "train": 96,
+      "val": 64
+    },
+    "device": "local CPU fixture",
+    "epochs": 1,
+    "reload_max_logit_diff": 0.0,
+    "graph": {
+      "edges_per_image": 80,
+      "spatial_edges": 48,
+      "feature_edges": 32,
+      "actual_forward_checked": true
+    },
+    "best": {
+      "metric": "val_mAP",
+      "value": 25.2466,
+      "epoch": 1
+    },
+    "checkpoint_sha256": "3a97d39baaee62ce8400579d38eb5b554abfd0084ffe8895b69511b2553f810d",
+    "training_entry_seconds": 11.769607042195275,
+    "total_seconds_including_reload": 12.181935375090688,
+    "cuda_peak_allocated_bytes": 0,
+    "cuda_peak_reserved_bytes": 0,
+    "main_process_max_rss_kib": 4455301120,
+    "precision": {
+      "amp": false,
+      "matmul_tf32": false,
+      "cudnn_tf32": true
+    },
+    "probe_summary": {
+      "split": "val",
+      "samples": 8,
+      "output": "/private/tmp/gavit-be-launch-check-z4grg9dr/output/gavit.assignment_probe",
+      "last_epoch": 1,
+      "probe_seconds": 0.3981856252066791
+    }
+  }
+}

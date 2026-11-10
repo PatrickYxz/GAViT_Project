@@ -1,0 +1,39 @@
+import csv, hashlib, io, json, math, pathlib, sys
+root = pathlib.Path("/home/featurize/work/nwpu_ffn42_20261003_01")
+release = "058f1d8b79d0be538ec358eb742d2cd3992921d4"
+names = ("swin_ffn_smoke", "soft_ffn_smoke")
+needed = ("run.exit", "run.json", "config.json", "best.meta.json", "last.meta.json", "best.pth", "last.pth", "last.train_state.pth", "refinement_audit.json", "history.json", "selected_samples.json", "validation_metrics.json", "validation_predictions.csv", "validation_per_class.csv")
+missing = [str(root / n / f) for n in names for f in needed if not (root / n / f).is_file()]
+missing += [str(root / f) for f in ("launch.json", "launch.pid", "queue.log") if not (root / f).is_file()]
+states = {n: {"exit": (root / n / "run.exit").read_text().strip() if (root / n / "run.exit").is_file() else "missing", "report": json.loads((root / n / "run.json").read_text()).get("status") if (root / n / "run.json").is_file() else "missing"} for n in names}
+print(json.dumps({"states": states, "missing": missing, "note": "Missing means incomplete or not started; it does not prove a process is still running"}, indent=2))
+sys.exit(2) if missing else None
+check = lambda ok, message: None if ok else (_ for _ in ()).throw(AssertionError(message))
+digest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+load = lambda n, f: json.loads((root / n / f).read_text())
+launch = json.loads((root / "launch.json").read_text())
+assert launch["release_commit"] == release, "Launch release mismatch"
+reports = {n: load(n, "run.json") for n in names}
+refinement = {"version": "residual_ffn_v1", "position": "before_mean_pool", "input_dim": 768, "hidden_dim": 192, "bias": True, "ln_eps": 1e-5, "activation": "gelu_exact", "dropout": 0.0, "init": "fc1_xavier_uniform_bias_zero_fc2_zero", "init_seed": 42003}
+[check(states[n]["exit"] == "exit_code=0" and r["status"] == "complete" and r["phase"] == "smoke" and r["seed"] == 42 and r["dataset"] == "NWPU-RESISC45" and r["counts"] == {"train": 360, "val": 90} and r["best_epoch"] == r["final_epoch"] == 1, n + " completion or scope mismatch") for n, r in reports.items()]
+[check(r["model"] == ("swin" if n == names[0] else "gavit") and r["total_parameters"] == (27852903 if n == names[0] else 31784168) and r["architecture"]["token_refinement"] == refinement and r["training"]["batch_size"] == 32 and r["training"]["workers"] == 2 and r["training"]["precision"] == "float32_no_amp" and r["training"]["tf32"] is False, n + " configuration mismatch") for n, r in reports.items()]
+[check(r["code"]["git"]["dirty"] is False and len(r["code"]["git"]["commit"]) >= 7 and release.startswith(r["code"]["git"]["commit"]) and r["manifest_sha256"] == launch["manifest_sha256"] == "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e" and r["pretrained_sha256"] == launch["pretrained_sha256"] == "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36", n + " identity mismatch") for n, r in reports.items()]
+[check(r["hardware"]["device"] == "cuda" and r["hardware"]["device_name"].replace(" ", "").endswith("RTX2080Ti") and r["hardware"]["torch_num_threads"] == 8 and math.isfinite(r["reload_max_logit_diff"]) and 0 <= r["reload_max_logit_diff"] <= 1e-5, n + " device or reload mismatch") for n, r in reports.items()]
+[check(set(r["artifact_sha256"]) == {"best.pth", "last.pth", "last.train_state.pth"} and all((root / n / f).stat().st_size > 0 and digest(root / n / f) == sha for f, sha in r["artifact_sha256"].items()) and pathlib.Path(r["checkpoint"]).resolve() == (root / n / "best.pth").resolve() and r["checkpoint_sha256"] == r["artifact_sha256"]["best.pth"], n + " checkpoint bytes mismatch") for n, r in reports.items()]
+audits = {n: r["token_refinement_audit"] for n, r in reports.items()}
+assert len({a["initial_state_sha256"] for a in audits.values()}) == 1, "FFN initial states differ"
+[check(a == load(n, "refinement_audit.json") and a["parameters"] == 297408 and a["first_forward"]["input_shape"][1:] == [49, 768] and a["first_forward"]["max_abs_residual"] == 0 and len(a["gradient_steps"]) == 2 and a["initial_state_sha256"] != a["selected_state_sha256"] and a["selected_state_sha256"] == a["final_state_sha256"], n + " FFN audit mismatch") for n, a in audits.items()]
+[check([g["step"] for g in a["gradient_steps"]] == [1, 2] and all(math.isfinite(g[k]) and g[k] >= 0 for g in a["gradient_steps"] for k in ("norm", "fc1", "fc2")) and a["gradient_steps"][0]["fc2"] > 0 and a["gradient_steps"][0]["fc1"] == a["gradient_steps"][0]["norm"] == 0 and all(a["gradient_steps"][1][k] > 0 for k in ("norm", "fc1", "fc2")), n + " gradient check failed") for n, a in audits.items()]
+[check(load(n, f)["architecture"] == r["architecture"] and load(n, f)["checkpoint_sha256"] == r["artifact_sha256"][f.replace(".meta.json", ".pth")] and load(n, f)["refinement_initial_state_sha256"] == audits[n]["initial_state_sha256"], n + " metadata mismatch") for n, r in reports.items() for f in ("best.meta.json", "last.meta.json")]
+histories = {n: load(n, "history.json") for n in names}
+[check(len(h) == 1 and h[0]["epoch"] == 1 and all(math.isfinite(h[0][k]) and h[0][k] > 0 for k in ("train_seconds", "train_images_per_second", "validation_seconds")) and math.isfinite(h[0]["train_loss"]), n + " history mismatch") for n, h in histories.items()]
+[check({k: len(v) for k, v in load(n, "selected_samples.json").items()} == {"train": 360, "val": 90} and len(list(csv.DictReader(io.StringIO((root / n / "validation_predictions.csv").read_text())))) == 90 and len(list(csv.DictReader(io.StringIO((root / n / "validation_per_class.csv").read_text())))) == 45, n + " selected samples or predictions mismatch") for n in names]
+assert reports[names[0]]["training"] == reports[names[1]]["training"] and reports[names[0]]["code"]["files_sha256"] == reports[names[1]]["code"]["files_sha256"], "Different training/source identity"
+assert load(names[0], "selected_samples.json") == load(names[1], "selected_samples.json"), "Different smoke samples"
+soft = reports[names[1]]
+assert soft["architecture"]["grouping"] == "soft_prototype" and soft["architecture"]["edge_type"] == "sparse_hybrid" and soft["architecture"]["integration"] == "token_feedback" and soft["architecture"]["num_regions"] == 16 and soft["graph_capture"] == {"actual_forward_checked": True, "edges_per_image": 80, "feature_edges": 32, "spatial_edges": 48}, "Soft graph mismatch"
+probe = root / names[1] / "assignment_probe"
+assert soft["assignment_probe"]["split"] == "val" and soft["assignment_probe"]["samples"] == 8 and soft["assignment_probe"]["last_epoch"] == 1 and all((probe / f).is_file() and (probe / f).stat().st_size > 0 for f in ("probe_manifest.json", "assignment_diagnostics.jsonl", "epoch_000.pt", "epoch_001.pt", "best.pt", "final.pt")), "Probe artifacts missing"
+probe_rows = [json.loads(line) for line in (probe / "assignment_diagnostics.jsonl").read_text().splitlines()]
+assert [p["epoch"] for p in probe_rows] == [0, 1] and all(p["split"] == "val" and p["samples"] == 8 for p in probe_rows), "Probe epoch mismatch"
+print(json.dumps({"status": "NWPU_FFN_SMOKE_CHECKS_PASS", "release_commit": release, "reports": {n: {**{k: r[k] for k in ("status", "phase", "seed", "counts", "best_epoch", "final_epoch", "total_parameters", "reload_max_logit_diff", "elapsed_seconds", "checkpoint_sha256")}, "run_exit": states[n]["exit"], "gpu": r["hardware"]["device_name"], "peak_allocated_GiB": round(r["cuda_peak_allocated_bytes"] / 2**30, 3), "epoch": {k: histories[n][0][k] for k in ("train_loss", "train_seconds", "train_images_per_second", "validation_seconds")}, "ffn_initial_sha256": audits[n]["initial_state_sha256"], "ffn_initial_residual": audits[n]["first_forward"]["max_abs_residual"], "ffn_gradients": audits[n]["gradient_steps"], "graph": r["graph_capture"]} for n, r in reports.items()}, "scope": "two smoke runs only; no calibration or test was scheduled; no queue.exit is produced"}, indent=2))

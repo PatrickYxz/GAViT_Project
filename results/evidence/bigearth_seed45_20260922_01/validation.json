@@ -1,0 +1,9 @@
+{
+  "classes_match_code_order": true,
+  "classes": 19,
+  "printed_ap_mean_percent": 70.26315789473684,
+  "last_epoch_wall_minutes": 30.412688180616776,
+  "one_run_despite_repeated_paste": true,
+  "excerpt_sha256": "bf42bf3835c17e2c99f6ab8fa71f0ff3f92298ec1ca625e338eebd098bc93fd1",
+  "source_boundary": "No original run.json, summary.json, run.exit or checkpoint bytes received. No four-seed aggregate produced."
+}

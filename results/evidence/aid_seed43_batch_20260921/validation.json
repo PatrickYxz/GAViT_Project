@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "source": "summary.json",
+  "checks": [
+    "6 unique expected stage directories, all complete and reported exit0",
+    "17 source hashes match local published files",
+    "full training recipe differs from seed42 only by training seed; same code and hardware",
+    "4000/1000 calibration30; own best epoch25/29 equals 5000/0 refit25/29",
+    "calibration/refit/test checkpoint-hash report chain and shared manifest/pretraining match",
+    "reload differences <=1e-5; GAViT actual 48+32 edges; expected parameter counts",
+    "two 30-class unique mappings and supports agree with seed42; each totals5000",
+    "integer class correct counts reconstruct OA; class-F1 mean reconstructs macro-F1",
+    "paired four cells total5000 and reconstruct both correct totals and net15"
+  ],
+  "class_accuracy_direction_counts": {
+    "improved": 12,
+    "unchanged": 10,
+    "worse": 8
+  },
+  "class_f1_direction_counts": {
+    "improved": 16,
+    "unchanged": 2,
+    "worse": 12
+  },
+  "training_phase_elapsed_seconds_sum": 4842.515424969999,
+  "scope": "Local consistency checks of reported evidence; no remote execution, checkpoint rehash, or new inference."
+}

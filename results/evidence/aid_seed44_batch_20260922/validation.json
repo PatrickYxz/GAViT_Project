@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "source": "summary.json",
+  "checks": [
+    "6 unique expected stage identities, all reported complete/exit0",
+    "17 source hashes match local release; common code and hardware equal seeds42/43; recipe differs only in seed",
+    "explicit architectures match seed42 and calibration/refit pair; manifest/pretraining match",
+    "4000/1000 calibration30, own best25/21 equals 5000/0 refit25/21",
+    "checkpoint hash provenance chain and paths match calibration/refit/test",
+    "reload finite <=1e-5, GAViT 48+32 actual edges, expected parameter counts",
+    "30-class unique identities/supports match all three seeds; 5000 totals",
+    "integer class correct counts reconstruct OA and macro class F1 matches report",
+    "four paired cells reconstruct both test correct counts, net -38",
+    "three-seed means and sample SD computed without dropping negative result"
+  ],
+  "class_accuracy_direction_counts": {
+    "improved": 8,
+    "unchanged": 8,
+    "worse": 14
+  },
+  "class_f1_direction_counts": {
+    "improved": 8,
+    "unchanged": 1,
+    "worse": 21
+  },
+  "training_phase_elapsed_seconds_sum": 4895.586565838,
+  "scope": "Consistency audit of returned evidence; no remote execution, checkpoint rehash or new inference."
+}

@@ -1,0 +1,140 @@
+{
+  "source": "User-pasted terminal output on 2026-09-28; transcribed JSON subset, not a direct server file download",
+  "server_root": "/home/featurize/work/nwpu_ablation42_20260928_01",
+  "queue_exit": "exit_code=0",
+  "queue_summary": {
+    "status": "complete",
+    "elapsed_seconds": 4346.86884246,
+    "stages": [
+      {
+        "stage": "swin",
+        "process_exit": 0
+      },
+      {
+        "stage": "fixed",
+        "process_exit": 0
+      },
+      {
+        "stage": "soft",
+        "process_exit": 0
+      }
+    ]
+  },
+  "runs_returned_subset": {
+    "swin": {
+      "status": "complete",
+      "model": "swin",
+      "architecture": {
+        "backbone": "swin_tiny_patch4_window7_224",
+        "dropout": 0.1,
+        "num_classes": 45
+      },
+      "seed": 42,
+      "counts": {
+        "train": 5040,
+        "val": 1260
+      },
+      "best_epoch": 29,
+      "best_val_oa_percent": 94.2063492063492,
+      "final_epoch": 30,
+      "checkpoint_sha256": "bbfd4e472739126276e79014f944f911d7b0abbc6f863bb291d799845b9cd0ea",
+      "reload_max_logit_diff": 0.0,
+      "graph_capture": {},
+      "elapsed_seconds": 1394.2434120299995,
+      "cuda_peak_allocated_bytes": 3820762624,
+      "cuda_peak_reserved_bytes": 4112515072,
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36"
+    },
+    "fixed": {
+      "status": "complete",
+      "model": "gavit",
+      "architecture": {
+        "dropout": 0.1,
+        "edge_type": "sparse_hybrid",
+        "gat_heads": 4,
+        "gat_hidden": 256,
+        "gat_layers": 2,
+        "grouping": "attentive_spatial",
+        "integration": "token_feedback",
+        "knn_k": 5,
+        "num_classes": 45,
+        "num_regions": 16
+      },
+      "seed": 42,
+      "counts": {
+        "train": 5040,
+        "val": 1260
+      },
+      "best_epoch": 29,
+      "best_val_oa_percent": 93.01587301587301,
+      "final_epoch": 30,
+      "checkpoint_sha256": "1766fe7c330eb37fb350f0348bcd255bafc451b793411a927548ee005a140f67",
+      "reload_max_logit_diff": 3.5762786865234375e-07,
+      "graph_capture": {
+        "actual_forward_checked": true,
+        "edges_per_image": 80,
+        "feature_edges": 32,
+        "spatial_edges": 48
+      },
+      "elapsed_seconds": 1455.636156728,
+      "cuda_peak_allocated_bytes": 3925439488,
+      "cuda_peak_reserved_bytes": 4162846720,
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36"
+    },
+    "soft": {
+      "status": "complete",
+      "model": "gavit",
+      "architecture": {
+        "dropout": 0.1,
+        "edge_type": "sparse_hybrid",
+        "gat_heads": 4,
+        "gat_hidden": 256,
+        "gat_layers": 2,
+        "grouping": "soft_prototype",
+        "integration": "token_feedback",
+        "knn_k": 5,
+        "num_classes": 45,
+        "num_regions": 16,
+        "soft_assignment": {
+          "assignment_dim": 128,
+          "assignment_init": "xavier_uniform",
+          "assignment_iterations": 1,
+          "assignment_ln_eps": 1e-05,
+          "assignment_metric": "chebyshev",
+          "assignment_norm_eps": 1e-06,
+          "assignment_projection": "shared_ln_linear_no_bias",
+          "assignment_radius": 1,
+          "assignment_temperature": 0.1,
+          "assignment_version": "local_prototype_cosine_v1",
+          "feedback_mapping": "soft_membership",
+          "graph_node_geometry": "anchor_index_prior",
+          "prototype_pooling": "fixed_region_attention",
+          "region_pooling": "attentive_log_membership"
+        }
+      },
+      "seed": 42,
+      "counts": {
+        "train": 5040,
+        "val": 1260
+      },
+      "best_epoch": 28,
+      "best_val_oa_percent": 93.73015873015873,
+      "final_epoch": 30,
+      "checkpoint_sha256": "674da671e1df1618add93cd18e791e0a81fdfb77ce0dc13478eb963bfa29cc12",
+      "reload_max_logit_diff": 3.5762786865234375e-07,
+      "graph_capture": {
+        "actual_forward_checked": true,
+        "edges_per_image": 80,
+        "feature_edges": 32,
+        "spatial_edges": 48
+      },
+      "elapsed_seconds": 1483.651305341,
+      "cuda_peak_allocated_bytes": 3932648448,
+      "cuda_peak_reserved_bytes": 4336910336,
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36"
+    }
+  }
+}

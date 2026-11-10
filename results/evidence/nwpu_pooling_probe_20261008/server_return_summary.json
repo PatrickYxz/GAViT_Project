@@ -1,0 +1,70 @@
+{
+  "status": "server_completion_reported_and_summary_checked",
+  "source_kind": "user_pasted_terminal_output",
+  "dataset": "NWPU-RESISC45",
+  "split": "val",
+  "source_phase": "calibrate",
+  "seed": 42,
+  "samples": 1260,
+  "metrics": {
+    "normal": {
+      "samples": 1260,
+      "correct": 1181,
+      "oa_percent": 93.73015873015873,
+      "macro_f1_percent": 93.7657214015048,
+      "cross_entropy": 0.24141959846019745
+    },
+    "membership_only": {
+      "samples": 1260,
+      "correct": 1174,
+      "oa_percent": 93.17460317460318,
+      "macro_f1_percent": 93.19205007983717,
+      "cross_entropy": 0.24219822883605957
+    }
+  },
+  "paired": {
+    "both_correct": 1169,
+    "corrects": 5,
+    "breaks": 12,
+    "both_wrong": 74,
+    "net_correct": -7
+  },
+  "max_errors": {
+    "S_max_abs_diff": 0.0,
+    "restoration_max_logit_diff": 2.86102294921875e-06,
+    "U_column_error": 2.384185791015625e-07,
+    "cached_probability_max_error": 2.980232238769531e-07,
+    "cpu_replay_max_logit_diff": 7.62939453125e-06
+  },
+  "regions": {
+    "normal_region_cosine_mean": {
+      "valid_images": 1260,
+      "mean": 0.7513060694588863
+    },
+    "membership_only_region_cosine_mean": {
+      "valid_images": 1260,
+      "mean": 0.7083532935839648
+    },
+    "common_feature_edges": {
+      "valid_images": 1260,
+      "mean": 18.496031746031747
+    }
+  },
+  "delta_membership_minus_normal": {
+    "oa_percent": -0.5555555555555571,
+    "macro_f1_percent": -0.5736713216676321,
+    "cross_entropy": 0.0007786303758621216
+  },
+  "derived": {
+    "region_cosine_mean_difference": -0.04295277587492152,
+    "feature_edge_retained_fraction": 0.5780009920634921,
+    "feature_edges_replaced_per_image": 13.503968253968253
+  },
+  "server_output": "/home/featurize/work/nwpu_pooling42_20261008_01",
+  "server_exit_code": 0,
+  "server_elapsed_seconds": null,
+  "server_hardware": null,
+  "local_scope": "Terminal summary parsing, paired arithmetic, and checked local tool formulas; no independent raw PT, predictions or server source hash verification.",
+  "decision": "Retain original attention for current model; stop direct membership-only inference replacement. Spatial prior remains a candidate, not validated. No retraining or test/seed expansion started.",
+  "server_return_sha256": "4c26f029c70393a0ada44b76919b85a1c89e0cdb0c0a38a8ae4ff10a5d7b0d28"
+}

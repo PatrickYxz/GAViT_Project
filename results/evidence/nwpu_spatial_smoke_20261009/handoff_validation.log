@@ -1,0 +1,48 @@
+SMOKE_CACHE_PASS {"S_row": 0.0, "W_column": 1.1920928955078125e-07, "delta_S": 0.0, "input_sha256": "8bfa93c6b3bfb604e4972b3907e7fc6b692bbc0be127160dd3988391e9bc69bb"}
+PID: 12345 OUTPUT: /private/tmp/spatial-handoff-iomalqy4/calibrate
+PROGRESS: tail -f /private/tmp/spatial-handoff-iomalqy4/calibrate.launch.log
+{
+  "date": "2026-10-09",
+  "scope": "Local synthetic cached tensors/images with published CPU classes; subprocess GPU/Git/launch mocked, no model forward/training/server access",
+  "syntax": [
+    "Python compile and AST equality",
+    "bash -n",
+    "zsh -n"
+  ],
+  "cases": [
+    {
+      "case": "valid real-schema CPU snapshots; launches one calibration",
+      "passed": true
+    },
+    {
+      "case": "dirty source refuses before launch",
+      "passed": true
+    },
+    {
+      "case": "GPU occupied refuses before launch",
+      "passed": true
+    },
+    {
+      "case": "eight-image byte identity rejects changed pixels",
+      "passed": true
+    },
+    {
+      "case": "normalization rejects invalid tensor",
+      "passed": true
+    },
+    {
+      "case": "alias epoch rejects mismatch",
+      "passed": true
+    },
+    {
+      "case": "existing output refused",
+      "passed": true
+    },
+    {
+      "case": "missing data refuses before launch",
+      "passed": true
+    }
+  ],
+  "command_sha256": "7a7c64e557de2c1e8118f4c6ade304a8e4b140b0ec9dce757a4c1612b980b8f3",
+  "actual_server_calibration_started": false
+}

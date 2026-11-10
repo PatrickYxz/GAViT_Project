@@ -1,0 +1,23 @@
+{
+  "status": "reported_summary_audit_pass",
+  "source": "user terminal return, not direct server access",
+  "source_sha256": "d53c594b65716b34d4e89b2ff755c43804348d5713a32827f7744ed97457fe26",
+  "seed42_source_sha256": "aa92403399fc44d660c412ff8f90c70b49b451ac14cf22237e3c9d2ed8d7ec7d",
+  "checks": [
+    "exit0/status/seed/code/data/pretrained/GPU identity",
+    "calibrate/refit counts and selected epochs",
+    "refit checkpoint SHA equals test SHA",
+    "finite metrics/resources/reload <=1e-5",
+    "OA matches integer correct counts"
+  ],
+  "limits": [
+    "n=2 descriptive statistics only; no significance or stability claim",
+    "seed42 RTX2080Ti and seed43 RTX4090; hardware changes together with seed",
+    "compact user-returned reports; original checkpoint/predictions/confusion arrays not downloaded",
+    "preflight training_started=false is the historical preflight snapshot, not current completion status"
+  ],
+  "gpu": "GPU-cede40c0-f93d-7c8e-1006-cf6183e53592, NVIDIA GeForce RTX 4090, 610.57.04, 24564 MiB",
+  "total_elapsed_seconds": 3617.327163251,
+  "hourly_yuan": 1.67,
+  "run_time_estimated_yuan": 1.678037878508103
+}

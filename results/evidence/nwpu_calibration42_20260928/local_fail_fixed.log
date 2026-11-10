@@ -1,0 +1,3 @@
+START swin
+START fixed
+NWPU_CALIBRATION_QUEUE_FAILED /private/tmp/nwpu-queue-check-8etm7v7t/fail_fixed

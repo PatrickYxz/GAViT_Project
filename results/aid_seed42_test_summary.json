@@ -1,0 +1,36 @@
+{
+  "dataset": "AID",
+  "seed": 42,
+  "train_samples": 5000,
+  "test_samples": 5000,
+  "swin": {
+    "oa_percent": 96.34,
+    "macro_f1_percent": 96.22088514124282,
+    "correct": 4817,
+    "errors": 183
+  },
+  "gavit": {
+    "oa_percent": 96.94,
+    "macro_f1_percent": 96.7811271561119,
+    "correct": 4847,
+    "errors": 153
+  },
+  "delta_oa_pp": 0.6,
+  "delta_macro_f1_pp": 0.56024201486908,
+  "net_additional_correct": 30,
+  "counts_source": "OA-derived totals confirmed by paired counts and per-class support/accuracy",
+  "paired_discordance_counts": {
+    "samples": 5000,
+    "both_correct": 4754,
+    "gavit_corrects": 93,
+    "gavit_breaks": 63,
+    "both_wrong": 90,
+    "net_correct": 30
+  },
+  "per_class_analysis": "30-class source tables received and aggregate metrics reconciled; raw predictions/full confusion remain on server",
+  "multi_seed_stability": "not established",
+  "exit_codes": {
+    "swin": 0,
+    "gavit": 0
+  }
+}

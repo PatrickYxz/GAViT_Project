@@ -1,0 +1,29 @@
+{
+  "source": "user terminal excerpt",
+  "image_verify_count": 31500,
+  "image_verify_elapsed_seconds": 34.2,
+  "model": "gavit",
+  "dataset": "NWPU-RESISC45",
+  "device": "NVIDIA GeForce RTX 4090",
+  "phase": "smoke",
+  "counts": {
+    "train": 360,
+    "val": 90
+  },
+  "first_batch_loss": 3.83068,
+  "epoch": 1,
+  "epochs": 1,
+  "train_loss": 3.33417,
+  "val_oa_percent": 46.666666666666664,
+  "train_seconds_rounded": 1.7,
+  "graph_capture": {
+    "edges_per_image": 80,
+    "spatial_edges": 48,
+    "feature_edges": 32,
+    "actual_forward_checked": true
+  },
+  "completion_marker": true,
+  "output": "/home/featurize/work/gpucheck_nwpu_soft43_4090_20261011_01",
+  "artifact_json_and_exit_not_yet_returned": true,
+  "formal_started": false
+}

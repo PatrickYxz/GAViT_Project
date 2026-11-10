@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-09",
+  "status": "published",
+  "branch": "codex/soft-spatial-prior-nwpu-20261008",
+  "commit": "67fe84d431685cf2c7788edfae21fa4e9eb040a4",
+  "remote_ref": "67fe84d431685cf2c7788edfae21fa4e9eb040a4",
+  "ahead": 0,
+  "behind": 0,
+  "release_worktree_clean": true,
+  "release_worktree": "/Users/patrick/.codex/worktrees/token-ffn-nwpu-release/GAViT_Project",
+  "base_commit": "058f1d8b79d0be538ec358eb742d2cd3992921d4",
+  "published_files": [
+    "grouping_identity.py",
+    "models/soft_region_grouping.py",
+    "run_scene.py",
+    "scene_classification/modeling.py",
+    "scene_classification/runner.py",
+    "tests/test_spatial_prior_grouping.py",
+    "tests/test_spatial_prior_runtime.py",
+    "docs/run_nwpu_spatial_prior_20261008.md",
+    "results/nwpu_spatial_prior_trial.md",
+    "results/evidence/nwpu_spatial_prior_20261008/release_identity.json",
+    "results/evidence/nwpu_spatial_prior_20261008/local_validation.json",
+    "results/evidence/nwpu_spatial_prior_20261008/entrypoints_tests.log",
+    "results/evidence/nwpu_spatial_prior_20261008/entrypoints_missing_sklearn.log",
+    "results/evidence/nwpu_spatial_prior_20261008/spatial_prior_code.patch",
+    "results/evidence/nwpu_spatial_prior_20261008/release_tests.log",
+    "results/evidence/nwpu_spatial_prior_20261008/release_validation.json",
+    "results/evidence/nwpu_spatial_prior_20261008/handoff_commands.json",
+    "results/evidence/nwpu_spatial_prior_20261008/handoff_validation.json",
+    "research_diary.md"
+  ],
+  "tests": {
+    "passed": 162,
+    "seconds": 56.35,
+    "exit_code": 0
+  },
+  "server_sync_command": "git -C /home/featurize/work/GAViT_SOFT_20260927 fetch origin refs/heads/codex/soft-spatial-prior-nwpu-20261008:refs/remotes/origin/codex/soft-spatial-prior-nwpu-20261008 && git -C /home/featurize/work/GAViT_SOFT_20260927 worktree add --detach /home/featurize/work/GAViT_SPATIAL_20261008 67fe84d431685cf2c7788edfae21fa4e9eb040a4",
+  "server_smoke_started": false,
+  "pull_request_created": false
+}

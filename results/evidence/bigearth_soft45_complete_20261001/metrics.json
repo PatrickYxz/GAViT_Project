@@ -1,0 +1,29 @@
+{
+  "samples": 119825,
+  "mAP_percent": 70.83691875764855,
+  "macro_f1_percent": 64.86482283595696,
+  "micro_f1_percent": 76.38335430648769,
+  "f1_threshold": 0.5,
+  "checkpoint_sha256": "4969f401bf297c3885ee0ac02938ae102413fc2e8c1bc8e0a628e9e918bd35e2",
+  "per_class_ap_percent": {
+    "Urban fabric": 86.40140597531355,
+    "Industrial or commercial units": 50.46244100126939,
+    "Arable land": 93.88919778376795,
+    "Permanent crops": 61.09999998584685,
+    "Pastures": 86.17695216263067,
+    "Complex cultivation patterns": 70.22854589971523,
+    "Land principally occupied by agriculture, with significant areas of natural vegetation": 72.05588800084763,
+    "Agro-forestry areas": 87.08583269893741,
+    "Broad-leaved forest": 84.88826238343896,
+    "Coniferous forest": 93.17137135636479,
+    "Mixed forest": 90.22127113538806,
+    "Natural grassland and sparsely vegetated areas": 40.124756608903276,
+    "Moors, heathland and sclerophyllous vegetation": 60.44382011173869,
+    "Transitional woodland, shrub": 78.2831902419664,
+    "Beaches, dunes, sands": 12.816150459278832,
+    "Inland wetlands": 61.47026004106363,
+    "Coastal wetlands": 26.379191836170925,
+    "Inland waters": 91.15555249658773,
+    "Marine waters": 99.54736621609227
+  }
+}

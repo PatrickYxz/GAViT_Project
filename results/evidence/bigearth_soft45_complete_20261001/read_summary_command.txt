@@ -1,0 +1,1 @@
+cat /home/featurize/work/bigearth_soft45_20260930_01/summary.json

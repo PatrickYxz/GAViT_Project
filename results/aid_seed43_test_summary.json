@@ -1,0 +1,35 @@
+{
+  "dataset": "AID",
+  "seed": 43,
+  "train_samples": 5000,
+  "test_samples": 5000,
+  "swin": {
+    "oa_percent": 96.86,
+    "macro_f1_percent": 96.68420610630325,
+    "correct": 4843,
+    "errors": 157
+  },
+  "gavit": {
+    "oa_percent": 97.16,
+    "macro_f1_percent": 96.95587595593263,
+    "correct": 4858,
+    "errors": 142
+  },
+  "delta_oa_pp": 0.3,
+  "delta_macro_f1_pp": 0.2716698496293759,
+  "net_additional_correct": 15,
+  "paired_discordance_counts": {
+    "samples": 5000,
+    "both_correct": 4796,
+    "gavit_corrects": 62,
+    "gavit_breaks": 47,
+    "both_wrong": 95,
+    "net_correct": 15
+  },
+  "exit_codes": {
+    "swin": 0,
+    "gavit": 0
+  },
+  "multi_seed_stability": "two positive seeds; planned seed44 pending",
+  "source": "evidence/aid_seed43_batch_20260921/summary.json"
+}

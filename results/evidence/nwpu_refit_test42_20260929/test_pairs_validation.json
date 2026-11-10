@@ -1,0 +1,32 @@
+{
+  "attachment_sha256": "f73fbd8201ac9575836160696c388ed9d36215cac5addd4955d91e93d42ae1cb",
+  "normalization": "Original paste omitted the opening object brace; one leading brace added only to parsed copy. Raw attachment preserved byte-for-byte.",
+  "completion_marker": true,
+  "metrics_match_previous_formal_report": true,
+  "all_three_paired_tables_reconcile": true,
+  "extreme_class_counts_consistent": true,
+  "top_confusion_counts_consistent_with_returned_support": true,
+  "derived": {
+    "fixed_vs_swin": {
+      "correctness_discordant_samples": 1129,
+      "correctness_discordant_percent": 4.48015873015873,
+      "net_OA_pp": 0.17063492063492064
+    },
+    "soft_vs_swin": {
+      "correctness_discordant_samples": 1156,
+      "correctness_discordant_percent": 4.587301587301587,
+      "net_OA_pp": -0.06349206349206349
+    },
+    "soft_vs_fixed": {
+      "correctness_discordant_samples": 1135,
+      "correctness_discordant_percent": 4.503968253968254,
+      "net_OA_pp": -0.23412698412698413
+    }
+  },
+  "palace_church_bidirectional_confusion": {
+    "swin": 135,
+    "fixed": 134,
+    "soft": 130
+  },
+  "scope": "Server-recomputed metrics and paired summaries, locally reconciled; full prediction CSVs and full 45-class confusion matrices not downloaded; no significance or multi-seed stability claim"
+}

@@ -1,0 +1,30 @@
+{
+  "status": "local_validation_passed_server_execution_pending",
+  "date": "2026-10-07",
+  "tests": {
+    "passed": 20,
+    "exit_code": 0,
+    "seconds": 3.16,
+    "command": "/private/tmp/gavit-cache-qa-20261007/bin/python -m pytest tests/test_nwpu_assignment_cache.py -q"
+  },
+  "runtime": {
+    "python": "3.12.13",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "torch": "2.2.2",
+    "device": "cpu"
+  },
+  "scope": "Synthetic fixtures and isolated embedded command only. No real server cache, model, GPU, images or checkpoints accessed.",
+  "review": "Independent static mathematics/schema/protection review completed; no actionable issues remained. Reviewer random comparison was not executed.",
+  "files_sha256": {
+    "tools/analyze_nwpu_assignment_cache.py": "2e79aac2640b69874f4ecc3d3b197884a7ed02247423cb298918fc155511e4f8",
+    "tests/test_nwpu_assignment_cache.py": "300835d7e7de1cd56e534927672cb9f8b9a2d0711e12ffaf9aa195a1b1283825",
+    "docs/launch_nwpu_assignment_cache_20261007.txt": "6675d7558789b4fdc0f880cf3c269e679edcbb6051cd3fff9ddedd682bee6a1e",
+    "docs/check_nwpu_assignment_cache_20261007.md": "0acc4a33659cdcaeb03db57ac65aeac55e0ac1be1bc3f8512e30610075fd19aa",
+    "results/evidence/nwpu_assignment_cache_20261007/tests.log": "b9218087d6c956d2cb2fc90d75b1301e29cda4b53e4dc1d8879a2678f577e273"
+  },
+  "history": [
+    "Tests written before implementation; first run failed importing the absent analyzer (exit2).",
+    "First implementation: 17 passed; CLI subprocess blocked by macOS OpenMP sandbox SHM (not a formula failure).",
+    "Same 18 tests passed outside sandbox; final launcher and missing-source checks bring total to20."
+  ]
+}

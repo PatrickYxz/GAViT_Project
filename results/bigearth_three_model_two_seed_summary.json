@@ -1,0 +1,197 @@
+{
+  "dataset": "BigEarthNet-19",
+  "seeds": [
+    43,
+    45
+  ],
+  "n": 2,
+  "rows": [
+    {
+      "seed": 43,
+      "model": "swin",
+      "mAP_percent": 71.1,
+      "macro_f1_percent": 64.1,
+      "micro_f1_percent": 76.0,
+      "precision": "printed_one_decimal",
+      "final_epoch": 30,
+      "gpu": "RTX4090",
+      "code": "bb9f1cf"
+    },
+    {
+      "seed": 43,
+      "model": "fixed",
+      "mAP_percent": 71.7,
+      "macro_f1_percent": 65.7,
+      "micro_f1_percent": 76.8,
+      "precision": "printed_one_decimal",
+      "final_epoch": 21,
+      "gpu": "RTX4090 train / RTX3060 test",
+      "code": "bb9f1cf"
+    },
+    {
+      "seed": 43,
+      "model": "soft",
+      "mAP_percent": 72.86757085064232,
+      "macro_f1_percent": 66.67389161697625,
+      "micro_f1_percent": 76.90597117759339,
+      "precision": "full_returned",
+      "final_epoch": 30,
+      "gpu": "RTX4090",
+      "code": "ed480e6"
+    },
+    {
+      "seed": 45,
+      "model": "swin",
+      "mAP_percent": 71.67692953551497,
+      "macro_f1_percent": 65.08421202330264,
+      "micro_f1_percent": 76.73226436237192,
+      "precision": "full_returned",
+      "final_epoch": 30,
+      "gpu": "RTX2080Ti",
+      "code": "deb2b45"
+    },
+    {
+      "seed": 45,
+      "model": "fixed",
+      "mAP_percent": 70.25823624286052,
+      "macro_f1_percent": 64.29547698363885,
+      "micro_f1_percent": 76.70245685151849,
+      "precision": "full_returned",
+      "final_epoch": 30,
+      "gpu": "RTX2080Ti",
+      "code": "deb2b45"
+    },
+    {
+      "seed": 45,
+      "model": "soft",
+      "mAP_percent": 70.83691875764855,
+      "macro_f1_percent": 64.86482283595696,
+      "micro_f1_percent": 76.38335430648769,
+      "precision": "full_returned",
+      "final_epoch": 30,
+      "gpu": "RTX2080Ti",
+      "code": "ed480e6"
+    }
+  ],
+  "statistics": {
+    "swin": {
+      "mAP_percent": {
+        "mean": 71.38846476775748,
+        "sample_sd": 0.407950786829446,
+        "precision": "approximate_if_rounded_seed43_control"
+      },
+      "macro_f1_percent": {
+        "mean": 64.59210601165131,
+        "sample_sd": 0.6959429958026335,
+        "precision": "approximate_if_rounded_seed43_control"
+      },
+      "micro_f1_percent": {
+        "mean": 76.36613218118596,
+        "sample_sd": 0.5177890962544291,
+        "precision": "approximate_if_rounded_seed43_control"
+      }
+    },
+    "fixed": {
+      "mAP_percent": {
+        "mean": 70.97911812143026,
+        "sample_sd": 1.0194809295423233,
+        "precision": "approximate_if_rounded_seed43_control"
+      },
+      "macro_f1_percent": {
+        "mean": 64.99773849181943,
+        "sample_sd": 0.9931477492015559,
+        "precision": "approximate_if_rounded_seed43_control"
+      },
+      "micro_f1_percent": {
+        "mean": 76.75122842575925,
+        "sample_sd": 0.06897342174955927,
+        "precision": "approximate_if_rounded_seed43_control"
+      }
+    },
+    "soft": {
+      "mAP_percent": {
+        "mean": 71.85224480414544,
+        "sample_sd": 1.4358878651865548,
+        "precision": "approximate_if_rounded_seed43_control"
+      },
+      "macro_f1_percent": {
+        "mean": 65.76935722646661,
+        "sample_sd": 1.2792048026916227,
+        "precision": "approximate_if_rounded_seed43_control"
+      },
+      "micro_f1_percent": {
+        "mean": 76.64466274204054,
+        "sample_sd": 0.36954593352133425,
+        "precision": "approximate_if_rounded_seed43_control"
+      }
+    }
+  },
+  "soft_minus_controls_pp": {
+    "swin": {
+      "mAP_percent": {
+        "by_seed": {
+          "43": 1.767570850642329,
+          "45": -0.840010777866425
+        },
+        "mean": 0.46378003638795207,
+        "sample_sd": 1.8438386520160008,
+        "precision": "approximate_seed43_reference"
+      },
+      "macro_f1_percent": {
+        "by_seed": {
+          "43": 2.5738916169762547,
+          "45": -0.21938918734568347
+        },
+        "mean": 1.1772512148152856,
+        "sample_sd": 1.9751477984942563,
+        "precision": "approximate_seed43_reference"
+      },
+      "micro_f1_percent": {
+        "by_seed": {
+          "43": 0.9059711775933863,
+          "45": -0.3489100558842324
+        },
+        "mean": 0.27853056085457695,
+        "sample_sd": 0.8873350297757634,
+        "precision": "approximate_seed43_reference"
+      }
+    },
+    "fixed": {
+      "mAP_percent": {
+        "by_seed": {
+          "43": 1.1675708506423206,
+          "45": 0.5786825147880279
+        },
+        "mean": 0.8731266827151742,
+        "sample_sd": 0.4164069356442314,
+        "precision": "approximate_seed43_reference"
+      },
+      "macro_f1_percent": {
+        "by_seed": {
+          "43": 0.9738916169762462,
+          "45": 0.5693458523181079
+        },
+        "mean": 0.771618734647177,
+        "sample_sd": 0.28605705349006677,
+        "precision": "approximate_seed43_reference"
+      },
+      "micro_f1_percent": {
+        "by_seed": {
+          "43": 0.10597117759338914,
+          "45": -0.3191025450308018
+        },
+        "mean": -0.10656568371870634,
+        "sample_sd": 0.300572511771775,
+        "precision": "approximate_seed43_reference"
+      }
+    }
+  },
+  "limits": [
+    "seed43 controls are rounded one-decimal metrics; deltas/means/SD involving them are approximate",
+    "fixed43 saved21 epochs/best8 vs Swin43 full30/best6 vs soft43 full30; code/historical hardware differ",
+    "server checkpoint/predictions/probe tensors not downloaded; saved result is user-returned evidence",
+    "n=2 descriptive evidence; no significance/stability/causal claim"
+  ],
+  "sd_definition": "sample SD ddof=1; paired differences first, then summary",
+  "soft43_resources": "bigearth_soft43_test_summary.json"
+}

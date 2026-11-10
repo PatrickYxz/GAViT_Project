@@ -1,0 +1,350 @@
+{
+  "recorded_date": "2026-09-18",
+  "source": "normalized_user_pasted_full_log",
+  "source_sha256": "715d1c2c01b5c9322111fb4b688f3866c2921a894c67c4d8a57e1561f273fe02",
+  "status_reported": "complete",
+  "exit_reported": 0,
+  "device_reported": "NVIDIA GeForce RTX 3060",
+  "input_mode_reported": "gallery",
+  "unique_images_reported": 24,
+  "all_gates_reported_pass": true,
+  "actual_tensor_errors_read_locally": false,
+  "max_probability_difference_all_19_classes_reported": 0.889688,
+  "max_difference_class_and_row": null,
+  "max_focus_probability_difference_from_rounded_lines": 0.4794,
+  "cached_to_normal_focus_threshold_flip_rows": [
+    14680,
+    26944,
+    91012,
+    97389
+  ],
+  "focus_intervention_rows": {
+    "corrects": [
+      26944,
+      28450,
+      91012
+    ],
+    "breaks": [
+      4439
+    ]
+  },
+  "focus_feedback_negative_logit_count": 20,
+  "focus_zero_scores_ge_098_count": 16,
+  "wetland_both_wrong_types": {
+    "FP": 2,
+    "FN": 2
+  },
+  "counts": {
+    "11": {
+      "both_correct": 4,
+      "corrects": 1,
+      "both_wrong": 3
+    },
+    "14": {
+      "breaks": 1,
+      "both_correct": 3,
+      "both_wrong": 2,
+      "corrects": 2
+    },
+    "16": {
+      "both_wrong": 4,
+      "both_correct": 4
+    }
+  },
+  "per_case": [
+    {
+      "position": 1,
+      "row_index": 2311,
+      "class_index": 16,
+      "label": 0,
+      "cached": 0.6908,
+      "normal": 0.957,
+      "zero": 1.0,
+      "delta_logit": -7.7807,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_wrong"
+    },
+    {
+      "position": 2,
+      "row_index": 2379,
+      "class_index": 16,
+      "label": 0,
+      "cached": 0.7624,
+      "normal": 0.9014,
+      "zero": 0.9999,
+      "delta_logit": -6.8089,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_wrong"
+    },
+    {
+      "position": 3,
+      "row_index": 4439,
+      "class_index": 14,
+      "label": 1,
+      "cached": 0.2812,
+      "normal": 0.1885,
+      "zero": 0.9929,
+      "delta_logit": -6.3945,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "breaks"
+    },
+    {
+      "position": 4,
+      "row_index": 5612,
+      "class_index": 14,
+      "label": 0,
+      "cached": 0.0,
+      "normal": 0.0,
+      "zero": 0.0,
+      "delta_logit": 1.0587,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_correct"
+    },
+    {
+      "position": 5,
+      "row_index": 11915,
+      "class_index": 16,
+      "label": 1,
+      "cached": 0.9225,
+      "normal": 0.9068,
+      "zero": 1.0,
+      "delta_logit": -10.9324,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_correct"
+    },
+    {
+      "position": 6,
+      "row_index": 14680,
+      "class_index": 11,
+      "label": 1,
+      "cached": 0.4704,
+      "normal": 0.9391,
+      "zero": 0.9993,
+      "delta_logit": -4.5027,
+      "cached_to_normal_threshold_flip": true,
+      "feedback_outcome": "both_correct"
+    },
+    {
+      "position": 7,
+      "row_index": 18821,
+      "class_index": 14,
+      "label": 0,
+      "cached": 0.7031,
+      "normal": 0.5487,
+      "zero": 0.9997,
+      "delta_logit": -7.9683,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_wrong"
+    },
+    {
+      "position": 8,
+      "row_index": 26944,
+      "class_index": 11,
+      "label": 0,
+      "cached": 0.6595,
+      "normal": 0.4693,
+      "zero": 0.9855,
+      "delta_logit": -4.3421,
+      "cached_to_normal_threshold_flip": true,
+      "feedback_outcome": "corrects"
+    },
+    {
+      "position": 9,
+      "row_index": 28450,
+      "class_index": 14,
+      "label": 0,
+      "cached": 0.4518,
+      "normal": 0.2414,
+      "zero": 0.9889,
+      "delta_logit": -5.6302,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "corrects"
+    },
+    {
+      "position": 10,
+      "row_index": 36582,
+      "class_index": 14,
+      "label": 1,
+      "cached": 0.9897,
+      "normal": 0.9984,
+      "zero": 1.0,
+      "delta_logit": -11.4559,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_correct"
+    },
+    {
+      "position": 11,
+      "row_index": 36628,
+      "class_index": 14,
+      "label": 1,
+      "cached": 0.9767,
+      "normal": 0.9588,
+      "zero": 1.0,
+      "delta_logit": -8.9518,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_correct"
+    },
+    {
+      "position": 12,
+      "row_index": 60770,
+      "class_index": 11,
+      "label": 0,
+      "cached": 0.0002,
+      "normal": 0.0,
+      "zero": 0.0,
+      "delta_logit": 6.0571,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_correct"
+    },
+    {
+      "position": 13,
+      "row_index": 76554,
+      "class_index": 16,
+      "label": 0,
+      "cached": 0.0,
+      "normal": 0.0001,
+      "zero": 0.0,
+      "delta_logit": 3.6307,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_correct"
+    },
+    {
+      "position": 14,
+      "row_index": 80208,
+      "class_index": 16,
+      "label": 1,
+      "cached": 0.0007,
+      "normal": 0.0001,
+      "zero": 0.0,
+      "delta_logit": 0.8374,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_wrong"
+    },
+    {
+      "position": 15,
+      "row_index": 83491,
+      "class_index": 16,
+      "label": 0,
+      "cached": 0.0066,
+      "normal": 0.0495,
+      "zero": 0.3197,
+      "delta_logit": -2.1992,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_correct"
+    },
+    {
+      "position": 16,
+      "row_index": 90759,
+      "class_index": 16,
+      "label": 1,
+      "cached": 0.0,
+      "normal": 0.0002,
+      "zero": 0.0011,
+      "delta_logit": -1.6414,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_wrong"
+    },
+    {
+      "position": 17,
+      "row_index": 90788,
+      "class_index": 14,
+      "label": 1,
+      "cached": 0.0,
+      "normal": 0.0,
+      "zero": 0.0,
+      "delta_logit": -1.6135,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_wrong"
+    },
+    {
+      "position": 18,
+      "row_index": 91012,
+      "class_index": 14,
+      "label": 0,
+      "cached": 0.77,
+      "normal": 0.2906,
+      "zero": 0.9993,
+      "delta_logit": -8.1682,
+      "cached_to_normal_threshold_flip": true,
+      "feedback_outcome": "corrects"
+    },
+    {
+      "position": 19,
+      "row_index": 96887,
+      "class_index": 11,
+      "label": 1,
+      "cached": 0.1066,
+      "normal": 0.134,
+      "zero": 0.4829,
+      "delta_logit": -1.7977,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_wrong"
+    },
+    {
+      "position": 20,
+      "row_index": 97389,
+      "class_index": 11,
+      "label": 0,
+      "cached": 0.4858,
+      "normal": 0.7031,
+      "zero": 0.992,
+      "delta_logit": -3.9542,
+      "cached_to_normal_threshold_flip": true,
+      "feedback_outcome": "both_wrong"
+    },
+    {
+      "position": 21,
+      "row_index": 103791,
+      "class_index": 11,
+      "label": 1,
+      "cached": 0.7915,
+      "normal": 0.9727,
+      "zero": 1.0,
+      "delta_logit": -6.4477,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_correct"
+    },
+    {
+      "position": 22,
+      "row_index": 105443,
+      "class_index": 11,
+      "label": 1,
+      "cached": 0.8953,
+      "normal": 0.9939,
+      "zero": 1.0,
+      "delta_logit": -7.1314,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_correct"
+    },
+    {
+      "position": 23,
+      "row_index": 105978,
+      "class_index": 11,
+      "label": 0,
+      "cached": 0.9869,
+      "normal": 0.9682,
+      "zero": 0.9999,
+      "delta_logit": -5.7273,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_wrong"
+    },
+    {
+      "position": 24,
+      "row_index": 117556,
+      "class_index": 16,
+      "label": 1,
+      "cached": 0.916,
+      "normal": 0.9531,
+      "zero": 1.0,
+      "delta_logit": -7.0674,
+      "cached_to_normal_threshold_flip": false,
+      "feedback_outcome": "both_correct"
+    }
+  ],
+  "limitations": [
+    "Scores/logit deltas in CASE lines are rounded to 4 decimals",
+    "Global 0.889688 difference covers 24x19 comparisons; focus CASE lines cover 24 comparisons only",
+    "Input, GPU, batch size and possibly library versions differ; JPEG causality not isolated",
+    "No population metrics and no inference that zero feedback is a trained baseline"
+  ]
+}

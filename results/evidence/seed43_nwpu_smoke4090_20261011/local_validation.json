@@ -1,0 +1,60 @@
+{
+  "status": "CHECKED_LAUNCH_FIXTURES_PASS",
+  "cases": [
+    {
+      "case": "none",
+      "passed": true
+    },
+    {
+      "case": "nonzero",
+      "passed": true
+    },
+    {
+      "case": "seed",
+      "passed": true
+    },
+    {
+      "case": "recipe",
+      "passed": true
+    },
+    {
+      "case": "graph",
+      "passed": true
+    },
+    {
+      "case": "reload_nan",
+      "passed": true
+    },
+    {
+      "case": "weight",
+      "passed": true
+    },
+    {
+      "case": "source",
+      "passed": true
+    },
+    {
+      "case": "metadata",
+      "passed": true
+    },
+    {
+      "case": "probe",
+      "passed": true
+    },
+    {
+      "case": "loss",
+      "passed": true
+    },
+    {
+      "case": "bootstrap_accept_duplicate_preserved",
+      "passed": true
+    },
+    {
+      "case": "bootstrap_reject",
+      "passed": true
+    }
+  ],
+  "gpu_calls": 0,
+  "formal_helper_sha256": "bb50d71a98aaa44b14c7f604c2236218c8b663a90f1e89254d6fd524c0340e5e",
+  "helper_unchanged": true
+}

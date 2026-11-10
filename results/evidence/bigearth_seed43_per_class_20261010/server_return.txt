@@ -1,0 +1,55 @@
+base) ➜ ~ grep -A 30 'Test mAP' /home/featurize/work/GAViT_Project/logs/final_multiseed_swin_bb9f1cf_seed43_retry1_test.log
+Test mAP   (macro): 71.1%
+Test F1    (macro): 64.1%
+Test F1    (micro): 76.0%
+==================================================
+
+Per-class Average Precision:
+   85.9%  Urban fabric
+   50.2%  Industrial or commercial units
+   93.5%  Arable land
+   60.0%  Permanent crops
+   86.4%  Pastures
+   69.4%  Complex cultivation patterns
+   72.4%  Land principally occupied by agriculture, with significant areas of natural vegetation
+   87.0%  Agro-forestry areas
+   85.8%  Broad-leaved forest
+   93.7%  Coniferous forest
+   89.0%  Mixed forest
+   47.2%  Natural grassland and sparsely vegetated areas
+   56.4%  Moors, heathland and sclerophyllous vegetation
+   78.6%  Transitional woodland, shrub
+   11.3%  Beaches, dunes, sands
+   60.2%  Inland wetlands
+   32.8%  Coastal wetlands
+   91.6%  Inland waters
+   99.7%  Marine waters
+Peak CUDA allocated: 0.58 GiB
+Test wall time: 234.20 s
+(base) ➜ ~ grep -A 30 'Test mAP' /home/featurize/work/GAViT_Project/logs/final_multiseed_sparse_hybrid_bb9f1cf_seed43_retry1_test_retry2.log
+Test mAP   (macro): 71.7%
+Test F1    (macro): 65.7%
+Test F1    (micro): 76.8%
+==================================================
+
+Per-class Average Precision:
+   86.5%  Urban fabric
+   50.8%  Industrial or commercial units
+   93.3%  Arable land
+   63.3%  Permanent crops
+   86.3%  Pastures
+   69.0%  Complex cultivation patterns
+   72.6%  Land principally occupied by agriculture, with significant areas of natural vegetation
+   87.0%  Agro-forestry areas
+   85.7%  Broad-leaved forest
+   93.4%  Coniferous forest
+   89.9%  Mixed forest
+   48.5%  Natural grassland and sparsely vegetated areas
+   60.6%  Moors, heathland and sclerophyllous vegetation
+   78.9%  Transitional woodland, shrub
+    8.6%  Beaches, dunes, sands
+   63.1%  Inland wetlands
+   34.4%  Coastal wetlands
+   91.5%  Inland waters
+   99.6%  Marine waters
+(base) ➜ ~ 

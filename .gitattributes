@@ -3,3 +3,8 @@
 *.py    text eol=lf
 *.md    text eol=lf
 *.csv   text eol=lf
+
+# Preserve archived experiment and delivery bytes, including original CSV endings.
+/results/** -text
+/output/** -text
+/deliverables/** -text

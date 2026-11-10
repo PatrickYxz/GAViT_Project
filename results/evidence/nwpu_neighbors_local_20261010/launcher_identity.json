@@ -1,0 +1,22 @@
+{
+  "tool_sha256": "e09d397c0da4b685fec77fb67958b8322639f01573bb0d9a300ec2fd649e35fc",
+  "command_sha256": "b7dd50bf7f17a0d2516b2ef4d35743d8783d00ffe17784e4da38e8cf408e1d76",
+  "command_bytes": 10569,
+  "server_tool": "/home/featurize/work/nwpu_neighbor_tool_20261010_e09d397c0da4.py",
+  "output": "/home/featurize/work/nwpu_neighbors42_20261010_01",
+  "log": "/home/featurize/work/nwpu_neighbors42_20261010_01.launch.log",
+  "required_sources": [
+    "/home/featurize/work/nwpu_pooling42_20261008_01/selected_cases.pt",
+    "/home/featurize/work/nwpu_pooling42_20261008_01/identity.json",
+    "/home/featurize/work/nwpu_pooling42_20261008_01/summary.json",
+    "/home/featurize/work/nwpu_pooling42_20261008_01/run.exit",
+    "/home/featurize/work/nwpu_feedback42_20261002_01/soft_cache.pt",
+    "/home/featurize/work/nwpu_feedback42_20261002_01/identity.json",
+    "/home/featurize/work/nwpu_feedback42_20261002_01/summary.json",
+    "/home/featurize/work/nwpu_feedback42_20261002_01/run.exit",
+    "/home/featurize/work/nwpu_ablation42_20260928_01/soft/best.pth",
+    "/home/featurize/work/nwpu_ablation42_20260928_01/soft/run.json",
+    "/home/featurize/work/nwpu_ablation42_20260928_01/soft/run.exit",
+    "/home/featurize/work/GAViT_SOFT_20260927/models/graph_reasoning.py"
+  ]
+}

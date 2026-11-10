@@ -1,0 +1,424 @@
+diff --git a/grouping_identity.py b/grouping_identity.py
+--- a/grouping_identity.py
++++ b/grouping_identity.py
+@@ -16,17 +16,42 @@
+ }
+ 
+ 
+-def soft_assignment_identity() -> dict:
+-    return dict(_SOFT)
++_SPATIAL_SOFT = {
++    **_SOFT,
++    'assignment_version': 'local_prototype_cosine_spatial_v1',
++    'spatial_prior': 'anchor_gaussian_v1',
++    'spatial_prior_metric': 'squared_euclidean',
++    'spatial_prior_centers': 'fixed_membership_centroids',
++    'spatial_prior_scale_token_units': 1.75,
++    'spatial_prior_strength': 0.5,
++    'spatial_prior_position': 'post_temperature',
++}
++
++
++def soft_assignment_identity(spatial_prior=None) -> dict:
++    if spatial_prior is None:
++        return dict(_SOFT)
++    if spatial_prior == 'anchor_gaussian_v1':
++        return dict(_SPATIAL_SOFT)
++    raise ValueError(f'Unsupported spatial_prior: {spatial_prior!r}')
+ 
+ 
+ def validate_soft_assignment(config: dict) -> dict:
+-    if not isinstance(config, dict) or config.keys() != _SOFT.keys():
++    if not isinstance(config, dict):
+         raise ValueError('soft_assignment must contain the complete versioned configuration')
+-    for key, expected in _SOFT.items():
++    expected_config = (_SPATIAL_SOFT if config.get('assignment_version') ==
++                       _SPATIAL_SOFT['assignment_version'] else _SOFT)
++    if config.keys() != expected_config.keys():
++        raise ValueError('soft_assignment must contain the complete versioned configuration')
++    for key, expected in expected_config.items():
+         if type(config[key]) is not type(expected) or config[key] != expected:
+             raise ValueError(f'Unsupported soft_assignment {key}={config[key]!r}; expected {expected!r}')
+     return dict(config)
++
++
++def spatial_prior_name(architecture_config: dict):
++    config = architecture_config.get('soft_assignment')
++    return None if config is None else validate_soft_assignment(config).get('spatial_prior')
+ 
+ 
+ def complete_grouping_architecture(arch: dict, *, checkpoint: bool = False) -> dict:
+diff --git a/models/soft_region_grouping.py b/models/soft_region_grouping.py
+--- a/models/soft_region_grouping.py
++++ b/models/soft_region_grouping.py
+@@ -28,6 +28,16 @@
+             (self.assignment[:, None] // 4 - regions[None] // 4).abs(),
+             (self.assignment[:, None] % 4 - regions[None] % 4).abs())
+         self.register_buffer('candidate_mask', distance <= self.config['assignment_radius'])
++        if self.config.get('spatial_prior') is not None:
++            # Centers of the actual unequal hard partitions, in token-pitch units.
++            positions = torch.stack(torch.meshgrid(
++                torch.arange(grid_size), torch.arange(grid_size), indexing='ij'), dim=-1)
++            positions = positions.reshape(-1, 2).float()
++            centers = self.membership.T @ positions / self.membership.sum(0)[:, None]
++            offset = (positions[:, None] - centers[None]) / self.config['spatial_prior_scale_token_units']
++            prior = -self.config['spatial_prior_strength'] * offset.square().sum(-1)
++            # Candidate-only key also rejects accidental strict loading as legacy.
++            self.register_buffer('spatial_log_prior', prior)
+         self.assignment_observer = None
+ 
+     def _validate_tokens(self, tokens):
+@@ -48,6 +58,8 @@
+         raw = torch.einsum('bnk,bnd->bkd', w0, z)
+         prototypes = F.normalize(raw, dim=-1, eps=self.config['assignment_norm_eps'])
+         logits = torch.einsum('bnd,bkd->bnk', z, prototypes) / self.config['assignment_temperature']
++        if self.config.get('spatial_prior') is not None:
++            logits = logits + self.spatial_log_prior[None]
+         log_s = logits.masked_fill(~self.candidate_mask[None], -torch.inf).log_softmax(-1)
+         return log_s, w0, raw.norm(dim=-1), prototypes
+ 
+diff --git a/run_scene.py b/run_scene.py
+--- a/run_scene.py
++++ b/run_scene.py
+@@ -16,6 +16,8 @@
+     train = sub.add_parser('train', help='Run an explicit smoke/calibration/refit phase')
+     train.add_argument('--model', choices=['swin', 'gavit'], required=True)
+     train.add_argument('--grouping', choices=['attentive_spatial', 'soft_prototype'])
++    train.add_argument('--spatial-prior', choices=['anchor_gaussian_v1'],
++                       help='Fixed geometry prior for soft membership; NWPU seed42 smoke/calibrate only')
+     train.add_argument('--token-refinement', choices=['residual_ffn_v1'],
+                        help='Bounded NWPU seed42 smoke/calibration trial; no refit/test')
+     train.add_argument('--phase', choices=['smoke', 'calibrate', 'refit'], default='smoke')
+diff --git a/scene_classification/modeling.py b/scene_classification/modeling.py
+--- a/scene_classification/modeling.py
++++ b/scene_classification/modeling.py
+@@ -5,12 +5,16 @@
+ from torchvision.transforms import InterpolationMode
+ 
+ from models.swin_backbone import SwinBackbone
+-from grouping_identity import complete_grouping_architecture
++from grouping_identity import complete_grouping_architecture, soft_assignment_identity, spatial_prior_name
+ from models.token_refinement import ResidualTokenFFN, refinement_identity, validate_refinement
+ 
+ 
+-def architecture(model, num_classes, grouping=None, token_refinement=None):
++def architecture(model, num_classes, grouping=None, token_refinement=None, spatial_prior=None):
+     extra = {}
++    if spatial_prior is not None:
++        if model != 'gavit' or grouping != 'soft_prototype' or token_refinement is not None:
++            raise ValueError('Spatial prior requires soft GAViT without token refinement')
++        extra['soft_assignment'] = soft_assignment_identity(spatial_prior)
+     if token_refinement is not None:
+         if (token_refinement != 'residual_ffn_v1'
+                 or (model == 'gavit' and grouping != 'soft_prototype')):
+@@ -52,7 +56,7 @@
+ def build_model(model, num_classes, pretrained_path=None, *, architecture_config=None):
+     config = architecture(model, num_classes) if architecture_config is None else complete_grouping_architecture(architecture_config, checkpoint=True)
+     if config != architecture(model, num_classes, grouping=config.get('grouping'),
+-                              token_refinement=refinement_name(config)):
++                              token_refinement=refinement_name(config), spatial_prior=spatial_prior_name(config)):
+         raise ValueError('Unsupported scene architecture configuration')
+     if model == 'swin':
+         return SwinClassifier(num_classes, pretrained_path, config.get('token_refinement'))
+diff --git a/scene_classification/runner.py b/scene_classification/runner.py
+--- a/scene_classification/runner.py
++++ b/scene_classification/runner.py
+@@ -19,7 +19,7 @@
+ from experiment_identity import (assert_clean_git_state, get_git_state, graph_topology_identity,
+     load_checkpoint_metadata, sha256_file, write_checkpoint_metadata)
+ from utils import save_checkpoint as _legacy_save_checkpoint, save_training_state, set_seed
+-from grouping_identity import complete_grouping_architecture
++from grouping_identity import complete_grouping_architecture, spatial_prior_name
+ from soft_assignment_diagnostics import SoftAssignmentProbe
+ from .data import load_manifest, select_records, write_json
+ from .metrics import classification_metrics
+@@ -45,6 +45,7 @@
+     calibration: str | None = None
+     grouping: str | None = None
+     token_refinement: str | None = None
++    spatial_prior: str | None = None
+ 
+ 
+ def training_identity(cfg):
+@@ -220,7 +221,7 @@
+     if (meta.get('dataset') != manifest['dataset'] or meta.get('class_names') != manifest['class_names']
+             or meta.get('data', {}).get('manifest_sha256') != sha256_file(str(manifest_path))
+             or arch != architecture(meta.get('model'), len(manifest['class_names']), grouping=arch.get('grouping'),
+-                                    token_refinement=refinement_name(arch))
++                                    token_refinement=refinement_name(arch), spatial_prior=spatial_prior_name(arch))
+             or meta.get('entry_version') != 'scene-v1'):
+         raise ValueError('Checkpoint identity mismatch')
+     if meta.get('checkpoint_sha256') != sha256_file(str(checkpoint)):
+@@ -241,6 +242,11 @@
+ 
+ 
+ def _train(cfg, out, start):
++    if cfg.spatial_prior is not None:
++        if (cfg.spatial_prior != 'anchor_gaussian_v1' or cfg.phase not in ('smoke', 'calibrate')
++                or cfg.seed != 42 or cfg.model != 'gavit' or cfg.grouping != 'soft_prototype'
++                or cfg.token_refinement is not None or (cfg.phase == 'calibrate' and cfg.workers != 2)):
++            raise ValueError('Spatial prior trial requires soft GAViT, seed42, smoke/calibrate, no FFN and formal workers2')
+     if cfg.token_refinement is not None:
+         if (cfg.token_refinement != 'residual_ffn_v1' or cfg.phase not in ('smoke', 'calibrate')
+                 or cfg.seed != 42 or cfg.model not in ('swin', 'gavit')
+@@ -257,6 +263,9 @@
+         raise ValueError('Formal phases require pretrained weights')
+     device = _device(cfg.device)
+     manifest = load_manifest(cfg.manifest, cfg.data_root)
++    if (cfg.spatial_prior is not None and manifest['dataset'] != 'NWPU-RESISC45'
++            and not (cfg.phase == 'smoke' and manifest['dataset'] == 'synthetic')):
++        raise ValueError('Spatial prior trial is limited to NWPU (or synthetic smoke)')
+     if (cfg.token_refinement is not None and manifest['dataset'] != 'NWPU-RESISC45'
+             and not (cfg.phase == 'smoke' and manifest['dataset'] == 'synthetic')):
+         raise ValueError('FFN trial is limited to NWPU (or synthetic smoke)')
+@@ -269,6 +278,11 @@
+         raise ValueError('--calibration is only for refit')
+     names = manifest['class_names']
+     pretrained_hash = sha256_file(cfg.pretrained_path) if cfg.pretrained_path else None
++    if cfg.spatial_prior and manifest['dataset'] == 'NWPU-RESISC45':
++        if (sha256_file(cfg.manifest) != 'ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e'
++                or pretrained_hash != 'f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36'
++                or manifest['counts'] != {'train': 5040, 'val': 1260, 'test': 25200}):
++            raise ValueError('Spatial prior trial requires the frozen NWPU manifest and pretrained weights')
+     if cfg.token_refinement and manifest['dataset'] == 'NWPU-RESISC45':
+         if (sha256_file(cfg.manifest) != 'ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e'
+                 or pretrained_hash != 'f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36'
+@@ -278,7 +292,7 @@
+     identity = {'model': cfg.model, 'seed': cfg.seed, 'manifest_sha256': sha256_file(cfg.manifest),
+                 'pretrained_sha256': pretrained_hash, 'training': training,
+                 'architecture': architecture(cfg.model, len(names), grouping=cfg.grouping,
+-                                             token_refinement=cfg.token_refinement), 'code': code}
++                                             token_refinement=cfg.token_refinement, spatial_prior=cfg.spatial_prior), 'code': code}
+     epochs, source_identity = (1 if cfg.phase == 'smoke' else 30), None
+     if cfg.phase == 'refit':
+         if not cfg.calibration:
+@@ -466,6 +480,8 @@
+         if code['files_sha256'] != meta.get('code', {}).get('files_sha256'):
+             raise ValueError('Evaluation code identity changed from checkpoint; use the recorded source version')
+         phase = meta['execution']['phase']
++        if spatial_prior_name(meta['architecture']) is not None and (split != 'val' or phase not in ('smoke', 'calibrate')):
++            raise ValueError('Spatial prior trial is limited to calibration validation; no refit/test')
+         if 'token_refinement' in meta['architecture'] and (split != 'val' or phase not in ('smoke', 'calibrate')):
+             raise ValueError('FFN trial is limited to calibration validation; no refit/test')
+         if phase == 'smoke' and split == 'test':
+diff --git a/tests/test_spatial_prior_grouping.py b/tests/test_spatial_prior_grouping.py
+new file mode 100644
+--- /dev/null
++++ b/tests/test_spatial_prior_grouping.py
+@@ -0,0 +1,113 @@
++"""The new candidate changes membership logits only; legacy remains explicit."""
++from copy import deepcopy
++import math
++
++import pytest
++import torch
++
++from grouping_identity import soft_assignment_identity, validate_soft_assignment
++from models.soft_region_grouping import SoftPrototypeGrouping
++
++
++def candidate():
++    return soft_assignment_identity('anchor_gaussian_v1')
++
++
++def test_versioned_identity_is_explicit_strict_and_preserves_legacy():
++    legacy = soft_assignment_identity()
++    assert legacy['assignment_version'] == 'local_prototype_cosine_v1'
++    assert not any(k.startswith('spatial_prior') for k in legacy)
++    new = candidate()
++    assert new['assignment_version'] == 'local_prototype_cosine_spatial_v1'
++    assert validate_soft_assignment(new) == new
++    assert all(new[k] == v for k, v in legacy.items() if k != 'assignment_version')
++    for key in new:
++        bad = deepcopy(new)
++        del bad[key]
++        with pytest.raises(ValueError):
++            validate_soft_assignment(bad)
++    for value in (True, 0.0, 1.0, float('nan'), '0.5'):
++        with pytest.raises(ValueError):
++            validate_soft_assignment({**new, 'spatial_prior_strength': value})
++    with pytest.raises(ValueError):
++        validate_soft_assignment({**new, 'assignment_version': legacy['assignment_version']})
++    with pytest.raises(ValueError):
++        soft_assignment_identity('unknown')
++
++
++def test_prior_geometry_and_equal_content_odds():
++    m = SoftPrototypeGrouping(soft_assignment=candidate()).eval()
++    # All semantic similarities equal: posterior odds are independently calculable.
++    x = torch.ones(1, 49, 768)
++    _, s = m(x)
++    # Token (0,0), centers (.5,.5) and (.5,2.5): squared distance difference 6.
++    assert float(s[0, 0, 1] / s[0, 0, 0]) == pytest.approx(math.exp(-0.5 * 6 / 1.75**2), rel=2e-6)
++    # Uneven last partition center is (6,6), NOT ideal 4x4 center (5.625,5.625).
++    assert float(m.spatial_log_prior[48, 15]) == 0.0
++    assert float(m.spatial_log_prior[48, 14]) == pytest.approx(-0.5 * 1.5**2 / 1.75**2)
++    assert float(m.spatial_log_prior[0, 0]) == pytest.approx(-0.5 * 0.5 / 1.75**2)
++    assert not s.masked_select(~m.candidate_mask[None]).any()
++
++
++def test_identical_parameters_rng_and_only_logit_prior_changes():
++    torch.manual_seed(42)
++    old = SoftPrototypeGrouping()
++    rng = torch.get_rng_state().clone()
++    torch.manual_seed(42)
++    new = SoftPrototypeGrouping(soft_assignment=candidate())
++    assert torch.equal(rng, torch.get_rng_state())
++    assert dict(old.named_parameters()).keys() == dict(new.named_parameters()).keys()
++    for name, value in old.named_parameters():
++        assert torch.equal(value, dict(new.named_parameters())[name])
++    x = torch.randn(2, 49, 768, requires_grad=True)
++    old_log, *old_rest = old._assignment(x, old.attn(x))
++    log_s, *new_rest = new._assignment(x, new.attn(x))
++    for a, b in zip(old_rest, new_rest):
++        torch.testing.assert_close(a, b, atol=0, rtol=0)
++    expected = (old_log + new.spatial_log_prior).log_softmax(-1)
++    torch.testing.assert_close(log_s, expected, atol=2e-6, rtol=2e-6)
++    s = log_s.exp()
++    regions, w = new._pool(x, new.attn(x), log_s)
++    torch.testing.assert_close(s.sum(-1), torch.ones(2, 49))
++    torch.testing.assert_close(w.sum(1), torch.ones(2, 16))
++    # Pooling is still softmax(log S + original attention) over tokens.
++    torch.testing.assert_close(w, (log_s + new.attn(x)).softmax(1), atol=0, rtol=0)
++    grads = torch.autograd.grad((s * torch.randn_like(s)).sum(),
++        (x, new.assignment_projection[1].weight, new.attn[0].weight))
++    assert all(torch.isfinite(g).all() and g.abs().sum() > 0 for g in grads)
++    assert torch.isfinite(regions).all()
++
++
++def test_candidate_checkpoint_cannot_silently_load_as_legacy():
++    new = SoftPrototypeGrouping(soft_assignment=candidate()).eval()
++    old = SoftPrototypeGrouping().eval()
++    with pytest.raises(RuntimeError, match='spatial_log_prior'):
++        old.load_state_dict(new.state_dict(), strict=True)
++    with pytest.raises(RuntimeError, match='spatial_log_prior'):
++        new.load_state_dict(old.state_dict(), strict=True)
++    restored = SoftPrototypeGrouping(soft_assignment=candidate()).eval()
++    restored.load_state_dict(new.state_dict(), strict=True)
++    x = torch.randn(1, 49, 768)
++    for a, b in zip(new(x), restored(x)):
++        torch.testing.assert_close(a, b, atol=0, rtol=0)
++    legacy_explicit = SoftPrototypeGrouping(soft_assignment=soft_assignment_identity()).eval()
++    legacy_explicit.load_state_dict(old.state_dict(), strict=True)
++    assert 'spatial_log_prior' not in old.state_dict()
++    for a, b in zip(old(x), legacy_explicit(x)):
++        torch.testing.assert_close(a, b, atol=0, rtol=0)
++
++
++@pytest.mark.parametrize('kind', ['zero', 'identical', 'opposite'])
++def test_candidate_degenerate_inputs_and_batch_independence(kind):
++    m = SoftPrototypeGrouping(soft_assignment=candidate()).eval()
++    x = torch.randn(2, 1, 768).expand(2, 49, 768).clone()
++    if kind == 'zero':
++        x.zero_()
++    elif kind == 'opposite':
++        x[:, ::2] *= -1
++    x.requires_grad_()
++    r, s = m(x)
++    (r.square().mean() + s.square().mean()).backward()
++    assert torch.isfinite(x.grad).all()
++    for a, b in zip(m(x[:1]), (r[:1], s[:1])):
++        torch.testing.assert_close(a, b, atol=2e-6, rtol=2e-6)
+diff --git a/tests/test_spatial_prior_runtime.py b/tests/test_spatial_prior_runtime.py
+new file mode 100644
+--- /dev/null
++++ b/tests/test_spatial_prior_runtime.py
+@@ -0,0 +1,98 @@
++"""Exercise explicit scene identity and a bounded candidate smoke lifecycle."""
++import json
++import subprocess
++import sys
++from pathlib import Path
++from unittest.mock import patch
++
++import pytest
++import torch
++
++from scene_classification import runner
++from scene_classification.data import prepare_manifest
++from scene_classification.modeling import architecture, build_model
++from test_scene_data_metrics import fixture
++from test_soft_gavit import TokenBackbone
++
++
++def cfg(tmp_path, **changes):
++    settings = dict(model='gavit', grouping='soft_prototype', spatial_prior='anchor_gaussian_v1',
++        phase='smoke', seed=42, manifest='missing', data_root='missing', output=str(tmp_path / 'out'),
++        device='cpu', random_init=True, batch_size=2, workers=0, train_per_class=1, val_per_class=1)
++    settings.update(changes)
++    return runner.RunConfig(**settings)
++
++
++def test_cli_help_and_architecture_guard():
++    result = subprocess.run([sys.executable, 'run_scene.py', 'train', '--help'], capture_output=True, text=True)
++    assert result.returncode == 0 and '--spatial-prior {anchor_gaussian_v1}' in result.stdout
++    for model, grouping, ffn in [('swin', None, None), ('gavit', None, None),
++                                ('gavit', 'soft_prototype', 'residual_ffn_v1')]:
++        with pytest.raises(ValueError, match='spatial|prior'):
++            architecture(model, 45, grouping=grouping, token_refinement=ffn, spatial_prior='anchor_gaussian_v1')
++    arch = architecture('gavit', 45, grouping='soft_prototype', spatial_prior='anchor_gaussian_v1')
++    with patch('models.gavit.SwinBackbone', TokenBackbone):
++        model = build_model('gavit', 45, architecture_config=arch)
++    assert model.region_grouping.config == arch['soft_assignment']
++
++
++@pytest.mark.parametrize('changes', [dict(seed=43), dict(phase='refit'), dict(model='swin'),
++    dict(grouping='attentive_spatial'), dict(token_refinement='residual_ffn_v1'),
++    dict(phase='calibrate', workers=0), dict(spatial_prior='unknown')])
++def test_candidate_scope_rejected_before_loading_data(tmp_path, changes):
++    with patch.object(runner, 'load_manifest') as load:
++        with pytest.raises(ValueError, match='[Pp]rior|spatial'):
++            runner.run_training(cfg(tmp_path, **changes))
++        load.assert_not_called()
++    assert (tmp_path / 'out' / 'run.exit').read_text() == 'exit_code=1\n'
++
++
++def test_non_nwpu_candidate_rejected(tmp_path):
++    with patch.object(runner, 'load_manifest', return_value={'dataset': 'AID'}):
++        with pytest.raises(ValueError, match='NWPU'):
++            runner.run_training(cfg(tmp_path))
++
++
++def test_wrong_nwpu_identity_rejected_before_model(tmp_path):
++    weights = tmp_path / 'weights'
++    weights.write_bytes(b'wrong pretrained')
++    manifest = tmp_path / 'manifest.json'
++    manifest.write_text('{}')
++    with patch.object(runner, 'load_manifest', return_value={'dataset': 'NWPU-RESISC45',
++            'class_names': ['a'], 'counts': {'train': 5040, 'val': 1260, 'test': 25200}}), \
++            patch.object(runner, 'build_model') as build:
++        with pytest.raises(ValueError, match='frozen NWPU'):
++            runner.run_training(cfg(tmp_path, random_init=False, pretrained_path=str(weights), manifest=str(manifest)))
++        build.assert_not_called()
++
++
++def test_candidate_smoke_checkpoint_probe_and_validation(tmp_path):
++    torch.set_num_threads(2)
++    data = tmp_path / 'images'
++    fixture(data)
++    manifest = tmp_path / 'manifest.json'
++    prepare_manifest(data, manifest, dataset='synthetic')
++    settings = cfg(tmp_path, data_root=str(data), manifest=str(manifest))
++    # Real grouping/GAT/training/serialization; only the expensive Swin is a small fixture.
++    with patch('models.gavit.SwinBackbone', TokenBackbone):
++        report = runner.run_training(settings)
++        out = Path(settings.output)
++        assert report['status'] == 'complete' and report['counts'] == {'train': 2, 'val': 2}
++        assert report['graph_capture']['edges_per_image'] == 80
++        assert report['reload_max_logit_diff'] <= 1e-5
++        arch = report['architecture']
++        assert arch['soft_assignment']['spatial_prior'] == 'anchor_gaussian_v1'
++        assert 'token_refinement' not in arch
++        probe = json.loads((out / 'assignment_probe' / 'probe_manifest.json').read_text())
++        assert probe['soft_assignment'] == arch['soft_assignment']
++        assert (out / 'run.exit').read_text() == 'exit_code=0\n'
++        state = torch.load(out / 'best.pth', map_location='cpu', weights_only=True)
++        assert 'region_grouping.spatial_log_prior' in state
++        result = runner.evaluate_checkpoint(str(out / 'best.pth'), str(manifest), str(data),
++            str(out / 'eval'), split='val', device='cpu', batch_size=2, workers=0)
++        assert result['samples'] == 2
++        with pytest.raises(ValueError, match='[Pp]rior|spatial'):
++            runner.evaluate_checkpoint(str(out / 'best.pth'), str(manifest), str(data),
++                str(out / 'test_rejected'), split='test', device='cpu')
++    with pytest.raises(FileExistsError):
++        runner.run_training(settings)

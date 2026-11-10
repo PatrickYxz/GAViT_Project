@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "sources_sha256": {
+    "results/evidence/nwpu_refit_test42_20260929/server_return.json": "aa92403399fc44d660c412ff8f90c70b49b451ac14cf22237e3c9d2ed8d7ec7d",
+    "results/evidence/nwpu_refit_test42_20260929/test_pairs_server_summary.json": "1ac38babefc66f55044748176d77a7a8c3f7b3a87bd95b826d199b1247bd9c1a",
+    "results/evidence/nwpu_calibration42_20260928/cached_analysis_server_summary.json": "91d0938386e956fe2fdb0c6f234291344f7a5b37a4df5471c4db15951ef900db",
+    "results/evidence/nwpu_regions_review_20260929/display_statistics.json": "e42a24b10d5b17723041366a1a593b0d28de73a7badec52b92b4d9f4e5d08ab1",
+    "results/evidence/nwpu_regions_20260929/server_completion_summary.json": "53eb198f6783691d172e6b8b73a0c248923f736846cffc13395652c970d87c25",
+    "results/evidence/bigearth_soft45_complete_20261001/summary.json": "9906862f0b8b8645328214fc96265c98ee7c6d3360125be0b45e5ab45be93dba",
+    "results/evidence/bigearth_soft45_complete_20261001/comparison.json": "f3dff37c054acef5a44ea0ae54b3e29ac27648ee6c29f6fc7953b300de861cac",
+    "results/evidence/bigearth_seed45_20260922_01/summary.json": "9f8940329bdfc51012bbb4ab84b94c948a93876ed198010e4182edc8c59d18f0",
+    "models/gavit.py": "d0fc3249091f0e5375e0630d41402d3b629778f6a543769c6486a8ccd9dbb77d",
+    "models/soft_region_grouping.py": "374aa3c0cfec3861d1d92e651f5330a4bb08381111d4a88d6ae02f1f3e32b15a",
+    "grouping_identity.py": "651d4365a837a990c06d5a7bfadc4e4a6709c18f96f26eb36b0478a58fe613d5"
+  },
+  "table_rows": 6,
+  "source_metrics_match": true,
+  "nwpu_paired_margins_match": true,
+  "bigearth_all19_AP_mean_match": true,
+  "class_contributions_sum_match": true,
+  "extra_projection_parameters": 99840,
+  "source_matches_frozen_release": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "mean_pool_algebra_synthetic_max_abs_error": 2.7755575615628914e-17,
+  "check_scope": "Summary arithmetic/source identity and synthetic algebra, not fresh model inference or experiment reruns."
+}

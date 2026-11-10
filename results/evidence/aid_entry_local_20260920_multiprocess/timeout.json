@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "stage": "swin synthetic CPU smoke with workers=2",
+  "timeout_seconds": 180,
+  "execution": "approved outside-sandbox retry",
+  "observation": "The QA subprocess raised TimeoutExpired. Its original helper captured stdout in memory, so training stdout was not preserved by that attempt.",
+  "limitation": "Cause of this timeout was not established. It is not a successful multiworker check or a server/CUDA result. The earlier sandbox attempt separately logged OpenMP Error 179: Cannot open SHM."
+}

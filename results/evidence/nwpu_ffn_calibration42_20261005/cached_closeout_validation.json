@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "raw_bytes": 8150,
+  "raw_sha256": "b30c1d8780949a8b0e074eb098184ddafc71122d253c31c42ee54f7533b0c6b8",
+  "checks": [
+    "returned command AST equals delivered read-only scope",
+    "four model OA/integers and previous reported best epochs",
+    "old macroF1 reproduces archived evidence",
+    "new actual best hashes reproduce reported checkpoint identities",
+    "all four paired tables totals/marginals/net and class_net sums",
+    "per-class net differences compose across the three model comparisons",
+    "same 297408 FFN parameter increment",
+    "same new clean release and reported GPU/software/thread settings"
+  ],
+  "macro_f1_deltas_pp": {
+    "swin_ffn__minus__swin": -0.12684903822992055,
+    "soft_ffn__minus__soft": -0.6200442095517786,
+    "soft_ffn__minus__swin_ffn": -0.8990259395603744,
+    "soft_ffn__minus__swin": -1.025874977790295
+  },
+  "scope": "Local verification of pasted server readback only; no actual GPU run or independent prediction/weight download"
+}

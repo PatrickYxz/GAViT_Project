@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-06",
+  "status": "PASS",
+  "references": 12,
+  "checks": [
+    "12 unique keys and R1-R12 coverage",
+    "All exported BibTeX fields match verified metadata catalog",
+    "Bibliography titles and citation keys match chapter",
+    "Balanced generated field braces",
+    "Local Markdown/code links exist",
+    "Three requested themes and scope boundaries present",
+    "No internal browser reference IDs or trailing whitespace"
+  ],
+  "local_link_targets": [
+    "docs/external_methods_readiness_20260924.md",
+    "docs/soft_assignment_github_review_20260926.md",
+    "docs/thesis_experiments_discussion_20261006.md",
+    "docs/thesis_related_work_20261006.bib",
+    "models/graph_construction.py",
+    "models/graph_reasoning.py",
+    "models/region_grouping.py",
+    "models/soft_region_grouping.py",
+    "results/evidence/related_work_20261006/sources.json",
+    "results/nwpu_ffn_calibration42_comparison.md"
+  ],
+  "sha256": {
+    "results/evidence/related_work_20261006/sources.json": "4140a92cde769b10957b4cf2325f69f3c1e4b4502cb786bad917f52662b7880a",
+    "docs/thesis_related_work_20261006.md": "eee49d0bb0d8f0a1a9eb28395126d00977b0e150eda1741565a694d3f4cae002",
+    "docs/thesis_related_work_20261006.bib": "a420240d3a41a99771be41b4207847826df894062689547d33d680c95a80c7ad",
+    "models/region_grouping.py": "89cb8bb8a7e2ca76633a5a101285283e3275c95b1d77c442837c2e4159ecaca7",
+    "models/soft_region_grouping.py": "374aa3c0cfec3861d1d92e651f5330a4bb08381111d4a88d6ae02f1f3e32b15a",
+    "grouping_identity.py": "651d4365a837a990c06d5a7bfadc4e4a6709c18f96f26eb36b0478a58fe613d5",
+    "models/graph_construction.py": "a0c36ceaf7a2f73b857c0eaac50df4abfb9c5617a4952f333a0dc514900dd8cc",
+    "models/graph_reasoning.py": "895825a417f627594fda8407cf1e980f8bcef398201c233e1c20d900ec9046da",
+    "models/gavit.py": "39b2fd72be3afca0bb450ff5b700966c75c8aa277b2cf303b6c3faf129faba3e",
+    "models/token_refinement.py": "b6da924ec782169df58c7c9fbc0e208e5d2aa25cad790d8376ab3f7624038072",
+    "docs/soft_assignment_github_review_20260926.md": "592aa3f741b123186dbd87b73da7419f5d72ca709b66b8c6f9c2d2fc95643091"
+  },
+  "review_scope": "Primary-source audits by two agents completed and integrated; main agent read current code and reconciled the draft. Follow-up independent draft reviews failed due to usage limit; no independent final review claimed.",
+  "limits": [
+    "Not an exhaustive literature review or novelty assessment",
+    "No external code executed or new GPU experiments",
+    "No bibliography-manager import or TeX compilation performed",
+    "Static citation checks do not independently establish semantic correctness",
+    "Primary-page access failures and historical pinned-code scope are recorded in sources.json"
+  ]
+}

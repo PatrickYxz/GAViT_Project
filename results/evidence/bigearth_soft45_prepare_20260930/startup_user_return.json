@@ -1,0 +1,52 @@
+{
+  "source": "User-pasted startup log; no direct server connection",
+  "stage": "gavit_train",
+  "status": "cuda_training_progress_observed",
+  "run_root": "/home/featurize/work/bigearth_soft45_20260930_01",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 2080 Ti",
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "threads": 8,
+    "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+    "packages": {
+      "torch": "2.2.2",
+      "torchvision": "0.17.2",
+      "timm": "1.0.27",
+      "torch-geometric": "2.8.0",
+      "numpy": "1.26.4",
+      "scikit-learn": "1.9.0",
+      "pillow": "10.3.0"
+    },
+    "gpu_identity": "GPU-f57c9bd1-b685-6426-9d4a-a51d0954ffab, NVIDIA GeForce RTX 2080 Ti, 610.57.04"
+  },
+  "precision": {
+    "dtype": "torch.float32",
+    "matmul_tf32": false,
+    "cudnn_tf32": true,
+    "amp": false
+  },
+  "train_samples": 237871,
+  "val_samples": 122342,
+  "model": "GAVIT",
+  "parameters": 31466766,
+  "device": "cuda",
+  "epochs_planned": 30,
+  "epoch": 1,
+  "completed_batches": 1201,
+  "total_batches": 7434,
+  "displayed_percent": 16,
+  "elapsed_training_seconds": 233,
+  "displayed_remaining_training_seconds": 1261,
+  "displayed_batches_per_second": 4.94,
+  "train_loop_total_seconds_using_displayed_eta": 1494,
+  "scope": "Partial first training loop only; validation/checkpoint/probe time not yet observed",
+  "total_planning_hours": [
+    16,
+    18
+  ],
+  "first_full_epoch_pending": true,
+  "gpu_memory_snapshot_received": false,
+  "final_metrics": null,
+  "completion_exit_received": false
+}

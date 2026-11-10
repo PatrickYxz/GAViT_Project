@@ -1,0 +1,25 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______ test_real_run_retains_original_pixels_and_capture_on_cache_failure ______
+tests/test_nwpu_region_visualization.py:316: in test_real_run_retains_original_pixels_and_capture_on_cache_failure
+    assert (args.output / 'cases/000_original.png').is_file()
+E   AssertionError: assert False
+E    +  where False = is_file()
+E    +    where is_file = (PosixPath('/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-918/test_real_run_retains_original0/output') / 'cases/000_original.png').is_file
+E    +      where PosixPath('/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-918/test_real_run_retains_original0/output') = namespace(repo=PosixPath('/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-918/test_r...tljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-918/test_real_run_retains_original0/source.zip'), device='cpu').output
+----------------------------- Captured stdout call -----------------------------
+SOURCE PASS: calibration best, fixed/soft seed42; 90 val images
+DEVICE {"device": "cpu", "name": "arm", "python": "3.12.13", "torch": "2.2.2", "cuda": null, "amp": false, "matmul_tf32": false, "cudnn_tf32": false}
+=============================== warnings summary ===============================
+../../../../../../private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1209: 20 warnings
+  /private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1209: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    elif isinstance(value, ast.Str):
+
+../../../../../../private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1210: 19 warnings
+  /private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1210: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead
+    s += value.s
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_nwpu_region_visualization.py::test_real_run_retains_original_pixels_and_capture_on_cache_failure
+1 failed, 39 warnings in 1.99s

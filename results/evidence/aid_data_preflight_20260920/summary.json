@@ -1,0 +1,26 @@
+{
+  "evidence_source": "user pasted server output",
+  "dataset": "AID",
+  "scan_images": 10000,
+  "scan_elapsed_seconds": 109.0,
+  "counts": {
+    "train": 4000,
+    "val": 1000,
+    "test": 5000
+  },
+  "unique_images": 9999,
+  "duplicate_groups": [
+    {
+      "split": "train",
+      "paths": [
+        "Industrial/industrial_203.jpg",
+        "Industrial/industrial_205.jpg"
+      ]
+    }
+  ],
+  "completion_marker": "MANIFEST COMPLETE",
+  "process_exit_code": null,
+  "manifest_path_from_last_command": "/home/featurize/work/aid_protocol_20260920_03.json",
+  "manifest_sha256": null,
+  "gpu_smoke_status": "not_run"
+}

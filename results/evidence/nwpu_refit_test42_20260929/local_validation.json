@@ -1,0 +1,55 @@
+{
+  "scope": "Local syntax and fake-child orchestration only; no actual refit/test inference",
+  "syntax": "Python, Bash, zsh PASS",
+  "cases": [
+    {
+      "case": "success",
+      "stages": [
+        "swin_refit",
+        "fixed_refit",
+        "soft_refit",
+        "swin_test",
+        "fixed_test",
+        "soft_test"
+      ],
+      "exit": 0
+    },
+    {
+      "case": "first_failure",
+      "stages": [
+        "swin_refit"
+      ],
+      "exit": 1
+    },
+    {
+      "case": "middle_failure",
+      "stages": [
+        "swin_refit",
+        "fixed_refit"
+      ],
+      "exit": 1
+    },
+    {
+      "case": "late_failure",
+      "stages": [
+        "swin_refit",
+        "fixed_refit",
+        "soft_refit",
+        "swin_test",
+        "fixed_test"
+      ],
+      "exit": 1
+    },
+    {
+      "case": "bad_identity",
+      "stages": [
+        "swin_refit",
+        "fixed_refit"
+      ],
+      "exit": 1
+    }
+  ],
+  "duplicate_launch_preserves_completed_result": true,
+  "missing_data_rejected_before_creation": true,
+  "fixture": "/private/tmp/nwpu-refit-queue-test-za8vz3ua"
+}

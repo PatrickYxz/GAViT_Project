@@ -1,0 +1,83 @@
+FFFFFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+_______________ test_help_advertises_new_mode[train_bigearth.py] _______________
+tests/test_soft_entrypoints.py:47: in test_help_advertises_new_mode
+    assert result.returncode == 0, result.stderr
+E   AssertionError: OMP: Error #179: Function Can't open SHM failed:
+E     OMP: System error #0: Undefined error: 0
+E     
+E   assert -6 == 0
+E    +  where -6 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...e=-6, stdout='', stderr="OMP: Error #179: Function Can't open SHM failed:\nOMP: System error #0: Undefined error: 0\n").returncode
+_______________ test_help_advertises_new_mode[test_bigearth.py] ________________
+tests/test_soft_entrypoints.py:47: in test_help_advertises_new_mode
+    assert result.returncode == 0, result.stderr
+E   AssertionError: OMP: Error #179: Function Can't open SHM failed:
+E     OMP: System error #0: Undefined error: 0
+E     
+E   assert -6 == 0
+E    +  where -6 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...e=-6, stdout='', stderr="OMP: Error #179: Function Can't open SHM failed:\nOMP: System error #0: Undefined error: 0\n").returncode
+_________________ test_help_advertises_new_mode[run_scene.py] __________________
+tests/test_soft_entrypoints.py:47: in test_help_advertises_new_mode
+    assert result.returncode == 0, result.stderr
+E   AssertionError: OMP: Error #179: Function Can't open SHM failed:
+E     OMP: System error #0: Undefined error: 0
+E     
+E   assert -6 == 0
+E    +  where -6 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...e=-6, stdout='', stderr="OMP: Error #179: Function Can't open SHM failed:\nOMP: System error #0: Undefined error: 0\n").returncode
+__________ test_real_bigearth_entry_train_reload_and_test[swin-None] ___________
+tests/test_soft_entrypoints.py:59: in test_real_bigearth_entry_train_reload_and_test
+    assert result.returncode == 0, result.stdout + result.stderr
+E   AssertionError: OMP: Error #179: Function Can't open SHM failed:
+E     OMP: System error #0: Undefined error: 0
+E     
+E   assert -6 == 0
+E    +  where -6 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...e=-6, stdout='', stderr="OMP: Error #179: Function Can't open SHM failed:\nOMP: System error #0: Undefined error: 0\n").returncode
+___ test_real_bigearth_entry_train_reload_and_test[gavit-attentive_spatial] ____
+tests/test_soft_entrypoints.py:59: in test_real_bigearth_entry_train_reload_and_test
+    assert result.returncode == 0, result.stdout + result.stderr
+E   AssertionError: OMP: Error #179: Function Can't open SHM failed:
+E     OMP: System error #0: Undefined error: 0
+E     
+E   assert -6 == 0
+E    +  where -6 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...e=-6, stdout='', stderr="OMP: Error #179: Function Can't open SHM failed:\nOMP: System error #0: Undefined error: 0\n").returncode
+_____ test_real_bigearth_entry_train_reload_and_test[gavit-soft_prototype] _____
+tests/test_soft_entrypoints.py:59: in test_real_bigearth_entry_train_reload_and_test
+    assert result.returncode == 0, result.stdout + result.stderr
+E   AssertionError: OMP: Error #179: Function Can't open SHM failed:
+E     OMP: System error #0: Undefined error: 0
+E     
+E   assert -6 == 0
+E    +  where -6 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...e=-6, stdout='', stderr="OMP: Error #179: Function Can't open SHM failed:\nOMP: System error #0: Undefined error: 0\n").returncode
+______________ test_new_mode_resume_uses_persisted_initial_probe _______________
+tests/test_soft_entrypoints.py:89: in test_new_mode_resume_uses_persisted_initial_probe
+    assert stopped.returncode == 7, stopped.stdout + stopped.stderr
+E   AssertionError: OMP: Error #179: Function Can't open SHM failed:
+E     OMP: System error #0: Undefined error: 0
+E     
+E   assert -6 == 7
+E    +  where -6 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...e=-6, stdout='', stderr="OMP: Error #179: Function Can't open SHM failed:\nOMP: System error #0: Undefined error: 0\n").returncode
+________ test_legacy_nwpu_entry_rejects_new_sidecar_before_data_access _________
+tests/test_soft_entrypoints.py:107: in test_legacy_nwpu_entry_rejects_new_sidecar_before_data_access
+    assert result.returncode != 0 and 'run_scene.py' in result.stderr
+E   assert (-6 != 0 and 'run_scene.py' in "OMP: Error #179: Function Can't open SHM failed:\nOMP: System error #0: Undefined error: 0\n")
+E    +  where -6 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...e=-6, stdout='', stderr="OMP: Error #179: Function Can't open SHM failed:\nOMP: System error #0: Undefined error: 0\n").returncode
+E    +  and   "OMP: Error #179: Function Can't open SHM failed:\nOMP: System error #0: Undefined error: 0\n" = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...e=-6, stdout='', stderr="OMP: Error #179: Function Can't open SHM failed:\nOMP: System error #0: Undefined error: 0\n").stderr
+=============================== warnings summary ===============================
+tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[swin-None]
+tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-attentive_spatial]
+tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-soft_prototype]
+tests/test_soft_entrypoints.py::test_new_mode_resume_uses_persisted_initial_probe
+  /private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/rasterio/__init__.py:366: NotGeoreferencedWarning: Dataset has no geotransform, gcps, or rpcs. The identity matrix will be returned.
+    dataset = writer(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_soft_entrypoints.py::test_help_advertises_new_mode[train_bigearth.py]
+FAILED tests/test_soft_entrypoints.py::test_help_advertises_new_mode[test_bigearth.py]
+FAILED tests/test_soft_entrypoints.py::test_help_advertises_new_mode[run_scene.py]
+FAILED tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[swin-None]
+FAILED tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-attentive_spatial]
+FAILED tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-soft_prototype]
+FAILED tests/test_soft_entrypoints.py::test_new_mode_resume_uses_persisted_initial_probe
+FAILED tests/test_soft_entrypoints.py::test_legacy_nwpu_entry_rejects_new_sidecar_before_data_access
+8 failed, 4 warnings in 25.35s

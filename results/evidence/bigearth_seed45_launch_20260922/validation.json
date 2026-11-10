@@ -1,0 +1,13 @@
+{
+  "status": "local_pass",
+  "tests": 4,
+  "source_equal_to_seed44": true,
+  "bash_zsh_syntax": "pass",
+  "bootstrap_missing_repo_gate": "exit1_no_formal_stage",
+  "duplicate_launch": "FileExistsError",
+  "training_code_changes": false,
+  "server_data_checked": false,
+  "server_cuda_smoke_run": false,
+  "formal_started": false,
+  "precision_scope": "BigEarthNet inherited defaults recorded; no AID TF32 override"
+}

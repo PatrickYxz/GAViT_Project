@@ -1,0 +1,61 @@
+{
+  "status": "server_completion_reported",
+  "server_output": "/home/featurize/work/nwpu_assignment_cache42_20261007_01",
+  "samples": 90,
+  "split": "val",
+  "source_phase": "calibrate",
+  "source_kind": "user_pasted_terminal_summary",
+  "stdout_precision": "six_decimal_means",
+  "metrics": {
+    "fixed": {
+      "S_entropy_normalized_mean": 0.0,
+      "W_neighbor_overlap_mean": 0.0,
+      "W_effective_tokens_mean": 1.838518,
+      "S_centroid_drift_mean": 0.0,
+      "W_centroid_drift_mean": 0.050234,
+      "W_center_rms_mean": 0.056126
+    },
+    "soft": {
+      "S_entropy_normalized_mean": 0.741116,
+      "W_neighbor_overlap_mean": 0.478292,
+      "W_effective_tokens_mean": 7.015423,
+      "S_centroid_drift_mean": 0.102003,
+      "W_centroid_drift_mean": 0.181653,
+      "W_center_rms_mean": 0.184898
+    },
+    "uniform_local": {
+      "S_entropy_normalized_mean": 1.0,
+      "W_neighbor_overlap_mean": 0.640693,
+      "W_effective_tokens_mean": 18.777516,
+      "S_centroid_drift_mean": 0.120128,
+      "W_centroid_drift_mean": 0.120128,
+      "W_center_rms_mean": 0.264163
+    }
+  },
+  "paired": {
+    "both_correct": 82,
+    "soft_corrects": 3,
+    "soft_breaks": 0,
+    "both_wrong": 5
+  },
+  "derived_from_rounded_means": {
+    "FIXED": {
+      "S_anchor_drift_token_spacings": 0.0,
+      "W_anchor_drift_token_spacings": 0.351638
+    },
+    "SOFT": {
+      "S_anchor_drift_token_spacings": 0.714021,
+      "W_anchor_drift_token_spacings": 1.271571
+    },
+    "UNIFORM_LOCAL": {
+      "S_anchor_drift_token_spacings": 0.840896,
+      "W_anchor_drift_token_spacings": 0.840896
+    },
+    "soft_W_minus_S_mean_anchor_distance": 0.07965000000000001,
+    "soft_W_minus_S_note": "Difference between two mean distances to anchor, NOT the mean vector displacement from S centroid to W centroid."
+  },
+  "server_exit_code": 0,
+  "local_validation": "Parsed compact output, count consistency, arithmetic, and current source formulas only; original PT/full summary/per-case statistics not locally available.",
+  "server_elapsed_seconds": null,
+  "server_return_sha256": "93f57f03f0562ffc031bf04a0452aef591f168b09f3f699e809c853e3aa75814"
+}

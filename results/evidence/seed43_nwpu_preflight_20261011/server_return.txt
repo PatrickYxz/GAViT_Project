@@ -1,0 +1,17 @@
+assert hashlib.sha256(s).hexdigest()=="bb50d71a98aaa44b14c7f604c2236218c8b663a90f1e89254d6fd524c0340e5e"; ns={"__name__":"frozen_handoff"}; exec(compile(s,"<frozen_handoff>","exec"),ns); print(json.dumps(ns["preflight"](),indent=2))'
+
+{
+  "status": "NWPU43_PREFLIGHT_PASS",
+  "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+  "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+  "seed": 43,
+  "counts": {"test": 25200, "train": 5040, "val": 1260},
+  "gpu": "GPU-b1911368-563d-916d-cb16-e7c2c9ead04a, NVIDIA GeForce RTX 4090, 610.57.04, 24564 MiB",
+  "gpu_profile": {
+    "uuid": "GPU-b1911368-563d-916d-cb16-e7c2c9ead04a",
+    "name": "NVIDIA GeForce RTX 4090", "driver": "610.57.04", "memory_mib": 24564
+  },
+  "stages": ["swin_calibrate", "fixed_calibrate", "soft_calibrate", "swin_refit", "fixed_refit", "soft_refit", "swin_test", "fixed_test", "soft_test"],
+  "training_started": false
+}

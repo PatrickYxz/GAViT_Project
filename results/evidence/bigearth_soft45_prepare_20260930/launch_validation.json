@@ -1,0 +1,31 @@
+{
+  "bundle_sha256": "22b0726afc13344427b6735aa65a950f133059ea9fe822d75006f932e5566f23",
+  "files_sha256": {
+    "run_soft45.py": "8ff8f6d36b6709f993b96f35dfb89b96422ea46fe104263e76bb35b553a12690",
+    "preflight.py": "08ef296aa7e34174630d2e77b45c767b05742dfba012bcf5aeaf845e12a5fa03",
+    "approved_preflight.json": "9cf13d3b6855c2c800228ec18524a7764936c9f2a1f7adf6e6d605c32a5c0fb1"
+  },
+  "command_characters": 12245,
+  "python_syntax": true,
+  "shell_syntax": {
+    "bash": {
+      "exit_code": 0,
+      "stderr": ""
+    },
+    "zsh": {
+      "exit_code": 0,
+      "stderr": ""
+    }
+  },
+  "payload_roundtrip": true,
+  "server_execution": false,
+  "detached_real_bundle_fail_closed": true,
+  "duplicate_launch_preserves_bytes": true,
+  "direct_duplicate_preserves_bytes": true,
+  "local_scope": "Packaged launcher at temporary local destination; absent pinned server helper intentionally stops before preflight/train; no CUDA test",
+  "review": "Independent source/packaging review: no actionable findings",
+  "targeted_tests_passed": 12,
+  "targeted_tests_exit_code": 0,
+  "test_log": "tests.log",
+  "formal_server_training_started": false
+}

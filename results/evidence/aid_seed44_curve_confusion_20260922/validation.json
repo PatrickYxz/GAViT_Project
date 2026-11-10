@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "checks": [
+    "4 run names/epochs/best choices match prior six-stage report",
+    "106 consecutive epoch tuples; finite nonnegative losses and finite positive LR",
+    "all LR values match lr0.0003 cosine T_max30 using epoch-1 step; max error <1e-14",
+    "Swin earliest best25 among25/26; GAViT earliest best21 among21/22/26",
+    "refit25/21 equals own calibration selection; all refit val fields null",
+    "12 focus rows have known class labels, positive integer counts, correct supports175/130",
+    "all 12 row diagonal counts reproduce earlier reported per-class accuracies",
+    "off-diagonal changes sum to net error increase21/10"
+  ],
+  "scope": "verification of returned summaries; not entire training process or per-image causal validation"
+}

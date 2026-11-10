@@ -1,0 +1,12 @@
+{
+  "source": "User inline pasted evaluation run.json and metrics summary, 2026-09-21",
+  "normalization": "Escaped underscores and Markdown-rendered __init__.py restored; formatting normalized; not a byte-for-byte server copy.",
+  "exit_code": 0,
+  "completion_log_received": false,
+  "complete_metrics_received": false,
+  "checkpoint_downloaded": false,
+  "matched_local_source_files": 17,
+  "matched_refit_identity": true,
+  "status": "Metrics, identity and explicit exit code verified; full per-class/confusion/prediction files not received",
+  "exit_code_source": "User next GAViT test return explicitly included Swin: exit_code=0"
+}

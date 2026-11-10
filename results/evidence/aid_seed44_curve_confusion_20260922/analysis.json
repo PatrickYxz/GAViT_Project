@@ -1,0 +1,411 @@
+{
+  "status": "passed",
+  "curve_count": 4,
+  "epoch_rows": 106,
+  "confusion_rows": 12,
+  "curves": [
+    {
+      "directory": "aid_swin_calibrate44_20260921_01",
+      "model": "swin",
+      "phase": "calibrate",
+      "epochs": 30,
+      "first_train_loss": 0.817971713423729,
+      "last_train_loss": 0.000821809189976193,
+      "last_lr": 8.2171569475899e-07,
+      "final_val_oa_percent": 96.6,
+      "best_val_oa_percent": 97.0,
+      "best_epoch": 25,
+      "tied_best_epochs": [
+        25,
+        26
+      ],
+      "max_abs_lr_schedule_error": 8.131516293641283e-20,
+      "loss_increase_epochs": [
+        7,
+        8,
+        10,
+        18,
+        24,
+        27
+      ],
+      "scope": "epoch-level curves; no batch-level losses, gradient norms or timing fields"
+    },
+    {
+      "directory": "aid_gavit_calibrate44_20260921_01",
+      "model": "gavit",
+      "phase": "calibrate",
+      "epochs": 30,
+      "first_train_loss": 0.9578279393911362,
+      "last_train_loss": 0.0008746492947684601,
+      "last_lr": 8.2171569475899e-07,
+      "final_val_oa_percent": 96.7,
+      "best_val_oa_percent": 97.0,
+      "best_epoch": 21,
+      "tied_best_epochs": [
+        21,
+        22,
+        26
+      ],
+      "max_abs_lr_schedule_error": 8.131516293641283e-20,
+      "loss_increase_epochs": [
+        9,
+        11,
+        12,
+        18,
+        22,
+        25,
+        27,
+        29
+      ],
+      "scope": "epoch-level curves; no batch-level losses, gradient norms or timing fields"
+    },
+    {
+      "directory": "aid_swin_refit44_20260921_01",
+      "model": "swin",
+      "phase": "refit",
+      "epochs": 25,
+      "first_train_loss": 0.7621799167633057,
+      "last_train_loss": 0.0010073196496348828,
+      "last_lr": 2.8647450843757908e-05,
+      "final_val_oa_percent": null,
+      "best_val_oa_percent": null,
+      "best_epoch": null,
+      "tied_best_epochs": [],
+      "max_abs_lr_schedule_error": 8.131516293641283e-20,
+      "loss_increase_epochs": [
+        7,
+        9,
+        16,
+        17,
+        20,
+        22,
+        23,
+        25
+      ],
+      "scope": "epoch-level curves; no batch-level losses, gradient norms or timing fields"
+    },
+    {
+      "directory": "aid_gavit_refit44_20260921_01",
+      "model": "gavit",
+      "phase": "refit",
+      "epochs": 21,
+      "first_train_loss": 0.8115676630616188,
+      "last_train_loss": 0.0029992469595745207,
+      "last_lr": 7.500000000000005e-05,
+      "final_val_oa_percent": null,
+      "best_val_oa_percent": null,
+      "best_epoch": null,
+      "tied_best_epochs": [],
+      "max_abs_lr_schedule_error": 8.131516293641283e-20,
+      "loss_increase_epochs": [
+        6,
+        9,
+        10,
+        14,
+        16
+      ],
+      "scope": "epoch-level curves; no batch-level losses, gradient norms or timing fields"
+    }
+  ],
+  "focus": [
+    {
+      "directory": "aid_swin_test42_20260921_01",
+      "seed": 42,
+      "model": "swin",
+      "true_class": "Commercial",
+      "support": 175,
+      "correct": 145,
+      "errors": 30,
+      "predicted_counts": {
+        "Commercial": 145,
+        "Industrial": 4,
+        "RailwayStation": 1,
+        "School": 22,
+        "Square": 3
+      }
+    },
+    {
+      "directory": "aid_swin_test42_20260921_01",
+      "seed": 42,
+      "model": "swin",
+      "true_class": "RailwayStation",
+      "support": 130,
+      "correct": 126,
+      "errors": 4,
+      "predicted_counts": {
+        "Industrial": 3,
+        "RailwayStation": 126,
+        "School": 1
+      }
+    },
+    {
+      "directory": "aid_gavit_test42_20260921_01",
+      "seed": 42,
+      "model": "gavit",
+      "true_class": "Commercial",
+      "support": 175,
+      "correct": 168,
+      "errors": 7,
+      "predicted_counts": {
+        "Commercial": 168,
+        "Industrial": 1,
+        "School": 4,
+        "Square": 2
+      }
+    },
+    {
+      "directory": "aid_gavit_test42_20260921_01",
+      "seed": 42,
+      "model": "gavit",
+      "true_class": "RailwayStation",
+      "support": 130,
+      "correct": 128,
+      "errors": 2,
+      "predicted_counts": {
+        "Center": 1,
+        "RailwayStation": 128,
+        "Square": 1
+      }
+    },
+    {
+      "directory": "aid_swin_test43_20260921_01",
+      "seed": 43,
+      "model": "swin",
+      "true_class": "Commercial",
+      "support": 175,
+      "correct": 166,
+      "errors": 9,
+      "predicted_counts": {
+        "Church": 1,
+        "Commercial": 166,
+        "DenseResidential": 1,
+        "Industrial": 3,
+        "School": 2,
+        "Square": 2
+      }
+    },
+    {
+      "directory": "aid_swin_test43_20260921_01",
+      "seed": 43,
+      "model": "swin",
+      "true_class": "RailwayStation",
+      "support": 130,
+      "correct": 125,
+      "errors": 5,
+      "predicted_counts": {
+        "Center": 2,
+        "Industrial": 1,
+        "RailwayStation": 125,
+        "School": 1,
+        "Viaduct": 1
+      }
+    },
+    {
+      "directory": "aid_gavit_test43_20260921_01",
+      "seed": 43,
+      "model": "gavit",
+      "true_class": "Commercial",
+      "support": 175,
+      "correct": 169,
+      "errors": 6,
+      "predicted_counts": {
+        "Center": 1,
+        "Commercial": 169,
+        "Industrial": 1,
+        "RailwayStation": 1,
+        "School": 2,
+        "Square": 1
+      }
+    },
+    {
+      "directory": "aid_gavit_test43_20260921_01",
+      "seed": 43,
+      "model": "gavit",
+      "true_class": "RailwayStation",
+      "support": 130,
+      "correct": 128,
+      "errors": 2,
+      "predicted_counts": {
+        "Center": 1,
+        "Commercial": 1,
+        "RailwayStation": 128
+      }
+    },
+    {
+      "directory": "aid_swin_test44_20260921_01",
+      "seed": 44,
+      "model": "swin",
+      "true_class": "Commercial",
+      "support": 175,
+      "correct": 171,
+      "errors": 4,
+      "predicted_counts": {
+        "Center": 1,
+        "Commercial": 171,
+        "Industrial": 1,
+        "School": 1,
+        "Viaduct": 1
+      }
+    },
+    {
+      "directory": "aid_swin_test44_20260921_01",
+      "seed": 44,
+      "model": "swin",
+      "true_class": "RailwayStation",
+      "support": 130,
+      "correct": 126,
+      "errors": 4,
+      "predicted_counts": {
+        "Center": 2,
+        "Industrial": 1,
+        "RailwayStation": 126,
+        "School": 1
+      }
+    },
+    {
+      "directory": "aid_gavit_test44_20260921_01",
+      "seed": 44,
+      "model": "gavit",
+      "true_class": "Commercial",
+      "support": 175,
+      "correct": 150,
+      "errors": 25,
+      "predicted_counts": {
+        "Center": 1,
+        "Church": 3,
+        "Commercial": 150,
+        "DenseResidential": 1,
+        "Industrial": 1,
+        "Resort": 3,
+        "School": 8,
+        "Square": 2,
+        "StorageTanks": 6
+      }
+    },
+    {
+      "directory": "aid_gavit_test44_20260921_01",
+      "seed": 44,
+      "model": "gavit",
+      "true_class": "RailwayStation",
+      "support": 130,
+      "correct": 116,
+      "errors": 14,
+      "predicted_counts": {
+        "Center": 1,
+        "Church": 1,
+        "Industrial": 10,
+        "RailwayStation": 116,
+        "Resort": 1,
+        "Viaduct": 1
+      }
+    }
+  ],
+  "seed44_confusion_changes": [
+    {
+      "true_class": "Commercial",
+      "net_correct": -21,
+      "off_diagonal_count_changes": [
+        {
+          "predicted_class": "School",
+          "swin_count": 1,
+          "gavit_count": 8,
+          "delta_count": 7
+        },
+        {
+          "predicted_class": "StorageTanks",
+          "swin_count": 0,
+          "gavit_count": 6,
+          "delta_count": 6
+        },
+        {
+          "predicted_class": "Church",
+          "swin_count": 0,
+          "gavit_count": 3,
+          "delta_count": 3
+        },
+        {
+          "predicted_class": "Resort",
+          "swin_count": 0,
+          "gavit_count": 3,
+          "delta_count": 3
+        },
+        {
+          "predicted_class": "Square",
+          "swin_count": 0,
+          "gavit_count": 2,
+          "delta_count": 2
+        },
+        {
+          "predicted_class": "DenseResidential",
+          "swin_count": 0,
+          "gavit_count": 1,
+          "delta_count": 1
+        },
+        {
+          "predicted_class": "Center",
+          "swin_count": 1,
+          "gavit_count": 1,
+          "delta_count": 0
+        },
+        {
+          "predicted_class": "Industrial",
+          "swin_count": 1,
+          "gavit_count": 1,
+          "delta_count": 0
+        },
+        {
+          "predicted_class": "Viaduct",
+          "swin_count": 1,
+          "gavit_count": 0,
+          "delta_count": -1
+        }
+      ],
+      "interpretation": "marginal confusion-row changes; no per-image transitions or causal attribution"
+    },
+    {
+      "true_class": "RailwayStation",
+      "net_correct": -10,
+      "off_diagonal_count_changes": [
+        {
+          "predicted_class": "Industrial",
+          "swin_count": 1,
+          "gavit_count": 10,
+          "delta_count": 9
+        },
+        {
+          "predicted_class": "Church",
+          "swin_count": 0,
+          "gavit_count": 1,
+          "delta_count": 1
+        },
+        {
+          "predicted_class": "Resort",
+          "swin_count": 0,
+          "gavit_count": 1,
+          "delta_count": 1
+        },
+        {
+          "predicted_class": "Viaduct",
+          "swin_count": 0,
+          "gavit_count": 1,
+          "delta_count": 1
+        },
+        {
+          "predicted_class": "Center",
+          "swin_count": 2,
+          "gavit_count": 1,
+          "delta_count": -1
+        },
+        {
+          "predicted_class": "School",
+          "swin_count": 1,
+          "gavit_count": 0,
+          "delta_count": -1
+        }
+      ],
+      "interpretation": "marginal confusion-row changes; no per-image transitions or causal attribution"
+    }
+  ],
+  "conclusion": "No observed epoch truncation, wrong earliest-best selection or LR schedule mismatch. Refit losses fluctuate and converge; these summaries do not establish a graph-specific cause.",
+  "next_step": "close this bounded audit; E06 inference efficiency using existing checkpoints, no new training or test-driven epoch change"
+}

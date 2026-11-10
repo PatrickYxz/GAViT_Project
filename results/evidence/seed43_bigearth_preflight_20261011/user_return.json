@@ -1,0 +1,45 @@
+{
+  "status": "BIGEARTH_SOFT43_PREFLIGHT_PASS",
+  "seed": 43,
+  "controls": {
+    "swin": {
+      "final_epoch": 30,
+      "best": {"metric": "val_mAP", "value": 78.3459, "epoch": 6},
+      "checkpoint_sha256": "41fa17c8af392f9e7e8b58e841ed0c640f242aa485cad7416d4ae59da427a80b",
+      "test_log": "/home/featurize/work/GAViT_Project/logs/final_multiseed_swin_bb9f1cf_seed43_retry1_test.log",
+      "test_log_sha256": "ccaad4b52515e64174ee51aa4b87fa8cac97e68cb531fd2e02b438f14159f3a7",
+      "metrics_printed": ["71.1%", "64.1%", "76.0%"]
+    },
+    "gavit": {
+      "final_epoch": 21,
+      "best": {"metric": "val_mAP", "value": 78.4728, "epoch": 8},
+      "checkpoint_sha256": "f2829be742369f4b3418ab30f807ffb4390eef71569279331e467ceccab3d197",
+      "test_log": "/home/featurize/work/GAViT_Project/logs/final_multiseed_sparse_hybrid_bb9f1cf_seed43_retry1_test_retry2.log",
+      "test_log_sha256": "730e13e62c1ec68c67d113d4cbafa830d6f553b01a21ad2d10adcc95f3c02663",
+      "metrics_printed": ["71.7%", "65.7%", "76.8%"]
+    }
+  },
+  "splits": {
+    "train": {"count": 237871, "sha256": "25734fd9e8dc7fd78fb259e768ae91fe11b297e1caa50a2d57b74b0296413d8f"},
+    "val": {"count": 122342, "sha256": "1c6627cb48e33588538c4e411e4f1b94560827f27d59fb7aeb0ea2b5d30c2a45"},
+    "test": {"count": 119825, "sha256": "cea165a6443fc5ee44de0a3c55f53ce70505c4e25aba9ca8b52d76634df77204"}
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "threads": 8,
+    "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+    "packages": {"torch": "2.2.2", "torchvision": "0.17.2", "timm": "1.0.27", "torch-geometric": "2.8.0", "numpy": "1.26.4", "scikit-learn": "1.9.0", "pillow": "10.3.0"},
+    "gpu_identity": "GPU-cede40c0-f93d-7c8e-1006-cf6183e53592, NVIDIA GeForce RTX 4090, 610.57.04"
+  },
+  "precision": {"dtype": "torch.float32", "matmul_tf32": false, "cudnn_tf32": true, "amp": false},
+  "soft_commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "reference_commit": "bb9f1cf",
+  "reference_gpu_identity": "GPU-f57c9bd1-b685-6426-9d4a-a51d0954ffab, NVIDIA GeForce RTX 2080 Ti, 610.57.04",
+  "reference_gpu_model": "NVIDIA GeForce RTX 2080 Ti",
+  "gpu_model_changed": true,
+  "physical_gpu_identity_changed": true,
+  "new_training_started": false,
+  "comparison_limitations": "Fixed43 saved epoch21/best8; Swin43 epoch30/best6; historical 4090 train and 3060 fixed test; new soft43 uses full30 on current4090, different code. Same seed does not remove these confounders."
+}

@@ -1,0 +1,51 @@
+{
+  "recorded_date": "2026-09-17",
+  "source": "User pasted report and terminal completion line in conversation; original full run.json and predictions not yet received locally",
+  "server_output_directory": "/home/featurize/work/pair44_fullval_8Tvk9d/diagnosis",
+  "status_evidence": {
+    "diagnostic_complete_seen": true,
+    "shell_job_done_seen": true,
+    "pid": 5173
+  },
+  "uniform_n": 122342,
+  "supplement_n": 0,
+  "threshold": 0.5,
+  "scope": "full_validation_not_test",
+  "per_class_printed": [
+    {
+      "class_index": 11,
+      "class": "Natural grassland and sparsely vegetated areas",
+      "positive": 2687,
+      "swin_ap_percent": 57.91,
+      "gavit_ap_percent": 56.58,
+      "delta_ap_pp": -1.33
+    },
+    {
+      "class_index": 14,
+      "class": "Beaches, dunes, sands",
+      "positive": 426,
+      "swin_ap_percent": 76.13,
+      "gavit_ap_percent": 75.74,
+      "delta_ap_pp": -0.39
+    },
+    {
+      "class_index": 16,
+      "class": "Coastal wetlands",
+      "positive": 610,
+      "swin_ap_percent": 44.53,
+      "gavit_ap_percent": 46.62,
+      "delta_ap_pp": 2.09
+    }
+  ],
+  "aggregate_metrics": null,
+  "validation": {
+    "printed_delta_arithmetic": "passed",
+    "positive_support_vs_prior_split_statistics": "passed",
+    "independent_AP_recalculation": "not_possible_without_full_predictions"
+  },
+  "pending": [
+    "full per_class.csv",
+    "run.json identity and resources",
+    "background subgroup metrics from cached predictions"
+  ]
+}

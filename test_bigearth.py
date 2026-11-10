@@ -51,7 +51,7 @@ parser.add_argument("--gat_hidden",  type=int, default=None)
 parser.add_argument("--gat_heads",   type=int, default=None)
 parser.add_argument("--gat_layers",  type=int, default=None)
 parser.add_argument("--grouping",    type=str, default=None,
-                    choices=["kmeans", "spatial", "attentive_spatial"])
+                    choices=["kmeans", "spatial", "attentive_spatial", "soft_prototype"])
 parser.add_argument("--edge_type",   type=str, default=None,
                     choices=["knn", "spatial", "hybrid", "sparse_hybrid"])
 parser.add_argument("--integration", type=str, default=None,
@@ -83,12 +83,6 @@ test_tf = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406],
                          std=[0.229, 0.224, 0.225]),
 ])
-
-test_patches, test_labels = load_split(os.path.join(args.data_dir, "test.csv"))
-test_set    = BigEarthNetDataset(test_patches, test_labels, transform=test_tf)
-test_loader = DataLoader(test_set, batch_size=args.batch_size, shuffle=False,
-                         num_workers=4, pin_memory=False)  # 2026-09-09 hotfix: same pinned-pool host OOM as the val loader; test set is 119825 images
-print(f"Test samples: {len(test_set):,}")
 
 # =============================================================================
 # Model (architecture reconstructed from checkpoint metadata when available)
@@ -157,24 +151,17 @@ else:
         ARCH_DEFAULTS,
     )
     print(f"Architecture source: {arch_source}")
-    model = GAViT(
-        num_classes=arch["num_classes"],
-        num_regions=arch["num_regions"],
-        knn_k=arch["knn_k"],
-        gat_hidden=arch["gat_hidden"],
-        gat_heads=arch["gat_heads"],
-        gat_layers=arch["gat_layers"],
-        dropout=arch["dropout"],
-        grouping=arch["grouping"],
-        edge_type=arch["edge_type"],
-        integration=arch["integration"],
-        pretrained=False,
-        freeze_backbone=False,
-    ).to(DEVICE)
+    model = GAViT(**arch, pretrained=False, freeze_backbone=False).to(DEVICE)
 
 model.load_state_dict(torch.load(args.ckpt, map_location=DEVICE, weights_only=True))
 model.eval()
 print(f"Loaded: {args.ckpt}")
+
+test_patches, test_labels = load_split(os.path.join(args.data_dir, "test.csv"))
+test_set = BigEarthNetDataset(test_patches, test_labels, transform=test_tf)
+test_loader = DataLoader(test_set, batch_size=args.batch_size, shuffle=False,
+                         num_workers=4, pin_memory=False)  # Avoid the pinned-pool host OOM.
+print(f"Test samples: {len(test_set):,}")
 
 # =============================================================================
 # Evaluate

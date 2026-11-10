@@ -1,0 +1,29 @@
+{
+  "updated": "2026-10-12",
+  "status": "partial_multiseed_evidence",
+  "seeds_per_dataset": {
+    "NWPU-RESISC45": [
+      42,
+      43
+    ],
+    "BigEarthNet-19": [
+      43,
+      45
+    ]
+  },
+  "nwpu_current": "nwpu_two_seed_summary.json",
+  "nwpu_latest": "nwpu_seed43_test_summary.json",
+  "bigearth_complete": "bigearth_soft45_ablation.md",
+  "bigearth_pending_seed": null,
+  "bigearth_pending_status": "formal training/test/resources archived",
+  "original_single_seed_snapshot": "soft_assignment_cross_dataset_summary.json",
+  "n3_final_requirement_met": false,
+  "limitations": [
+    "NWPU42/43 use different GPU models; descriptive results only",
+    "BEN43 controls saved30 vs21 and historical code/hardware differ",
+    "No averaging across OA and mAP"
+  ],
+  "bigearth_current": "bigearth_three_model_two_seed_summary.json",
+  "bigearth_latest": "bigearth_soft43_test_summary.json",
+  "seed43_formal_cost": "evidence/bigearth_soft43_complete_20261012/seed43_formal_cost.json"
+}

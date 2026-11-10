@@ -1,0 +1,44 @@
+{
+  "attachment_sha256": "64801c0830cfc617e50372e7c70292bc18b00dd2c76d16db6ad6b7ae98e1415f",
+  "six_stage_order_exits_and_reported_checks": true,
+  "architecture_epoch_checkpoint_lineage_matches_calibration": true,
+  "OA_integer_reconstruction": true,
+  "derived": {
+    "swin": {
+      "correct_from_OA": 23671,
+      "errors_from_OA": 1529,
+      "OA_delta_vs_swin_pp": 0.0,
+      "macro_F1_delta_vs_swin_pp": 0.0,
+      "refit_minutes": 18.476405809933333,
+      "allocated_GiB": 3.5583620071411133,
+      "reserved_GiB": 3.830078125
+    },
+    "fixed": {
+      "correct_from_OA": 23714,
+      "errors_from_OA": 1486,
+      "OA_delta_vs_swin_pp": 0.17063492063492447,
+      "macro_F1_delta_vs_swin_pp": 0.18078799457602202,
+      "refit_minutes": 20.95421767421666,
+      "allocated_GiB": 3.6550450325012207,
+      "reserved_GiB": 3.876953125
+    },
+    "soft": {
+      "correct_from_OA": 23655,
+      "errors_from_OA": 1545,
+      "OA_delta_vs_swin_pp": -0.06349206349206327,
+      "macro_F1_delta_vs_swin_pp": -0.054158248840948886,
+      "refit_minutes": 20.66996904616667,
+      "allocated_GiB": 3.6615567207336426,
+      "reserved_GiB": 4.0390625
+    }
+  },
+  "soft_minus_fixed_OA_pp": -0.23412698412698774,
+  "soft_minus_fixed_macro_F1_pp": -0.2349462434169709,
+  "queue_minutes": 66.08795707611667,
+  "calibration_plus_refit_test_minutes": 138.5357711171167,
+  "pending": [
+    "test paired corrections/breaks from cached CSVs",
+    "test per-class and confusion results locally not yet received",
+    "actual price not supplied"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "tool_sha256": "4cd5175261d271638a00e4a4c733f329ecde1c07b646b901c960f0181237eea3",
+  "tests_passed": 25,
+  "frozen_model_hashes_match": [
+    "models/gavit.py",
+    "models/soft_region_grouping.py",
+    "grouping_identity.py"
+  ],
+  "server_started": false
+}

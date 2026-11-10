@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "date": "2026-10-06",
+  "scope": "Archived-summary arithmetic, formatted numerical table rows and local-link validation; no raw-prediction rerun, GPU forward, full backup or independent scientific peer review",
+  "table_rows_checked": 26,
+  "checks": [
+    "AID: all three seeds, paired counts, means, sample SD and formatted tables",
+    "BigEarth: four historical seeds, rounded-input caveat retained; means and sample SD recomputed",
+    "Soft: six test rows, dataset/seed separation, all stored deltas and 19-class AP decomposition",
+    "FFN: four validation rows, OA/counts, paired margins/class sums, added parameters and stopping comparisons",
+    "Efficiency: all four displayed rows regenerated; relative changes computed from recorded values",
+    "Feedback direction at all prespecified points and gallery display percentages checked against archived reports",
+    "All local links and both existing figure files in the two new documents exist"
+  ],
+  "sources_sha256": {
+    "results/aid_multiseed_summary.json": "2418d5841daa98e3e77f51afe37e295969d22bd8f2f950e2746ee5e32510623a",
+    "results/bigearth_four_seed_summary.json": "fa6ce8b1837bfffb996148beb0d8cb85b640fcf3ac39ce536c3dd2a455b1b68c",
+    "results/soft_assignment_cross_dataset_summary.json": "bc3bd6fe17ddeed9de208b1d48962d566d37de304397805835618be6be8fb99b",
+    "results/aid_efficiency_summary.json": "c600f8776b37716aa83f4aa49a11c7775cb373c166ece06f069c556e33a057c2",
+    "results/nwpu_ffn_calibration42_summary.json": "99ffeb85b3d2de775f3663b4ffcb1e14ef5f187b7156f9faa0b1d8315dbbe967",
+    "results/evidence/nwpu_feedback42_20261003/summary.json": "746691114e0f15a64fa57e465790cb9d50be8adfa570cecb8a8ef97f92e5b390",
+    "results/evidence/nwpu_regions_review_20260929/display_statistics.json": "e42a24b10d5b17723041366a1a593b0d28de73a7badec52b92b4d9f4e5d08ab1"
+  },
+  "draft_sha256": "7916e7181bc63c1f9c4241fc3995245a053e7352d51b3e630ce4cae32a202ee6",
+  "local_link_targets_checked": [
+    "deliverables/nwpu_regions_review_20260930/all_five_shared_errors.png",
+    "deliverables/nwpu_regions_review_20260930/all_three_corrections.png",
+    "docs/experiment_matrix_20260919.md",
+    "docs/external_methods_readiness_20260924.md",
+    "docs/external_methods_refresh_20261006.md",
+    "docs/supervisor_latest_email_received_20260924.md",
+    "docs/thesis_experiments_discussion_20261006.md",
+    "results/aid_efficiency_summary.json",
+    "results/aid_efficiency_summary.md",
+    "results/aid_multiseed_summary.json",
+    "results/aid_multiseed_summary.md",
+    "results/bigearth_four_seed_summary.json",
+    "results/bigearth_four_seed_summary.md",
+    "results/bigearth_soft45_ablation.md",
+    "results/nwpu_feedback_sensitivity_seed42.md",
+    "results/nwpu_ffn_calibration42_comparison.md",
+    "results/nwpu_ffn_calibration42_summary.json",
+    "results/nwpu_regions_visual_review_20260930.md",
+    "results/nwpu_seed42_closeout.md",
+    "results/soft_assignment_cross_dataset_ablation.md",
+    "results/soft_assignment_cross_dataset_summary.json"
+  ],
+  "independent_agent_review": "Not completed; both delegated read-only audit attempts returned usage-limit errors; main agent performed the checks above"
+}

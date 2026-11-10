@@ -1,0 +1,37 @@
+{
+  "status": "USER_RETURN_MATCHES_CURRENT_NWPU_PREFLIGHT",
+  "report_sha256": "8c52eb51aa760361bdaaf5e485e74b7aaa7f155b57d50291a7735a9f48ebe0d7",
+  "source_sha256": "bb50d71a98aaa44b14c7f604c2236218c8b663a90f1e89254d6fd524c0340e5e",
+  "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "server_preflight_pass": true,
+  "real_cuda_smoke_pending": true,
+  "formal_training_started": false,
+  "bigearth_preflight_pending": true,
+  "smoke_command": {
+    "path": "nwpu_smoke_command.txt",
+    "sha256": "204f3c2e79325d5748c6fcd3654bb4f7b9a729a899aa49639dec531b80dc3f6c",
+    "bash_syntax": true,
+    "zsh_syntax": true,
+    "frozen_cli_args_parsed": {
+      "model": "gavit",
+      "grouping": "soft_prototype",
+      "phase": "smoke",
+      "seed": 43,
+      "pretrained_path": "/home/featurize/work/GAViT_Project/bigearth_files/model.safetensors",
+      "random_init": false,
+      "train_per_class": 8,
+      "val_per_class": 2,
+      "calibration": null,
+      "manifest": "/home/featurize/work/nwpu_protocol_20260927_02.json",
+      "data_root": "/home/featurize/data/NWPU-RESISC45",
+      "output": "/home/featurize/work/gpucheck_nwpu_soft43_4090_20261011_01",
+      "device": "cuda",
+      "batch_size": 32,
+      "workers": 2
+    },
+    "output": "/home/featurize/work/gpucheck_nwpu_soft43_4090_20261011_01",
+    "epochs": 1,
+    "gpu_work_performed_locally": false
+  },
+  "boundary": "Returned read-only checks cover code/input hashes, manifest counts, file existence, GPU availability/identity and prior formal artifacts. Real image decoding/CUDA training/reload remain to be verified on target GPU."
+}

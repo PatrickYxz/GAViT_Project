@@ -1,0 +1,64 @@
+FFFFFF                                                                   [100%]
+=================================== FAILURES ===================================
+______________ test_shared_initialization_and_rng_match_old_model ______________
+tests/test_soft_gavit.py:36: in test_shared_initialization_and_rng_match_old_model
+    new = make_model()
+tests/test_soft_gavit.py:27: in make_model
+    return GAViT(pretrained=False, grouping=grouping, edge_type='sparse_hybrid',
+models/gavit.py:79: in __init__
+    raise ValueError(
+E   ValueError: Unknown grouping='soft_prototype'. Valid: ('attentive_spatial', 'spatial', 'kmeans')
+_____ test_onehot_soft_model_matches_old_regions_edges_feedback_and_logits _____
+tests/test_soft_gavit.py:47: in test_onehot_soft_model_matches_old_regions_edges_feedback_and_logits
+    new = make_model().eval()
+tests/test_soft_gavit.py:27: in make_model
+    return GAViT(pretrained=False, grouping=grouping, edge_type='sparse_hybrid',
+models/gavit.py:79: in __init__
+    raise ValueError(
+E   ValueError: Unknown grouping='soft_prototype'. Valid: ('attentive_spatial', 'spatial', 'kmeans')
+_ test_actual_graph_forward_backward_and_assignment_only_backbone_gradient[ce] _
+tests/test_soft_gavit.py:82: in test_actual_graph_forward_backward_and_assignment_only_backbone_gradient
+    model = make_model()
+tests/test_soft_gavit.py:27: in make_model
+    return GAViT(pretrained=False, grouping=grouping, edge_type='sparse_hybrid',
+models/gavit.py:79: in __init__
+    raise ValueError(
+E   ValueError: Unknown grouping='soft_prototype'. Valid: ('attentive_spatial', 'spatial', 'kmeans')
+_ test_actual_graph_forward_backward_and_assignment_only_backbone_gradient[bce] _
+tests/test_soft_gavit.py:82: in test_actual_graph_forward_backward_and_assignment_only_backbone_gradient
+    model = make_model()
+tests/test_soft_gavit.py:27: in make_model
+    return GAViT(pretrained=False, grouping=grouping, edge_type='sparse_hybrid',
+models/gavit.py:79: in __init__
+    raise ValueError(
+E   ValueError: Unknown grouping='soft_prototype'. Valid: ('attentive_spatial', 'spatial', 'kmeans')
+_____________ test_new_checkpoint_reconstructs_exact_architecture ______________
+tests/test_soft_gavit.py:109: in test_new_checkpoint_reconstructs_exact_architecture
+    model = GAViT(**arch, pretrained=False).eval()
+E   TypeError: GAViT.__init__() got an unexpected keyword argument 'soft_assignment'
+___________ test_bad_combinations_and_broken_membership_are_rejected ___________
+tests/test_soft_gavit.py:126: in test_bad_combinations_and_broken_membership_are_rejected
+    model = make_model().eval()
+tests/test_soft_gavit.py:27: in make_model
+    return GAViT(pretrained=False, grouping=grouping, edge_type='sparse_hybrid',
+models/gavit.py:79: in __init__
+    raise ValueError(
+E   ValueError: Unknown grouping='soft_prototype'. Valid: ('attentive_spatial', 'spatial', 'kmeans')
+=============================== warnings summary ===============================
+../../../../../../private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1209: 20 warnings
+  /private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1209: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    elif isinstance(value, ast.Str):
+
+../../../../../../private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1210: 19 warnings
+  /private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1210: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead
+    s += value.s
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_soft_gavit.py::test_shared_initialization_and_rng_match_old_model
+FAILED tests/test_soft_gavit.py::test_onehot_soft_model_matches_old_regions_edges_feedback_and_logits
+FAILED tests/test_soft_gavit.py::test_actual_graph_forward_backward_and_assignment_only_backbone_gradient[ce]
+FAILED tests/test_soft_gavit.py::test_actual_graph_forward_backward_and_assignment_only_backbone_gradient[bce]
+FAILED tests/test_soft_gavit.py::test_new_checkpoint_reconstructs_exact_architecture
+FAILED tests/test_soft_gavit.py::test_bad_combinations_and_broken_membership_are_rejected
+6 failed, 39 warnings in 1.37s

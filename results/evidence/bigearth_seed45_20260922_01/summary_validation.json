@@ -1,0 +1,177 @@
+{
+  "status": "reported_summary_validated",
+  "exit_codes": {
+    "swin_smoke": "exit_code=0",
+    "gavit_smoke": "exit_code=0",
+    "swin_train": "exit_code=0",
+    "swin_test": "exit_code=0",
+    "gavit_train": "exit_code=0",
+    "gavit_test": "exit_code=0"
+  },
+  "queue_exit": 0,
+  "seed45_gavit_minus_swin_pp": {
+    "mAP_percent": -1.4186932926544529,
+    "macro_f1_percent": -0.7887350396637913,
+    "micro_f1_percent": -0.029807510853430585
+  },
+  "per_class": [
+    {
+      "Class": "Urban fabric",
+      "Swin_AP(%)": 86.24644052853436,
+      "GAViT_AP(%)": 86.34461759843379,
+      "Delta_AP(pp)": 0.0981770698994211,
+      "Contribution_to_macro_mAP(pp)": 0.005167214205232689
+    },
+    {
+      "Class": "Industrial or commercial units",
+      "Swin_AP(%)": 49.35348132074531,
+      "GAViT_AP(%)": 49.41060551132683,
+      "Delta_AP(pp)": 0.05712419058151852,
+      "Contribution_to_macro_mAP(pp)": 0.0030065363463957114
+    },
+    {
+      "Class": "Arable land",
+      "Swin_AP(%)": 93.6548590308458,
+      "GAViT_AP(%)": 93.79621637085314,
+      "Delta_AP(pp)": 0.141357340007346,
+      "Contribution_to_macro_mAP(pp)": 0.007439860000386632
+    },
+    {
+      "Class": "Permanent crops",
+      "Swin_AP(%)": 63.35155022873822,
+      "GAViT_AP(%)": 60.81244620953233,
+      "Delta_AP(pp)": -2.5391040192058867,
+      "Contribution_to_macro_mAP(pp)": -0.1336370536424151
+    },
+    {
+      "Class": "Pastures",
+      "Swin_AP(%)": 86.16155560417093,
+      "GAViT_AP(%)": 86.08994326413276,
+      "Delta_AP(pp)": -0.07161234003817185,
+      "Contribution_to_macro_mAP(pp)": -0.003769070528324834
+    },
+    {
+      "Class": "Complex cultivation patterns",
+      "Swin_AP(%)": 68.82290554153533,
+      "GAViT_AP(%)": 70.06918297456423,
+      "Delta_AP(pp)": 1.2462774330288937,
+      "Contribution_to_macro_mAP(pp)": 0.06559354910678387
+    },
+    {
+      "Class": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+      "Swin_AP(%)": 72.41309770023811,
+      "GAViT_AP(%)": 72.86567544986204,
+      "Delta_AP(pp)": 0.45257774962392716,
+      "Contribution_to_macro_mAP(pp)": 0.02381988155915406
+    },
+    {
+      "Class": "Agro-forestry areas",
+      "Swin_AP(%)": 87.2876806314931,
+      "GAViT_AP(%)": 87.32493533539166,
+      "Delta_AP(pp)": 0.03725470389855445,
+      "Contribution_to_macro_mAP(pp)": 0.0019607738893976027
+    },
+    {
+      "Class": "Broad-leaved forest",
+      "Swin_AP(%)": 86.24484039818411,
+      "GAViT_AP(%)": 85.58480444385715,
+      "Delta_AP(pp)": -0.6600359543269576,
+      "Contribution_to_macro_mAP(pp)": -0.03473873443826093
+    },
+    {
+      "Class": "Coniferous forest",
+      "Swin_AP(%)": 93.60932737884697,
+      "GAViT_AP(%)": 93.56169097317066,
+      "Delta_AP(pp)": -0.04763640567631455,
+      "Contribution_to_macro_mAP(pp)": -0.0025071792461218187
+    },
+    {
+      "Class": "Mixed forest",
+      "Swin_AP(%)": 90.05070381197373,
+      "GAViT_AP(%)": 89.35960710816634,
+      "Delta_AP(pp)": -0.6910967038073892,
+      "Contribution_to_macro_mAP(pp)": -0.036373510726704694
+    },
+    {
+      "Class": "Natural grassland and sparsely vegetated areas",
+      "Swin_AP(%)": 48.10282826918033,
+      "GAViT_AP(%)": 47.61401971282264,
+      "Delta_AP(pp)": -0.4888085563576894,
+      "Contribution_to_macro_mAP(pp)": -0.025726766124088914
+    },
+    {
+      "Class": "Moors, heathland and sclerophyllous vegetation",
+      "Swin_AP(%)": 60.43163185356645,
+      "GAViT_AP(%)": 60.00191643475874,
+      "Delta_AP(pp)": -0.42971541880771014,
+      "Contribution_to_macro_mAP(pp)": -0.02261660098987948
+    },
+    {
+      "Class": "Transitional woodland, shrub",
+      "Swin_AP(%)": 78.98327909859074,
+      "GAViT_AP(%)": 77.89724530832795,
+      "Delta_AP(pp)": -1.086033790262789,
+      "Contribution_to_macro_mAP(pp)": -0.05715967317172574
+    },
+    {
+      "Class": "Beaches, dunes, sands",
+      "Swin_AP(%)": 10.317846668936683,
+      "GAViT_AP(%)": 9.668870469356605,
+      "Delta_AP(pp)": -0.648976199580078,
+      "Contribution_to_macro_mAP(pp)": -0.034156642083162
+    },
+    {
+      "Class": "Inland wetlands",
+      "Swin_AP(%)": 62.8742898851375,
+      "GAViT_AP(%)": 63.236983660961066,
+      "Delta_AP(pp)": 0.36269377582356555,
+      "Contribution_to_macro_mAP(pp)": 0.019089146095977134
+    },
+    {
+      "Class": "Coastal wetlands",
+      "Swin_AP(%)": 33.854200825581785,
+      "GAViT_AP(%)": 10.66842766288083,
+      "Delta_AP(pp)": -23.185773162700954,
+      "Contribution_to_macro_mAP(pp)": -1.2203038506684714
+    },
+    {
+      "Class": "Inland waters",
+      "Swin_AP(%)": 90.58510903565174,
+      "GAViT_AP(%)": 91.18980467457862,
+      "Delta_AP(pp)": 0.6046956389268843,
+      "Contribution_to_macro_mAP(pp)": 0.031826086259309695
+    },
+    {
+      "Class": "Marine waters",
+      "Swin_AP(%)": 99.51603336283306,
+      "GAViT_AP(%)": 99.4094954513724,
+      "Delta_AP(pp)": -0.10653791146066283,
+      "Contribution_to_macro_mAP(pp)": -0.005607258497929622
+    }
+  ],
+  "classes_improved": 8,
+  "classes_declined": 11,
+  "coastal_wetlands_share_of_net_mAP_gap": 0.8601604427023236,
+  "stage_measured_hours": 27.826336658464164,
+  "reference_rate_yuan_per_hour_assumed": 0.69,
+  "stage_cost_at_reference_rate_yuan_not_bill": 19.200172294340273,
+  "not_received": [
+    "checkpoint bytes",
+    "complete history.json",
+    "predictions.npz",
+    "original six run.json files"
+  ],
+  "checks": [
+    "six exit0 and complete stages",
+    "two formal30 epochs",
+    "seed45 smoke reload tolerance",
+    "known launcher byte hash",
+    "frozen split/pretrained identities",
+    "checkpoint report hash chain",
+    "19 AP means and classes",
+    "previous rounded GAViT excerpt consistency",
+    "stage timing sum",
+    "paired and model means agree",
+    "historical ledger bytes preserved"
+  ]
+}

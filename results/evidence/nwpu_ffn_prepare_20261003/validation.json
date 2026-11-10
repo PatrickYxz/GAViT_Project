@@ -1,0 +1,36 @@
+{
+  "status": "local_cpu_validation_complete",
+  "tests_command": "/private/tmp/gavit-feedback-qa-20261002/bin/python -m pytest tests -q",
+  "tests_exit_code": 0,
+  "tests_passed": 234,
+  "warnings": 44,
+  "tests_seconds": 119.99,
+  "environment": "macOS ARM, Python3.12.13, torch2.2.2; not Featurize CUDA",
+  "targeted_before_scope_guard": {
+    "passed": 24,
+    "seconds": 17.76
+  },
+  "red_runs": {
+    "core": 7,
+    "audit": 2,
+    "frozen_protocol_guard": 1
+  },
+  "bare_pytest": {
+    "status": "collection_failed",
+    "cause": "baselines/swin_baseline/test_swin.py runs argparse at import and rejects pytest -q",
+    "scope": "Existing CLI entrypoint; no tests collected"
+  },
+  "sandbox_suite": {
+    "passed": 224,
+    "failed": 9,
+    "cause": "All 9 tests/test_soft_entrypoints.py subprocess cases stopped by OpenMP shared-memory access (OMP Error179), resolved by approved outside-sandbox run"
+  },
+  "independent_review": {
+    "design": "completed; zero-init first-step gradients/weight-decay caveat incorporated",
+    "code": "review agent failed on usage limit; no independent code sign-off",
+    "fallback": "Primary agent inspected scoped before/after diff, real initial equivalence and complete tests"
+  },
+  "release": "9-file patch against 30 hash-verified files recorded for ed480e6; no commit/push",
+  "remote_gpu_smoke": "not_started",
+  "formal_results": "not_measured"
+}

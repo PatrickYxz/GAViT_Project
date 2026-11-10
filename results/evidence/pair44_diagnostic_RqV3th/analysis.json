@@ -1,0 +1,792 @@
+{
+  "analysis_date": "2026-09-16",
+  "source_directory": "/Users/patrick/Downloads/results",
+  "server_run_directory": "/home/featurize/work/pair44_diagnostic_RqV3th",
+  "scope": "validation_subset_diagnostic_not_formal_test",
+  "verification": {
+    "row_alignment_and_score_equivalence": 4181,
+    "independent_AP_checks": 38,
+    "per_class_confusion_and_F1_checks": 38,
+    "case_checks": 41,
+    "copied_files": 59
+  },
+  "uniform_aggregate": {
+    "swin": {
+      "mAP_percent": 79.34534747492468,
+      "macro_F1_percent": 72.49394807862991,
+      "micro_F1_percent": 77.43100768681481
+    },
+    "gavit": {
+      "mAP_percent": 79.66739526114695,
+      "macro_F1_percent": 73.44373574742967,
+      "micro_F1_percent": 77.97887761441292
+    }
+  },
+  "focus_per_class": [
+    {
+      "class_index": 11,
+      "class": "Natural grassland and sparsely vegetated areas",
+      "positive": 102,
+      "negative": 3994,
+      "rank_status": "ok",
+      "swin_ap_percent": 64.85161966757897,
+      "swin_f1_percent": 60.130718954248366,
+      "swin_precision_percent": 90.19607843137256,
+      "swin_recall_percent": 45.09803921568628,
+      "swin_tp": 46,
+      "swin_fp": 5,
+      "swin_fn": 56,
+      "swin_tn": 3989,
+      "gavit_ap_percent": 65.70291752412616,
+      "gavit_f1_percent": 59.354838709677416,
+      "gavit_precision_percent": 86.79245283018868,
+      "gavit_recall_percent": 45.09803921568628,
+      "gavit_tp": 46,
+      "gavit_fp": 7,
+      "gavit_fn": 56,
+      "gavit_tn": 3987,
+      "delta_ap_pp": 0.8512978565471911
+    },
+    {
+      "class_index": 14,
+      "class": "Beaches, dunes, sands",
+      "positive": 14,
+      "negative": 4082,
+      "rank_status": "ok",
+      "swin_ap_percent": 79.13334919747415,
+      "swin_f1_percent": 74.07407407407408,
+      "swin_precision_percent": 76.92307692307693,
+      "swin_recall_percent": 71.42857142857143,
+      "swin_tp": 10,
+      "swin_fp": 3,
+      "swin_fn": 4,
+      "swin_tn": 4079,
+      "gavit_ap_percent": 77.31124622147898,
+      "gavit_f1_percent": 80.0,
+      "gavit_precision_percent": 90.9090909090909,
+      "gavit_recall_percent": 71.42857142857143,
+      "gavit_tp": 10,
+      "gavit_fp": 1,
+      "gavit_fn": 4,
+      "gavit_tn": 4081,
+      "delta_ap_pp": -1.8221029759951648
+    },
+    {
+      "class_index": 16,
+      "class": "Coastal wetlands",
+      "positive": 25,
+      "negative": 4071,
+      "rank_status": "ok",
+      "swin_ap_percent": 53.52651204649476,
+      "swin_f1_percent": 54.054054054054056,
+      "swin_precision_percent": 83.33333333333334,
+      "swin_recall_percent": 40.0,
+      "swin_tp": 10,
+      "swin_fp": 2,
+      "swin_fn": 15,
+      "swin_tn": 4069,
+      "gavit_ap_percent": 54.973603876170216,
+      "gavit_f1_percent": 51.42857142857142,
+      "gavit_precision_percent": 90.0,
+      "gavit_recall_percent": 36.0,
+      "gavit_tp": 9,
+      "gavit_fp": 1,
+      "gavit_fn": 16,
+      "gavit_tn": 4070,
+      "delta_ap_pp": 1.4470918296754576
+    }
+  ],
+  "positive_context_subgroups": [
+    {
+      "cohort": "uniform",
+      "target_class_index": 14,
+      "context_class_index": 18,
+      "context_present": 1,
+      "positive_count": 14,
+      "swin": {
+        "tp": 10,
+        "fn": 4,
+        "median_score": 0.9754528701305389
+      },
+      "gavit": {
+        "tp": 10,
+        "fn": 4,
+        "median_score": 0.956777036190033
+      }
+    },
+    {
+      "cohort": "uniform",
+      "target_class_index": 14,
+      "context_class_index": 18,
+      "context_present": 0,
+      "positive_count": 0,
+      "swin": {
+        "tp": 0,
+        "fn": 0,
+        "median_score": null
+      },
+      "gavit": {
+        "tp": 0,
+        "fn": 0,
+        "median_score": null
+      }
+    },
+    {
+      "cohort": "uniform",
+      "target_class_index": 14,
+      "context_class_index": 17,
+      "context_present": 1,
+      "positive_count": 0,
+      "swin": {
+        "tp": 0,
+        "fn": 0,
+        "median_score": null
+      },
+      "gavit": {
+        "tp": 0,
+        "fn": 0,
+        "median_score": null
+      }
+    },
+    {
+      "cohort": "uniform",
+      "target_class_index": 14,
+      "context_class_index": 17,
+      "context_present": 0,
+      "positive_count": 14,
+      "swin": {
+        "tp": 10,
+        "fn": 4,
+        "median_score": 0.9754528701305389
+      },
+      "gavit": {
+        "tp": 10,
+        "fn": 4,
+        "median_score": 0.956777036190033
+      }
+    },
+    {
+      "cohort": "uniform",
+      "target_class_index": 16,
+      "context_class_index": 18,
+      "context_present": 1,
+      "positive_count": 16,
+      "swin": {
+        "tp": 6,
+        "fn": 10,
+        "median_score": 0.07065055146813393
+      },
+      "gavit": {
+        "tp": 6,
+        "fn": 10,
+        "median_score": 0.0803691167384386
+      }
+    },
+    {
+      "cohort": "uniform",
+      "target_class_index": 16,
+      "context_class_index": 18,
+      "context_present": 0,
+      "positive_count": 9,
+      "swin": {
+        "tp": 4,
+        "fn": 5,
+        "median_score": 0.034106653183698654
+      },
+      "gavit": {
+        "tp": 3,
+        "fn": 6,
+        "median_score": 0.011918395757675171
+      }
+    },
+    {
+      "cohort": "uniform",
+      "target_class_index": 16,
+      "context_class_index": 17,
+      "context_present": 1,
+      "positive_count": 1,
+      "swin": {
+        "tp": 0,
+        "fn": 1,
+        "median_score": 0.01253233291208744
+      },
+      "gavit": {
+        "tp": 0,
+        "fn": 1,
+        "median_score": 1.2819647054129746e-05
+      }
+    },
+    {
+      "cohort": "uniform",
+      "target_class_index": 16,
+      "context_class_index": 17,
+      "context_present": 0,
+      "positive_count": 24,
+      "swin": {
+        "tp": 10,
+        "fn": 14,
+        "median_score": 0.07065055146813393
+      },
+      "gavit": {
+        "tp": 9,
+        "fn": 15,
+        "median_score": 0.0803691167384386
+      }
+    },
+    {
+      "cohort": "all_with_supplement",
+      "target_class_index": 14,
+      "context_class_index": 18,
+      "context_present": 1,
+      "positive_count": 57,
+      "swin": {
+        "tp": 45,
+        "fn": 12,
+        "median_score": 0.9923819899559021
+      },
+      "gavit": {
+        "tp": 42,
+        "fn": 15,
+        "median_score": 0.99290531873703
+      }
+    },
+    {
+      "cohort": "all_with_supplement",
+      "target_class_index": 14,
+      "context_class_index": 18,
+      "context_present": 0,
+      "positive_count": 7,
+      "swin": {
+        "tp": 2,
+        "fn": 5,
+        "median_score": 0.003908039070665836
+      },
+      "gavit": {
+        "tp": 1,
+        "fn": 6,
+        "median_score": 0.0002506453893147409
+      }
+    },
+    {
+      "cohort": "all_with_supplement",
+      "target_class_index": 14,
+      "context_class_index": 17,
+      "context_present": 1,
+      "positive_count": 3,
+      "swin": {
+        "tp": 1,
+        "fn": 2,
+        "median_score": 0.00021459392155520618
+      },
+      "gavit": {
+        "tp": 1,
+        "fn": 2,
+        "median_score": 4.8621204769006e-05
+      }
+    },
+    {
+      "cohort": "all_with_supplement",
+      "target_class_index": 14,
+      "context_class_index": 17,
+      "context_present": 0,
+      "positive_count": 61,
+      "swin": {
+        "tp": 46,
+        "fn": 15,
+        "median_score": 0.9910123944282532
+      },
+      "gavit": {
+        "tp": 42,
+        "fn": 19,
+        "median_score": 0.9893907904624939
+      }
+    },
+    {
+      "cohort": "all_with_supplement",
+      "target_class_index": 16,
+      "context_class_index": 18,
+      "context_present": 1,
+      "positive_count": 38,
+      "swin": {
+        "tp": 17,
+        "fn": 21,
+        "median_score": 0.2281789556145668
+      },
+      "gavit": {
+        "tp": 16,
+        "fn": 22,
+        "median_score": 0.2113320454955101
+      }
+    },
+    {
+      "cohort": "all_with_supplement",
+      "target_class_index": 16,
+      "context_class_index": 18,
+      "context_present": 0,
+      "positive_count": 26,
+      "swin": {
+        "tp": 5,
+        "fn": 21,
+        "median_score": 0.00530657172203064
+      },
+      "gavit": {
+        "tp": 4,
+        "fn": 22,
+        "median_score": 0.002725235070101917
+      }
+    },
+    {
+      "cohort": "all_with_supplement",
+      "target_class_index": 16,
+      "context_class_index": 17,
+      "context_present": 1,
+      "positive_count": 5,
+      "swin": {
+        "tp": 0,
+        "fn": 5,
+        "median_score": 0.01253233291208744
+      },
+      "gavit": {
+        "tp": 0,
+        "fn": 5,
+        "median_score": 0.0017837586347013712
+      }
+    },
+    {
+      "cohort": "all_with_supplement",
+      "target_class_index": 16,
+      "context_class_index": 17,
+      "context_present": 0,
+      "positive_count": 59,
+      "swin": {
+        "tp": 22,
+        "fn": 37,
+        "median_score": 0.06348957866430283
+      },
+      "gavit": {
+        "tp": 20,
+        "fn": 39,
+        "median_score": 0.020366033539175987
+      }
+    }
+  ],
+  "split_label_cooccurrence": [
+    {
+      "target_class_index": 14,
+      "context_class_index": 18,
+      "train": {
+        "target_positive": 738,
+        "joint_positive": 646,
+        "conditional_percent": 87.53387533875339
+      },
+      "val": {
+        "target_positive": 426,
+        "joint_positive": 354,
+        "conditional_percent": 83.09859154929578
+      },
+      "test": {
+        "target_positive": 152,
+        "joint_positive": 18,
+        "conditional_percent": 11.842105263157896
+      }
+    },
+    {
+      "target_class_index": 14,
+      "context_class_index": 17,
+      "train": {
+        "target_positive": 738,
+        "joint_positive": 9,
+        "conditional_percent": 1.2195121951219512
+      },
+      "val": {
+        "target_positive": 426,
+        "joint_positive": 15,
+        "conditional_percent": 3.5211267605633805
+      },
+      "test": {
+        "target_positive": 152,
+        "joint_positive": 128,
+        "conditional_percent": 84.21052631578948
+      }
+    },
+    {
+      "target_class_index": 14,
+      "context_class_index": 2,
+      "train": {
+        "target_positive": 738,
+        "joint_positive": 99,
+        "conditional_percent": 13.414634146341463
+      },
+      "val": {
+        "target_positive": 426,
+        "joint_positive": 116,
+        "conditional_percent": 27.230046948356808
+      },
+      "test": {
+        "target_positive": 152,
+        "joint_positive": 132,
+        "conditional_percent": 86.84210526315789
+      }
+    },
+    {
+      "target_class_index": 16,
+      "context_class_index": 18,
+      "train": {
+        "target_positive": 670,
+        "joint_positive": 384,
+        "conditional_percent": 57.3134328358209
+      },
+      "val": {
+        "target_positive": 610,
+        "joint_positive": 356,
+        "conditional_percent": 58.36065573770492
+      },
+      "test": {
+        "target_positive": 117,
+        "joint_positive": 30,
+        "conditional_percent": 25.641025641025642
+      }
+    },
+    {
+      "target_class_index": 16,
+      "context_class_index": 17,
+      "train": {
+        "target_positive": 670,
+        "joint_positive": 41,
+        "conditional_percent": 6.119402985074627
+      },
+      "val": {
+        "target_positive": 610,
+        "joint_positive": 52,
+        "conditional_percent": 8.524590163934427
+      },
+      "test": {
+        "target_positive": 117,
+        "joint_positive": 54,
+        "conditional_percent": 46.15384615384615
+      }
+    },
+    {
+      "target_class_index": 16,
+      "context_class_index": 2,
+      "train": {
+        "target_positive": 670,
+        "joint_positive": 255,
+        "conditional_percent": 38.059701492537314
+      },
+      "val": {
+        "target_positive": 610,
+        "joint_positive": 313,
+        "conditional_percent": 51.31147540983606
+      },
+      "test": {
+        "target_positive": 117,
+        "joint_positive": 95,
+        "conditional_percent": 81.19658119658119
+      }
+    }
+  ],
+  "limitations": [
+    "Only uniform cohort contributes aggregate metrics.",
+    "Supplement-enriched subgroup recall is case description, not population performance.",
+    "Label cooccurrence shift does not establish causal model reliance or geographic shift.",
+    "No test per-image scores, actual graph edges, attention or feedback tensors were returned."
+  ],
+  "source_files": [
+    {
+      "path": "case_counts.csv",
+      "bytes": 1455,
+      "sha256": "cc6da77d6e030b9694b00d7a112c593fd32dc96c246dbfbc1ec9ea8b80724a54"
+    },
+    {
+      "path": "cases.csv",
+      "bytes": 15185,
+      "sha256": "1ff5106a881edb57ff2429cf82dc059b0a2ecd101c3b97b30ff02dd5dfb7a7c2"
+    },
+    {
+      "path": "cases.html",
+      "bytes": 19638,
+      "sha256": "7c5647ac35a0a43cb8f326815997b93f30bf3e83c231c32cb6766bada228819c"
+    },
+    {
+      "path": "gavit_scores.json",
+      "bytes": 2463959,
+      "sha256": "c9030fa0cd70b26e361b3a730571bec15a6a592ca3bec0a107e7c675af02dfe6"
+    },
+    {
+      "path": "images/row_103740.jpg",
+      "bytes": 7457,
+      "sha256": "3707e85aaedad290296eb4971ddb42522d5307be875813e08306302cc5d4d727"
+    },
+    {
+      "path": "images/row_103891.jpg",
+      "bytes": 8385,
+      "sha256": "a080091c5f786284a077afae2b972f3634e01628fbebc296e54ba8040fdf21d8"
+    },
+    {
+      "path": "images/row_105788.jpg",
+      "bytes": 7807,
+      "sha256": "684fe1e176dd43ebe1bbe8125a98b0cf2cacbac306375b9f9116603841f96166"
+    },
+    {
+      "path": "images/row_105791.jpg",
+      "bytes": 7777,
+      "sha256": "4efe216e3f0e1769d60c59d553489a4e9709eef01c2d438bbf1fb8279de3cac3"
+    },
+    {
+      "path": "images/row_10837.jpg",
+      "bytes": 8679,
+      "sha256": "c0b6549421238d35b645769ec6d368c69dbc51ac0192413fc302448618fe582b"
+    },
+    {
+      "path": "images/row_109786.jpg",
+      "bytes": 11233,
+      "sha256": "6bc25dd81ce18e3665562ff05846cf68e965eb93618c625a163818f67a5dda83"
+    },
+    {
+      "path": "images/row_109926.jpg",
+      "bytes": 12841,
+      "sha256": "2c0d16db754d2fbdba8df71b38d4c70b448b9f50d5f5b60706d09bbab5160c7b"
+    },
+    {
+      "path": "images/row_109999.jpg",
+      "bytes": 7039,
+      "sha256": "039cf8013709f14227281d9b3a1520971e5181898d2648b298184505464885dd"
+    },
+    {
+      "path": "images/row_117556.jpg",
+      "bytes": 9861,
+      "sha256": "6397e221f38f4762742d4019ea79de449f3ff1a55b728010e0ced900ca99c1da"
+    },
+    {
+      "path": "images/row_11826.jpg",
+      "bytes": 9458,
+      "sha256": "653ad885e395fa9a5e505f5deee31a9b2bcc978075f6fc596bb6c83a6f775317"
+    },
+    {
+      "path": "images/row_11915.jpg",
+      "bytes": 5380,
+      "sha256": "4e12c3b4f8395b6a388eef07e7ffe05bc91c660da99ad0b6f90727e65e57536e"
+    },
+    {
+      "path": "images/row_11957.jpg",
+      "bytes": 12975,
+      "sha256": "baf7808bc80e9ae5af4ae38c91295396cc9cbbf8bca081be32e8ed27b1427637"
+    },
+    {
+      "path": "images/row_11994.jpg",
+      "bytes": 9717,
+      "sha256": "178c27d0e3613b9664e463e8c4c9f51f176d3e404f02b9d22bb054c3bd5d25cc"
+    },
+    {
+      "path": "images/row_12033.jpg",
+      "bytes": 11680,
+      "sha256": "723fd8f27e32f22bd9ded42cab1ebfaa504606169827a2c0ac3d84a744789265"
+    },
+    {
+      "path": "images/row_12039.jpg",
+      "bytes": 5813,
+      "sha256": "152de472a9ba1765267191c1947d2c65035c8e04941304ed308c46631ff6a6ec"
+    },
+    {
+      "path": "images/row_16274.jpg",
+      "bytes": 6480,
+      "sha256": "1cd2a9af4063a35974ef8ea5564eb4866c33b6262503ce6cacaf09401b95fb29"
+    },
+    {
+      "path": "images/row_19440.jpg",
+      "bytes": 6506,
+      "sha256": "f773e0120ead6b6aa24a05f9b90a6289760a02e6619130bd6c8ebf0845d75ae7"
+    },
+    {
+      "path": "images/row_20880.jpg",
+      "bytes": 14003,
+      "sha256": "5925203f781919b4544857cb047b0ce40e481ece005db5036c8ffd22142e1321"
+    },
+    {
+      "path": "images/row_20932.jpg",
+      "bytes": 3899,
+      "sha256": "b531eb53b016cc6838d7e348c7478335840e62a5fc51bf2ad1642e25e3e93a92"
+    },
+    {
+      "path": "images/row_20934.jpg",
+      "bytes": 10566,
+      "sha256": "e9582c68978bb939371b0ebc523aa1263c6feb48f681dda4a83e791d5c7ddddc"
+    },
+    {
+      "path": "images/row_28439.jpg",
+      "bytes": 8544,
+      "sha256": "8f9a873434985b41f1e0959613edc8105cf1d8294c82013c5744c6dce9bfb4f5"
+    },
+    {
+      "path": "images/row_32780.jpg",
+      "bytes": 11113,
+      "sha256": "e635f2ef8aa32ef71fd101e236335fdce4eba91bb71bb4bc276bb4b2bfd878c9"
+    },
+    {
+      "path": "images/row_35986.jpg",
+      "bytes": 7984,
+      "sha256": "5b7a53eb31b9f609e2d6a2711a264a70f0b064bc46fcaa32a54f95e85c27d38d"
+    },
+    {
+      "path": "images/row_4312.jpg",
+      "bytes": 8367,
+      "sha256": "27b27fc325771b0264ec8bbd8a62250e61e7514987d8491afee59eb98f0b2458"
+    },
+    {
+      "path": "images/row_49689.jpg",
+      "bytes": 6104,
+      "sha256": "ec79dda82247533ffe6a6046f2b0f8d963617ccff0666afe12e1a346f7f7aa9a"
+    },
+    {
+      "path": "images/row_52772.jpg",
+      "bytes": 7929,
+      "sha256": "aec09581760ba2783d9f5ff9641e960dd0533aa3b80e49ffb9bca213aaf26d51"
+    },
+    {
+      "path": "images/row_52994.jpg",
+      "bytes": 8574,
+      "sha256": "2facd5e41fed550043db0e5e35a26a238838f4f3884a65126b525ce3d8769cb2"
+    },
+    {
+      "path": "images/row_53227.jpg",
+      "bytes": 7934,
+      "sha256": "321814cc8277a482814a25f2ab6b9d93bd76eb930bc7b83a79887941f32ac144"
+    },
+    {
+      "path": "images/row_64340.jpg",
+      "bytes": 8146,
+      "sha256": "7e12b9e47d4821636b97b377f335a8c2d1b4248be109d9497ebdfe61155f345f"
+    },
+    {
+      "path": "images/row_65873.jpg",
+      "bytes": 8032,
+      "sha256": "1384c60492160b84dd90447c3a44e193d43e07ee4511ad9ac474453520fb0c85"
+    },
+    {
+      "path": "images/row_83393.jpg",
+      "bytes": 7327,
+      "sha256": "a1bfdea25d8b78b1320d66b69360dddf28159d30834264482a5bcc4e5cf31dc1"
+    },
+    {
+      "path": "images/row_83548.jpg",
+      "bytes": 8631,
+      "sha256": "54a7231e9181a4273b4f83f664bafd594ef06debae8296e03b6404f39f1d577a"
+    },
+    {
+      "path": "images/row_84689.jpg",
+      "bytes": 6843,
+      "sha256": "7850926d34c5b09dd59ef0662a12b366aafde7f512582e74e1b2737551f3a09a"
+    },
+    {
+      "path": "images/row_85909.jpg",
+      "bytes": 6644,
+      "sha256": "2576c8b03a22c9d629e64cdd390897248864cb9dafd31034f39b7476f317b77c"
+    },
+    {
+      "path": "images/row_90932.jpg",
+      "bytes": 11040,
+      "sha256": "8f77bab6276b4afa8fe3459d28af980a07a7ff8e15c63afd4e53b619a182f326"
+    },
+    {
+      "path": "images/row_91192.jpg",
+      "bytes": 6040,
+      "sha256": "ef11ab7d8b0e4d3bf95943b7256feef7b445abcc474d82db2c1924aa98934a1c"
+    },
+    {
+      "path": "images/row_93395.jpg",
+      "bytes": 12092,
+      "sha256": "0879d5a0f40beb8242bac5d7cbae276c9294ee28308a8d585a770ec419f96aa0"
+    },
+    {
+      "path": "images/row_94065.jpg",
+      "bytes": 12519,
+      "sha256": "276f7b11cb30483227fa6e08a9cd15cb8b8e15353df598ef4df66c230e2c9ab6"
+    },
+    {
+      "path": "images/row_95355.jpg",
+      "bytes": 12062,
+      "sha256": "d8a8fd0c8ed447fabf9c82b8181ba77a717254a6d5eeb57e1b272b7e8610f27a"
+    },
+    {
+      "path": "images/row_96821.jpg",
+      "bytes": 10226,
+      "sha256": "6898785e47594424c1f99929fab18067430ec85cef7329d5490f629fb7439e2a"
+    },
+    {
+      "path": "images/row_96832.jpg",
+      "bytes": 10782,
+      "sha256": "dffdff707ad1321b5db2ab951c7b631c66e83678b734278ed39ee563f5104351"
+    },
+    {
+      "path": "label_statistics.json",
+      "bytes": 3305,
+      "sha256": "d0f62df950e4194c13bd43622a8d2332d12dfa6f487772b04f4570d3e0f00d19"
+    },
+    {
+      "path": "label_support.csv",
+      "bytes": 3820,
+      "sha256": "d5218fd784b5580d4a1ef6ad0ecb656884244f60435d3ea74d6c73af08d4c4fd"
+    },
+    {
+      "path": "loaded_models.json",
+      "bytes": 3539,
+      "sha256": "044ed52bb883687bc1a6586b4d59dfa6f3e25a307a3022c1ae79e49bc109eef6"
+    },
+    {
+      "path": "manifest.csv",
+      "bytes": 809055,
+      "sha256": "be309068af336ee08205ccd455cf2974402018ff50b93adbbea16ba38ec3dd9d"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 1895910,
+      "sha256": "cd13c145164f1c2e786d71091f5e02ac5e9b1d8c83e46d09840e25781f760d97"
+    },
+    {
+      "path": "per_class.csv",
+      "bytes": 4676,
+      "sha256": "52c9cbecbae4cb6e0ebfeef971bf527d2d70941c416738966cdb940add12646a"
+    },
+    {
+      "path": "pr_curves.csv",
+      "bytes": 9738064,
+      "sha256": "526b2e4c0fc20bcdbf40aa69bd4da345cf4ca85bf0b9c1307baa6b2c09478454"
+    },
+    {
+      "path": "predictions.csv",
+      "bytes": 4135482,
+      "sha256": "3392a9953d742db3a7f71f37927fb50f15c142f7b25c043bb9b492f6bfe458d5"
+    },
+    {
+      "path": "preflight.json",
+      "bytes": 3657,
+      "sha256": "ac138d12bf8fdf54beb14983d35da2f045e8f08b018037f2af2e5f8b3a96a4b6"
+    },
+    {
+      "path": "report.md",
+      "bytes": 720,
+      "sha256": "0139fce19dfabf12fe0153eaad81631feccd541dfe555448b376861ce1828df8"
+    },
+    {
+      "path": "run.json",
+      "bytes": 7633,
+      "sha256": "3dccd78986ac7420d3f094a13273102eccdb5b92572e49ffe05cce04071f00ce"
+    },
+    {
+      "path": "smoke_scores.json",
+      "bytes": 10099,
+      "sha256": "f9c1c6cf9cd5d3f1efa3b1b603d7ad1351e440055bedebc192bb77d4871748bd"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 15456,
+      "sha256": "ffa1d396b67c277bed58745d38d22ba35000121f944fac3bb3d13b21ade045db"
+    },
+    {
+      "path": "swin_scores.json",
+      "bytes": 2460636,
+      "sha256": "750065defaa7ab2207a95a4e72ec935f61896e753bee018d7a45201afb147613"
+    }
+  ]
+}

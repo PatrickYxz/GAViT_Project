@@ -1,0 +1,28 @@
+{
+  "source": "User terminal return, not direct server access",
+  "pid": 2723,
+  "elapsed": "08:28",
+  "cpu_time": "00:04:53",
+  "cpu_percent": 57.7,
+  "state": "Rsl",
+  "source_pass": true,
+  "device": "NVIDIA GeForce RTX 2080 Ti",
+  "cuda": "12.1",
+  "torch": "2.2.2+cu121",
+  "outputs": [
+    "cases",
+    "identity.json",
+    "selection.json"
+  ],
+  "run_exit": "MISSING",
+  "summary": "MISSING",
+  "open_checkpoint": "/home/featurize/work/nwpu_ablation42_20260928_01/fixed/best.pth",
+  "open_checkpoint_fd": 44,
+  "proc_io": {
+    "rchar": 563484780,
+    "wchar": 9629974,
+    "read_bytes": 729006080,
+    "write_bytes": 9846784
+  },
+  "interpretation": "Source checks and all selected image preprocessing precede identity.json; checkpoint open at torch.load stage, first capture not confirmed; throughput/stall cause unknown"
+}

@@ -1,0 +1,37 @@
+{
+  "status": "complete",
+  "samples": 90,
+  "classes": 45,
+  "split": "val",
+  "source_phase": "calibrate",
+  "selection": "val_first_two_lexicographic_paths_per_class_v1",
+  "correct": {
+    "fixed": 82,
+    "soft": 85
+  },
+  "paired": {
+    "both_correct": 82,
+    "soft_corrects": 3,
+    "soft_breaks": 0,
+    "both_wrong": 5
+  },
+  "max_errors": {
+    "capture_max_logit_diff": 2.86102294921875e-06,
+    "reconstruction_max_logit_diff": 2.86102294921875e-06,
+    "restoration_max_logit_diff": 2.86102294921875e-06,
+    "cached_probability_max_error": 1.519918441772461e-06,
+    "S_row_error": 2.384185791015625e-07,
+    "W_column_error": 3.5762786865234375e-07
+  },
+  "all_capture_checks_passed": true,
+  "spatial_edges": 48,
+  "feature_edges": 32,
+  "input_sources": {
+    "zip": 90
+  },
+  "scope": "Fixed selected validation cases only; not population metrics or causal evidence",
+  "html_bytes": 277287895,
+  "evidence_zip_sha256": "03e899fd7fe3e60ebcfe96b235428062802f595869d000b2dab81740ff9afd75",
+  "evidence_zip_bytes": 159449863,
+  "elapsed_seconds": 1173.435513841
+}

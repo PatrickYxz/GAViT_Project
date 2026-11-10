@@ -1,0 +1,34 @@
+{
+  "fixtures": [
+    {
+      "queue": "nwpu",
+      "preflight_rejected": false,
+      "passed": true,
+      "gpu_calls": 0,
+      "real_detached_child": true
+    },
+    {
+      "queue": "nwpu",
+      "preflight_rejected": true,
+      "passed": true,
+      "gpu_calls": 0,
+      "real_detached_child": false
+    },
+    {
+      "queue": "bigearth",
+      "preflight_rejected": false,
+      "passed": true,
+      "gpu_calls": 0,
+      "real_detached_child": true
+    },
+    {
+      "queue": "bigearth",
+      "preflight_rejected": true,
+      "passed": true,
+      "gpu_calls": 0,
+      "real_detached_child": false
+    }
+  ],
+  "payload_roundtrip": true,
+  "gpu_work_performed": false
+}

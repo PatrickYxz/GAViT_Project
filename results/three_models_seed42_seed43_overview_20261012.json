@@ -1,0 +1,384 @@
+{
+  "updated": "2026-10-12",
+  "scope": "archived formal test results only, seeds42/43, three models, three datasets",
+  "available_results": 15,
+  "expected_combinations": 18,
+  "rows": [
+    {
+      "dataset": "AID",
+      "seed": 42,
+      "model": "swin",
+      "primary_metric": "OA",
+      "primary_percent": 96.34,
+      "macro_f1_percent": 96.22088514124282,
+      "micro_f1_percent": null,
+      "test_samples": 5000,
+      "status": "formal_test_archived",
+      "precision": "full_returned",
+      "source": "aid_seed42_test_summary.json"
+    },
+    {
+      "dataset": "AID",
+      "seed": 42,
+      "model": "fixed",
+      "primary_metric": "OA",
+      "primary_percent": 96.94,
+      "macro_f1_percent": 96.7811271561119,
+      "micro_f1_percent": null,
+      "test_samples": 5000,
+      "status": "formal_test_archived",
+      "precision": "full_returned",
+      "source": "aid_seed42_test_summary.json"
+    },
+    {
+      "dataset": "AID",
+      "seed": 42,
+      "model": "soft",
+      "primary_metric": "OA",
+      "primary_percent": null,
+      "macro_f1_percent": null,
+      "micro_f1_percent": null,
+      "test_samples": 5000,
+      "status": "no_archived_formal_result",
+      "precision": "unavailable",
+      "source": "soft_assignment_cross_dataset_ablation.md"
+    },
+    {
+      "dataset": "AID",
+      "seed": 43,
+      "model": "swin",
+      "primary_metric": "OA",
+      "primary_percent": 96.86,
+      "macro_f1_percent": 96.68420610630325,
+      "micro_f1_percent": null,
+      "test_samples": 5000,
+      "status": "formal_test_archived",
+      "precision": "full_returned",
+      "source": "aid_seed43_test_summary.json"
+    },
+    {
+      "dataset": "AID",
+      "seed": 43,
+      "model": "fixed",
+      "primary_metric": "OA",
+      "primary_percent": 97.16,
+      "macro_f1_percent": 96.95587595593263,
+      "micro_f1_percent": null,
+      "test_samples": 5000,
+      "status": "formal_test_archived",
+      "precision": "full_returned",
+      "source": "aid_seed43_test_summary.json"
+    },
+    {
+      "dataset": "AID",
+      "seed": 43,
+      "model": "soft",
+      "primary_metric": "OA",
+      "primary_percent": null,
+      "macro_f1_percent": null,
+      "micro_f1_percent": null,
+      "test_samples": 5000,
+      "status": "no_archived_formal_result",
+      "precision": "unavailable",
+      "source": "soft_assignment_cross_dataset_ablation.md"
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "seed": 42,
+      "model": "swin",
+      "primary_metric": "OA",
+      "primary_percent": 93.93253968253968,
+      "macro_f1_percent": 93.90914546819495,
+      "micro_f1_percent": null,
+      "test_samples": 25200,
+      "status": "formal_test_archived",
+      "precision": "full_returned",
+      "source": "nwpu_two_seed_summary.json"
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "seed": 42,
+      "model": "fixed",
+      "primary_metric": "OA",
+      "primary_percent": 94.10317460317461,
+      "macro_f1_percent": 94.08993346277097,
+      "micro_f1_percent": null,
+      "test_samples": 25200,
+      "status": "formal_test_archived",
+      "precision": "full_returned",
+      "source": "nwpu_two_seed_summary.json"
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "seed": 42,
+      "model": "soft",
+      "primary_metric": "OA",
+      "primary_percent": 93.86904761904762,
+      "macro_f1_percent": 93.854987219354,
+      "micro_f1_percent": null,
+      "test_samples": 25200,
+      "status": "formal_test_archived",
+      "precision": "full_returned",
+      "source": "nwpu_two_seed_summary.json"
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "seed": 43,
+      "model": "swin",
+      "primary_metric": "OA",
+      "primary_percent": 93.85714285714286,
+      "macro_f1_percent": 93.83452989448766,
+      "micro_f1_percent": null,
+      "test_samples": 25200,
+      "status": "formal_test_archived",
+      "precision": "full_returned",
+      "source": "nwpu_two_seed_summary.json"
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "seed": 43,
+      "model": "fixed",
+      "primary_metric": "OA",
+      "primary_percent": 93.76587301587301,
+      "macro_f1_percent": 93.74351252940127,
+      "micro_f1_percent": null,
+      "test_samples": 25200,
+      "status": "formal_test_archived",
+      "precision": "full_returned",
+      "source": "nwpu_two_seed_summary.json"
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "seed": 43,
+      "model": "soft",
+      "primary_metric": "OA",
+      "primary_percent": 93.62698412698413,
+      "macro_f1_percent": 93.58782117143805,
+      "micro_f1_percent": null,
+      "test_samples": 25200,
+      "status": "formal_test_archived",
+      "precision": "full_returned",
+      "source": "nwpu_two_seed_summary.json"
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "seed": 42,
+      "model": "swin",
+      "primary_metric": "mAP",
+      "primary_percent": 70.9,
+      "macro_f1_percent": 64.2,
+      "micro_f1_percent": 76.6,
+      "test_samples": 119825,
+      "status": "formal_test_archived",
+      "precision": "printed_one_decimal",
+      "source": "bigearth_comparison.csv"
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "seed": 42,
+      "model": "fixed",
+      "primary_metric": "mAP",
+      "primary_percent": 72.0,
+      "macro_f1_percent": 66.0,
+      "micro_f1_percent": 76.7,
+      "test_samples": 119825,
+      "status": "formal_test_archived",
+      "precision": "printed_one_decimal",
+      "source": "bigearth_comparison.csv"
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "seed": 42,
+      "model": "soft",
+      "primary_metric": "mAP",
+      "primary_percent": null,
+      "macro_f1_percent": null,
+      "micro_f1_percent": null,
+      "test_samples": 119825,
+      "status": "no_archived_formal_result",
+      "precision": "unavailable",
+      "source": "soft_assignment_cross_dataset_update_20261011.json"
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "seed": 43,
+      "model": "swin",
+      "primary_metric": "mAP",
+      "primary_percent": 71.1,
+      "macro_f1_percent": 64.1,
+      "micro_f1_percent": 76.0,
+      "test_samples": 119825,
+      "status": "formal_test_archived",
+      "precision": "printed_one_decimal",
+      "source": "bigearth_comparison.csv"
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "seed": 43,
+      "model": "fixed",
+      "primary_metric": "mAP",
+      "primary_percent": 71.7,
+      "macro_f1_percent": 65.7,
+      "micro_f1_percent": 76.8,
+      "test_samples": 119825,
+      "status": "formal_test_archived",
+      "precision": "printed_one_decimal",
+      "source": "bigearth_comparison.csv"
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "seed": 43,
+      "model": "soft",
+      "primary_metric": "mAP",
+      "primary_percent": 72.86757085064232,
+      "macro_f1_percent": 66.67389161697625,
+      "micro_f1_percent": 76.90597117759339,
+      "test_samples": 119825,
+      "status": "formal_test_archived",
+      "precision": "full_returned",
+      "source": "bigearth_soft43_test_summary.json"
+    }
+  ],
+  "deltas_vs_swin": [
+    {
+      "dataset": "AID",
+      "seed": 42,
+      "model": "fixed",
+      "primary_delta_vs_swin_pp": 0.5999999999999943,
+      "macro_f1_delta_vs_swin_pp": 0.5602420148690896,
+      "micro_f1_delta_vs_swin_pp": null,
+      "approximate": false
+    },
+    {
+      "dataset": "AID",
+      "seed": 42,
+      "model": "soft",
+      "primary_delta_vs_swin_pp": null,
+      "macro_f1_delta_vs_swin_pp": null,
+      "micro_f1_delta_vs_swin_pp": null,
+      "approximate": false
+    },
+    {
+      "dataset": "AID",
+      "seed": 43,
+      "model": "fixed",
+      "primary_delta_vs_swin_pp": 0.29999999999999716,
+      "macro_f1_delta_vs_swin_pp": 0.2716698496293759,
+      "micro_f1_delta_vs_swin_pp": null,
+      "approximate": false
+    },
+    {
+      "dataset": "AID",
+      "seed": 43,
+      "model": "soft",
+      "primary_delta_vs_swin_pp": null,
+      "macro_f1_delta_vs_swin_pp": null,
+      "micro_f1_delta_vs_swin_pp": null,
+      "approximate": false
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "seed": 42,
+      "model": "fixed",
+      "primary_delta_vs_swin_pp": 0.17063492063492447,
+      "macro_f1_delta_vs_swin_pp": 0.18078799457602202,
+      "micro_f1_delta_vs_swin_pp": null,
+      "approximate": false
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "seed": 42,
+      "model": "soft",
+      "primary_delta_vs_swin_pp": -0.06349206349206327,
+      "macro_f1_delta_vs_swin_pp": -0.054158248840948886,
+      "micro_f1_delta_vs_swin_pp": null,
+      "approximate": false
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "seed": 43,
+      "model": "fixed",
+      "primary_delta_vs_swin_pp": -0.09126984126984894,
+      "macro_f1_delta_vs_swin_pp": -0.0910173650863868,
+      "micro_f1_delta_vs_swin_pp": null,
+      "approximate": false
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "seed": 43,
+      "model": "soft",
+      "primary_delta_vs_swin_pp": -0.23015873015873467,
+      "macro_f1_delta_vs_swin_pp": -0.24670872304960767,
+      "micro_f1_delta_vs_swin_pp": null,
+      "approximate": false
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "seed": 42,
+      "model": "fixed",
+      "primary_delta_vs_swin_pp": 1.0999999999999943,
+      "macro_f1_delta_vs_swin_pp": 1.7999999999999972,
+      "micro_f1_delta_vs_swin_pp": 0.10000000000000853,
+      "approximate": true
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "seed": 42,
+      "model": "soft",
+      "primary_delta_vs_swin_pp": null,
+      "macro_f1_delta_vs_swin_pp": null,
+      "micro_f1_delta_vs_swin_pp": null,
+      "approximate": false
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "seed": 43,
+      "model": "fixed",
+      "primary_delta_vs_swin_pp": 0.6000000000000085,
+      "macro_f1_delta_vs_swin_pp": 1.6000000000000085,
+      "micro_f1_delta_vs_swin_pp": 0.7999999999999972,
+      "approximate": true
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "seed": 43,
+      "model": "soft",
+      "primary_delta_vs_swin_pp": 1.767570850642329,
+      "macro_f1_delta_vs_swin_pp": 2.5738916169762547,
+      "micro_f1_delta_vs_swin_pp": 0.9059711775933863,
+      "approximate": true
+    }
+  ],
+  "sources": [
+    {
+      "path": "aid_seed42_test_summary.json",
+      "sha256": "4930e606487bcbd3ffde05e640d8506602137d535efd5712efe240860cff9f3c"
+    },
+    {
+      "path": "aid_seed43_test_summary.json",
+      "sha256": "38291719d80b41976cb6035645655d7704b4cd04f3f64d7b9b4825762fca4e86"
+    },
+    {
+      "path": "nwpu_two_seed_summary.json",
+      "sha256": "983a97cf349f15f3a7159e0c9cee37cf64c9c4ca816f138d4ece9c914cc60298"
+    },
+    {
+      "path": "bigearth_comparison.csv",
+      "sha256": "a2a8bae980b904f824015d00f19a7f5c8185640d66b0ead6fec7ab32932049ff"
+    },
+    {
+      "path": "bigearth_soft43_test_summary.json",
+      "sha256": "050692f8fbd2485f316272a825be6ce61d145840f8d76c65515563728e7715b9"
+    }
+  ],
+  "limitations": [
+    "AID soft42/43 and BEN soft42 have no archived formal test result; seed45 is not substituted",
+    "Single-label micro-F1 was not separately archived here; no inferred value inserted",
+    "BEN historical controls are printed to one decimal; related differences are approximate",
+    "AID and NWPU use calibration then refit/test; BEN tests the validation-best checkpoint",
+    "BEN fixed43 saved21 epochs vs Swin/soft full30; historical code/hardware differ",
+    "NWPU42 uses2080Ti and43 uses4090; retain hardware boundary",
+    "OA and mAP are different task metrics and are not averaged across datasets",
+    "This42/43 subset does not replace existing all-seed reports or establish stable superiority"
+  ]
+}

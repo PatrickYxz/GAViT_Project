@@ -1,0 +1,25 @@
+class_index,class,bucket,label,available,uniform_available,selected
+11,Natural grassland and sparsely vegetated areas,swin_only_correct,0,6,4,2
+11,Natural grassland and sparsely vegetated areas,swin_only_correct,1,4,4,2
+11,Natural grassland and sparsely vegetated areas,gavit_only_correct,0,2,2,2
+11,Natural grassland and sparsely vegetated areas,gavit_only_correct,1,4,4,2
+11,Natural grassland and sparsely vegetated areas,both_correct,0,4065,3985,2
+11,Natural grassland and sparsely vegetated areas,both_correct,1,42,42,2
+11,Natural grassland and sparsely vegetated areas,both_wrong,0,3,3,2
+11,Natural grassland and sparsely vegetated areas,both_wrong,1,55,52,2
+14,"Beaches, dunes, sands",swin_only_correct,0,1,1,1
+14,"Beaches, dunes, sands",swin_only_correct,1,5,0,2
+14,"Beaches, dunes, sands",gavit_only_correct,0,3,3,2
+14,"Beaches, dunes, sands",gavit_only_correct,1,1,0,1
+14,"Beaches, dunes, sands",both_correct,0,4113,4078,2
+14,"Beaches, dunes, sands",both_correct,1,42,10,2
+14,"Beaches, dunes, sands",both_wrong,0,0,0,0
+14,"Beaches, dunes, sands",both_wrong,1,16,4,2
+16,Coastal wetlands,swin_only_correct,0,1,1,1
+16,Coastal wetlands,swin_only_correct,1,5,2,2
+16,Coastal wetlands,gavit_only_correct,0,2,2,2
+16,Coastal wetlands,gavit_only_correct,1,3,1,2
+16,Coastal wetlands,both_correct,0,4114,4068,2
+16,Coastal wetlands,both_correct,1,17,8,2
+16,Coastal wetlands,both_wrong,0,0,0,0
+16,Coastal wetlands,both_wrong,1,39,14,2

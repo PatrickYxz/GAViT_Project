@@ -1,0 +1,368 @@
+{
+  "date": "2026-10-10",
+  "status": "cached_metric_closeout_complete_candidate_closed",
+  "evidence_scope": "Server returned compact output after supplied readback assertions; local verification checks returned identities/arithmetic/rounded curve, not the original raw predictions or checkpoint",
+  "final_pass_marker_in_paste": false,
+  "marker_note": "Final marker omitted in paste; all substantive output is present, so no repeated command requested",
+  "identity": {
+    "git": {
+      "commit": "67fe84d",
+      "dirty": false
+    },
+    "hardware": {
+      "cuda_runtime": "12.1",
+      "cudnn": 8902,
+      "device": "cuda",
+      "device_name": "NVIDIA GeForce RTX 2080 Ti",
+      "packages": {
+        "numpy": "1.26.4",
+        "pillow": "10.3.0",
+        "timm": "1.0.27",
+        "torch": "2.2.2",
+        "torch-geometric": "2.8.0",
+        "torchvision": "0.17.2"
+      },
+      "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+      "torch_num_threads": 8
+    },
+    "graph": {
+      "actual_forward_checked": true,
+      "edges_per_image": 80,
+      "feature_edges": 32,
+      "spatial_edges": 48
+    },
+    "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+    "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+    "checkpoint_sha256": "a1c7f3b173e369ec3d40e2122fec91fa9ebc70d39ac6a96f5db90017c76fb579"
+  },
+  "metrics": {
+    "swin": {
+      "correct": 1187,
+      "OA": 94.2063492063492,
+      "macro_F1": 94.17155216974332
+    },
+    "soft": {
+      "correct": 1181,
+      "OA": 93.73015873015873,
+      "macro_F1": 93.7657214015048
+    },
+    "spatial": {
+      "correct": 1164,
+      "OA": 92.38095238095238,
+      "macro_F1": 92.34247447308304
+    }
+  },
+  "paired": {
+    "swin": {
+      "both_correct": 1143,
+      "spatial_corrects": 21,
+      "spatial_breaks": 44,
+      "both_wrong": 52
+    },
+    "soft": {
+      "both_correct": 1138,
+      "spatial_corrects": 26,
+      "spatial_breaks": 43,
+      "both_wrong": 53
+    }
+  },
+  "deltas_vs_controls": {
+    "swin": {
+      "OA_pp": -1.8253968253968225,
+      "macro_F1_pp": -1.8290776966602778,
+      "net_correct": -23
+    },
+    "soft": {
+      "OA_pp": -1.349206349206355,
+      "macro_F1_pp": -1.4232469284217615,
+      "net_correct": -17
+    }
+  },
+  "curve_columns": [
+    "epoch",
+    "train_loss",
+    "val_OA",
+    "macro_F1",
+    "train_s",
+    "val_s"
+  ],
+  "curve": [
+    {
+      "epoch": 1,
+      "train_loss": 1.303725,
+      "val_OA": 79.047619,
+      "macro_F1": 78.896345,
+      "train_s": 33.12,
+      "val_s": 3.57
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.600507,
+      "val_OA": 81.904762,
+      "macro_F1": 81.380958,
+      "train_s": 32.11,
+      "val_s": 3.52
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.449943,
+      "val_OA": 81.587302,
+      "macro_F1": 80.857938,
+      "train_s": 32.23,
+      "val_s": 4.25
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.349225,
+      "val_OA": 84.761905,
+      "macro_F1": 84.37438,
+      "train_s": 33.28,
+      "val_s": 4.17
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.331316,
+      "val_OA": 84.444444,
+      "macro_F1": 84.386221,
+      "train_s": 34.18,
+      "val_s": 3.7
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.25442,
+      "val_OA": 80.31746,
+      "macro_F1": 80.479612,
+      "train_s": 37.62,
+      "val_s": 5.58
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.253119,
+      "val_OA": 84.285714,
+      "macro_F1": 84.000011,
+      "train_s": 45.41,
+      "val_s": 5.79
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.197723,
+      "val_OA": 86.428571,
+      "macro_F1": 86.452764,
+      "train_s": 45.36,
+      "val_s": 5.4
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.159309,
+      "val_OA": 86.904762,
+      "macro_F1": 86.918329,
+      "train_s": 39.14,
+      "val_s": 4.34
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.131204,
+      "val_OA": 89.047619,
+      "macro_F1": 88.878841,
+      "train_s": 48.54,
+      "val_s": 6.46
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.116027,
+      "val_OA": 90.15873,
+      "macro_F1": 90.049807,
+      "train_s": 46.95,
+      "val_s": 5.44
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.084172,
+      "val_OA": 89.68254,
+      "macro_F1": 89.726172,
+      "train_s": 47.82,
+      "val_s": 7.17
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.152973,
+      "val_OA": 89.206349,
+      "macro_F1": 89.183127,
+      "train_s": 49.95,
+      "val_s": 5.22
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.046026,
+      "val_OA": 90.793651,
+      "macro_F1": 90.727552,
+      "train_s": 48.63,
+      "val_s": 6.17
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.044686,
+      "val_OA": 89.52381,
+      "macro_F1": 89.563021,
+      "train_s": 44.48,
+      "val_s": 6.37
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.038276,
+      "val_OA": 91.269841,
+      "macro_F1": 91.203569,
+      "train_s": 43.51,
+      "val_s": 5.33
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.014889,
+      "val_OA": 90.555556,
+      "macro_F1": 90.528462,
+      "train_s": 47.28,
+      "val_s": 5.3
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.020184,
+      "val_OA": 91.587302,
+      "macro_F1": 91.505744,
+      "train_s": 48.95,
+      "val_s": 7.66
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.01154,
+      "val_OA": 91.666667,
+      "macro_F1": 91.578376,
+      "train_s": 58.92,
+      "val_s": 7.61
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.007017,
+      "val_OA": 91.904762,
+      "macro_F1": 91.793193,
+      "train_s": 59.99,
+      "val_s": 8.02
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.009164,
+      "val_OA": 91.587302,
+      "macro_F1": 91.56622,
+      "train_s": 62.73,
+      "val_s": 6.69
+    },
+    {
+      "epoch": 22,
+      "train_loss": 0.005688,
+      "val_OA": 91.825397,
+      "macro_F1": 91.794232,
+      "train_s": 61.52,
+      "val_s": 8.97
+    },
+    {
+      "epoch": 23,
+      "train_loss": 0.004617,
+      "val_OA": 92.142857,
+      "macro_F1": 92.120824,
+      "train_s": 56.76,
+      "val_s": 8.5
+    },
+    {
+      "epoch": 24,
+      "train_loss": 0.003957,
+      "val_OA": 92.380952,
+      "macro_F1": 92.342474,
+      "train_s": 100.96,
+      "val_s": 15.4
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.00343,
+      "val_OA": 92.222222,
+      "macro_F1": 92.162818,
+      "train_s": 59.88,
+      "val_s": 8.83
+    },
+    {
+      "epoch": 26,
+      "train_loss": 0.002481,
+      "val_OA": 91.984127,
+      "macro_F1": 91.907068,
+      "train_s": 104.0,
+      "val_s": 17.7
+    },
+    {
+      "epoch": 27,
+      "train_loss": 0.001953,
+      "val_OA": 92.142857,
+      "macro_F1": 92.080437,
+      "train_s": 98.64,
+      "val_s": 16.14
+    },
+    {
+      "epoch": 28,
+      "train_loss": 0.001753,
+      "val_OA": 91.984127,
+      "macro_F1": 91.91321,
+      "train_s": 89.53,
+      "val_s": 11.96
+    },
+    {
+      "epoch": 29,
+      "train_loss": 0.002012,
+      "val_OA": 92.063492,
+      "macro_F1": 92.001548,
+      "train_s": 67.51,
+      "val_s": 8.3
+    },
+    {
+      "epoch": 30,
+      "train_loss": 0.003366,
+      "val_OA": 92.063492,
+      "macro_F1": 92.001548,
+      "train_s": 67.28,
+      "val_s": 8.08
+    }
+  ],
+  "best": {
+    "epoch": 24,
+    "train_loss": 0.003957,
+    "val_OA": 92.380952,
+    "macro_F1": 92.342474,
+    "train_s": 100.96,
+    "val_s": 15.4
+  },
+  "final": {
+    "epoch": 30,
+    "train_loss": 0.003366,
+    "val_OA": 92.063492,
+    "macro_F1": 92.001548,
+    "train_s": 67.28,
+    "val_s": 8.08
+  },
+  "resources_from_rounded_curve": {
+    "train_total_s": 1646.28,
+    "validation_total_s": 221.64000000000001,
+    "train_weighted_images_per_second": 91.84342882134267,
+    "train_median_s": 48.585,
+    "train_min_s": 32.11,
+    "train_max_s": 104.0,
+    "validation_min_s": 3.52,
+    "validation_max_s": 17.7,
+    "wall_minus_train_val_s": 1129.5181405579997,
+    "caveat": "Two-decimal timing values; remainder includes untimed phases and cannot locate the slowdown cause"
+  },
+  "confirmed_decision": "Stop this candidate, no additional seeds/strength sweeps/refit/test/BigEarthNet; no further server readback needed for this closeout",
+  "limitations": [
+    "Single training seed on fixed validation split, not test/general stability",
+    "Full calibration S/W geometry was not returned and is not required to enforce the frozen stop rule",
+    "Per-class identities and prediction files remain on server; full raw backups not created locally",
+    "No unique causal explanation for accuracy drop or wall time variation"
+  ],
+  "source_sha256": "df967e701d0f6a34e0ce7672f40371f939b238cc11296a0412b14ae0f6ddf185",
+  "local_checks_passed": true
+}

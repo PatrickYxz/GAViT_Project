@@ -1,0 +1,1534 @@
+diff --git a/grouping_identity.py b/grouping_identity.py
+--- /dev/null
++++ b/grouping_identity.py
+@@ -0,0 +1,49 @@
++"""Versioned soft-grouping identity, usable without importing Torch."""
++from copy import deepcopy
++
++_SOFT = {
++    'assignment_version': 'local_prototype_cosine_v1',
++    'assignment_dim': 128, 'assignment_radius': 1,
++    'assignment_metric': 'chebyshev', 'assignment_temperature': 0.1,
++    'assignment_iterations': 1,
++    'assignment_projection': 'shared_ln_linear_no_bias',
++    'assignment_init': 'xavier_uniform',
++    'assignment_norm_eps': 1e-6, 'assignment_ln_eps': 1e-5,
++    'prototype_pooling': 'fixed_region_attention',
++    'region_pooling': 'attentive_log_membership',
++    'feedback_mapping': 'soft_membership',
++    'graph_node_geometry': 'anchor_index_prior',
++}
++
++
++def soft_assignment_identity() -> dict:
++    return dict(_SOFT)
++
++
++def validate_soft_assignment(config: dict) -> dict:
++    if not isinstance(config, dict) or config.keys() != _SOFT.keys():
++        raise ValueError('soft_assignment must contain the complete versioned configuration')
++    for key, expected in _SOFT.items():
++        if type(config[key]) is not type(expected) or config[key] != expected:
++            raise ValueError(f'Unsupported soft_assignment {key}={config[key]!r}; expected {expected!r}')
++    return dict(config)
++
++
++def complete_grouping_architecture(arch: dict, *, checkpoint: bool = False) -> dict:
++    if not isinstance(arch, dict):
++        raise ValueError('Grouping architecture must be a dictionary')
++    result = deepcopy(arch)
++    if result.get('grouping') != 'soft_prototype':
++        if 'soft_assignment' in result:
++            raise ValueError('soft_assignment is only valid for grouping=soft_prototype')
++        return result
++    for key, expected in {'num_regions': 16, 'edge_type': 'sparse_hybrid',
++                          'integration': 'token_feedback'}.items():
++        if type(result.get(key)) is not type(expected) or result.get(key) != expected:
++            raise ValueError(f'soft_prototype requires {key}={expected!r}')
++    if 'soft_assignment' not in result:
++        if checkpoint:
++            raise ValueError('Checkpoint is missing soft_assignment configuration')
++        result['soft_assignment'] = soft_assignment_identity()
++    result['soft_assignment'] = validate_soft_assignment(result['soft_assignment'])
++    return result
+diff --git a/models/gavit.py b/models/gavit.py
+--- a/models/gavit.py
++++ b/models/gavit.py
+@@ -1,9 +1,11 @@
+ import torch
+ import torch.nn as nn
+ from torch_geometric.nn import global_mean_pool
++from grouping_identity import complete_grouping_architecture
+ 
+ from models.swin_backbone      import SwinBackbone
+ from models.region_grouping    import KMeansGrouping, SpatialGrouping, AttentiveSpatialGrouping
++from models.soft_region_grouping import SoftPrototypeGrouping
+ from models.graph_construction import (
+     build_knn_graph,
+     build_sparse_hybrid_graph,
+@@ -11,7 +13,7 @@
+ )
+ from models.graph_reasoning    import GraphReasoning
+ 
+-VALID_GROUPINGS    = ("attentive_spatial", "spatial", "kmeans")
++VALID_GROUPINGS    = ("attentive_spatial", "spatial", "kmeans", "soft_prototype")
+ VALID_EDGE_TYPES   = ("knn", "spatial", "hybrid", "sparse_hybrid")
+ VALID_INTEGRATIONS = ("token_feedback", "fusion")
+ 
+@@ -70,6 +72,7 @@
+         pretrained:      bool  = True,
+         pretrained_path: str | None = None,
+         freeze_backbone: bool  = False,
++        soft_assignment: dict | None = None,
+     ):
+         super().__init__()
+ 
+@@ -93,6 +96,12 @@
+                 f"Unknown integration={integration!r}. Valid: {VALID_INTEGRATIONS}"
+             )
+         self.integration = integration
++        grouping_config = dict(grouping=grouping, num_regions=num_regions,
++                               edge_type=edge_type, integration=integration)
++        if soft_assignment is not None:
++            grouping_config['soft_assignment'] = soft_assignment
++        grouping_config = complete_grouping_architecture(grouping_config)
++        self.grouping = grouping
+ 
+         # --- Backbone ---
+         self.backbone = SwinBackbone(
+@@ -103,7 +112,11 @@
+         backbone_dim = self.backbone.hidden_dim  # 768
+ 
+         # --- Region Grouping ---
+-        if grouping == "attentive_spatial":
++        if grouping == "soft_prototype":
++            self.region_grouping = SoftPrototypeGrouping(
++                num_regions=num_regions, feat_dim=backbone_dim,
++                soft_assignment=grouping_config['soft_assignment'])
++        elif grouping == "attentive_spatial":
+             self.region_grouping = AttentiveSpatialGrouping(
+                 num_regions=num_regions, feat_dim=backbone_dim
+             )
+@@ -199,10 +212,21 @@
+ 
+             # Each token receives its region's refined feature
+             # assignments: (B, N) with values in [0, K)
+-            token_feedback = region_feedback.gather(
+-                1,
+-                assignments.unsqueeze(-1).expand(-1, -1, region_feedback.size(-1))
+-            )  # (B, N, 768)
++            if self.grouping == 'soft_prototype':
++                if (assignments.shape != (B, tokens.shape[1], K)
++                        or not assignments.is_floating_point()
++                        or not torch.isfinite(assignments).all()
++                        or (assignments < 0).any()
++                        or not torch.allclose(assignments.sum(-1), torch.ones_like(assignments[..., 0]),
++                                              atol=1e-6, rtol=1e-6)
++                        or assignments.masked_select(~self.region_grouping.candidate_mask[None]).any()):
++                    raise ValueError('Invalid soft membership for token feedback')
++                token_feedback = torch.einsum('bnk,bkd->bnd', assignments, region_feedback)
++            else:
++                token_feedback = region_feedback.gather(
++                    1,
++                    assignments.unsqueeze(-1).expand(-1, -1, region_feedback.size(-1))
++                )  # (B, N, 768)
+ 
+             # Residual update: original tokens + relational context
+             updated_tokens = tokens + token_feedback  # (B, N, 768)
+diff --git a/models/soft_region_grouping.py b/models/soft_region_grouping.py
+--- /dev/null
++++ b/models/soft_region_grouping.py
+@@ -0,0 +1,71 @@
++"""Local, image-dependent soft regions on the existing 7x7 -> 4x4 anchors."""
++import torch
++from torch import nn
++from torch.nn import functional as F
++
++from grouping_identity import soft_assignment_identity, validate_soft_assignment
++from .region_grouping import AttentiveSpatialGrouping
++
++
++class SoftPrototypeGrouping(AttentiveSpatialGrouping):
++    def __init__(self, num_regions=16, grid_size=7, feat_dim=768, soft_assignment=None):
++        if (num_regions, grid_size, feat_dim) != (16, 7, 768):
++            raise ValueError('soft_prototype requires num_regions=16, grid_size=7, feat_dim=768')
++        self.config = validate_soft_assignment(
++            soft_assignment_identity() if soft_assignment is None else soft_assignment)
++        super().__init__(num_regions, grid_size, feat_dim)
++        # Preserve the old attention initialization and the caller's RNG stream.
++        # All parameters are constructed on CPU, then moved with the model.
++        with torch.random.fork_rng(devices=[]):
++            seed = (torch.initial_seed() + 0x534F4654) % (2**63 - 1)
++            torch.random.default_generator.manual_seed(seed)
++            self.assignment_projection = nn.Sequential(
++                nn.LayerNorm(feat_dim, eps=self.config['assignment_ln_eps']),
++                nn.Linear(feat_dim, self.config['assignment_dim'], bias=False))
++            nn.init.xavier_uniform_(self.assignment_projection[1].weight)
++        regions = torch.arange(num_regions)
++        distance = torch.maximum(
++            (self.assignment[:, None] // 4 - regions[None] // 4).abs(),
++            (self.assignment[:, None] % 4 - regions[None] % 4).abs())
++        self.register_buffer('candidate_mask', distance <= self.config['assignment_radius'])
++        self.assignment_observer = None
++
++    def _validate_tokens(self, tokens):
++        if (tokens.ndim != 3 or tokens.shape[0] < 1 or tuple(tokens.shape[1:]) != (49, 768)
++                or not tokens.is_floating_point() or not torch.isfinite(tokens).all()):
++            raise ValueError('soft_prototype requires finite floating tokens [B>0,49,768]')
++
++    def _assignment(self, tokens, scores):
++        self._validate_tokens(tokens)
++        if scores.shape != (*tokens.shape[:2], 1) or not torch.isfinite(scores).all():
++            raise ValueError('Nonfinite or invalid token attention scores')
++        w0 = scores.expand(-1, -1, self.K).masked_fill(
++            self.membership[None] == 0, -torch.inf).softmax(dim=1)
++        projected = self.assignment_projection(tokens)
++        if not torch.isfinite(projected).all():
++            raise ValueError('Nonfinite assignment projection')
++        z = F.normalize(projected, dim=-1, eps=self.config['assignment_norm_eps'])
++        raw = torch.einsum('bnk,bnd->bkd', w0, z)
++        prototypes = F.normalize(raw, dim=-1, eps=self.config['assignment_norm_eps'])
++        logits = torch.einsum('bnd,bkd->bnk', z, prototypes) / self.config['assignment_temperature']
++        log_s = logits.masked_fill(~self.candidate_mask[None], -torch.inf).log_softmax(-1)
++        return log_s, w0, raw.norm(dim=-1), prototypes
++
++    def _pool(self, tokens, scores, log_s):
++        w = (log_s + scores).softmax(dim=1)
++        regions = torch.einsum('bnk,bnd->bkd', w, tokens)
++        if not torch.isfinite(regions).all() or not torch.isfinite(w).all():
++            raise ValueError('Nonfinite soft region pooling')
++        return regions, w
++
++    def forward(self, tokens):
++        self._validate_tokens(tokens)
++        scores = self.attn(tokens)
++        log_s, w0, norms, prototypes = self._assignment(tokens, scores)
++        regions, w = self._pool(tokens, scores, log_s)
++        s = log_s.exp()
++        if self.assignment_observer is not None:
++            self.assignment_observer({key: value.detach() for key, value in {
++                'S': s, 'W': w, 'W0': w0, 'prototype_norms': norms,
++                'prototypes': prototypes, 'token_norm': tokens.norm(dim=-1)}.items()})
++        return regions, s
+diff --git a/run_scene.py b/run_scene.py
+--- a/run_scene.py
++++ b/run_scene.py
+@@ -15,6 +15,7 @@
+                          help='group keeps same-class pixel duplicates in one split; never drops images')
+     train = sub.add_parser('train', help='Run an explicit smoke/calibration/refit phase')
+     train.add_argument('--model', choices=['swin', 'gavit'], required=True)
++    train.add_argument('--grouping', choices=['attentive_spatial', 'soft_prototype'])
+     train.add_argument('--phase', choices=['smoke', 'calibrate', 'refit'], default='smoke')
+     train.add_argument('--seed', type=int, default=42)
+     train.add_argument('--pretrained-path')
+diff --git a/scene_classification/modeling.py b/scene_classification/modeling.py
+--- a/scene_classification/modeling.py
++++ b/scene_classification/modeling.py
+@@ -5,16 +5,21 @@
+ from torchvision.transforms import InterpolationMode
+ 
+ from models.swin_backbone import SwinBackbone
++from grouping_identity import complete_grouping_architecture
+ 
+ 
+-def architecture(model, num_classes):
++def architecture(model, num_classes, grouping=None):
+     if model == 'swin':
++        if grouping is not None:
++            raise ValueError('Swin does not accept grouping')
+         return {'num_classes': num_classes, 'backbone': 'swin_tiny_patch4_window7_224', 'dropout': 0.1}
+     if model != 'gavit':
+         raise ValueError(f'Unknown model: {model}')
+-    return {'num_classes': num_classes, 'num_regions': 16, 'knn_k': 5,
++    if grouping not in (None, 'attentive_spatial', 'soft_prototype'):
++        raise ValueError(f'Unsupported scene grouping: {grouping}')
++    return complete_grouping_architecture({'num_classes': num_classes, 'num_regions': 16, 'knn_k': 5,
+             'gat_hidden': 256, 'gat_heads': 4, 'gat_layers': 2, 'dropout': 0.1,
+-            'grouping': 'attentive_spatial', 'edge_type': 'sparse_hybrid', 'integration': 'token_feedback'}
++            'grouping': grouping or 'attentive_spatial', 'edge_type': 'sparse_hybrid', 'integration': 'token_feedback'})
+ 
+ 
+ class SwinClassifier(nn.Module):
+@@ -27,8 +32,10 @@
+         return self.classifier(self.backbone(images).mean(dim=1))
+ 
+ 
+-def build_model(model, num_classes, pretrained_path=None):
+-    config = architecture(model, num_classes)
++def build_model(model, num_classes, pretrained_path=None, *, architecture_config=None):
++    config = architecture(model, num_classes) if architecture_config is None else complete_grouping_architecture(architecture_config, checkpoint=True)
++    if config != architecture(model, num_classes, grouping=config.get('grouping')):
++        raise ValueError('Unsupported scene architecture configuration')
+     if model == 'swin':
+         return SwinClassifier(num_classes, pretrained_path)
+     from models.gavit import GAViT
+diff --git a/scene_classification/runner.py b/scene_classification/runner.py
+--- a/scene_classification/runner.py
++++ b/scene_classification/runner.py
+@@ -19,6 +19,8 @@
+ from experiment_identity import (assert_clean_git_state, get_git_state, graph_topology_identity,
+     load_checkpoint_metadata, sha256_file, write_checkpoint_metadata)
+ from utils import save_checkpoint as _legacy_save_checkpoint, save_training_state, set_seed
++from grouping_identity import complete_grouping_architecture
++from soft_assignment_diagnostics import SoftAssignmentProbe
+ from .data import load_manifest, select_records, write_json
+ from .metrics import classification_metrics
+ from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity
+@@ -40,6 +42,7 @@
+     train_per_class: int = 8
+     val_per_class: int = 2
+     calibration: str | None = None
++    grouping: str | None = None
+ 
+ 
+ def training_identity(cfg):
+@@ -93,6 +96,7 @@
+ def _code_identity():
+     root = Path(__file__).resolve().parents[1]
+     files = [root / 'run_scene.py', root / 'utils.py', root / 'experiment_identity.py',
++             root / 'grouping_identity.py', root / 'soft_assignment_diagnostics.py',
+              *sorted((root / 'scene_classification').glob('*.py')), *sorted((root / 'models').glob('*.py'))]
+     return {'git': get_git_state(str(root)),
+             'files_sha256': {str(p.relative_to(root)): sha256_file(str(p)) for p in files}}
+@@ -210,9 +214,10 @@
+     meta = load_checkpoint_metadata(str(checkpoint))
+     if not meta:
+         raise ValueError('Checkpoint identity metadata missing')
++    arch = complete_grouping_architecture(meta.get('architecture'), checkpoint=True)
+     if (meta.get('dataset') != manifest['dataset'] or meta.get('class_names') != manifest['class_names']
+             or meta.get('data', {}).get('manifest_sha256') != sha256_file(str(manifest_path))
+-            or meta.get('architecture') != architecture(meta.get('model'), len(manifest['class_names']))
++            or arch != architecture(meta.get('model'), len(manifest['class_names']), grouping=arch.get('grouping'))
+             or meta.get('entry_version') != 'scene-v1'):
+         raise ValueError('Checkpoint identity mismatch')
+     if meta.get('checkpoint_sha256') != sha256_file(str(checkpoint)):
+@@ -221,7 +226,8 @@
+ 
+ 
+ def _restore(checkpoint, meta, device):
+-    model = build_model(meta['model'], meta['architecture']['num_classes']).to(device)
++    model = build_model(meta['model'], meta['architecture']['num_classes'],
++                        architecture_config=meta['architecture']).to(device)
+     model.load_state_dict(torch.load(checkpoint, map_location=device, weights_only=True), strict=True)
+     return model.eval()
+ 
+@@ -254,7 +260,7 @@
+     training = training_identity(cfg)
+     identity = {'model': cfg.model, 'seed': cfg.seed, 'manifest_sha256': sha256_file(cfg.manifest),
+                 'pretrained_sha256': pretrained_hash, 'training': training,
+-                'architecture': architecture(cfg.model, len(names)), 'code': code}
++                'architecture': architecture(cfg.model, len(names), grouping=cfg.grouping), 'code': code}
+     epochs, source_identity = (1 if cfg.phase == 'smoke' else 30), None
+     if cfg.phase == 'refit':
+         if not cfg.calibration:
+@@ -275,7 +281,8 @@
+     torch.backends.cudnn.allow_tf32 = False
+     if device.type == 'cuda':
+         torch.cuda.reset_peak_memory_stats(device)
+-    model = build_model(cfg.model, len(names), cfg.pretrained_path).to(device)
++    model = build_model(cfg.model, len(names), cfg.pretrained_path,
++                        architecture_config=identity['architecture']).to(device)
+     graph_capture, hook = capture_graph_once(model)
+     optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=1e-4,
+                                   betas=(0.9, 0.999), eps=1e-8)
+@@ -315,6 +322,14 @@
+     check_rows = val_rows[:2] if val_rows else train_rows[:2]
+     check_loader = _loader(cfg.data_root, check_rows, cfg, False)
+     check_inputs = next(iter(check_loader))[0].to(device)
++    probe = None
++    if identity['architecture'].get('grouping') == 'soft_prototype':
++        probe_rows = (val_rows if val_rows else train_rows)[:8]
++        probe_data = SceneDataset(cfg.data_root, probe_rows, False)
++        probe_inputs = torch.stack([probe_data[i][0] for i in range(len(probe_data))])
++        probe = SoftAssignmentProbe(model, probe_inputs, [r['path'] for r in probe_rows],
++                                    out / 'assignment_probe', 'pool' if cfg.phase == 'refit' else 'val')
++        probe.record(0, save_tensors=True)
+     selected_reference = None
+     for epoch in range(1, epochs + 1):
+         _sync(device)
+@@ -346,7 +361,8 @@
+                'validation_seconds': val_seconds, 'validation': metrics}
+         history.append(row)
+         scheduler.step()
+-        if metrics and metrics['oa_percent'] > best_score:
++        improved = metrics is not None and metrics['oa_percent'] > best_score
++        if improved:
+             best_score, best_epoch = metrics['oa_percent'], epoch
+             metadata['best'] = {'metric': 'val_OA', 'value': best_score, 'epoch': epoch}
+             with torch.no_grad():
+@@ -360,6 +376,12 @@
+         _save_checkpoint(model, out / 'last.pth', metadata)
+         save_training_state(model, optimizer, scheduler, str(out / 'last.train_state.pth'),
+                             epoch=epoch, best_metric=best_score, resume_identity=identity)
++        if probe:
++            row['assignment_probe'] = probe.record(epoch, save_tensors=improved or epoch == epochs)
++            if improved:
++                probe.select_snapshot(epoch, 'best')
++            if epoch == epochs:
++                probe.select_snapshot(epoch, 'final')
+         write_json(out / 'history.json', history, replace=True)
+         print(f'EPOCH {epoch}/{epochs}; loss={row["train_loss"]:.6f}; '
+               f'val_OA={metrics["oa_percent"] if metrics else None}; train_s={train_seconds:.2f}', flush=True)
+@@ -392,6 +414,8 @@
+               'cuda_peak_allocated_bytes': torch.cuda.max_memory_allocated(device) if device.type == 'cuda' else None,
+               'cuda_peak_reserved_bytes': torch.cuda.max_memory_reserved(device) if device.type == 'cuda' else None,
+               'memory_scope': 'entire run including checkpoint reconstruction', 'refit_source': source_identity}
++    if probe:
++        report['assignment_probe'] = probe.summary()
+     write_json(out / 'run.json', report, replace=True)
+     (out / 'run.exit').write_text('exit_code=0\n')
+     print(f'SCENE {cfg.phase.upper()} COMPLETE: {out}', flush=True)
+diff --git a/soft_assignment_diagnostics.py b/soft_assignment_diagnostics.py
+--- /dev/null
++++ b/soft_assignment_diagnostics.py
+@@ -0,0 +1,151 @@
++"""Fixed-input assignment probes; no test-set access or training RNG effects."""
++import hashlib
++import json
++from pathlib import Path
++import shutil
++import time
++
++import torch
++
++
++class SoftAssignmentProbe:
++    def __init__(self, model, inputs, sample_ids, output_dir, split, *, resume=False):
++        if split not in ('train', 'val', 'pool'):
++            raise ValueError('Probe split must be train, val or pool; test is forbidden')
++        if (getattr(model, 'grouping', None) != 'soft_prototype'
++                or inputs.ndim != 4 or not 1 <= len(inputs) <= 8
++                or len(inputs) != len(sample_ids) or len(set(sample_ids)) != len(sample_ids)
++                or not inputs.is_floating_point() or not torch.isfinite(inputs).all()):
++            raise ValueError('Probe requires a soft model and 1..8 finite, identified images')
++        self.model, self.split = model, split
++        self.inputs = inputs.detach().cpu().clone()
++        self.sample_ids = list(sample_ids)
++        self.out = Path(output_dir)
++        self.identity = {'split': split, 'sample_ids': self.sample_ids,
++                         'input_sha256': hashlib.sha256(self.inputs.numpy().tobytes()).hexdigest(),
++                         'input_shape': list(self.inputs.shape), 'input_dtype': str(self.inputs.dtype),
++                         'input_scope': 'fixed_preprocessed_eval_tensor_no_random_augmentation',
++                         'soft_assignment': dict(model.region_grouping.config)}
++        self.initial_s, self.last_epoch, self.total_seconds = None, -1, 0.0
++        if resume:
++            if json.loads((self.out / 'probe_manifest.json').read_text()) != self.identity:
++                raise ValueError('Probe resume identity mismatch')
++            initial = torch.load(self.out / 'epoch_000.pt', map_location='cpu', weights_only=True)
++            if initial['identity'] != self.identity or initial['epoch'] != 0:
++                raise ValueError('Probe initial snapshot identity mismatch')
++            self.initial_s = initial['tensors']['S'].detach().clone()
++            rows = [json.loads(line) for line in (self.out / 'assignment_diagnostics.jsonl').read_text().splitlines()]
++            if (not rows or [r['epoch'] for r in rows] != list(range(len(rows)))
++                    or any(r['split'] != split or r['sample_ids'] != self.sample_ids for r in rows)):
++                raise ValueError('Probe resume history identity/epochs mismatch')
++            self.last_epoch = rows[-1]['epoch']
++            self.total_seconds = sum(r['probe_seconds'] for r in rows)
++        else:
++            self.out.mkdir(parents=True, exist_ok=False)
++            (self.out / 'probe_manifest.json').write_text(json.dumps(self.identity, indent=2) + '\n')
++            (self.out / 'assignment_diagnostics.jsonl').touch(exist_ok=False)
++
++    def _capture(self):
++        model = self.model
++        device = next(model.parameters()).device
++        devices = [device.index if device.index is not None else torch.cuda.current_device()] if device.type == 'cuda' else []
++        modes = [(module, module.training) for module in model.modules()]
++        previous = model.region_grouping.assignment_observer
++        captured, handles = {}, []
++
++        def observer(values):
++            captured.update({k: v.detach().cpu().clone() for k, v in values.items()})
++
++        def graph(_module, args):
++            captured['edge_index'] = args[1].detach().cpu().clone()
++
++        def feedback(_module, _args, output):
++            captured['feedback'] = output.detach().cpu().clone()
++
++        try:
++            with torch.random.fork_rng(devices=devices), torch.no_grad():
++                model.eval()
++                model.region_grouping.assignment_observer = observer
++                handles.append(model.graph_reasoning.register_forward_pre_hook(graph))
++                handles.append(model.feedback_proj.register_forward_hook(feedback))
++                logits = model(self.inputs.to(device))
++                if not torch.isfinite(logits).all():
++                    raise ValueError('Nonfinite probe logits')
++        finally:
++            model.region_grouping.assignment_observer = previous
++            for handle in handles:
++                handle.remove()
++            for module, training in modes:
++                module.training = training
++        return captured
++
++    def record(self, epoch, *, save_tensors=False):
++        if type(epoch) is not int or epoch != self.last_epoch + 1:
++            raise ValueError(f'Probe epoch must be {self.last_epoch + 1}, got {epoch!r}')
++        start = time.perf_counter()
++        tensors = self._capture()
++        s = tensors['S']
++        initial = s if self.initial_s is None else self.initial_s
++        if s.shape != initial.shape or not torch.isfinite(initial).all():
++            raise ValueError('Invalid initial assignment snapshot')
++        feedback = torch.einsum('bnk,bkd->bnd', s, tensors['feedback'])
++        feedback_norm = feedback.norm(dim=-1).mean(-1)
++        token_norm = tensors['token_norm'].mean(-1)
++        cosine = tensors['prototypes'] @ tensors['prototypes'].transpose(1, 2)
++        off_diagonal = cosine[:, ~torch.eye(16, dtype=torch.bool)]
++        occupancy = torch.stack([torch.bincount(row.argmax(-1), minlength=16) for row in s])
++        row = {'epoch': epoch, 'split': self.split, 'samples': len(s), 'sample_ids': self.sample_ids,
++               'entropy_mean': float(-(s * s.clamp_min(1e-30).log()).sum(-1).mean()),
++               'region_mass': s.sum(1).tolist(), 'argmax_occupancy': occupancy.tolist(),
++               'prototype_norm_min': float(tensors['prototype_norms'].min()),
++               'prototype_norm_mean': float(tensors['prototype_norms'].mean()),
++               'low_norm_prototypes': int((tensors['prototype_norms'] < 1e-6).sum()),
++               'prototype_cosine_off_diagonal_mean': float(off_diagonal.mean()),
++               'prototype_cosine_off_diagonal_max': float(off_diagonal.max()),
++               'mean_abs_delta_S': float((s - initial).abs().mean()),
++               'feedback_norm': feedback_norm.tolist(), 'token_norm': token_norm.tolist(),
++               'feedback_to_token_ratio': [float(f / t) if t > 0 else None for f, t in zip(feedback_norm, token_norm)],
++               'zero_input_images': int((token_norm == 0).sum()),
++               'probe_seconds': time.perf_counter() - start}
++        line = json.dumps(row, allow_nan=False)
++        if save_tensors or epoch == 0:
++            path = self.out / f'epoch_{epoch:03d}.pt'
++            with path.open('xb') as stream:
++                torch.save({'epoch': epoch, 'identity': self.identity, 'tensors': tensors}, stream)
++        with (self.out / 'assignment_diagnostics.jsonl').open('a') as stream:
++            stream.write(line + '\n')
++            stream.flush()
++        self.initial_s = initial.clone()
++        self.last_epoch = epoch
++        self.total_seconds += row['probe_seconds']
++        return row
++
++    def select_snapshot(self, epoch, name):
++        if name not in ('best', 'final') or type(epoch) is not int or epoch != self.last_epoch:
++            raise ValueError('Snapshot selection requires current epoch and best/final label')
++        self._publish_snapshot(epoch, name)
++
++    def _publish_snapshot(self, epoch, name):
++        source = self.out / f'epoch_{epoch:03d}.pt'
++        saved = torch.load(source, map_location='cpu', weights_only=True)
++        if saved['epoch'] != epoch or saved['identity'] != self.identity:
++            raise ValueError('Probe selected snapshot identity/epoch mismatch')
++        target = self.out / f'{name}.pt'
++        temporary = self.out / f'{name}.pt.tmp'
++        shutil.copyfile(source, temporary)
++        temporary.replace(target)
++
++    def reconcile_snapshots(self, *, best_epoch=None, final_epoch=None):
++        """Repair interrupted alias publication using persisted, validated snapshots."""
++        for name, epoch in (('best', best_epoch), ('final', final_epoch)):
++            if epoch is None:
++                continue
++            if type(epoch) is not int or not 1 <= epoch <= self.last_epoch:
++                raise ValueError('Snapshot recovery epoch is outside persisted history')
++            if name == 'final' and epoch != self.last_epoch:
++                raise ValueError('Final snapshot must match last persisted epoch')
++            self._publish_snapshot(epoch, name)
++
++    def summary(self):
++        return {'split': self.split, 'samples': len(self.sample_ids), 'output': str(self.out),
++                'last_epoch': self.last_epoch, 'probe_seconds': self.total_seconds}
+diff --git a/test_bigearth.py b/test_bigearth.py
+--- a/test_bigearth.py
++++ b/test_bigearth.py
+@@ -51,7 +51,7 @@
+ parser.add_argument("--gat_heads",   type=int, default=None)
+ parser.add_argument("--gat_layers",  type=int, default=None)
+ parser.add_argument("--grouping",    type=str, default=None,
+-                    choices=["kmeans", "spatial", "attentive_spatial"])
++                    choices=["kmeans", "spatial", "attentive_spatial", "soft_prototype"])
+ parser.add_argument("--edge_type",   type=str, default=None,
+                     choices=["knn", "spatial", "hybrid", "sparse_hybrid"])
+ parser.add_argument("--integration", type=str, default=None,
+@@ -83,12 +83,6 @@
+     transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                          std=[0.229, 0.224, 0.225]),
+ ])
+-
+-test_patches, test_labels = load_split(os.path.join(args.data_dir, "test.csv"))
+-test_set    = BigEarthNetDataset(test_patches, test_labels, transform=test_tf)
+-test_loader = DataLoader(test_set, batch_size=args.batch_size, shuffle=False,
+-                         num_workers=4, pin_memory=False)  # 2026-09-09 hotfix: same pinned-pool host OOM as the val loader; test set is 119825 images
+-print(f"Test samples: {len(test_set):,}")
+ 
+ # =============================================================================
+ # Model (architecture reconstructed from checkpoint metadata when available)
+@@ -157,24 +151,17 @@
+         ARCH_DEFAULTS,
+     )
+     print(f"Architecture source: {arch_source}")
+-    model = GAViT(
+-        num_classes=arch["num_classes"],
+-        num_regions=arch["num_regions"],
+-        knn_k=arch["knn_k"],
+-        gat_hidden=arch["gat_hidden"],
+-        gat_heads=arch["gat_heads"],
+-        gat_layers=arch["gat_layers"],
+-        dropout=arch["dropout"],
+-        grouping=arch["grouping"],
+-        edge_type=arch["edge_type"],
+-        integration=arch["integration"],
+-        pretrained=False,
+-        freeze_backbone=False,
+-    ).to(DEVICE)
++    model = GAViT(**arch, pretrained=False, freeze_backbone=False).to(DEVICE)
+ 
+ model.load_state_dict(torch.load(args.ckpt, map_location=DEVICE, weights_only=True))
+ model.eval()
+ print(f"Loaded: {args.ckpt}")
++
++test_patches, test_labels = load_split(os.path.join(args.data_dir, "test.csv"))
++test_set = BigEarthNetDataset(test_patches, test_labels, transform=test_tf)
++test_loader = DataLoader(test_set, batch_size=args.batch_size, shuffle=False,
++                         num_workers=4, pin_memory=False)  # Avoid the pinned-pool host OOM.
++print(f"Test samples: {len(test_set):,}")
+ 
+ # =============================================================================
+ # Evaluate
+diff --git a/test_gavit.py b/test_gavit.py
+--- a/test_gavit.py
++++ b/test_gavit.py
+@@ -65,6 +65,8 @@
+     "integration": "token_feedback",
+ }
+ metadata = load_checkpoint_metadata(args.ckpt)
++if metadata and metadata.get('architecture', {}).get('grouping') == 'soft_prototype':
++    raise ValueError('soft_prototype checkpoints require run_scene.py evaluate with the scene manifest')
+ if metadata is None:
+     print(f"WARNING: no sidecar metadata found for {args.ckpt}; "
+           "falling back to CLI architecture flags.")
+diff --git a/tests/soft_entry_worker.py b/tests/soft_entry_worker.py
+--- /dev/null
++++ b/tests/soft_entry_worker.py
+@@ -0,0 +1,73 @@
++"""Offline CPU entrypoint harness: real models/TIFF IO, no download/workers."""
++import os
++from pathlib import Path
++import runpy
++import sys
++
++ROOT = Path(__file__).resolve().parents[1]
++sys.path.insert(0, str(ROOT))
++import timm
++import torch
++import torch.utils.data
++import utils
++
++torch.set_num_threads(2)
++create_model = timm.create_model
++loader = torch.utils.data.DataLoader
++
++
++def offline_model(*args, **kwargs):
++    kwargs['pretrained'] = False
++    return create_model(*args, **kwargs)
++
++
++class CpuLoader(loader):
++    def __init__(self, *args, **kwargs):
++        kwargs.update(num_workers=0, pin_memory=False)
++        super().__init__(*args, **kwargs)
++
++
++timm.create_model = offline_model
++torch.utils.data.DataLoader = CpuLoader
++original_save = utils.save_epoch_artifacts
++
++
++def verify_saved_model(model, optimizer, scheduler, path, metadata, **kwargs):
++    result = original_save(model, optimizer, scheduler, path, metadata, **kwargs)
++    if result[1]:
++        from models.gavit import GAViT
++        saved = utils.load_checkpoint_metadata(path)
++        rng = torch.get_rng_state().clone()
++        reconstructed = (GAViT(**saved['architecture'], pretrained=False)
++                         if saved['model'] == 'gavit' else type(model)())
++        if saved['model'] == 'swin':
++            from models.swin_features import build_swin_model_kwargs
++            reconstructed.backbone = create_model('swin_tiny_patch4_window7_224',
++                                                   **build_swin_model_kwargs(False, None))
++        reconstructed.load_state_dict(torch.load(path, map_location='cpu', weights_only=True), strict=True)
++        reconstructed.eval()
++        sample = torch.linspace(-1, 1, 3 * 224 * 224).reshape(1, 3, 224, 224)
++        with torch.no_grad():
++            delta = float((model(sample) - reconstructed(sample)).abs().max())
++        torch.set_rng_state(rng)
++        if delta > 1e-5:
++            raise AssertionError(f'Entry reload mismatch {delta}')
++        print(f'ENTRY RELOAD PASS {delta}', flush=True)
++    return result
++
++
++utils.save_epoch_artifacts = verify_saved_model
++if os.environ.get('SOFT_TEST_STOP_AFTER'):
++    from soft_assignment_diagnostics import SoftAssignmentProbe
++    original_record = SoftAssignmentProbe.record
++    def stop_after_record(self, epoch, **kwargs):
++        row = original_record(self, epoch, **kwargs)
++        if epoch == int(os.environ['SOFT_TEST_STOP_AFTER']):
++            print('CONTROLLED STOP AFTER SAVED EPOCH', epoch, flush=True)
++            raise SystemExit(7)
++        return row
++    SoftAssignmentProbe.record = stop_after_record
++
++entry = ROOT / sys.argv[1]
++sys.argv = [str(entry), *sys.argv[2:]]
++runpy.run_path(str(entry), run_name='__main__')
+diff --git a/tests/test_grouping_identity.py b/tests/test_grouping_identity.py
+--- /dev/null
++++ b/tests/test_grouping_identity.py
+@@ -0,0 +1,90 @@
++"""A new checkpoint must not silently reconstruct a different grouping."""
++import copy
++import importlib
++import unittest
++
++
++class GroupingIdentityTests(unittest.TestCase):
++    def api(self):
++        try:
++            return importlib.import_module('grouping_identity')
++        except ImportError as exc:
++            self.fail(f'Grouping identity implementation missing: {exc}')
++
++    def architecture(self):
++        return {'num_classes': 19, 'num_regions': 16, 'grouping': 'soft_prototype',
++                'edge_type': 'sparse_hybrid', 'integration': 'token_feedback'}
++
++    def test_training_defaults_are_independent_and_checkpoint_is_strict(self):
++        api = self.api()
++        original = self.architecture()
++        with self.assertRaisesRegex(ValueError, 'soft_assignment'):
++            api.complete_grouping_architecture(original, checkpoint=True)
++        result = api.complete_grouping_architecture(original)
++        self.assertNotIn('soft_assignment', original)
++        self.assertEqual(result['soft_assignment']['assignment_temperature'], 0.1)
++        self.assertEqual(result['soft_assignment']['assignment_version'], 'local_prototype_cosine_v1')
++        self.assertEqual(api.complete_grouping_architecture(result, checkpoint=True), result)
++        result['soft_assignment']['assignment_temperature'] = 99.0
++        self.assertEqual(api.soft_assignment_identity()['assignment_temperature'], 0.1)
++
++    def test_every_missing_or_changed_assignment_field_is_rejected(self):
++        api = self.api()
++        arch = api.complete_grouping_architecture(self.architecture())
++        for key in arch['soft_assignment']:
++            for operation in ('remove', 'change'):
++                with self.subTest(key=key, operation=operation):
++                    bad = copy.deepcopy(arch)
++                    if operation == 'remove':
++                        del bad['soft_assignment'][key]
++                    else:
++                        bad['soft_assignment'][key] = 'wrong'
++                    with self.assertRaises(ValueError):
++                        api.complete_grouping_architecture(bad, checkpoint=True)
++        for bad_value in (None, [], True, float('nan'), float('inf')):
++            bad = copy.deepcopy(arch)
++            bad['soft_assignment'] = bad_value
++            with self.assertRaises(ValueError):
++                api.complete_grouping_architecture(bad, checkpoint=True)
++        for key in ('assignment_radius', 'assignment_iterations'):
++            bad = copy.deepcopy(arch)
++            bad['soft_assignment'][key] = True
++            with self.assertRaises(ValueError):
++                api.complete_grouping_architecture(bad, checkpoint=True)
++        bad = copy.deepcopy(arch)
++        bad['soft_assignment']['extra'] = 'unexpected'
++        with self.assertRaises(ValueError):
++            api.complete_grouping_architecture(bad, checkpoint=True)
++
++    def test_old_architectures_and_input_dictionary_are_unchanged(self):
++        api = self.api()
++        for grouping in ('attentive_spatial', 'spatial', 'kmeans'):
++            old = {**self.architecture(), 'grouping': grouping}
++            self.assertEqual(api.complete_grouping_architecture(old, checkpoint=True), old)
++            with self.assertRaises(ValueError):
++                api.complete_grouping_architecture({**old, 'soft_assignment': api.soft_assignment_identity()})
++
++    def test_invalid_combinations_are_rejected(self):
++        api = self.api()
++        for key, value in [('num_regions', 9), ('num_regions', True),
++                           ('edge_type', 'knn'), ('integration', 'fusion')]:
++            with self.subTest(key=key, value=value), self.assertRaises(ValueError):
++                api.complete_grouping_architecture({**self.architecture(), key: value})
++
++    def test_metadata_resolution_preserves_new_identity_and_rejects_fallback(self):
++        from utils import resolve_arch_config
++        api = self.api()
++        defaults = {**self.architecture(), 'grouping': 'attentive_spatial'}
++        arch = api.complete_grouping_architecture(self.architecture())
++        resolved, source = resolve_arch_config({}, {'architecture': arch}, defaults)
++        self.assertEqual(resolved, arch)
++        self.assertEqual(source, 'metadata')
++        for metadata in (None, {'architecture': self.architecture()}):
++            with self.assertRaisesRegex(ValueError, 'soft_assignment|metadata'):
++                resolve_arch_config({'grouping': 'soft_prototype'}, metadata, defaults)
++        with self.assertRaisesRegex(ValueError, 'conflict'):
++            resolve_arch_config({'grouping': 'attentive_spatial'}, {'architecture': arch}, defaults)
++
++
++if __name__ == '__main__':
++    unittest.main()
+diff --git a/tests/test_scene_runtime.py b/tests/test_scene_runtime.py
+--- a/tests/test_scene_runtime.py
++++ b/tests/test_scene_runtime.py
+@@ -41,9 +41,10 @@
+         return runtime().RunConfig(**kwargs)
+ 
+     def test_real_models_train_save_reload_and_evaluate_validation(self):
+-        for name in ('swin', 'gavit'):
+-            with self.subTest(model=name):
+-                cfg = self.config(model=name, output=str(Path(self.tmp.name) / name))
++        for name, grouping in (('swin', None), ('gavit', None), ('gavit', 'soft_prototype')):
++            with self.subTest(model=name, grouping=grouping):
++                extra = {'grouping': grouping} if grouping else {}
++                cfg = self.config(model=name, output=str(Path(self.tmp.name) / (name + str(grouping))), **extra)
+                 report = runtime().run_training(cfg)
+                 self.assertEqual(report['status'], 'complete')
+                 self.assertEqual(report['final_epoch'], 1)
+@@ -63,6 +64,11 @@
+                 if name == 'gavit':
+                     self.assertEqual(metadata['graph_topology']['total_directed_edges'], 80)
+                     self.assertEqual(report['graph_capture']['edges_per_image'], 80)
++                if grouping:
++                    self.assertEqual(metadata['architecture']['soft_assignment']['assignment_dim'], 128)
++                    self.assertEqual(report['assignment_probe']['split'], 'val')
++                    self.assertEqual(report['assignment_probe']['last_epoch'], 1)
++                    self.assertTrue((out / 'assignment_probe' / 'final.pt').is_file())
+                 eval_out = out / 'val_eval'
+                 result = runtime().evaluate_checkpoint(str(out / 'best.pth'), str(self.manifest),
+                     str(self.root), str(eval_out), split='val', device='cpu', batch_size=2, workers=0)
+@@ -164,6 +170,18 @@
+             wrong[key] = value
+             with self.subTest(key=key, value=value), self.assertRaises(ValueError):
+                 runtime().validate_calibration(wrong, expected)
++
++    def test_soft_calibration_cannot_be_refit_as_fixed_or_different_assignment(self):
++        soft = runtime().architecture('gavit', 30, grouping='soft_prototype')
++        fixed = runtime().architecture('gavit', 30)
++        source = {'status': 'complete', 'phase': 'calibrate', 'final_epoch': 30,
++                  'best_epoch': 9, 'architecture': soft}
++        self.assertEqual(runtime().validate_calibration(source, {'architecture': soft}), 9)
++        wrong = copy.deepcopy(soft)
++        wrong['soft_assignment']['assignment_temperature'] = 0.2
++        for arch in (fixed, wrong):
++            with self.assertRaises(ValueError):
++                runtime().validate_calibration(source, {'architecture': arch})
+ 
+     def test_completed_report_must_match_checkpoint_sidecar(self):
+         meta = {'model': 'swin', 'dataset': 'AID', 'training': {'seed': 42},
+diff --git a/tests/test_soft_assignment_diagnostics.py b/tests/test_soft_assignment_diagnostics.py
+--- /dev/null
++++ b/tests/test_soft_assignment_diagnostics.py
+@@ -0,0 +1,145 @@
++import copy
++import importlib
++import json
++from unittest.mock import patch
++import pytest
++import torch
++from test_soft_gavit import make_model
++
++
++def probe(*args, **kwargs):
++    try:
++        cls = importlib.import_module('soft_assignment_diagnostics').SoftAssignmentProbe
++    except (ImportError, AttributeError) as exc:
++        pytest.fail(f'Probe missing: {exc}')
++    return cls(*args, **kwargs)
++
++
++def test_probe_records_recomputable_stats_and_restores_modes_rng(tmp_path):
++    model = make_model()
++    model.train()
++    model.classifier.eval()
++    images = torch.randn(2, 3, 16, 16)
++    before_rng = torch.get_rng_state().clone()
++    before_modes = [m.training for m in model.modules()]
++    p = probe(model, images, ['a', 'b'], tmp_path / 'diag', 'val')
++    row = p.record(0, save_tensors=True)
++    assert torch.equal(before_rng, torch.get_rng_state())
++    assert before_modes == [m.training for m in model.modules()]
++    assert model.region_grouping.assignment_observer is None
++    assert row['samples'] == 2 and row['mean_abs_delta_S'] == 0
++    saved = torch.load(tmp_path / 'diag' / 'epoch_000.pt', weights_only=True)
++    tensors = saved['tensors']
++    assert all(not t.requires_grad and t.grad_fn is None and t.device.type == 'cpu' for t in tensors.values())
++    s = tensors['S']
++    expected_entropy = float(-(s * s.clamp_min(1e-30).log()).sum(-1).mean())
++    assert row['entropy_mean'] == pytest.approx(expected_entropy)
++    assert row['region_mass'] == s.sum(1).tolist()
++    assert tensors['edge_index'].shape == (2, 160)
++    assert p.record(1)['mean_abs_delta_S'] == 0
++    with torch.no_grad():
++        model.region_grouping.assignment_projection[1].weight.add_(torch.randn_like(model.region_grouping.assignment_projection[1].weight) * .1)
++    assert p.record(2, save_tensors=True)['mean_abs_delta_S'] > 0
++    p.select_snapshot(2, 'best')
++    assert torch.load(tmp_path / 'diag' / 'best.pt', weights_only=True)['epoch'] == 2
++
++
++def test_record_failure_restores_hooks_modes_and_rng(tmp_path):
++    model = make_model()
++    model.classifier.eval()
++    p = probe(model, torch.randn(1, 3, 16, 16), ['a'], tmp_path / 'diag', 'val')
++    rng = torch.get_rng_state().clone()
++    modes = [m.training for m in model.modules()]
++    hooks = (len(model.graph_reasoning._forward_pre_hooks), len(model.feedback_proj._forward_hooks))
++    def fail(_x):
++        torch.rand(4)
++        raise RuntimeError('probe deliberately failed')
++    with patch.object(model, 'forward', fail), pytest.raises(RuntimeError, match='deliberately'):
++        p.record(0)
++    assert torch.equal(rng, torch.get_rng_state())
++    assert modes == [m.training for m in model.modules()]
++    assert model.region_grouping.assignment_observer is None
++    assert hooks == (len(model.graph_reasoning._forward_pre_hooks), len(model.feedback_proj._forward_hooks))
++    assert p.record(0)['epoch'] == 0
++
++
++def test_inserting_probe_does_not_change_training_update(tmp_path):
++    torch.manual_seed(44)
++    plain = make_model()
++    inspected = copy.deepcopy(plain)
++    x = torch.randn(2, 3, 16, 16)
++    y = torch.tensor([0, 1])
++    p = probe(inspected, x, ['a', 'b'], tmp_path / 'diag', 'val')
++    for model in (plain, inspected):
++        torch.manual_seed(66)
++        optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4)
++        if model is inspected:
++            p.record(0)
++        torch.nn.functional.cross_entropy(model(x), y).backward()
++        optimizer.step()
++    for key, value in plain.state_dict().items():
++        torch.testing.assert_close(value, inspected.state_dict()[key], atol=0, rtol=0)
++
++
++def test_resume_preserves_initial_assignment_and_rejects_bad_identity(tmp_path):
++    model = make_model()
++    x = torch.randn(1, 3, 16, 16)
++    out = tmp_path / 'diag'
++    p = probe(model, x, ['a'], out, 'val')
++    p.record(0)
++    p.record(1)
++    with pytest.raises(FileExistsError):
++        probe(model, x, ['a'], out, 'val')
++    restored = probe(model, x, ['a'], out, 'val', resume=True)
++    assert restored.last_epoch == 1
++    assert restored.record(2)['mean_abs_delta_S'] == 0
++    with pytest.raises(ValueError):
++        restored.record(2)
++    with pytest.raises(ValueError, match='identity'):
++        probe(model, x + 1, ['a'], out, 'val', resume=True)
++    (out / 'epoch_000.pt').unlink()
++    with pytest.raises((FileNotFoundError, ValueError)):
++        probe(model, x, ['a'], out, 'val', resume=True)
++
++
++def test_test_split_invalid_inputs_and_legacy_models_are_rejected(tmp_path):
++    model = make_model()
++    x = torch.randn(1, 3, 16, 16)
++    for split in ('test', 'anything'):
++        with pytest.raises(ValueError, match='split'):
++            probe(model, x, ['a'], tmp_path / split, split)
++    with pytest.raises(ValueError):
++        probe(model, x, [], tmp_path / 'wrong-count', 'val')
++    with pytest.raises(ValueError):
++        probe(make_model('attentive_spatial'), x, ['a'], tmp_path / 'old', 'val')
++
++
++@pytest.mark.parametrize('stale_aliases', [False, True])
++def test_resume_reconciles_best_and_final_without_new_forward(tmp_path, stale_aliases):
++    model = make_model()
++    x = torch.randn(1, 3, 16, 16)
++    out = tmp_path / 'diag'
++    p = probe(model, x, ['a'], out, 'val')
++    p.record(0)
++    if stale_aliases:
++        p.select_snapshot(0, 'best')
++        p.select_snapshot(0, 'final')
++    p.record(1, save_tensors=True)  # Best epoch; interruption skips alias selection.
++    p.record(2, save_tensors=True)  # No improvement; final alias selection also skipped.
++    initial = (out / 'epoch_000.pt').read_bytes()
++    history = (out / 'assignment_diagnostics.jsonl').read_bytes()
++    restored = probe(model, x, ['a'], out, 'val', resume=True)
++    with patch.object(model, 'forward', side_effect=AssertionError('No new forward')):
++        restored.reconcile_snapshots(best_epoch=1, final_epoch=2)
++    assert torch.load(out / 'best.pt', weights_only=True)['epoch'] == 1
++    assert torch.load(out / 'final.pt', weights_only=True)['epoch'] == 2
++    assert (out / 'epoch_000.pt').read_bytes() == initial
++    assert (out / 'assignment_diagnostics.jsonl').read_bytes() == history
++    (out / 'epoch_001.pt').unlink()
++    with pytest.raises(FileNotFoundError):
++        restored.reconcile_snapshots(best_epoch=1)
++    invalid = torch.load(out / 'epoch_002.pt', weights_only=True)
++    invalid['identity']['split'] = 'train'
++    torch.save(invalid, out / 'epoch_002.pt')
++    with pytest.raises(ValueError, match='identity'):
++        restored.reconcile_snapshots(final_epoch=2)
+diff --git a/tests/test_soft_entrypoints.py b/tests/test_soft_entrypoints.py
+--- /dev/null
++++ b/tests/test_soft_entrypoints.py
+@@ -0,0 +1,111 @@
++import csv
++import json
++import os
++from pathlib import Path
++import subprocess
++import sys
++
++import numpy as np
++import pytest
++import rasterio
++import torch
++
++ROOT = Path(__file__).resolve().parents[1]
++
++
++def entry(script, args, *, env=None):
++    return subprocess.run([sys.executable, str(ROOT / 'tests/soft_entry_worker.py'), script, *map(str, args)],
++        cwd=ROOT, text=True, capture_output=True, timeout=120,
++        env={**os.environ, 'OMP_NUM_THREADS': '2', 'MKL_NUM_THREADS': '2', **(env or {})})
++
++
++@pytest.fixture
++def splits(tmp_path):
++    root = tmp_path / 'splits'
++    root.mkdir()
++    for part in ('train', 'val', 'test'):
++        rows = []
++        for i in range(2):
++            patch = tmp_path / f'{part}_{i}'
++            patch.mkdir()
++            for b, band in enumerate(('B02', 'B03', 'B04')):
++                pixels = ((np.arange(256).reshape(16, 16) * (b + 1) + i * 801) % 4096).astype('uint16')
++                with rasterio.open(patch / f'{patch.name}_{band}.tif', 'w', driver='GTiff',
++                                   height=16, width=16, count=1, dtype='uint16') as image:
++                    image.write(pixels, 1)
++            rows.append({'patch_path': str(patch), **{f'label_{k}': (i+k) % 2 for k in range(19)}})
++        with (root / f'{part}.csv').open('w') as stream:
++            writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
++            writer.writeheader()
++            writer.writerows(rows)
++    return root
++
++
++@pytest.mark.parametrize('script', ['train_bigearth.py', 'test_bigearth.py', 'run_scene.py'])
++def test_help_advertises_new_mode(script):
++    result = entry(script, ['train', '--help'] if script == 'run_scene.py' else ['--help'])
++    assert result.returncode == 0, result.stderr
++    assert 'soft_prototype' in result.stdout
++
++
++@pytest.mark.parametrize('model,grouping', [('swin', None), ('gavit', 'attentive_spatial'), ('gavit', 'soft_prototype')])
++def test_real_bigearth_entry_train_reload_and_test(tmp_path, splits, model, grouping):
++    ckpt = tmp_path / 'model.pth'
++    args = ['--model', model, '--data_dir', splits, '--epochs', 1, '--batch_size', 2,
++            '--seed', 42, '--run_stage', 'smoke', '--run_tag', 'soft_entry_test', '--checkpoint_path', ckpt]
++    if grouping:
++        args += ['--grouping', grouping, '--edge_type', 'sparse_hybrid']
++    result = entry('train_bigearth.py', args)
++    assert result.returncode == 0, result.stdout + result.stderr
++    assert 'ENTRY RELOAD PASS' in result.stdout
++    meta = json.loads(ckpt.with_suffix('.meta.json').read_text())
++    assert meta['dataset'] == 'BigEarthNet-19'
++    assert ckpt.with_suffix('.last.train_state.pth').is_file()
++    evaluated = entry('test_bigearth.py', ['--model', model, '--ckpt', ckpt, '--data_dir', splits, '--batch_size', 2])
++    assert evaluated.returncode == 0, evaluated.stdout + evaluated.stderr
++    assert 'Test mAP' in evaluated.stdout and 'Test F1    (micro)' in evaluated.stdout
++    if grouping == 'soft_prototype':
++        probe = ckpt.with_suffix('.assignment_probe')
++        rows = [json.loads(line) for line in (probe / 'assignment_diagnostics.jsonl').read_text().splitlines()]
++        assert [row['epoch'] for row in rows] == [0, 1]
++        assert rows[0]['split'] == 'val' and (probe / 'final.pt').is_file()
++        assert meta['architecture']['soft_assignment']['assignment_dim'] == 128
++        sidecar = ckpt.with_suffix('.meta.json')
++        for key in meta['architecture']['soft_assignment']:
++            # Full per-field validator is covered in identity tests; one real entry corruption suffices.
++            del meta['architecture']['soft_assignment'][key]
++            break
++        sidecar.write_text(json.dumps(meta))
++        invalid = entry('test_bigearth.py', ['--model', model, '--ckpt', ckpt, '--data_dir', tmp_path / 'missing'])
++        assert invalid.returncode != 0 and 'soft_assignment' in invalid.stderr
++
++
++@pytest.mark.parametrize('stop_after', [1, 2])
++def test_new_mode_resume_uses_persisted_initial_probe(tmp_path, splits, stop_after):
++    ckpt = tmp_path / 'resume.pth'
++    args = ['--model', 'gavit', '--grouping', 'soft_prototype', '--edge_type', 'sparse_hybrid',
++            '--data_dir', splits, '--epochs', 2, '--batch_size', 2, '--seed', 42,
++            '--run_stage', 'smoke', '--run_tag', 'resume_probe', '--checkpoint_path', ckpt]
++    stopped = entry('train_bigearth.py', args, env={'SOFT_TEST_STOP_AFTER': str(stop_after)})
++    assert stopped.returncode == 7, stopped.stdout + stopped.stderr
++    probe = ckpt.with_suffix('.assignment_probe')
++    initial = (probe / 'epoch_000.pt').read_bytes()
++    resumed = entry('train_bigearth.py', [*args, '--resume'])
++    assert resumed.returncode == 0, resumed.stdout + resumed.stderr
++    assert (probe / 'epoch_000.pt').read_bytes() == initial
++    rows = [json.loads(line) for line in (probe / 'assignment_diagnostics.jsonl').read_text().splitlines()]
++    assert [row['epoch'] for row in rows] == [0, 1, 2]
++    assert torch.load(probe / 'final.pt', weights_only=True)['epoch'] == 2
++    meta = json.loads(ckpt.with_suffix('.meta.json').read_text())
++    assert torch.load(probe / 'best.pt', weights_only=True)['epoch'] == meta['best']['epoch']
++
++
++def test_legacy_nwpu_entry_rejects_new_sidecar_before_data_access(tmp_path):
++    from grouping_identity import complete_grouping_architecture
++    ckpt = tmp_path / 'model.pth'
++    arch = complete_grouping_architecture({'num_classes': 45, 'num_regions': 16,
++        'knn_k': 5, 'gat_hidden': 256, 'gat_heads': 4, 'gat_layers': 2, 'dropout': 0.1,
++        'grouping': 'soft_prototype', 'edge_type': 'sparse_hybrid', 'integration': 'token_feedback'})
++    ckpt.with_suffix('.meta.json').write_text(json.dumps({'model': 'gavit', 'dataset': 'NWPU-RESISC45', 'architecture': arch}))
++    result = entry('test_gavit.py', ['--ckpt', ckpt])
++    assert result.returncode != 0 and 'run_scene.py' in result.stderr
+diff --git a/tests/test_soft_gavit.py b/tests/test_soft_gavit.py
+--- /dev/null
++++ b/tests/test_soft_gavit.py
+@@ -0,0 +1,133 @@
++import copy
++from unittest.mock import patch
++import pytest
++import torch
++from torch.nn import functional as F
++
++from grouping_identity import complete_grouping_architecture
++from models.gavit import GAViT
++from scene_classification.modeling import capture_graph_once
++from utils import load_checkpoint_metadata, resolve_arch_config, save_checkpoint
++
++
++class TokenBackbone(torch.nn.Module):
++    hidden_dim = 768
++
++    def __init__(self, **kwargs):
++        super().__init__()
++        self.proj = torch.nn.Linear(3, 768)
++
++    def forward(self, x):
++        x = F.adaptive_avg_pool2d(x, (7, 7))
++        return self.proj(x.flatten(2).transpose(1, 2))
++
++
++def make_model(grouping='soft_prototype', **kwargs):
++    with patch('models.gavit.SwinBackbone', TokenBackbone):
++        return GAViT(pretrained=False, grouping=grouping, edge_type='sparse_hybrid',
++                     gat_hidden=4, gat_heads=2, num_classes=19, **kwargs)
++
++
++def test_shared_initialization_and_rng_match_old_model():
++    torch.manual_seed(42)
++    old = make_model('attentive_spatial')
++    rng = torch.get_rng_state().clone()
++    torch.manual_seed(42)
++    new = make_model()
++    assert torch.equal(rng, torch.get_rng_state())
++    for key, value in old.state_dict().items():
++        assert torch.equal(value, new.state_dict()[key]), key
++    assert sum(p.numel() for p in new.parameters()) - sum(p.numel() for p in old.parameters()) == 99840
++
++
++def test_onehot_soft_model_matches_old_regions_edges_feedback_and_logits():
++    torch.manual_seed(42)
++    old = make_model('attentive_spatial').eval()
++    torch.manual_seed(42)
++    new = make_model().eval()
++    x = torch.randn(2, 3, 16, 16)
++    helper = new.region_grouping._assignment
++
++    def onehot(tokens, scores):
++        _, w0, norms, prototypes = helper(tokens, scores)
++        log_s = torch.where(new.region_grouping.membership.bool(), 0., -torch.inf)
++        return log_s[None].expand(len(tokens), -1, -1), w0, norms, prototypes
++
++    observed = [{}, {}]
++    handles = []
++    for model, box in zip((old, new), observed):
++        def grouping_hook(_module, _args, output, box=box):
++            box['regions'] = output[0].detach()
++        def graph_hook(_module, args, box=box):
++            box['edges'] = args[1].detach()
++        def feedback_hook(_module, _args, output, box=box):
++            box['feedback'] = output.detach()
++        handles += [model.region_grouping.register_forward_hook(grouping_hook),
++                    model.graph_reasoning.register_forward_pre_hook(graph_hook),
++                    model.feedback_proj.register_forward_hook(feedback_hook)]
++    try:
++        with patch.object(new.region_grouping, '_assignment', onehot), torch.no_grad():
++            expected, actual = old(x), new(x)
++        torch.testing.assert_close(actual, expected, atol=1e-6, rtol=1e-6)
++        for key in ('regions', 'edges', 'feedback'):
++            torch.testing.assert_close(observed[0][key], observed[1][key], atol=1e-6, rtol=1e-6)
++    finally:
++        for handle in handles:
++            handle.remove()
++
++
++@pytest.mark.parametrize('loss_name', ['ce', 'bce'])
++def test_actual_graph_forward_backward_and_assignment_only_backbone_gradient(loss_name):
++    torch.manual_seed(21)
++    model = make_model()
++    images = torch.randn(2, 3, 16, 16)
++    capture, handle = capture_graph_once(model)
++    try:
++        logits = model(images)
++    finally:
++        handle.remove()
++    assert capture['edges_per_image'] == 80 and capture['actual_forward_checked']
++    loss = F.cross_entropy(logits, torch.tensor([1, 2])) if loss_name == 'ce' else F.binary_cross_entropy_with_logits(logits, torch.rand_like(logits))
++    loss.backward()
++    for module in (model.region_grouping.assignment_projection, model.graph_reasoning, model.backbone):
++        grads = [p.grad for p in module.parameters() if p.grad is not None]
++        assert grads and all(torch.isfinite(g).all() for g in grads)
++        assert sum(g.abs().sum() for g in grads) > 0
++    model.zero_grad(set_to_none=True)
++    tokens = model.backbone(images)
++    s = model.region_grouping(tokens)[1]
++    (s * torch.randn_like(s)).sum().backward()
++    assert model.backbone.proj.weight.grad.abs().sum() > 0
++
++
++def test_new_checkpoint_reconstructs_exact_architecture(tmp_path):
++    arch = complete_grouping_architecture(dict(num_classes=19, num_regions=16, knn_k=5,
++        gat_hidden=4, gat_heads=2, gat_layers=2, dropout=.1, grouping='soft_prototype',
++        edge_type='sparse_hybrid', integration='token_feedback'))
++    x = torch.randn(2, 3, 16, 16)
++    with patch('models.gavit.SwinBackbone', TokenBackbone):
++        model = GAViT(**arch, pretrained=False).eval()
++        path = str(tmp_path / 'model.pth')
++        save_checkpoint(model, path, {'model': 'gavit', 'dataset': 'synthetic', 'architecture': arch})
++        defaults = {k: v for k, v in arch.items() if k != 'soft_assignment'}
++        resolved, _ = resolve_arch_config({}, load_checkpoint_metadata(path), defaults)
++        restored = GAViT(**resolved, pretrained=False).eval()
++        restored.load_state_dict(torch.load(path, weights_only=True), strict=True)
++    with torch.no_grad():
++        torch.testing.assert_close(model(x), restored(x), atol=1e-6, rtol=1e-6)
++
++
++def test_bad_combinations_and_broken_membership_are_rejected():
++    for kwargs in ({'edge_type': 'knn'}, {'integration': 'fusion'}, {'num_regions': 9}):
++        config = dict(grouping='soft_prototype', edge_type='sparse_hybrid', pretrained=False)
++        config.update(kwargs)
++        with pytest.raises(ValueError):
++            GAViT(**config)
++    model = make_model().eval()
++    x = torch.randn(1, 3, 16, 16)
++    regions, membership = model.region_grouping(model.backbone(x))
++    for bad in (membership.long(), membership[:, :, 0], membership * 2,
++                torch.full_like(membership, float('nan')), membership.roll(8, -1)):
++        with patch.object(model.region_grouping, 'forward', return_value=(regions, bad)):
++            with pytest.raises(ValueError, match='membership'):
++                model(x)
+diff --git a/tests/test_soft_region_grouping.py b/tests/test_soft_region_grouping.py
+--- /dev/null
++++ b/tests/test_soft_region_grouping.py
+@@ -0,0 +1,119 @@
++"""Soft membership must be differentiable, local and independent per image."""
++import importlib
++import pytest
++import torch
++from models.region_grouping import AttentiveSpatialGrouping
++
++
++def layer(**kwargs):
++    try:
++        cls = importlib.import_module('models.soft_region_grouping').SoftPrototypeGrouping
++    except (ImportError, AttributeError) as exc:
++        pytest.fail(f'SoftPrototypeGrouping missing: {exc}')
++    return cls(**kwargs)
++
++
++def test_normalization_locality_and_assignment_only_gradients():
++    torch.manual_seed(42)
++    m = layer()
++    x = torch.randn(2, 49, 768, requires_grad=True)
++    log_s, w0, norms, prototypes = m._assignment(x, m.attn(x))
++    r, w = m._pool(x, m.attn(x), log_s)
++    s = log_s.exp()
++    torch.testing.assert_close(s.sum(-1), torch.ones(2, 49))
++    torch.testing.assert_close(w.sum(1), torch.ones(2, 16))
++    torch.testing.assert_close(w0.sum(1), torch.ones(2, 16))
++    assert not s.masked_select(~m.candidate_mask[None]).any()
++    assert m.candidate_mask[0].nonzero().flatten().tolist() == [0, 1, 4, 5]
++    assert set(m.membership.sum(0).tolist()) == {1., 2., 4.}
++    assert r.shape == (2, 16, 768)
++    cost = torch.randn_like(s)
++    gradients = torch.autograd.grad((s * cost).sum(),
++        (x, m.assignment_projection[1].weight, m.attn[0].weight))
++    for grad in gradients:
++        assert torch.isfinite(grad).all() and grad.abs().sum() > 0
++
++
++def test_batch_isolation_repeatability_and_content_dependence():
++    torch.manual_seed(7)
++    m = layer().eval()
++    x = torch.randn(2, 49, 768)
++    expected_r, expected_s = m(x)
++    repeated_r, repeated_s = m(x)
++    assert torch.equal(repeated_s, expected_s)
++    changed = x.clone()
++    changed[1] *= -2
++    r, s = m(changed)
++    torch.testing.assert_close(r[0], expected_r[0], atol=0, rtol=0)
++    torch.testing.assert_close(s[0], expected_s[0], atol=0, rtol=0)
++    changed = x.clone()
++    changed[0, 2] = x[0, 0]  # Candidate region 1 changes, query token 0 does not.
++    assert (m(changed)[1][0, 0] - expected_s[0, 0]).abs().max() > 1e-6
++
++
++def test_onehot_membership_reproduces_original_pooling():
++    torch.manual_seed(10)
++    old = AttentiveSpatialGrouping()
++    torch.manual_seed(10)
++    soft = layer()
++    x = torch.randn(2, 49, 768)
++    log_s = torch.where(soft.membership.bool(), 0., -torch.inf)[None].expand(2, -1, -1)
++    actual, _ = soft._pool(x, soft.attn(x), log_s)
++    torch.testing.assert_close(actual, old(x)[0], atol=1e-6, rtol=1e-6)
++
++
++def test_shared_attention_rng_and_projection_reproducibility():
++    torch.manual_seed(42)
++    old = AttentiveSpatialGrouping()
++    old_rng = torch.get_rng_state().clone()
++    torch.manual_seed(42)
++    soft = layer()
++    assert torch.equal(old_rng, torch.get_rng_state())
++    for key, value in old.state_dict().items():
++        assert torch.equal(value, soft.state_dict()[key])
++    torch.manual_seed(42)
++    assert torch.equal(soft.assignment_projection[1].weight, layer().assignment_projection[1].weight)
++    torch.manual_seed(43)
++    assert not torch.equal(soft.assignment_projection[1].weight, layer().assignment_projection[1].weight)
++
++
++@pytest.mark.parametrize('kind', ['zero', 'identical', 'opposite'])
++def test_degenerate_features_remain_finite(kind):
++    m = layer()
++    v = torch.randn(1, 1, 768)
++    x = v.expand(1, 49, -1).clone()
++    if kind == 'zero':
++        x.zero_()
++    if kind == 'opposite':
++        x[:, ::2] *= -1
++    x.requires_grad_()
++    r, s = m(x)
++    (r.square().mean() + s.square().mean()).backward()
++    assert torch.isfinite(r).all() and torch.isfinite(s).all()
++    assert torch.isfinite(x.grad).all()
++    assert all(p.grad is None or torch.isfinite(p.grad).all() for p in m.parameters())
++
++
++def test_invalid_shapes_types_and_nonfinite_data_fail_clearly():
++    for kwargs in ({'num_regions': 9}, {'grid_size': 8}, {'feat_dim': 8}):
++        with pytest.raises(ValueError):
++            layer(**kwargs)
++    m = layer()
++    for x in (torch.zeros(0, 49, 768), torch.zeros(1, 48, 768), torch.zeros(1, 49, 8),
++              torch.zeros(49, 768), torch.ones(1, 49, 768, dtype=torch.long),
++              torch.full((1, 49, 768), float('nan')), torch.full((1, 49, 768), float('inf'))):
++        with pytest.raises(ValueError):
++            m(x)
++
++
++def test_observer_receives_detached_current_tensors_without_retention():
++    m = layer()
++    captured = []
++    m.assignment_observer = captured.append
++    m(torch.randn(1, 49, 768, requires_grad=True))
++    assert len(captured) == 1
++    assert {'S', 'W', 'W0', 'prototype_norms', 'prototypes', 'token_norm'} <= captured[0].keys()
++    assert all(not x.requires_grad and x.grad_fn is None for x in captured[0].values())
++    m.assignment_observer = None
++    m(torch.randn(1, 49, 768))
++    assert len(captured) == 1
+diff --git a/train_bigearth.py b/train_bigearth.py
+--- a/train_bigearth.py
++++ b/train_bigearth.py
+@@ -18,6 +18,9 @@
+ import os
+ import csv
+ import argparse
++import json
++from pathlib import Path
++import time
+ import numpy as np
+ 
+ import torch
+@@ -42,6 +45,8 @@
+ from models.bigearth_dataset import BigEarthNetDataset, CLASSES_19, NUM_CLASSES
+ from models.gavit import GAViT
+ from models.swin_features import build_swin_model_kwargs, pool_swin_features
++from grouping_identity import complete_grouping_architecture
++from soft_assignment_diagnostics import SoftAssignmentProbe
+ from utils import (
+     load_checkpoint_metadata,
+     load_validated_training_state,
+@@ -67,7 +72,7 @@
+ parser.add_argument("--gat_heads",    type=int, default=4)
+ parser.add_argument("--gat_layers",   type=int, default=2)
+ parser.add_argument("--grouping",     type=str, default="attentive_spatial",
+-                    choices=["kmeans", "spatial", "attentive_spatial"])
++                    choices=["kmeans", "spatial", "attentive_spatial", "soft_prototype"])
+ parser.add_argument("--edge_type",    type=str, default="knn",
+                     choices=["knn", "spatial", "hybrid", "sparse_hybrid"])
+ parser.add_argument("--integration",  type=str, default="token_feedback",
+@@ -85,6 +90,8 @@
+ parser.add_argument("--resume",       action="store_true",
+                     help="Resume from the exact last-epoch training state")
+ args = parser.parse_args()
++if args.model == 'swin' and args.grouping == 'soft_prototype':
++    parser.error('soft_prototype grouping requires --model gavit')
+ 
+ SEED    = args.seed
+ RUN_STAGE = validate_run_stage(args.run_stage)
+@@ -101,12 +108,15 @@
+ CKPT_PATH = args.checkpoint_path or os.path.join("checkpoints", f"{CKPT_NAME}.pth")
+ TRAIN_STATE_PATH = training_state_path_for(CKPT_PATH)
+ META_PATH = metadata_path_for(CKPT_PATH)
++PROBE_PATH = Path(CKPT_PATH).with_suffix('.assignment_probe')
+ os.makedirs(os.path.dirname(CKPT_PATH) or ".", exist_ok=True)
+ 
+ if RUN_STAGE == "formal":
+     assert_clean_git_state(get_git_state())
+ if not args.resume:
+     assert_fresh_output_paths([CKPT_PATH, META_PATH, TRAIN_STATE_PATH])
++    if args.grouping == 'soft_prototype':
++        assert_fresh_output_paths([str(PROBE_PATH)])
+ 
+ # =============================================================================
+ # Data
+@@ -175,23 +185,6 @@
+             return self.classifier(feat)
+ 
+     model = SwinBaseline().to(DEVICE)
+-
+-else:  # gavit
+-    model = GAViT(
+-        num_classes=NUM_CLASSES,
+-        num_regions=args.num_regions,
+-        knn_k=args.knn_k,
+-        gat_hidden=args.gat_hidden,
+-        gat_heads=args.gat_heads,
+-        gat_layers=args.gat_layers,
+-        dropout=args.dropout,
+-        grouping=args.grouping,
+-        edge_type=args.edge_type,
+-        integration=args.integration,
+-        pretrained=True,
+-        pretrained_path=args.pretrained_path,
+-        freeze_backbone=False,
+-    ).to(DEVICE)
+ 
+ ARCHITECTURE = (
+     {
+@@ -213,6 +206,10 @@
+         "integration": args.integration,
+     }
+ )
++if args.model == 'gavit':
++    ARCHITECTURE = complete_grouping_architecture(ARCHITECTURE)
++    model = GAViT(**ARCHITECTURE, pretrained=True, pretrained_path=args.pretrained_path,
++                  freeze_backbone=False).to(DEVICE)
+ 
+ total_params = sum(p.numel() for p in model.parameters())
+ print(f"Model: {args.model.upper()} | {total_params:,} params | Device: {DEVICE}")
+@@ -242,6 +239,11 @@
+         expected_architecture=ARCHITECTURE,
+     )
+     resume_metadata = load_checkpoint_metadata(CKPT_PATH)
++    if args.grouping == 'soft_prototype':
++        requested = {'seed': SEED, 'epochs': args.epochs, 'batch_size': args.batch_size, 'lr': args.lr}
++        if (any(resume_metadata['training'].get(k) != v for k, v in requested.items())
++                or resume_metadata.get('execution') != {'run_stage': RUN_STAGE, 'run_tag': RUN_TAG}):
++            raise ValueError('Soft grouping resume training/execution identity mismatch')
+     print(
+         f"Resuming {TRAIN_STATE_PATH}: epoch {start_epoch}, "
+         f"best mAP {best_mAP:.1f}%, model/optimizer/LR schedule restored"
+@@ -310,11 +312,27 @@
+ if not args.resume:
+     write_checkpoint_metadata(CKPT_PATH, metadata)
+ 
++probe = None
++if args.grouping == 'soft_prototype':
++    probe_inputs = torch.stack([val_set[i][0] for i in range(min(8, len(val_set)))])
++    probe = SoftAssignmentProbe(model, probe_inputs, val_patches[:len(probe_inputs)],
++                                PROBE_PATH, 'val', resume=args.resume)
++    if args.resume:
++        if probe.last_epoch != start_epoch - 1:
++            raise ValueError('Probe history does not match resumed training epoch')
++        probe.reconcile_snapshots(
++            best_epoch=metadata.get('best', {}).get('epoch'),
++            final_epoch=args.epochs if probe.last_epoch == args.epochs else None,
++        )
++    else:
++        probe.record(0, save_tensors=True)
++
+ print(f"\n{'='*60}")
+ print(f"Training {args.model.upper()} on BigEarthNet-19 | {args.epochs} epochs")
+ print(f"{'='*60}\n")
+ 
+ for epoch in range(start_epoch, args.epochs + 1):
++    epoch_start = time.perf_counter()
+     model.train()
+     total_loss = 0.0
+     for imgs, labels in tqdm(train_loader, desc=f"Epoch [{epoch}/{args.epochs}] Train"):
+@@ -346,5 +364,18 @@
+     )
+     if improved:
+         print(f"  Best model saved -> {CKPT_PATH}")
++    if probe:
++        # Measured epoch scope includes training, validation and checkpoint IO, not the probe.
++        if DEVICE == 'cuda':
++            torch.cuda.synchronize()
++        epoch_seconds = time.perf_counter() - epoch_start
++        record = probe.record(epoch, save_tensors=improved or epoch == args.epochs)
++        if improved:
++            probe.select_snapshot(epoch, 'best')
++        if epoch == args.epochs:
++            probe.select_snapshot(epoch, 'final')
++        print('SOFT EPOCH ' + json.dumps({'epoch': epoch, 'train_loss': avg_loss,
++            'val_mAP_percent': val_mAP, 'val_macro_f1_percent': val_f1,
++            'epoch_wall_seconds_excluding_probe': epoch_seconds, 'assignment_probe': record}), flush=True)
+ 
+ print(f"\nBest Validation mAP: {best_mAP:.1f}%")
+diff --git a/utils.py b/utils.py
+--- a/utils.py
++++ b/utils.py
+@@ -2,6 +2,7 @@
+ import random
+ import numpy as np
+ import torch
++from grouping_identity import complete_grouping_architecture
+ 
+ from experiment_identity import (
+     get_git_state,
+@@ -142,10 +143,12 @@
+             k: (cli_overrides[k] if cli_overrides.get(k) is not None else v)
+             for k, v in defaults.items()
+         }
++        if cfg.get('grouping') == 'soft_prototype' or 'soft_assignment' in cfg:
++            raise ValueError('soft_prototype evaluation requires checkpoint metadata with soft_assignment')
+         return cfg, "cli"
+ 
+     validate_complete_architecture(metadata, tuple(defaults))
+-    arch = metadata["architecture"]
++    arch = complete_grouping_architecture(metadata["architecture"], checkpoint=True)
+     cfg, conflicts = {}, []
+     for k, default in defaults.items():
+         meta_val = arch.get(k, default)
+@@ -161,6 +164,11 @@
+             + "\nDrop the conflicting flags, or point --ckpt at the "
+               "checkpoint they were trained with."
+         )
++    if 'soft_assignment' in arch:
++        override = cli_overrides.get('soft_assignment')
++        if override is not None and override != arch['soft_assignment']:
++            raise ValueError('CLI soft_assignment conflicts with checkpoint metadata')
++        cfg['soft_assignment'] = arch['soft_assignment']
+     return cfg, "metadata"
+ 
+ 

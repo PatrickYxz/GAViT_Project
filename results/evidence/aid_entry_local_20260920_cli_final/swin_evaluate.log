@@ -1,0 +1,2 @@
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_x2xmx2ml/swin/val_eval; PHASE evaluate; preflight starting
+SCENE EVALUATION COMPLETE: /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_x2xmx2ml/swin/val_eval; OA=6.6667%

@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "checks": [
+    "bash/zsh syntax of all four commands",
+    "collector Python syntax",
+    "six model/phase/seed/output/source paths consistent",
+    "actual printf pipe + nohup bash wrapper executes six mock stages sequentially",
+    "missing image stops before all stages",
+    "third stage failure stops remaining jobs",
+    "collector matches 5000 reversed rows and all four paired outcomes",
+    "failed stage report rejected"
+  ],
+  "scope": "Local mock commands only; no real CUDA, server launch, data verification or benchmark."
+}

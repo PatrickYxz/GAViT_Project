@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-08",
+  "status": "local_validation_passed_server_pending",
+  "tests": {
+    "passed": 12,
+    "exit_code": 0,
+    "elapsed_seconds": 4.06,
+    "warnings": 39,
+    "command": "OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 /private/tmp/gavit-cache-qa-20261007/bin/python -m pytest tests/test_nwpu_pooling_probe.py tests/test_nwpu_region_visualization.py::test_zip_reads_only_original_member_without_extraction tests/test_nwpu_region_visualization.py::test_corrupt_existing_original_is_not_silently_replaced_by_zip -q --tb=short"
+  },
+  "scope": "CPU synthetic inputs, small token backbone, real soft grouping and PyG, real PT serialization and JPEG/ZIP identity tests. No server, pretrained Swin or CUDA validation.",
+  "review": "Independent static review found no blocking issues; did not re-run tests.",
+  "first_red": "7 tests failed with ModuleNotFoundError before implementation.",
+  "files_sha256": {
+    "tools/diagnose_nwpu_pooling.py": "3a144266ef35b3df3a60cf3e8abd614f5186467510f1bb857c3019eac5b4967a",
+    "tests/test_nwpu_pooling_probe.py": "59464dfd69d959e1ce83abc0b759c9c459350e097f346c506378c25baf61ae33",
+    "tools/diagnose_nwpu_feedback.py": "4cd5175261d271638a00e4a4c733f329ecde1c07b646b901c960f0181237eea3",
+    "tools/visualize_nwpu_regions.py": "35ed63ce1ceda120fe9b5e78b157032c5e89d6b351f0caf67e05eef19d4080ba",
+    "docs/launch_nwpu_pooling_20261008.txt": "33a5fb2a203e256aea494ea06771274fef7ccc67d4f9f8e3e0df9ba0ede1862e",
+    "docs/run_nwpu_pooling_probe_20261008.md": "aeed65dbbe083aa465f6a03cf2f302595889fa5a61ca1d4a7c8e660ec94ca533",
+    "results/evidence/nwpu_pooling_probe_20261008/tests.log": "4c9af573ce668d932819ba1f2da068942305e6d03cbb2bc4da8a4b9de6a8ce88"
+  },
+  "server_output": "/home/featurize/work/nwpu_pooling42_20261008_01",
+  "new_training_started": false
+}

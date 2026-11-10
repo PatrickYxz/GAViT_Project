@@ -1,0 +1,16 @@
+{
+  "source": "user inline pasted run.exit and run.json",
+  "normalization": "Markdown escaped underscores restored; **init**.py restored to __init__.py; formatting normalized. Not a byte-for-byte server run.json copy.",
+  "server_exit_code": 0,
+  "local_source_files_matched": 17,
+  "fields_equal_to_verified_swin_smoke": [
+    "manifest_sha256",
+    "pretrained_sha256",
+    "seed",
+    "training",
+    "hardware",
+    "code",
+    "architecture"
+  ],
+  "checkpoint_downloaded": false
+}

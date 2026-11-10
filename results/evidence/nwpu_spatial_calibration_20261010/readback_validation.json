@@ -1,0 +1,16 @@
+{
+  "scope": "Synthetic cached CSV/JSON files and dummy checkpoint; no training/source import/GPU/server access",
+  "syntax": [
+    "Python AST equality",
+    "bash -n",
+    "zsh -n"
+  ],
+  "passed_cases": [
+    "aligned three-model prediction metrics and history",
+    "changed checkpoint rejected",
+    "different paths rejected",
+    "first-highest epoch mismatch rejected"
+  ],
+  "command_sha256": "dd173f4fbea3385f4ed0ace7d6bc5cbfea85f1bb8ee36c2e525a1d986a1be459",
+  "server_readback_complete": false
+}

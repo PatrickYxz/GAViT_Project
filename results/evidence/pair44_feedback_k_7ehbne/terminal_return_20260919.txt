@@ -1,0 +1,67 @@
+(base) ➜ ~ /usr/bin/time -v python -u /home/featurize/work/pair44_feedback_qnjm_rb7/diagnose_bigearth_feedback.py --input-mode original
+OUTPUT /home/featurize/work/pair44_feedback_k_7ehbne
+Loaded gavit: /home/featurize/work/gavit44_3080_20260909/gavit.pth; architecture={'num_classes': 19, 'num_regions': 16, 'knn_k': 5, 'gat_hidden': 256, 'gat_heads': 4, 'gat_layers': 2, 'dropout': 0.1, 'grouping': 'attentive_spatial', 'edge_type': 'sparse_hybrid', 'integration': 'token_feedback'}
+DEVICE NVIDIA GeForce RTX 2080 Ti; CASES 24; INPUT original
+CASE 1/24 row_2311: GATES PASS; 48 spatial + 32 feature; class 16, y=0: cached=0.6908, normal=0.6908, zero=0.9990, delta_logit=-6.1507
+CASE 2/24 row_2379: GATES PASS; 48 spatial + 32 feature; class 16, y=0: cached=0.7624, normal=0.7624, zero=0.9991, delta_logit=-5.9025
+CASE 3/24 row_4439: GATES PASS; 48 spatial + 32 feature; class 14, y=1: cached=0.2812, normal=0.2812, zero=0.9974, delta_logit=-6.8999
+CASE 4/24 row_5612: GATES PASS; 48 spatial + 32 feature; class 14, y=0: cached=0.0000, normal=0.0000, zero=0.0000, delta_logit=+3.1287
+CASE 5/24 row_11915: GATES PASS; 48 spatial + 32 feature; class 16, y=1: cached=0.9225, normal=0.9225, zero=1.0000, delta_logit=-10.4729
+CASE 6/24 row_14680: GATES PASS; 48 spatial + 32 feature; class 11, y=1: cached=0.4704, normal=0.4704, zero=0.9170, delta_logit=-2.5202
+CASE 7/24 row_18821: GATES PASS; 48 spatial + 32 feature; class 14, y=0: cached=0.7031, normal=0.7031, zero=0.9999, delta_logit=-8.4272
+CASE 8/24 row_26944: GATES PASS; 48 spatial + 32 feature; class 11, y=0: cached=0.6595, normal=0.6595, zero=0.9950, delta_logit=-4.6291
+CASE 9/24 row_28450: GATES PASS; 48 spatial + 32 feature; class 14, y=0: cached=0.4518, normal=0.4518, zero=0.9972, delta_logit=-6.0550
+CASE 10/24 row_36582: GATES PASS; 48 spatial + 32 feature; class 14, y=1: cached=0.9897, normal=0.9897, zero=1.0000, delta_logit=-10.2998
+CASE 11/24 row_36628: GATES PASS; 48 spatial + 32 feature; class 14, y=1: cached=0.9767, normal=0.9767, zero=1.0000, delta_logit=-9.7952
+CASE 12/24 row_60770: GATES PASS; 48 spatial + 32 feature; class 11, y=0: cached=0.0002, normal=0.0002, zero=0.0000, delta_logit=+3.3314
+CASE 13/24 row_76554: GATES PASS; 48 spatial + 32 feature; class 16, y=0: cached=0.0000, normal=0.0000, zero=0.0000, delta_logit=+6.8365
+CASE 14/24 row_80208: GATES PASS; 48 spatial + 32 feature; class 16, y=1: cached=0.0007, normal=0.0007, zero=0.0015, delta_logit=-0.7468
+CASE 15/24 row_83491: GATES PASS; 48 spatial + 32 feature; class 16, y=0: cached=0.0066, normal=0.0066, zero=0.0121, delta_logit=-0.6068
+CASE 16/24 row_90759: GATES PASS; 48 spatial + 32 feature; class 16, y=1: cached=0.0000, normal=0.0000, zero=0.0000, delta_logit=+0.3661
+CASE 17/24 row_90788: GATES PASS; 48 spatial + 32 feature; class 14, y=1: cached=0.0000, normal=0.0000, zero=0.0000, delta_logit=-2.8920
+CASE 18/24 row_91012: GATES PASS; 48 spatial + 32 feature; class 14, y=0: cached=0.7700, normal=0.7700, zero=1.0000, delta_logit=-10.0878
+CASE 19/24 row_96887: GATES PASS; 48 spatial + 32 feature; class 11, y=1: cached=0.1066, normal=0.1066, zero=0.3782, delta_logit=-1.6289
+CASE 20/24 row_97389: GATES PASS; 48 spatial + 32 feature; class 11, y=0: cached=0.4858, normal=0.4858, zero=0.9691, delta_logit=-3.5027
+CASE 21/24 row_103791: GATES PASS; 48 spatial + 32 feature; class 11, y=1: cached=0.7915, normal=0.7915, zero=0.9958, delta_logit=-4.1395
+CASE 22/24 row_105443: GATES PASS; 48 spatial + 32 feature; class 11, y=1: cached=0.8953, normal=0.8953, zero=0.9988, delta_logit=-4.6162
+CASE 23/24 row_105978: GATES PASS; 48 spatial + 32 feature; class 11, y=0: cached=0.9869, normal=0.9869, zero=1.0000, delta_logit=-6.7520
+CASE 24/24 row_117556: GATES PASS; 48 spatial + 32 feature; class 16, y=1: cached=0.9160, normal=0.9160, zero=0.9999, delta_logit=-6.9599
+# GAViT fixed-case feedback probe
+Input: original; unique images: 24.
+All capture/reconstruction/zero-branch/restoration gates passed.
+Max probability difference from original cached predictions: 0.000001.
+Counts describe selected class/label/outcome cases only; they are not population metrics.
+Gallery JPEG is a different input from original RGB. Zero feedback is not a trained baseline.
+Class 11: grassland; 14: beaches; 16: coastal wetlands. Threshold: 0.5.
+| Class | N | Feedback corrects | Feedback breaks | Both correct | Both wrong |
+|---|---:|---:|---:|---:|---:|
+| 11 | 8 | 1 | 1 | 3 | 3 |
+| 14 | 8 | 1 | 1 | 3 | 3 |
+| 16 | 8 | 0 | 0 | 4 | 4 |
+
+Per-case JSON/PT, input PNG and captured topology SVG are retained. Open cases.html for inspection.
+FEEDBACK COMPLETE: /home/featurize/work/pair44_feedback_k_7ehbne
+        Command being timed: "python -u /home/featurize/work/pair44_feedback_qnjm_rb7/diagnose_bigearth_feedback.py --input-mode original"
+        User time (seconds): 19.96
+        System time (seconds): 3.78
+        Percent of CPU this job got: 88%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 0:26.69
+        Average shared text size (kbytes): 0
+        Average unshared data size (kbytes): 0
+        Average stack size (kbytes): 0
+        Average total size (kbytes): 0
+        Maximum resident set size (kbytes): 1309076
+        Average resident set size (kbytes): 0
+        Major (requiring I/O) page faults: 4697
+        Minor (reclaiming a frame) page faults: 300893
+        Voluntary context switches: 11526
+        Involuntary context switches: 918
+        Swaps: 0
+        File system inputs: 1488184
+        File system outputs: 94288
+        Socket messages sent: 0
+        Socket messages received: 0
+        Signals delivered: 0
+        Page size (bytes): 4096
+        Exit status: 0
+(base) ➜ ~ 

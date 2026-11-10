@@ -1,0 +1,45 @@
+test_bigearth_complete_report_and_matching_test_required (test_seed43_launch.Seed43Tests.test_bigearth_complete_report_and_matching_test_required) ... START gavit_train
+START gavit_test
+START gavit_train
+START gavit_train
+START gavit_train
+START gavit_test
+ok
+test_bigearth_only_soft43_and_correct_best_weight_route (test_seed43_launch.Seed43Tests.test_bigearth_only_soft43_and_correct_best_weight_route) ... ok
+test_bigearth_preflight_payload_hash_is_current (test_seed43_launch.Seed43Tests.test_bigearth_preflight_payload_hash_is_current) ... ok
+test_bigearth_preflight_preserves_historical_epoch21_boundary (test_seed43_launch.Seed43Tests.test_bigearth_preflight_preserves_historical_epoch21_boundary) ... ok
+test_bigearth_seed45_metadata_cannot_be_reused_as_seed43 (test_seed43_launch.Seed43Tests.test_bigearth_seed45_metadata_cannot_be_reused_as_seed43) ... ok
+test_nwpu_actual_receipts_use_current_best_not_seed42_epochs (test_seed43_launch.Seed43Tests.test_nwpu_actual_receipts_use_current_best_not_seed42_epochs) ... ok
+test_nwpu_exit_zero_with_incomplete_artifact_stops (test_seed43_launch.Seed43Tests.test_nwpu_exit_zero_with_incomplete_artifact_stops) ... START first
+ok
+test_nwpu_failed_report_still_discovers_existing_checkpoint (test_seed43_launch.Seed43Tests.test_nwpu_failed_report_still_discovers_existing_checkpoint) ... ok
+test_nwpu_own_calibration_routes_and_nine_stages (test_seed43_launch.Seed43Tests.test_nwpu_own_calibration_routes_and_nine_stages) ... ok
+test_nwpu_preflight_accepts_authorized_4090_and_rejects_other_cards (test_seed43_launch.Seed43Tests.test_nwpu_preflight_accepts_authorized_4090_and_rejects_other_cards) ... ok
+test_nwpu_real_child_nonzero_stops_and_preserves_logs (test_seed43_launch.Seed43Tests.test_nwpu_real_child_nonzero_stops_and_preserves_logs) ... START first
+ok
+test_failure_stops_queue_without_overwrite (test_bigearth_seed45.Seed45Tests.test_failure_stops_queue_without_overwrite) ... START first
+child output
+START second
+child output
+ok
+test_full_file_gate_and_frozen_split (test_bigearth_seed45.Seed45Tests.test_full_file_gate_and_frozen_split) ... ok
+test_recipe_and_test_use_best_weight (test_bigearth_seed45.Seed45Tests.test_recipe_and_test_use_best_weight) ... ok
+test_worker_records_exact_metrics_without_changing_save_return (test_bigearth_seed45.Seed45Tests.test_worker_records_exact_metrics_without_changing_save_return) ... ok
+test_actual_assignment_and_graph_snapshots_and_corruptions (test_bigearth_soft45.Soft45Tests.test_actual_assignment_and_graph_snapshots_and_corruptions) ... ok
+test_duplicate_claim_preserves_live_exit_artifacts (test_bigearth_soft45.Soft45Tests.test_duplicate_claim_preserves_live_exit_artifacts) ... ok
+test_environment_and_test_checkpoint_drift_rejected (test_bigearth_soft45.Soft45Tests.test_environment_and_test_checkpoint_drift_rejected) ... ok
+test_only_soft_training_and_best_checkpoint_route (test_bigearth_soft45.Soft45Tests.test_only_soft_training_and_best_checkpoint_route) ... ok
+test_recording_preserves_save_return_and_training_rng (test_bigearth_soft45.Soft45Tests.test_recording_preserves_save_return_and_training_rng) ... EPOCH RESOURCE {"epoch": 1, "train_loss": 0.123456789, "val_mAP_percent": 70.987654321, "val_macro_f1_percent": 60.123456789, "next_epoch_lr": 0.0001, "epoch_wall_seconds": 4.312489181756973e-05}
+ok
+test_success_failure_and_incomplete_exit_zero_stop_queue (test_bigearth_soft45.Soft45Tests.test_success_failure_and_incomplete_exit_zero_stop_queue) ... START gavit_train
+START gavit_test
+START gavit_train
+START gavit_train
+ok
+test_test_arrays_reject_misaligned_labels_nan_and_duplicate_paths (test_bigearth_soft45.Soft45Tests.test_test_arrays_reject_misaligned_labels_nan_and_duplicate_paths) ... ok
+test_training_requires_complete_history_correct_best_and_soft_identity (test_bigearth_soft45.Soft45Tests.test_training_requires_complete_history_correct_best_and_soft_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 1.399s
+
+OK

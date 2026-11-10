@@ -1,0 +1,77 @@
+{
+  "status": "BIGEARTH_SOFT45_PREFLIGHT_PASS",
+  "controls": {
+    "swin": {
+      "final_epoch": 30,
+      "checkpoint_sha256": "78cf048b6e2690e40789d13c78030c2350b238c899024a632347af7f0997ed8c",
+      "best": {
+        "metric": "val_mAP",
+        "value": 78.6509,
+        "epoch": 6
+      },
+      "test_metrics": {
+        "mAP_percent": 71.67692953551497,
+        "macro_f1_percent": 65.08421202330264,
+        "micro_f1_percent": 76.73226436237192
+      }
+    },
+    "gavit": {
+      "final_epoch": 30,
+      "checkpoint_sha256": "4268de448d7fabee4fde6db042241efbf38459953f6108337b95a3025313940c",
+      "best": {
+        "metric": "val_mAP",
+        "value": 78.2951,
+        "epoch": 10
+      },
+      "test_metrics": {
+        "mAP_percent": 70.25823624286052,
+        "macro_f1_percent": 64.29547698363885,
+        "micro_f1_percent": 76.70245685151849
+      }
+    }
+  },
+  "splits": {
+    "train": {
+      "count": 237871,
+      "sha256": "25734fd9e8dc7fd78fb259e768ae91fe11b297e1caa50a2d57b74b0296413d8f"
+    },
+    "val": {
+      "count": 122342,
+      "sha256": "1c6627cb48e33588538c4e411e4f1b94560827f27d59fb7aeb0ea2b5d30c2a45"
+    },
+    "test": {
+      "count": 119825,
+      "sha256": "cea165a6443fc5ee44de0a3c55f53ce70505c4e25aba9ca8b52d76634df77204"
+    }
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 2080 Ti",
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "threads": 8,
+    "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+    "packages": {
+      "torch": "2.2.2",
+      "torchvision": "0.17.2",
+      "timm": "1.0.27",
+      "torch-geometric": "2.8.0",
+      "numpy": "1.26.4",
+      "scikit-learn": "1.9.0",
+      "pillow": "10.3.0"
+    },
+    "gpu_identity": "GPU-f57c9bd1-b685-6426-9d4a-a51d0954ffab, NVIDIA GeForce RTX 2080 Ti, 610.57.04"
+  },
+  "precision": {
+    "dtype": "torch.float32",
+    "matmul_tf32": false,
+    "cudnn_tf32": true,
+    "amp": false
+  },
+  "physical_gpu_identity_changed": true,
+  "reference_gpu_identity": "GPU-0fa5e2ad-0028-881c-749b-3b88c01de00b, NVIDIA GeForce RTX 2080 Ti, 610.57.04",
+  "soft_commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "reference_commit": "deb2b457e86b6fa2feccb5a305e099b6d9ec6dfe",
+  "new_training_started": false,
+  "data_scope": "All frozen split paths and RGB files exist; no replacement split or merged RGB images",
+  "existing_run_search_scope": "work directories whose names include bigearth, root and one child level"
+}

@@ -1,0 +1,27 @@
+{
+  "source": "server_summary_user_return.json; user terminal evidence",
+  "reported_exit_code": 0,
+  "exit_text_note": "leading e omitted in user paste",
+  "training_reload_graph_checks": "pass",
+  "cuda_peak_allocated_gib": 3.659762382507324,
+  "cuda_peak_reserved_gib": 4.037109375,
+  "main_process_rss_gib": 1.7789688110351562,
+  "pending": [],
+  "formal_accuracy_result": false,
+  "bigearth_engineering_gate": "passed from user-returned terminal evidence",
+  "artifact_checks": "final JSON is emitted only after supplied snapshot/mask/normalization/alias/archive-per-file-hash/finite-log assertions",
+  "archive_bytes": 9620902,
+  "val_ap_classes_with_positive_support": 17,
+  "train_classes_without_positives": [
+    16
+  ],
+  "val_classes_without_positives": [
+    14,
+    16
+  ],
+  "nwpu_sentinel_exists": false,
+  "feedback_ratio_means": [
+    1.364840030670166,
+    1.4953224509954453
+  ]
+}

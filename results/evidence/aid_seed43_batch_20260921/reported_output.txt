@@ -1,0 +1,693 @@
+{
+  "common_identity": {
+    "training": {
+      "batch_size": 32,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "drop_last": false,
+      "eps": 1e-08,
+      "eta_min": 0.0,
+      "label_smoothing": 0.0,
+      "loss": "CrossEntropyLoss",
+      "lr": 0.0003,
+      "optimizer": "AdamW",
+      "pin_memory": false,
+      "precision": "float32_no_amp",
+      "scheduler": "CosineAnnealingLR",
+      "scheduler_t_max": 30,
+      "seed": 43,
+      "tf32": false,
+      "transforms": {
+        "antialias": true,
+        "color_jitter": {
+          "brightness": 0.2,
+          "contrast": 0.2,
+          "hue": 0,
+          "saturation": 0.2
+        },
+        "eval_random_augmentation": false,
+        "horizontal_flip_probability": 0.5,
+        "interpolation": "bilinear",
+        "normalization_mean": [
+          0.485,
+          0.456,
+          0.406
+        ],
+        "normalization_std": [
+          0.229,
+          0.224,
+          0.225
+        ],
+        "resize": [
+          224,
+          224
+        ],
+        "vertical_flip_probability": 0.5
+      },
+      "weight_decay": 0.0001,
+      "workers": 2
+    },
+    "code": {
+      "files_sha256": {
+        "experiment_identity.py": "0e9530454ae7d2f159329710a430acc7a75c586739844c22c673f9ff899d5d9b",
+        "models/__init__.py": "8815c8fde7ff63701a246e4a198d690e9777be18ac061672b5c3619ccb792436",
+        "models/bigearth_dataset.py": "1cb83ffc299f3927318f5bcef1694cdd33683a8d1ba5b1a87721d02fc67e281a",
+        "models/gavit.py": "dbc1704f36129c12c1d8f86836e64658f8b9af8d5de6a35e55a37be67f9a8822",
+        "models/graph_construction.py": "a0c36ceaf7a2f73b857c0eaac50df4abfb9c5617a4952f333a0dc514900dd8cc",
+        "models/graph_reasoning.py": "895825a417f627594fda8407cf1e980f8bcef398201c233e1c20d900ec9046da",
+        "models/region_grouping.py": "89cb8bb8a7e2ca76633a5a101285283e3275c95b1d77c442837c2e4159ecaca7",
+        "models/swin_backbone.py": "5046f36ab76556f8426fd096cae270b7dab0d24fa6e2c432839a3eb9f3cb1479",
+        "models/swin_features.py": "a4fa88cdf6ff811a2b6b51b512a99a01f6f53df3d57514458c4b0e7e25b9b06f",
+        "models/swin_region_only.py": "68d0c7ee95fa4a88c5a5b929e1e573195a7a9b1fe40a32480d64165c24c2d0c6",
+        "run_scene.py": "ac35cfc6113156d5f28df03968b33d9faaaa18c8616b546fc154e8eeacc645ae",
+        "scene_classification/__init__.py": "5d0cbbf6a7d6bac715d1592e07170da14b04b281577b631804486247a841a968",
+        "scene_classification/data.py": "ebcf0dd7585a060465df45bdf4e44ec7f47edd95f1fa8a12cbdd5723b948fa69",
+        "scene_classification/metrics.py": "6ef64ee533d0ca5c2dadae066a6254dcd4d107a24709b77009910067f37320b3",
+        "scene_classification/modeling.py": "25f53d58d9ea7af64c43b9bdac640c5c0c68cb1f2a958a6e0cc0048e9af10d58",
+        "scene_classification/runner.py": "46988e17225b92ec7473cd68bf50586752935e3fe617f1170e6982ce49e5befa",
+        "utils.py": "818d7863859bd3e391b66184e4d99194126b46b40f20e85fd224cb1817ea58d7"
+      },
+      "git": {
+        "commit": "deb2b45",
+        "dirty": false
+      }
+    },
+    "hardware": {
+      "cuda_runtime": "12.1",
+      "cudnn": 8902,
+      "device": "cuda",
+      "device_name": "NVIDIA GeForce RTX 2080 Ti",
+      "packages": {
+        "numpy": "1.26.4",
+        "pillow": "10.3.0",
+        "timm": "1.0.27",
+        "torch": "2.2.2",
+        "torch-geometric": "2.8.0",
+        "torchvision": "0.17.2"
+      },
+      "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+      "torch_num_threads": 8
+    }
+  },
+  "runs": [
+    {
+      "directory": "aid_swin_calibrate43_20260921_02",
+      "exit_code": 0,
+      "model": "swin",
+      "phase": "calibrate",
+      "seed": 43,
+      "status": "complete",
+      "counts": {
+        "train": 4000,
+        "val": 1000
+      },
+      "final_epoch": 30,
+      "best_epoch": 25,
+      "best_val_oa_percent": 97.0,
+      "checkpoint_sha256": "4cc46ca0dcf337a6d01f97adc8690f72a3e7edef6e11c4d7e9d3765ff9b0936b",
+      "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+      "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+      "reload_max_logit_diff": 0.0,
+      "graph_capture": {},
+      "refit_source": null,
+      "elapsed_seconds": 1259.4257605940002,
+      "total_parameters": 27543960,
+      "trainable_parameters": 27543960,
+      "cuda_peak_allocated_bytes": 3820576256,
+      "cuda_peak_reserved_bytes": 4112515072,
+      "main_process_peak_rss_bytes": 1538449408
+    },
+    {
+      "directory": "aid_gavit_calibrate43_20260921_01",
+      "exit_code": 0,
+      "model": "gavit",
+      "phase": "calibrate",
+      "seed": 43,
+      "status": "complete",
+      "counts": {
+        "train": 4000,
+        "val": 1000
+      },
+      "final_epoch": 30,
+      "best_epoch": 29,
+      "best_val_oa_percent": 97.3,
+      "checkpoint_sha256": "d82ead61b750d8aed14f2176ec907afbb95efb9843ff70cca9badcd3a4c22458",
+      "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+      "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+      "reload_max_logit_diff": 7.152557373046875e-07,
+      "graph_capture": {
+        "actual_forward_checked": true,
+        "edges_per_image": 80,
+        "feature_edges": 32,
+        "spatial_edges": 48
+      },
+      "refit_source": null,
+      "elapsed_seconds": 1328.6576667229997,
+      "total_parameters": 31375385,
+      "trainable_parameters": 31375385,
+      "cuda_peak_allocated_bytes": 3924388864,
+      "cuda_peak_reserved_bytes": 4162846720,
+      "main_process_peak_rss_bytes": 1842143232
+    },
+    {
+      "directory": "aid_swin_refit43_20260921_01",
+      "exit_code": 0,
+      "model": "swin",
+      "phase": "refit",
+      "seed": 43,
+      "status": "complete",
+      "counts": {
+        "train": 5000,
+        "val": 0
+      },
+      "final_epoch": 25,
+      "best_epoch": null,
+      "best_val_oa_percent": null,
+      "checkpoint_sha256": "cfb89c571af4ecb5860f3f2a2901780a4ba0d899a6c52632584f0b07c119093a",
+      "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+      "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+      "reload_max_logit_diff": 0.0,
+      "graph_capture": {},
+      "refit_source": {
+        "best_checkpoint_sha256": "4cc46ca0dcf337a6d01f97adc8690f72a3e7edef6e11c4d7e9d3765ff9b0936b",
+        "run_json_sha256": "991fed4719c193d08c0a71572e606ec4d9f80ed75450a5d3aea1d00a750903a4"
+      },
+      "elapsed_seconds": 1025.1083090089996,
+      "total_parameters": 27543960,
+      "trainable_parameters": 27543960,
+      "cuda_peak_allocated_bytes": 3820575744,
+      "cuda_peak_reserved_bytes": 4112515072,
+      "main_process_peak_rss_bytes": 1452027904
+    },
+    {
+      "directory": "aid_gavit_refit43_20260921_01",
+      "exit_code": 0,
+      "model": "gavit",
+      "phase": "refit",
+      "seed": 43,
+      "status": "complete",
+      "counts": {
+        "train": 5000,
+        "val": 0
+      },
+      "final_epoch": 29,
+      "best_epoch": null,
+      "best_val_oa_percent": null,
+      "checkpoint_sha256": "cfca60372325729d99c3fc37cce53d286d92d66334b984111d2fbdbf951e6f31",
+      "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+      "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+      "reload_max_logit_diff": 3.5762786865234375e-07,
+      "graph_capture": {
+        "actual_forward_checked": true,
+        "edges_per_image": 80,
+        "feature_edges": 32,
+        "spatial_edges": 48
+      },
+      "refit_source": {
+        "best_checkpoint_sha256": "d82ead61b750d8aed14f2176ec907afbb95efb9843ff70cca9badcd3a4c22458",
+        "run_json_sha256": "2c6f4bb3ef21f5addebe9e75e0ce65a5b93fde9f60f26dcdc5279f3bdbcfdb4d"
+      },
+      "elapsed_seconds": 1229.323688644,
+      "total_parameters": 31375385,
+      "trainable_parameters": 31375385,
+      "cuda_peak_allocated_bytes": 3925145088,
+      "cuda_peak_reserved_bytes": 4162846720,
+      "main_process_peak_rss_bytes": 1814659072
+    },
+    {
+      "directory": "aid_swin_test43_20260921_01",
+      "exit_code": 0,
+      "status": "complete",
+      "checkpoint_sha256": "cfb89c571af4ecb5860f3f2a2901780a4ba0d899a6c52632584f0b07c119093a",
+      "samples": 5000,
+      "split": "test"
+    },
+    {
+      "directory": "aid_gavit_test43_20260921_01",
+      "exit_code": 0,
+      "status": "complete",
+      "checkpoint_sha256": "cfca60372325729d99c3fc37cce53d286d92d66334b984111d2fbdbf951e6f31",
+      "samples": 5000,
+      "split": "test"
+    }
+  ],
+  "tests": [
+    {
+      "samples": 5000,
+      "oa_percent": 96.86,
+      "macro_f1_percent": 96.68420610630325,
+      "dataset": "AID",
+      "split": "test",
+      "training_phase": "refit",
+      "fit_scope": "train_plus_val",
+      "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+      "checkpoint_sha256": "cfb89c571af4ecb5860f3f2a2901780a4ba0d899a6c52632584f0b07c119093a",
+      "per_class": [
+        {
+          "accuracy_percent": 97.77777777777777,
+          "class_index": 0,
+          "class_name": "Airport",
+          "f1_percent": 98.59943977591037,
+          "support": 180
+        },
+        {
+          "accuracy_percent": 98.06451612903226,
+          "class_index": 1,
+          "class_name": "BareLand",
+          "f1_percent": 98.38187702265373,
+          "support": 155
+        },
+        {
+          "accuracy_percent": 100.0,
+          "class_index": 2,
+          "class_name": "BaseballField",
+          "f1_percent": 99.5475113122172,
+          "support": 110
+        },
+        {
+          "accuracy_percent": 99.5,
+          "class_index": 3,
+          "class_name": "Beach",
+          "f1_percent": 99.74937343358395,
+          "support": 200
+        },
+        {
+          "accuracy_percent": 97.22222222222223,
+          "class_index": 4,
+          "class_name": "Bridge",
+          "f1_percent": 97.76536312849161,
+          "support": 180
+        },
+        {
+          "accuracy_percent": 89.23076923076923,
+          "class_index": 5,
+          "class_name": "Center",
+          "f1_percent": 89.57528957528957,
+          "support": 130
+        },
+        {
+          "accuracy_percent": 91.66666666666667,
+          "class_index": 6,
+          "class_name": "Church",
+          "f1_percent": 90.53497942386831,
+          "support": 120
+        },
+        {
+          "accuracy_percent": 94.85714285714286,
+          "class_index": 7,
+          "class_name": "Commercial",
+          "f1_percent": 94.58689458689459,
+          "support": 175
+        },
+        {
+          "accuracy_percent": 95.1219512195122,
+          "class_index": 8,
+          "class_name": "DenseResidential",
+          "f1_percent": 96.7741935483871,
+          "support": 205
+        },
+        {
+          "accuracy_percent": 98.66666666666667,
+          "class_index": 9,
+          "class_name": "Desert",
+          "f1_percent": 98.99665551839465,
+          "support": 150
+        },
+        {
+          "accuracy_percent": 98.37837837837837,
+          "class_index": 10,
+          "class_name": "Farmland",
+          "f1_percent": 98.6449864498645,
+          "support": 185
+        },
+        {
+          "accuracy_percent": 100.0,
+          "class_index": 11,
+          "class_name": "Forest",
+          "f1_percent": 100.0,
+          "support": 125
+        },
+        {
+          "accuracy_percent": 96.41025641025641,
+          "class_index": 12,
+          "class_name": "Industrial",
+          "f1_percent": 94.94949494949495,
+          "support": 195
+        },
+        {
+          "accuracy_percent": 100.0,
+          "class_index": 13,
+          "class_name": "Meadow",
+          "f1_percent": 99.644128113879,
+          "support": 140
+        },
+        {
+          "accuracy_percent": 99.3103448275862,
+          "class_index": 14,
+          "class_name": "MediumResidential",
+          "f1_percent": 96.0,
+          "support": 145
+        },
+        {
+          "accuracy_percent": 100.0,
+          "class_index": 15,
+          "class_name": "Mountain",
+          "f1_percent": 99.70674486803519,
+          "support": 170
+        },
+        {
+          "accuracy_percent": 94.28571428571429,
+          "class_index": 16,
+          "class_name": "Park",
+          "f1_percent": 91.92200557103064,
+          "support": 175
+        },
+        {
+          "accuracy_percent": 99.48717948717949,
+          "class_index": 17,
+          "class_name": "Parking",
+          "f1_percent": 99.48717948717949,
+          "support": 195
+        },
+        {
+          "accuracy_percent": 99.45945945945945,
+          "class_index": 18,
+          "class_name": "Playground",
+          "f1_percent": 98.9247311827957,
+          "support": 185
+        },
+        {
+          "accuracy_percent": 98.57142857142857,
+          "class_index": 19,
+          "class_name": "Pond",
+          "f1_percent": 98.3372921615202,
+          "support": 210
+        },
+        {
+          "accuracy_percent": 97.36842105263158,
+          "class_index": 20,
+          "class_name": "Port",
+          "f1_percent": 98.14323607427056,
+          "support": 190
+        },
+        {
+          "accuracy_percent": 96.15384615384616,
+          "class_index": 21,
+          "class_name": "RailwayStation",
+          "f1_percent": 96.52509652509653,
+          "support": 130
+        },
+        {
+          "accuracy_percent": 86.89655172413794,
+          "class_index": 22,
+          "class_name": "Resort",
+          "f1_percent": 88.1118881118881,
+          "support": 145
+        },
+        {
+          "accuracy_percent": 99.51219512195122,
+          "class_index": 23,
+          "class_name": "River",
+          "f1_percent": 99.02912621359224,
+          "support": 205
+        },
+        {
+          "accuracy_percent": 88.66666666666667,
+          "class_index": 24,
+          "class_name": "School",
+          "f1_percent": 91.0958904109589,
+          "support": 150
+        },
+        {
+          "accuracy_percent": 98.66666666666667,
+          "class_index": 25,
+          "class_name": "SparseResidential",
+          "f1_percent": 99.32885906040268,
+          "support": 150
+        },
+        {
+          "accuracy_percent": 87.27272727272727,
+          "class_index": 26,
+          "class_name": "Square",
+          "f1_percent": 89.44099378881988,
+          "support": 165
+        },
+        {
+          "accuracy_percent": 99.3103448275862,
+          "class_index": 27,
+          "class_name": "Stadium",
+          "f1_percent": 98.96907216494846,
+          "support": 145
+        },
+        {
+          "accuracy_percent": 99.44444444444444,
+          "class_index": 28,
+          "class_name": "StorageTanks",
+          "f1_percent": 99.16897506925208,
+          "support": 180
+        },
+        {
+          "accuracy_percent": 99.52380952380952,
+          "class_index": 29,
+          "class_name": "Viaduct",
+          "f1_percent": 98.58490566037736,
+          "support": 210
+        }
+      ]
+    },
+    {
+      "samples": 5000,
+      "oa_percent": 97.16,
+      "macro_f1_percent": 96.95587595593263,
+      "dataset": "AID",
+      "split": "test",
+      "training_phase": "refit",
+      "fit_scope": "train_plus_val",
+      "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+      "checkpoint_sha256": "cfca60372325729d99c3fc37cce53d286d92d66334b984111d2fbdbf951e6f31",
+      "per_class": [
+        {
+          "accuracy_percent": 99.44444444444444,
+          "class_index": 0,
+          "class_name": "Airport",
+          "f1_percent": 98.89502762430939,
+          "support": 180
+        },
+        {
+          "accuracy_percent": 100.0,
+          "class_index": 1,
+          "class_name": "BareLand",
+          "f1_percent": 99.67845659163987,
+          "support": 155
+        },
+        {
+          "accuracy_percent": 100.0,
+          "class_index": 2,
+          "class_name": "BaseballField",
+          "f1_percent": 98.21428571428571,
+          "support": 110
+        },
+        {
+          "accuracy_percent": 99.5,
+          "class_index": 3,
+          "class_name": "Beach",
+          "f1_percent": 99.74937343358395,
+          "support": 200
+        },
+        {
+          "accuracy_percent": 99.44444444444444,
+          "class_index": 4,
+          "class_name": "Bridge",
+          "f1_percent": 99.16897506925208,
+          "support": 180
+        },
+        {
+          "accuracy_percent": 92.3076923076923,
+          "class_index": 5,
+          "class_name": "Center",
+          "f1_percent": 89.55223880597015,
+          "support": 130
+        },
+        {
+          "accuracy_percent": 91.66666666666667,
+          "class_index": 6,
+          "class_name": "Church",
+          "f1_percent": 91.28630705394191,
+          "support": 120
+        },
+        {
+          "accuracy_percent": 96.57142857142857,
+          "class_index": 7,
+          "class_name": "Commercial",
+          "f1_percent": 93.88888888888889,
+          "support": 175
+        },
+        {
+          "accuracy_percent": 96.58536585365853,
+          "class_index": 8,
+          "class_name": "DenseResidential",
+          "f1_percent": 97.53694581280789,
+          "support": 205
+        },
+        {
+          "accuracy_percent": 99.33333333333333,
+          "class_index": 9,
+          "class_name": "Desert",
+          "f1_percent": 99.00332225913621,
+          "support": 150
+        },
+        {
+          "accuracy_percent": 98.91891891891892,
+          "class_index": 10,
+          "class_name": "Farmland",
+          "f1_percent": 99.1869918699187,
+          "support": 185
+        },
+        {
+          "accuracy_percent": 100.0,
+          "class_index": 11,
+          "class_name": "Forest",
+          "f1_percent": 100.0,
+          "support": 125
+        },
+        {
+          "accuracy_percent": 95.8974358974359,
+          "class_index": 12,
+          "class_name": "Industrial",
+          "f1_percent": 94.9238578680203,
+          "support": 195
+        },
+        {
+          "accuracy_percent": 99.28571428571429,
+          "class_index": 13,
+          "class_name": "Meadow",
+          "f1_percent": 99.28571428571429,
+          "support": 140
+        },
+        {
+          "accuracy_percent": 97.93103448275862,
+          "class_index": 14,
+          "class_name": "MediumResidential",
+          "f1_percent": 97.93103448275862,
+          "support": 145
+        },
+        {
+          "accuracy_percent": 99.41176470588235,
+          "class_index": 15,
+          "class_name": "Mountain",
+          "f1_percent": 99.70501474926253,
+          "support": 170
+        },
+        {
+          "accuracy_percent": 93.71428571428571,
+          "class_index": 16,
+          "class_name": "Park",
+          "f1_percent": 93.18181818181819,
+          "support": 175
+        },
+        {
+          "accuracy_percent": 99.48717948717949,
+          "class_index": 17,
+          "class_name": "Parking",
+          "f1_percent": 99.23273657289002,
+          "support": 195
+        },
+        {
+          "accuracy_percent": 99.45945945945945,
+          "class_index": 18,
+          "class_name": "Playground",
+          "f1_percent": 98.65951742627345,
+          "support": 185
+        },
+        {
+          "accuracy_percent": 99.04761904761905,
+          "class_index": 19,
+          "class_name": "Pond",
+          "f1_percent": 98.812351543943,
+          "support": 210
+        },
+        {
+          "accuracy_percent": 98.94736842105263,
+          "class_index": 20,
+          "class_name": "Port",
+          "f1_percent": 98.94736842105263,
+          "support": 190
+        },
+        {
+          "accuracy_percent": 98.46153846153847,
+          "class_index": 21,
+          "class_name": "RailwayStation",
+          "f1_percent": 97.70992366412214,
+          "support": 130
+        },
+        {
+          "accuracy_percent": 86.89655172413794,
+          "class_index": 22,
+          "class_name": "Resort",
+          "f1_percent": 89.6797153024911,
+          "support": 145
+        },
+        {
+          "accuracy_percent": 99.51219512195122,
+          "class_index": 23,
+          "class_name": "River",
+          "f1_percent": 99.75550122249389,
+          "support": 205
+        },
+        {
+          "accuracy_percent": 88.66666666666667,
+          "class_index": 24,
+          "class_name": "School",
+          "f1_percent": 90.47619047619048,
+          "support": 150
+        },
+        {
+          "accuracy_percent": 99.33333333333333,
+          "class_index": 25,
+          "class_name": "SparseResidential",
+          "f1_percent": 99.66555183946488,
+          "support": 150
+        },
+        {
+          "accuracy_percent": 84.84848484848484,
+          "class_index": 26,
+          "class_name": "Square",
+          "f1_percent": 88.0503144654088,
+          "support": 165
+        },
+        {
+          "accuracy_percent": 97.24137931034483,
+          "class_index": 27,
+          "class_name": "Stadium",
+          "f1_percent": 97.57785467128028,
+          "support": 145
+        },
+        {
+          "accuracy_percent": 98.33333333333333,
+          "class_index": 28,
+          "class_name": "StorageTanks",
+          "f1_percent": 99.15966386554622,
+          "support": 180
+        },
+        {
+          "accuracy_percent": 99.52380952380952,
+          "class_index": 29,
+          "class_name": "Viaduct",
+          "f1_percent": 99.76133651551312,
+          "support": 210
+        }
+      ]
+    }
+  ],
+  "paired_counts": {
+    "samples": 5000,
+    "both_correct": 4796,
+    "gavit_corrects": 62,
+    "gavit_breaks": 47,
+    "both_wrong": 95,
+    "net_correct": 15
+  }
+}
+(base) ➜ ~ 

@@ -1,0 +1,452 @@
+{
+  "status": "training_and_test_complete_from_user_evidence",
+  "dataset": "BigEarthNet-19",
+  "seed": 45,
+  "evidence_scope": "User terminal output; raw attachment archived; checkpoint, predictions and summary bytes were not downloaded",
+  "source_sha256": "7662b537686eb7addec602f2c7054cafc8097288370d9dfe99cba0bf8e9950ae",
+  "exits": {
+    "run.exit": 0,
+    "gavit_train/run.exit": 0,
+    "gavit_test/run.exit": 0
+  },
+  "metadata": {
+    "model": "gavit",
+    "dataset": "BigEarthNet-19",
+    "architecture": {
+      "num_classes": 19,
+      "num_regions": 16,
+      "knn_k": 5,
+      "gat_hidden": 256,
+      "gat_heads": 4,
+      "gat_layers": 2,
+      "dropout": 0.1,
+      "grouping": "soft_prototype",
+      "edge_type": "sparse_hybrid",
+      "integration": "token_feedback",
+      "soft_assignment": {
+        "assignment_version": "local_prototype_cosine_v1",
+        "assignment_dim": 128,
+        "assignment_radius": 1,
+        "assignment_metric": "chebyshev",
+        "assignment_temperature": 0.1,
+        "assignment_iterations": 1,
+        "assignment_projection": "shared_ln_linear_no_bias",
+        "assignment_init": "xavier_uniform",
+        "assignment_norm_eps": 1e-06,
+        "assignment_ln_eps": 1e-05,
+        "prototype_pooling": "fixed_region_attention",
+        "region_pooling": "attentive_log_membership",
+        "feedback_mapping": "soft_membership",
+        "graph_node_geometry": "anchor_index_prior"
+      }
+    },
+    "graph_topology": {
+      "name": "sparse_hybrid_4n_top2",
+      "spatial_connectivity": 4,
+      "feature_k": 2,
+      "spatial_directed_edges": 48,
+      "feature_directed_edges": 32,
+      "total_directed_edges": 80,
+      "message_direction": "neighbor_to_query",
+      "cosine_role": "topology_only"
+    },
+    "training": {
+      "seed": 45,
+      "epochs": 30,
+      "batch_size": 32,
+      "lr": 0.0003,
+      "weight_decay": 0.0001,
+      "optimizer": "AdamW",
+      "scheduler": "CosineAnnealingLR",
+      "loss": "BCEWithLogitsLoss",
+      "f1_threshold": 0.5
+    },
+    "execution": {
+      "run_stage": "formal",
+      "run_tag": "bigearth_soft45_20260930_01_gavit_train"
+    },
+    "best": {
+      "metric": "val_mAP",
+      "value": 78.7037,
+      "epoch": 11
+    },
+    "checkpoint_sha256": "4969f401bf297c3885ee0ac02938ae102413fc2e8c1bc8e0a628e9e918bd35e2",
+    "git": {
+      "commit": "ed480e6",
+      "dirty": false
+    },
+    "checkpoint_path": "/home/featurize/work/bigearth_soft45_20260930_01/gavit_train/gavit.pth",
+    "saved_at": "2026-09-30T10:47:39+00:00"
+  },
+  "test_metrics": {
+    "samples": 119825,
+    "mAP_percent": 70.83691875764855,
+    "macro_f1_percent": 64.86482283595696,
+    "micro_f1_percent": 76.38335430648769,
+    "f1_threshold": 0.5,
+    "checkpoint_sha256": "4969f401bf297c3885ee0ac02938ae102413fc2e8c1bc8e0a628e9e918bd35e2",
+    "per_class_ap_percent": {
+      "Urban fabric": 86.40140597531355,
+      "Industrial or commercial units": 50.46244100126939,
+      "Arable land": 93.88919778376795,
+      "Permanent crops": 61.09999998584685,
+      "Pastures": 86.17695216263067,
+      "Complex cultivation patterns": 70.22854589971523,
+      "Land principally occupied by agriculture, with significant areas of natural vegetation": 72.05588800084763,
+      "Agro-forestry areas": 87.08583269893741,
+      "Broad-leaved forest": 84.88826238343896,
+      "Coniferous forest": 93.17137135636479,
+      "Mixed forest": 90.22127113538806,
+      "Natural grassland and sparsely vegetated areas": 40.124756608903276,
+      "Moors, heathland and sclerophyllous vegetation": 60.44382011173869,
+      "Transitional woodland, shrub": 78.2831902419664,
+      "Beaches, dunes, sands": 12.816150459278832,
+      "Inland wetlands": 61.47026004106363,
+      "Coastal wetlands": 26.379191836170925,
+      "Inland waters": 91.15555249658773,
+      "Marine waters": 99.54736621609227
+    }
+  },
+  "artifacts_reported_bytes": {
+    "summary.json": 13618,
+    "gavit_train/gavit.pth": 125955898,
+    "gavit_train/gavit.last.train_state.pth": 377875857,
+    "gavit_test/predictions.npz": 9307603
+  },
+  "history_complete_rows_returned": [
+    {
+      "epoch": 17,
+      "train_loss": 0.10581251509568221,
+      "val_mAP_percent": 77.58181218588571,
+      "val_macro_f1_percent": 71.14587667750205,
+      "next_epoch_lr": 0.00011881324637733612,
+      "epoch_wall_seconds": 1752.6634704690005
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.10207456060523444,
+      "val_mAP_percent": 77.23604075603849,
+      "val_macro_f1_percent": 71.257104935786,
+      "next_epoch_lr": 0.00010364745084375793,
+      "epoch_wall_seconds": 1747.4595506019978
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.09804746982543093,
+      "val_mAP_percent": 77.46917898351514,
+      "val_macro_f1_percent": 71.80458281474561,
+      "next_epoch_lr": 8.898950353863002e-05,
+      "epoch_wall_seconds": 1749.0433703980016
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.09384238041554002,
+      "val_mAP_percent": 76.9695434962428,
+      "val_macro_f1_percent": 71.46486730817028,
+      "next_epoch_lr": 7.500000000000005e-05,
+      "epoch_wall_seconds": 1756.7487819400048
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.09038826698673477,
+      "val_mAP_percent": 76.9007259888227,
+      "val_macro_f1_percent": 71.25594578498348,
+      "next_epoch_lr": 6.183221215612906e-05,
+      "epoch_wall_seconds": 1745.7211878289963
+    },
+    {
+      "epoch": 22,
+      "train_loss": 0.08672053491441778,
+      "val_mAP_percent": 75.21351817088627,
+      "val_macro_f1_percent": 69.95551478544961,
+      "next_epoch_lr": 4.963040904617133e-05,
+      "epoch_wall_seconds": 1749.8404309840043
+    },
+    {
+      "epoch": 23,
+      "train_loss": 0.08340007950996661,
+      "val_mAP_percent": 76.71069463482871,
+      "val_macro_f1_percent": 71.4188796718136,
+      "next_epoch_lr": 3.852827617839091e-05,
+      "epoch_wall_seconds": 1750.8957587559999
+    },
+    {
+      "epoch": 24,
+      "train_loss": 0.08079386163995642,
+      "val_mAP_percent": 76.63438186935502,
+      "val_macro_f1_percent": 71.64885106046142,
+      "next_epoch_lr": 2.8647450843757908e-05,
+      "epoch_wall_seconds": 1742.1968874469967
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.07804416414318809,
+      "val_mAP_percent": 76.28928484794638,
+      "val_macro_f1_percent": 71.30776312738469,
+      "next_epoch_lr": 2.00961894323342e-05,
+      "epoch_wall_seconds": 1744.273025069997
+    },
+    {
+      "epoch": 26,
+      "train_loss": 0.07577461851333944,
+      "val_mAP_percent": 76.22391892692917,
+      "val_macro_f1_percent": 71.33184438910928,
+      "next_epoch_lr": 1.2968181353609857e-05,
+      "epoch_wall_seconds": 1739.7518468220005
+    },
+    {
+      "epoch": 27,
+      "train_loss": 0.07416922131991964,
+      "val_mAP_percent": 76.31058088775627,
+      "val_macro_f1_percent": 71.41114585960345,
+      "next_epoch_lr": 7.341522555726972e-06,
+      "epoch_wall_seconds": 1734.2107247320018
+    },
+    {
+      "epoch": 28,
+      "train_loss": 0.07304756361869716,
+      "val_mAP_percent": 76.1842180030149,
+      "val_macro_f1_percent": 71.40769860044922,
+      "next_epoch_lr": 3.2778598899291474e-06,
+      "epoch_wall_seconds": 1735.607236939999
+    },
+    {
+      "epoch": 29,
+      "train_loss": 0.07223259960902308,
+      "val_mAP_percent": 76.21761762537454,
+      "val_macro_f1_percent": 71.44511347504918,
+      "next_epoch_lr": 8.2171569475899e-07,
+      "epoch_wall_seconds": 1736.8047278390004
+    },
+    {
+      "epoch": 30,
+      "train_loss": 0.07173317388205867,
+      "val_mAP_percent": 76.22925381660184,
+      "val_macro_f1_percent": 71.46068372265889,
+      "next_epoch_lr": 0.0,
+      "epoch_wall_seconds": 1742.105835770999
+    }
+  ],
+  "history_scope": "Only epochs17-30 are complete in the truncated tail; epoch16 is partial and not reconstructed",
+  "deltas_pp": {
+    "swin": {
+      "mAP_percent": -0.840010777866425,
+      "macro_f1_percent": -0.21938918734568347,
+      "micro_f1_percent": -0.3489100558842324
+    },
+    "gavit": {
+      "mAP_percent": 0.5786825147880279,
+      "macro_f1_percent": 0.5693458523181079,
+      "micro_f1_percent": -0.3191025450308018
+    }
+  },
+  "per_class": [
+    {
+      "class_name": "Urban fabric",
+      "soft_ap_percent": 86.40140597531355,
+      "swin_ap_percent": 86.24644052853436,
+      "soft_minus_swin_pp": 0.15496544677918678,
+      "gavit_ap_percent": 86.34461759843379,
+      "soft_minus_gavit_pp": 0.05678837687976568,
+      "contribution_vs_fixed_mAP_pp": 0.002988861941040299
+    },
+    {
+      "class_name": "Industrial or commercial units",
+      "soft_ap_percent": 50.46244100126939,
+      "swin_ap_percent": 49.35348132074531,
+      "soft_minus_swin_pp": 1.1089596805240802,
+      "gavit_ap_percent": 49.41060551132683,
+      "soft_minus_gavit_pp": 1.0518354899425617,
+      "contribution_vs_fixed_mAP_pp": 0.05535976262855588
+    },
+    {
+      "class_name": "Arable land",
+      "soft_ap_percent": 93.88919778376795,
+      "swin_ap_percent": 93.6548590308458,
+      "soft_minus_swin_pp": 0.2343387529221559,
+      "gavit_ap_percent": 93.79621637085314,
+      "soft_minus_gavit_pp": 0.09298141291480988,
+      "contribution_vs_fixed_mAP_pp": 0.004893758574463678
+    },
+    {
+      "class_name": "Permanent crops",
+      "soft_ap_percent": 61.09999998584685,
+      "swin_ap_percent": 63.35155022873822,
+      "soft_minus_swin_pp": -2.251550242891369,
+      "gavit_ap_percent": 60.81244620953233,
+      "soft_minus_gavit_pp": 0.2875537763145175,
+      "contribution_vs_fixed_mAP_pp": 0.015134409279711448
+    },
+    {
+      "class_name": "Pastures",
+      "soft_ap_percent": 86.17695216263067,
+      "swin_ap_percent": 86.16155560417093,
+      "soft_minus_swin_pp": 0.015396558459741527,
+      "gavit_ap_percent": 86.08994326413276,
+      "soft_minus_gavit_pp": 0.08700889849791338,
+      "contribution_vs_fixed_mAP_pp": 0.004579415710416494
+    },
+    {
+      "class_name": "Complex cultivation patterns",
+      "soft_ap_percent": 70.22854589971523,
+      "swin_ap_percent": 68.82290554153533,
+      "soft_minus_swin_pp": 1.4056403581798946,
+      "gavit_ap_percent": 70.06918297456423,
+      "soft_minus_gavit_pp": 0.15936292515100092,
+      "contribution_vs_fixed_mAP_pp": 0.008387522376368469
+    },
+    {
+      "class_name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+      "soft_ap_percent": 72.05588800084763,
+      "swin_ap_percent": 72.41309770023811,
+      "soft_minus_swin_pp": -0.35720969939048075,
+      "gavit_ap_percent": 72.86567544986204,
+      "soft_minus_gavit_pp": -0.8097874490144079,
+      "contribution_vs_fixed_mAP_pp": -0.04262039205338989
+    },
+    {
+      "class_name": "Agro-forestry areas",
+      "soft_ap_percent": 87.08583269893741,
+      "swin_ap_percent": 87.2876806314931,
+      "soft_minus_swin_pp": -0.2018479325556939,
+      "gavit_ap_percent": 87.32493533539166,
+      "soft_minus_gavit_pp": -0.23910263645424834,
+      "contribution_vs_fixed_mAP_pp": -0.012584349287065703
+    },
+    {
+      "class_name": "Broad-leaved forest",
+      "soft_ap_percent": 84.88826238343896,
+      "swin_ap_percent": 86.24484039818411,
+      "soft_minus_swin_pp": -1.3565780147451534,
+      "gavit_ap_percent": 85.58480444385715,
+      "soft_minus_gavit_pp": -0.6965420604181958,
+      "contribution_vs_fixed_mAP_pp": -0.03666010844306294
+    },
+    {
+      "class_name": "Coniferous forest",
+      "soft_ap_percent": 93.17137135636479,
+      "swin_ap_percent": 93.60932737884697,
+      "soft_minus_swin_pp": -0.437956022482183,
+      "gavit_ap_percent": 93.56169097317066,
+      "soft_minus_gavit_pp": -0.39031961680586846,
+      "contribution_vs_fixed_mAP_pp": -0.020543137726624656
+    },
+    {
+      "class_name": "Mixed forest",
+      "soft_ap_percent": 90.22127113538806,
+      "swin_ap_percent": 90.05070381197373,
+      "soft_minus_swin_pp": 0.1705673234143319,
+      "gavit_ap_percent": 89.35960710816634,
+      "soft_minus_gavit_pp": 0.8616640272217211,
+      "contribution_vs_fixed_mAP_pp": 0.045350738274827426
+    },
+    {
+      "class_name": "Natural grassland and sparsely vegetated areas",
+      "soft_ap_percent": 40.124756608903276,
+      "swin_ap_percent": 48.10282826918033,
+      "soft_minus_swin_pp": -7.9780716602770525,
+      "gavit_ap_percent": 47.61401971282264,
+      "soft_minus_gavit_pp": -7.489263103919363,
+      "contribution_vs_fixed_mAP_pp": -0.39417174231154545
+    },
+    {
+      "class_name": "Moors, heathland and sclerophyllous vegetation",
+      "soft_ap_percent": 60.44382011173869,
+      "swin_ap_percent": 60.43163185356645,
+      "soft_minus_swin_pp": 0.012188258172237454,
+      "gavit_ap_percent": 60.00191643475874,
+      "soft_minus_gavit_pp": 0.4419036769799476,
+      "contribution_vs_fixed_mAP_pp": 0.023258088262102506
+    },
+    {
+      "class_name": "Transitional woodland, shrub",
+      "soft_ap_percent": 78.2831902419664,
+      "swin_ap_percent": 78.98327909859074,
+      "soft_minus_swin_pp": -0.7000888566243475,
+      "gavit_ap_percent": 77.89724530832795,
+      "soft_minus_gavit_pp": 0.3859449336384415,
+      "contribution_vs_fixed_mAP_pp": 0.0203128912441285
+    },
+    {
+      "class_name": "Beaches, dunes, sands",
+      "soft_ap_percent": 12.816150459278832,
+      "swin_ap_percent": 10.317846668936683,
+      "soft_minus_swin_pp": 2.498303790342149,
+      "gavit_ap_percent": 9.668870469356605,
+      "soft_minus_gavit_pp": 3.147279989922227,
+      "contribution_vs_fixed_mAP_pp": 0.1656463152590646
+    },
+    {
+      "class_name": "Inland wetlands",
+      "soft_ap_percent": 61.47026004106363,
+      "swin_ap_percent": 62.8742898851375,
+      "soft_minus_swin_pp": -1.404029844073868,
+      "gavit_ap_percent": 63.236983660961066,
+      "soft_minus_gavit_pp": -1.7667236198974337,
+      "contribution_vs_fixed_mAP_pp": -0.0929854536788123
+    },
+    {
+      "class_name": "Coastal wetlands",
+      "soft_ap_percent": 26.379191836170925,
+      "swin_ap_percent": 33.854200825581785,
+      "soft_minus_swin_pp": -7.47500898941086,
+      "gavit_ap_percent": 10.66842766288083,
+      "soft_minus_gavit_pp": 15.710764173290094,
+      "contribution_vs_fixed_mAP_pp": 0.826882324910005
+    },
+    {
+      "class_name": "Inland waters",
+      "soft_ap_percent": 91.15555249658773,
+      "swin_ap_percent": 90.58510903565174,
+      "soft_minus_swin_pp": 0.5704434609359907,
+      "gavit_ap_percent": 91.18980467457862,
+      "soft_minus_gavit_pp": -0.03425217799089353,
+      "contribution_vs_fixed_mAP_pp": -0.0018027462100470278
+    },
+    {
+      "class_name": "Marine waters",
+      "soft_ap_percent": 99.54736621609227,
+      "swin_ap_percent": 99.51603336283306,
+      "soft_minus_swin_pp": 0.0313328532592152,
+      "gavit_ap_percent": 99.4094954513724,
+      "soft_minus_gavit_pp": 0.13787076471987803,
+      "contribution_vs_fixed_mAP_pp": 0.007256356037888317
+    }
+  ],
+  "fixed_comparison_counts": {
+    "improved": 12,
+    "worse": 7
+  },
+  "coastal_wetland_contribution_pp": 0.826882324910005,
+  "remaining_18_classes_contribution_pp": -0.24819981012197712,
+  "best_to_final_val_drop_pp": 2.4744461833981575,
+  "resource_scope": {
+    "last14_epoch_mean_seconds": 1744.8087739713571,
+    "test_loop_displayed_seconds": 304,
+    "total_wall_seconds": 53058.733037157,
+    "gpu_peak_memory_bytes": 3929639936,
+    "cost": null,
+    "full_stage_resources": {
+      "queue_seconds": 53058.733037157,
+      "queue_hours": 14.738536954765832,
+      "outside_stage_timers_seconds": 58.027382378990296,
+      "actual_cost": null,
+      "train": {
+        "seconds": 52678.069085704,
+        "hours": 14.632796968251112,
+        "allocated_GiB": 3.659762382507324,
+        "reserved_GiB": 4.029296875,
+        "main_RSS_GiB": 1.9716567993164062
+      },
+      "test": {
+        "seconds": 322.6365690740058,
+        "hours": 0.08962126918722384,
+        "allocated_GiB": 0.5954151153564453,
+        "reserved_GiB": 1.02734375,
+        "main_RSS_GiB": 1.4748458862304688
+      }
+    },
+    "summary_source": "reported_summary_output.txt",
+    "gpu_memory_definition": "Training-stage CUDA allocated peak; reserved peak listed separately in full_stage_resources."
+  }
+}

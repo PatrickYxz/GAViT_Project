@@ -1,0 +1,18 @@
+{
+  "status": "prepared_local_only",
+  "dataset": "BigEarthNet-19",
+  "seed": 42,
+  "frozen_commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "files": {
+    "run_bigearth_soft42.py": "970bdc3e3ef12229dc0d4a3c3a898db355bd9d5820d26d09d61d9882c3f28398",
+    "preflight_bigearth_soft42.py": "fc16ecd41b46459b6ad15cab784aebdf33c7586723ac8271bed7d438cef5723f",
+    "handoff_bigearth_soft42.py": "2c7d7365c4722b6fd25973e6d54b385535db7a64b78011bfc5f40d4409b749b8",
+    "prepare_smoke_source.py": "1d86076351dd7f5290cf4d230cc002c89ee89c11cccbcc754778d0710d8748d4",
+    "train_reload_smoke_source.py": "d67105cc77fd16f7d9e836e31668f7cd8f012516af057b339cc03a58fffbb2f9"
+  },
+  "source_reference": "Existing soft43 scheduling and validated96/64 engineering wrapper",
+  "source_worker_sha256": "7346c6aa25426998f44eeb55aa9aa33c1f43357d4cbabb3951413e5aa8d1b832",
+  "scope": "Only BEN soft42; 1-epoch engineering check then full30/best119825 test. No Swin/fixed retraining.",
+  "local_cuda_tested": false,
+  "server_training_started": false
+}

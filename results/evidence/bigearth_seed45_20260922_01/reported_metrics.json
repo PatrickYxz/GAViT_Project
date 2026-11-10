@@ -1,0 +1,53 @@
+{
+  "source": "normalized user-returned terminal excerpt; not server file copy",
+  "run_root": "/home/featurize/work/bigearth_seed45_20260922_01",
+  "model": "gavit",
+  "seed": 45,
+  "dataset": "BigEarthNet-19",
+  "samples": 119825,
+  "test_batches": 3745,
+  "reported_test_percent": {
+    "mAP": 70.3,
+    "macro_f1": 64.3,
+    "micro_f1": 76.7
+  },
+  "reported_best_val_mAP_percent": 78.3,
+  "printed_metric_precision": "one decimal percent",
+  "last_epoch_exact": {
+    "epoch": 30,
+    "train_loss": 0.08172658044316794,
+    "val_mAP_percent": 76.61513448708149,
+    "val_macro_f1_percent": 71.71295447541755,
+    "next_epoch_lr": 0.0,
+    "epoch_wall_seconds": 1824.7612908370065
+  },
+  "reported_per_class_ap_percent": {
+    "Urban fabric": 86.3,
+    "Industrial or commercial units": 49.4,
+    "Arable land": 93.8,
+    "Permanent crops": 60.8,
+    "Pastures": 86.1,
+    "Complex cultivation patterns": 70.1,
+    "Land principally occupied by agriculture, with significant areas of natural vegetation": 72.9,
+    "Agro-forestry areas": 87.3,
+    "Broad-leaved forest": 85.6,
+    "Coniferous forest": 93.6,
+    "Mixed forest": 89.4,
+    "Natural grassland and sparsely vegetated areas": 47.6,
+    "Moors, heathland and sclerophyllous vegetation": 60.0,
+    "Transitional woodland, shrub": 77.9,
+    "Beaches, dunes, sands": 9.7,
+    "Inland wetlands": 63.2,
+    "Coastal wetlands": 10.7,
+    "Inland waters": 91.2,
+    "Marine waters": 99.4
+  },
+  "test_loop_seconds": 311,
+  "test_command_wall_seconds": null,
+  "explicit_exit_codes_received": false,
+  "swin45_metrics_received": false,
+  "queue_complete_marker_received": true,
+  "best_epoch": null,
+  "checkpoint_sha256": null,
+  "elapsed_training_seconds": null
+}

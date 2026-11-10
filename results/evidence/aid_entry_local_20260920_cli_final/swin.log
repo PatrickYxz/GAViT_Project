@@ -1,0 +1,5 @@
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_x2xmx2ml/swin; PHASE smoke; preflight starting
+MODEL swin; DATASET synthetic; DEVICE CPU; PHASE smoke; train=30 val=30
+TRAIN FIRST BATCH OK loss=3.240191; graph={}
+EPOCH 1/1; loss=4.618216; val_OA=6.666666666666667; train_s=2.03
+SCENE SMOKE COMPLETE: /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_x2xmx2ml/swin

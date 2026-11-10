@@ -1,0 +1,200 @@
+FF.FFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+_______________ test_help_advertises_new_mode[train_bigearth.py] _______________
+tests/test_soft_entrypoints.py:47: in test_help_advertises_new_mode
+    assert result.returncode == 0, result.stderr
+E   AssertionError: Traceback (most recent call last):
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/soft_entry_worker.py", line 68, in <module>
+E         runpy.run_path(str(entry), run_name='__main__')
+E       File "<frozen runpy>", line 287, in run_path
+E       File "<frozen runpy>", line 98, in _run_module_code
+E       File "<frozen runpy>", line 88, in _run_code
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/train_bigearth.py", line 43, in <module>
+E         from models.gavit import GAViT
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/models/gavit.py", line 3, in <module>
+E         from torch_geometric.nn import global_mean_pool
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/__init__.py", line 17, in <module>
+E         import torch_geometric.utils
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/utils/__init__.py", line 60, in <module>
+E         from .influence import total_influence
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/utils/influence.py", line 8, in <module>
+E         from torch_geometric.data import Data
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/data/__init__.py", line 61, in <module>
+E         from torch_geometric.loader import NeighborSampler
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/loader/__init__.py", line 3, in <module>
+E         from .dataloader import DataLoader
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/loader/dataloader.py", line 52, in <module>
+E         class DataLoader(torch.utils.data.DataLoader):
+E     TypeError: function() argument 'code' must be code, not str
+E     
+E   assert 1 == 0
+E    +  where 1 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...\n    class DataLoader(torch.utils.data.DataLoader):\nTypeError: function() argument \'code\' must be code, not str\n').returncode
+_______________ test_help_advertises_new_mode[test_bigearth.py] ________________
+tests/test_soft_entrypoints.py:47: in test_help_advertises_new_mode
+    assert result.returncode == 0, result.stderr
+E   AssertionError: Traceback (most recent call last):
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/soft_entry_worker.py", line 68, in <module>
+E         runpy.run_path(str(entry), run_name='__main__')
+E       File "<frozen runpy>", line 287, in run_path
+E       File "<frozen runpy>", line 98, in _run_module_code
+E       File "<frozen runpy>", line 88, in _run_code
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/test_bigearth.py", line 34, in <module>
+E         from models.gavit import GAViT
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/models/gavit.py", line 3, in <module>
+E         from torch_geometric.nn import global_mean_pool
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/__init__.py", line 17, in <module>
+E         import torch_geometric.utils
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/utils/__init__.py", line 60, in <module>
+E         from .influence import total_influence
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/utils/influence.py", line 8, in <module>
+E         from torch_geometric.data import Data
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/data/__init__.py", line 61, in <module>
+E         from torch_geometric.loader import NeighborSampler
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/loader/__init__.py", line 3, in <module>
+E         from .dataloader import DataLoader
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/loader/dataloader.py", line 52, in <module>
+E         class DataLoader(torch.utils.data.DataLoader):
+E     TypeError: function() argument 'code' must be code, not str
+E     
+E   assert 1 == 0
+E    +  where 1 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...\n    class DataLoader(torch.utils.data.DataLoader):\nTypeError: function() argument \'code\' must be code, not str\n').returncode
+__________ test_real_bigearth_entry_train_reload_and_test[swin-None] ___________
+tests/test_soft_entrypoints.py:59: in test_real_bigearth_entry_train_reload_and_test
+    assert result.returncode == 0, result.stdout + result.stderr
+E   AssertionError: Traceback (most recent call last):
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/soft_entry_worker.py", line 68, in <module>
+E         runpy.run_path(str(entry), run_name='__main__')
+E       File "<frozen runpy>", line 287, in run_path
+E       File "<frozen runpy>", line 98, in _run_module_code
+E       File "<frozen runpy>", line 88, in _run_code
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/train_bigearth.py", line 43, in <module>
+E         from models.gavit import GAViT
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/models/gavit.py", line 3, in <module>
+E         from torch_geometric.nn import global_mean_pool
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/__init__.py", line 17, in <module>
+E         import torch_geometric.utils
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/utils/__init__.py", line 60, in <module>
+E         from .influence import total_influence
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/utils/influence.py", line 8, in <module>
+E         from torch_geometric.data import Data
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/data/__init__.py", line 61, in <module>
+E         from torch_geometric.loader import NeighborSampler
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/loader/__init__.py", line 3, in <module>
+E         from .dataloader import DataLoader
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/loader/dataloader.py", line 52, in <module>
+E         class DataLoader(torch.utils.data.DataLoader):
+E     TypeError: function() argument 'code' must be code, not str
+E     
+E   assert 1 == 0
+E    +  where 1 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...\n    class DataLoader(torch.utils.data.DataLoader):\nTypeError: function() argument \'code\' must be code, not str\n').returncode
+___ test_real_bigearth_entry_train_reload_and_test[gavit-attentive_spatial] ____
+tests/test_soft_entrypoints.py:59: in test_real_bigearth_entry_train_reload_and_test
+    assert result.returncode == 0, result.stdout + result.stderr
+E   AssertionError: Traceback (most recent call last):
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/soft_entry_worker.py", line 68, in <module>
+E         runpy.run_path(str(entry), run_name='__main__')
+E       File "<frozen runpy>", line 287, in run_path
+E       File "<frozen runpy>", line 98, in _run_module_code
+E       File "<frozen runpy>", line 88, in _run_code
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/train_bigearth.py", line 43, in <module>
+E         from models.gavit import GAViT
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/models/gavit.py", line 3, in <module>
+E         from torch_geometric.nn import global_mean_pool
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/__init__.py", line 17, in <module>
+E         import torch_geometric.utils
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/utils/__init__.py", line 60, in <module>
+E         from .influence import total_influence
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/utils/influence.py", line 8, in <module>
+E         from torch_geometric.data import Data
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/data/__init__.py", line 61, in <module>
+E         from torch_geometric.loader import NeighborSampler
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/loader/__init__.py", line 3, in <module>
+E         from .dataloader import DataLoader
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/loader/dataloader.py", line 52, in <module>
+E         class DataLoader(torch.utils.data.DataLoader):
+E     TypeError: function() argument 'code' must be code, not str
+E     
+E   assert 1 == 0
+E    +  where 1 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...\n    class DataLoader(torch.utils.data.DataLoader):\nTypeError: function() argument \'code\' must be code, not str\n').returncode
+_____ test_real_bigearth_entry_train_reload_and_test[gavit-soft_prototype] _____
+tests/test_soft_entrypoints.py:59: in test_real_bigearth_entry_train_reload_and_test
+    assert result.returncode == 0, result.stdout + result.stderr
+E   AssertionError: Traceback (most recent call last):
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/soft_entry_worker.py", line 68, in <module>
+E         runpy.run_path(str(entry), run_name='__main__')
+E       File "<frozen runpy>", line 287, in run_path
+E       File "<frozen runpy>", line 98, in _run_module_code
+E       File "<frozen runpy>", line 88, in _run_code
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/train_bigearth.py", line 43, in <module>
+E         from models.gavit import GAViT
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/models/gavit.py", line 3, in <module>
+E         from torch_geometric.nn import global_mean_pool
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/__init__.py", line 17, in <module>
+E         import torch_geometric.utils
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/utils/__init__.py", line 60, in <module>
+E         from .influence import total_influence
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/utils/influence.py", line 8, in <module>
+E         from torch_geometric.data import Data
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/data/__init__.py", line 61, in <module>
+E         from torch_geometric.loader import NeighborSampler
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/loader/__init__.py", line 3, in <module>
+E         from .dataloader import DataLoader
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/loader/dataloader.py", line 52, in <module>
+E         class DataLoader(torch.utils.data.DataLoader):
+E     TypeError: function() argument 'code' must be code, not str
+E     
+E   assert 1 == 0
+E    +  where 1 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...\n    class DataLoader(torch.utils.data.DataLoader):\nTypeError: function() argument \'code\' must be code, not str\n').returncode
+______________ test_new_mode_resume_uses_persisted_initial_probe _______________
+tests/test_soft_entrypoints.py:89: in test_new_mode_resume_uses_persisted_initial_probe
+    assert stopped.returncode == 7, stopped.stdout + stopped.stderr
+E   AssertionError: Traceback (most recent call last):
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/soft_entry_worker.py", line 68, in <module>
+E         runpy.run_path(str(entry), run_name='__main__')
+E       File "<frozen runpy>", line 287, in run_path
+E       File "<frozen runpy>", line 98, in _run_module_code
+E       File "<frozen runpy>", line 88, in _run_code
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/train_bigearth.py", line 43, in <module>
+E         from models.gavit import GAViT
+E       File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/models/gavit.py", line 3, in <module>
+E         from torch_geometric.nn import global_mean_pool
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/__init__.py", line 17, in <module>
+E         import torch_geometric.utils
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/utils/__init__.py", line 60, in <module>
+E         from .influence import total_influence
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/utils/influence.py", line 8, in <module>
+E         from torch_geometric.data import Data
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/data/__init__.py", line 61, in <module>
+E         from torch_geometric.loader import NeighborSampler
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/loader/__init__.py", line 3, in <module>
+E         from .dataloader import DataLoader
+E       File "/private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch_geometric/loader/dataloader.py", line 52, in <module>
+E         class DataLoader(torch.utils.data.DataLoader):
+E     TypeError: function() argument 'code' must be code, not str
+E     
+E   assert 1 == 7
+E    +  where 1 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...\n    class DataLoader(torch.utils.data.DataLoader):\nTypeError: function() argument \'code\' must be code, not str\n').returncode
+________ test_legacy_nwpu_entry_rejects_new_sidecar_before_data_access _________
+tests/test_soft_entrypoints.py:107: in test_legacy_nwpu_entry_rejects_new_sidecar_before_data_access
+    assert result.returncode != 0 and 'run_scene.py' in result.stderr
+E   assert (1 != 0 and 'run_scene.py' in 'Traceback (most recent call last):\n  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/te...>\n    class DataLoader(torch.utils.data.DataLoader):\nTypeError: function() argument \'code\' must be code, not str\n')
+E    +  where 1 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...\n    class DataLoader(torch.utils.data.DataLoader):\nTypeError: function() argument \'code\' must be code, not str\n').returncode
+E    +  and   'Traceback (most recent call last):\n  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/te...>\n    class DataLoader(torch.utils.data.DataLoader):\nTypeError: function() argument \'code\' must be code, not str\n' = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...\n    class DataLoader(torch.utils.data.DataLoader):\nTypeError: function() argument \'code\' must be code, not str\n').stderr
+=============================== warnings summary ===============================
+tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[swin-None]
+tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-attentive_spatial]
+tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-soft_prototype]
+tests/test_soft_entrypoints.py::test_new_mode_resume_uses_persisted_initial_probe
+  /private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/rasterio/__init__.py:366: NotGeoreferencedWarning: Dataset has no geotransform, gcps, or rpcs. The identity matrix will be returned.
+    dataset = writer(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_soft_entrypoints.py::test_help_advertises_new_mode[train_bigearth.py]
+FAILED tests/test_soft_entrypoints.py::test_help_advertises_new_mode[test_bigearth.py]
+FAILED tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[swin-None]
+FAILED tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-attentive_spatial]
+FAILED tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-soft_prototype]
+FAILED tests/test_soft_entrypoints.py::test_new_mode_resume_uses_persisted_initial_probe
+FAILED tests/test_soft_entrypoints.py::test_legacy_nwpu_entry_rejects_new_sidecar_before_data_access
+7 failed, 1 passed, 4 warnings in 89.69s (0:01:29)

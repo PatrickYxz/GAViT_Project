@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "error": "Selected image is missing: /home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP/S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_42_71/S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_42_71_B04.tif",
+  "type": "FileNotFoundError"
+}

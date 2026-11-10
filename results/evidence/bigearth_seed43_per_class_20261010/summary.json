@@ -1,0 +1,316 @@
+{
+  "date": "2026-10-10",
+  "dataset": "BigEarthNet-19",
+  "seeds": [
+    42,
+    43,
+    44,
+    45
+  ],
+  "new_evidence": "User-pasted excerpts from two existing seed43 test logs; no new inference or training.",
+  "sources_sha256": {
+    "results/evidence/bigearth_seed43_per_class_20261010/server_return.txt": "aa56c067bba75bb5dfc4dd59504b91b11c600c8b56b096a782ddca9a49da751f",
+    "results/bigearth_seed42_seed44_class_stability.csv": "e5ace37a5f1f1cc23ac44a072844a5d6f55d3a8ac615677c706e347552054e44",
+    "results/bigearth_seed45_per_class_comparison.csv": "b117b152f1a67e61b3787329d99c3114e5f4e6be50bddd081a40948b4d0d002d"
+  },
+  "seed43": {
+    "Swin_reported_metrics_percent": [
+      "71.1",
+      "64.1",
+      "76.0"
+    ],
+    "GAViT_reported_metrics_percent": [
+      "71.7",
+      "65.7",
+      "76.8"
+    ],
+    "reported_metric_deltas_pp": [
+      "0.6",
+      "1.6",
+      "0.8"
+    ],
+    "class_counts": {
+      "improved": 10,
+      "declined": 8,
+      "tied_at_printed_precision": 1
+    },
+    "mean_printed_AP_Swin_percent": "71.11052631578947368421052632",
+    "mean_printed_AP_GAViT_percent": "71.73684210526315789473684211",
+    "mean_printed_AP_delta_pp": "0.6263157894736842105263157895",
+    "Swin_test_peak_allocated_GiB": "0.58",
+    "Swin_test_wall_seconds": "234.20",
+    "GAViT_test_timing_and_memory": "not present in returned excerpt"
+  },
+  "all_four_positive_classes": [],
+  "all_four_negative_classes": [],
+  "precision": "Seeds42/43/44 APs rounded to 0.1 percent; seed45 uses returned full precision. Ties mean printed ties only. Printed AP means do not replace reported aggregate mAP.",
+  "limits": "Descriptive existing-run comparison; historical hardware/completion differences retained. No significance test, per-image prediction audit, scene-level mechanism or graph-causal conclusion.",
+  "classes": [
+    {
+      "class": "Urban fabric",
+      "deltas_pp": {
+        "42": "-0.2",
+        "43": "0.6",
+        "44": "-0.3",
+        "45": "0.09817706989943"
+      },
+      "Positive_Seeds": 2,
+      "Negative_Seeds": 2,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "0.0495442674748575",
+      "sample_sd_delta_pp": "0.4040710330686741490567688245"
+    },
+    {
+      "class": "Industrial or commercial units",
+      "deltas_pp": {
+        "42": "-1.3",
+        "43": "0.6",
+        "44": "-0.9",
+        "45": "0.05712419058152"
+      },
+      "Positive_Seeds": 2,
+      "Negative_Seeds": 2,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "-0.38571895235462",
+      "sample_sd_delta_pp": "0.8695107306846786625815933519"
+    },
+    {
+      "class": "Arable land",
+      "deltas_pp": {
+        "42": "0.5",
+        "43": "-0.2",
+        "44": "0.2",
+        "45": "0.14135734000734"
+      },
+      "Positive_Seeds": 3,
+      "Negative_Seeds": 1,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "0.160339335001835",
+      "sample_sd_delta_pp": "0.2870232790667149842923180569"
+    },
+    {
+      "class": "Permanent crops",
+      "deltas_pp": {
+        "42": "2.4",
+        "43": "3.3",
+        "44": "-1.5",
+        "45": "-2.53910401920589"
+      },
+      "Positive_Seeds": 2,
+      "Negative_Seeds": 2,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "0.4152239951985275",
+      "sample_sd_delta_pp": "2.866903402371799333711613826"
+    },
+    {
+      "class": "Pastures",
+      "deltas_pp": {
+        "42": "-0.4",
+        "43": "-0.1",
+        "44": "0.1",
+        "45": "-0.07161234003817"
+      },
+      "Positive_Seeds": 1,
+      "Negative_Seeds": 3,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "-0.1179030850095425",
+      "sample_sd_delta_pp": "0.2077849669142539809001482226"
+    },
+    {
+      "class": "Complex cultivation patterns",
+      "deltas_pp": {
+        "42": "2.1",
+        "43": "-0.4",
+        "44": "-1.3",
+        "45": "1.24627743302890"
+      },
+      "Positive_Seeds": 2,
+      "Negative_Seeds": 2,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "0.411569358257225",
+      "sample_sd_delta_pp": "1.542254852853665929363203570"
+    },
+    {
+      "class": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+      "deltas_pp": {
+        "42": "0.7",
+        "43": "0.2",
+        "44": "0.0",
+        "45": "0.45257774962393"
+      },
+      "Positive_Seeds": 3,
+      "Negative_Seeds": 0,
+      "Tied_Seeds": 1,
+      "mean_delta_pp": "0.3381444374059825",
+      "sample_sd_delta_pp": "0.3041161933977576513371694724"
+    },
+    {
+      "class": "Agro-forestry areas",
+      "deltas_pp": {
+        "42": "-0.2",
+        "43": "0.0",
+        "44": "-0.4",
+        "45": "0.03725470389856"
+      },
+      "Positive_Seeds": 1,
+      "Negative_Seeds": 2,
+      "Tied_Seeds": 1,
+      "mean_delta_pp": "-0.14068632402536",
+      "sample_sd_delta_pp": "0.2018393304020923769432867853"
+    },
+    {
+      "class": "Broad-leaved forest",
+      "deltas_pp": {
+        "42": "0.9",
+        "43": "-0.1",
+        "44": "0.8",
+        "45": "-0.66003595432696"
+      },
+      "Positive_Seeds": 2,
+      "Negative_Seeds": 2,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "0.23499101141826",
+      "sample_sd_delta_pp": "0.7471644975538728090019717718"
+    },
+    {
+      "class": "Coniferous forest",
+      "deltas_pp": {
+        "42": "0.0",
+        "43": "-0.3",
+        "44": "0.5",
+        "45": "-0.04763640567631"
+      },
+      "Positive_Seeds": 1,
+      "Negative_Seeds": 2,
+      "Tied_Seeds": 1,
+      "mean_delta_pp": "0.0380908985809225",
+      "sample_sd_delta_pp": "0.3348957852461715114895470009"
+    },
+    {
+      "class": "Mixed forest",
+      "deltas_pp": {
+        "42": "0.5",
+        "43": "0.9",
+        "44": "-0.2",
+        "45": "-0.69109670380739"
+      },
+      "Positive_Seeds": 2,
+      "Negative_Seeds": 2,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "0.1272258240481525",
+      "sample_sd_delta_pp": "0.7101335585166388280514872113"
+    },
+    {
+      "class": "Natural grassland and sparsely vegetated areas",
+      "deltas_pp": {
+        "42": "-0.8",
+        "43": "1.3",
+        "44": "-3.7",
+        "45": "-0.48880855635769"
+      },
+      "Positive_Seeds": 1,
+      "Negative_Seeds": 3,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "-0.9222021390894225",
+      "sample_sd_delta_pp": "2.070193764152207947511712147"
+    },
+    {
+      "class": "Moors, heathland and sclerophyllous vegetation",
+      "deltas_pp": {
+        "42": "5.0",
+        "43": "4.2",
+        "44": "-0.3",
+        "45": "-0.42971541880771"
+      },
+      "Positive_Seeds": 2,
+      "Negative_Seeds": 2,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "2.1175711452980725",
+      "sample_sd_delta_pp": "2.885493898772797827284749592"
+    },
+    {
+      "class": "Transitional woodland, shrub",
+      "deltas_pp": {
+        "42": "0.5",
+        "43": "0.3",
+        "44": "0.2",
+        "45": "-1.08603379026279"
+      },
+      "Positive_Seeds": 3,
+      "Negative_Seeds": 1,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "-0.0215084475656975",
+      "sample_sd_delta_pp": "0.7205597223283707579202023622"
+    },
+    {
+      "class": "Beaches, dunes, sands",
+      "deltas_pp": {
+        "42": "3.5",
+        "43": "-2.7",
+        "44": "-3.3",
+        "45": "-0.648976199580078"
+      },
+      "Positive_Seeds": 1,
+      "Negative_Seeds": 3,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "-0.7872440498950195",
+      "sample_sd_delta_pp": "3.075286291888987334663338039"
+    },
+    {
+      "class": "Inland wetlands",
+      "deltas_pp": {
+        "42": "1.4",
+        "43": "2.9",
+        "44": "0.0",
+        "45": "0.362693775823566"
+      },
+      "Positive_Seeds": 3,
+      "Negative_Seeds": 0,
+      "Tied_Seeds": 1,
+      "mean_delta_pp": "1.1656734439558915",
+      "sample_sd_delta_pp": "1.299534334963258991345686019"
+    },
+    {
+      "class": "Coastal wetlands",
+      "deltas_pp": {
+        "42": "4.4",
+        "43": "1.6",
+        "44": "-12.5",
+        "45": "-23.185773162700955"
+      },
+      "Positive_Seeds": 2,
+      "Negative_Seeds": 2,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "-7.42144329067523875",
+      "sample_sd_delta_pp": "12.85092467600924272589315129"
+    },
+    {
+      "class": "Inland waters",
+      "deltas_pp": {
+        "42": "0.8",
+        "43": "-0.1",
+        "44": "0.1",
+        "45": "0.60469563892688"
+      },
+      "Positive_Seeds": 3,
+      "Negative_Seeds": 1,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "0.35117390973172",
+      "sample_sd_delta_pp": "0.4212538253959397668765717850"
+    },
+    {
+      "class": "Marine waters",
+      "deltas_pp": {
+        "42": "0.1",
+        "43": "-0.1",
+        "44": "0.1",
+        "45": "-0.10653791146066"
+      },
+      "Positive_Seeds": 2,
+      "Negative_Seeds": 2,
+      "Tied_Seeds": 0,
+      "mean_delta_pp": "-0.001634477865165",
+      "sample_sd_delta_pp": "0.1173877343206869747318536129"
+    }
+  ]
+}

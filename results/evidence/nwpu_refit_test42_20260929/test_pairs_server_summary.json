@@ -1,0 +1,314 @@
+{
+  "samples": 25200,
+  "metrics_recomputed": {
+    "swin": {
+      "correct": 23671,
+      "OA": 93.93253968253968,
+      "macro_F1": 93.90914546819495
+    },
+    "fixed": {
+      "correct": 23714,
+      "OA": 94.10317460317461,
+      "macro_F1": 94.08993346277097
+    },
+    "soft": {
+      "correct": 23655,
+      "OA": 93.86904761904762,
+      "macro_F1": 93.854987219354
+    }
+  },
+  "pairs": {
+    "fixed_vs_swin": {
+      "both_correct": 23128,
+      "candidate_corrects": 586,
+      "candidate_breaks": 543,
+      "both_wrong": 943,
+      "net_correct": 43
+    },
+    "soft_vs_swin": {
+      "both_correct": 23085,
+      "candidate_corrects": 570,
+      "candidate_breaks": 586,
+      "both_wrong": 959,
+      "net_correct": -16
+    },
+    "soft_vs_fixed": {
+      "both_correct": 23117,
+      "candidate_corrects": 538,
+      "candidate_breaks": 597,
+      "both_wrong": 948,
+      "net_correct": -59
+    }
+  },
+  "class_extremes": {
+    "fixed_vs_swin": {
+      "losses": [
+        {
+          "class": "commercial_area",
+          "support": 560,
+          "base_correct": 501,
+          "candidate_correct": 478,
+          "net_correct": -23
+        },
+        {
+          "class": "overpass",
+          "support": 560,
+          "base_correct": 548,
+          "candidate_correct": 529,
+          "net_correct": -19
+        },
+        {
+          "class": "industrial_area",
+          "support": 560,
+          "base_correct": 507,
+          "candidate_correct": 495,
+          "net_correct": -12
+        },
+        {
+          "class": "intersection",
+          "support": 560,
+          "base_correct": 550,
+          "candidate_correct": 541,
+          "net_correct": -9
+        }
+      ],
+      "gains": [
+        {
+          "class": "church",
+          "support": 560,
+          "base_correct": 454,
+          "candidate_correct": 470,
+          "net_correct": 16
+        },
+        {
+          "class": "palace",
+          "support": 560,
+          "base_correct": 409,
+          "candidate_correct": 423,
+          "net_correct": 14
+        },
+        {
+          "class": "wetland",
+          "support": 560,
+          "base_correct": 481,
+          "candidate_correct": 493,
+          "net_correct": 12
+        },
+        {
+          "class": "roundabout",
+          "support": 560,
+          "base_correct": 538,
+          "candidate_correct": 550,
+          "net_correct": 12
+        }
+      ]
+    },
+    "soft_vs_swin": {
+      "losses": [
+        {
+          "class": "overpass",
+          "support": 560,
+          "base_correct": 548,
+          "candidate_correct": 529,
+          "net_correct": -19
+        },
+        {
+          "class": "commercial_area",
+          "support": 560,
+          "base_correct": 501,
+          "candidate_correct": 483,
+          "net_correct": -18
+        },
+        {
+          "class": "intersection",
+          "support": 560,
+          "base_correct": 550,
+          "candidate_correct": 535,
+          "net_correct": -15
+        },
+        {
+          "class": "stadium",
+          "support": 560,
+          "base_correct": 541,
+          "candidate_correct": 530,
+          "net_correct": -11
+        }
+      ],
+      "gains": [
+        {
+          "class": "palace",
+          "support": 560,
+          "base_correct": 409,
+          "candidate_correct": 426,
+          "net_correct": 17
+        },
+        {
+          "class": "medium_residential",
+          "support": 560,
+          "base_correct": 492,
+          "candidate_correct": 504,
+          "net_correct": 12
+        },
+        {
+          "class": "ground_track_field",
+          "support": 560,
+          "base_correct": 533,
+          "candidate_correct": 544,
+          "net_correct": 11
+        },
+        {
+          "class": "golf_course",
+          "support": 560,
+          "base_correct": 529,
+          "candidate_correct": 540,
+          "net_correct": 11
+        }
+      ]
+    },
+    "soft_vs_fixed": {
+      "losses": [
+        {
+          "class": "dense_residential",
+          "support": 560,
+          "base_correct": 521,
+          "candidate_correct": 503,
+          "net_correct": -18
+        },
+        {
+          "class": "railway_station",
+          "support": 560,
+          "base_correct": 499,
+          "candidate_correct": 482,
+          "net_correct": -17
+        },
+        {
+          "class": "church",
+          "support": 560,
+          "base_correct": 470,
+          "candidate_correct": 457,
+          "net_correct": -13
+        },
+        {
+          "class": "desert",
+          "support": 560,
+          "base_correct": 538,
+          "candidate_correct": 525,
+          "net_correct": -13
+        }
+      ],
+      "gains": [
+        {
+          "class": "industrial_area",
+          "support": 560,
+          "base_correct": 495,
+          "candidate_correct": 509,
+          "net_correct": 14
+        },
+        {
+          "class": "sparse_residential",
+          "support": 560,
+          "base_correct": 519,
+          "candidate_correct": 532,
+          "net_correct": 13
+        },
+        {
+          "class": "tennis_court",
+          "support": 560,
+          "base_correct": 533,
+          "candidate_correct": 544,
+          "net_correct": 11
+        },
+        {
+          "class": "runway",
+          "support": 560,
+          "base_correct": 528,
+          "candidate_correct": 539,
+          "net_correct": 11
+        }
+      ]
+    }
+  },
+  "top_confusions": {
+    "swin": [
+      {
+        "true": "palace",
+        "predicted": "church",
+        "count": 77
+      },
+      {
+        "true": "rectangular_farmland",
+        "predicted": "terrace",
+        "count": 63
+      },
+      {
+        "true": "church",
+        "predicted": "palace",
+        "count": 58
+      },
+      {
+        "true": "medium_residential",
+        "predicted": "dense_residential",
+        "count": 35
+      },
+      {
+        "true": "wetland",
+        "predicted": "lake",
+        "count": 33
+      }
+    ],
+    "fixed": [
+      {
+        "true": "palace",
+        "predicted": "church",
+        "count": 86
+      },
+      {
+        "true": "rectangular_farmland",
+        "predicted": "terrace",
+        "count": 56
+      },
+      {
+        "true": "church",
+        "predicted": "palace",
+        "count": 48
+      },
+      {
+        "true": "commercial_area",
+        "predicted": "church",
+        "count": 35
+      },
+      {
+        "true": "medium_residential",
+        "predicted": "dense_residential",
+        "count": 30
+      }
+    ],
+    "soft": [
+      {
+        "true": "palace",
+        "predicted": "church",
+        "count": 73
+      },
+      {
+        "true": "church",
+        "predicted": "palace",
+        "count": 57
+      },
+      {
+        "true": "rectangular_farmland",
+        "predicted": "terrace",
+        "count": 55
+      },
+      {
+        "true": "wetland",
+        "predicted": "lake",
+        "count": 40
+      },
+      {
+        "true": "railway_station",
+        "predicted": "railway",
+        "count": 37
+      }
+    ]
+  }
+}

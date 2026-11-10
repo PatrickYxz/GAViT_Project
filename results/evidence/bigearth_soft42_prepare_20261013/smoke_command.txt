@@ -1,0 +1,1 @@
+python -B -u /home/featurize/work/bigearth_soft42_handoff_20261013_01/handoff_bigearth_soft42.py smoke

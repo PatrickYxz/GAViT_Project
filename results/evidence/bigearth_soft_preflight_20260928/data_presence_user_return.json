@@ -1,0 +1,17 @@
+{
+  "source": "User terminal return, 2026-09-28; structured transcription, not server original JSON",
+  "selected": {
+    "train": 96,
+    "val": 64
+  },
+  "required_bands": 480,
+  "missing_bands": 480,
+  "missing_examples": [
+    "/home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170613T101031_N9999_R022_T34VER/S2A_MSIL2A_20170613T101031_N9999_R022_T34VER_07_76/S2A_MSIL2A_20170613T101031_N9999_R022_T34VER_07_76_B02.tif",
+    "/home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170613T101031_N9999_R022_T34VER/S2A_MSIL2A_20170613T101031_N9999_R022_T34VER_07_76/S2A_MSIL2A_20170613T101031_N9999_R022_T34VER_07_76_B03.tif",
+    "/home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170613T101031_N9999_R022_T34VER/S2A_MSIL2A_20170613T101031_N9999_R022_T34VER_07_76/S2A_MSIL2A_20170613T101031_N9999_R022_T34VER_07_76_B04.tif"
+  ],
+  "marker": "BIGEARTH_FILES_MISSING",
+  "scope": "Selected original paths only; not proof all dataset files or archive are absent",
+  "next": "Locate existing archive before selective restoration; keep sampled rows and original split unchanged"
+}

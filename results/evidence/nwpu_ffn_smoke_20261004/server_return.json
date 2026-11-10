@@ -1,0 +1,112 @@
+{
+  "evidence_source": "User pasted two named compact server reports on 2026-10-04; values transcribed verbatim. No local server/checkpoint access.",
+  "status": "reported_gpu_smoke_complete",
+  "runs": {
+    "swin_ffn_smoke": {
+      "exit": "exit_code=0",
+      "status": "complete",
+      "phase": "smoke",
+      "seed": 42,
+      "counts": {
+        "train": 360,
+        "val": 90
+      },
+      "final_epoch": 1,
+      "reload_max_logit_diff": 0.0,
+      "elapsed_seconds": 108.947309658,
+      "git": {
+        "commit": "058f1d8",
+        "dirty": false
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "peak_GiB": 3.565,
+      "ffn": {
+        "final_state_sha256": "aca59ebbaed59c83d743eb6492c1dc3fd7418d8dca76e5d62041b330968404d9",
+        "first_forward": {
+          "input_shape": [
+            32,
+            49,
+            768
+          ],
+          "max_abs_residual": 0.0
+        },
+        "gradient_steps": [
+          {
+            "fc1": 0.0,
+            "fc2": 427.37894344329834,
+            "norm": 0.0,
+            "step": 1
+          },
+          {
+            "fc1": 13.612890750169754,
+            "fc2": 496.06548166275024,
+            "norm": 0.18417249619960785,
+            "step": 2
+          }
+        ],
+        "initial_state_sha256": "566b722f15ccd6b8bc927d96d73a426f582bc320f5216eedcd1b2b13f45944ca",
+        "parameters": 297408,
+        "selected_state_sha256": "aca59ebbaed59c83d743eb6492c1dc3fd7418d8dca76e5d62041b330968404d9"
+      },
+      "graph": {}
+    },
+    "soft_ffn_smoke": {
+      "exit": "exit_code=0",
+      "status": "complete",
+      "phase": "smoke",
+      "seed": 42,
+      "counts": {
+        "train": 360,
+        "val": 90
+      },
+      "final_epoch": 1,
+      "reload_max_logit_diff": 2.384185791015625e-07,
+      "elapsed_seconds": 116.19255498799998,
+      "git": {
+        "commit": "058f1d8",
+        "dirty": false
+      },
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "peak_GiB": 3.667,
+      "ffn": {
+        "final_state_sha256": "d5505310b83d7b65347bdddaf113c8770efe5760959ee7bc02d2e9c2199c575c",
+        "first_forward": {
+          "input_shape": [
+            8,
+            49,
+            768
+          ],
+          "max_abs_residual": 0.0
+        },
+        "gradient_steps": [
+          {
+            "fc1": 0.0,
+            "fc2": 286.3310627937317,
+            "norm": 0.0,
+            "step": 1
+          },
+          {
+            "fc1": 13.282883781939745,
+            "fc2": 334.5279314517975,
+            "norm": 0.1578880399465561,
+            "step": 2
+          }
+        ],
+        "initial_state_sha256": "566b722f15ccd6b8bc927d96d73a426f582bc320f5216eedcd1b2b13f45944ca",
+        "parameters": 297408,
+        "selected_state_sha256": "d5505310b83d7b65347bdddaf113c8770efe5760959ee7bc02d2e9c2199c575c"
+      },
+      "graph": {
+        "actual_forward_checked": true,
+        "edges_per_image": 80,
+        "feature_edges": 32,
+        "spatial_edges": 48
+      }
+    }
+  },
+  "limits": [
+    "Reported FFN SHA values are tensor-state hashes, not independently read checkpoint file hashes.",
+    "This compact return does not include full history timing, full source identity, prediction files or probe tensors.",
+    "One epoch smoke is engineering validation, not formal accuracy evidence."
+  ]
+}

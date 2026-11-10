@@ -1,0 +1,11 @@
+EPOCH 21/30; loss=0.003780; val_OA=96.9; train_s=25.14
+EPOCH 22/30; loss=0.004827; val_OA=96.2; train_s=24.55
+EPOCH 23/30; loss=0.002269; val_OA=96.4; train_s=31.20
+EPOCH 24/30; loss=0.001156; val_OA=96.3; train_s=25.49
+EPOCH 25/30; loss=0.001067; val_OA=96.1; train_s=25.13
+EPOCH 26/30; loss=0.000842; val_OA=96.2; train_s=25.02
+EPOCH 27/30; loss=0.001095; val_OA=96.2; train_s=26.04
+EPOCH 28/30; loss=0.001081; val_OA=96.3; train_s=24.90
+EPOCH 29/30; loss=0.000549; val_OA=96.3; train_s=24.93
+EPOCH 30/30; loss=0.000756; val_OA=96.3; train_s=24.88
+SCENE CALIBRATE COMPLETE: /home/featurize/work/aid_swin_calibrate42_20260920_01

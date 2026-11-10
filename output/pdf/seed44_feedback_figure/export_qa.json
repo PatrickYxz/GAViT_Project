@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-19",
+  "pdf_pages": 1,
+  "pdf_dimensions_mm": [
+    180.0,
+    229.18148148148148
+  ],
+  "unique_images": 4,
+  "image_placements": 12,
+  "image_pixels_match_archived_originals": true,
+  "captured_directed_edge_paths": 320,
+  "max_pdf_curve_coordinate_error_points": 4.9870086172632e-05,
+  "translucent_token_rectangles": 392,
+  "region_fill_alpha": 0.25,
+  "all_visible_text_fonts_embedded": true,
+  "all_text_within_page": true,
+  "probabilities_and_row_ids_match_source": true,
+  "raster_size": [
+    2126,
+    2707
+  ],
+  "raster_dpi": [
+    299.9994,
+    299.9994
+  ],
+  "render_engine": "Poppler pdftoppm with explicit local fontconfig",
+  "render_stderr_empty": true,
+  "visual_review": "Full rendered page checked: all four rows, labels, scores, transparency, node labels, directions, spacing and footer; no clipping or overlap observed",
+  "png_sha256": "f7e4960d8d0d12a6f78cce40a674a5e7680de7b7adcd66435858c0c9ab5577d2",
+  "pdf_sha256": "c680785164c4d9f1ac72e610ee08d86f8570a8ba0ba5afd402a856f588ade3fa",
+  "scope": "Publication figure layout; no new inference or population-level metrics"
+}

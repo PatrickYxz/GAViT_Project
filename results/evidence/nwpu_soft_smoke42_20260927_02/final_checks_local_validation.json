@@ -1,0 +1,12 @@
+{
+  "fixture": "/private/tmp/gavit-nwpu-final-checks-l23dd_bt",
+  "scope": "Real Swin/PyG on local CPU with synthetic images and random weights; no server/CUDA verification",
+  "local_adaptations": "repo/run/image paths, CUDA availability assertion, CPU device, two CPU threads",
+  "checks": [
+    "snapshot_valid",
+    "assignment_gradient_valid",
+    "corrupt_snapshot_rejected",
+    "disconnected_assignment_rejected"
+  ],
+  "output": "SNAPSHOT_CHECK_PASS {\"S_row\": 2.384185791015625e-07, \"W_column\": 2.384185791015625e-07, \"delta_S\": 0.000323827174725011, \"min_region_mass\": 1.0702437162399292}\nASSIGNMENT_GRAD_PASS {\"device\": \"cpu\", \"gradient_abs_sum\": {\"projection\": 9050.903436660767, \"attention\": 10205.909699320793, \"backbone\": 711445.5305404067}}\nREJECTED_CORRUPT_SNAPSHOT\nREJECTED_DISCONNECTED_ASSIGNMENT\n"
+}

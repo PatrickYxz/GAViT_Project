@@ -1,0 +1,18 @@
+Source: user-pasted server terminal output, received 2026-09-27.
+This is a transcript excerpt, not the original manifest or an independently retrieved server log.
+Expected manifest path from the preceding command: /home/featurize/work/nwpu_protocol_20260927_02.json
+Manifest SHA256 and current server code/GPU have not yet been returned.
+
+MAGE SCAN prepare: 31500/31500; elapsed=47.6s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+MANIFEST COMPLETE: NWPU-RESISC45; counts={'test': 25200, 'train': 5040, 'val': 1260}
+DUPLICATES: 8 groups; 8 extra copies; 31492 unique images; all kept within one split
+  val: airport/airport_050.jpg, airport/airport_420.jpg
+  test: airport/airport_064.jpg, airport/airport_527.jpg
+  train: airport/airport_118.jpg, airport/airport_315.jpg
+  test: airport/airport_243.jpg, airport/airport_397.jpg
+  test: airport/airport_289.jpg, airport/airport_635.jpg
+  train: airport/airport_361.jpg, airport/airport_509.jpg
+  test: palace/palace_224.jpg, palace/palace_439.jpg
+  test: palace/palace_595.jpg, palace/palace_669.jpg
+(base) ➜ ~

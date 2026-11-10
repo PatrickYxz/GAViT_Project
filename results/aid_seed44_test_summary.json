@@ -1,0 +1,35 @@
+{
+  "dataset": "AID",
+  "seed": 44,
+  "train_samples": 5000,
+  "test_samples": 5000,
+  "swin": {
+    "oa_percent": 96.84,
+    "macro_f1_percent": 96.66111935641514,
+    "correct": 4842,
+    "errors": 158
+  },
+  "gavit": {
+    "oa_percent": 96.08,
+    "macro_f1_percent": 95.87462595609628,
+    "correct": 4804,
+    "errors": 196
+  },
+  "delta_oa_pp": -0.76,
+  "delta_macro_f1_pp": -0.7864934003188608,
+  "net_additional_correct": -38,
+  "paired_discordance_counts": {
+    "samples": 5000,
+    "both_correct": 4744,
+    "gavit_corrects": 60,
+    "gavit_breaks": 98,
+    "both_wrong": 98,
+    "net_correct": -38
+  },
+  "exit_codes": {
+    "swin": 0,
+    "gavit": 0
+  },
+  "multi_seed_stability": "planned three-seed comparison complete; no consistent gain demonstrated",
+  "source": "evidence/aid_seed44_batch_20260922/summary.json"
+}

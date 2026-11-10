@@ -1,0 +1,14 @@
+User-pasted terminal excerpt; this is not a downloaded complete server log.
+Server command: tail -f /home/featurize/work/pair44_feedback_qnjm_rb7/diagnostic.log
+
+Class 11: grassland; 14: beaches; 16: coastal wetlands. Threshold: 0.5.
+
+| Class | N | Feedback corrects | Feedback breaks | Both correct | Both wrong |
+| ----- | -: | ----------------: | --------------: | -----------: | ---------: |
+| 11 | 8 | 1 | 0 | 4 | 3 |
+| 14 | 8 | 2 | 1 | 3 | 2 |
+| 16 | 8 | 0 | 0 | 4 | 4 |
+
+Per-case JSON/PT, input PNG and captured topology SVG are retained. Open cases.html for inspection.
+FEEDBACK COMPLETE: /home/featurize/work/pair44_feedback_qnjm_rb7/diagnosis
+DIAGNOSTIC_EXIT 0

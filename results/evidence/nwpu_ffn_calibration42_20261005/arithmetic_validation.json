@@ -1,0 +1,34 @@
+{
+  "status": "reported_fields_and_arithmetic_pass",
+  "correct_counts": {
+    "swin": 1187,
+    "soft": 1181,
+    "swin_ffn": 1185,
+    "soft_ffn": 1174
+  },
+  "differences": {
+    "swin_ffn__minus__swin": {
+      "oa_delta_pp": -0.15873015873015106,
+      "net_correct_from_oa": -2
+    },
+    "soft_ffn__minus__soft": {
+      "oa_delta_pp": -0.5555555555555571,
+      "net_correct_from_oa": -7
+    },
+    "soft_ffn__minus__swin_ffn": {
+      "oa_delta_pp": -0.8730158730158735,
+      "net_correct_from_oa": -11
+    },
+    "soft_ffn__minus__swin": {
+      "oa_delta_pp": -1.0317460317460245,
+      "net_correct_from_oa": -13
+    }
+  },
+  "frozen_continue_checks": {
+    "swin": false,
+    "soft": false,
+    "swin_ffn": false
+  },
+  "total_seconds": 2501.556108431,
+  "scope": "Local arithmetic and report consistency only; no metrics or checkpoint byte recomputation"
+}

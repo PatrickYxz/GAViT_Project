@@ -10,3 +10,11 @@ logs/
 *.err
 results/figures/*.png
 results/figures/*.jpg
+
+# Local caches and credentials are not part of the development snapshot.
+.DS_Store
+.workbuddy/
+/tmp/
+.env
+.env.*
+!.env.example

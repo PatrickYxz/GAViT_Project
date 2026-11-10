@@ -1,0 +1,14 @@
+{
+  "status": "COMPACT_COMPLETE",
+  "path": "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/nwpu-compact-anc7xgvo/cases_compact.html",
+  "cases": 90,
+  "svg_count": 180,
+  "original_bytes": 24977133,
+  "compact_bytes": 17851293,
+  "compact_sha256": "f773303f86629da5540593ee6cb59fdc31f645bdad20e301871938d9ae57b261",
+  "original_preserved": true,
+  "qa_source": "Synthetic gallery repeated 90 times, not server imagery",
+  "preserved_original_sha256": "04894b7b05c314e3925a54b7ac7e94e3594a022ee00beec3ca56e3ac9b7c101c",
+  "repeated_output_rejected": true,
+  "wrong_count_rejected": true
+}

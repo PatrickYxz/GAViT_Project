@@ -1,0 +1,20 @@
+Class,Swin_AP(%),GAViT_AP(%),Delta_AP(pp),Contribution_to_macro_mAP(pp),Source_Status
+Urban fabric,86.5,86.2,-0.3,-0.015789,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+Industrial or commercial units,49.6,48.7,-0.9,-0.047368,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+Arable land,93.5,93.7,0.2,0.010526,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+Permanent crops,61.6,60.1,-1.5,-0.078947,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+Pastures,86,86.1,0.1,0.005263,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+Complex cultivation patterns,70,68.7,-1.3,-0.068421,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+"Land principally occupied by agriculture, with significant areas of natural vegetation",72.6,72.6,0,0,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+Agro-forestry areas,86.3,85.9,-0.4,-0.021053,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+Broad-leaved forest,85.3,86.1,0.8,0.042105,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+Coniferous forest,93.3,93.8,0.5,0.026316,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+Mixed forest,89.4,89.2,-0.2,-0.010526,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+Natural grassland and sparsely vegetated areas,45.5,41.8,-3.7,-0.194737,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+"Moors, heathland and sclerophyllous vegetation",60.8,60.5,-0.3,-0.015789,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+"Transitional woodland, shrub",77.9,78.1,0.2,0.010526,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+"Beaches, dunes, sands",13,9.7,-3.3,-0.173684,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+Inland wetlands,63.2,63.2,0,0,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+Coastal wetlands,30.5,18,-12.5,-0.657895,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+Inland waters,91.5,91.6,0.1,0.005263,Reported test logs; GAViT test-to-current-checkpoint mapping pending
+Marine waters,99.6,99.7,0.1,0.005263,Reported test logs; GAViT test-to-current-checkpoint mapping pending

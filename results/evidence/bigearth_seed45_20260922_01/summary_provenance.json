@@ -1,0 +1,7 @@
+{
+  "source_attachment": "/Users/patrick/.codex/attachments/13d352ff-0186-4655-bd31-85cfbe6d1ba3/已粘贴的文本.txt",
+  "source_sha256": "cfbef49edfcb6955c1c6c03e2daa59ffc37e03692a7fdcde2f74ac9d081ecdf9",
+  "is_original_server_summary_file": false,
+  "normalization": "JSON object extracted unchanged; retained original terminal prefix UEUE_EXIT, exit dictionary, and trailing shell prompt in reported_summary_output.txt.",
+  "boundary": "Reported identity and checkpoint-hash chain verified. Original checkpoint bytes, full history, prediction arrays and per-stage identity fields omitted by the readout command were not locally received."
+}

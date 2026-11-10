@@ -1,0 +1,49 @@
+{
+  "scope": "synthetic 30-class CPU CLI smoke; random initialization; no AID images",
+  "workers": 2,
+  "runs": [
+    {
+      "name": "prepare",
+      "command": [
+        "/private/tmp/gavit-aid-qa-20260919/bin/python",
+        "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/run_scene.py",
+        "prepare",
+        "--dataset",
+        "synthetic",
+        "--data-root",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_6jf6j458/images",
+        "--output",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_6jf6j458/manifest.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "swin",
+      "command": [
+        "/private/tmp/gavit-aid-qa-20260919/bin/python",
+        "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/run_scene.py",
+        "train",
+        "--model",
+        "swin",
+        "--manifest",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_6jf6j458/manifest.json",
+        "--data-root",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_6jf6j458/images",
+        "--output",
+        "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/aid_cli_6jf6j458/swin",
+        "--random-init",
+        "--device",
+        "cpu",
+        "--batch-size",
+        "2",
+        "--workers",
+        "2",
+        "--train-per-class",
+        "1",
+        "--val-per-class",
+        "1"
+      ],
+      "exit_code": 1
+    }
+  ]
+}

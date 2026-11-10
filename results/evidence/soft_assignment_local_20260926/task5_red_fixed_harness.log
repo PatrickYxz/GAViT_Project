@@ -1,0 +1,90 @@
+FF.FFFFF                                                                 [100%]
+=================================== FAILURES ===================================
+_______________ test_help_advertises_new_mode[train_bigearth.py] _______________
+tests/test_soft_entrypoints.py:48: in test_help_advertises_new_mode
+    assert 'soft_prototype' in result.stdout
+E   AssertionError: assert 'soft_prototype' in 'usage: train_bigearth.py [-h] [--model {swin,gavit}] [--data_dir DATA_DIR]\n                         [--epochs EPOCHS...            Explicit output checkpoint path\n  --resume              Resume from the exact last-epoch training state\n'
+E    +  where 'usage: train_bigearth.py [-h] [--model {swin,gavit}] [--data_dir DATA_DIR]\n                         [--epochs EPOCHS...            Explicit output checkpoint path\n  --resume              Resume from the exact last-epoch training state\n' = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...Explicit output checkpoint path\n  --resume              Resume from the exact last-epoch training state\n', stderr='').stdout
+_______________ test_help_advertises_new_mode[test_bigearth.py] ________________
+tests/test_soft_entrypoints.py:48: in test_help_advertises_new_mode
+    assert 'soft_prototype' in result.stdout
+E   AssertionError: assert 'soft_prototype' in 'usage: test_bigearth.py [-h] --model {swin,gavit} --ckpt CKPT\n                        [--data_dir DATA_DIR] [--batch...type {knn,spatial,hybrid,sparse_hybrid}\n  --integration {token_feedback,fusion}\n  --dropout DROPOUT\n  --seed SEED\n'
+E    +  where 'usage: test_bigearth.py [-h] --model {swin,gavit} --ckpt CKPT\n                        [--data_dir DATA_DIR] [--batch...type {knn,spatial,hybrid,sparse_hybrid}\n  --integration {token_feedback,fusion}\n  --dropout DROPOUT\n  --seed SEED\n' = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...atial,hybrid,sparse_hybrid}\n  --integration {token_feedback,fusion}\n  --dropout DROPOUT\n  --seed SEED\n', stderr='').stdout
+__________ test_real_bigearth_entry_train_reload_and_test[swin-None] ___________
+tests/test_soft_entrypoints.py:63: in test_real_bigearth_entry_train_reload_and_test
+    assert ckpt.with_suffix('.train_state.pth').is_file()
+E   AssertionError: assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-904/test_real_bigearth_entry_train0/model.train_state.pth').is_file
+E    +      where PosixPath('/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-904/test_real_bigearth_entry_train0/model.train_state.pth') = with_suffix('.train_state.pth')
+E    +        where with_suffix = PosixPath('/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-904/test_real_bigearth_entry_train0/model.pth').with_suffix
+___ test_real_bigearth_entry_train_reload_and_test[gavit-attentive_spatial] ____
+tests/test_soft_entrypoints.py:63: in test_real_bigearth_entry_train_reload_and_test
+    assert ckpt.with_suffix('.train_state.pth').is_file()
+E   AssertionError: assert False
+E    +  where False = is_file()
+E    +    where is_file = PosixPath('/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-904/test_real_bigearth_entry_train1/model.train_state.pth').is_file
+E    +      where PosixPath('/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-904/test_real_bigearth_entry_train1/model.train_state.pth') = with_suffix('.train_state.pth')
+E    +        where with_suffix = PosixPath('/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-904/test_real_bigearth_entry_train1/model.pth').with_suffix
+_____ test_real_bigearth_entry_train_reload_and_test[gavit-soft_prototype] _____
+tests/test_soft_entrypoints.py:59: in test_real_bigearth_entry_train_reload_and_test
+    assert result.returncode == 0, result.stdout + result.stderr
+E   AssertionError: usage: train_bigearth.py [-h] [--model {swin,gavit}] [--data_dir DATA_DIR]
+E                              [--epochs EPOCHS] [--batch_size BATCH_SIZE] [--lr LR]
+E                              [--num_regions NUM_REGIONS] [--knn_k KNN_K]
+E                              [--gat_hidden GAT_HIDDEN] [--gat_heads GAT_HEADS]
+E                              [--gat_layers GAT_LAYERS]
+E                              [--grouping {kmeans,spatial,attentive_spatial}]
+E                              [--edge_type {knn,spatial,hybrid,sparse_hybrid}]
+E                              [--integration {token_feedback,fusion}]
+E                              [--dropout DROPOUT] [--seed SEED] --run_stage
+E                              {smoke,proxy,formal} --run_tag RUN_TAG
+E                              [--pretrained_path PRETRAINED_PATH]
+E                              [--checkpoint_path CHECKPOINT_PATH] [--resume]
+E     train_bigearth.py: error: argument --grouping: invalid choice: 'soft_prototype' (choose from kmeans, spatial, attentive_spatial)
+E     
+E   assert 2 == 0
+E    +  where 2 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...h.py: error: argument --grouping: invalid choice: 'soft_prototype' (choose from kmeans, spatial, attentive_spatial)\n").returncode
+______________ test_new_mode_resume_uses_persisted_initial_probe _______________
+tests/test_soft_entrypoints.py:89: in test_new_mode_resume_uses_persisted_initial_probe
+    assert stopped.returncode == 7, stopped.stdout + stopped.stderr
+E   AssertionError: usage: train_bigearth.py [-h] [--model {swin,gavit}] [--data_dir DATA_DIR]
+E                              [--epochs EPOCHS] [--batch_size BATCH_SIZE] [--lr LR]
+E                              [--num_regions NUM_REGIONS] [--knn_k KNN_K]
+E                              [--gat_hidden GAT_HIDDEN] [--gat_heads GAT_HEADS]
+E                              [--gat_layers GAT_LAYERS]
+E                              [--grouping {kmeans,spatial,attentive_spatial}]
+E                              [--edge_type {knn,spatial,hybrid,sparse_hybrid}]
+E                              [--integration {token_feedback,fusion}]
+E                              [--dropout DROPOUT] [--seed SEED] --run_stage
+E                              {smoke,proxy,formal} --run_tag RUN_TAG
+E                              [--pretrained_path PRETRAINED_PATH]
+E                              [--checkpoint_path CHECKPOINT_PATH] [--resume]
+E     train_bigearth.py: error: argument --grouping: invalid choice: 'soft_prototype' (choose from kmeans, spatial, attentive_spatial)
+E     
+E   assert 2 == 7
+E    +  where 2 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...h.py: error: argument --grouping: invalid choice: 'soft_prototype' (choose from kmeans, spatial, attentive_spatial)\n").returncode
+________ test_legacy_nwpu_entry_rejects_new_sidecar_before_data_access _________
+tests/test_soft_entrypoints.py:107: in test_legacy_nwpu_entry_rejects_new_sidecar_before_data_access
+    assert result.returncode != 0 and 'run_scene.py' in result.stderr
+E   assert (1 != 0 and 'run_scene.py' in 'Traceback (most recent call last):\n  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/te...rror(\nValueError: Checkpoint architecture is incomplete; missing: knn_k, gat_hidden, gat_heads, gat_layers, dropout\n')
+E    +  where 1 = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...ror(\nValueError: Checkpoint architecture is incomplete; missing: knn_k, gat_hidden, gat_heads, gat_layers, dropout\n').returncode
+E    +  and   'Traceback (most recent call last):\n  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/te...rror(\nValueError: Checkpoint architecture is incomplete; missing: knn_k, gat_hidden, gat_heads, gat_layers, dropout\n' = CompletedProcess(args=['/private/tmp/gavit-soft-qa-20260926/bin/python', '/Users/patrick/Projects/GAViT_Project/.workt...ror(\nValueError: Checkpoint architecture is incomplete; missing: knn_k, gat_hidden, gat_heads, gat_layers, dropout\n').stderr
+=============================== warnings summary ===============================
+tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[swin-None]
+tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-attentive_spatial]
+tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-soft_prototype]
+tests/test_soft_entrypoints.py::test_new_mode_resume_uses_persisted_initial_probe
+  /private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/rasterio/__init__.py:366: NotGeoreferencedWarning: Dataset has no geotransform, gcps, or rpcs. The identity matrix will be returned.
+    dataset = writer(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_soft_entrypoints.py::test_help_advertises_new_mode[train_bigearth.py]
+FAILED tests/test_soft_entrypoints.py::test_help_advertises_new_mode[test_bigearth.py]
+FAILED tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[swin-None]
+FAILED tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-attentive_spatial]
+FAILED tests/test_soft_entrypoints.py::test_real_bigearth_entry_train_reload_and_test[gavit-soft_prototype]
+FAILED tests/test_soft_entrypoints.py::test_new_mode_resume_uses_persisted_initial_probe
+FAILED tests/test_soft_entrypoints.py::test_legacy_nwpu_entry_rejects_new_sidecar_before_data_access
+7 failed, 1 passed, 4 warnings in 15.30s

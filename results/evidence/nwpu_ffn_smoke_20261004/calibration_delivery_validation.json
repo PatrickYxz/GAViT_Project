@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "checks": [
+    "success",
+    "missing_image",
+    "occupied",
+    "existing_claim",
+    "bad_checkpoint",
+    "failed_smoke",
+    "bad_release",
+    "dirty",
+    "busy",
+    "real_shell_first_failure_stops_second_stage",
+    "bash_zsh_python_single_line_syntax"
+  ],
+  "scope": "Offline fixtures only; no server/GPU/training; each existing smoke file preserved"
+}

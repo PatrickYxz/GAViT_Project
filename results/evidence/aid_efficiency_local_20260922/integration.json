@@ -1,0 +1,25 @@
+{
+  "swin_cpu_restore_forward": {
+    "passed": true,
+    "parameters": 27543960,
+    "logit_diff": 0.0,
+    "graph": {}
+  },
+  "gavit_cpu_restore_forward": {
+    "passed": true,
+    "parameters": 31375385,
+    "logit_diff": 0.0,
+    "graph": {
+      "edges_per_image": 80,
+      "spatial_edges": 48,
+      "feature_edges": 32,
+      "actual_forward_checked": true
+    }
+  },
+  "synthetic_matching_identity_accepted": true,
+  "failed_source_rejected": true,
+  "corrupt_checkpoint_rejected": true,
+  "wrong_manifest_rejected": true,
+  "release_code_unchanged": true,
+  "scope": "CPU random-initialized synthetic fixtures; no CUDA timing or formal checkpoints tested"
+}

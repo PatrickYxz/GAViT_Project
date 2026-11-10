@@ -1,0 +1,14 @@
+{
+  "status": "reported_fields_consistent",
+  "checks": [
+    "both smoke completion/scope",
+    "same clean release",
+    "finite small reload error",
+    "zero initial residual and same initial FFN SHA",
+    "expected first/second backward gradients",
+    "learned FFN hash changed and selected equals final",
+    "soft actual 48+32 graph"
+  ],
+  "total_reported_seconds": 225.13986464599998,
+  "scope": "Local checks of pasted fields only; no CUDA execution or checkpoint byte hash recomputation"
+}

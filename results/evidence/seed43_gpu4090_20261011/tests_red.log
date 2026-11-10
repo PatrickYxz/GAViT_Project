@@ -1,0 +1,49 @@
+test_bigearth_complete_report_and_matching_test_required (test_seed43_launch.Seed43Tests.test_bigearth_complete_report_and_matching_test_required) ... START gavit_train
+START gavit_test
+START gavit_train
+START gavit_train
+START gavit_train
+START gavit_test
+ok
+test_bigearth_only_soft43_and_correct_best_weight_route (test_seed43_launch.Seed43Tests.test_bigearth_only_soft43_and_correct_best_weight_route) ... ok
+test_bigearth_preflight_payload_hash_is_current (test_seed43_launch.Seed43Tests.test_bigearth_preflight_payload_hash_is_current) ... ok
+test_bigearth_preflight_preserves_historical_epoch21_boundary (test_seed43_launch.Seed43Tests.test_bigearth_preflight_preserves_historical_epoch21_boundary) ... FAIL
+test_bigearth_seed45_metadata_cannot_be_reused_as_seed43 (test_seed43_launch.Seed43Tests.test_bigearth_seed45_metadata_cannot_be_reused_as_seed43) ... ok
+test_nwpu_actual_receipts_use_current_best_not_seed42_epochs (test_seed43_launch.Seed43Tests.test_nwpu_actual_receipts_use_current_best_not_seed42_epochs) ... ok
+test_nwpu_exit_zero_with_incomplete_artifact_stops (test_seed43_launch.Seed43Tests.test_nwpu_exit_zero_with_incomplete_artifact_stops) ... START first
+ok
+test_nwpu_failed_report_still_discovers_existing_checkpoint (test_seed43_launch.Seed43Tests.test_nwpu_failed_report_still_discovers_existing_checkpoint) ... ok
+test_nwpu_own_calibration_routes_and_nine_stages (test_seed43_launch.Seed43Tests.test_nwpu_own_calibration_routes_and_nine_stages) ... ok
+test_nwpu_preflight_accepts_authorized_4090_and_rejects_other_cards (test_seed43_launch.Seed43Tests.test_nwpu_preflight_accepts_authorized_4090_and_rejects_other_cards) ... ERROR
+test_nwpu_real_child_nonzero_stops_and_preserves_logs (test_seed43_launch.Seed43Tests.test_nwpu_real_child_nonzero_stops_and_preserves_logs) ... START first
+ok
+
+======================================================================
+ERROR: test_nwpu_preflight_accepts_authorized_4090_and_rejects_other_cards (test_seed43_launch.Seed43Tests.test_nwpu_preflight_accepts_authorized_4090_and_rejects_other_cards)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_seed43_launch.py", line 36, in test_nwpu_preflight_accepts_authorized_4090_and_rejects_other_cards
+    ready=m.preflight()
+          ^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tools/run_nwpu_seed43.py", line 79, in preflight
+    require(len(gpu.splitlines()) == 1 and 'NVIDIA GeForce RTX 2080 Ti' in gpu, 'GPU differs from old estimate: ' + gpu)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tools/run_nwpu_seed43.py", line 25, in require
+    raise RuntimeError(message)
+RuntimeError: GPU differs from old estimate: GPU-b1911368-563d-916d-cb16-e7c2c9ead04a, NVIDIA GeForce RTX 4090, 610.57.04, 24564 MiB
+
+======================================================================
+FAIL: test_bigearth_preflight_preserves_historical_epoch21_boundary (test_seed43_launch.Seed43Tests.test_bigearth_preflight_preserves_historical_epoch21_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_seed43_launch.py", line 230, in test_bigearth_preflight_preserves_historical_epoch21_boundary
+    r=run()
+      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_seed43_launch.py", line 228, in run
+    exec(compile(script,'<preflight-fixture>','exec'),ns)
+  File "<preflight-fixture>", line 31, in <module>
+AssertionError: Environment differs from validated soft45; inspect before paid launch
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.340s
+
+FAILED (failures=1, errors=1)

@@ -1,0 +1,10 @@
+{
+  "bash_zsh_syntax": true,
+  "single_line_bootstrap_compiles": true,
+  "payload_identical_to_reviewed_source": true,
+  "detached_launch_writes_explicit_failure": true,
+  "occupied_gpu_stops_before_workers": true,
+  "no_success_summary_on_failure": true,
+  "repeated_launch_preserves_all_previous_files": true,
+  "probe_sha256": "712d4ccd6519e585bb9bf77d27cea839c4565cf8d75b836faf6cca15d8b86093"
+}

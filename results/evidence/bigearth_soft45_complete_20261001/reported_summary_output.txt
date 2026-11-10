@@ -1,0 +1,388 @@
+
+  "status": "complete",
+  "dataset": "BigEarthNet-19",
+  "seed": 45,
+  "elapsed_seconds": 53058.733037157,
+  "controls": {
+    "swin": {
+      "final_epoch": 30,
+      "checkpoint_sha256": "78cf048b6e2690e40789d13c78030c2350b238c899024a632347af7f0997ed8c",
+      "best": {
+        "metric": "val_mAP",
+        "value": 78.6509,
+        "epoch": 6
+      },
+      "test_metrics": {
+        "mAP_percent": 71.67692953551497,
+        "macro_f1_percent": 65.08421202330264,
+        "micro_f1_percent": 76.73226436237192
+      }
+    },
+    "gavit": {
+      "final_epoch": 30,
+      "checkpoint_sha256": "4268de448d7fabee4fde6db042241efbf38459953f6108337b95a3025313940c",
+      "best": {
+        "metric": "val_mAP",
+        "value": 78.2951,
+        "epoch": 10
+      },
+      "test_metrics": {
+        "mAP_percent": 70.25823624286052,
+        "macro_f1_percent": 64.29547698363885,
+        "micro_f1_percent": 76.70245685151849
+      }
+    }
+  },
+  "physical_gpu_identity_changed": true,
+  "reference_gpu_identity": "GPU-0fa5e2ad-0028-881c-749b-3b88c01de00b, NVIDIA GeForce RTX 2080 Ti, 610.57.04",
+  "stages": {
+    "gavit_train": {
+      "stage": "gavit_train",
+      "status": "complete",
+      "model": "gavit",
+      "seed": 45,
+      "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+      "architecture": {
+        "num_classes": 19,
+        "num_regions": 16,
+        "knn_k": 5,
+        "gat_hidden": 256,
+        "gat_heads": 4,
+        "gat_layers": 2,
+        "dropout": 0.1,
+        "grouping": "soft_prototype",
+        "edge_type": "sparse_hybrid",
+        "integration": "token_feedback",
+        "soft_assignment": {
+          "assignment_version": "local_prototype_cosine_v1",
+          "assignment_dim": 128,
+          "assignment_radius": 1,
+          "assignment_metric": "chebyshev",
+          "assignment_temperature": 0.1,
+          "assignment_iterations": 1,
+          "assignment_projection": "shared_ln_linear_no_bias",
+          "assignment_init": "xavier_uniform",
+          "assignment_norm_eps": 1e-06,
+          "assignment_ln_eps": 1e-05,
+          "prototype_pooling": "fixed_region_attention",
+          "region_pooling": "attentive_log_membership",
+          "feedback_mapping": "soft_membership",
+          "graph_node_geometry": "anchor_index_prior"
+        }
+      },
+      "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+      "splits": {
+        "train": [
+          237871,
+          "25734fd9e8dc7fd78fb259e768ae91fe11b297e1caa50a2d57b74b0296413d8f"
+        ],
+        "val": [
+          122342,
+          "1c6627cb48e33588538c4e411e4f1b94560827f27d59fb7aeb0ea2b5d30c2a45"
+        ],
+        "test": [
+          119825,
+          "cea165a6443fc5ee44de0a3c55f53ce70505c4e25aba9ca8b52d76634df77204"
+        ]
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 2080 Ti",
+        "cuda": "12.1",
+        "cudnn": 8902,
+        "threads": 8,
+        "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+        "packages": {
+          "torch": "2.2.2",
+          "torchvision": "0.17.2",
+          "timm": "1.0.27",
+          "torch-geometric": "2.8.0",
+          "numpy": "1.26.4",
+          "scikit-learn": "1.9.0",
+          "pillow": "10.3.0"
+        },
+        "gpu_identity": "GPU-f57c9bd1-b685-6426-9d4a-a51d0954ffab, NVIDIA GeForce RTX 2080 Ti, 610.57.04"
+      },
+      "precision": {
+        "dtype": "torch.float32",
+        "matmul_tf32": false,
+        "cudnn_tf32": true,
+        "amp": false
+      },
+      "argv": [
+        "/home/featurize/work/GAViT_SOFT_20260927/train_bigearth.py",
+        "--model",
+        "gavit",
+        "--data_dir",
+        "/home/featurize/work/GAViT_Project/bigearth_files/splits",
+        "--epochs",
+        "30",
+        "--batch_size",
+        "32",
+        "--lr",
+        "0.0003",
+        "--seed",
+        "45",
+        "--num_regions",
+        "16",
+        "--grouping",
+        "soft_prototype",
+        "--edge_type",
+        "sparse_hybrid",
+        "--knn_k",
+        "5",
+        "--gat_hidden",
+        "256",
+        "--gat_heads",
+        "4",
+        "--gat_layers",
+        "2",
+        "--integration",
+        "token_feedback",
+        "--dropout",
+        "0.1",
+        "--run_stage",
+        "formal",
+        "--run_tag",
+        "bigearth_soft45_20260930_01_gavit_train",
+        "--pretrained_path",
+        "/home/featurize/work/GAViT_Project/bigearth_files/model.safetensors",
+        "--checkpoint_path",
+        "/home/featurize/work/bigearth_soft45_20260930_01/gavit_train/gavit.pth"
+      ],
+      "launcher_sha256": "8ff8f6d36b6709f993b96f35dfb89b96422ea46fe104263e76bb35b553a12690",
+      "final_epoch": 30,
+      "best": {
+        "metric": "val_mAP",
+        "value": 78.7037,
+        "epoch": 11
+      },
+      "parameters": 31466766,
+      "metadata": {
+        "model": "gavit",
+        "dataset": "BigEarthNet-19",
+        "architecture": {
+          "num_classes": 19,
+          "num_regions": 16,
+          "knn_k": 5,
+          "gat_hidden": 256,
+          "gat_heads": 4,
+          "gat_layers": 2,
+          "dropout": 0.1,
+          "grouping": "soft_prototype",
+          "edge_type": "sparse_hybrid",
+          "integration": "token_feedback",
+          "soft_assignment": {
+            "assignment_version": "local_prototype_cosine_v1",
+            "assignment_dim": 128,
+            "assignment_radius": 1,
+            "assignment_metric": "chebyshev",
+            "assignment_temperature": 0.1,
+            "assignment_iterations": 1,
+            "assignment_projection": "shared_ln_linear_no_bias",
+            "assignment_init": "xavier_uniform",
+            "assignment_norm_eps": 1e-06,
+            "assignment_ln_eps": 1e-05,
+            "prototype_pooling": "fixed_region_attention",
+            "region_pooling": "attentive_log_membership",
+            "feedback_mapping": "soft_membership",
+            "graph_node_geometry": "anchor_index_prior"
+          }
+        },
+        "graph_topology": {
+          "name": "sparse_hybrid_4n_top2",
+          "spatial_connectivity": 4,
+          "feature_k": 2,
+          "spatial_directed_edges": 48,
+          "feature_directed_edges": 32,
+          "total_directed_edges": 80,
+          "message_direction": "neighbor_to_query",
+          "cosine_role": "topology_only"
+        },
+        "training": {
+          "seed": 45,
+          "epochs": 30,
+          "batch_size": 32,
+          "lr": 0.0003,
+          "weight_decay": 0.0001,
+          "optimizer": "AdamW",
+          "scheduler": "CosineAnnealingLR",
+          "loss": "BCEWithLogitsLoss",
+          "f1_threshold": 0.5
+        },
+        "execution": {
+          "run_stage": "formal",
+          "run_tag": "bigearth_soft45_20260930_01_gavit_train"
+        },
+        "best": {
+          "metric": "val_mAP",
+          "value": 78.7037,
+          "epoch": 11
+        },
+        "checkpoint_sha256": "4969f401bf297c3885ee0ac02938ae102413fc2e8c1bc8e0a628e9e918bd35e2",
+        "git": {
+          "commit": "ed480e6",
+          "dirty": false
+        },
+        "checkpoint_path": "/home/featurize/work/bigearth_soft45_20260930_01/gavit_train/gavit.pth",
+        "saved_at": "2026-09-30T10:47:39+00:00"
+      },
+      "counts": {
+        "train": 237871,
+        "val": 122342
+      },
+      "graph_capture": {
+        "normalization_errors": {
+          "S_row": 2.384185791015625e-07,
+          "W_column": 2.980232238769531e-07
+        },
+        "actual_forward_checked": true,
+        "images_checked": 8,
+        "snapshots_checked": 3,
+        "edges_per_image": 80,
+        "spatial_edges": 48,
+        "feature_edges": 32
+      },
+      "probe_summary": {
+        "split": "val",
+        "samples": 8,
+        "output": "/home/featurize/work/bigearth_soft45_20260930_01/gavit_train/gavit.assignment_probe",
+        "last_epoch": 30,
+        "probe_seconds": 5.39810246197294
+      },
+      "history_timing_scope": "checkpoint-to-checkpoint; first includes initialization; later include previous probe; entry SOFT EPOCH excludes probe",
+      "effective_train_images_per_second": 135.46681045559873,
+      "throughput_scope": "training images counted; wall time also includes validation, initialization, probes, checkpoint IO and artifact checks; not pure model throughput",
+      "checkpoint": "/home/featurize/work/bigearth_soft45_20260930_01/gavit_train/gavit.pth",
+      "checkpoint_sha256": "4969f401bf297c3885ee0ac02938ae102413fc2e8c1bc8e0a628e9e918bd35e2",
+      "elapsed_seconds": 52678.069085704,
+      "peak_cuda_allocated_bytes": 3929639936,
+      "peak_cuda_reserved_bytes": 4326424576,
+      "main_process_peak_rss_kib": 2067432,
+      "resource_scope": "whole stage including checkpoint/probe artifact checks; main RSS excludes loader workers"
+    },
+    "gavit_test": {
+      "stage": "gavit_test",
+      "status": "complete",
+      "model": "gavit",
+      "seed": 45,
+      "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+      "architecture": {
+        "num_classes": 19,
+        "num_regions": 16,
+        "knn_k": 5,
+        "gat_hidden": 256,
+        "gat_heads": 4,
+        "gat_layers": 2,
+        "dropout": 0.1,
+        "grouping": "soft_prototype",
+        "edge_type": "sparse_hybrid",
+        "integration": "token_feedback",
+        "soft_assignment": {
+          "assignment_version": "local_prototype_cosine_v1",
+          "assignment_dim": 128,
+          "assignment_radius": 1,
+          "assignment_metric": "chebyshev",
+          "assignment_temperature": 0.1,
+          "assignment_iterations": 1,
+          "assignment_projection": "shared_ln_linear_no_bias",
+          "assignment_init": "xavier_uniform",
+          "assignment_norm_eps": 1e-06,
+          "assignment_ln_eps": 1e-05,
+          "prototype_pooling": "fixed_region_attention",
+          "region_pooling": "attentive_log_membership",
+          "feedback_mapping": "soft_membership",
+          "graph_node_geometry": "anchor_index_prior"
+        }
+      },
+      "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+      "splits": {
+        "train": [
+          237871,
+          "25734fd9e8dc7fd78fb259e768ae91fe11b297e1caa50a2d57b74b0296413d8f"
+        ],
+        "val": [
+          122342,
+          "1c6627cb48e33588538c4e411e4f1b94560827f27d59fb7aeb0ea2b5d30c2a45"
+        ],
+        "test": [
+          119825,
+          "cea165a6443fc5ee44de0a3c55f53ce70505c4e25aba9ca8b52d76634df77204"
+        ]
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 2080 Ti",
+        "cuda": "12.1",
+        "cudnn": 8902,
+        "threads": 8,
+        "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+        "packages": {
+          "torch": "2.2.2",
+          "torchvision": "0.17.2",
+          "timm": "1.0.27",
+          "torch-geometric": "2.8.0",
+          "numpy": "1.26.4",
+          "scikit-learn": "1.9.0",
+          "pillow": "10.3.0"
+        },
+        "gpu_identity": "GPU-f57c9bd1-b685-6426-9d4a-a51d0954ffab, NVIDIA GeForce RTX 2080 Ti, 610.57.04"
+      },
+      "precision": {
+        "dtype": "torch.float32",
+        "matmul_tf32": false,
+        "cudnn_tf32": true,
+        "amp": false
+      },
+      "argv": [
+        "/home/featurize/work/GAViT_SOFT_20260927/test_bigearth.py",
+        "--model",
+        "gavit",
+        "--data_dir",
+        "/home/featurize/work/GAViT_Project/bigearth_files/splits",
+        "--ckpt",
+        "/home/featurize/work/bigearth_soft45_20260930_01/gavit_train/gavit.pth",
+        "--batch_size",
+        "32",
+        "--seed",
+        "45"
+      ],
+      "launcher_sha256": "8ff8f6d36b6709f993b96f35dfb89b96422ea46fe104263e76bb35b553a12690",
+      "metrics": {
+        "samples": 119825,
+        "mAP_percent": 70.83691875764855,
+        "macro_f1_percent": 64.86482283595696,
+        "micro_f1_percent": 76.38335430648769,
+        "f1_threshold": 0.5,
+        "checkpoint_sha256": "4969f401bf297c3885ee0ac02938ae102413fc2e8c1bc8e0a628e9e918bd35e2",
+        "per_class_ap_percent": {
+          "Urban fabric": 86.40140597531355,
+          "Industrial or commercial units": 50.46244100126939,
+          "Arable land": 93.88919778376795,
+          "Permanent crops": 61.09999998584685,
+          "Pastures": 86.17695216263067,
+          "Complex cultivation patterns": 70.22854589971523,
+          "Land principally occupied by agriculture, with significant areas of natural vegetation": 72.05588800084763,
+          "Agro-forestry areas": 87.08583269893741,
+          "Broad-leaved forest": 84.88826238343896,
+          "Coniferous forest": 93.17137135636479,
+          "Mixed forest": 90.22127113538806,
+          "Natural grassland and sparsely vegetated areas": 40.124756608903276,
+          "Moors, heathland and sclerophyllous vegetation": 60.44382011173869,
+          "Transitional woodland, shrub": 78.2831902419664,
+          "Beaches, dunes, sands": 12.816150459278832,
+          "Inland wetlands": 61.47026004106363,
+          "Coastal wetlands": 26.379191836170925,
+          "Inland waters": 91.15555249658773,
+          "Marine waters": 99.54736621609227
+        }
+      },
+      "checkpoint": "/home/featurize/work/bigearth_soft45_20260930_01/gavit_train/gavit.pth",
+      "checkpoint_sha256": "4969f401bf297c3885ee0ac02938ae102413fc2e8c1bc8e0a628e9e918bd35e2",
+      "elapsed_seconds": 322.6365690740058,
+      "peak_cuda_allocated_bytes": 639322112,
+      "peak_cuda_reserved_bytes": 1103101952,
+      "main_process_peak_rss_kib": 1546488,
+      "resource_scope": "whole stage including checkpoint/probe artifact checks; main RSS excludes loader workers"
+    }
+  }
+}
+(base) ➜ ~ 

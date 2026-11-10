@@ -1,0 +1,13 @@
+Split train: 237,871 rows
+Split val: 122,342 rows
+Split test: 119,825 rows
+Manifest: 4181 images, including 4096 uniform
+Traceback (most recent call last):
+  File "/home/featurize/work/gavit-pair-diagnostic-20260915/tools/diagnose_bigearth_pair.py", line 347, in main
+    status = "prepared_only" if args.prepare_only else run_inference(args, output, names, manifest, info)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/featurize/work/gavit-pair-diagnostic-20260915/tools/diagnose_bigearth_pair.py", line 255, in run_inference
+    validate_image_paths(manifest)
+  File "/home/featurize/work/gavit-pair-diagnostic-20260915/tools/diagnose_bigearth_pair.py", line 248, in validate_image_paths
+    raise FileNotFoundError(f"Selected image is missing: {image}")
+FileNotFoundError: Selected image is missing: /home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP/S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_42_71/S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_42_71_B04.tif

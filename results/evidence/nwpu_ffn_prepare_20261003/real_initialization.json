@@ -1,0 +1,23 @@
+{
+  "scope": "Actual Swin-T and GAViT, random weights, synthetic inputs, CPU; not pretrained/GPU/performance validation",
+  "results": [
+    {
+      "model": "swin",
+      "total_parameters": 27852903,
+      "old_parameters": 27555495,
+      "old_release_initial_logit_max_diff": 0.0,
+      "old_shared_parameters_equal": true,
+      "old_rng_equal": true,
+      "ffn_initial_state_sha256": "566b722f15ccd6b8bc927d96d73a426f582bc320f5216eedcd1b2b13f45944ca"
+    },
+    {
+      "model": "gavit",
+      "total_parameters": 31784168,
+      "old_parameters": 31486760,
+      "old_release_initial_logit_max_diff": 0.0,
+      "old_shared_parameters_equal": true,
+      "old_rng_equal": true,
+      "ffn_initial_state_sha256": "566b722f15ccd6b8bc927d96d73a426f582bc320f5216eedcd1b2b13f45944ca"
+    }
+  ]
+}

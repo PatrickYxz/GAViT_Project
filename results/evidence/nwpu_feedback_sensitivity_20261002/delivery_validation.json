@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "tool_sha256": "4cd5175261d271638a00e4a4c733f329ecde1c07b646b901c960f0181237eea3",
+  "helper_sha256": "35ed63ce1ceda120fe9b5e78b157032c5e89d6b351f0caf67e05eef19d4080ba",
+  "payload_roundtrip": true,
+  "command_characters": 9050,
+  "shell_checks": [
+    "bash -n",
+    "zsh -n"
+  ],
+  "delivery_fixture": "exact launcher with temporary paths and fake Popen",
+  "duplicate_preserved": true,
+  "missing_checkpoint_blocks_launch": true,
+  "scope": "Local delivery verification only; no server operation or GPU launch"
+}

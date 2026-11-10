@@ -1,0 +1,29 @@
+{
+  "source": "User terminal return 2026-09-28; structured transcription",
+  "data_directory": "/home/featurize/data",
+  "data_directory_error": "No such file or directory",
+  "search_roots": [
+    "/home/featurize/data",
+    "/home/featurize/work"
+  ],
+  "maxdepth": 2,
+  "archives": [
+    {
+      "path": "/home/featurize/work/pair44_diagnostic_6Rcwll.zip",
+      "bytes": 111872
+    },
+    {
+      "path": "/home/featurize/work/AID_visionflan_20260920.zip",
+      "bytes": 2628474154
+    },
+    {
+      "path": "/home/featurize/work/gavit-pair-diagnostic-20260915.zip",
+      "bytes": 20794
+    },
+    {
+      "path": "/home/featurize/work/NWPU-RESISC45_a826b44.zip",
+      "bytes": 427389445
+    }
+  ],
+  "conclusion": "No original BigEarthNet archive found within searched scope; data directory absent. Does not prove server-wide archive absence."
+}

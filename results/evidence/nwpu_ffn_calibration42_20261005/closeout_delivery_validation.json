@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "checks": [
+    "four_model_metrics_match_reference",
+    "four_paired_tables_and_all_nonzero_class_deltas",
+    "read_only_and_nine_output_lines",
+    "bad_weight_hash",
+    "failed_run",
+    "wrong_best_epoch",
+    "mismatched_training",
+    "wrong_cached_macro_f1",
+    "duplicate_prediction_paths",
+    "bash_zsh_python_syntax"
+  ],
+  "synthetic_output_bytes": 2118,
+  "synthetic_output_lines": 9,
+  "scope": "Observed local check_compact_closeout.py exit0; synthetic saved outputs only; no server or GPU execution"
+}

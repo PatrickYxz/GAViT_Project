@@ -1,0 +1,15 @@
+{
+  "status": "SECOND_GPU_READONLY_PREFLIGHT_PASS",
+  "report_sha256": "215b7fdaf771f04cf3409072adbd59ecd0d1fdbc3e2d7975bc4113486137f5bb",
+  "previous_report": "preflight.json",
+  "previous_gpu_uuid": "GPU-b1911368-563d-916d-cb16-e7c2c9ead04a",
+  "current_gpu_uuid": "GPU-cede40c0-f93d-7c8e-1006-cf6183e53592",
+  "gpu_uuid_changed": true,
+  "model_driver_memory_unchanged": true,
+  "source_input_protocol_fields_match": true,
+  "source_payload_sha_returned": false,
+  "real_cuda_smoke_received": false,
+  "formal_training_started": false,
+  "bigearth_preflight_received": false,
+  "notes": "User pasted a second read-only result on a different GPU UUID. Earlier evidence preserved. UUID change confirms a different physical GPU; machine/instance replacement is not independently confirmed. JSON layout normalized locally."
+}

@@ -1,0 +1,62 @@
+{
+  "status": "failed_before_model_loading",
+  "source_directory": "/Users/patrick/Downloads/pair44_diagnostic_6Rcwll",
+  "server_output": "/home/featurize/work/pair44_diagnostic_6Rcwll",
+  "failure": {
+    "status": "failed",
+    "error": "Selected image is missing: /home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP/S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_42_71/S2A_MSIL2A_20170613T101031_N9999_R022_T33UUP_42_71_B04.tif",
+    "type": "FileNotFoundError"
+  },
+  "uniform_n": 4096,
+  "supplement_n": 85,
+  "focus_support": [
+    {
+      "class_index": 11,
+      "class": "Natural grassland and sparsely vegetated areas",
+      "positive_by_split": {
+        "train": 6984,
+        "val": 2687,
+        "test": 2211
+      },
+      "positive_by_cohort": {
+        "uniform": 102,
+        "focus_supplement": 3
+      }
+    },
+    {
+      "class_index": 14,
+      "class": "Beaches, dunes, sands",
+      "positive_by_split": {
+        "train": 738,
+        "val": 426,
+        "test": 152
+      },
+      "positive_by_cohort": {
+        "uniform": 14,
+        "focus_supplement": 50
+      }
+    },
+    {
+      "class_index": 16,
+      "class": "Coastal wetlands",
+      "positive_by_split": {
+        "train": 670,
+        "val": 610,
+        "test": 117
+      },
+      "positive_by_cohort": {
+        "uniform": 25,
+        "focus_supplement": 39
+      }
+    }
+  ],
+  "not_available": [
+    "checkpoint loading evidence",
+    "CUDA preflight",
+    "smoke inference",
+    "prediction scores",
+    "per-class model metrics",
+    "case images"
+  ],
+  "next_check": "Inspect the server data root and the exact missing patch directory. Do not skip samples or change splits to pass precheck."
+}

@@ -1,0 +1,11 @@
+{
+  "samples": 5000,
+  "oa_percent": 96.94,
+  "macro_f1_percent": 96.7811271561119,
+  "dataset": "AID",
+  "split": "test",
+  "training_phase": "refit",
+  "fit_scope": "train_plus_val",
+  "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+  "checkpoint_sha256": "a023563e7c4566436660a2d9bc778a9adb3e9b5a64f39f821ce81e909c913c7a"
+}

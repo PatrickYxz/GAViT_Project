@@ -1,0 +1,9 @@
+{
+  "python_ast": true,
+  "bash_syntax": true,
+  "zsh_syntax": true,
+  "one_line": true,
+  "compact_fixture_fields": true,
+  "nonzero_exit_rejected": true,
+  "gpu_work": false
+}

@@ -1,0 +1,4 @@
+START swin
+START fixed
+START soft
+NWPU_CALIBRATION_QUEUE_COMPLETE /private/tmp/nwpu-queue-check-8etm7v7t/success

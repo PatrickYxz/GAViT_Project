@@ -1,0 +1,26 @@
+{
+  "python_syntax": true,
+  "shell_syntax": {
+    "bash": {
+      "exit_code": 0,
+      "stderr": ""
+    },
+    "zsh": {
+      "exit_code": 0,
+      "stderr": ""
+    }
+  },
+  "payload_roundtrip": true,
+  "source_sha256": "08ef296aa7e34174630d2e77b45c767b05742dfba012bcf5aeaf845e12a5fa03",
+  "server_execution": false,
+  "command_characters": 3853,
+  "original_tool_sha256_verified": true,
+  "existing_file_gate_test": {
+    "command": "python3 -m unittest tests.test_bigearth_seed45.Seed45Tests.test_full_file_gate_and_frozen_split -v",
+    "passed": 1,
+    "exit_code": 0,
+    "scope": "CPU synthetic paths; not server data"
+  },
+  "documentation_links_valid": true,
+  "local_control_summary_consistent": true
+}

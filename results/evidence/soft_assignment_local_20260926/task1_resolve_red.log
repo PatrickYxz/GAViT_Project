@@ -1,0 +1,10 @@
+..F..                                                                    [100%]
+=================================== FAILURES ===================================
+_ GroupingIdentityTests.test_metadata_resolution_preserves_new_identity_and_rejects_fallback _
+tests/test_grouping_identity.py:80: in test_metadata_resolution_preserves_new_identity_and_rejects_fallback
+    self.assertEqual(resolved, arch)
+E   AssertionError: {'num[120 chars]back'} != {'num[120 chars]back', 'soft_assignment': {'assignment_version[492 chars]or'}}
+E   Diff is 1053 characters long. Set self.maxDiff to None to see it.
+=========================== short test summary info ============================
+FAILED tests/test_grouping_identity.py::GroupingIdentityTests::test_metadata_resolution_preserves_new_identity_and_rejects_fallback
+1 failed, 4 passed in 0.39s

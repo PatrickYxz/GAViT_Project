@@ -1,0 +1,73 @@
+{
+  "status": "LOCAL_4090_HANDOFF_VALIDATED",
+  "tests": {
+    "count": 23,
+    "exit_code": 0,
+    "seconds": 1.399,
+    "log": "tests.log",
+    "red_log": "tests_red.log"
+  },
+  "server_return": {
+    "path": "server_return.txt",
+    "gpu_uuid": "GPU-b1911368-563d-916d-cb16-e7c2c9ead04a",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "driver": "610.57.04",
+    "memory_mib": 24564,
+    "status": "OLD_NWPU_PREFLIGHT_REJECTED_GPU",
+    "new_server_preflight_pass": false,
+    "training_started": false
+  },
+  "checks": {
+    "python_ast": true,
+    "shell_syntax": true,
+    "payload_roundtrip": true,
+    "detached_process_fixtures": true,
+    "duplicate_preserves_artifacts": true,
+    "gpu_and_drift_regression": true
+  },
+  "historical_commands_preserved": {
+    "nwpu_preflight_command.txt": "27f8df154be2ea69bf6eb08cf02f200624a1d77f11d943f882ff3b5128350298",
+    "nwpu_launch_command.txt": "5f553957227042aa8310b5df6810ba0dcf9fe41b86521aaa3c9daa2c0ed38e37",
+    "bigearth_preflight_command.txt": "1a8cc18c2362a77cf091dea46f74ebda66dfe7d8ed9616e1fc8c838a17ddbba8",
+    "bigearth_launch_command.txt": "7a98ab74f2bfa767e50042b8f8216c8b3be4c29dc0fe01f0d6820b310eaca073"
+  },
+  "current_sha256": {
+    "tools/run_nwpu_seed43.py": "bb50d71a98aaa44b14c7f604c2236218c8b663a90f1e89254d6fd524c0340e5e",
+    "tools/run_bigearth_soft43.py": "7346c6aa25426998f44eeb55aa9aa33c1f43357d4cbabb3951413e5aa8d1b832",
+    "tests/test_seed43_launch.py": "427f8a613748a65b9636c95f5a9fe86a1aaae211d9cd8378a433dc0547bd558f",
+    "results/evidence/seed43_gpu4090_20261011/preflight_bigearth43.py": "657ef1f6b9947888cfeb422d8d477f29b8015c8e0e999e2ff699226dc306f60d",
+    "results/evidence/seed43_gpu4090_20261011/build_delivery.py": "23bcfaf8794dd7b5a44a10058b517056f88f5a3b9ec371472da6c0fc467c59b8",
+    "results/evidence/seed43_gpu4090_20261011/validate_delivery.py": "5c8280d64a1f68e305f68cdd82c4f3ceae9a73b26674f22699fb3c18beb0f1c4"
+  },
+  "commands": {
+    "nwpu_preflight_command.txt": {
+      "sha256": "6a6b325f2b0867b39d6dd62f15656cfa1230f1ead01f1bd59b2d0ed6891d0f22",
+      "python_ast": true,
+      "bash_syntax": true,
+      "zsh_syntax": true,
+      "shell_layers": 1
+    },
+    "nwpu_launch_command.txt": {
+      "sha256": "54781bc59530df5f88102b07d4a7a775360f7d07cb61ef34e003ad9676aece87",
+      "python_ast": true,
+      "bash_syntax": true,
+      "zsh_syntax": true,
+      "shell_layers": 1
+    },
+    "bigearth_preflight_command.txt": {
+      "sha256": "a8127e504c2671691283dd0703d778bf2bd28cd38ac67215ea6cb3f6bfdc74ea",
+      "python_ast": true,
+      "bash_syntax": true,
+      "zsh_syntax": true,
+      "shell_layers": 1
+    },
+    "bigearth_launch_command.txt": {
+      "sha256": "59fac19a640db94098a592681250d075656f74ad00a5b06ddbe48de53db3e4e6",
+      "python_ast": true,
+      "bash_syntax": true,
+      "zsh_syntax": true,
+      "shell_layers": 1
+    }
+  },
+  "scope": "External scheduling and read-only gates only; frozen training/model code, seed43 recipe, manifests and checkpoints unchanged. No real CUDA/model work or training launch performed."
+}

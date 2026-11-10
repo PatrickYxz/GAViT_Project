@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "summary_exit_and_four_stages": true,
+  "protocol_checkpoint_probe_identities": true,
+  "local_release_source_hashes_matched": 17,
+  "hardware_matches_seed42_except_device_alias_and_unrecorded_original_driver": true,
+  "graph_capture": true,
+  "mean_sd_min_max_throughput_amortization_recomputed": true,
+  "memory_ordering_and_mib_conversion": true,
+  "median_p95_recomputed_from_raw_samples": false,
+  "raw_per_stage_identity_input_hash_telemetry_independently_checked": false,
+  "measured_forward_seconds_derived": 39.60998498799904,
+  "reported_total_elapsed_seconds": 88.26085498400005
+}

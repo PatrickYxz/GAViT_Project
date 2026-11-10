@@ -1,0 +1,20 @@
+{
+  "source": "user inline pasted run.exit and run.json",
+  "normalization": "Escaped underscores restored; **init**.py rendered names restored to __init__.py; formatting normalized. Not a byte-for-byte server copy.",
+  "server_exit_code": 0,
+  "checkpoint_downloaded": false,
+  "matched_local_source_files": 17,
+  "matched_paired_swin_fields": [
+    "manifest_sha256",
+    "pretrained_sha256",
+    "seed",
+    "training",
+    "hardware",
+    "code",
+    "counts",
+    "phase",
+    "dataset",
+    "final_epoch",
+    "status"
+  ]
+}

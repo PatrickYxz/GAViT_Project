@@ -1,0 +1,9 @@
+{
+  "hourly_yuan": 1.67,
+  "bigearth_queue_hours": 6.372703141506388,
+  "bigearth_queue_estimated_yuan": 10.642414246315667,
+  "nwpu_queue_elapsed_seconds": 3617.327163251,
+  "combined_queue_elapsed_seconds": 26559.058472673998,
+  "combined_estimated_yuan": 12.32045212482377,
+  "scope": "formal queue runtime only, not invoice; excludes extraction/smokes/idle time"
+}

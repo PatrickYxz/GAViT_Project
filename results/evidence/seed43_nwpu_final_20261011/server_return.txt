@@ -1,0 +1,159 @@
+counts","total_parameters","cuda_peak_allocated_bytes","cuda_peak_reserved_bytes","elapsed_seconds","reload_max_logit_diff","checkpoint_sha256")} for stage,d in t.items()}},indent=2))'
+{
+  "exit": "exit_code=0",
+  "status": "complete",
+  "seed": 43,
+  "elapsed_seconds": 3617.327163251,
+  "selected_epochs": {
+    "swin": 23,
+    "fixed": 26,
+    "soft": 29
+  },
+  "preflight": {
+    "status": "NWPU43_PREFLIGHT_PASS",
+    "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+    "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+    "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+    "seed": 43,
+    "counts": {
+      "test": 25200,
+      "train": 5040,
+      "val": 1260
+    },
+    "gpu": "GPU-cede40c0-f93d-7c8e-1006-cf6183e53592, NVIDIA GeForce RTX 4090, 610.57.04, 24564 MiB",
+    "gpu_profile": {
+      "uuid": "GPU-cede40c0-f93d-7c8e-1006-cf6183e53592",
+      "name": "NVIDIA GeForce RTX 4090",
+      "driver": "610.57.04",
+      "memory_mib": 24564
+    },
+    "stages": [
+      "swin_calibrate",
+      "fixed_calibrate",
+      "soft_calibrate",
+      "swin_refit",
+      "fixed_refit",
+      "soft_refit",
+      "swin_test",
+      "fixed_test",
+      "soft_test"
+    ],
+    "training_started": false
+  },
+  "tests": {
+    "swin": {
+      "samples": 25200,
+      "oa_percent": 93.85714285714286,
+      "macro_f1_percent": 93.83452989448766,
+      "checkpoint_sha256": "6d2b4a488a8dccff72467a47c0c8f5d0c6ceace0aca03b12ef921b560bb9f632",
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "training_phase": "refit",
+      "fit_scope": "train_plus_val"
+    },
+    "fixed": {
+      "samples": 25200,
+      "oa_percent": 93.76587301587301,
+      "macro_f1_percent": 93.74351252940127,
+      "checkpoint_sha256": "9ebdc6521adaed11befe7573f5a310e78f2bd83816e74a0c9e6864588c72b1c2",
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "training_phase": "refit",
+      "fit_scope": "train_plus_val"
+    },
+    "soft": {
+      "samples": 25200,
+      "oa_percent": 93.62698412698413,
+      "macro_f1_percent": 93.58782117143805,
+      "checkpoint_sha256": "462fa99c13bf159878b7901e8d33b569dc3fa8781cef1a21ef60b2e56f76556c",
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "training_phase": "refit",
+      "fit_scope": "train_plus_val"
+    }
+  },
+  "training": {
+    "swin_calibrate": {
+      "final_epoch": 30,
+      "best_epoch": 23,
+      "counts": {
+        "train": 5040,
+        "val": 1260
+      },
+      "total_parameters": 27555495,
+      "cuda_peak_allocated_bytes": 3821469184,
+      "cuda_peak_reserved_bytes": 4175429632,
+      "elapsed_seconds": 501.47181131800016,
+      "reload_max_logit_diff": 0.0,
+      "checkpoint_sha256": "d765bafc66809a46b5e38619d48638bee27e3d1fdb664e825e34bcd76056ff50"
+    },
+    "fixed_calibrate": {
+      "final_epoch": 30,
+      "best_epoch": 26,
+      "counts": {
+        "train": 5040,
+        "val": 1260
+      },
+      "total_parameters": 31386920,
+      "cuda_peak_allocated_bytes": 3923342336,
+      "cuda_peak_reserved_bytes": 4225761280,
+      "elapsed_seconds": 638.5392705439999,
+      "reload_max_logit_diff": 2.384185791015625e-07,
+      "checkpoint_sha256": "8c71eb48f1ad9115f9d56d7a7e976dd3399081d588fd705953ad62231923a266"
+    },
+    "soft_calibrate": {
+      "final_epoch": 30,
+      "best_epoch": 29,
+      "counts": {
+        "train": 5040,
+        "val": 1260
+      },
+      "total_parameters": 31486760,
+      "cuda_peak_allocated_bytes": 3934814208,
+      "cuda_peak_reserved_bytes": 4244635648,
+      "elapsed_seconds": 638.651984952,
+      "reload_max_logit_diff": 2.384185791015625e-07,
+      "checkpoint_sha256": "070538956180f9ce4fd01a06856f14767d89afbd82920acea73cc18c16c1d4e1"
+    },
+    "swin_refit": {
+      "final_epoch": 23,
+      "best_epoch": null,
+      "counts": {
+        "train": 6300,
+        "val": 0
+      },
+      "total_parameters": 27555495,
+      "cuda_peak_allocated_bytes": 3821167616,
+      "cuda_peak_reserved_bytes": 4175429632,
+      "elapsed_seconds": 421.102553275,
+      "reload_max_logit_diff": 0.0,
+      "checkpoint_sha256": "6d2b4a488a8dccff72467a47c0c8f5d0c6ceace0aca03b12ef921b560bb9f632"
+    },
+    "fixed_refit": {
+      "final_epoch": 26,
+      "best_epoch": null,
+      "counts": {
+        "train": 6300,
+        "val": 0
+      },
+      "total_parameters": 31386920,
+      "cuda_peak_allocated_bytes": 3923341824,
+      "cuda_peak_reserved_bytes": 4225761280,
+      "elapsed_seconds": 586.5434962830004,
+      "reload_max_logit_diff": 1.9073486328125e-06,
+      "checkpoint_sha256": "9ebdc6521adaed11befe7573f5a310e78f2bd83816e74a0c9e6864588c72b1c2"
+    },
+    "soft_refit": {
+      "final_epoch": 29,
+      "best_epoch": null,
+      "counts": {
+        "train": 6300,
+        "val": 0
+      },
+      "total_parameters": 31486760,
+      "cuda_peak_allocated_bytes": 3934813696,
+      "cuda_peak_reserved_bytes": 4244635648,
+      "elapsed_seconds": 617.456285405,
+      "reload_max_logit_diff": 9.5367431640625e-07,
+      "checkpoint_sha256": "462fa99c13bf159878b7901e8d33b569dc3fa8781cef1a21ef60b2e56f76556c"
+    }
+  }
+}
+(base) ➜ ~ 

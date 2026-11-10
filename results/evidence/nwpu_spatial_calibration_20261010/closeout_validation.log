@@ -1,0 +1,44 @@
+{
+  "status": "cached_metric_closeout_complete_candidate_closed",
+  "deltas_vs_controls": {
+    "swin": {
+      "OA_pp": -1.8253968253968225,
+      "macro_F1_pp": -1.8290776966602778,
+      "net_correct": -23
+    },
+    "soft": {
+      "OA_pp": -1.349206349206355,
+      "macro_F1_pp": -1.4232469284217615,
+      "net_correct": -17
+    }
+  },
+  "best": {
+    "epoch": 24,
+    "train_loss": 0.003957,
+    "val_OA": 92.380952,
+    "macro_F1": 92.342474,
+    "train_s": 100.96,
+    "val_s": 15.4
+  },
+  "final": {
+    "epoch": 30,
+    "train_loss": 0.003366,
+    "val_OA": 92.063492,
+    "macro_F1": 92.001548,
+    "train_s": 67.28,
+    "val_s": 8.08
+  },
+  "resources_from_rounded_curve": {
+    "train_total_s": 1646.28,
+    "validation_total_s": 221.64000000000001,
+    "train_weighted_images_per_second": 91.84342882134267,
+    "train_median_s": 48.585,
+    "train_min_s": 32.11,
+    "train_max_s": 104.0,
+    "validation_min_s": 3.52,
+    "validation_max_s": 17.7,
+    "wall_minus_train_val_s": 1129.5181405579997,
+    "caveat": "Two-decimal timing values; remainder includes untimed phases and cannot locate the slowdown cause"
+  },
+  "local_checks_passed": true
+}

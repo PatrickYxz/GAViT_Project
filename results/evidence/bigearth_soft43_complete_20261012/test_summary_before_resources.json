@@ -1,0 +1,142 @@
+{
+  "status": "formal_training_and_test_complete_from_user_evidence",
+  "dataset": "BigEarthNet-19",
+  "seed": 43,
+  "source_sha256": "806d5c105a49049a067dfd011f1469cfc5ba7f8735e68a445fd223c585cb4580",
+  "exits": {
+    "run.exit": 0,
+    "gavit_train/run.exit": 0,
+    "gavit_test/run.exit": 0
+  },
+  "tests": [
+    {
+      "seed": 43,
+      "model": "swin",
+      "mAP_percent": 71.1,
+      "macro_f1_percent": 64.1,
+      "micro_f1_percent": 76.0,
+      "precision": "printed_one_decimal",
+      "final_epoch": 30,
+      "gpu": "RTX4090",
+      "code": "bb9f1cf"
+    },
+    {
+      "seed": 43,
+      "model": "fixed",
+      "mAP_percent": 71.7,
+      "macro_f1_percent": 65.7,
+      "micro_f1_percent": 76.8,
+      "precision": "printed_one_decimal",
+      "final_epoch": 21,
+      "gpu": "RTX4090 train / RTX3060 test",
+      "code": "bb9f1cf"
+    },
+    {
+      "seed": 43,
+      "model": "soft",
+      "mAP_percent": 72.86757085064232,
+      "macro_f1_percent": 66.67389161697625,
+      "micro_f1_percent": 76.90597117759339,
+      "precision": "full_returned",
+      "final_epoch": 30,
+      "gpu": "RTX4090",
+      "code": "ed480e6"
+    }
+  ],
+  "test_metrics": {
+    "samples": 119825,
+    "mAP_percent": 72.86757085064232,
+    "macro_f1_percent": 66.67389161697625,
+    "micro_f1_percent": 76.90597117759339,
+    "f1_threshold": 0.5,
+    "checkpoint_sha256": "c01403d67df77ec03f173877ca3466e1211d06015cd83dc89672629595e387a7",
+    "per_class_ap_percent": {
+      "Urban fabric": 86.90412749223422,
+      "Industrial or commercial units": 49.81336195915655,
+      "Arable land": 93.61706167535287,
+      "Permanent crops": 64.69772332306674,
+      "Pastures": 86.19617659467306,
+      "Complex cultivation patterns": 68.38043079497643,
+      "Land principally occupied by agriculture, with significant areas of natural vegetation": 72.60580110578749,
+      "Agro-forestry areas": 87.56101008698272,
+      "Broad-leaved forest": 86.06064969452527,
+      "Coniferous forest": 93.37999171286387,
+      "Mixed forest": 89.60883457152102,
+      "Natural grassland and sparsely vegetated areas": 45.88227402959922,
+      "Moors, heathland and sclerophyllous vegetation": 60.989909708927534,
+      "Transitional woodland, shrub": 78.58765428689567,
+      "Beaches, dunes, sands": 23.773897508570297,
+      "Inland wetlands": 62.84234311307374,
+      "Coastal wetlands": 42.61340595488735,
+      "Inland waters": 91.38628018657404,
+      "Marine waters": 99.58291236253619
+    }
+  },
+  "soft_minus_controls_pp_approx": {
+    "swin": {
+      "mAP_percent": 1.767570850642329,
+      "macro_f1_percent": 2.5738916169762547,
+      "micro_f1_percent": 0.9059711775933863
+    },
+    "fixed": {
+      "mAP_percent": 1.1675708506423206,
+      "macro_f1_percent": 0.9738916169762462,
+      "micro_f1_percent": 0.10597117759338914
+    }
+  },
+  "final_epoch": {
+    "epoch": 30,
+    "train_loss": 0.0600898171325303,
+    "val_mAP_percent": 75.6996819828042,
+    "val_macro_f1_percent": 71.3216787939595,
+    "next_epoch_lr": 0.0,
+    "epoch_wall_seconds": 754.0679998650012
+  },
+  "best_val_mAP_printed": 79.0,
+  "best_epoch": null,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "threads": 8,
+    "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+    "packages": {
+      "torch": "2.2.2",
+      "torchvision": "0.17.2",
+      "timm": "1.0.27",
+      "torch-geometric": "2.8.0",
+      "numpy": "1.26.4",
+      "scikit-learn": "1.9.0",
+      "pillow": "10.3.0"
+    },
+    "gpu_identity": "GPU-cede40c0-f93d-7c8e-1006-cf6183e53592, NVIDIA GeForce RTX 4090, 610.57.04"
+  },
+  "precision": {
+    "dtype": "torch.float32",
+    "matmul_tf32": false,
+    "cudnn_tf32": true,
+    "amp": false
+  },
+  "per_class_counts": {
+    "swin": {
+      "up": 11,
+      "down": 7,
+      "unresolved_at_reference_rounding": 1
+    },
+    "fixed": {
+      "up": 8,
+      "down": 8,
+      "unresolved_at_reference_rounding": 3
+    }
+  },
+  "limits": [
+    "seed43 controls are rounded one-decimal metrics; deltas/means/SD involving them are approximate",
+    "fixed43 saved21 epochs/best8 vs Swin43 full30/best6 vs soft43 full30; code/historical hardware differ",
+    "server checkpoint/predictions/probe tensors not downloaded; saved result is user-returned evidence",
+    "best validation printed79.0 only; exact best/epoch and total/stage resource reports still pending",
+    "n=2 descriptive evidence; no significance/stability/causal claim"
+  ],
+  "total_elapsed_seconds": null,
+  "train_stage_resources": null,
+  "test_stage_resources": null
+}

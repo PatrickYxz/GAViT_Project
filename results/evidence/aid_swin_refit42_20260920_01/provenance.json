@@ -1,0 +1,22 @@
+{
+  "source": "/Users/patrick/.codex/attachments/5db3c153-cef0-41da-9b2e-c5f8c3ed0ad0/已粘贴的文本.txt",
+  "source_sha256": "7fe053093a4ca7558c3328082aa7dea928033a43bf9f2eae90799a0a34de195e",
+  "run_json_extraction": "Parsed from user terminal transcript, formatting normalized; not a downloaded server-file byte copy.",
+  "server_exit_code": 0,
+  "checkpoint_downloaded": false,
+  "matched_calibration_fields": [
+    "architecture",
+    "code",
+    "hardware",
+    "manifest_sha256",
+    "pretrained_sha256",
+    "seed",
+    "training",
+    "total_parameters",
+    "trainable_parameters",
+    "dataset"
+  ],
+  "matched_local_source_files": 17,
+  "refit_source_checkpoint_matches_calibration": true,
+  "refit_source_run_json_sha256": "Recorded as reported; not compared against reformatted local calibration JSON."
+}

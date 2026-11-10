@@ -1,0 +1,309 @@
+{
+  "recorded_date": "2026-09-17",
+  "source_attachment": "/Users/patrick/.codex/attachments/13a4d16a-5fde-4aed-a158-d658ccb41a82/pasted-text.txt",
+  "source_sha256": "5e6d5d8a5c0e6d564a793786711cee666a4846f0592275e3e95de2eb45669435",
+  "run_directory": "/home/featurize/work/pair44_fullval_8Tvk9d/diagnosis",
+  "scope": "full_validation_not_test",
+  "n": 122342,
+  "threshold": 0.5,
+  "reported_AP_reference_checks": 38,
+  "aggregate": {
+    "swin": {
+      "mAP_percent": 78.57822920531505,
+      "macro_F1_percent": 71.63185615545606,
+      "micro_F1_percent": 77.3248734307586,
+      "totals": {
+        "tp": 275911,
+        "fp": 69353,
+        "fn": 92466,
+        "tn": 1886768
+      }
+    },
+    "gavit": {
+      "mAP_percent": 78.51712783192934,
+      "macro_F1_percent": 72.26894247985001,
+      "micro_F1_percent": 77.76551995249439,
+      "totals": {
+        "tp": 280905,
+        "fp": 73159,
+        "fn": 87472,
+        "tn": 1882962
+      }
+    }
+  },
+  "aggregate_delta_pp": {
+    "mAP_percent": -0.061101373385710644,
+    "macro_F1_percent": 0.6370863243939482,
+    "micro_F1_percent": 0.4406465217357862
+  },
+  "class_AP_signs": {
+    "positive": 10,
+    "negative": 9
+  },
+  "groups": [
+    {
+      "class_index": 14,
+      "group": "all",
+      "n": 122342,
+      "positive": 426,
+      "swin": {
+        "ap_percent": 76.126,
+        "tp": 310,
+        "fn": 116,
+        "fp": 165,
+        "recall_percent": 72.7699530516432,
+        "precision_percent": 65.26315789473684,
+        "f1_percent": 68.81243063263041
+      },
+      "gavit": {
+        "ap_percent": 75.7377,
+        "tp": 288,
+        "fn": 138,
+        "fp": 85,
+        "recall_percent": 67.6056338028169,
+        "precision_percent": 77.21179624664879,
+        "f1_percent": 72.090112640801
+      },
+      "delta_ap_pp": -0.388300000000001
+    },
+    {
+      "class_index": 14,
+      "group": "sea_only",
+      "n": 13998,
+      "positive": 354,
+      "swin": {
+        "ap_percent": 85.8322,
+        "tp": 296,
+        "fn": 58,
+        "fp": 153,
+        "recall_percent": 83.61581920903954,
+        "precision_percent": 65.92427616926503,
+        "f1_percent": 73.72353673723536
+      },
+      "gavit": {
+        "ap_percent": 86.2094,
+        "tp": 271,
+        "fn": 83,
+        "fp": 71,
+        "recall_percent": 76.55367231638418,
+        "precision_percent": 79.23976608187135,
+        "f1_percent": 77.8735632183908
+      },
+      "delta_ap_pp": 0.377200000000002
+    },
+    {
+      "class_index": 14,
+      "group": "inland_only",
+      "n": 15834,
+      "positive": 15,
+      "swin": {
+        "ap_percent": 8.0,
+        "tp": 1,
+        "fn": 14,
+        "fp": 1,
+        "recall_percent": 6.666666666666667,
+        "precision_percent": 50.0,
+        "f1_percent": 11.764705882352942
+      },
+      "gavit": {
+        "ap_percent": 10.4114,
+        "tp": 1,
+        "fn": 14,
+        "fp": 0,
+        "recall_percent": 6.666666666666667,
+        "precision_percent": 100.0,
+        "f1_percent": 12.5
+      },
+      "delta_ap_pp": 2.4114000000000004
+    },
+    {
+      "class_index": 14,
+      "group": "both",
+      "n": 66,
+      "positive": 0,
+      "swin": {
+        "ap_percent": null,
+        "tp": 0,
+        "fn": 0,
+        "fp": 0,
+        "recall_percent": null,
+        "precision_percent": 0,
+        "f1_percent": 0
+      },
+      "gavit": {
+        "ap_percent": null,
+        "tp": 0,
+        "fn": 0,
+        "fp": 0,
+        "recall_percent": null,
+        "precision_percent": 0,
+        "f1_percent": 0
+      },
+      "delta_ap_pp": null
+    },
+    {
+      "class_index": 14,
+      "group": "neither",
+      "n": 92444,
+      "positive": 57,
+      "swin": {
+        "ap_percent": 30.2549,
+        "tp": 13,
+        "fn": 44,
+        "fp": 11,
+        "recall_percent": 22.80701754385965,
+        "precision_percent": 54.166666666666664,
+        "f1_percent": 32.098765432098766
+      },
+      "gavit": {
+        "ap_percent": 27.1976,
+        "tp": 16,
+        "fn": 41,
+        "fp": 14,
+        "recall_percent": 28.07017543859649,
+        "precision_percent": 53.333333333333336,
+        "f1_percent": 36.7816091954023
+      },
+      "delta_ap_pp": -3.057299999999998
+    },
+    {
+      "class_index": 16,
+      "group": "all",
+      "n": 122342,
+      "positive": 610,
+      "swin": {
+        "ap_percent": 44.5332,
+        "tp": 204,
+        "fn": 406,
+        "fp": 109,
+        "recall_percent": 33.442622950819676,
+        "precision_percent": 65.17571884984025,
+        "f1_percent": 44.20368364030336
+      },
+      "gavit": {
+        "ap_percent": 46.6249,
+        "tp": 187,
+        "fn": 423,
+        "fp": 62,
+        "recall_percent": 30.65573770491803,
+        "precision_percent": 75.1004016064257,
+        "f1_percent": 43.538998835855644
+      },
+      "delta_ap_pp": 2.091699999999996
+    },
+    {
+      "class_index": 16,
+      "group": "sea_only",
+      "n": 13998,
+      "positive": 341,
+      "swin": {
+        "ap_percent": 56.9266,
+        "tp": 151,
+        "fn": 190,
+        "fp": 76,
+        "recall_percent": 44.28152492668622,
+        "precision_percent": 66.51982378854626,
+        "f1_percent": 53.16901408450704
+      },
+      "gavit": {
+        "ap_percent": 60.5463,
+        "tp": 134,
+        "fn": 207,
+        "fp": 44,
+        "recall_percent": 39.29618768328446,
+        "precision_percent": 75.28089887640449,
+        "f1_percent": 51.63776493256262
+      },
+      "delta_ap_pp": 3.6197000000000017
+    },
+    {
+      "class_index": 16,
+      "group": "inland_only",
+      "n": 15834,
+      "positive": 37,
+      "swin": {
+        "ap_percent": 9.8635,
+        "tp": 3,
+        "fn": 34,
+        "fp": 9,
+        "recall_percent": 8.108108108108109,
+        "precision_percent": 25.0,
+        "f1_percent": 12.244897959183673
+      },
+      "gavit": {
+        "ap_percent": 21.7833,
+        "tp": 5,
+        "fn": 32,
+        "fp": 2,
+        "recall_percent": 13.513513513513514,
+        "precision_percent": 71.42857142857143,
+        "f1_percent": 22.727272727272727
+      },
+      "delta_ap_pp": 11.9198
+    },
+    {
+      "class_index": 16,
+      "group": "both",
+      "n": 66,
+      "positive": 15,
+      "swin": {
+        "ap_percent": 65.648,
+        "tp": 6,
+        "fn": 9,
+        "fp": 2,
+        "recall_percent": 40.0,
+        "precision_percent": 75.0,
+        "f1_percent": 52.17391304347826
+      },
+      "gavit": {
+        "ap_percent": 65.0824,
+        "tp": 5,
+        "fn": 10,
+        "fp": 1,
+        "recall_percent": 33.333333333333336,
+        "precision_percent": 83.33333333333333,
+        "f1_percent": 47.61904761904762
+      },
+      "delta_ap_pp": -0.5655999999999892
+    },
+    {
+      "class_index": 16,
+      "group": "neither",
+      "n": 92444,
+      "positive": 217,
+      "swin": {
+        "ap_percent": 33.0874,
+        "tp": 44,
+        "fn": 173,
+        "fp": 22,
+        "recall_percent": 20.276497695852534,
+        "precision_percent": 66.66666666666667,
+        "f1_percent": 31.09540636042403
+      },
+      "gavit": {
+        "ap_percent": 32.032,
+        "tp": 43,
+        "fn": 174,
+        "fp": 15,
+        "recall_percent": 19.81566820276498,
+        "precision_percent": 74.13793103448276,
+        "f1_percent": 31.272727272727273
+      },
+      "delta_ap_pp": -1.055400000000006
+    }
+  ],
+  "verification": {
+    "full_class_count": 19,
+    "per_model_class_confusion_and_rates_checked": 38,
+    "exclusive_partitions_checked": 2,
+    "cooccurrence_marginals_checked": 4,
+    "all_group_AP_matches_per_class_rounding": true,
+    "AP_recalculated_from_predictions_locally": false
+  },
+  "limitations": [
+    "Full predictions and run.json have not been provided locally.",
+    "Conditional AP is not additive; global AP cannot be reconstructed by weighting subgroup APs.",
+    "Context labels define groups; associations do not establish model causal reliance.",
+    "Minority context supports, especially 15 inland-only beach positives, are small."
+  ]
+}

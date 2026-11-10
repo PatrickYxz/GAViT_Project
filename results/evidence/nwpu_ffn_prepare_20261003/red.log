@@ -1,0 +1,267 @@
+FFFFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+_ test_identity_start_preserves_existing_parameters_rng_logits_and_old_loads[swin] _
+
+name = 'swin'
+
+    def candidate(name):
+        # Missing implementation must produce an assertion failure, not a broken import.
+        try:
+>           return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
+                                token_refinement='residual_ffn_v1')
+E                               TypeError: architecture() got an unexpected keyword argument 'token_refinement'
+
+tests/test_token_refinement.py:21: TypeError
+
+During handling of the above exception, another exception occurred:
+
+name = 'swin'
+
+    @pytest.mark.parametrize('name', ['swin', 'gavit'])
+    def test_identity_start_preserves_existing_parameters_rng_logits_and_old_loads(name):
+>       new_arch = candidate(name)
+
+tests/test_token_refinement.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'swin'
+
+    def candidate(name):
+        # Missing implementation must produce an assertion failure, not a broken import.
+        try:
+            return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
+                                token_refinement='residual_ffn_v1')
+        except TypeError as exc:
+>           pytest.fail(f'FFN architecture selection is not implemented: {exc}')
+E           Failed: FFN architecture selection is not implemented: architecture() got an unexpected keyword argument 'token_refinement'
+
+tests/test_token_refinement.py:24: Failed
+_ test_identity_start_preserves_existing_parameters_rng_logits_and_old_loads[gavit] _
+
+name = 'gavit'
+
+    def candidate(name):
+        # Missing implementation must produce an assertion failure, not a broken import.
+        try:
+>           return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
+                                token_refinement='residual_ffn_v1')
+E                               TypeError: architecture() got an unexpected keyword argument 'token_refinement'
+
+tests/test_token_refinement.py:21: TypeError
+
+During handling of the above exception, another exception occurred:
+
+name = 'gavit'
+
+    @pytest.mark.parametrize('name', ['swin', 'gavit'])
+    def test_identity_start_preserves_existing_parameters_rng_logits_and_old_loads(name):
+>       new_arch = candidate(name)
+
+tests/test_token_refinement.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'gavit'
+
+    def candidate(name):
+        # Missing implementation must produce an assertion failure, not a broken import.
+        try:
+            return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
+                                token_refinement='residual_ffn_v1')
+        except TypeError as exc:
+>           pytest.fail(f'FFN architecture selection is not implemented: {exc}')
+E           Failed: FFN architecture selection is not implemented: architecture() got an unexpected keyword argument 'token_refinement'
+
+tests/test_token_refinement.py:24: Failed
+____ test_both_models_get_identical_ffn_despite_different_construction_rng _____
+
+name = 'swin'
+
+    def candidate(name):
+        # Missing implementation must produce an assertion failure, not a broken import.
+        try:
+>           return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
+                                token_refinement='residual_ffn_v1')
+E                               TypeError: architecture() got an unexpected keyword argument 'token_refinement'
+
+tests/test_token_refinement.py:21: TypeError
+
+During handling of the above exception, another exception occurred:
+
+    def test_both_models_get_identical_ffn_despite_different_construction_rng():
+        torch.manual_seed(1)
+>       a = construct('swin', candidate('swin')).token_refinement
+
+tests/test_token_refinement.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'swin'
+
+    def candidate(name):
+        # Missing implementation must produce an assertion failure, not a broken import.
+        try:
+            return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
+                                token_refinement='residual_ffn_v1')
+        except TypeError as exc:
+>           pytest.fail(f'FFN architecture selection is not implemented: {exc}')
+E           Failed: FFN architecture selection is not implemented: architecture() got an unexpected keyword argument 'token_refinement'
+
+tests/test_token_refinement.py:24: Failed
+______ test_ffn_is_nonlinear_before_pool_and_reloads_after_learning[swin] ______
+
+name = 'swin'
+
+    def candidate(name):
+        # Missing implementation must produce an assertion failure, not a broken import.
+        try:
+>           return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
+                                token_refinement='residual_ffn_v1')
+E                               TypeError: architecture() got an unexpected keyword argument 'token_refinement'
+
+tests/test_token_refinement.py:21: TypeError
+
+During handling of the above exception, another exception occurred:
+
+name = 'swin'
+
+    @pytest.mark.parametrize('name', ['swin', 'gavit'])
+    def test_ffn_is_nonlinear_before_pool_and_reloads_after_learning(name):
+>       arch = candidate(name)
+
+tests/test_token_refinement.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'swin'
+
+    def candidate(name):
+        # Missing implementation must produce an assertion failure, not a broken import.
+        try:
+            return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
+                                token_refinement='residual_ffn_v1')
+        except TypeError as exc:
+>           pytest.fail(f'FFN architecture selection is not implemented: {exc}')
+E           Failed: FFN architecture selection is not implemented: architecture() got an unexpected keyword argument 'token_refinement'
+
+tests/test_token_refinement.py:24: Failed
+_____ test_ffn_is_nonlinear_before_pool_and_reloads_after_learning[gavit] ______
+
+name = 'gavit'
+
+    def candidate(name):
+        # Missing implementation must produce an assertion failure, not a broken import.
+        try:
+>           return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
+                                token_refinement='residual_ffn_v1')
+E                               TypeError: architecture() got an unexpected keyword argument 'token_refinement'
+
+tests/test_token_refinement.py:21: TypeError
+
+During handling of the above exception, another exception occurred:
+
+name = 'gavit'
+
+    @pytest.mark.parametrize('name', ['swin', 'gavit'])
+    def test_ffn_is_nonlinear_before_pool_and_reloads_after_learning(name):
+>       arch = candidate(name)
+
+tests/test_token_refinement.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'gavit'
+
+    def candidate(name):
+        # Missing implementation must produce an assertion failure, not a broken import.
+        try:
+            return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
+                                token_refinement='residual_ffn_v1')
+        except TypeError as exc:
+>           pytest.fail(f'FFN architecture selection is not implemented: {exc}')
+E           Failed: FFN architecture selection is not implemented: architecture() got an unexpected keyword argument 'token_refinement'
+
+tests/test_token_refinement.py:24: Failed
+_____ test_malformed_or_unapproved_refinement_cannot_silently_reconstruct ______
+
+name = 'swin'
+
+    def candidate(name):
+        # Missing implementation must produce an assertion failure, not a broken import.
+        try:
+>           return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
+                                token_refinement='residual_ffn_v1')
+E                               TypeError: architecture() got an unexpected keyword argument 'token_refinement'
+
+tests/test_token_refinement.py:21: TypeError
+
+During handling of the above exception, another exception occurred:
+
+    def test_malformed_or_unapproved_refinement_cannot_silently_reconstruct():
+>       arch = candidate('swin')
+
+tests/test_token_refinement.py:104: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'swin'
+
+    def candidate(name):
+        # Missing implementation must produce an assertion failure, not a broken import.
+        try:
+            return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
+                                token_refinement='residual_ffn_v1')
+        except TypeError as exc:
+>           pytest.fail(f'FFN architecture selection is not implemented: {exc}')
+E           Failed: FFN architecture selection is not implemented: architecture() got an unexpected keyword argument 'token_refinement'
+
+tests/test_token_refinement.py:24: Failed
+_ test_scope_rejects_refit_other_datasets_and_extra_seeds_before_model_allocation _
+
+name = 'swin'
+
+    def candidate(name):
+        # Missing implementation must produce an assertion failure, not a broken import.
+        try:
+>           return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
+                                token_refinement='residual_ffn_v1')
+E                               TypeError: architecture() got an unexpected keyword argument 'token_refinement'
+
+tests/test_token_refinement.py:21: TypeError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-925/test_scope_rejects_refit_other0')
+
+    def test_scope_rejects_refit_other_datasets_and_extra_seeds_before_model_allocation(tmp_path):
+>       candidate('swin')
+
+tests/test_token_refinement.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'swin'
+
+    def candidate(name):
+        # Missing implementation must produce an assertion failure, not a broken import.
+        try:
+            return architecture(name, 45, grouping='soft_prototype' if name == 'gavit' else None,
+                                token_refinement='residual_ffn_v1')
+        except TypeError as exc:
+>           pytest.fail(f'FFN architecture selection is not implemented: {exc}')
+E           Failed: FFN architecture selection is not implemented: architecture() got an unexpected keyword argument 'token_refinement'
+
+tests/test_token_refinement.py:24: Failed
+=============================== warnings summary ===============================
+../../../../../../private/tmp/gavit-feedback-qa-20261002/lib/python3.12/site-packages/torch/jit/frontend.py:1209: 20 warnings
+  /private/tmp/gavit-feedback-qa-20261002/lib/python3.12/site-packages/torch/jit/frontend.py:1209: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    elif isinstance(value, ast.Str):
+
+../../../../../../private/tmp/gavit-feedback-qa-20261002/lib/python3.12/site-packages/torch/jit/frontend.py:1210: 19 warnings
+  /private/tmp/gavit-feedback-qa-20261002/lib/python3.12/site-packages/torch/jit/frontend.py:1210: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead
+    s += value.s
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_token_refinement.py::test_identity_start_preserves_existing_parameters_rng_logits_and_old_loads[swin]
+FAILED tests/test_token_refinement.py::test_identity_start_preserves_existing_parameters_rng_logits_and_old_loads[gavit]
+FAILED tests/test_token_refinement.py::test_both_models_get_identical_ffn_despite_different_construction_rng
+FAILED tests/test_token_refinement.py::test_ffn_is_nonlinear_before_pool_and_reloads_after_learning[swin]
+FAILED tests/test_token_refinement.py::test_ffn_is_nonlinear_before_pool_and_reloads_after_learning[gavit]
+FAILED tests/test_token_refinement.py::test_malformed_or_unapproved_refinement_cannot_silently_reconstruct
+FAILED tests/test_token_refinement.py::test_scope_rejects_refit_other_datasets_and_extra_seeds_before_model_allocation
+7 failed, 39 warnings in 1.11s

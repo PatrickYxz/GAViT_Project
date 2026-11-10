@@ -1,0 +1,305 @@
+UEUE_EXIT: exit_code=0
+STAGE_EXITS: {'swin_smoke': 'exit_code=0', 'gavit_smoke': 'exit_code=0', 'swin_train': 'exit_code=0', 'swin_test': 'exit_code=0', 'gavit_train': 'exit_code=0', 'gavit_test': 'exit_code=0'}
+{
+  "status": "complete",
+  "dataset": "BigEarthNet-19",
+  "seed": 45,
+  "common_identity": {
+    "commit": "deb2b457e86b6fa2feccb5a305e099b6d9ec6dfe",
+    "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+    "splits": {
+      "train": [
+        237871,
+        "25734fd9e8dc7fd78fb259e768ae91fe11b297e1caa50a2d57b74b0296413d8f"
+      ],
+      "val": [
+        122342,
+        "1c6627cb48e33588538c4e411e4f1b94560827f27d59fb7aeb0ea2b5d30c2a45"
+      ],
+      "test": [
+        119825,
+        "cea165a6443fc5ee44de0a3c55f53ce70505c4e25aba9ca8b52d76634df77204"
+      ]
+    },
+    "hardware": {
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "cuda": "12.1",
+      "cudnn": 8902,
+      "threads": 8,
+      "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+      "packages": {
+        "torch": "2.2.2",
+        "torchvision": "0.17.2",
+        "timm": "1.0.27",
+        "torch-geometric": "2.8.0",
+        "numpy": "1.26.4",
+        "scikit-learn": "1.9.0",
+        "pillow": "10.3.0"
+      },
+      "gpu_identity": "GPU-0fa5e2ad-0028-881c-749b-3b88c01de00b, NVIDIA GeForce RTX 2080 Ti, 610.57.04"
+    },
+    "precision": {
+      "dtype": "torch.float32",
+      "matmul_tf32": false,
+      "cudnn_tf32": true,
+      "amp": false
+    },
+    "launcher_sha256": "8ac0083f41ccfb38555ed428d99971d075cb1d7ec3e413b4fa56548dcc1d0369"
+  },
+  "stage_measured_hours_excluding_preflight_and_idle": 27.826336658464164,
+  "stages": {
+    "swin_smoke": {
+      "stage": "swin_smoke",
+      "model": "swin",
+      "seed": 45,
+      "status": "complete",
+      "reload_max_logit_diff": 0.0,
+      "final_epoch": 1,
+      "best": {
+        "metric": "val_mAP",
+        "value": 47.8664,
+        "epoch": 1
+      },
+      "checkpoint": "/home/featurize/work/bigearth_seed45_20260922_01/swin_smoke/swin.pth",
+      "checkpoint_sha256": "b93e0a9ca8050e2ea2b70c288b54a1e7c4d74b29fb5e5cd1d23ac8d87fa05679",
+      "parameters": 27535501,
+      "elapsed_seconds": 18.004014737000034,
+      "peak_cuda_allocated_bytes": 3818737152,
+      "peak_cuda_reserved_bytes": 4104126464,
+      "main_process_peak_rss_kib": 1783528,
+      "resource_scope": "entire stage including checkpoint I/O and saved-state validation; RSS excludes worker processes"
+    },
+    "gavit_smoke": {
+      "stage": "gavit_smoke",
+      "model": "gavit",
+      "seed": 45,
+      "status": "complete",
+      "reload_max_logit_diff": 4.76837158203125e-07,
+      "final_epoch": 1,
+      "best": {
+        "metric": "val_mAP",
+        "value": 53.0337,
+        "epoch": 1
+      },
+      "checkpoint": "/home/featurize/work/bigearth_seed45_20260922_01/gavit_smoke/gavit.pth",
+      "checkpoint_sha256": "762a687f95e31b46f50778bb2b45e0a07e299c883be65a7ad26c0d47252eb2a1",
+      "parameters": 31366926,
+      "elapsed_seconds": 14.058593025999471,
+      "peak_cuda_allocated_bytes": 3923139584,
+      "peak_cuda_reserved_bytes": 4152360960,
+      "main_process_peak_rss_kib": 1977092,
+      "resource_scope": "entire stage including checkpoint I/O and saved-state validation; RSS excludes worker processes"
+    },
+    "swin_train": {
+      "stage": "swin_train",
+      "model": "swin",
+      "seed": 45,
+      "status": "complete",
+      "final_epoch": 30,
+      "best": {
+        "metric": "val_mAP",
+        "value": 78.6509,
+        "epoch": 6
+      },
+      "checkpoint": "/home/featurize/work/bigearth_seed45_20260922_01/swin_train/swin.pth",
+      "checkpoint_sha256": "78cf048b6e2690e40789d13c78030c2350b238c899024a632347af7f0997ed8c",
+      "parameters": 27535501,
+      "metadata": {
+        "model": "swin",
+        "dataset": "BigEarthNet-19",
+        "architecture": {
+          "num_classes": 19,
+          "backbone": "swin_tiny_patch4_window7_224",
+          "dropout": 0.1
+        },
+        "graph_topology": null,
+        "training": {
+          "seed": 45,
+          "epochs": 30,
+          "batch_size": 32,
+          "lr": 0.0003,
+          "weight_decay": 0.0001,
+          "optimizer": "AdamW",
+          "scheduler": "CosineAnnealingLR",
+          "loss": "BCEWithLogitsLoss",
+          "f1_threshold": 0.5
+        },
+        "execution": {
+          "run_stage": "formal",
+          "run_tag": "bigearth_seed45_20260922_01_swin_train"
+        },
+        "best": {
+          "metric": "val_mAP",
+          "value": 78.6509,
+          "epoch": 6
+        },
+        "checkpoint_sha256": "78cf048b6e2690e40789d13c78030c2350b238c899024a632347af7f0997ed8c",
+        "git": {
+          "commit": "deb2b45",
+          "dirty": false
+        },
+        "checkpoint_path": "/home/featurize/work/bigearth_seed45_20260922_01/swin_train/swin.pth",
+        "saved_at": "2026-09-22T08:29:18+00:00"
+      },
+      "elapsed_seconds": 45857.68239937,
+      "peak_cuda_allocated_bytes": 3818737152,
+      "peak_cuda_reserved_bytes": 4104126464,
+      "main_process_peak_rss_kib": 1823848,
+      "resource_scope": "entire stage including checkpoint I/O and saved-state validation; RSS excludes worker processes"
+    },
+    "swin_test": {
+      "stage": "swin_test",
+      "model": "swin",
+      "seed": 45,
+      "status": "complete",
+      "metrics": {
+        "samples": 119825,
+        "mAP_percent": 71.67692953551497,
+        "macro_f1_percent": 65.08421202330264,
+        "micro_f1_percent": 76.73226436237192,
+        "f1_threshold": 0.5,
+        "checkpoint_sha256": "78cf048b6e2690e40789d13c78030c2350b238c899024a632347af7f0997ed8c",
+        "per_class_ap_percent": {
+          "Urban fabric": 86.24644052853436,
+          "Industrial or commercial units": 49.35348132074531,
+          "Arable land": 93.6548590308458,
+          "Permanent crops": 63.35155022873822,
+          "Pastures": 86.16155560417093,
+          "Complex cultivation patterns": 68.82290554153533,
+          "Land principally occupied by agriculture, with significant areas of natural vegetation": 72.41309770023811,
+          "Agro-forestry areas": 87.2876806314931,
+          "Broad-leaved forest": 86.24484039818411,
+          "Coniferous forest": 93.60932737884697,
+          "Mixed forest": 90.05070381197373,
+          "Natural grassland and sparsely vegetated areas": 48.10282826918033,
+          "Moors, heathland and sclerophyllous vegetation": 60.43163185356645,
+          "Transitional woodland, shrub": 78.98327909859074,
+          "Beaches, dunes, sands": 10.317846668936683,
+          "Inland wetlands": 62.8742898851375,
+          "Coastal wetlands": 33.854200825581785,
+          "Inland waters": 90.58510903565174,
+          "Marine waters": 99.51603336283306
+        }
+      },
+      "elapsed_seconds": 270.5606921139988,
+      "peak_cuda_allocated_bytes": 623328768,
+      "peak_cuda_reserved_bytes": 1080033280,
+      "main_process_peak_rss_kib": 1198336,
+      "resource_scope": "entire stage including checkpoint I/O and saved-state validation; RSS excludes worker processes"
+    },
+    "gavit_train": {
+      "stage": "gavit_train",
+      "model": "gavit",
+      "seed": 45,
+      "status": "complete",
+      "final_epoch": 30,
+      "best": {
+        "metric": "val_mAP",
+        "value": 78.2951,
+        "epoch": 10
+      },
+      "checkpoint": "/home/featurize/work/bigearth_seed45_20260922_01/gavit_train/gavit.pth",
+      "checkpoint_sha256": "4268de448d7fabee4fde6db042241efbf38459953f6108337b95a3025313940c",
+      "parameters": 31366926,
+      "metadata": {
+        "model": "gavit",
+        "dataset": "BigEarthNet-19",
+        "architecture": {
+          "num_classes": 19,
+          "num_regions": 16,
+          "knn_k": 5,
+          "gat_hidden": 256,
+          "gat_heads": 4,
+          "gat_layers": 2,
+          "dropout": 0.1,
+          "grouping": "attentive_spatial",
+          "edge_type": "sparse_hybrid",
+          "integration": "token_feedback"
+        },
+        "graph_topology": {
+          "name": "sparse_hybrid_4n_top2",
+          "spatial_connectivity": 4,
+          "feature_k": 2,
+          "spatial_directed_edges": 48,
+          "feature_directed_edges": 32,
+          "total_directed_edges": 80,
+          "message_direction": "neighbor_to_query",
+          "cosine_role": "topology_only"
+        },
+        "training": {
+          "seed": 45,
+          "epochs": 30,
+          "batch_size": 32,
+          "lr": 0.0003,
+          "weight_decay": 0.0001,
+          "optimizer": "AdamW",
+          "scheduler": "CosineAnnealingLR",
+          "loss": "BCEWithLogitsLoss",
+          "f1_threshold": 0.5
+        },
+        "execution": {
+          "run_stage": "formal",
+          "run_tag": "bigearth_seed45_20260922_01_gavit_train"
+        },
+        "best": {
+          "metric": "val_mAP",
+          "value": 78.2951,
+          "epoch": 10
+        },
+        "checkpoint_sha256": "4268de448d7fabee4fde6db042241efbf38459953f6108337b95a3025313940c",
+        "git": {
+          "commit": "deb2b45",
+          "dirty": false
+        },
+        "checkpoint_path": "/home/featurize/work/bigearth_seed45_20260922_01/gavit_train/gavit.pth",
+        "saved_at": "2026-09-22T23:41:32+00:00"
+      },
+      "elapsed_seconds": 53606.540994166,
+      "peak_cuda_allocated_bytes": 3923333120,
+      "peak_cuda_reserved_bytes": 4152360960,
+      "main_process_peak_rss_kib": 2002048,
+      "resource_scope": "entire stage including checkpoint I/O and saved-state validation; RSS excludes worker processes"
+    },
+    "gavit_test": {
+      "stage": "gavit_test",
+      "model": "gavit",
+      "seed": 45,
+      "status": "complete",
+      "metrics": {
+        "samples": 119825,
+        "mAP_percent": 70.25823624286052,
+        "macro_f1_percent": 64.29547698363885,
+        "micro_f1_percent": 76.70245685151849,
+        "f1_threshold": 0.5,
+        "checkpoint_sha256": "4268de448d7fabee4fde6db042241efbf38459953f6108337b95a3025313940c",
+        "per_class_ap_percent": {
+          "Urban fabric": 86.34461759843379,
+          "Industrial or commercial units": 49.41060551132683,
+          "Arable land": 93.79621637085314,
+          "Permanent crops": 60.81244620953233,
+          "Pastures": 86.08994326413276,
+          "Complex cultivation patterns": 70.06918297456423,
+          "Land principally occupied by agriculture, with significant areas of natural vegetation": 72.86567544986204,
+          "Agro-forestry areas": 87.32493533539166,
+          "Broad-leaved forest": 85.58480444385715,
+          "Coniferous forest": 93.56169097317066,
+          "Mixed forest": 89.35960710816634,
+          "Natural grassland and sparsely vegetated areas": 47.61401971282264,
+          "Moors, heathland and sclerophyllous vegetation": 60.00191643475874,
+          "Transitional woodland, shrub": 77.89724530832795,
+          "Beaches, dunes, sands": 9.668870469356605,
+          "Inland wetlands": 63.236983660961066,
+          "Coastal wetlands": 10.66842766288083,
+          "Inland waters": 91.18980467457862,
+          "Marine waters": 99.4094954513724
+        }
+      },
+      "elapsed_seconds": 407.96527705799963,
+      "peak_cuda_allocated_bytes": 638921728,
+      "peak_cuda_reserved_bytes": 1101004800,
+      "main_process_peak_rss_kib": 1503028,
+      "resource_scope": "entire stage including checkpoint I/O and saved-state validation; RSS excludes worker processes"
+    }
+  }
+}
+(base) ➜ ~ 

@@ -1,0 +1,10 @@
+AIR 640/1260: cached/S/graph/restoration PASS
+PAIR 960/1260: cached/S/graph/restoration PASS
+PAIR 1260/1260: cached/S/graph/restoration PASS
+NORMAL {"samples": 1260, "correct": 1181, "oa_percent": 93.73015873015873, "macro_f1_percent": 93.7657214015048, "cross_entropy": 0.24141959846019745}
+MEMBERSHIP_ONLY {"samples": 1260, "correct": 1174, "oa_percent": 93.17460317460318, "macro_f1_percent": 93.19205007983717, "cross_entropy": 0.24219822883605957}
+PAIRED {"both_correct": 1169, "corrects": 5, "breaks": 12, "both_wrong": 74, "net_correct": -7}
+CHECKS {"S_max_abs_diff": 0.0, "restoration_max_logit_diff": 2.86102294921875e-06, "U_column_error": 2.384185791015625e-07, "cached_probability_max_error": 2.980232238769531e-07, "cpu_replay_max_logit_diff": 7.62939453125e-06}
+REGIONS {"normal_region_cosine_mean": {"valid_images": 1260, "mean": 0.7513060694588863}, "membership_only_region_cosine_mean": {"valid_images": 1260, "mean": 0.7083532935839648}, "common_feature_edges": {"valid_images": 1260, "mean": 18.496031746031747}}
+NWPU POOLING PROBE COMPLETE /home/featurize/work/nwpu_pooling42_20261008_01
+exit_code=0

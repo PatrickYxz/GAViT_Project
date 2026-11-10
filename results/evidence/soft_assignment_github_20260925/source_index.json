@@ -1,0 +1,129 @@
+{
+  "date": "2026-09-25",
+  "review_completed_on": "2026-09-26",
+  "scope": "Targeted static source review for GAViT soft assignment design; not exhaustive",
+  "sources": [
+    {
+      "repository": "hhb072/STViT",
+      "commit": "3a499f0a633ad41ede49f58e98c473476018c9ba",
+      "path": "README.md",
+      "lines": 90,
+      "url": "https://github.com/hhb072/STViT/blob/3a499f0a633ad41ede49f58e98c473476018c9ba/README.md",
+      "access": "GitHub connector fetch_file",
+      "read_only": true
+    },
+    {
+      "repository": "hhb072/STViT",
+      "commit": "3a499f0a633ad41ede49f58e98c473476018c9ba",
+      "path": "models/stvit.py",
+      "lines": 603,
+      "url": "https://github.com/hhb072/STViT/blob/3a499f0a633ad41ede49f58e98c473476018c9ba/models/stvit.py",
+      "access": "GitHub connector fetch_file",
+      "read_only": true
+    },
+    {
+      "repository": "NVlabs/ssn_superpixels",
+      "commit": "082918950d768f29466148666b7f434c78663dc6",
+      "path": "README.md",
+      "lines": 115,
+      "url": "https://github.com/NVlabs/ssn_superpixels/blob/082918950d768f29466148666b7f434c78663dc6/README.md",
+      "access": "GitHub connector fetch_file",
+      "read_only": true
+    },
+    {
+      "repository": "NVlabs/ssn_superpixels",
+      "commit": "082918950d768f29466148666b7f434c78663dc6",
+      "path": "create_net.py",
+      "lines": 354,
+      "url": "https://github.com/NVlabs/ssn_superpixels/blob/082918950d768f29466148666b7f434c78663dc6/create_net.py",
+      "access": "GitHub connector fetch_file",
+      "read_only": true
+    },
+    {
+      "repository": "NVlabs/ssn_superpixels",
+      "commit": "082918950d768f29466148666b7f434c78663dc6",
+      "path": "lib/src/caffe/layers/passoc_layer.cu",
+      "lines": 219,
+      "url": "https://github.com/NVlabs/ssn_superpixels/blob/082918950d768f29466148666b7f434c78663dc6/lib/src/caffe/layers/passoc_layer.cu",
+      "access": "GitHub connector fetch_file",
+      "read_only": true
+    },
+    {
+      "repository": "NVlabs/ssn_superpixels",
+      "commit": "082918950d768f29466148666b7f434c78663dc6",
+      "path": "lib/src/caffe/layers/spixel_feature2_layer.cu",
+      "lines": 248,
+      "url": "https://github.com/NVlabs/ssn_superpixels/blob/082918950d768f29466148666b7f434c78663dc6/lib/src/caffe/layers/spixel_feature2_layer.cu",
+      "access": "GitHub connector fetch_file",
+      "read_only": true
+    },
+    {
+      "repository": "google-research/google-research",
+      "commit": "d36068b845da4c2b24927fee2cea1e6ef98dadda",
+      "path": "slot_attention/README.md",
+      "lines": 102,
+      "url": "https://github.com/google-research/google-research/blob/d36068b845da4c2b24927fee2cea1e6ef98dadda/slot_attention/README.md",
+      "access": "GitHub connector fetch_file",
+      "read_only": true
+    },
+    {
+      "repository": "google-research/google-research",
+      "commit": "d36068b845da4c2b24927fee2cea1e6ef98dadda",
+      "path": "slot_attention/model.py",
+      "lines": 326,
+      "url": "https://github.com/google-research/google-research/blob/d36068b845da4c2b24927fee2cea1e6ef98dadda/slot_attention/model.py",
+      "access": "GitHub connector fetch_file",
+      "read_only": true
+    },
+    {
+      "repository": "NVlabs/GroupViT",
+      "commit": "13b786155a1dfffe4703f40d028c92be58e1178d",
+      "path": "README.md",
+      "lines": 345,
+      "url": "https://github.com/NVlabs/GroupViT/blob/13b786155a1dfffe4703f40d028c92be58e1178d/README.md",
+      "access": "GitHub connector fetch_file",
+      "read_only": true
+    },
+    {
+      "repository": "NVlabs/GroupViT",
+      "commit": "13b786155a1dfffe4703f40d028c92be58e1178d",
+      "path": "models/group_vit.py",
+      "lines": 880,
+      "url": "https://github.com/NVlabs/GroupViT/blob/13b786155a1dfffe4703f40d028c92be58e1178d/models/group_vit.py",
+      "access": "GitHub connector fetch_file",
+      "read_only": true
+    },
+    {
+      "repository": "pyg-team/pytorch_geometric",
+      "commit": "79d33965a40b7fa83616a9f598a0f8619f25d939",
+      "path": "torch_geometric/nn/dense/diff_pool.py",
+      "lines": 85,
+      "url": "https://github.com/pyg-team/pytorch_geometric/blob/79d33965a40b7fa83616a9f598a0f8619f25d939/torch_geometric/nn/dense/diff_pool.py",
+      "access": "GitHub connector fetch_file",
+      "read_only": true
+    }
+  ],
+  "repository_searches": [
+    {
+      "query": "\"Superpixel Transformer\"",
+      "page": 1,
+      "per_page": 5,
+      "result_count": 5,
+      "scope": "retrieved page only"
+    },
+    {
+      "query": "\"Enhancing Vision Transformer with Superpixel\"",
+      "page": 1,
+      "per_page": 5,
+      "result_count": 0
+    }
+  ],
+  "runtime_validation": false,
+  "model_code_modified": false,
+  "training_started": false,
+  "limitations": [
+    "No author-source repository confirmed for SPFormer Enhancing Vision Transformer with Superpixel Representation in this targeted pass; unrelated same-name hits excluded.",
+    "PyG DiffPool is a library implementation, not described as the original paper authors repository.",
+    "PyTorch SSN community ports surfaced but not used as evidence for official implementation behavior."
+  ]
+}

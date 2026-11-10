@@ -1,0 +1,10 @@
+{
+  "status": "syntax_read_only_pass",
+  "checks": [
+    "Python AST multiline and actual one-line payload",
+    "Bash/zsh syntax",
+    "total exit/status/seed and own checkpoint identity assertions",
+    "history1..30 and first-max best consistency"
+  ],
+  "scope": "read-only summary extraction; no model/CUDA/test/training execution"
+}

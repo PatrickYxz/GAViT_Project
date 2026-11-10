@@ -1,0 +1,10 @@
+{
+  "scope": "Local synthetic cached files only; no real server predictions or neural inference",
+  "python_syntax": true,
+  "bash_syntax": true,
+  "zsh_syntax": true,
+  "fixture_pair_counts": true,
+  "fixture_probe_selection": true,
+  "duplicate_path_rejected": true,
+  "command_characters": 4543
+}

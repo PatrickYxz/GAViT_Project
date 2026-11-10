@@ -1,0 +1,30 @@
+{
+  "scope": "Local syntax and queue control-flow only, subprocess training replaced by explicit fake outputs; no GPU/30-epoch training executed",
+  "fixture": "/private/tmp/nwpu-queue-check-8etm7v7t",
+  "results": [
+    {
+      "failure_stage": null,
+      "stages_called": [
+        "swin",
+        "fixed",
+        "soft"
+      ],
+      "exit": 0
+    },
+    {
+      "failure_stage": "fixed",
+      "stages_called": [
+        "swin",
+        "fixed"
+      ],
+      "exit": 1
+    },
+    {
+      "failure_stage": "swin",
+      "stages_called": [
+        "swin"
+      ],
+      "exit": 1
+    }
+  ]
+}

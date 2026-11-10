@@ -1,0 +1,179 @@
+.........F.F.                                                            [100%]
+=================================== FAILURES ===================================
+___ RuntimeTests.test_real_models_train_save_reload_and_evaluate_validation ____
+tests/test_scene_runtime.py:47: in test_real_models_train_save_reload_and_evaluate_validation
+    cfg = self.config(model=name, output=str(Path(self.tmp.name) / (name + str(grouping))), **extra)
+tests/test_scene_runtime.py:41: in config
+    return runtime().RunConfig(**kwargs)
+E   TypeError: RunConfig.__init__() got an unexpected keyword argument 'grouping'
+----------------------------- Captured stdout call -----------------------------
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/swinNone; PHASE smoke; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MODEL swin; DATASET synthetic; DEVICE CPU; PHASE smoke; train=2 val=2
+TRAIN FIRST BATCH OK loss=0.647206; graph={}
+EPOCH 1/1; loss=0.647206; val_OA=50.0; train_s=0.15
+SCENE SMOKE COMPLETE: /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/swinNone
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/swinNone/val_eval; PHASE evaluate; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+SCENE EVALUATION COMPLETE: /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/swinNone/val_eval; OA=50.0000%
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/swinNone/changed_code; PHASE evaluate; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/swinNone/failed_source; PHASE evaluate; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/swinNone/forbidden_test; PHASE evaluate; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/swinNone/wrong_identity; PHASE evaluate; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/swinNone/corrupt; PHASE evaluate; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/gavitNone; PHASE smoke; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MODEL gavit; DATASET synthetic; DEVICE CPU; PHASE smoke; train=2 val=2
+TRAIN FIRST BATCH OK loss=0.579261; graph={'edges_per_image': 80, 'spatial_edges': 48, 'feature_edges': 32, 'actual_forward_checked': True}
+EPOCH 1/1; loss=0.579261; val_OA=100.0; train_s=0.16
+SCENE SMOKE COMPLETE: /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/gavitNone
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/gavitNone/val_eval; PHASE evaluate; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+SCENE EVALUATION COMPLETE: /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/gavitNone/val_eval; OA=100.0000%
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/gavitNone/changed_code; PHASE evaluate; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/gavitNone/failed_source; PHASE evaluate; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/gavitNone/forbidden_test; PHASE evaluate; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/gavitNone/wrong_identity; PHASE evaluate; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphbmgn9lk/gavitNone/corrupt; PHASE evaluate; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+----------------------------- Captured stderr call -----------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 84, in _run_output
+    yield out, start
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 413, in evaluate_checkpoint
+    raise ValueError('Evaluation code identity changed from checkpoint; use the recorded source version')
+ValueError: Evaluation code identity changed from checkpoint; use the recorded source version
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 84, in _run_output
+    yield out, start
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 409, in evaluate_checkpoint
+    validate_source_run(json.loads((source_dir / 'run.json').read_text()), meta,
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 206, in validate_source_run
+    raise ValueError('Source run completion or checkpoint identity mismatch')
+ValueError: Source run completion or checkpoint identity mismatch
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 84, in _run_output
+    yield out, start
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 416, in evaluate_checkpoint
+    raise ValueError('smoke checkpoint cannot evaluate test')
+ValueError: smoke checkpoint cannot evaluate test
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 84, in _run_output
+    yield out, start
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 407, in evaluate_checkpoint
+    meta = _checkpoint_metadata(checkpoint, manifest_path, manifest)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 217, in _checkpoint_metadata
+    raise ValueError('Checkpoint identity mismatch')
+ValueError: Checkpoint identity mismatch
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 84, in _run_output
+    yield out, start
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 407, in evaluate_checkpoint
+    meta = _checkpoint_metadata(checkpoint, manifest_path, manifest)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 219, in _checkpoint_metadata
+    raise ValueError('Checkpoint hash mismatch')
+ValueError: Checkpoint hash mismatch
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 84, in _run_output
+    yield out, start
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 413, in evaluate_checkpoint
+    raise ValueError('Evaluation code identity changed from checkpoint; use the recorded source version')
+ValueError: Evaluation code identity changed from checkpoint; use the recorded source version
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 84, in _run_output
+    yield out, start
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 409, in evaluate_checkpoint
+    validate_source_run(json.loads((source_dir / 'run.json').read_text()), meta,
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 206, in validate_source_run
+    raise ValueError('Source run completion or checkpoint identity mismatch')
+ValueError: Source run completion or checkpoint identity mismatch
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 84, in _run_output
+    yield out, start
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 416, in evaluate_checkpoint
+    raise ValueError('smoke checkpoint cannot evaluate test')
+ValueError: smoke checkpoint cannot evaluate test
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 84, in _run_output
+    yield out, start
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 407, in evaluate_checkpoint
+    meta = _checkpoint_metadata(checkpoint, manifest_path, manifest)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 217, in _checkpoint_metadata
+    raise ValueError('Checkpoint identity mismatch')
+ValueError: Checkpoint identity mismatch
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 84, in _run_output
+    yield out, start
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 407, in evaluate_checkpoint
+    meta = _checkpoint_metadata(checkpoint, manifest_path, manifest)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py", line 219, in _checkpoint_metadata
+    raise ValueError('Checkpoint hash mismatch')
+ValueError: Checkpoint hash mismatch
+_ RuntimeTests.test_soft_calibration_cannot_be_refit_as_fixed_or_different_assignment _
+tests/test_scene_runtime.py:175: in test_soft_calibration_cannot_be_refit_as_fixed_or_different_assignment
+    soft = runtime().architecture('gavit', 30, grouping='soft_prototype')
+E   TypeError: architecture() got an unexpected keyword argument 'grouping'
+----------------------------- Captured stdout call -----------------------------
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+=============================== warnings summary ===============================
+../../../../../../private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1209: 20 warnings
+  /private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1209: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    elif isinstance(value, ast.Str):
+
+../../../../../../private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1210: 19 warnings
+  /private/tmp/gavit-soft-qa-20260926/lib/python3.12/site-packages/torch/jit/frontend.py:1210: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead
+    s += value.s
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_scene_runtime.py::RuntimeTests::test_real_models_train_save_reload_and_evaluate_validation
+FAILED tests/test_scene_runtime.py::RuntimeTests::test_soft_calibration_cannot_be_refit_as_fixed_or_different_assignment
+2 failed, 11 passed, 39 warnings in 9.39s

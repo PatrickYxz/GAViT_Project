@@ -1,0 +1,10 @@
+{
+  "source": "User-pasted run.exit and summary.json on 2026-09-29; transcribed fields, not downloaded files",
+  "server_directory": "/home/featurize/work/nwpu_regions42_20260929_01",
+  "exit_code": 0,
+  "local_validation": "paired arithmetic and finite error bounds pass",
+  "evidence_zip_sha256_independently_verified": false,
+  "real_figures_visually_reviewed": false,
+  "html_MiB": 264.442343711853,
+  "evidence_zip_MiB": 152.06323909759521
+}

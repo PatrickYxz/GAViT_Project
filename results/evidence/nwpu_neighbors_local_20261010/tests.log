@@ -1,0 +1,116 @@
+....................Fatal Python error: Aborted
+
+Current thread 0x00000001f7545d80 (most recent call first):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/subprocess.py", line 1885 in _execute_child
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/subprocess.py", line 1026 in __init__
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/subprocess.py", line 548 in run
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_nwpu_neighbors.py", line 220 in test_delivered_launcher_decodes_exact_tested_tool_and_shell_syntax
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/python.py", line 159 in pytest_pyfunc_call
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/python.py", line 1627 in runtest
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/runner.py", line 174 in pytest_runtest_call
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/runner.py", line 242 in <lambda>
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/runner.py", line 341 in from_call
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/runner.py", line 241 in call_and_report
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/runner.py", line 132 in runtestprotocol
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/runner.py", line 113 in pytest_runtest_protocol
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/main.py", line 362 in pytest_runtestloop
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/main.py", line 337 in _main
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/main.py", line 283 in wrap_session
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/main.py", line 330 in pytest_cmdline_main
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/config/__init__.py", line 175 in main
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/config/__init__.py", line 201 in console_main
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pytest/__main__.py", line 9 in <module>
+  File "<frozen runpy>", line 88 in _run_code
+  File "<frozen runpy>", line 198 in _run_module_as_main
+
+Extension modules: numpy.core._multiarray_umath, numpy.core._multiarray_tests, numpy.linalg._umath_linalg, numpy.fft._pocketfft_internal, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._mt19937, numpy.random.mtrand, numpy.random._philox, numpy.random._pcg64, numpy.random._sfc64, numpy.random._generator, torch._C, torch._C._fft, torch._C._linalg, torch._C._nested, torch._C._nn, torch._C._sparse, torch._C._special, xxhash._xxhash, psutil._psutil_osx, markupsafe._speedups, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.properties, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing, charset_normalizer.md, charset_normalizer.cd, requests.packages.charset_normalizer.md, requests.packages.chardet.md, requests.packages.charset_normalizer.cd, requests.packages.chardet.cd (total: 69)
+FFatal Python error: Aborted
+
+Current thread 0x00000001f7545d80 (most recent call first):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/subprocess.py", line 1885 in _execute_child
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/subprocess.py", line 1026 in __init__
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/subprocess.py", line 548 in run
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_nwpu_neighbors.py", line 230 in test_delivered_launcher_missing_sources_and_old_outputs_stop_without_spawn
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/python.py", line 159 in pytest_pyfunc_call
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/python.py", line 1627 in runtest
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/runner.py", line 174 in pytest_runtest_call
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/runner.py", line 242 in <lambda>
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/runner.py", line 341 in from_call
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/runner.py", line 241 in call_and_report
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/runner.py", line 132 in runtestprotocol
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/runner.py", line 113 in pytest_runtest_protocol
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/main.py", line 362 in pytest_runtestloop
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/main.py", line 337 in _main
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/main.py", line 283 in wrap_session
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/main.py", line 330 in pytest_cmdline_main
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_callers.py", line 121 in _multicall
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_manager.py", line 120 in _hookexec
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pluggy/_hooks.py", line 512 in __call__
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/config/__init__.py", line 175 in main
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/_pytest/config/__init__.py", line 201 in console_main
+  File "/private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/pytest/__main__.py", line 9 in <module>
+  File "<frozen runpy>", line 88 in _run_code
+  File "<frozen runpy>", line 198 in _run_module_as_main
+
+Extension modules: numpy.core._multiarray_umath, numpy.core._multiarray_tests, numpy.linalg._umath_linalg, numpy.fft._pocketfft_internal, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._mt19937, numpy.random.mtrand, numpy.random._philox, numpy.random._pcg64, numpy.random._sfc64, numpy.random._generator, torch._C, torch._C._fft, torch._C._linalg, torch._C._nested, torch._C._nn, torch._C._sparse, torch._C._special, xxhash._xxhash, psutil._psutil_osx, markupsafe._speedups, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.properties, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing, charset_normalizer.md, charset_normalizer.cd, requests.packages.charset_normalizer.md, requests.packages.chardet.md, requests.packages.charset_normalizer.cd, requests.packages.chardet.cd (total: 69)
+F                                                   [100%]
+=================================== FAILURES ===================================
+______ test_delivered_launcher_decodes_exact_tested_tool_and_shell_syntax ______
+tests/test_nwpu_neighbors.py:220: in test_delivered_launcher_decodes_exact_tested_tool_and_shell_syntax
+    subprocess.run([shell,'-n'],input=command,text=True,check=True,capture_output=True)
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/subprocess.py:571: in run
+    raise CalledProcessError(retcode, process.args,
+E   subprocess.CalledProcessError: Command '['bash', '-n']' died with <Signals.SIGABRT: 6>.
+----------------------------- Captured stderr call -----------------------------
+OMP: Error #179: Function Can't open SHM failed:
+OMP: System error #0: Undefined error: 0
+__ test_delivered_launcher_missing_sources_and_old_outputs_stop_without_spawn __
+tests/test_nwpu_neighbors.py:231: in test_delivered_launcher_missing_sources_and_old_outputs_stop_without_spawn
+    assert result.returncode!=0 and 'Missing persistent sources' in result.stderr
+E   assert (-6 != 0 and 'Missing persistent sources' in '')
+E    +  where -6 = CompletedProcess(args=['/private/tmp/gavit-cache-qa-20261007/bin/python', '-c', 'import base64,zlib,hashlib,os,subproc....close(); print("PID:",q.pid); print("OUTPUT:",o); print("PROGRESS: tail -f",l)'], returncode=-6, stdout='', stderr='').returncode
+E    +  and   '' = CompletedProcess(args=['/private/tmp/gavit-cache-qa-20261007/bin/python', '-c', 'import base64,zlib,hashlib,os,subproc....close(); print("PID:",q.pid); print("OUTPUT:",o); print("PROGRESS: tail -f",l)'], returncode=-6, stdout='', stderr='').stderr
+----------------------------- Captured stderr call -----------------------------
+OMP: Error #179: Function Can't open SHM failed:
+OMP: System error #0: Undefined error: 0
+=============================== warnings summary ===============================
+tests/test_nwpu_neighbors.py: 20 warnings
+  /private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/torch/jit/frontend.py:1209: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    elif isinstance(value, ast.Str):
+
+tests/test_nwpu_neighbors.py: 19 warnings
+  /private/tmp/gavit-cache-qa-20261007/lib/python3.12/site-packages/torch/jit/frontend.py:1210: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead
+    s += value.s
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_nwpu_neighbors.py::test_delivered_launcher_decodes_exact_tested_tool_and_shell_syntax
+FAILED tests/test_nwpu_neighbors.py::test_delivered_launcher_missing_sources_and_old_outputs_stop_without_spawn
+2 failed, 20 passed, 39 warnings in 1.94s

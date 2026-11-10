@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-10",
+  "source": "User terminal summary; original checkpoint/history/predictions not downloaded",
+  "correct_derived_from_reported_OA": 1164,
+  "samples": 1260,
+  "minutes": 49.95730234263333,
+  "cuda_peak_allocated_GiB": 3.662567615509033,
+  "comparisons": {
+    "swin": {
+      "reference_correct": 1187,
+      "reference_OA_percent": 94.2063492063492,
+      "delta_correct": -23,
+      "delta_OA_pp": -1.8253968253968254
+    },
+    "fixed": {
+      "reference_correct": 1172,
+      "reference_OA_percent": 93.01587301587301,
+      "delta_correct": -8,
+      "delta_OA_pp": -0.6349206349206349
+    },
+    "soft": {
+      "reference_correct": 1181,
+      "reference_OA_percent": 93.73015873015873,
+      "delta_correct": -17,
+      "delta_OA_pp": -1.3492063492063493
+    }
+  },
+  "stop_rule": "best full-val OA <= original soft 1181/1260: stop candidate, no extra seeds or strength search",
+  "decision": "stop_candidate_training; cached metadata/metric closeout pending",
+  "not_yet_verified": [
+    "full calibration identity/hardware",
+    "macro-F1",
+    "prediction-level paired counts",
+    "complete curve and first best selection",
+    "actual checkpoint file digest",
+    "full calibration probe geometry"
+  ],
+  "reload_diff_pass": true,
+  "source_sha256": "9799f2d85396c0539def253cbdfba80659799cf67536be87a0191ba3d9a7abc0"
+}

@@ -1,0 +1,16 @@
+{
+  "source_attachment": "/Users/patrick/.codex/attachments/26061f58-01d6-43ad-b969-7b5b3febd68a/已粘贴的文本.txt",
+  "source_sha256": "1c12a4a255571e4c73321a1f26e14c0375d9fdadb774dff69f74ea8a7d625c1a",
+  "raw_copy": "reported_output.txt",
+  "normalized_json": "summary.json",
+  "transformation": "Extract first JSON object; omit trailing shell prompt only.",
+  "evidence_scope": "User-returned server collector output. Six exits/statuses are reported, not locally executed. Common identities were equality-checked by collector.",
+  "not_returned": [
+    "original server run.json/config.json/history.json files",
+    "full confusion matrices",
+    "individual predictions.csv rows",
+    "checkpoint files",
+    "queue completion marker and full run.log files"
+  ],
+  "warning": "Do not rename stage excerpts to original run.json or hash normalized reports as server byte copies. Weight hashes were cross-checked between reports, not against local weight files."
+}

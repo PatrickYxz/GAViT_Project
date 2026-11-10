@@ -1,0 +1,15 @@
+{
+  "source": "/Users/patrick/.codex/attachments/65173a9f-a9cd-4629-8a8a-258a6adde924/已粘贴的文本.txt",
+  "method": "run.json and exit line extracted from user-pasted output; no checkpoint downloaded",
+  "local_source_hashes_matched": 17,
+  "commit": "deb2b45",
+  "paired_fields_equal": [
+    "manifest_sha256",
+    "pretrained_sha256",
+    "seed",
+    "training",
+    "hardware",
+    "code",
+    "counts"
+  ]
+}

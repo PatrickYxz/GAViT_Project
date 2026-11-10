@@ -1,0 +1,66 @@
+{
+  "source": "https://huggingface.co/datasets/Vision-Flan/vision-flan/resolve/a7fc1f3307439d00e39acb9a944356b346531ae9/shard_05/raw_dataset/AID.zip",
+  "archive_bytes": 2628474154,
+  "expected_sha256_from_hf_lfs": "cdb1af67657ef1ed42ed481bf009df689ddc9ea13dfb6eb36277882312703bf7",
+  "full_archive_hash_verified": false,
+  "entry_count": 10034,
+  "image_count": 10000,
+  "class_counts": {
+    "AID/AID/Pond": 420,
+    "AID/AID/Forest": 250,
+    "AID/AID/River": 410,
+    "AID/AID/Resort": 290,
+    "AID/AID/Playground": 370,
+    "AID/AID/Bridge": 360,
+    "AID/AID/Park": 350,
+    "AID/AID/Center": 260,
+    "AID/AID/Square": 330,
+    "AID/AID/BaseballField": 220,
+    "AID/AID/Church": 240,
+    "AID/AID/Farmland": 370,
+    "AID/AID/Stadium": 290,
+    "AID/AID/Viaduct": 420,
+    "AID/AID/Commercial": 350,
+    "AID/AID/Industrial": 390,
+    "AID/AID/Airport": 360,
+    "AID/AID/SparseResidential": 300,
+    "AID/AID/MediumResidential": 290,
+    "AID/AID/DenseResidential": 410,
+    "AID/AID/RailwayStation": 260,
+    "AID/AID/BareLand": 310,
+    "AID/AID/Beach": 400,
+    "AID/AID/Port": 380,
+    "AID/AID/Mountain": 340,
+    "AID/AID/Desert": 300,
+    "AID/AID/Meadow": 280,
+    "AID/AID/Parking": 390,
+    "AID/AID/School": 300,
+    "AID/AID/StorageTanks": 360
+  },
+  "samples": [
+    {
+      "name": "AID/AID/Pond/pond_127.jpg",
+      "size": [
+        600,
+        600
+      ],
+      "mode": "RGB"
+    },
+    {
+      "name": "AID/AID/Industrial/industrial_115.jpg",
+      "size": [
+        600,
+        600
+      ],
+      "mode": "RGB"
+    },
+    {
+      "name": "AID/AID/StorageTanks/storagetanks_222.jpg",
+      "size": [
+        600,
+        600
+      ],
+      "mode": "RGB"
+    }
+  ]
+}

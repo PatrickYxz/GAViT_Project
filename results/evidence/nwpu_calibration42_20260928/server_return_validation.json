@@ -1,0 +1,35 @@
+{
+  "scope": "seed42 calibration best validation; not test or multi-seed",
+  "derived": {
+    "swin": {
+      "correct_from_reported_OA": 1187,
+      "elapsed_minutes": 23.23739020049999,
+      "allocated_GiB": 3.5583624839782715,
+      "reserved_GiB": 3.830078125,
+      "delta_vs_swin_pp": 0.0
+    },
+    "fixed": {
+      "correct_from_reported_OA": 1172,
+      "elapsed_minutes": 24.260602612133333,
+      "allocated_GiB": 3.655850410461426,
+      "reserved_GiB": 3.876953125,
+      "delta_vs_swin_pp": -1.1904761904761898
+    },
+    "soft": {
+      "correct_from_reported_OA": 1181,
+      "elapsed_minutes": 24.72752175568333,
+      "allocated_GiB": 3.662564277648926,
+      "reserved_GiB": 4.0390625,
+      "delta_vs_swin_pp": -0.4761904761904674
+    }
+  },
+  "soft_minus_fixed_pp": 0.7142857142857224,
+  "soft_minus_swin_pp": -0.4761904761904674,
+  "queue_minutes": 72.447814041,
+  "pending": [
+    "full code/training/hardware identity comparison",
+    "cached validation macro-F1 and paired predictions",
+    "training curves and soft assignment diagnostics"
+  ],
+  "checks": "Reported counts, hashes, epochs, OA integer reconstruction, graph counts and reload tolerances agree; no checkpoint bytes or server artifacts independently downloaded"
+}

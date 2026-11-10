@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "source_sha256": "1f60c26b829682b3f318474b36ec57a42f607a0a8840d025147d2405bbd7e78b",
+  "scope": "Local arithmetic and prior-OA cross-check of user-returned summary; no remote identity/log/cache download or independent prediction replay.",
+  "delivered_tool_sha256": "4cd5175261d271638a00e4a4c733f329ecde1c07b646b901c960f0181237eea3",
+  "run_exit": "exit_code=0",
+  "checks": {
+    "fixed": {
+      "original_oa_matches_prior": true,
+      "all_pair_counts_and_deltas_consistent": true,
+      "all_lower_alpha_oa_worse": true,
+      "all_lower_alpha_macro_f1_worse": true,
+      "all_lower_alpha_cross_entropy_worse": true,
+      "zero_feedback_net_correct": -9,
+      "cpu_replay_max_logit_diff": 8.58306884765625e-06
+    },
+    "soft": {
+      "original_oa_matches_prior": true,
+      "all_pair_counts_and_deltas_consistent": true,
+      "all_lower_alpha_oa_worse": true,
+      "all_lower_alpha_macro_f1_worse": true,
+      "all_lower_alpha_cross_entropy_worse": true,
+      "zero_feedback_net_correct": -9,
+      "cpu_replay_max_logit_diff": 1.049041748046875e-05
+    }
+  },
+  "elapsed_seconds": 46.331209056000006,
+  "cpu_replay_note": "Server code checks elementwise atol=1e-5 plus rtol=1e-5 and exact argmax. Soft max absolute error slightly exceeds atol alone; max absolute error cannot independently recheck that mixed criterion."
+}

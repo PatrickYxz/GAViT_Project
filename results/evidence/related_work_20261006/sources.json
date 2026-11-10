@@ -1,0 +1,159 @@
+{
+  "date": "2026-10-06",
+  "scope": "Targeted primary-source checks for a Chinese related-work draft; not an exhaustive or systematic review, software execution or novelty proof",
+  "sources": [
+    {
+      "id": "R1", "key": "dosovitskiy2021vit", "type": "inproceedings",
+      "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      "author": "Dosovitskiy, Alexey and Beyer, Lucas and Kolesnikov, Alexander and Weissenborn, Dirk and Zhai, Xiaohua and Unterthiner, Thomas and Dehghani, Mostafa and Minderer, Matthias and Heigold, Georg and Gelly, Sylvain and Uszkoreit, Jakob and Houlsby, Neil",
+      "year": 2021, "booktitle": "International Conference on Learning Representations",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "additional_primary_urls": ["https://github.com/google-research/vision_transformer"],
+      "locators": ["Paper abstract", "Author repository Bibtex"],
+      "supports": ["Transformer classification from image patch sequences", "2021 ICLR identity; 2020 is preprint year"],
+      "checked_by": "main agent"
+    },
+    {
+      "id": "R2", "key": "liu2021swin", "type": "inproceedings",
+      "title": "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows",
+      "author": "Liu, Ze and Lin, Yutong and Cao, Yue and Hu, Han and Wei, Yixuan and Zhang, Zheng and Lin, Stephen and Guo, Baining",
+      "year": 2021, "booktitle": "Proceedings of the IEEE/CVF International Conference on Computer Vision",
+      "url": "https://arxiv.org/abs/2103.14030",
+      "additional_primary_urls": ["https://github.com/microsoft/Swin-Transformer"],
+      "locators": ["Paper abstract", "Author repository Citing Swin Transformer"],
+      "supports": ["Hierarchical visual representation and shifted local windows", "Cross-window connection; cannot describe baseline as lacking contextual interaction"],
+      "checked_by": "main agent"
+    },
+    {
+      "id": "R3", "key": "bazi2021remotevit", "type": "article",
+      "title": "Vision Transformers for Remote Sensing Image Classification",
+      "author": "Bazi, Yakoub and Bashmal, Laila and Al Rahhal, Mohamad M. and Al Dayil, Reham and Al Ajlan, Naif",
+      "year": 2021, "journal": "Remote Sensing", "volume": "13", "number": "3", "pages": "516",
+      "doi": "10.3390/rs13030516", "url": "https://www.mdpi.com/2072-4292/13/3/516",
+      "locators": ["Publisher-indexed metadata, abstract and method text"],
+      "supports": ["Nonoverlapping image patches, embeddings, Transformer encoder and classification in remote sensing", "No claimed explicit land-cover region graph"],
+      "limits": "Publisher direct open returned 429; primary publisher content was obtained through indexed search. Full variant-specific recipes were not audited.",
+      "checked_by": "rs_relatedwork_sources agent; reviewed by main agent"
+    },
+    {
+      "id": "R4", "key": "li2024hgtnet", "type": "article",
+      "title": "A Hierarchical Graph-Enhanced Transformer Network for Remote Sensing Scene Classification",
+      "author": "Li, Ziwei and Xu, Weiming and Yang, Shiyu and Wang, Juan and Su, Hua and Huang, Zhanchao and Wu, Sheng",
+      "year": 2024, "journal": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing", "volume": "17", "pages": "20315--20330",
+      "doi": "10.1109/JSTARS.2024.3491335",
+      "url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+      "additional_primary_urls": ["https://ovoyu.github.io/"],
+      "locators": ["Journal-paper title page", "Section III, especially III-C", "Section IV-B"],
+      "supports": ["Three-stage Transformer, channel/spatial dual attention, ViG feature extraction and skip connections", "Full model comparison is distinct from a single GAT ablation"],
+      "limits": "Max-relative versus average aggregation wording remains unresolved. Do not resolve it by assumption or equate pixel-level wording with raw-pixel nodes.",
+      "checked_by": "rs_relatedwork_sources agent; reviewed by main agent"
+    },
+    {
+      "id": "R5", "key": "velickovic2018gat", "type": "inproceedings",
+      "title": "Graph Attention Networks",
+      "author": "Veličković, Petar and Cucurull, Guillem and Casanova, Arantxa and Romero, Adriana and Liò, Pietro and Bengio, Yoshua",
+      "year": 2018, "booktitle": "International Conference on Learning Representations",
+      "url": "https://arxiv.org/abs/1710.10903",
+      "locators": ["Paper abstract and ICLR publication comment"],
+      "supports": ["Masked neighborhood attention and learned contribution weights", "Edge selection and aggregation weights are distinct mechanisms"],
+      "checked_by": "main agent"
+    },
+    {
+      "id": "R6", "key": "han2022vig", "type": "inproceedings",
+      "title": "Vision GNN: An Image is Worth Graph of Nodes",
+      "author": "Han, Kai and Wang, Yunhe and Guo, Jianyuan and Tang, Yehui and Wu, Enhua",
+      "year": 2022, "booktitle": "Advances in Neural Information Processing Systems",
+      "url": "https://arxiv.org/abs/2206.00272",
+      "additional_primary_urls": ["https://arxiv.org/html/2206.00272v3"],
+      "locators": ["Abstract", "Section 3.1, Grapher and FFN equations (6)-(7)"],
+      "supports": ["Patch graph with nearest neighbors, Grapher aggregation and node FFN", "Paper motivation links transformations to feature diversity; not a guarantee for any added FFN"],
+      "checked_by": "main agent"
+    },
+    {
+      "id": "R7", "key": "xu2022dfagcn", "type": "article",
+      "title": "Deep Feature Aggregation Framework Driven by Graph Convolutional Network for Scene Classification in Remote Sensing",
+      "author": "Xu, Kejie and Huang, Hong and Deng, Peifang and Li, Yuan",
+      "year": 2022, "journal": "IEEE Transactions on Neural Networks and Learning Systems", "volume": "33", "number": "10", "pages": "5751--5765",
+      "doi": "10.1109/TNNLS.2021.3071369",
+      "url": "https://www.researchgate.net/publication/350910107_Deep_Feature_Aggregation_Framework_Driven_by_Graph_Convolutional_Network_for_Scene_Classification_in_Remote_Sensing",
+      "note": "First published online in 2021; issue year 2022",
+      "locators": ["Journal-paper title page", "Sections IV-B/C/D"],
+      "supports": ["VGG16 multilevel convolutional and fully connected features; GCN; weighted concatenation; LIBLINEAR", "Staged method rather than a generic end-to-end CNN-GCN classifier"],
+      "limits": "Exact preprocessing, executable stopping criterion, solver and hyperparameter-selection split remain unresolved; C and some fusion grids are published.",
+      "checked_by": "rs_relatedwork_sources agent; reviewed by main agent"
+    },
+    {
+      "id": "R8", "key": "achanta2012slic", "type": "article",
+      "title": "SLIC Superpixels Compared to State-of-the-Art Superpixel Methods",
+      "author": "Achanta, Radhakrishna and Shaji, Appu and Smith, Kevin and Lucchi, Aurelien and Fua, Pascal and Süsstrunk, Sabine",
+      "year": 2012, "journal": "IEEE Transactions on Pattern Analysis and Machine Intelligence", "volume": "34", "number": "11", "pages": "2274--2282",
+      "url": "https://www.epfl.ch/labs/ivrl/research/slic-superpixels/",
+      "locators": ["Author project page publication and algorithm overview", "SSN Section 3 description of SLIC local clustering"],
+      "supports": ["Spatially local color/position clustering for superpixels", "Superpixel oversegmentation is distinct from semantic labeling and high-level token grouping"],
+      "limits": "DOI was not verified from a successfully retrieved primary page and is intentionally omitted; EPFL paper/PDF fetch failed.",
+      "checked_by": "grouping_literature agent; reviewed by main agent"
+    },
+    {
+      "id": "R9", "key": "jampani2018ssn", "type": "inproceedings",
+      "title": "Superpixel Sampling Networks",
+      "author": "Jampani, Varun and Sun, Deqing and Liu, Ming-Yu and Yang, Ming-Hsuan and Kautz, Jan",
+      "year": 2018, "booktitle": "Computer Vision -- ECCV 2018", "pages": "363--380",
+      "doi": "10.1007/978-3-030-01234-2_22", "url": "https://varunjampani.github.io/ssn/",
+      "additional_primary_urls": ["https://arxiv.org/pdf/1807.10174", "https://link.springer.com/chapter/10.1007/978-3-030-01234-2_22"],
+      "locators": ["Section 4.1 and Algorithm 1", "Publisher chapter metadata"],
+      "supports": ["Learned pixel features, local soft associations and weighted center updates", "Differentiable soft core; hard-label/connectivity postprocessing should not be conflated with it"],
+      "limits": "Springer chapter pages 363-380 used consistently; CVF lists a different pagination.",
+      "checked_by": "grouping_literature agent; reviewed by main agent"
+    },
+    {
+      "id": "R10", "key": "locatello2020slot", "type": "inproceedings",
+      "title": "Object-Centric Learning with Slot Attention",
+      "author": "Locatello, Francesco and Weissenborn, Dirk and Unterthiner, Thomas and Mahendran, Aravindh and Heigold, Georg and Uszkoreit, Jakob and Dosovitskiy, Alexey and Kipf, Thomas",
+      "year": 2020, "booktitle": "Advances in Neural Information Processing Systems",
+      "url": "https://arxiv.org/abs/2006.15055",
+      "additional_primary_urls": ["https://proceedings.neurips.cc/paper/2020/hash/8511df98c02ab60aea1b2356c013bc0f-Abstract.html", "https://proceedings.neurips.cc/paper/2020/file/8511df98c02ab60aea1b2356c013bc0f-Paper.pdf"],
+      "locators": ["Section 2.1 and Algorithm 1"],
+      "supports": ["Cross-slot competition, input-weighted means and iterative GRU updates", "Exchangeable slots without fixed 4x4 spatial identity"],
+      "checked_by": "grouping_literature agent; reviewed by main agent"
+    },
+    {
+      "id": "R11", "key": "xu2022groupvit", "type": "inproceedings",
+      "title": "GroupViT: Semantic Segmentation Emerges from Text Supervision",
+      "author": "Xu, Jiarui and De Mello, Shalini and Liu, Sifei and Byeon, Wonmin and Breuel, Thomas and Kautz, Jan and Wang, Xiaolong",
+      "year": 2022, "booktitle": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+      "url": "https://arxiv.org/abs/2202.11094",
+      "additional_primary_urls": ["https://research.nvidia.com/publication/2022-06_groupvit-semantic-segmentation-emerges-text-supervision", "https://arxiv.org/pdf/2202.11094"],
+      "locators": ["Section 3.1, equations (3)-(5)", "Author project publication metadata"],
+      "supports": ["Learned group tokens and hierarchical grouping under image-text supervision", "Gumbel/straight-through hard forward grouping is not ordinary all-soft forward assignment"],
+      "checked_by": "grouping_literature agent; reviewed by main agent"
+    },
+    {
+      "id": "R12", "key": "huang2023stvit", "type": "inproceedings",
+      "title": "Vision Transformer with Super Token Sampling",
+      "author": "Huang, Huaibo and Zhou, Xiaoqiang and Cao, Jie and He, Ran and Tan, Tieniu",
+      "year": 2023, "booktitle": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+      "url": "https://arxiv.org/abs/2211.11167",
+      "additional_primary_urls": ["https://arxiv.org/pdf/2211.11167", "https://github.com/hhb072/STViT", "https://www.ia.ac.cn/kxyj/kydt_1/202303/t20230320_6702054.html"],
+      "locators": ["Sections 3.2-3.3", "Author repository and author-institution publication metadata"],
+      "supports": ["Local super-token association, attention and mapping back to tokens", "Different layers, interaction operator and assignment route from the project's terminal 49-to-16 grouping"],
+      "limits": "No-grad statement uses the prior pinned-code audit. The pinned GitHub source was not successfully re-fetched this turn; no claim of latest-version behavior.",
+      "checked_by": "grouping_literature agent; reviewed by main agent"
+    }
+  ],
+  "implementation_evidence": [
+    {"path": "models/region_grouping.py", "scope": "Current fixed membership versus learned within-region attention; detached cosine hard clustering and differentiable pooling"},
+    {"path": "models/soft_region_grouping.py", "scope": "Current image-derived prototypes, shared projection, S/W axes, local assignment"},
+    {"path": "grouping_identity.py", "scope": "Current dimension/radius/temperature/iteration identity"},
+    {"path": "models/graph_construction.py", "scope": "Current 48+32 explicit edges, neighbor-to-query direction and discrete top-2"},
+    {"path": "models/graph_reasoning.py", "scope": "Current GAT invocation does not consume returned cosine edge_weight"},
+    {"path": "models/gavit.py", "scope": "Current feedback, optional refinement and mean-pool path"},
+    {"path": "models/token_refinement.py", "scope": "Current bounded residual FFN candidate; not a ViG reimplementation"},
+    {"path": "docs/soft_assignment_github_review_20260926.md", "scope": "Historical pinned-source audit, not newly executed or latest-version code validation"}
+  ],
+  "historical_pinned_sources": [
+    {"method": "STViT", "commit": "3a499f0a633ad41ede49f58e98c473476018c9ba", "url": "https://github.com/hhb072/STViT/blob/3a499f0a633ad41ede49f58e98c473476018c9ba/models/stvit.py#L199-L249", "claim": "Association no-grad scope; subsequent aggregation has gradient path", "current_remote_fetch": "failed; relies on explicitly labeled 2026-09-26 local audit"},
+    {"method": "GroupViT", "commit": "13b786155a1dfffe4703f40d028c92be58e1178d", "url": "https://github.com/NVlabs/GroupViT/blob/13b786155a1dfffe4703f40d028c92be58e1178d/models/group_vit.py#L50-L236", "claim": "Hard/Gumbel assignment behavior in the pinned implementation", "current_remote_fetch": "not repeated; paper mechanism separately checked this turn"}
+  ],
+  "access_limits": ["ViT OpenReview page required browser verification; author arXiv and repository used instead", "Swin CVF page returned 403; author arXiv and official repository used instead", "SLIC DOI not entered without successful primary retrieval", "MDPI direct page returned 429; publisher indexed text supports the bounded mechanism discussion"],
+  "bibliography_note": "Only verified fields included. No paper performance numbers imported into project result tables. BibTeX uses UTF-8 author names."
+}

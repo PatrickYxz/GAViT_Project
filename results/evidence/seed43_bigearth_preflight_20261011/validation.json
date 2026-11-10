@@ -1,0 +1,21 @@
+{
+  "status": "user_return_audit_pass",
+  "source": "JSON transcribed from user message; not downloaded server file",
+  "preflight_source_sha256": "657ef1f6b9947888cfeb422d8d477f29b8015c8e0e999e2ff699226dc306f60d",
+  "new_training_started": false,
+  "checks": [
+    "expected code/seed/split counts",
+    "GPU UUID matches completed NWPU43 batch",
+    "old controls epoch30/best6 vs saved21/best8 and printed test scores",
+    "approved FP32 and TF32 settings",
+    "exact frozen split SHA and counts",
+    "software/precision equal archived validated soft45 reference",
+    "control hashes well formed"
+  ],
+  "limits": [
+    "reported preflight checks, no direct server access",
+    "full RGB existence check is not complete pixel decode",
+    "BigEarth CUDA smoke/formal training still pending"
+  ],
+  "user_return_sha256": "ddc2300618752116566f4c4047f3423a48a4a5a5e670884df9a2bd4d3cdd0685"
+}

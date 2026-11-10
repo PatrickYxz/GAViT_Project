@@ -1,0 +1,47 @@
+{
+  "status": "identity_history_resources_audit_pass",
+  "source": "user compact summary return; not original server-file download",
+  "source_sha256": "05cd97e4dfdf658d414edb00fdd1812312dc702434f0445d4a86496f556d4fa8",
+  "checks": [
+    "complete/seed43/stage exits0/full30 epoch identities",
+    "train/test/previous exact metrics weight SHA chain",
+    "code/pretrained/split SHA and counts",
+    "same approved GPU/software/precision in both stages",
+    "best epoch8/full precision best consistent with rounded metadata",
+    "finite resources and 8-image three-snapshot graph/probe checks",
+    "effective-throughput and runtime-cost arithmetic"
+  ],
+  "resources": {
+    "train": {
+      "elapsed_seconds": 22679.135110003997,
+      "elapsed_hours": 6.299759752778888,
+      "allocated_peak_gib": 3.6626949310302734,
+      "reserved_peak_gib": 3.943359375,
+      "main_process_rss_peak_gib": 2.0476150512695312
+    },
+    "test": {
+      "elapsed_seconds": 197.35320637500263,
+      "elapsed_hours": 0.054820335104167395,
+      "allocated_peak_gib": 0.5954151153564453,
+      "reserved_peak_gib": 1.02734375,
+      "main_process_rss_peak_gib": 1.4753494262695312
+    }
+  },
+  "cost": {
+    "hourly_yuan": 1.67,
+    "bigearth_queue_hours": 6.372703141506388,
+    "bigearth_queue_estimated_yuan": 10.642414246315667,
+    "nwpu_queue_elapsed_seconds": 3617.327163251,
+    "combined_queue_elapsed_seconds": 26559.058472673998,
+    "combined_estimated_yuan": 12.32045212482377,
+    "scope": "formal queue runtime only, not invoice; excludes extraction/smokes/idle time"
+  },
+  "queue_minus_measured_stages_seconds": 65.24299304399756,
+  "limits": [
+    "local return includes epoch identities and first/best/last rows, not full 30-row curve",
+    "best selected from full server history by returned command assertions; no local independent best recomputation",
+    "checkpoint/predictions/probe tensors not downloaded",
+    "timings/memory include IO and artifact checks; RSS excludes loader workers",
+    "hardware/recipe/history differences remain in model comparisons; no fair model-only speed claim"
+  ]
+}

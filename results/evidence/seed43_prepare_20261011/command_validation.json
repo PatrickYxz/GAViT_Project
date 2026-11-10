@@ -1,0 +1,30 @@
+{
+  "nwpu_preflight_command.txt": {
+    "sha256": "27f8df154be2ea69bf6eb08cf02f200624a1d77f11d943f882ff3b5128350298",
+    "python_ast": true,
+    "bash_syntax": true,
+    "zsh_syntax": true,
+    "shell_layers": 1
+  },
+  "nwpu_launch_command.txt": {
+    "sha256": "5f553957227042aa8310b5df6810ba0dcf9fe41b86521aaa3c9daa2c0ed38e37",
+    "python_ast": true,
+    "bash_syntax": true,
+    "zsh_syntax": true,
+    "shell_layers": 1
+  },
+  "bigearth_preflight_command.txt": {
+    "sha256": "1a8cc18c2362a77cf091dea46f74ebda66dfe7d8ed9616e1fc8c838a17ddbba8",
+    "python_ast": true,
+    "bash_syntax": true,
+    "zsh_syntax": true,
+    "shell_layers": 1
+  },
+  "bigearth_launch_command.txt": {
+    "sha256": "7a98ab74f2bfa767e50042b8f8216c8b3be4c29dc0fe01f0d6820b310eaca073",
+    "python_ast": true,
+    "bash_syntax": true,
+    "zsh_syntax": true,
+    "shell_layers": 1
+  }
+}

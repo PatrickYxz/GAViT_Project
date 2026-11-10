@@ -1,0 +1,74 @@
+FF.                                                                      [100%]
+=================================== FAILURES ===================================
+____ test_real_ffn_training_reloads_and_records_learning_before_pool[swin] _____
+
+tmp_path = PosixPath('/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-927/test_real_ffn_training_reloads0')
+name = 'swin'
+
+    @pytest.mark.parametrize('name', ['swin', 'gavit'])
+    def test_real_ffn_training_reloads_and_records_learning_before_pool(tmp_path, name):
+        torch.set_num_threads(2)
+        cfg = config(tmp_path, model=name, grouping='soft_prototype' if name == 'gavit' else None)
+        report = runner.run_training(cfg)
+        assert report['status'] == 'complete' and report['final_epoch'] == 1
+>       assert 'token_refinement_audit' in report, 'Missing initialization/actual learning audit'
+E       AssertionError: Missing initialization/actual learning audit
+E       assert 'token_refinement_audit' in {'architecture': {'backbone': 'swin_tiny_patch4_window7_224', 'dropout': 0.1, 'num_classes': 2, 'token_refinement': {'...rs/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-927/test_real_ffn_training_reloads0/run/best.pth', ...}
+
+tests/test_token_refinement_runtime.py:32: AssertionError
+----------------------------- Captured stdout call -----------------------------
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-927/test_real_ffn_training_reloads0/run; PHASE smoke; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MODEL swin; DATASET synthetic; DEVICE CPU; PHASE smoke; train=4 val=2
+TRAIN FIRST BATCH OK loss=0.647206; graph={}
+EPOCH 1/1; loss=1.394346; val_OA=50.0; train_s=0.38
+SCENE SMOKE COMPLETE: /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-927/test_real_ffn_training_reloads0/run
+____ test_real_ffn_training_reloads_and_records_learning_before_pool[gavit] ____
+
+tmp_path = PosixPath('/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-927/test_real_ffn_training_reloads1')
+name = 'gavit'
+
+    @pytest.mark.parametrize('name', ['swin', 'gavit'])
+    def test_real_ffn_training_reloads_and_records_learning_before_pool(tmp_path, name):
+        torch.set_num_threads(2)
+        cfg = config(tmp_path, model=name, grouping='soft_prototype' if name == 'gavit' else None)
+        report = runner.run_training(cfg)
+        assert report['status'] == 'complete' and report['final_epoch'] == 1
+>       assert 'token_refinement_audit' in report, 'Missing initialization/actual learning audit'
+E       AssertionError: Missing initialization/actual learning audit
+E       assert 'token_refinement_audit' in {'architecture': {'dropout': 0.1, 'edge_type': 'sparse_hybrid', 'gat_heads': 4, 'gat_hidden': 256, ...}, 'assignment_p...nt_probe', 'probe_seconds': 0.10490141669288278, 'samples': 2, ...}, 'best_epoch': 1, 'best_val_oa_percent': 50.0, ...}
+
+tests/test_token_refinement_runtime.py:32: AssertionError
+----------------------------- Captured stdout call -----------------------------
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+OUTPUT /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-927/test_real_ffn_training_reloads1/run; PHASE smoke; preflight starting
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MODEL gavit; DATASET synthetic; DEVICE CPU; PHASE smoke; train=4 val=2
+TRAIN FIRST BATCH OK loss=0.575902; graph={'edges_per_image': 80, 'spatial_edges': 48, 'feature_edges': 32, 'actual_forward_checked': True}
+EPOCH 1/1; loss=0.380763; val_OA=50.0; train_s=0.33
+SCENE SMOKE COMPLETE: /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/pytest-of-patrick/pytest-927/test_real_ffn_training_reloads1/run
+=============================== warnings summary ===============================
+tests/test_token_refinement_runtime.py: 20 warnings
+  /private/tmp/gavit-feedback-qa-20261002/lib/python3.12/site-packages/torch/jit/frontend.py:1209: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead
+    elif isinstance(value, ast.Str):
+
+tests/test_token_refinement_runtime.py: 19 warnings
+  /private/tmp/gavit-feedback-qa-20261002/lib/python3.12/site-packages/torch/jit/frontend.py:1210: DeprecationWarning: Attribute s is deprecated and will be removed in Python 3.14; use value instead
+    s += value.s
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_token_refinement_runtime.py::test_real_ffn_training_reloads_and_records_learning_before_pool[swin]
+FAILED tests/test_token_refinement_runtime.py::test_real_ffn_training_reloads_and_records_learning_before_pool[gavit]
+2 failed, 1 passed, 39 warnings in 5.57s
