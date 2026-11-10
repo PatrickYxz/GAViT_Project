@@ -1,0 +1,9 @@
+{
+  "scope": "Actual install/export executed locally with substituted paths and GPU dispatch blocked; not server evidence",
+  "first_exit": 0,
+  "second_exit": 1,
+  "duplicate_refused": true,
+  "source_verified": true,
+  "stdout": "BEN_GRID3_42_INSTALLED /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/grid42_bootstrap_fixture_106295ve/experiment\nLOCAL_FIXTURE_DISPATCH_BLOCKED\n",
+  "server_or_cuda_execution": false
+}

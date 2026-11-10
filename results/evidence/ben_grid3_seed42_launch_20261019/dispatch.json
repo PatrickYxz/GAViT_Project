@@ -1,0 +1,12 @@
+{
+  "status": "BEN_GRID3_42_DISPATCHED",
+  "pid": 3599,
+  "output": "/home/featurize/work/ben_grid3_seed42_20261018_01",
+  "training_start_verified": false,
+  "sequence": [
+    "preflight",
+    "smoke",
+    "train30",
+    "best_test"
+  ]
+}

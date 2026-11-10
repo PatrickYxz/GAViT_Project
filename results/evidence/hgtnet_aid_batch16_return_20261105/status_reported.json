@@ -1,0 +1,46 @@
+{
+  "action": "status",
+  "batch_size": 16,
+  "completed": true,
+  "completion_evidence_valid": true,
+  "compute_images_per_second": 34.09841459273138,
+  "config_sha256": "f313abb893b29d674ace281d8d2905670ee65db131f4240640079123e783589b",
+  "counts": {
+    "test": 0,
+    "train": 16,
+    "val": 0
+  },
+  "cuda_peak_allocated_bytes": 4731960320,
+  "cuda_peak_reserved_bytes": 5213519872,
+  "exit_code": 0,
+  "formal_training_started": false,
+  "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+  "measured_steps": 3,
+  "median_step_seconds": 0.4692300269998668,
+  "optimizer_steps": 4,
+  "output": "/home/featurize/work/hgtnet_aid_batch16_probe_3060_20261105/runs/batch16_seed42_01",
+  "physical_gpu_uuid": "GPU-df386e6c-dbb3-0952-8190-3265a7bd8ae8",
+  "processed_images": 64,
+  "progress": {
+    "completed": true,
+    "formal_training_started": false,
+    "optimizer_steps": 4,
+    "samples_seen": 64,
+    "stage": "complete",
+    "training_started": true
+  },
+  "schema": "hgtnet-aid-batch16-capacity-probe-v1",
+  "source_identity_matches": true,
+  "state": "complete",
+  "step_seconds": [
+    0.4692300269998668,
+    0.46906283299995266,
+    0.47697647499990126
+  ],
+  "target_gpu": "3060",
+  "training_started": true,
+  "unique_images": 16,
+  "wall_seconds": 13.486246307999863,
+  "warmup_steps": 1,
+  "weights_sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893"
+}

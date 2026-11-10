@@ -1,0 +1,26 @@
+test_existing_default_runner_does_not_gain_formal_recipe (test_hgtnet_formal_delivery.FormalDeliveryTests.test_existing_default_runner_does_not_gain_formal_recipe) ... ok
+test_formal_registered_runner_contains_exact_recipe (test_hgtnet_formal_delivery.FormalDeliveryTests.test_formal_registered_runner_contains_exact_recipe) ... ERROR
+test_formal_runner_wrong_gpu_rejected (test_hgtnet_formal_delivery.FormalDeliveryTests.test_formal_runner_wrong_gpu_rejected) ... ERROR
+
+======================================================================
+ERROR: test_formal_registered_runner_contains_exact_recipe (test_hgtnet_formal_delivery.FormalDeliveryTests.test_formal_registered_runner_contains_exact_recipe)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_delivery.py", line 10, in test_formal_registered_runner_contains_exact_recipe
+    self.assertEqual(delivery.FORMAL_RUNNER,'external_baselines/hgtnet/formal_entry.py')
+                     ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'tools.package_hgtnet_nwpu_smoke' has no attribute 'FORMAL_RUNNER'
+
+======================================================================
+ERROR: test_formal_runner_wrong_gpu_rejected (test_hgtnet_formal_delivery.FormalDeliveryTests.test_formal_runner_wrong_gpu_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_delivery.py", line 28, in test_formal_runner_wrong_gpu_rejected
+    delivery.build_bundle(Path(d).resolve()/'wrong.pyz',target_gpu='3080',runner_member=delivery.FORMAL_RUNNER)
+                                                                                        ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'tools.package_hgtnet_nwpu_smoke' has no attribute 'FORMAL_RUNNER'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.010s
+
+FAILED (errors=2)

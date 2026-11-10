@@ -1,0 +1,283 @@
+{
+  "status": "DOWNLOADED_TEST_HISTORY_METADATA_LOCALLY_RECOMPUTED",
+  "correct": 23718,
+  "errors": 1482,
+  "metrics": {
+    "oa_percent": 94.11904761904762,
+    "macro_f1_percent": 94.10529172930384
+  },
+  "weakest_recall_classes": [
+    {
+      "class_index": 27,
+      "class_name": "palace",
+      "support": 560,
+      "predicted_count": 521,
+      "tp": 435,
+      "fn": 125,
+      "fp": 86,
+      "recall_percent": 77.67857142857143,
+      "precision_percent": 83.49328214971209,
+      "f1_percent": 80.48103607770582
+    },
+    {
+      "class_index": 7,
+      "class_name": "church",
+      "support": 560,
+      "predicted_count": 539,
+      "tp": 462,
+      "fn": 98,
+      "fp": 77,
+      "recall_percent": 82.5,
+      "precision_percent": 85.71428571428571,
+      "f1_percent": 84.07643312101911
+    },
+    {
+      "class_index": 23,
+      "class_name": "medium_residential",
+      "support": 560,
+      "predicted_count": 549,
+      "tp": 492,
+      "fn": 68,
+      "fp": 57,
+      "recall_percent": 87.85714285714286,
+      "precision_percent": 89.61748633879782,
+      "f1_percent": 88.72858431018936
+    },
+    {
+      "class_index": 29,
+      "class_name": "railway",
+      "support": 560,
+      "predicted_count": 532,
+      "tp": 494,
+      "fn": 66,
+      "fp": 38,
+      "recall_percent": 88.21428571428571,
+      "precision_percent": 92.85714285714286,
+      "f1_percent": 90.47619047619048
+    },
+    {
+      "class_index": 31,
+      "class_name": "rectangular_farmland",
+      "support": 560,
+      "predicted_count": 523,
+      "tp": 494,
+      "fn": 66,
+      "fp": 29,
+      "recall_percent": 88.21428571428571,
+      "precision_percent": 94.45506692160612,
+      "f1_percent": 91.2280701754386
+    },
+    {
+      "class_index": 44,
+      "class_name": "wetland",
+      "support": 560,
+      "predicted_count": 530,
+      "tp": 494,
+      "fn": 66,
+      "fp": 36,
+      "recall_percent": 88.21428571428571,
+      "precision_percent": 93.20754716981132,
+      "f1_percent": 90.64220183486239
+    },
+    {
+      "class_index": 18,
+      "class_name": "industrial_area",
+      "support": 560,
+      "predicted_count": 538,
+      "tp": 496,
+      "fn": 64,
+      "fp": 42,
+      "recall_percent": 88.57142857142857,
+      "precision_percent": 92.19330855018588,
+      "f1_percent": 90.34608378870674
+    },
+    {
+      "class_index": 30,
+      "class_name": "railway_station",
+      "support": 560,
+      "predicted_count": 588,
+      "tp": 508,
+      "fn": 52,
+      "fp": 80,
+      "recall_percent": 90.71428571428571,
+      "precision_percent": 86.39455782312925,
+      "f1_percent": 88.50174216027875
+    },
+    {
+      "class_index": 32,
+      "class_name": "river",
+      "support": 560,
+      "predicted_count": 553,
+      "tp": 509,
+      "fn": 51,
+      "fp": 44,
+      "recall_percent": 90.89285714285714,
+      "precision_percent": 92.04339963833635,
+      "f1_percent": 91.46451033243486
+    },
+    {
+      "class_index": 14,
+      "class_name": "freeway",
+      "support": 560,
+      "predicted_count": 540,
+      "tp": 510,
+      "fn": 50,
+      "fp": 30,
+      "recall_percent": 91.07142857142857,
+      "precision_percent": 94.44444444444444,
+      "f1_percent": 92.72727272727273
+    }
+  ],
+  "mutual_confusion_pairs_top10": [
+    {
+      "class_a": "church",
+      "class_b": "palace",
+      "a_to_b": 41,
+      "b_to_a": 62,
+      "total": 103,
+      "all_errors_percent": 6.950067476383266
+    },
+    {
+      "class_a": "rectangular_farmland",
+      "class_b": "terrace",
+      "a_to_b": 56,
+      "b_to_a": 9,
+      "total": 65,
+      "all_errors_percent": 4.385964912280702
+    },
+    {
+      "class_a": "railway",
+      "class_b": "railway_station",
+      "a_to_b": 34,
+      "b_to_a": 22,
+      "total": 56,
+      "all_errors_percent": 3.7786774628879893
+    },
+    {
+      "class_a": "lake",
+      "class_b": "wetland",
+      "a_to_b": 13,
+      "b_to_a": 37,
+      "total": 50,
+      "all_errors_percent": 3.3738191632928474
+    },
+    {
+      "class_a": "church",
+      "class_b": "commercial_area",
+      "a_to_b": 36,
+      "b_to_a": 9,
+      "total": 45,
+      "all_errors_percent": 3.0364372469635628
+    },
+    {
+      "class_a": "dense_residential",
+      "class_b": "medium_residential",
+      "a_to_b": 11,
+      "b_to_a": 34,
+      "total": 45,
+      "all_errors_percent": 3.0364372469635628
+    },
+    {
+      "class_a": "desert",
+      "class_b": "mountain",
+      "a_to_b": 18,
+      "b_to_a": 15,
+      "total": 33,
+      "all_errors_percent": 2.2267206477732793
+    },
+    {
+      "class_a": "commercial_area",
+      "class_b": "palace",
+      "a_to_b": 11,
+      "b_to_a": 17,
+      "total": 28,
+      "all_errors_percent": 1.8893387314439947
+    },
+    {
+      "class_a": "airport",
+      "class_b": "runway",
+      "a_to_b": 13,
+      "b_to_a": 11,
+      "total": 24,
+      "all_errors_percent": 1.6194331983805668
+    },
+    {
+      "class_a": "industrial_area",
+      "class_b": "railway_station",
+      "a_to_b": 18,
+      "b_to_a": 6,
+      "total": 24,
+      "all_errors_percent": 1.6194331983805668
+    }
+  ],
+  "history": {
+    "calibration_epochs": 100,
+    "refit_epochs": 95,
+    "best_epoch": 95,
+    "max_tied_epochs": [
+      95
+    ],
+    "best_validation": {
+      "epoch": 95,
+      "val_correct": 1173,
+      "val_loss": 0.3547356234537253,
+      "train_accuracy_percent": 99.96031746031746,
+      "train_loss": 0.001281784153552652
+    },
+    "best_validation_oa": 93.0952380952381,
+    "best_validation_macro_f1": 93.03452094979133,
+    "final_validation": {
+      "epoch": 100,
+      "val_correct": 1165,
+      "val_loss": 0.3699770267728055,
+      "train_accuracy_percent": 99.52380952380952,
+      "train_loss": 0.014782247324067627
+    },
+    "final_validation_oa": 92.46031746031746,
+    "final_validation_macro_f1": 92.42454111106593,
+    "best_minus_final_oa_pp": 0.6349206349206469,
+    "final_refit": {
+      "epoch": 95,
+      "epoch_optimizer_steps": 394,
+      "epoch_precommit_seconds": 114.79448033100198,
+      "epoch_wall_seconds": 135.96484273399983,
+      "optimizer_steps": 68930,
+      "train_accuracy_percent": 100.0,
+      "train_images_per_second": 56.15871844822517,
+      "train_loss": 0.00016782688023152923,
+      "train_seconds": 112.18204713500018
+    }
+  },
+  "phase_timing": {
+    "calibration": {
+      "epochs": 100,
+      "train_seconds": 8674.566730195998,
+      "epoch_wall_seconds": 11778.342573140999,
+      "epoch_wall_mean_seconds": 117.78342573140999,
+      "validation_seconds": 897.9828609959956
+    },
+    "refit": {
+      "epochs": 95,
+      "train_seconds": 10066.053316565998,
+      "epoch_wall_seconds": 11862.193852846998,
+      "epoch_wall_mean_seconds": 124.86519845102103,
+      "validation_seconds": 0
+    },
+    "test_evaluation_seconds": 180.76208843700078,
+    "test_eval_images_per_second": 139.40976350681356,
+    "engine_outside_epoch_and_test_seconds": 78.6275196280003,
+    "wrapper_outside_engine_seconds": 132.69133737500306,
+    "scope": "epoch wall includes loading/setup/checks/checkpoint/history; test eval includes input/forward/label collection, excludes final metric/file processing; not same-hardware inference benchmark"
+  },
+  "paired_vs_dfagcn": {
+    "both_correct": 21303,
+    "corrected": 2415,
+    "both_wrong": 979,
+    "regressed": 503
+  },
+  "audit": {
+    "checks": 742,
+    "passed": true,
+    "max_abs_metric_error": 0.0
+  }
+}

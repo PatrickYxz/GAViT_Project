@@ -1,0 +1,48 @@
+{
+  "schema": "hgtnet-independent-graph-local-v1",
+  "recorded_at": "2026-10-31T13:34:54.563525+00:00",
+  "runtime": {
+    "python": "3.12.13",
+    "torch": "2.2.2",
+    "device": "cpu"
+  },
+  "source_sha256": {
+    "external_baselines/hgtnet/graph.py": "2fb54633aa8dc9401a493cef6f20bd3f41d52bc4009548ef43fa368df31bb564",
+    "tests/test_hgtnet_graph.py": "ec0c91efa510042bed594c328f95abd2f3026d4deb2c52b1cf3c582843c972ee"
+  },
+  "test_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 KMP_INIT_AT_FORK=FALSE /private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest discover -s tests -p test_hgtnet_graph.py -v",
+  "red": {
+    "exit_code": 1,
+    "tests_run": 27,
+    "subtest_failures": 79,
+    "reason": "Missing graph implementation raised intended AssertionError",
+    "log": "red.log"
+  },
+  "green": {
+    "exit_code": 0,
+    "tests_run": 27,
+    "failures": 0,
+    "errors": 0,
+    "log": "green.log"
+  },
+  "native_openmp": {
+    "unit_test_failure_observed": false,
+    "summary_stdin_helper_failure_observed": true,
+    "failure_log": "parameter_count_native_omp_failure.log"
+  },
+  "parameter_counts": {
+    "transition1_512_to_256": 136192,
+    "block_C256": 986368,
+    "transition2_256_to_512": 134400,
+    "block_C512": 3938816
+  },
+  "full_graph_parameter_count": 14066432,
+  "boundaries": [
+    "Real CPU module tests, not dataset evaluation or GPU validation",
+    "max-relative is default; relative_mean is only an operator ambiguity probe",
+    "exclude_self=True requires N>=k+1; explicit False permits k==N",
+    "Finite fp32 distance overflow avoided with float64; overflow beyond float64 range rejected",
+    "Stable index tie-breaking is deterministic but exact ties need not be permutation equivariant",
+    "Parent integration owns complete-model and full relevant-suite checks"
+  ]
+}

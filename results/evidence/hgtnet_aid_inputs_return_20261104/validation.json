@@ -1,0 +1,31 @@
+{
+  "attachment_sha256": "7f751431f1c976b5d9c3a42b22b5caae08328bb7bbc1c360843cbbc4e7729bc8",
+  "checks": {
+    "all300_missing_not_invalid": true,
+    "counts": true,
+    "data_root_absent": true,
+    "delivered_package_unchanged": true,
+    "disk_capacity_values": true,
+    "no_test_image_reads": true,
+    "not_training": true,
+    "original_duplicate_retained": true,
+    "perclass_names": true,
+    "perclass_original_ratios": true,
+    "perclass_total:test": true,
+    "perclass_total:train": true,
+    "perclass_total:val": true,
+    "reported_gpu_inventory": true,
+    "reported_incomplete": true,
+    "reported_initial_weights_identity": true,
+    "reported_manifest_identity": true,
+    "schema": true,
+    "selected_240_60": true,
+    "selected_each_class:train": true,
+    "selected_each_class:val": true,
+    "thirty_classes": true,
+    "versions_are_metadata_only": true
+  },
+  "count": 23,
+  "passed": true,
+  "scope": "Audit of user-returned inspector JSON and local delivery identity, not direct server access or original data bytes."
+}

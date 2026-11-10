@@ -1,0 +1,15 @@
+test_archive_tampering_duplicate_traversal_collision_and_symlink_are_rejected (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_archive_tampering_duplicate_traversal_collision_and_symlink_are_rejected) ... ok
+test_build_pins_exact_scoped_sources_and_full_candidate_metadata (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_build_pins_exact_scoped_sources_and_full_candidate_metadata) ... ok
+test_build_rejects_linked_source_and_sidecar_collision_without_overwrite (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_build_rejects_linked_source_and_sidecar_collision_without_overwrite) ... ok
+test_cli_builds_a_new_offline_bundle_then_status_runs_without_ml_packages (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_cli_builds_a_new_offline_bundle_then_status_runs_without_ml_packages) ... ok
+test_foreign_or_partial_workspace_is_preserved (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_foreign_or_partial_workspace_is_preserved) ... ok
+test_real_zipapp_forwards_inspect_status_and_run_with_stdlib_only (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_real_zipapp_forwards_inspect_status_and_run_with_stdlib_only) ... ok
+test_reuse_refuses_added_importable_sources_in_workspace (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_added_importable_sources_in_workspace) ... ok
+test_reuse_refuses_source_receipt_and_manifest_changes (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_source_receipt_and_manifest_changes) ... ok
+test_unrecognized_actions_do_not_install_or_start_runner (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_unrecognized_actions_do_not_install_or_start_runner) ... ok
+test_workspace_and_tracked_file_symlinks_are_rejected (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_workspace_and_tracked_file_symlinks_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.247s
+
+OK

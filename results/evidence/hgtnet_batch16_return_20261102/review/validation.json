@@ -1,0 +1,62 @@
+{
+  "accepted": "server-reported batch16 completed marker and four actual optimizer success receipts; local source identity matches delivered package",
+  "checks": {
+    "451_gradient_tensors": true,
+    "actual_cuda_memory_bytes": true,
+    "all_five_group_updates": true,
+    "batch16_all": true,
+    "bundle_sha": true,
+    "completion_marker": true,
+    "completion_progress": true,
+    "cuda_available": true,
+    "cuda_name": true,
+    "exact_four_steps": true,
+    "finite_positive_group_norms": true,
+    "five_groups": true,
+    "gradient_report_passed": true,
+    "no_formal_training": true,
+    "one_cuda_device": true,
+    "one_warmup_three_measured": true,
+    "positive_finite_times_and_losses": true,
+    "processed64": true,
+    "runner": true,
+    "source_exact4_and_finalfinite": true,
+    "source_exit0_before_completion": true,
+    "source_identity_and_data_rechecked": true,
+    "source_summary_before_completion": true,
+    "target3090": true,
+    "torch_and_cuda": true,
+    "true_update_receipts": true
+  },
+  "checks_count": 26,
+  "derived": {
+    "actual_cuda_memory_gib": 23.55810546875,
+    "actual_cuda_memory_mib": 24123.5,
+    "calibration_steps_per_epoch": 315,
+    "compute_images_per_second": 79.46222745662192,
+    "conditional_calibration_train_compute_seconds": 63.42636194978695,
+    "conditional_max_100plus100_train_compute_hours": 3.9655459102644577,
+    "conditional_max_100plus100_train_compute_seconds": 14275.965276952047,
+    "conditional_refit_train_compute_seconds": 79.33329081973352,
+    "max_calibration_refit_steps": 70900,
+    "mean_step_seconds": 0.20126396233323854,
+    "measured_step_seconds": [
+      0.1999162600004638,
+      0.20252209699992818,
+      0.20135352999932365
+    ],
+    "median_step_seconds": 0.20135352999932365,
+    "refit_steps_per_epoch": 394
+  },
+  "disposition": "no engineering anomaly found in provided output; no smoke/probe rerun justified; read existing status for remaining fields",
+  "not_confirmed": [
+    "server original summary/status/run.exit bytes",
+    "peak allocated/reserved memory",
+    "wall time",
+    "current physical NVML inventory",
+    "formal training accuracy or budget"
+  ],
+  "passed": true,
+  "schema": "hgtnet-batch16-return-independent-audit-v1",
+  "timing_scope": "three compute-only steps on already device-resident repeated16 inputs; extrapolations conditional on unchanged rate, no formal ETA"
+}

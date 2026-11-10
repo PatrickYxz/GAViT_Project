@@ -1,0 +1,26 @@
+{
+  "source": "current-turn exec_command start and write_stdin final completion results",
+  "runs": [
+    {
+      "action": "full_cpu_01",
+      "exit_code": 0,
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 KMP_INIT_AT_FORK=FALSE /private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m external_baselines.hgtnet smoke --output results/evidence/hgtnet_local_implementation_20261031/full_cpu_01 --weights checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.pth --weights-sha256 68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893",
+      "log": "../full_cpu_01/run.log",
+      "exec_session": 97648
+    },
+    {
+      "action": "fresh_reload_01",
+      "exit_code": 0,
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 KMP_INIT_AT_FORK=FALSE /private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m external_baselines.hgtnet verify-reload --output results/evidence/hgtnet_local_implementation_20261031/full_cpu_01",
+      "log": "../full_cpu_01/reload.log",
+      "exec_session": 58934
+    },
+    {
+      "action": "related_suite",
+      "exit_code": 0,
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 KMP_INIT_AT_FORK=FALSE /private/tmp/gavit-dfagcn-cpu-20261027/bin/python results/evidence/hgtnet_local_implementation_20261031/integration/run_related_tests.py",
+      "log": "related_suite.log",
+      "exec_session": 62266
+    }
+  ]
+}

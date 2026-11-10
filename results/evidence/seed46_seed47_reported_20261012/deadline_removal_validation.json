@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "deadline_and_timeline_removed_from_both_drafts": true,
+  "two_decimal_tables_retained": true,
+  "source_CSV_unchanged": true,
+  "report_sha256": "c7e148b47154d677e4c76b3dc3113bb148ca98e61bc6e2161fab62ca552b8649",
+  "email_sha256": "9561b70fe92bb3ef3ea2dc81b5cd2ca77bbf5c0816167ee582579b1721b141f0"
+}

@@ -1,0 +1,32 @@
+{
+  "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest discover -s tests -p test_dfagcn_model_recipe.py -v",
+  "exit_code": 0,
+  "test_methods": 11,
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "scope": "independent recipe and branch model; not original Table I or accuracy reproduction",
+  "red_exit": 1,
+  "red_failures": 11,
+  "verified": [
+    "strict explicit recipe validation",
+    "three disjoint branch gradients",
+    "512d nonnegative branch export and 5632d fusion order",
+    "sample independence and eval determinism",
+    "state save/reload",
+    "input dimensions/dtype/device/finite rejection"
+  ],
+  "not_verified": [
+    "VGG weights/preprocessing parity",
+    "full end-to-end pipeline and LIBLINEAR (other task owners)",
+    "GPU behavior or training accuracy"
+  ],
+  "runtime_note": "libomp SHM native abort observed for initial Python-subprocess wrapper. Direct single-thread unittest invocation passed; no model workaround inserted.",
+  "sha256": {
+    "external_baselines/dfagcn/config.py": "2d71ed07fca78bb6e1d8ba6bca2a537cf2e9eaeb134f6c7b8f91b08459111e60",
+    "external_baselines/dfagcn/model.py": "f638c4a606ca392348cf6714856cbd01ddc1b81ef2cc63cb4275b6d5e4d681ff",
+    "configs/dfagcn_independent_v1.json": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+    "tests/test_dfagcn_model_recipe.py": "9c4644e5da8064aa909053d023bcd16908f4ded3844c684084996303514f7f8a"
+  }
+}

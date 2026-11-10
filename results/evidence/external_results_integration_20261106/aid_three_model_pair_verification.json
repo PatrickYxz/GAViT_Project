@@ -1,0 +1,66 @@
+{
+  "state": "PASS",
+  "dataset": "AID",
+  "seed": 42,
+  "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+  "core_originals_verified": {
+    "swin": {
+      "rows": 5000,
+      "accuracy_percent": 96.34,
+      "macro_f1_percent": 96.22088514124282,
+      "checkpoint_sha256": "fc04ddd58e233bc7291b6a5e54a2c3e9efc45c0584a709aa28a0eba496178018",
+      "predictions_sha256": "54ba93da7cc0a3e4b4a5591df359b596224cf64957670e53f20e6da80e2b6fd3",
+      "exit_marker_original": "exit_code=0\n",
+      "source": "Downloaded original completed evaluation, no new forward"
+    },
+    "gavit": {
+      "rows": 5000,
+      "accuracy_percent": 96.94,
+      "macro_f1_percent": 96.78112715611192,
+      "checkpoint_sha256": "a023563e7c4566436660a2d9bc778a9adb3e9b5a64f39f821ce81e909c913c7a",
+      "predictions_sha256": "2923a519ffe76a88f6a24b574bba23f5e4a58a6435aabf23195a24a140ee0fe0",
+      "exit_marker_original": "exit_code=0\n",
+      "source": "Downloaded original completed evaluation, no new forward"
+    }
+  },
+  "paired": {
+    "swin_to_gavit": {
+      "reference": "swin",
+      "candidate": "gavit",
+      "samples": 5000,
+      "both_correct": 4754,
+      "candidate_corrects": 93,
+      "candidate_breaks": 63,
+      "both_wrong": 90,
+      "net_correct": 30,
+      "delta_accuracy_pp": 0.6,
+      "scope": "Descriptive paired predictions on one frozen split/seed; different complete-method recipes, not causal or multi-seed evidence."
+    },
+    "swin_to_hgtnet": {
+      "reference": "swin",
+      "candidate": "hgtnet",
+      "samples": 5000,
+      "both_correct": 4738,
+      "candidate_corrects": 108,
+      "candidate_breaks": 79,
+      "both_wrong": 75,
+      "net_correct": 29,
+      "delta_accuracy_pp": 0.58,
+      "scope": "Descriptive paired predictions on one frozen split/seed; different complete-method recipes, not causal or multi-seed evidence."
+    },
+    "gavit_to_hgtnet": {
+      "reference": "gavit",
+      "candidate": "hgtnet",
+      "samples": 5000,
+      "both_correct": 4771,
+      "candidate_corrects": 75,
+      "candidate_breaks": 76,
+      "both_wrong": 78,
+      "net_correct": -1,
+      "delta_accuracy_pp": -0.02,
+      "scope": "Descriptive paired predictions on one frozen split/seed; different complete-method recipes, not causal or multi-seed evidence."
+    }
+  },
+  "all_paths_and_labels_equal": true,
+  "original_core_models_re_evaluated": false
+}

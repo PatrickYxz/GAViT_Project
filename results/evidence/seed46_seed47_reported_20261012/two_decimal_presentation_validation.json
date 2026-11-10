@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "numeric_table_entries_two_decimals": 201,
+  "all_seed_rows_and_source_hashes_checked": true,
+  "source_CSV_unchanged": true,
+  "NWPU_rounding_confirmed_recorded": true,
+  "ROUND_HALF_UP_used_before_display": true,
+  "statistics_computed_before_display_rounding": true,
+  "visualization_section_preserved_by_edit_assertion": true,
+  "report_sha256": "c435a9ff68e362416335ea719ae7fa34b174162a630b618772f60768c200bd1b",
+  "email_sha256": "2acf490b66dad76ffada6ed712c3a8afc0a682e941ad55e2705be01261d3c6db"
+}

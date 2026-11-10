@@ -1,0 +1,27 @@
+{
+  "best_epoch": 1,
+  "checkpoint": {
+    "reload_max_abs_error": 0.0,
+    "sha256": "de78efa372cf79862859efaf13b34ff4e82c25fceb58af9a0caf84c43e7232e5"
+  },
+  "completed": true,
+  "config_sha256": "af6ef410125e9d47c87acd0acec1a6db6e0119656793124ceafcb2379eedac25",
+  "counts": {"test": 0, "train": 360, "val": 90},
+  "cuda_peak_allocated_bytes": 1538072576,
+  "cuda_peak_reserved_bytes": 1688207360,
+  "exit_code": 0,
+  "final_epoch": 1,
+  "formal_training_started": false,
+  "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+  "optimizer_steps": 180,
+  "output": "/home/featurize/work/hgtnet_nwpu_smoke_3090_20261102_fix1/runs/nwpu_smoke_seed42_01",
+  "physical_gpu_uuid": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1",
+  "progress": {"completed": true, "pid": 4226, "stage": "complete", "training_started": true},
+  "schema": "hgtnet-nwpu-smoke-v2",
+  "smoke_val": {"accuracy_percent": 36.666666666666664, "macro_f1_percent": 29.33525733525733},
+  "state": "complete",
+  "target_gpu": "3090",
+  "training_started": true,
+  "wall_seconds": 58.25750263300006,
+  "weights_sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893"
+}

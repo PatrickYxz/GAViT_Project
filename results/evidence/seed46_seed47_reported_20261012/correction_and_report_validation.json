@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "date": "2026-10-12",
+  "CSV_arithmetic_checks": 24,
+  "unrelated_CSV_rows_byte_preserved": true,
+  "original_reported_CSV_hash_preserved": true,
+  "all_primary_pairs": 15,
+  "all_negative_fixed_seeds_retained": {
+    "AID": [
+      44
+    ],
+    "NWPU": [
+      43
+    ],
+    "BEN": [
+      44,
+      45
+    ]
+  },
+  "all_summary_statistics_recomputed_independently": true,
+  "report_links_exist": true,
+  "new_original_artifact_audit_complete": false,
+  "CSV_sha256": "639a9b45b07625d63c1254a32969637c984a996997248622a647f261d43c0988",
+  "updated_diary_and_advisor_links_exist": true,
+  "final_report_sha256": "1ab787430faa5551c3333dc4c0e4f9ec40036f3f3c557de668db3a59d947d083",
+  "final_email_draft_sha256": "63c0e4254a5358009a0e218c82de0a000e80e0a9602ba1085ab84ea774f610c2"
+}

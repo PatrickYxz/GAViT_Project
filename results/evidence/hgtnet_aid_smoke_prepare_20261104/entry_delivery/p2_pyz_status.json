@@ -1,0 +1,13 @@
+{
+  "action": "status",
+  "completed": false,
+  "counts": {
+    "test": 0,
+    "train": 240,
+    "val": 60
+  },
+  "formal_training_started": false,
+  "output": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_aid_smoke_prepare_20261104/entry_delivery/p2_stdlib_delivery_fixture/runs/aid_smoke_seed42_01",
+  "schema": "hgtnet-aid-smoke-v1",
+  "state": "not_started"
+}

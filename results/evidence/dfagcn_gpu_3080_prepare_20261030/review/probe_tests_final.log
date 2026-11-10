@@ -1,0 +1,6 @@
+test_exact_3080_uuid_capacity_and_idle_gate (test_dfagcn_gpu_probe.GPUProbeTests.test_exact_3080_uuid_capacity_and_idle_gate) ... ok
+test_expected_cache_header_rejects_changed_order_and_declared_shapes (test_dfagcn_gpu_probe.GPUProbeTests.test_expected_cache_header_rejects_changed_order_and_declared_shapes) ... ok
+test_fresh_cuda_required_before_environment_mutation (test_dfagcn_gpu_probe.GPUProbeTests.test_fresh_cuda_required_before_environment_mutation) ... ok
+test_frozen_manifest_and_pool_only_select_450_train_validation_images (test_dfagcn_gpu_probe.GPUProbeTests.test_frozen_manifest_and_pool_only_select_450_train_validation_images) ... ok
+test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels) ... OMP: Error #179: Function Can't open SHM failed:
+OMP: System error #0: Undefined error: 0

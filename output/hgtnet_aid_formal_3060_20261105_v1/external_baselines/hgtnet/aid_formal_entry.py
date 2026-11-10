@@ -1,0 +1,562 @@
+"""Frozen AID30 calibration/refit/test on RTX3060; read-only actions use stdlib."""
+from __future__ import annotations
+import argparse
+import contextlib
+import hashlib
+import json
+import math
+import os
+from pathlib import Path
+import shlex
+import shutil
+import subprocess
+import sys
+import time
+import traceback
+import uuid
+
+ROOT=Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:sys.path.insert(0,str(ROOT))
+from external_baselines.hgtnet import aid_entry as SAFE
+from external_baselines.hgtnet import aid_formal_data as DATA, aid_formal_protocol as PROTO
+RES=SAFE.RES
+_sha,_json=SAFE._sha,SAFE._read_json
+CONFIG_SHA,WEIGHTS_SHA,WEIGHTS_BYTES=SAFE.CONFIG_SHA,SAFE.WEIGHTS_SHA,SAFE.WEIGHTS_BYTES
+SOURCE_FILES=(
+    'external_baselines/__init__.py','external_baselines/hgtnet/__init__.py',
+    *('external_baselines/hgtnet/'+name+'.py' for name in (
+        'aid_data','aid_entry','aid_formal_protocol','aid_formal_data','aid_formal_checkpoints',
+        'aid_formal_engine','aid_formal_entry','config','model','attention','graph',
+        'pretrained','smoke','checkpoint','nwpu_engine','resources')),
+    'configs/hgtnet_aid_independent_v0.json','tools/inspect_hgtnet_aid_inputs.py',
+    'tools/package_hgtnet_aid_formal.py','configs/hgtnet_aid_formal_v1.json')
+SCHEMA='hgtnet-aid-formal-v1'
+DELIVERY_SCHEMA='hgtnet-aid-formal-delivery-v1'
+MARKER='HGTNET_AID_FORMAL_COMPLETE\n'
+CAPACITY_SHA='fd54b4c1a21db1731d1addb0808c49104c11113b610883b79b2c6af456fc80f5'
+CAPACITY_BUNDLE=Path('/home/featurize/work/hgtnet_aid_batch16_probe_3060_20261105.pyz')
+CAPACITY_OUTPUT=Path('/home/featurize/work/hgtnet_aid_batch16_probe_3060_20261105/runs/batch16_seed42_01')
+GROUP_TENSORS=dict(patch_embed=4,transformer=295,dual_attention=30,graph=120,head=2)
+select_gpu,check_runtime,_check_cuda_device=SAFE.select_gpu,SAFE.check_runtime,SAFE._check_cuda_device
+_runtime_and_torch,_check_config=SAFE._runtime_and_torch,SAFE._check_config
+
+def _write(path,value):
+    path=Path(path);_safe_path(path)
+    temporary=path.with_name(path.name+'.tmp.'+uuid.uuid4().hex)
+    try:
+        with temporary.open('x') as stream:
+            if isinstance(value,str):stream.write(value)
+            else:json.dump(value,stream,indent=2,sort_keys=True,allow_nan=False);stream.write('\n')
+            stream.flush();os.fsync(stream.fileno())
+        os.replace(temporary,path)
+    finally:temporary.unlink(missing_ok=True)
+
+def _safe_path(path):
+    path=Path(path).absolute()
+    if any(p.is_symlink() for p in (path,*path.parents)):raise ValueError('Symbolic links are forbidden: '+str(path))
+    return path
+
+def _source_identity():
+    identity={name:_sha(ROOT/name) for name in SOURCE_FILES}
+    metadata=ROOT/'delivery_manifest.json'
+    if metadata.exists() or metadata.is_symlink():
+        manifest=_json(metadata)
+        if manifest.get('schema')!=DELIVERY_SCHEMA or identity!={n:manifest['files'][n]['sha256'] for n in SOURCE_FILES}:
+            raise ValueError('Immutable AID formal source identity changed')
+    return identity
+
+def _binding_hash(binding):return hashlib.sha256(json.dumps(binding,sort_keys=True).encode()).hexdigest()
+def _resume(args):return args.action=='resume' or getattr(args,'resume',False)
+def lock_path(output):return Path(output).with_name(Path(output).name+'.lock')
+def _new_output(output,*,check_lock=True):
+    path=_safe_path(output)
+    if path.exists():raise FileExistsError('Output already exists: '+str(path))
+    if check_lock and (lock_path(path).exists() or lock_path(path).is_symlink()):raise ValueError('Output locked')
+    for folder in ('external_baselines','tools','configs'):
+        if path==ROOT/folder or ROOT/folder in path.parents:raise ValueError('Output overlaps immutable source')
+    return path
+
+@contextlib.contextmanager
+def _run_lock(output,*,resume=False):
+    path=_safe_path(output)
+    if resume:
+        if not path.is_dir():raise ValueError('Resume requires existing output')
+    else:_new_output(path)
+    path.parent.mkdir(parents=True,exist_ok=True);lock=lock_path(path);_safe_path(lock)
+    with lock.open('x') as stream:json.dump(dict(pid=os.getpid(),output=str(path)),stream)
+    try:
+        if not resume:_new_output(path,check_lock=False)
+        yield
+    finally:lock.unlink()
+
+def _binding(args,inputs):
+    recipe=PROTO.load_recipe(args.recipe)
+    if _sha(args.recipe)!=_sha(ROOT/'configs/hgtnet_aid_formal_v1.json'):
+        raise ValueError('Use the exact bundled formal recipe bytes')
+    return PROTO.validate_binding(dict(schema='hgtnet-aid-formal-binding-v1',input_scope='real_aid',
+        class_names=inputs['class_names'],counts=inputs['counts'],recipe=recipe,
+        recipe_sha256=PROTO.recipe_sha256(recipe),manifest_sha256=DATA.MANIFEST_SHA,
+        config_sha256=CONFIG_SHA,weights_sha256=WEIGHTS_SHA,
+        source_identity=dict(_source_identity(),formal_recipe_bytes=_sha(args.recipe)),
+        records={split:[dict(path=r['path'],label=r['label']) for r in inputs['selected'][split]] for split in ('val','test')}))
+
+def _owner(args,binding):return dict(schema=SCHEMA,binding_sha256=_binding_hash(binding),output=str(args.output.resolve()))
+def _require_owned(args,binding):
+    _safe_path(args.output)
+    if not args.output.is_dir() or _json(args.output/'binding.json')!=binding or _json(args.output/'run_identity.json')!=_owner(args,binding):
+        raise ValueError('Resume requires same owned output, source, recipe and binding')
+    if status(args.output)['completed']:raise ValueError('Owned formal run already complete')
+    valid=[]
+    for slot in (0,1):
+        path=args.output/'recovery'/('slot%d.pt'%slot)
+        try:
+            _safe_path(path);receipt=_json(str(path)+'.json')
+            if (receipt['binding_sha256']==_binding_hash(binding) and type(receipt['generation']) is int and receipt['generation']>0
+                    and receipt['phase'] in ('calibration','refit') and type(receipt['epoch']) is int
+                    and 1<=receipt['epoch']<=100 and _sha(path)==receipt['sha256']):valid.append(receipt)
+        except (OSError,ValueError,KeyError,TypeError):pass
+    if not valid:raise ValueError('No SHA-valid completed-epoch snapshot; automatic restart refused')
+    return max(valid,key=lambda r:r['generation'])
+
+def _check_weights(path):
+    with SAFE.open_regular_readonly(path) as stream:
+        size=os.fstat(stream.fileno()).st_size;digest=hashlib.file_digest(stream,'sha256').hexdigest()
+    if size!=WEIGHTS_BYTES or digest!=WEIGHTS_SHA:raise ValueError('Pinned fresh candidate weights size/SHA mismatch')
+    return dict(weights_sha256=digest,weights_bytes=size)
+
+def _validate_capacity_status(packet,current_uuid):
+    expected=dict(schema='hgtnet-aid-batch16-capacity-probe-v1',state='complete',completed=True,exit_code=0,
+        source_identity_matches=True,completion_evidence_valid=True,physical_gpu_uuid=current_uuid,
+        config_sha256=CONFIG_SHA,manifest_sha256=DATA.MANIFEST_SHA,weights_sha256=WEIGHTS_SHA,
+        counts=dict(train=16,val=0,test=0),batch_size=16,unique_images=16,processed_images=64,
+        optimizer_steps=4,warmup_steps=1,measured_steps=3)
+    if not isinstance(packet,dict) or any(type(packet.get(k)) is not type(v) or packet[k]!=v for k,v in expected.items()):
+        raise ValueError('Prior batch16 capacity proof incomplete, changed or for a different physical GPU')
+    return packet
+
+def _capacity_proof(args,current_uuid):
+    if _sha(args.capacity_bundle)!=CAPACITY_SHA:raise ValueError('Untrusted batch16 capacity bundle SHA')
+    command=[sys.executable,str(args.capacity_bundle),'status','--output',str(args.capacity_output)]
+    process=subprocess.run(command,capture_output=True,text=True,timeout=60,check=False)
+    if process.returncode!=0:raise ValueError('Pinned capacity status subprocess failed: '+process.stderr[-1000:])
+    packet=json.loads(process.stdout);_validate_capacity_status(packet,current_uuid)
+    return dict(bundle=str(args.capacity_bundle),bundle_sha256=CAPACITY_SHA,output=str(args.capacity_output),command=command,status=packet)
+
+def _host_memory():
+    values={}
+    with SAFE.open_regular_readonly('/proc/meminfo') as stream:
+        for raw in stream:
+            row=raw.decode().split()
+            if row and row[0]=='MemAvailable:':values['available_bytes']=int(row[1])*1024
+    if values.get('available_bytes',0)<6*2**30:raise ValueError('Linux host MemAvailable must be at least6GiB')
+    return dict(values,required_bytes=6*2**30)
+
+def run_command(args,current_uuid):
+    entry=os.environ.get('HGTNET_AID_FORMAL_DELIVERY_ENTRY',str(Path(__file__).resolve()))
+    command=[sys.executable,entry,'resume' if _resume(args) else 'run','--gpu-uuid',current_uuid]
+    for name in ('manifest','data_root','weights','config','recipe','output','capacity_bundle','capacity_output'):
+        command+=['--'+name.replace('_','-'),str(getattr(args,name))]
+    return shlex.join(command)
+
+def inspect_resources(args):
+    blockers=[];report=dict(schema=SCHEMA,action='inspect',ready=False,formal_training_started=False,
+        input_scope='real_aid',counts=dict(PROTO.REAL_COUNTS),target_gpu='3060',output=str(args.output),
+        requested_gpu_uuid=args.gpu_uuid,resume=_resume(args),blockers=blockers,
+        build_provenance=None,
+        readiness_scope='stdlib pool5000 byte hashes, pinned candidate/source, current GPU capacity proof; actual run verifies CUDA')
+    binding=None
+    checks=[('source',lambda:report.update(source_identity=_source_identity(),build_provenance=_build_provenance())),
+        ('config',lambda:report.update(config_sha256=CONFIG_SHA) if _check_config(args.config) else None),
+        ('weights',lambda:report.update(_check_weights(args.weights)))]
+    for key,check in checks:
+        try:check()
+        except (OSError,ValueError,KeyError,TypeError,RuntimeError) as exc:blockers.append(key);report[key+'_error']=str(exc)
+    try:
+        inputs=DATA.prepare_inputs(args.manifest,expected_sha256=DATA.MANIFEST_SHA);binding=_binding(args,inputs)
+        report.update(manifest_sha256=DATA.MANIFEST_SHA,recipe_sha256=binding['recipe_sha256'],max_calibration_epochs=100,batch_size=16,
+            selected_images=DATA.validate_selected(args.data_root,inputs['selected']['pool']),test_image_bytes_read=0)
+    except (OSError,ValueError,KeyError,TypeError) as exc:blockers.append('inputs');report['input_error']=str(exc)
+    try:
+        if _resume(args):report['resume_snapshot_receipt']=_require_owned(args,binding)
+        else:_new_output(args.output)
+    except (OSError,ValueError,KeyError,TypeError) as exc:blockers.append('output');report['output_error']=str(exc)
+    report['dependencies']=RES.dependency_inventory();blockers.extend(SAFE._dependency_blockers(report['dependencies']))
+    report['nvidia']=RES.inventory_gpu()
+    try:
+        report['selected_gpu']=select_gpu(args.gpu_uuid,report['nvidia'])
+        report['capacity_proof']=_capacity_proof(args,report['selected_gpu']['uuid'])
+    except (OSError,ValueError,KeyError,TypeError,subprocess.SubprocessError) as exc:blockers.append('gpu_capacity');report['gpu_error']=str(exc)
+    try:
+        report['disk']=RES._capacity_path(args.output,6*2**30)
+        if report['disk']['free_bytes']<6*2**30:raise ValueError('Output needs6GiB available')
+    except (OSError,ValueError) as exc:blockers.append('disk_capacity');report['disk_error']=str(exc)
+    try:report['host_memory']=_host_memory()
+    except (OSError,ValueError) as exc:blockers.append('host_memory');report['host_memory_error']=str(exc)
+    report['ready']=not blockers
+    if report['ready']:report['run_command']=run_command(args,report['selected_gpu']['uuid'])
+    return report
+
+def _assert_unchanged(args,inputs,binding,*,include_test=False):
+    if (_binding(args,inputs)!=binding or _sha(args.manifest)!=DATA.MANIFEST_SHA or _check_config(args.config) is None):
+        raise ValueError('Formal source/config/recipe/manifest identity changed')
+    _check_weights(args.weights)
+    pool=DATA.validate_selected(args.data_root,inputs['selected']['pool'])
+    test=DATA.validate_selected(args.data_root,inputs['selected']['test'],allow_test=True) if include_test else None
+    return dict(source_identity=True,config=True,recipe=True,manifest=True,weights=True,pool=pool,test=test,
+        pool_image_count=5000,test_image_count=5000 if include_test else 0,test_authorized=include_test)
+
+def _observed_steps(output):
+    try:return max(0,int(_json(Path(output)/'optimizer_progress.json')['optimizer_steps']))
+    except (OSError,ValueError,TypeError,KeyError):return 0
+
+def _archive_discarded_first_steps(output,attempt,committed_steps):
+    """Move receipts from rolled-back updates, keeping their original bytes."""
+    if type(committed_steps) is not int or committed_steps<0:
+        raise ValueError('Restored committed optimizer steps must be a nonnegative integer')
+    for name in ('first_calibration_step.json','first_refit_step.json','first_step.json'):
+        path=_safe_path(Path(output)/name)
+        if not path.exists():continue
+        receipt=_json(path);steps=receipt.get('optimizer_steps')
+        if type(steps) is not int or steps<1:raise ValueError('Invalid first-step optimizer counter')
+        if steps<=committed_steps:continue
+        archive=_safe_path(Path(attempt)/('discarded_'+name))
+        if archive.exists():raise FileExistsError('Discarded first-step receipt already archived: '+str(archive))
+        path.rename(archive)
+
+def _build_provenance():
+    metadata=ROOT/'delivery_manifest.json'
+    if metadata.exists() or metadata.is_symlink():return _json(metadata).get('build_provenance')
+    return None
+
+def _run_model(args,torch,runtime,inputs,binding,progress,resume):
+    from external_baselines.hgtnet.model import HGTNet,parameter_counts
+    from external_baselines.hgtnet.pretrained import load_pretrained_file
+    from external_baselines.hgtnet.aid_formal_engine import run_formal
+    datasets={};calls=0;parameters=None
+    def model_factory():
+        nonlocal calls,parameters
+        model=HGTNet(_check_config(args.config));record=load_pretrained_file(model,args.weights,WEIGHTS_SHA)
+        if record.get('mode')!='applied' or record.get('source_identity_verified') is not True:raise ValueError('Pinned initial weights not actually applied')
+        model.pretraining_loaded=True;parameters=parameter_counts(model)
+        if parameters['total']!=74612163 or parameters['trainable']!=74612163 or len(list(model.parameters()))!=451:
+            raise ValueError('Full AID30 trainable model parameters changed')
+        calls+=1;_write(args._attempt/('pretraining_%03d.json'%calls),record);return model
+    def loader_factory(split,epoch):
+        if split not in ('train','val','pool','test'):raise ValueError('Unknown split')
+        if split=='test' and not args._test_authorized:raise ValueError('Test loader before refit/reload gate')
+        if split not in datasets:
+            datasets[split]=DATA.make_dataset(args.data_root,inputs['selected'][split],training=split in ('train','pool'),allow_test=split=='test')
+        return torch.utils.data.DataLoader(datasets[split],batch_size=16,shuffle=split in ('train','pool'),
+            generator=torch.Generator().manual_seed(42+epoch),num_workers=0,pin_memory=False,drop_last=False)
+    result=run_formal(model_factory,loader_factory,args.output,binding=binding,device='cuda:0',on_progress=progress,resume=resume)
+    result.update(parameters=parameters,parameter_tensors=451,pretraining_factory_calls=calls);return result
+
+def run_formal_entry(args,resume=False):
+    args.resume=resume or args.action=='resume';args._test_authorized=False
+    # Inspect before acquiring a lock, then repeat every mutable input under it.
+    preflight=inspect_resources(args)
+    if not preflight['ready']:raise ValueError('Formal preflight blockers: '+', '.join(preflight['blockers']))
+    with _run_lock(args.output,resume=args.resume):
+        inputs=DATA.prepare_inputs(args.manifest,expected_sha256=DATA.MANIFEST_SHA);binding=_binding(args,inputs)
+        if args.resume:_require_owned(args,binding)
+        else:
+            args.output.mkdir(parents=True,exist_ok=False);_write(args.output/'binding.json',binding);_write(args.output/'run_identity.json',_owner(args,binding))
+        attempts=_safe_path(args.output/'attempts');attempts.mkdir(exist_ok=True);number=1
+        while (attempts/('%04d'%number)).exists():number+=1
+        args._attempt=attempts/('%04d'%number);args._attempt.mkdir()
+        for name in ('summary.json','progress.json','run.exit','completion.marker','optimizer_progress.json'):
+            old=_safe_path(args.output/name)
+            if old.is_file():shutil.copyfile(old,args._attempt/('previous_'+name))
+        _write(args._attempt/'preflight.json',preflight)
+        _write(args._attempt/'command.json',dict(argv=list(sys.argv),cwd=os.getcwd(),pid=os.getpid(),command=run_command(args,preflight['selected_gpu']['uuid'])))
+        steps=_observed_steps(args.output)
+        result=dict(schema=SCHEMA,completed=False,training_started=steps>0,formal_training_started=steps>0,optimizer_steps=steps,
+            input_scope='real_aid',counts=inputs['counts'],seed=42,batch_size=16,target_gpu='3060',attempt=number,
+            source_identity=_source_identity(),recipe_sha256=binding['recipe_sha256'],config_sha256=CONFIG_SHA,
+            manifest_sha256=DATA.MANIFEST_SHA,weights_sha256=WEIGHTS_SHA)
+        result.update(prior_observed_optimizer_steps=steps,
+            build_provenance=preflight.get('build_provenance'),
+            optimizer_steps_scope='accepted calibration/refit trajectory; prior discarded partial updates retained in attempts')
+        _write(args.output/'summary.json',result);_write(args.output/'run.exit','running\n');started=time.perf_counter()
+        with (args._attempt/'run.log').open('x') as log,contextlib.redirect_stdout(SAFE._Tee(sys.stdout,log)),contextlib.redirect_stderr(SAFE._Tee(sys.stderr,log)):
+            try:
+                current=select_gpu(args.gpu_uuid,RES.inventory_gpu())
+                if current['uuid']!=preflight['selected_gpu']['uuid']:raise ValueError('Selected physical GPU changed since preflight')
+                proof=_capacity_proof(args,current['uuid']);_write(args._attempt/'capacity_proof.json',proof)
+                disk=RES._capacity_path(args.output,6*2**30)
+                if disk['free_bytes']<6*2**30:raise ValueError('Output needs6GiB available')
+                _host_memory();_assert_unchanged(args,inputs,binding)
+                torch,runtime=_runtime_and_torch(args,current);_write(args._attempt/'runtime.json',runtime)
+                _write(args.output/'runtime.json',runtime);_write(args.output/'source_identity.json',result['source_identity'])
+                def progress(value):
+                    value=dict(value,pid=os.getpid(),attempt=number)
+                    if value.get('stage')=='resumed':
+                        _archive_discarded_first_steps(args.output,args._attempt,value['optimizer_steps'])
+                        result['resumed_committed_optimizer_steps']=value['optimizer_steps']
+                        result['discarded_partial_optimizer_steps']=max(0,steps-value['optimizer_steps'])
+                    if value.get('stage')=='before_test':_assert_unchanged(args,inputs,binding);args._test_authorized=True
+                    if value.get('optimizer_step_succeeded') is True or value.get('optimizer_step_completed') is True or value.get('stage')=='resumed':
+                        _write(args.output/'optimizer_progress.json',value)
+                    if value.get('stage')=='first_optimizer_step':
+                        phase=value.get('phase')
+                        if phase not in ('calibration','refit'):raise ValueError('Invalid first step phase')
+                        _write(args._attempt/('first_'+phase+'_step.json'),value)
+                        destination=args.output/('first_'+phase+'_step.json')
+                        if not destination.exists():_write(destination,value)
+                        if phase=='calibration' and not (args.output/'first_step.json').exists():_write(args.output/'first_step.json',value)
+                    _write(args.output/'progress.json',value)
+                    print('HGTNET_AID_FORMAL_PROGRESS '+json.dumps(value,sort_keys=True),flush=True)
+                result.update(_run_model(args,torch,runtime,inputs,binding,progress,args.resume))
+                if result.get('completed') is not True or not args._test_authorized:raise ValueError('Engine must complete refit/reload/test gate')
+                checks=_assert_unchanged(args,inputs,binding,include_test=True);_write(args.output/'completion_checks.json',checks)
+                result.update(schema=SCHEMA,runtime=runtime,physical_gpu_uuid=current['uuid'],completed=True,
+                    training_started=True,formal_training_started=True,completion_checks=checks,source_identity=_source_identity(),
+                    wall_seconds=time.perf_counter()-started,output=str(args.output.resolve()),capacity_proof=proof,
+                    wall_scope='current attempt after stdlib preflight; setup, train, validation, IO, refit, test and end checks')
+                _write(args.output/'summary.json',result);_write(args.output/'run.exit','0\n');_write(args.output/'completion.marker',MARKER)
+                progress(dict(stage='complete',completed=True,training_started=True,formal_training_started=True,optimizer_steps=result['optimizer_steps']))
+                verdict=status(args.output)
+                if not verdict['completed']:raise ValueError('Final completion evidence invalid: '+str(verdict.get('evidence_error')))
+                print('HGTNET_AID_FORMAL_COMPLETE '+str(args.output/'summary.json'),flush=True);return 0
+            except BaseException as exc:
+                steps=_observed_steps(args.output);result.update(completed=False,training_started=steps>0,formal_training_started=steps>0,
+                    optimizer_steps=steps,error=type(exc).__name__+': '+str(exc),wall_seconds=time.perf_counter()-started)
+                traceback.print_exc();_write(args.output/'summary.json',result);_write(args.output/'run.exit','1\n')
+                _write(args.output/'progress.json',dict(stage='failed',completed=False,training_started=steps>0,formal_training_started=steps>0,
+                    optimizer_steps=steps,error=result['error'],attempt=number));return 1
+
+
+def _same(a,b):
+    return SAFE._same_json(a,b)
+
+
+def _number(value,*,positive=False,maximum=None):
+    return (type(value) in (int,float) and math.isfinite(value)
+            and (value>0 if positive else value>=0) and (maximum is None or value<=maximum))
+
+
+def _metrics(labels,predictions,names,scope='formal_validation'):
+    count=len(names)
+    if (not labels or len(labels)!=len(predictions)
+            or any(type(v) is not int or not 0<=v<count for v in labels+predictions)):
+        raise ValueError('Invalid ordered prediction labels')
+    matrix=[[0]*count for _ in names]
+    for target,prediction in zip(labels,predictions):matrix[target][prediction]+=1
+    classes=[];f1s=[]
+    for i,name in enumerate(names):
+        tp=matrix[i][i];support=sum(matrix[i]);predicted=sum(row[i] for row in matrix)
+        f1=2*tp/(support+predicted) if support+predicted else 0.0
+        f1s.append(f1)
+        classes.append({'class':name,'support':support,'correct':tp,
+            'accuracy_percent':100*tp/support if support else 0.0,'f1_percent':100*f1})
+    return dict(accuracy_percent=100*sum(matrix[i][i] for i in range(count))/len(labels),
+        macro_f1_percent=100*sum(f1s)/count,per_class=classes,confusion_matrix=matrix,scope=scope)
+
+
+def _packet_ok(packet,binding,split,epoch):
+    rows=binding['records'][split];labels=[r['label'] for r in rows]
+    if (packet.get('schema')!='hgtnet-aid-formal-evaluation-v1'
+            or packet.get('phase')!=('validation' if split=='val' else 'test')
+            or packet.get('input_scope')!='real_aid' or not _same(packet.get('labels'),labels)
+            or packet.get('paths')!=[r['path'] for r in rows]
+            or packet.get('manifest_sha256')!=binding['manifest_sha256']
+            or packet.get('recipe_sha256')!=binding['recipe_sha256']):return False
+    if split=='val' and (type(packet.get('epoch')) is not int or packet['epoch']!=epoch):return False
+    if not all(_number(packet.get(key)) for key in ('loss','seconds')):return False
+    predictions=packet.get('predictions')
+    if not isinstance(predictions,list):return False
+    return _same(packet.get('metrics'),_metrics(labels,predictions,binding['class_names'],
+        'formal_validation' if split=='val' else 'formal_test'))
+
+
+def _history_metric_ok(metrics,binding):
+    matrix=metrics.get('confusion_matrix');names=binding['class_names']
+    if (not isinstance(matrix,list) or len(matrix)!=30 or any(not isinstance(row,list) or len(row)!=30
+            or any(type(v) is not int or v<0 for v in row) for row in matrix)):return False
+    support=[sum(row['label']==i for row in binding['records']['val']) for i in range(30)]
+    if [sum(row) for row in matrix]!=support:return False
+    labels=[];predictions=[]
+    for i,row in enumerate(matrix):
+        for j,n in enumerate(row):labels.extend([i]*n);predictions.extend([j]*n)
+    return _same(metrics,_metrics(labels,predictions,names,'formal_validation'))
+
+
+def _first_ok(value,phase):
+    fixed=dict(stage='first_optimizer_step',phase=phase,epoch=1,optimizer_steps=1 if phase=='calibration' else 25001,
+        samples_seen=16,device='cuda:0',training_started=True,formal_training_started=True,
+        optimizer_step_completed=True,optimizer_step_succeeded=True,post_update_checks_passed=True)
+    if any(not _same(value.get(k),v) for k,v in fixed.items()) or not _number(value.get('loss')):return False
+    gradients=value['gradients']
+    if (gradients.get('passed') is not True or gradients.get('missing')!=[] or gradients.get('nonfinite')!=[]
+            or set(gradients.get('groups',{}))!=set(GROUP_TENSORS)
+            or not _same(value.get('updated_groups'),{key:True for key in GROUP_TENSORS})):return False
+    return all(type(gradients['groups'][key].get('tensors')) is int
+        and gradients['groups'][key]['tensors']==n and _number(gradients['groups'][key].get('l2'),positive=True)
+        for key,n in GROUP_TENSORS.items())
+
+
+def _completion_evidence_ok(output,summary):
+    """Check persisted receipts/bytes; never unpickle or replay CUDA in status."""
+    try:
+        output=Path(output)
+        fixed=dict(schema=SCHEMA,completed=True,training_started=True,formal_training_started=True,
+            input_scope='real_aid',counts=PROTO.REAL_COUNTS,seed=42,batch_size=16,target_gpu='3060',
+            recipe=PROTO.RECIPE,config_sha256=CONFIG_SHA,manifest_sha256=DATA.MANIFEST_SHA,weights_sha256=WEIGHTS_SHA,
+            recipe_sha256=PROTO.recipe_sha256(PROTO.RECIPE),final_epoch=100,parameter_tensors=451)
+        if any(not _same(summary.get(k),v) for k,v in fixed.items()):return False
+        binding=PROTO.validate_binding(_json(output/'binding.json'));sources=_source_identity()
+        expected_binding_sources=dict(sources,formal_recipe_bytes=_sha(ROOT/'configs/hgtnet_aid_formal_v1.json'))
+        if (binding['input_scope']!='real_aid' or summary.get('source_identity')!=sources
+                or _json(output/'source_identity.json')!=sources or binding['source_identity']!=expected_binding_sources):return False
+        for key in ('manifest_sha256','config_sha256','recipe_sha256','weights_sha256','counts','recipe'):
+            if not _same(binding[key],summary[key]):return False
+        runtime=summary['runtime'];gpu=summary['physical_gpu_uuid']
+        if not RES._uuid(gpu):return False
+        check_runtime(runtime,gpu);_check_cuda_device(runtime['cuda_device'],runtime['gpu'])
+        if not _same(_json(output/'runtime.json'),runtime):return False
+        for key in ('total','trainable'):
+            if type(summary['parameters'].get(key)) is not int or summary['parameters'][key]!=74612163:return False
+        selected=summary['selected_epoch']
+        if (type(selected) is not int or not 1<=selected<=100
+                or type(summary.get('best_epoch')) is not int or summary['best_epoch']!=selected
+                or type(summary.get('refit_epochs')) is not int or summary['refit_epochs']!=selected
+                or type(summary.get('optimizer_steps')) is not int or summary['optimizer_steps']!=25000+313*selected):return False
+        history=_json(output/'history.json');cal=history['calibration'];ref=history['refit']
+        if (history.get('input_scope')!='real_aid' or not _same(cal,summary['calibration_history'])
+                or not _same(ref,summary['refit_history']) or len(cal)!=100 or len(ref)!=selected):return False
+        for phase,rows,count,batches,start in [('calibration',cal,4000,250,0),('refit',ref,5000,313,25000)]:
+            for index,row in enumerate(rows,1):
+                if any(type(row.get(key)) is not int or row[key]!=expected for key,expected in
+                    [('epoch',index),('epoch_optimizer_steps',batches),('optimizer_steps',start+index*batches)]):return False
+                if (not _number(row.get('train_loss')) or not _number(row.get('train_accuracy_percent'),maximum=100)
+                        or not _number(row.get('train_seconds'),positive=True)
+                        or not _number(row.get('train_images_per_second'),positive=True)
+                        or not math.isclose(row['train_images_per_second'],count/row['train_seconds'],rel_tol=1e-9)
+                        or not _number(row.get('epoch_precommit_seconds'),positive=True)):return False
+                if 'epoch_wall_seconds' in row and not _number(row['epoch_wall_seconds'],positive=True):return False
+                if phase=='calibration':
+                    if (type(row.get('val_correct')) is not int or not 0<=row['val_correct']<=1000
+                            or not _number(row.get('val_loss')) or not _number(row.get('validation_seconds'),positive=True)
+                            or not _history_metric_ok(row['val_metrics'],binding)
+                            or row['val_correct']!=sum(row['val_metrics']['confusion_matrix'][i][i] for i in range(30))):return False
+        winner=max(cal,key=lambda row:row['val_correct'])
+        if winner['epoch']!=selected or not _same(winner['val_metrics'],summary['best_val_metrics']):return False
+        best=_json(output/'best_val_predictions.json');last=_json(output/'last_val_predictions.json')
+        if (not _packet_ok(best,binding,'val',selected) or not _packet_ok(last,binding,'val',100)
+                or not _same(best['metrics'],summary['best_val_metrics'])
+                or not _same(last['metrics'],cal[-1]['val_metrics'])):return False
+        for phase in ('calibration','refit'):
+            if not _first_ok(_json(output/('first_'+phase+'_step.json')),phase):return False
+        init=summary['initial_state_sha256']
+        if (not DATA.inspector._valid_sha(init) or summary.get('refit_initial_state_sha256')!=init
+                or not _same(_json(output/'initialization.json'),dict(input_scope='real_aid',
+                    calibration_state_sha256=init,refit_state_sha256=init,equal=True))):return False
+        checkpoints=summary['checkpoints']
+        if set(checkpoints)!=set(('best_calibration','final_calibration','final_refit')):return False
+        for key,receipt in checkpoints.items():
+            path=(output/(key+'.pt')).absolute()
+            if (receipt.get('path')!=str(path) or type(receipt.get('bytes')) is not int or receipt['bytes']<=0
+                    or not DATA.inspector._valid_sha(receipt.get('sha256')) or path.stat().st_size!=receipt['bytes']
+                    or _sha(path)!=receipt['sha256'] or not _same(_json(str(path)+'.json'),receipt)):return False
+        reload=summary['checkpoint_reload'];receipt=checkpoints['final_refit']
+        if (reload.get('loaded') is not True or reload.get('sha256')!=receipt['sha256']
+                or not _number(reload.get('reload_max_abs_error'),maximum=1e-6) or reload.get('reload_tolerance')!=1e-6
+                or not DATA.inspector._valid_sha(reload.get('state_sha256'))
+                or not _same(_json(output/'checkpoint_reload.json'),reload)):return False
+        metadata=reload['metadata']
+        if (metadata.get('phase')!='refit' or type(metadata.get('epoch')) is not int or metadata['epoch']!=selected
+                or type(metadata.get('selected_epoch')) is not int or metadata['selected_epoch']!=selected
+                or metadata.get('initial_state_sha256')!=init):return False
+        test=_json(output/'test.json');test_sha=_sha(output/'test.json')
+        if (not _packet_ok(test,binding,'test',selected) or type(test.get('selected_epoch')) is not int
+                or test['selected_epoch']!=selected or test.get('refit_checkpoint_sha256')!=receipt['sha256']
+                or summary.get('test_sha256')!=test_sha or summary.get('test_path')!=str((output/'test.json').absolute())
+                or not _same(test['metrics'],summary['test_metrics'])):return False
+        transaction=dict(schema='hgtnet-aid-formal-test-transaction-v1',binding_sha256=_binding_hash(binding),
+            selected_epoch=selected,refit_checkpoint_sha256=receipt['sha256'],state='complete',test_sha256=test_sha)
+        if not _same(_json(output/'test_transaction.json'),transaction) or not _same(summary.get('test_transaction'),transaction):return False
+        checks=summary['completion_checks']
+        if (not _same(_json(output/'completion_checks.json'),checks)
+                or any(checks.get(key) is not True for key in ('source_identity','config','recipe','manifest','weights','test_authorized'))
+                or checks.get('pool_image_count')!=5000 or checks.get('test_image_count')!=5000):return False
+        for split in ('pool','test'):
+            item=checks[split]
+            if (type(item.get('checked_count')) is not int or item['checked_count']!=5000
+                    or type(item.get('verified_count')) is not int or item['verified_count']!=5000
+                    or type(item.get('verified_bytes')) is not int or item['verified_bytes']<=0
+                    or type(item.get('test_image_bytes_read')) is not int
+                    or item['test_image_bytes_read']!=(0 if split=='pool' else item['verified_bytes'])):return False
+        progress=_json(output/'progress.json');updates=_json(output/'optimizer_progress.json')
+        if (any(not _same(progress.get(k),v) for k,v in dict(stage='complete',completed=True,training_started=True,
+                formal_training_started=True,optimizer_steps=summary['optimizer_steps']).items())
+                or type(updates.get('optimizer_steps')) is not int or updates['optimizer_steps']!=summary['optimizer_steps']
+                or updates.get('training_started') is not True or updates.get('formal_training_started') is not True
+                or updates.get('post_update_checks_passed') is not True):return False
+        if not all(_number(summary.get(key),positive=True) for key in ('wall_seconds','engine_wall_seconds')):return False
+        allocated,reserved=summary['cuda_peak_allocated_bytes'],summary['cuda_peak_reserved_bytes']
+        return (type(allocated) is int and type(reserved) is int and 0<allocated<=reserved<=runtime['cuda_device']['total_memory_bytes'])
+    except (OSError,ValueError,KeyError,TypeError,AttributeError,OverflowError,ZeroDivisionError):return False
+
+
+def status(output):
+    output=Path(output);report=dict(schema=SCHEMA,action='status',output=str(output),completed=False,
+        formal_training_started=False,state='not_started',counts=dict(PROTO.REAL_COUNTS))
+    if not output.exists() and not output.is_symlink():return report
+    report['state']='incomplete'
+    try:summary=_json(output/'summary.json')
+    except (OSError,ValueError):summary={}
+    if not isinstance(summary,dict):summary={}
+    try:report['progress']=_json(output/'progress.json')
+    except (OSError,ValueError):pass
+    try:
+        with SAFE.open_regular_readonly(output/'run.exit') as stream:report['exit_code']=int(stream.read().strip())
+    except (OSError,ValueError):report['exit_code']=None
+    for key in ('training_started','formal_training_started','input_scope','counts','batch_size','target_gpu','optimizer_steps',
+        'selected_epoch','best_epoch','final_epoch','refit_epochs','checkpoints','checkpoint_reload','parameters',
+        'test_path','test_sha256','initial_state_sha256','refit_initial_state_sha256','engine_wall_seconds','memory_scope','timing_scope',
+        'cuda_peak_allocated_bytes','cuda_peak_reserved_bytes','wall_seconds','physical_gpu_uuid','config_sha256','recipe_sha256',
+        'manifest_sha256','weights_sha256','attempt','error','test_reused','discarded_partial_optimizer_steps','optimizer_steps_scope'):
+        if key in summary:report[key]=summary[key]
+    observed=SAFE._observed_training(output)
+    report['optimizer_steps']=max(observed['optimizer_steps'],summary.get('optimizer_steps',0) if type(summary.get('optimizer_steps')) is int else 0)
+    report['training_started']=observed['training_started'] or summary.get('training_started') is True
+    try:real_aid=PROTO.validate_binding(_json(output/'binding.json'))['input_scope']=='real_aid'
+    except (OSError,ValueError,KeyError,TypeError):real_aid=False
+    if real_aid and observed['optimizer_steps']>0:report['formal_training_started']=True
+    for key in ('best_val_metrics','test_metrics'):
+        if isinstance(summary.get(key),dict):report[key]={k:summary[key][k] for k in ('accuracy_percent','macro_f1_percent','scope') if k in summary[key]}
+    try:source_ok=summary.get('source_identity')==_source_identity() if summary else None
+    except (OSError,ValueError,KeyError):source_ok=False
+    report['source_identity_matches']=source_ok;report['completion_evidence_valid']=_completion_evidence_ok(output,summary)
+    try:
+        with SAFE.open_regular_readonly(output/'completion.marker') as stream:marker=stream.read().decode()==MARKER
+    except (OSError,ValueError):marker=False
+    if report['completion_evidence_valid'] and report['exit_code']==0 and marker and source_ok:report.update(state='complete',completed=True)
+    if summary and source_ok is False:report['state']='source_changed'
+    if report['exit_code'] not in (None,0):report['state']='failed'
+    return report
+
+
+def parser():
+    result=argparse.ArgumentParser(description=__doc__);sub=result.add_subparsers(dest='action',required=True)
+    for action in ('inspect','run','resume','status'):
+        command=sub.add_parser(action);command.add_argument('--output',type=Path,default=ROOT/'runs/aid_seed42_01')
+        if action=='status':continue
+        if action=='inspect':command.add_argument('--resume',action='store_true')
+        command.add_argument('--gpu-uuid');command.add_argument('--manifest',type=Path,default=Path(DATA.MANIFEST))
+        command.add_argument('--data-root',type=Path,default=Path(DATA.DATA_ROOT))
+        command.add_argument('--weights',type=Path,default=Path('/home/featurize/work/swin_b-68c6b09e.pth'))
+        command.add_argument('--config',type=Path,default=ROOT/'configs/hgtnet_aid_independent_v0.json')
+        command.add_argument('--recipe',type=Path,default=ROOT/'configs/hgtnet_aid_formal_v1.json')
+        command.add_argument('--capacity-bundle',type=Path,default=CAPACITY_BUNDLE)
+        command.add_argument('--capacity-output',type=Path,default=CAPACITY_OUTPUT)
+    return result
+
+
+def main(argv=None):
+    args=parser().parse_args(argv)
+    if args.action in ('run','resume'):return run_formal_entry(args,resume=args.action=='resume')
+    print(json.dumps(status(args.output) if args.action=='status' else inspect_resources(args),indent=2,sort_keys=True));return 0
+
+
+if __name__=='__main__':raise SystemExit(main())

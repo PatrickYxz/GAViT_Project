@@ -1,0 +1,47 @@
+test_checkpoint_save_rejects_45class_nonfinite_or_non_fp32_state (tests.test_hgtnet_aid_engine.AidEngineTests.test_checkpoint_save_rejects_45class_nonfinite_or_non_fp32_state) ... 
+  test_checkpoint_save_rejects_45class_nonfinite_or_non_fp32_state (tests.test_hgtnet_aid_engine.AidEngineTests.test_checkpoint_save_rejects_45class_nonfinite_or_non_fp32_state) (defect='45class') ... FAIL
+  test_checkpoint_save_rejects_45class_nonfinite_or_non_fp32_state (tests.test_hgtnet_aid_engine.AidEngineTests.test_checkpoint_save_rejects_45class_nonfinite_or_non_fp32_state) (defect='double') ... FAIL
+test_reload_factory_cannot_reuse_trained_model_or_shared_parameter_storage (tests.test_hgtnet_aid_engine.AidEngineTests.test_reload_factory_cannot_reuse_trained_model_or_shared_parameter_storage) ... 
+  test_reload_factory_cannot_reuse_trained_model_or_shared_parameter_storage (tests.test_hgtnet_aid_engine.AidEngineTests.test_reload_factory_cannot_reuse_trained_model_or_shared_parameter_storage) (shared_storage=False) ... FAIL
+  test_reload_factory_cannot_reuse_trained_model_or_shared_parameter_storage (tests.test_hgtnet_aid_engine.AidEngineTests.test_reload_factory_cannot_reuse_trained_model_or_shared_parameter_storage) (shared_storage=True) ... FAIL
+
+======================================================================
+FAIL: test_checkpoint_save_rejects_45class_nonfinite_or_non_fp32_state (tests.test_hgtnet_aid_engine.AidEngineTests.test_checkpoint_save_rejects_45class_nonfinite_or_non_fp32_state) (defect='45class')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 217, in test_checkpoint_save_rejects_45class_nonfinite_or_non_fp32_state
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_checkpoint_save_rejects_45class_nonfinite_or_non_fp32_state (tests.test_hgtnet_aid_engine.AidEngineTests.test_checkpoint_save_rejects_45class_nonfinite_or_non_fp32_state) (defect='double')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 217, in test_checkpoint_save_rejects_45class_nonfinite_or_non_fp32_state
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_reload_factory_cannot_reuse_trained_model_or_shared_parameter_storage (tests.test_hgtnet_aid_engine.AidEngineTests.test_reload_factory_cannot_reuse_trained_model_or_shared_parameter_storage) (shared_storage=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 231, in test_reload_factory_cannot_reuse_trained_model_or_shared_parameter_storage
+    with self.assertRaises(ValueError) as failure:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_reload_factory_cannot_reuse_trained_model_or_shared_parameter_storage (tests.test_hgtnet_aid_engine.AidEngineTests.test_reload_factory_cannot_reuse_trained_model_or_shared_parameter_storage) (shared_storage=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 231, in test_reload_factory_cannot_reuse_trained_model_or_shared_parameter_storage
+    with self.assertRaises(ValueError) as failure:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.437s
+
+FAILED (failures=4)

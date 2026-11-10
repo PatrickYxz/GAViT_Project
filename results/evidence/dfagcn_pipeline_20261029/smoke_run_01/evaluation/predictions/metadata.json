@@ -1,0 +1,19 @@
+{
+  "arguments": [
+    "/Users/patrick/Projects/GAViT_Project/results/evidence/dfagcn_pipeline_20261029/liblinear/bin/predict",
+    "/Users/patrick/Projects/GAViT_Project/results/evidence/dfagcn_pipeline_20261029/smoke_run_01/evaluation/predictions/predict.svm",
+    "/Users/patrick/Projects/GAViT_Project/results/evidence/dfagcn_pipeline_20261029/smoke_run_01/refit/linear/model.txt",
+    "/Users/patrick/Projects/GAViT_Project/results/evidence/dfagcn_pipeline_20261029/smoke_run_01/evaluation/predictions/predictions.txt"
+  ],
+  "binary_sha256": "b88d0f01ef91f74977675aa97f2d7c0c87c6c011c1c40106573272b3af00e55f",
+  "elapsed_seconds": 0.007503332570195198,
+  "input_file_sha256": "04078e110326218a5cbd40c800d0bb71f69f27a28cc8a334adce41b392a7d03d",
+  "model_sha256": "a3dff3cbe54d5c6390472e1ef18aa704ddc4b37fa6e6716545b949e965906259",
+  "nr_feature": 5632,
+  "operation": "predict",
+  "prediction_file_sha256": "fa5a68f409cf5fb1591644e2e0f83fc57a6ca89de99e4e7b103e29da2e49ffef",
+  "return_code": 0,
+  "samples": 10,
+  "schema": "dfagcn-liblinear-cli-v1",
+  "stdout_accuracy_uses_dummy_labels": true
+}

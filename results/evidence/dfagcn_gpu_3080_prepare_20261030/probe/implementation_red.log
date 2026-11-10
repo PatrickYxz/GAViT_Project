@@ -1,0 +1,125 @@
+test_exact_3080_uuid_capacity_and_idle_gate (test_dfagcn_gpu_probe.GPUProbeTests.test_exact_3080_uuid_capacity_and_idle_gate) ... FAIL
+test_expected_cache_header_rejects_changed_order_and_declared_shapes (test_dfagcn_gpu_probe.GPUProbeTests.test_expected_cache_header_rejects_changed_order_and_declared_shapes) ... FAIL
+test_fresh_cuda_required_before_environment_mutation (test_dfagcn_gpu_probe.GPUProbeTests.test_fresh_cuda_required_before_environment_mutation) ... FAIL
+test_frozen_manifest_and_pool_only_select_450_train_validation_images (test_dfagcn_gpu_probe.GPUProbeTests.test_frozen_manifest_and_pool_only_select_450_train_validation_images) ... FAIL
+test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels) ... FAIL
+test_inventory_parses_driver_and_free_memory_at_external_io_boundary (test_dfagcn_gpu_probe.GPUProbeTests.test_inventory_parses_driver_and_free_memory_at_external_io_boundary) ... FAIL
+test_missing_resource_inspect_is_read_only_and_does_not_train (test_dfagcn_gpu_probe.GPUProbeTests.test_missing_resource_inspect_is_read_only_and_does_not_train) ... FAIL
+test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu (test_dfagcn_gpu_probe.GPUProbeTests.test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu) ... FAIL
+test_run_requires_explicit_uuid (test_dfagcn_gpu_probe.GPUProbeTests.test_run_requires_explicit_uuid) ... FAIL
+test_weight_metadata_conflicts_and_incomplete_digest_are_rejected (test_dfagcn_gpu_probe.GPUProbeTests.test_weight_metadata_conflicts_and_incomplete_digest_are_rejected) ... FAIL
+
+======================================================================
+FAIL: test_exact_3080_uuid_capacity_and_idle_gate (test_dfagcn_gpu_probe.GPUProbeTests.test_exact_3080_uuid_capacity_and_idle_gate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 46, in test_exact_3080_uuid_capacity_and_idle_gate
+    module=api()
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 20, in api
+    raise AssertionError('3080 bounded GPU probe is not implemented')
+AssertionError: 3080 bounded GPU probe is not implemented
+
+======================================================================
+FAIL: test_expected_cache_header_rejects_changed_order_and_declared_shapes (test_dfagcn_gpu_probe.GPUProbeTests.test_expected_cache_header_rejects_changed_order_and_declared_shapes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 92, in test_expected_cache_header_rejects_changed_order_and_declared_shapes
+    module=api()
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 20, in api
+    raise AssertionError('3080 bounded GPU probe is not implemented')
+AssertionError: 3080 bounded GPU probe is not implemented
+
+======================================================================
+FAIL: test_fresh_cuda_required_before_environment_mutation (test_dfagcn_gpu_probe.GPUProbeTests.test_fresh_cuda_required_before_environment_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 71, in test_fresh_cuda_required_before_environment_mutation
+    module=api()
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 20, in api
+    raise AssertionError('3080 bounded GPU probe is not implemented')
+AssertionError: 3080 bounded GPU probe is not implemented
+
+======================================================================
+FAIL: test_frozen_manifest_and_pool_only_select_450_train_validation_images (test_dfagcn_gpu_probe.GPUProbeTests.test_frozen_manifest_and_pool_only_select_450_train_validation_images)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 79, in test_frozen_manifest_and_pool_only_select_450_train_validation_images
+    module=api()
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 20, in api
+    raise AssertionError('3080 bounded GPU probe is not implemented')
+AssertionError: 3080 bounded GPU probe is not implemented
+
+======================================================================
+FAIL: test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 165, in test_graph_probe_rejects_insufficient_cache_or_bad_labels
+    module=api()
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 20, in api
+    raise AssertionError('3080 bounded GPU probe is not implemented')
+AssertionError: 3080 bounded GPU probe is not implemented
+
+======================================================================
+FAIL: test_inventory_parses_driver_and_free_memory_at_external_io_boundary (test_dfagcn_gpu_probe.GPUProbeTests.test_inventory_parses_driver_and_free_memory_at_external_io_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 61, in test_inventory_parses_driver_and_free_memory_at_external_io_boundary
+    module=api()
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 20, in api
+    raise AssertionError('3080 bounded GPU probe is not implemented')
+AssertionError: 3080 bounded GPU probe is not implemented
+
+======================================================================
+FAIL: test_missing_resource_inspect_is_read_only_and_does_not_train (test_dfagcn_gpu_probe.GPUProbeTests.test_missing_resource_inspect_is_read_only_and_does_not_train)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 125, in test_missing_resource_inspect_is_read_only_and_does_not_train
+    module=api()
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 20, in api
+    raise AssertionError('3080 bounded GPU probe is not implemented')
+AssertionError: 3080 bounded GPU probe is not implemented
+
+======================================================================
+FAIL: test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu (test_dfagcn_gpu_probe.GPUProbeTests.test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 143, in test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu
+    module=api()
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 20, in api
+    raise AssertionError('3080 bounded GPU probe is not implemented')
+AssertionError: 3080 bounded GPU probe is not implemented
+
+======================================================================
+FAIL: test_run_requires_explicit_uuid (test_dfagcn_gpu_probe.GPUProbeTests.test_run_requires_explicit_uuid)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 137, in test_run_requires_explicit_uuid
+    module=api()
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 20, in api
+    raise AssertionError('3080 bounded GPU probe is not implemented')
+AssertionError: 3080 bounded GPU probe is not implemented
+
+======================================================================
+FAIL: test_weight_metadata_conflicts_and_incomplete_digest_are_rejected (test_dfagcn_gpu_probe.GPUProbeTests.test_weight_metadata_conflicts_and_incomplete_digest_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 116, in test_weight_metadata_conflicts_and_incomplete_digest_are_rejected
+    module=api()
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 20, in api
+    raise AssertionError('3080 bounded GPU probe is not implemented')
+AssertionError: 3080 bounded GPU probe is not implemented
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.003s
+
+FAILED (failures=10)

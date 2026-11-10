@@ -1,0 +1,17 @@
+{
+  "status": "PRELIMINARY_BUILDER_REVIEW_PASSED_PROBE_PENDING",
+  "delivery_tests": {
+    "methods": 10,
+    "exit_code": 0,
+    "log": "delivery_tests.log"
+  },
+  "findings": [],
+  "old_bundle_unchanged": true,
+  "protected_metric_files_unchanged": 19,
+  "protected_old_entrypoint_sources_unchanged": 12,
+  "reviewed_source_sha256": {
+    "tools/package_dfagcn_nwpu_smoke.py": "89a3395372dee8f06feb487bc43dc2ad523518fb718bf16c39bd2569879b1da5",
+    "tests/test_dfagcn_delivery.py": "9fe93e45b4ec0e02e2a92ecfa4c73c2531f7127e10b90dc2c66ab019d36ca061",
+    "docs/external_baselines_20261027/hardware_3080_20261030.md": "713888ef91cff57ea7d6bcf1072a3b1e0f36d018ffec69274ccf17247eb4eb56"
+  }
+}

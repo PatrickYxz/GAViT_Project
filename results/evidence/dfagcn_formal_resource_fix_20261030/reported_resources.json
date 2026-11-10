@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-30",
+  "source": "user pasted actual formal inspect and df -h",
+  "inspect_blockers": [
+    "version:torch",
+    "version:torchvision",
+    "disk_capacity",
+    "target_gpu"
+  ],
+  "distributions": {
+    "python": "3.11.8",
+    "torch": "2.2.2",
+    "torchvision": "0.17.2",
+    "numpy": "1.26.4",
+    "Pillow": "10.3.0"
+  },
+  "nvidia": {
+    "name": "NVIDIA GeForce RTX 3080",
+    "uuid": "GPU-0d9901ca-d2e0-d398-b9b4-2550e6db2fed",
+    "memory_total_mib": 10240,
+    "memory_free_mib": 9874,
+    "driver_version": "610.57.04",
+    "compute_processes": []
+  },
+  "old_requested_uuid": "GPU-70be4364-0641-e89d-828e-78727c6001ec",
+  "work_free_bytes": 17029922816,
+  "work_old_required_bytes": 42949672960,
+  "archive_bytes": 427389445,
+  "archive_sha_verified": false,
+  "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+  "weights_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0",
+  "native_binaries": {
+    "predict": "fd8e3a88870145c21d13d163c2bbe724e12ef0c047018426495e65758b4977b0",
+    "train": "39de6baa6e0db556aa08884ef8ed3c9746a7fdabfe599fb11efefafd09f3ec4b"
+  },
+  "df": {
+    "work": {
+      "mount": "NFS",
+      "size": "50G",
+      "used": "35G",
+      "avail": "16G"
+    },
+    "/": {
+      "device": "/dev/vda3",
+      "size": "362G",
+      "used": "14G",
+      "avail": "349G"
+    },
+    "data_directory": "absent"
+  },
+  "formal_training_started": false
+}

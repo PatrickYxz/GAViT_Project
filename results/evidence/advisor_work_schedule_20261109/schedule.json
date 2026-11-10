@@ -1,0 +1,102 @@
+{
+  "client_date": "2026-11-09",
+  "timezone": "Asia/Shanghai",
+  "status": "PROPOSED_NOT_EXECUTED",
+  "user_constraints": {
+    "deadline": "as soon as possible",
+    "gpu_cards": 1,
+    "execution": "sequential",
+    "cost_control": true,
+    "dfagcn_contact_wait": "already approximately one month per user confirmation",
+    "new_two_week_wait_required": false
+  },
+  "targets": {
+    "structured_working_draft": "2026-11-13",
+    "complete_review_draft": "2026-11-18",
+    "contingency_end": "2026-11-20",
+    "dates_are_targets_not_guarantees": true,
+    "eta_recalibration_after_first_full_aid_soft": true
+  },
+  "seed_policy": {
+    "aid_recommended_group": [
+      42,
+      43,
+      44,
+      45
+    ],
+    "aid_original_completed_group": [
+      42,
+      43,
+      44
+    ],
+    "fourth_seed_must_be_frozen_before_new_test_results": true,
+    "dfagcn_existing_reusable_seed": 42,
+    "dfagcn_additional_seeds_count": 3,
+    "dfagcn_seed_list_pending_freeze": true,
+    "historical_negative_results_retained": true,
+    "reported_46_47_missing_f1_not_reconstructed": true
+  },
+  "training_budget": {
+    "dfagcn_additional_formal_runs": 3,
+    "aid_soft_formal_runs": 4,
+    "minimum_new_runs": 7,
+    "aid_fourth_seed_control_runs_reserved": 2,
+    "complete_aid_matched_design_budget_runs": 9,
+    "dfagcn_reuse_requires_unchanged_implementation_and_protocol": true
+  },
+  "stages": [
+    {
+      "dates": [
+        "2026-11-09",
+        "2026-11-10"
+      ],
+      "work": "complete-history clarification, seed/protocol freeze, local package and prerequisites"
+    },
+    {
+      "dates": [
+        "2026-11-10",
+        "2026-11-11"
+      ],
+      "work": "new device/real-data gate and first complete AID soft run, revise measured ETA"
+    },
+    {
+      "dates": [
+        "2026-11-11",
+        "2026-11-16"
+      ],
+      "work": "single-GPU sequential formal queue and immediate artifact recovery"
+    },
+    {
+      "dates": [
+        "2026-11-09",
+        "2026-11-16"
+      ],
+      "work": "parallel HGT paper table, related work, parameters/FLOPs, efficiency and thesis drafting"
+    },
+    {
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "work": "numeric, source and PDF visual verification; review-draft delivery"
+    }
+  ],
+  "not_planned": [
+    "new HGTNet training",
+    "DFAGCN AID",
+    "new architecture search",
+    "rerun because performance is negative"
+  ],
+  "sources": [
+    "docs/supervisor_seed_results_clarification_20261109.md",
+    "results/evidence/internal_results_integration_20261108/aid_audit.md",
+    "results/evidence/internal_results_integration_20261108/nwpu_ben_audit.md",
+    "results/dfagcn_nwpu_seed42_20261030.json"
+  ],
+  "outgoing_email_sent": false,
+  "gpu_started": false,
+  "evidence_notes": [
+    "New AID soft outcomes are not predetermined.",
+    "Existing AID43/44 can be reused as returned-summary evidence; recover original predictions/CM if present in persistent storage, otherwise disclose missing artifacts without inventing or performance-driven reruns."
+  ]
+}

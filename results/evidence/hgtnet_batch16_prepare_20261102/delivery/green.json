@@ -1,0 +1,25 @@
+{
+  "interpreter": "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python",
+  "modules": [
+    "tests.test_hgtnet_batch_probe_delivery",
+    "tests.test_hgtnet_nwpu_delivery",
+    "tests.test_hgtnet_3090_delivery"
+  ],
+  "tests_run": 23,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "success": true,
+  "scope": "stdlib source-delivery tests; synthetic minimal repositories and real zipapp inspect/status subprocesses; no numerical or GPU execution",
+  "source_sha256": {
+    "tools/package_hgtnet_nwpu_smoke.py": "d87c5901564737485d5e72cc88cf1fa13d86ebcaef1364594431b8a8e67e7336",
+    "tests/test_hgtnet_batch_probe_delivery.py": "9bbb772db6d83bd0c8c933e85922c0074e7fd594d1dceed702770cf7e3eea10e"
+  },
+  "api": "build_bundle(output_path, *, target_gpu='3080', runner_member=RUNNER)",
+  "registered_runners": [
+    "tools/run_hgtnet_nwpu_smoke.py",
+    "external_baselines/hgtnet/batch_probe.py"
+  ],
+  "production_bundle_created": false,
+  "pytest_available": false
+}

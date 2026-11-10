@@ -1,0 +1,27 @@
+{
+  "scope": "synthetic numerical tensor fixture, not NWPU training/evaluation",
+  "recipe": "configs/dfagcn_independent_v1.json",
+  "batch": 2,
+  "pooled_nodes": 49,
+  "classes": 45,
+  "logit_shapes": {
+    "conv3": [
+      2,
+      45
+    ],
+    "conv4": [
+      2,
+      45
+    ],
+    "conv5": [
+      2,
+      45
+    ]
+  },
+  "all_parameter_gradients_finite": true,
+  "fused_shape": [
+    2,
+    5632
+  ],
+  "loss": 11.423223495483398
+}

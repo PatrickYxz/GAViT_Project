@@ -1,0 +1,155 @@
+{
+  "date": "2026-11-08",
+  "status": "PARTIAL_THESIS_COMPILED_EXPORTED_VISUALLY_REVIEWED",
+  "scope": [
+    "Chapters1-4",
+    "Supplementary independent external-method comparison Chapter5"
+  ],
+  "complete_thesis": false,
+  "open_work": [
+    "complete internal results and ablations",
+    "integrated discussion and conclusions",
+    "formal front matter",
+    "unified-protocol/multiseed external comparison and comparable efficiency"
+  ],
+  "bibliography_entries": 50,
+  "actually_cited_references": 50,
+  "minimum_reference_count_met": true,
+  "static_checks": {
+    "unresolved_references": [],
+    "unresolved_citations": [],
+    "duplicate_labels": [],
+    "duplicate_bibliography_keys": [],
+    "missing_images": []
+  },
+  "final_source_sha256": {
+    "main.tex": "77919dece03d946d197b8ced1e10a106fbcecb6efe919c6d6b7d348eeda35d36",
+    "chapters/01-introduction.tex": "ac56873d1cb2526bebaa2503ca1c5c5ed67962760d21be7b1ea29fdcf211ae5b",
+    "chapters/02-literature-review.tex": "77d5073aa7dfd07b4f4c7e286af76838c5eb6d269ec5e722999b25d4b572072b",
+    "chapters/03-method.tex": "e036fa93a09be0ff86facb4ca0c2f84c74d243c23318eda2f436fb125d44115f",
+    "chapters/04-experimental-setup.tex": "5d470a8c91b6b194b51577d1a7be2232d82f0bbe201aa4c161f3f36dd88d5cd3",
+    "chapters/05-external-comparisons.tex": "fae9b0131890a76bb20b62fdf58ae7d492971871db88519abe7c2da15db2f17c",
+    "references.bib": "fadee6936a8d4b91043a0c6fa9c2794aee595bb072e4861990d70246a4a9997f",
+    "images/external_aid_20261108/hgtnet_aid_seed42_training_history.png": "e5c45979ed0a77ea5f4ee4a1b17bd598629af32b5d1823fdd8705885a5920d3c",
+    "images/external_aid_20261108/hgtnet_aid_seed42_confusion_matrix.png": "9ac1a44b8910e585290c31e5ef7eb18bd95679b92668f22ac10c2b0fc859cbcf"
+  },
+  "native_compilation": {
+    "result": "success",
+    "tool": "mcp__codex_app__compile_latex_document",
+    "path": "/Users/patrick/Projects/GAViT_Project/thesis/ntu_gavit",
+    "mainFile": "main.tex",
+    "scope": "Current final source after TOC/figure repairs"
+  },
+  "local_compilation": {
+    "result": "success",
+    "exit_code": 0,
+    "command": "TECTONIC_CACHE_DIR=/private/tmp/gavit_tectonic_20261108/cache /private/tmp/gavit_tectonic_20261108/tectonic --untrusted --only-cached --bundle https://data1b.fullyjustified.net/tlextras-2022.0r0.tar --keep-logs --keep-intermediates --outdir /Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108 main.tex",
+    "cwd": "/Users/patrick/Projects/GAViT_Project/thesis/ntu_gavit",
+    "log": "results/evidence/external_results_integration_20261106/compile_final_20261108.log"
+  },
+  "warnings": {
+    "missing_character_count": 0,
+    "overfull_hbox_count": 0,
+    "undefined_reference_or_citation_count": 0,
+    "underfull_hbox_count": 27
+  },
+  "compiled_pdf_confirmed": true,
+  "pdf_exported_to_workspace": true,
+  "pdf": {
+    "path": "output/pdf/ntu_gavit_external_results_20261108.pdf",
+    "pages": 47,
+    "bytes": 805093,
+    "sha256": "0802b80887af025dc059ff49604100096c584b82a89374c5cc14c493ea89b0e2"
+  },
+  "visual_qa_complete": true,
+  "visual_qa_scope": {
+    "directly_reviewed_final_physical_pages": [
+      1,
+      2,
+      3,
+      4,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47
+    ],
+    "unchanged_body_physical_pages": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "unchanged_body_method": "28/28 final decoded RGB hashes+dimensions and decoded page-content hashes+MediaBox match previously visually reviewed pages",
+    "all_final_physical_pages_covered": true,
+    "substantive_open_findings": [],
+    "working_draft_notes": [
+      "Naturally sparse Chapter4 and Chapter5 ending pages remain; no lost content or stranded heading."
+    ]
+  },
+  "visual_qa_evidence": [
+    "results/evidence/external_results_integration_20261106/local_pdf_final_qa_20261108.json",
+    "results/evidence/external_results_integration_20261106/final_body_mapping.json",
+    "results/evidence/external_results_integration_20261106/initial_body_visual_qa_20261108.json"
+  ],
+  "pagination_measured": true,
+  "measured_pages": {
+    "front_cover_and_contents": 4,
+    "introduction": 4,
+    "literature_review": 11,
+    "method": 6,
+    "experimental_setup": 7,
+    "supplementary_external_comparisons": 8,
+    "references": 7,
+    "total": 47
+  },
+  "target_page_range_including_front_matter_and_references": [
+    50,
+    60
+  ],
+  "page_target_met_as_complete_thesis": false,
+  "page_budget_note": "Partial47-page review draft. Merge/condense this staged supplement into the full results structure before adding remaining material; do not double-count the old results budget.",
+  "independent_scientific_review": "35 fresh checks PASS; original prediction rows and pair directions independently reconstructed.",
+  "offline_analysis_tests": {
+    "count": 4,
+    "result": "PASS",
+    "fresh_log": "results/evidence/hgtnet_aid_analysis_20261106/tdd_green_20261108.log"
+  },
+  "original_download_hashes_verified": 56,
+  "no_new_training_or_model_evaluation": true,
+  "historical_validation_snapshot": "provenance/validation_20261029_snapshot_20261108.json"
+}

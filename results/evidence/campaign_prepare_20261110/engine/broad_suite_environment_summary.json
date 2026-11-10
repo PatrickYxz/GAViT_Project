@@ -1,0 +1,18 @@
+{
+  "command": ".venv/bin/python -m unittest discover -s tests",
+  "exit_code": 1,
+  "tests_run": 392,
+  "elapsed_seconds": 48.696,
+  "failures": 2,
+  "errors": 75,
+  "known_failures": {
+    "test_aid_campaign_delivery.DeliveryTests.test_delivery_implementation_exists": "Delivery subagent was concurrently in RED/write phase; campaign CLI did not exist at discovery start. The file now exists and this failure is not an engine regression.",
+    "test_dfagcn_cli.CLITests.test_help_exposes_all_workflow_commands": "Import requires torch, which is absent from local .venv."
+  },
+  "error_categories": [
+    "Local .venv lacks torch, numpy, Pillow, and pytest; existing model/data tests cannot import or run.",
+    "Concurrent delivery tests initially encountered missing tools/run_aid_campaign.py during its test-first implementation."
+  ],
+  "scope": "This is a factual summary of the captured tool output, not a full stdout transcript. Unrelated dependency failures were not modified or retried.",
+  "cpu_toy_or_gpu_execution_claimed": false
+}

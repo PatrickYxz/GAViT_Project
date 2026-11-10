@@ -1,0 +1,13 @@
+======================================================================
+FAIL: test_build_records_git_base_without_claiming_sources_committed (tests.test_hgtnet_aid_formal_delivery.DeliveryTests.test_build_records_git_base_without_claiming_sources_committed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_delivery.py", line 41, in test_build_records_git_base_without_claiming_sources_committed
+    self.assertEqual(provenance.get('source_state'),'uncommitted_source_snapshot')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != 'uncommitted_source_snapshot'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (failures=1)

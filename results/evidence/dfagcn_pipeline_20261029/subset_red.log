@@ -1,0 +1,33 @@
+test_calibration_refit_and_test_complete_with_actual_linear_binaries (test_dfagcn_pipeline.PipelineTests.test_calibration_refit_and_test_complete_with_actual_linear_binaries) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_stage_rejects_wrong_split_random_formal_and_calibration_as_final (test_dfagcn_pipeline.PipelineTests.test_stage_rejects_wrong_split_random_formal_and_calibration_as_final) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_subset_smoke_cannot_be_used_as_complete_final_refit (test_dfagcn_pipeline.PipelineTests.test_subset_smoke_cannot_be_used_as_complete_final_refit) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+FAIL
+test_tampered_selection_recipe_and_refit_checkpoint_are_rejected (test_dfagcn_pipeline.PipelineTests.test_tampered_selection_recipe_and_refit_checkpoint_are_rejected) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+
+======================================================================
+FAIL: test_subset_smoke_cannot_be_used_as_complete_final_refit (test_dfagcn_pipeline.PipelineTests.test_subset_smoke_cannot_be_used_as_complete_final_refit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_pipeline.py", line 124, in test_subset_smoke_cannot_be_used_as_complete_final_refit
+    self.assertIn('train_per_class',inspect.signature(module.calibrate).parameters,
+AssertionError: 'train_per_class' not found in mappingproxy(OrderedDict({'manifest_path': <Parameter "manifest_path">, 'train_cache_path': <Parameter "train_cache_path">, 'val_cache_path': <Parameter "val_cache_path">, 'recipe': <Parameter "recipe">, 'output_dir': <Parameter "output_dir">, 'train_binary': <Parameter "train_binary">, 'predict_binary': <Parameter "predict_binary">, 'mode': <Parameter "mode='engineering'">, 'device': <Parameter "device='cpu'">})) : explicit train/validation subset support is missing
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.846s
+
+FAILED (failures=1)

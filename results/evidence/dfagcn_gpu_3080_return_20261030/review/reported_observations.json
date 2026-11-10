@@ -1,0 +1,78 @@
+{
+  "command_scope_reported": "Matching parent-issued run command with explicit GPU UUID, fixed manifest, old frozen cache, full weights SHA, independent recipe, new output, and metadata. Exact command string is maintained by parent and was not independently available in this subagent task.",
+  "complete_marker_reported": true,
+  "complete_summary_path": "/home/featurize/work/dfagcn_gpu_probe_3080_20261030/runs/gpu_probe_01/summary.json",
+  "evidence_origin": "Values supplied in parent task from the user pasted target terminal return; not a direct server filesystem read.",
+  "graph": {
+    "batch_samples": 100,
+    "classes": 45,
+    "cuda_peak_allocated_bytes": 155492352,
+    "cuda_peak_reserved_bytes": 190840832,
+    "device": "cuda:0",
+    "disposable_parameters_changed": true,
+    "elapsed_seconds": 0.571385420000297,
+    "formal_training_started": false,
+    "gradients_finite": true,
+    "loss": 11.601445198059082,
+    "optimizer_steps": 1,
+    "parameters_finite": true
+  },
+  "runtime": {
+    "amp": false,
+    "cpu_threads": 8,
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "cudnn_tf32": false,
+    "device": "cuda:0",
+    "dtype": "float32",
+    "gpu": {
+      "driver_version": "610.57.04",
+      "memory_free_mib": 9874,
+      "memory_total_mib": 10240,
+      "name": "NVIDIA GeForce RTX 3080",
+      "uuid": "GPU-70be4364-0641-e89d-828e-78727c6001ec"
+    },
+    "matmul_tf32": false,
+    "numpy": "1.26.4",
+    "pillow": "10.3.0",
+    "python": "3.11.8",
+    "seed": 42,
+    "torch": "2.2.2+cu121",
+    "torchvision": "0.17.2+cu121"
+  },
+  "shell_return_reported": true,
+  "vgg": {
+    "batch_samples": 1,
+    "cuda_peak_allocated_bytes": 587649536,
+    "cuda_peak_reserved_bytes": 645922816,
+    "elapsed_seconds": 3.127573947998826,
+    "finite": true,
+    "input": "normalized zero tensors for compatibility/memory only",
+    "shapes": {
+      "conv3": [
+        1,
+        256,
+        112,
+        112
+      ],
+      "conv4": [
+        1,
+        512,
+        56,
+        56
+      ],
+      "conv5": [
+        1,
+        512,
+        28,
+        28
+      ],
+      "fc": [
+        1,
+        4096
+      ]
+    }
+  }
+}

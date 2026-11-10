@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-05",
+  "status": "USER_REPORTED_STALE_GPU_UUID_AND_MISSING_DATA_ROOT_CONFIRMED",
+  "source_type": "direct_user_terminal_output",
+  "reported_blockers": [
+    "inputs",
+    "target_gpu"
+  ],
+  "requested_gpu_uuid": "GPU-7acce72a-93cd-e56f-35d8-5d33ecf6655e",
+  "current_gpu_inventory": {
+    "name": "NVIDIA GeForce RTX 3060",
+    "uuid": "GPU-df386e6c-dbb3-0952-8190-3265a7bd8ae8",
+    "driver_version": "610.57.04",
+    "memory_total_mib": 12288,
+    "memory_free_mib": 11909
+  },
+  "input_error": "[Errno 2] No such file or directory: 'data'",
+  "gpu_error": "exactly one selected idle RTX3060 12288MiB is required",
+  "instance_change_confirmed": false,
+  "current_image_availability_verified": false,
+  "training_started_in_this_attempt": false,
+  "training_started_basis": "In the delivered source, preflight rejection precedes the output lock, Torch import and optimizer/model construction.",
+  "previous_verified_inventory": "results/evidence/hgtnet_aid_inputs_restored_20261104/inventory_reported.json",
+  "evidence": "results/evidence/hgtnet_aid_smoke_preflight_return_20261105/reported_output.txt",
+  "next_read_only_command": null,
+  "interpretation": "Detailed inspect confirms the fixed requested UUID differs from the only idle matching3060 and the data component of the selected-image root is missing; frozen manifest and initialweights passed. Reuse the old SHA-gated ZIP recovery, then existing unique-idle-GPU binding. Actual restoration and GPU smoke are pending.",
+  "physical_gpu_change_confirmed": true,
+  "current_default_data_root_exists": false,
+  "details_evidence": "results/evidence/hgtnet_aid_smoke_preflight_return_20261105/inspect_selected_fields_reported.json",
+  "resolution": "SHA-gated restore original ZIP to instance data, then run existing bundle with unique-idle-3060 auto-binding."
+}

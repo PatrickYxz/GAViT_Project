@@ -1,0 +1,18 @@
+test_build_actual_3090_bundle_and_target_reaches_bootstrap (test_hgtnet_3090_delivery.TargetDeliveryTests.test_build_actual_3090_bundle_and_target_reaches_bootstrap) ... ok
+test_direct_source_target_also_controls_scratch_namespace (test_hgtnet_3090_delivery.TargetDeliveryTests.test_direct_source_target_also_controls_scratch_namespace) ... FAIL
+test_parser_honors_delivery_target_and_command_binds_profile (test_hgtnet_3090_delivery.TargetDeliveryTests.test_parser_honors_delivery_target_and_command_binds_profile) ... ok
+test_runtime_checks_selected_3090_instead_of_fixed_3080 (test_hgtnet_3090_delivery.TargetDeliveryTests.test_runtime_checks_selected_3090_instead_of_fixed_3080) ... ok
+test_unknown_profile_is_rejected_without_creating_files (test_hgtnet_3090_delivery.TargetDeliveryTests.test_unknown_profile_is_rejected_without_creating_files) ... ok
+
+======================================================================
+FAIL: test_direct_source_target_also_controls_scratch_namespace (test_hgtnet_3090_delivery.TargetDeliveryTests.test_direct_source_target_also_controls_scratch_namespace)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_3090_delivery.py", line 28, in test_direct_source_target_also_controls_scratch_namespace
+    self.assertIn('rtx3090',str(args.scratch_root))
+AssertionError: 'rtx3090' not found in '/tmp/GAViT_Project_rtx3080_seed42_01'
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.040s
+
+FAILED (failures=1)

@@ -1,0 +1,13 @@
+{
+  "checks": "PASS",
+  "json_files_parsed": 14,
+  "markdown_files_checked": 5,
+  "local_links_resolved": 32,
+  "paper_reported_records_checked": 6,
+  "missing_sd_kept_null": true,
+  "hgt_repetition_mechanism_not_inferred": true,
+  "df_body_point_values_not_certified_as_mean_sd_cells": true,
+  "protected_metric_artifacts_unchanged": 19,
+  "root_and_research_code_files_unchanged": 12,
+  "no_model_runtime_validation_claim": true
+}

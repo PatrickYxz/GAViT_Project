@@ -1,0 +1,294 @@
+\chapter{Experimental Setup}
+\label{chap:setup}
+
+\section{Evaluation questions}
+
+The experiments address three questions. First, does the fixed region graph
+improve classification relative to the shared Swin-T baseline? Second, does
+the local prototype soft assignment improve on the fixed grouping under the
+same task protocol? Third, are any observed benefits consistent across
+training repetitions and sufficient to justify the additional computational
+cost? Classification results, component comparisons and diagnostic
+visualisations provide different kinds of evidence for these questions.
+
+This chapter specifies the implemented internal comparison.
+Chapter~\ref{chap:external-comparisons} separately reports the completed
+single-seed independent implementations of HGTNet and DFAGCN, including
+their different preprocessing, optimisers and training budgets. The shared
+partitions and evaluation rules do not make these separate recipes a unified
+training protocol. Published scores are not treated as measurements made
+under the internal protocol; external multi-seed and unified-protocol
+comparisons remain open.
+
+\section{Datasets and fixed partitions}
+
+\subsection{NWPU-RESISC45}
+
+Cheng et al.~\cite{cheng2017nwpu} introduced NWPU-RESISC45 as a remote
+sensing scene classification benchmark with 45 classes and 31,500 images,
+including 700 images per class. The present experiments use a 20\% training
+pool and an 80\% held-out test set. The training pool is divided into a
+calibration-training subset and a validation subset before final fitting.
+Table~\ref{tab:partitions} gives the retained image counts.
+
+The outer partition seed is 42 and the within-pool validation partition seed
+is 4242. These fixed partition seeds are distinct from the seeds used for
+training repetitions. The manifest construction identified eight groups of
+same-class images with identical pixel content. Each such group is kept
+within one subset. All original files are retained, so the manifest contains
+31,500 files representing 31,492 unique pixel images. This check addresses
+the identified exact duplicates; it does not establish the absence of
+near-duplicate images or geographic dependence.
+
+\subsection{Aerial Image Dataset}
+
+The Aerial Image Dataset (AID) was introduced by Xia
+et al.~\cite{xia2017aid} for aerial scene classification. It contains 10,000
+images from 30 scene classes. The implemented partition uses a 50\% training
+pool and a 50\% held-out test set. The pool is divided into 4,000 calibration
+images and 1,000 validation images. The outer and within-pool partition seeds
+are again 42 and 4242. One same-class exact-duplicate group is confined to
+one subset; all 10,000 files are retained, with 9,999 unique pixel images.
+
+\subsection{BigEarthNet-19}
+
+Sumbul et al.~\cite{sumbul2019bigearthnet} introduced BigEarthNet as a
+multi-label Sentinel-2 archive. The 19-class nomenclature was described by
+Sumbul et al.~\cite{sumbul2021bigearthnetmm}. These dataset references do
+not define the number of samples retained by this project's available-data
+pipeline. The implemented manifests use the existing partition labels in
+BigEarthNet v2.0's \texttt{metadata.parquet}~\cite{clasen2024bigearthnetv2}
+and retain patches with the required RGB files. They contain 480,038
+samples in total, divided as shown in Table~\ref{tab:partitions}; they are not
+a newly generated random 70/15/15 split.
+
+Only Sentinel-2 bands B04, B03 and B02 are used, in red, green and blue order.
+When separate band files are read, each band value is divided by 4095,
+multiplied by 255, clipped to $[0,255]$ and converted to an unsigned 8-bit
+image. The reader also supports previously merged RGB images. The inputs
+are therefore three-channel RGB representations, rather than full
+multispectral or Sentinel-1/Sentinel-2 inputs. Targets use a fixed ordering
+of 19 binary land-cover labels.
+
+\begin{table}[tbp]
+ \centering
+ \caption{Retained sample counts for the implemented internal protocols.
+ ``Pool'' is the union of calibration training and validation for the
+ single-label datasets. BigEarthNet keeps training and validation separate.}
+ \label{tab:partitions}
+ \small
+ \setlength{\tabcolsep}{4pt}
+ \begin{tabular}{lrrrr}
+  \toprule
+  Dataset & Training & Validation & Pool & Test\\
+  \midrule
+  NWPU-RESISC45 & 5,040 & 1,260 & 6,300 & 25,200\\
+  AID & 4,000 & 1,000 & 5,000 & 5,000\\
+  BigEarthNet-19 & 237,871 & 122,342 & --- & 119,825\\
+  \bottomrule
+ \end{tabular}
+\end{table}
+
+\section{Preprocessing and optimisation}
+
+All internal Swin-T and GAViT models receive $224\times224$ RGB inputs.
+Their evaluation uses deterministic
+resizing and ImageNet channel normalisation, with means
+$(0.485,0.456,0.406)$ and standard deviations $(0.229,0.224,0.225)$.
+The single-label pipeline uses bilinear resizing with antialiasing. During
+single-label training, horizontal and vertical flips each have probability
+0.5; brightness, contrast and saturation jitter each use magnitude 0.2.
+BigEarthNet training uses the resize and two flips, without colour jitter.
+Random training augmentations are disabled during validation and testing.
+
+The internal comparison uses minibatches of 32 and the AdamW optimiser,
+which was proposed by Loshchilov and Hutter~\cite{loshchilov2019adamw}.
+The initial learning rate is $3\times10^{-4}$ and weight decay is
+$10^{-4}$. A cosine schedule uses an annealing horizon $T_{\max}=30$ epochs and a
+minimum learning rate of zero. The single-label pipeline uses AdamW moment
+coefficients $(0.9,0.999)$ and numerical stabiliser $10^{-8}$. It applies
+cross-entropy without label smoothing. BigEarthNet uses binary
+cross-entropy with logits. The backbone is fine-tuned together with the
+classification and graph modules.
+
+The recorded principal internal runs use 32-bit floating-point computation without
+automatic mixed precision (AMP). TensorFloat-32 (TF32) settings are recorded
+separately: the single-label pipeline disables TF32 for matrix multiplication
+and cuDNN, whereas the documented BigEarthNet soft-seed42 environment disables
+matrix-multiplication TF32 and retains cuDNN TF32. These settings describe the
+respective pipelines; they do not establish that every historical run used
+an identical software or hardware environment.
+
+\section{Model selection and final fitting}
+
+\subsection{Single-label calibration and refitting}
+
+For AID and NWPU-RESISC45, each internal Swin-T or GAViT model first trains for at most 30 calibration
+epochs on the internal training subset. Validation overall accuracy selects
+the epoch count. The checkpoint is updated only on a strict improvement,
+so the earliest occurrence is retained when validation accuracy ties.
+
+After selection, the model is reinitialised from the common pretrained
+backbone checkpoint and fitted on the full training pool for the selected
+number of epochs. This refit is not continued training from the calibration
+checkpoint. The cosine schedule retains its annealing horizon $T_{\max}=30$ epochs;
+it is not rescaled to the selected refit duration. The final refit checkpoint
+is evaluated on the held-out test set. Thus, a calibration validation score
+and a refit test score can come from different trained weights. A reversal
+between their rankings alone does not demonstrate overfitting of a single
+checkpoint.
+
+\subsection{Multi-label validation-based checkpoint selection}
+
+BigEarthNet uses its training partition for optimisation and its validation
+partition for checkpoint selection. The planned training budget is 30 epochs,
+and the best checkpoint is updated when validation mean average precision
+(mAP) strictly improves. The selected checkpoint is then evaluated on the
+fixed test partition. Training and validation are not merged for refitting.
+The achieved final epoch and exit status are reported per run, since some
+historical runs ended before the planned budget.
+
+The F1 decision threshold is fixed at 0.5. Neither checkpoint choice nor
+threshold choice uses the test labels. A higher test F1 score does not
+replace mAP as the preselected primary multi-label metric.
+
+\section{Classification metrics}
+
+\subsection{Single-label metrics}
+
+Let $M$ be the number of test images, and let $y_i$ and $\hat{y}_i$ be the
+true and predicted class of image $i$. The predicted class is the largest-logit
+class. Overall accuracy (OA) is
+\begin{equation}
+ \operatorname{OA}=\frac{1}{M}\sum_{i=1}^{M}
+                       \mathbf{1}[\hat{y}_i=y_i].
+ \label{eq:oa}
+\end{equation}
+For class $c$, let $TP_c$, $FP_c$ and $FN_c$ denote true positives, false
+positives and false negatives, respectively. The per-class and macro F1
+scores are
+\begin{equation}
+ F1_c=\frac{2TP_c}{2TP_c+FP_c+FN_c},
+ \qquad
+ F1_{\mathrm{macro}}=\frac{1}{C}\sum_{c=1}^{C}F1_c.
+ \label{eq:macro-f1}
+\end{equation}
+A zero denominator gives an F1 score of zero in the implemented metric.
+Per-class accuracy is $TP_c/(TP_c+FN_c)$ when the class has test support.
+The confusion matrix uses true classes as rows and predicted classes as
+columns. Scores are displayed as percentages in result tables.
+
+\subsection{Multi-label metrics}
+
+Sigmoid probabilities rank the test images independently for each label.
+Let $AP_c$ denote class $c$'s average precision, calculated from that ranking
+using the recorded evaluation implementation. For $C_+$ classes with at
+least one positive test example, mAP is
+\begin{equation}
+ \operatorname{mAP}=\frac{1}{C_+}
+                 \sum_{c:\,TP_c+FN_c>0}AP_c.
+ \label{eq:map}
+\end{equation}
+The intended full BigEarthNet-19 evaluation covers all 19 labels; absent
+classes in small engineering subsets are not grounds for treating subset
+mAP as a benchmark result. The class-wise AP vector is retained alongside
+the aggregate score.
+
+Binary predictions use $\hat{y}_{ic}=\mathbf{1}[p_{ic}\geq0.5]$, where
+$p_{ic}$ is image $i$'s sigmoid probability for class $c$. Macro-F1 uses
+Equation~\eqref{eq:macro-f1}. Micro-F1 aggregates counts over all labels:
+\begin{equation}
+ F1_{\mathrm{micro}}=
+ \frac{2\sum_c TP_c}
+ {2\sum_c TP_c+\sum_c FP_c+\sum_c FN_c}.
+ \label{eq:micro-f1}
+\end{equation}
+Average precision measures ranking, whereas F1 also depends on the fixed
+decision threshold. Their changes can therefore have different directions.
+
+\section{Internal comparisons and repetition statistics}
+
+The principal architecture comparison contains the shared Swin-T baseline,
+fixed-partition GAViT, and local-prototype soft-assignment GAViT. Within a
+dataset, comparisons retain the same recorded data partitions, label order,
+input representation and model-selection rule. The soft variant changes
+both region aggregation and the feedback assignment. Accordingly, its
+comparison with the fixed variant does not separately isolate the effects
+of membership softness, the projection parameters and the feedback map.
+
+Let $v_{ms}$ be the test metric of method $m$ in training repetition $s$, and
+let $R$ be the number of eligible repetitions in a stated comparison group.
+The reported mean $\bar{v}_m$ and sample standard deviation $s_m$ are
+\begin{equation}
+ \bar{v}_m=\frac{1}{R}\sum_{s=1}^{R}v_{ms},
+ \qquad
+ s_m=\sqrt{\frac{1}{R-1}\sum_{s=1}^{R}
+                    (v_{ms}-\bar{v}_m)^2},\quad R>1.
+ \label{eq:repeat-statistics}
+\end{equation}
+No standard deviation is assigned to a single run. A paired difference is
+computed within the same seed before its mean and standard deviation are
+calculated. Differences between percentage scores are expressed in
+percentage points (pp).
+
+Each result table states its actual seed set and completion criteria.
+Historical runs with different code identities, devices, training durations
+or evidence completeness are disclosed separately. They are not relabelled
+as fully controlled repetitions. All prespecified runs, including negative
+results and interrupted runs, remain in the experiment record. A subset
+prepared for a progress report does not replace the complete experiment
+record or justify discarding unfavourable runs.
+
+Training repetitions share the frozen test set. They measure variation
+conditional on that partition and do not create additional independent test
+images or reproduce a repeated-random-split protocol. Means and standard
+deviations alone do not establish statistical significance or equivalence.
+No significance-test outcome is asserted in this partial draft; the final
+test specification must match the completed paired comparisons and their
+available sample size.
+
+\section{Efficiency and qualitative analysis}
+
+Efficiency reporting separates parameter count, model-forward latency,
+throughput, GPU memory and total experiment duration. A model-forward
+benchmark uses the same device, input shape, batch size, numerical precision,
+warm-up and synchronisation procedure for all compared models. The archived
+AID forward benchmark uses GPU-resident synthetic inputs, 20 warm-up passes
+and five groups of 50 timed passes. It excludes image reading, preprocessing
+and host-to-device transfer. Its throughput therefore describes the measured
+forward path, rather than the complete dataset pipeline. Repeated timing
+groups are not independent training seeds, and runs made on different GPU
+models are not direct evidence of a model's relative execution speed.
+
+Qualitative analysis distinguishes region assignment, explicit spatial and
+feature edges, within-region pooling weights, and graph-attention weights.
+These visual quantities represent different operations. Feature similarity
+and graph attention are not interchangeable, and neither alone proves a
+human-semantic relationship or a causal source of classification improvement.
+Anchor locations are distinguished from region centroids. Successes,
+introduced errors and shared failures are retained within each declared
+selection set. The visualised split and checkpoint identity accompany the
+figures, since calibration examples cannot substitute for refit test
+performance.
+
+\section{Reproducibility and reporting boundaries}
+
+Run records bind the data manifest, pretrained weight identity, model
+configuration, source revision, training seed, numerical settings and
+checkpoint to their logs and evaluation outputs. Best validation epoch and
+last achieved epoch are recorded separately. A model option in the current
+source code is not, by itself, evidence that the corresponding formal
+experiment was completed.
+
+Earlier NWPU experiments used a different data split, and earlier graph
+variants used different connectivity or integration rules. Those results
+are not pooled with the present 20\%-training-pool refit protocol. Likewise,
+the historical $3\times3$ BigEarthNet experiment uses a separately frozen
+configuration; it does not change the $K=16$ definition of the principal
+model in Chapter~\ref{chap:method}. The supplementary external-method runs
+in Chapter~\ref{chap:external-comparisons} use their own disclosed
+implementation and recipe identities. Their completion does not establish
+official reproduction or complete the external multi-seed requirement.
+Final eligible seed groups, inferential statistics and complete cross-model
+efficiency tables must be resolved against their own evidence before the
+thesis makes a final comparative claim.

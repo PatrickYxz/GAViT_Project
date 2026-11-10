@@ -1,0 +1,792 @@
+test_checkpoint_roundtrip (unittest.loader._FailedTest.test_checkpoint_roundtrip) ... ERROR
+test_changed_file_and_record_order_rejected_before_output (test_dfagcn_cache_extract.ExtractionContractTests.test_changed_file_and_record_order_rejected_before_output) ... ok
+test_pool_and_preprocessing_mismatch_rejected (test_dfagcn_cache_extract.ExtractionContractTests.test_pool_and_preprocessing_mismatch_rejected) ... ok
+test_real_vgg_cpu_fc6_and_pooled_convolutions_are_cached (test_dfagcn_cache_extract.ExtractionContractTests.test_real_vgg_cpu_fc6_and_pooled_convolutions_are_cached) ... ok
+test_supplied_real_vgg_weight_file_roundtrip_preserves_cpu_fc6 (test_dfagcn_cache_extract.ExtractionContractTests.test_supplied_real_vgg_weight_file_roundtrip_preserves_cpu_fc6) ... ok
+test_weight_loader_rejects_wrong_sha_before_deserializing (test_dfagcn_cache_extract.ExtractionContractTests.test_weight_loader_rejects_wrong_sha_before_deserializing) ... ok
+test_cache_rejects_forged_array_metadata_even_with_intact_data (test_dfagcn_cache_extract.FeatureCacheTests.test_cache_rejects_forged_array_metadata_even_with_intact_data) ... ok
+test_cache_rejects_identity_order_mismatch_and_altered_file (test_dfagcn_cache_extract.FeatureCacheTests.test_cache_rejects_identity_order_mismatch_and_altered_file) ... ok
+test_exact_sample_count_and_pooling_contract_are_enforced (test_dfagcn_cache_extract.FeatureCacheTests.test_exact_sample_count_and_pooling_contract_are_enforced) ... ok
+test_incomplete_bad_batch_keeps_directory_without_complete_index (test_dfagcn_cache_extract.FeatureCacheTests.test_incomplete_bad_batch_keeps_directory_without_complete_index) ... ok
+test_streamed_batches_reload_as_independent_tensor_rows (test_dfagcn_cache_extract.FeatureCacheTests.test_streamed_batches_reload_as_independent_tensor_rows) ... ok
+test_help_exposes_all_workflow_commands (test_dfagcn_cli.CLITests.test_help_exposes_all_workflow_commands) ... ok
+test_three_graph_branches_fuse_with_fc_and_backpropagate_independently (test_dfagcn_component_chain.ComponentChainTests.test_three_graph_branches_fuse_with_fc_and_backpropagate_independently) ... ok
+test_branch_rejects_input_device_different_from_parameters (test_dfagcn_features.FeatureAdapterTests.test_branch_rejects_input_device_different_from_parameters) ... ok
+test_complete_torchvision_vgg16_meta_forward_has_paper_layer_shapes (test_dfagcn_features.FeatureAdapterTests.test_complete_torchvision_vgg16_meta_forward_has_paper_layer_shapes) ... ok
+test_cpu_convolution_input_rejects_nonfinite_pixels (test_dfagcn_features.FeatureAdapterTests.test_cpu_convolution_input_rejects_nonfinite_pixels) ... ok
+test_cpu_convolution_state_roundtrip_preserves_real_outputs (test_dfagcn_features.FeatureAdapterTests.test_cpu_convolution_state_roundtrip_preserves_real_outputs) ... ok
+test_fc_method_independently_runs_complete_meta_path_in_eval (test_dfagcn_features.FeatureAdapterTests.test_fc_method_independently_runs_complete_meta_path_in_eval) ... ok
+test_features_stay_in_eval_after_parent_or_backbone_train (test_dfagcn_features.FeatureAdapterTests.test_features_stay_in_eval_after_parent_or_backbone_train) ... ok
+test_forward_rejects_different_batch_sizes (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_batch_sizes) ... ok
+test_forward_rejects_different_input_devices (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_input_devices) ... ok
+test_forward_rejects_different_input_dtypes (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_input_dtypes) ... ok
+test_input_contract_rejects_invalid_branch_tensors (test_dfagcn_features.FeatureAdapterTests.test_input_contract_rejects_invalid_branch_tensors) ... ok
+test_preserves_callers_parameter_gradient_flags (test_dfagcn_features.FeatureAdapterTests.test_preserves_callers_parameter_gradient_flags) ... ok
+test_real_cpu_convolutions_preserve_negative_pre_relu_values (test_dfagcn_features.FeatureAdapterTests.test_real_cpu_convolutions_preserve_negative_pre_relu_values) ... ok
+test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) ... ok
+test_order_dimensions_and_gradient_match_equation (test_dfagcn_fusion.FusionTests.test_order_dimensions_and_gradient_match_equation) ... ok
+test_paper_coefficients_explicit_by_dataset (test_dfagcn_fusion.FusionTests.test_paper_coefficients_explicit_by_dataset) ... ok
+test_rejects_finite_inputs_whose_weighted_output_overflows (test_dfagcn_fusion.FusionTests.test_rejects_finite_inputs_whose_weighted_output_overflows) ... ok
+test_rejects_invalid_coefficients (test_dfagcn_fusion.FusionTests.test_rejects_invalid_coefficients) ... ok
+test_rejects_invalid_or_mismatched_branch (test_dfagcn_fusion.FusionTests.test_rejects_invalid_or_mismatched_branch) ... ok
+test_rejects_mixed_dtype_and_device (test_dfagcn_fusion.FusionTests.test_rejects_mixed_dtype_and_device) ... ok
+test_zero_weights_keep_slots_without_normalization (test_dfagcn_fusion.FusionTests.test_zero_weights_keep_slots_without_normalization) ... ok
+test_cosine_knn_rejects_overflowed_norms_of_finite_features (test_dfagcn_graph.DFAGCNGraphTests.test_cosine_knn_rejects_overflowed_norms_of_finite_features) ... ok
+test_cosine_knn_rejects_zero_norm_nodes (test_dfagcn_graph.DFAGCNGraphTests.test_cosine_knn_rejects_zero_norm_nodes) ... ok
+test_default_k_ten_rejects_undersized_graphs (test_dfagcn_graph.DFAGCNGraphTests.test_default_k_ten_rejects_undersized_graphs) ... ok
+test_default_k_ten_requires_more_than_ten_nodes (test_dfagcn_graph.DFAGCNGraphTests.test_default_k_ten_requires_more_than_ten_nodes) ... ok
+test_duplicate_features_break_neighbor_ties_by_node_index (test_dfagcn_graph.DFAGCNGraphTests.test_duplicate_features_break_neighbor_ties_by_node_index) ... ok
+test_explicit_neighbor_metrics_can_produce_different_topologies (test_dfagcn_graph.DFAGCNGraphTests.test_explicit_neighbor_metrics_can_produce_different_topologies) ... ok
+test_gcn_is_node_permutation_equivariant_and_mean_readout_is_invariant (test_dfagcn_graph.DFAGCNGraphTests.test_gcn_is_node_permutation_equivariant_and_mean_readout_is_invariant) ... ok
+test_gcn_propagation_matches_hand_computed_path_without_implicit_activation (test_dfagcn_graph.DFAGCNGraphTests.test_gcn_propagation_matches_hand_computed_path_without_implicit_activation) ... ok
+test_gcn_rejects_incompatible_or_invalid_inputs (test_dfagcn_graph.DFAGCNGraphTests.test_gcn_rejects_incompatible_or_invalid_inputs) ... ok
+test_gcn_rejects_invalid_feature_dimensions (test_dfagcn_graph.DFAGCNGraphTests.test_gcn_rejects_invalid_feature_dimensions) ... ok
+test_knn_accepts_real_floating_feature_dtypes (test_dfagcn_graph.DFAGCNGraphTests.test_knn_accepts_real_floating_feature_dtypes) ... ok
+test_knn_keeps_samples_independent_and_returns_detached_topology (test_dfagcn_graph.DFAGCNGraphTests.test_knn_keeps_samples_independent_and_returns_detached_topology) ... ok
+test_knn_rejects_invalid_k (test_dfagcn_graph.DFAGCNGraphTests.test_knn_rejects_invalid_k) ... ok
+test_knn_rejects_invalid_node_features (test_dfagcn_graph.DFAGCNGraphTests.test_knn_rejects_invalid_node_features) ... ok
+test_knn_requires_explicit_supported_metric (test_dfagcn_graph.DFAGCNGraphTests.test_knn_requires_explicit_supported_metric) ... ok
+test_knn_uses_symmetric_binary_union_without_self_edges (test_dfagcn_graph.DFAGCNGraphTests.test_knn_uses_symmetric_binary_union_without_self_edges) ... ok
+test_mean_readout_and_gcn_keep_real_node_weight_and_bias_gradients (test_dfagcn_graph.DFAGCNGraphTests.test_mean_readout_and_gcn_keep_real_node_weight_and_bias_gradients) ... ok
+test_mean_readout_averages_each_samples_nodes_independently (test_dfagcn_graph.DFAGCNGraphTests.test_mean_readout_averages_each_samples_nodes_independently) ... ok
+test_mean_readout_rejects_empty_malformed_or_nonfinite_features (test_dfagcn_graph.DFAGCNGraphTests.test_mean_readout_rejects_empty_malformed_or_nonfinite_features) ... ok
+test_normalization_adds_each_self_loop_exactly_once (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_adds_each_self_loop_exactly_once) ... ok
+test_normalization_dtype_contract (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_dtype_contract) ... ok
+test_normalization_handles_independent_graphs_and_isolated_nodes (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_handles_independent_graphs_and_isolated_nodes) ... ok
+test_normalization_matches_hand_computed_three_node_path (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_matches_hand_computed_three_node_path) ... ok
+test_normalization_rejects_invalid_adjacency (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_rejects_invalid_adjacency) ... ok
+test_normalization_rejects_non_real_floating_output_dtype (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_rejects_non_real_floating_output_dtype) ... ok
+test_optional_bias_is_added_after_graph_propagation (test_dfagcn_graph.DFAGCNGraphTests.test_optional_bias_is_added_after_graph_propagation) ... ok
+test_canonical_key_is_order_independent_for_mapping_fields (test_dfagcn_identity.CacheIdentityTests.test_canonical_key_is_order_independent_for_mapping_fields) ... ok
+test_every_provenance_field_and_sample_order_changes_key (test_dfagcn_identity.CacheIdentityTests.test_every_provenance_field_and_sample_order_changes_key) ... ok
+test_exclusive_json_roundtrip_rejects_wrong_identity_and_tampering (test_dfagcn_identity.CacheIdentityTests.test_exclusive_json_roundtrip_rejects_wrong_identity_and_tampering) ... ok
+test_learned_stages_require_fit_identity_and_cannot_alias (test_dfagcn_identity.CacheIdentityTests.test_learned_stages_require_fit_identity_and_cannot_alias) ... ok
+test_rejects_incomplete_or_ambiguous_inputs (test_dfagcn_identity.CacheIdentityTests.test_rejects_incomplete_or_ambiguous_inputs) ... ok
+test_returned_identity_is_detached_from_caller_containers (test_dfagcn_identity.CacheIdentityTests.test_returned_identity_is_detached_from_caller_containers) ... ok
+test_actual_multiclass_cli_preserves_labels_and_trailing_zero_width (test_dfagcn_linear.LiblinearBoundaryTests.test_actual_multiclass_cli_preserves_labels_and_trailing_zero_width) ... ok
+test_fit_and_predict_output_directories_are_exclusive (test_dfagcn_linear.LiblinearBoundaryTests.test_fit_and_predict_output_directories_are_exclusive) ... ok
+test_fit_rejects_invalid_labels_and_hyperparameters (test_dfagcn_linear.LiblinearBoundaryTests.test_fit_rejects_invalid_labels_and_hyperparameters) ... ok
+test_fit_rejects_nonfinite_empty_or_nonfloating_features (test_dfagcn_linear.LiblinearBoundaryTests.test_fit_rejects_nonfinite_empty_or_nonfloating_features) ... ok
+test_missing_binary_and_failed_cli_do_not_create_success_metadata (test_dfagcn_linear.LiblinearBoundaryTests.test_missing_binary_and_failed_cli_do_not_create_success_metadata) ... ok
+test_modified_model_bytes_are_rejected_before_prediction (test_dfagcn_linear.LiblinearBoundaryTests.test_modified_model_bytes_are_rejected_before_prediction) ... ok
+test_prediction_rejects_feature_width_mismatch (test_dfagcn_linear.LiblinearBoundaryTests.test_prediction_rejects_feature_width_mismatch) ... ok
+test_eval_is_deterministic_and_samples_are_independent (test_dfagcn_model_recipe.BranchModelTests.test_eval_is_deterministic_and_samples_are_independent) ... ok
+test_export_is_last_relu_512_and_preserves_fc_then_fuses_published_order (test_dfagcn_model_recipe.BranchModelTests.test_export_is_last_relu_512_and_preserves_fc_then_fuses_published_order) ... ok
+test_forward_accepts_no_fc_but_export_requires_it (test_dfagcn_model_recipe.BranchModelTests.test_forward_accepts_no_fc_but_export_requires_it) ... ok
+test_rejects_incompatible_pooled_inputs (test_dfagcn_model_recipe.BranchModelTests.test_rejects_incompatible_pooled_inputs) ... ok
+test_rejects_invalid_class_counts_and_detaches_recipe (test_dfagcn_model_recipe.BranchModelTests.test_rejects_invalid_class_counts_and_detaches_recipe) ... ok
+test_save_reload_state_preserves_logits_and_fused_features (test_dfagcn_model_recipe.BranchModelTests.test_save_reload_state_preserves_logits_and_fused_features) ... ok
+test_three_raw_logit_heads_have_independent_parameters_and_gradients (test_dfagcn_model_recipe.BranchModelTests.test_three_raw_logit_heads_have_independent_parameters_and_gradients) ... ok
+test_checked_in_recipe_explicitly_records_independent_choices (test_dfagcn_model_recipe.RecipeTests.test_checked_in_recipe_explicitly_records_independent_choices) ... ok
+test_missing_and_unknown_fields_are_not_silently_filled (test_dfagcn_model_recipe.RecipeTests.test_missing_and_unknown_fields_are_not_silently_filled) ... ok
+test_rejects_invalid_architecture_or_optimization_values (test_dfagcn_model_recipe.RecipeTests.test_rejects_invalid_architecture_or_optimization_values) ... ok
+test_valid_recipe_is_detached_and_loadable_from_json (test_dfagcn_model_recipe.RecipeTests.test_valid_recipe_is_detached_and_loadable_from_json) ... ok
+test_calibration_refit_and_test_complete_with_actual_linear_binaries (test_dfagcn_pipeline.PipelineTests.test_calibration_refit_and_test_complete_with_actual_linear_binaries) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_stage_rejects_wrong_split_random_formal_and_calibration_as_final (test_dfagcn_pipeline.PipelineTests.test_stage_rejects_wrong_split_random_formal_and_calibration_as_final) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_subset_smoke_cannot_be_used_as_complete_final_refit (test_dfagcn_pipeline.PipelineTests.test_subset_smoke_cannot_be_used_as_complete_final_refit) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_tampered_selection_recipe_and_refit_checkpoint_are_rejected (test_dfagcn_pipeline.PipelineTests.test_tampered_selection_recipe_and_refit_checkpoint_are_rejected) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_fresh_output_accepts_unused_paths (test_experiment_identity.ArtifactPathTests.test_fresh_output_accepts_unused_paths) ... ok
+test_fresh_output_rejects_every_existing_artifact (test_experiment_identity.ArtifactPathTests.test_fresh_output_rejects_every_existing_artifact) ... ok
+test_run_stage_accepts_only_declared_stages (test_experiment_identity.ArtifactPathTests.test_run_stage_accepts_only_declared_stages) ... ok
+test_run_tag_accepts_safe_slug (test_experiment_identity.ArtifactPathTests.test_run_tag_accepts_safe_slug) ... ok
+test_run_tag_rejects_path_characters_and_spaces (test_experiment_identity.ArtifactPathTests.test_run_tag_rejects_path_characters_and_spaces) ... ok
+test_training_state_path_is_separate_from_best_checkpoint (test_experiment_identity.ArtifactPathTests.test_training_state_path_is_separate_from_best_checkpoint) ... ok
+test_checkpoint_identity_accepts_exact_match (test_experiment_identity.CheckpointIdentityTests.test_checkpoint_identity_accepts_exact_match) ... ok
+test_checkpoint_identity_rejects_wrong_class_count (test_experiment_identity.CheckpointIdentityTests.test_checkpoint_identity_rejects_wrong_class_count) ... ok
+test_checkpoint_identity_rejects_wrong_dataset (test_experiment_identity.CheckpointIdentityTests.test_checkpoint_identity_rejects_wrong_dataset) ... ok
+test_checkpoint_identity_rejects_wrong_model (test_experiment_identity.CheckpointIdentityTests.test_checkpoint_identity_rejects_wrong_model) ... ok
+test_complete_architecture_rejects_missing_key (test_experiment_identity.CheckpointIdentityTests.test_complete_architecture_rejects_missing_key) ... ok
+test_knn_topology_identity_uses_configured_neighbor_count (test_experiment_identity.CheckpointIdentityTests.test_knn_topology_identity_uses_configured_neighbor_count) ... ok
+test_resume_identity_binds_graph_topology_snapshot (test_experiment_identity.CheckpointIdentityTests.test_resume_identity_binds_graph_topology_snapshot) ... ok
+test_sparse_hybrid_topology_identity_is_explicit (test_experiment_identity.CheckpointIdentityTests.test_sparse_hybrid_topology_identity_is_explicit) ... ok
+test_clean_git_requirement_rejects_dirty_or_unknown_state (test_experiment_identity.GitStateTests.test_clean_git_requirement_rejects_dirty_or_unknown_state) ... ok
+test_git_state_distinguishes_clean_and_dirty_tree (test_experiment_identity.GitStateTests.test_git_state_distinguishes_clean_and_dirty_tree) ... ok
+test_metadata_file_is_valid_json (test_experiment_identity.MetadataFileTests.test_metadata_file_is_valid_json) ... ok
+test_metadata_path_replaces_checkpoint_suffix (test_experiment_identity.MetadataFileTests.test_metadata_path_replaces_checkpoint_suffix) ... ok
+test_metadata_roundtrip_adds_checkpoint_path (test_experiment_identity.MetadataFileTests.test_metadata_roundtrip_adds_checkpoint_path) ... ok
+test_each_query_node_receives_messages_from_its_nearest_neighbor (test_graph_construction.BuildKnnGraphTests.test_each_query_node_receives_messages_from_its_nearest_neighbor) ... ok
+test_builds_budgeted_unique_edges_without_crossing_batch_graphs (test_graph_construction.BuildSparseHybridGraphTests.test_builds_budgeted_unique_edges_without_crossing_batch_graphs) ... ok
+test_feature_edges_exclude_spatial_neighbors_and_break_ties_by_index (test_graph_construction.BuildSparseHybridGraphTests.test_feature_edges_exclude_spatial_neighbors_and_break_ties_by_index) ... ok
+test_feature_edges_select_highest_cosine_non_spatial_candidates (test_graph_construction.BuildSparseHybridGraphTests.test_feature_edges_select_highest_cosine_non_spatial_candidates) ... ok
+test_rejects_feature_budget_other_than_two (test_graph_construction.BuildSparseHybridGraphTests.test_rejects_feature_budget_other_than_two) ... ok
+test_rejects_non_batched_feature_tensor (test_graph_construction.BuildSparseHybridGraphTests.test_rejects_non_batched_feature_tensor) ... ok
+test_rejects_region_count_other_than_sixteen (test_graph_construction.BuildSparseHybridGraphTests.test_rejects_region_count_other_than_sixteen) ... ok
+test_every_missing_or_changed_assignment_field_is_rejected (test_grouping_identity.GroupingIdentityTests.test_every_missing_or_changed_assignment_field_is_rejected) ... ok
+test_invalid_combinations_are_rejected (test_grouping_identity.GroupingIdentityTests.test_invalid_combinations_are_rejected) ... ok
+test_metadata_resolution_preserves_new_identity_and_rejects_fallback (test_grouping_identity.GroupingIdentityTests.test_metadata_resolution_preserves_new_identity_and_rejects_fallback) ... ok
+test_old_architectures_and_input_dictionary_are_unchanged (test_grouping_identity.GroupingIdentityTests.test_old_architectures_and_input_dictionary_are_unchanged) ... ok
+test_training_defaults_are_independent_and_checkpoint_is_strict (test_grouping_identity.GroupingIdentityTests.test_training_defaults_are_independent_and_checkpoint_is_strict) ... ok
+test_build_v2_split_csvs_from_records_writes_existing_rgb_patches (test_prepare_bigearth.PrepareBigEarthV2Test.test_build_v2_split_csvs_from_records_writes_existing_rgb_patches) ... ok
+test_label_list_to_vec_uses_bigearthnet_19_order (test_prepare_bigearth.PrepareBigEarthV2Test.test_label_list_to_vec_uses_bigearthnet_19_order) ... ok
+test_resolve_patch_dir_supports_v2_nested_tile_layout (test_prepare_bigearth.PrepareBigEarthV2Test.test_resolve_patch_dir_supports_v2_nested_tile_layout) ... ok
+test_all_invalid_candidates_raise (test_prepare_proxy_split.CandidateSelectionTests.test_all_invalid_candidates_raise) ... ok
+test_equal_scores_choose_the_lower_seed (test_prepare_proxy_split.CandidateSelectionTests.test_equal_scores_choose_the_lower_seed) ... ok
+test_missing_positive_class_rejects_candidate (test_prepare_proxy_split.CandidateSelectionTests.test_missing_positive_class_rejects_candidate) ... ok
+test_rejects_invalid_fraction_and_candidate_count (test_prepare_proxy_split.CandidateSelectionTests.test_rejects_invalid_fraction_and_candidate_count) ... ok
+test_sampling_is_deterministic_sorted_and_without_replacement (test_prepare_proxy_split.CandidateSelectionTests.test_sampling_is_deterministic_sorted_and_without_replacement) ... ok
+test_selects_minimum_score_then_lower_seed (test_prepare_proxy_split.CandidateSelectionTests.test_selects_minimum_score_then_lower_seed) ... ok
+test_publish_failure_rolls_back_all_artifacts (test_prepare_proxy_split.PrepareProxySplitTests.test_publish_failure_rolls_back_all_artifacts) ... ok
+test_refuses_to_overwrite_existing_output (test_prepare_proxy_split.PrepareProxySplitTests.test_refuses_to_overwrite_existing_output) ... ok
+test_writes_proxy_csvs_and_auditable_report (test_prepare_proxy_split.PrepareProxySplitTests.test_writes_proxy_csvs_and_auditable_report) ... ok
+test_reads_binary_schema_and_compacts_labels (test_prepare_proxy_split.ReadSplitCsvTests.test_reads_binary_schema_and_compacts_labels) ... ok
+test_rejects_empty_path_nonbinary_label_and_empty_rows (test_prepare_proxy_split.ReadSplitCsvTests.test_rejects_empty_path_nonbinary_label_and_empty_rows) ... ok
+test_rejects_reordered_header (test_prepare_proxy_split.ReadSplitCsvTests.test_rejects_reordered_header) ... ok
+test_changed_image_or_missing_file_rejected (test_scene_data_metrics.ManifestTests.test_changed_image_or_missing_file_rejected) ...   Written: /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpwdpuu6a0/split/train.csv  (1 rows)
+  Written: /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpwdpuu6a0/split/val.csv  (0 rows)
+  Written: /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpwdpuu6a0/split/test.csv  (0 rows)
+  Skipped: {'missing_patch': 1, 'missing_bands': 0, 'unknown_split': 0}
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+ok
+test_corrupt_image_rejected (test_scene_data_metrics.ManifestTests.test_corrupt_image_rejected) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+ok
+test_deterministic_disjoint_relative_manifest (test_scene_data_metrics.ManifestTests.test_deterministic_disjoint_relative_manifest) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_duplicate_pixels_rejected_even_different_encoding (test_scene_data_metrics.ManifestTests.test_duplicate_pixels_rejected_even_different_encoding) ... IMAGE SCAN prepare: 0/21; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/21; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 21/21; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_fixed_smoke_samples_never_include_test (test_scene_data_metrics.ManifestTests.test_fixed_smoke_samples_never_include_test) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_grouped_duplicates_preserve_files_counts_and_disjoint_pixels (test_scene_data_metrics.ManifestTests.test_grouped_duplicates_preserve_files_counts_and_disjoint_pixels) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_grouped_manifest_checks_duplicate_report (test_scene_data_metrics.ManifestTests.test_grouped_manifest_checks_duplicate_report) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+ok
+test_grouped_manifest_rejects_cross_split_duplicate_even_if_counts_match (test_scene_data_metrics.ManifestTests.test_grouped_manifest_rejects_cross_split_duplicate_even_if_counts_match) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+ok
+test_grouped_mode_cannot_silently_relax_split_sizes (test_scene_data_metrics.ManifestTests.test_grouped_mode_cannot_silently_relax_split_sizes) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_grouped_mode_still_rejects_conflicting_labels (test_scene_data_metrics.ManifestTests.test_grouped_mode_still_rejects_conflicting_labels) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_output_is_never_overwritten (test_scene_data_metrics.ManifestTests.test_output_is_never_overwritten) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_relocated_root_is_valid (test_scene_data_metrics.ManifestTests.test_relocated_root_is_valid) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+ok
+test_toy_cannot_masquerade_as_aid (test_scene_data_metrics.ManifestTests.test_toy_cannot_masquerade_as_aid) ... ok
+test_unique_images_keep_previous_seeded_assignment_in_grouped_mode (test_scene_data_metrics.ManifestTests.test_unique_images_keep_previous_seeded_assignment_in_grouped_mode) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_wrong_count_or_duplicate_record_rejected (test_scene_data_metrics.ManifestTests.test_wrong_count_or_duplicate_record_rejected) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN verify: 0/21; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/21; elapsed=0.0s (CPU decode + file/pixel hashes)
+ok
+test_wrong_label_or_path_escape_rejected (test_scene_data_metrics.ManifestTests.test_wrong_label_or_path_escape_rejected) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+ok
+test_metric_input_errors_are_rejected (test_scene_data_metrics.MetricTests.test_metric_input_errors_are_rejected) ... ok
+test_metrics_include_absent_classes_and_correct_orientation (test_scene_data_metrics.MetricTests.test_metrics_include_absent_classes_and_correct_orientation) ... ok
+test_calibration_selection_cannot_be_reused_for_another_seed_or_manifest (test_scene_runtime.RuntimeTests.test_calibration_selection_cannot_be_reused_for_another_seed_or_manifest) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+FAIL
+test_completed_report_must_match_checkpoint_sidecar (test_scene_runtime.RuntimeTests.test_completed_report_must_match_checkpoint_sidecar) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+FAIL
+test_formal_random_init_and_synthetic_are_rejected (test_scene_runtime.RuntimeTests.test_formal_random_init_and_synthetic_are_rejected) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+FAIL
+test_grouped_manifest_reaches_training_and_checkpoint_identity (test_scene_runtime.RuntimeTests.test_grouped_manifest_reaches_training_and_checkpoint_identity) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+FAIL
+test_real_models_train_save_reload_and_evaluate_validation (test_scene_runtime.RuntimeTests.test_real_models_train_save_reload_and_evaluate_validation) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+
+  test_real_models_train_save_reload_and_evaluate_validation (test_scene_runtime.RuntimeTests.test_real_models_train_save_reload_and_evaluate_validation) (model='swin', grouping=None) ... FAIL
+  test_real_models_train_save_reload_and_evaluate_validation (test_scene_runtime.RuntimeTests.test_real_models_train_save_reload_and_evaluate_validation) (model='gavit', grouping=None) ... FAIL
+  test_real_models_train_save_reload_and_evaluate_validation (test_scene_runtime.RuntimeTests.test_real_models_train_save_reload_and_evaluate_validation) (model='gavit', grouping='soft_prototype') ... FAIL
+test_same_local_weight_file_initializes_both_backbones (test_scene_runtime.RuntimeTests.test_same_local_weight_file_initializes_both_backbones) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ERROR
+test_soft_calibration_cannot_be_refit_as_fixed_or_different_assignment (test_scene_runtime.RuntimeTests.test_soft_calibration_cannot_be_refit_as_fixed_or_different_assignment) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+FAIL
+test_training_config_is_model_independent (test_scene_runtime.RuntimeTests.test_training_config_is_model_independent) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+FAIL
+test_soft_assignment_diagnostics (unittest.loader._FailedTest.test_soft_assignment_diagnostics) ... ERROR
+test_soft_entrypoints (unittest.loader._FailedTest.test_soft_entrypoints) ... ERROR
+test_soft_gavit (unittest.loader._FailedTest.test_soft_gavit) ... ERROR
+test_soft_region_grouping (unittest.loader._FailedTest.test_soft_region_grouping) ... ERROR
+test_sparse_hybrid_model (unittest.loader._FailedTest.test_sparse_hybrid_model) ... ERROR
+test_every_entry_point_accepts_sparse_hybrid_identity (test_sparse_hybrid_static_contract.SparseHybridStaticContractTests.test_every_entry_point_accepts_sparse_hybrid_identity) ... ok
+test_model_dispatches_to_dedicated_builder (test_sparse_hybrid_static_contract.SparseHybridStaticContractTests.test_model_dispatches_to_dedicated_builder) ... ok
+test_train_entry_points_record_explicit_graph_topology (test_sparse_hybrid_static_contract.SparseHybridStaticContractTests.test_train_entry_points_record_explicit_graph_topology) ... ok
+test_preserves_default_timm_configuration_without_local_file (test_swin_features.BuildSwinModelKwargsTests.test_preserves_default_timm_configuration_without_local_file) ... ok
+test_rejects_missing_local_pretrained_file (test_swin_features.BuildSwinModelKwargsTests.test_rejects_missing_local_pretrained_file) ... ok
+test_uses_local_file_as_pretrained_source (test_swin_features.BuildSwinModelKwargsTests.test_uses_local_file_as_pretrained_source) ... ok
+test_leaves_already_pooled_features_unchanged (test_swin_features.PoolSwinFeaturesTests.test_leaves_already_pooled_features_unchanged) ... ok
+test_pools_both_spatial_dimensions_for_channels_last_features (test_swin_features.PoolSwinFeaturesTests.test_pools_both_spatial_dimensions_for_channels_last_features) ... ok
+test_pools_token_dimension_for_sequence_features (test_swin_features.PoolSwinFeaturesTests.test_pools_token_dimension_for_sequence_features) ... ok
+test_token_refinement (unittest.loader._FailedTest.test_token_refinement) ... ERROR
+test_token_refinement_runtime (unittest.loader._FailedTest.test_token_refinement_runtime) ... ERROR
+test_failed_state_write_preserves_previous_resume_point (test_training_state_helpers.TrainingStateHelperContractTests.test_failed_state_write_preserves_previous_resume_point) ... ok
+test_missing_training_state_is_fatal (test_training_state_helpers.TrainingStateHelperContractTests.test_missing_training_state_is_fatal) ... ok
+test_non_best_epoch_updates_last_state_without_replacing_best_model (test_training_state_helpers.TrainingStateHelperContractTests.test_non_best_epoch_updates_last_state_without_replacing_best_model) ... ok
+test_round_trip_restores_all_states_and_returns_next_epoch (test_training_state_helpers.TrainingStateHelperContractTests.test_round_trip_restores_all_states_and_returns_next_epoch) ... ok
+test_validated_resume_rejects_architecture_mismatch (test_training_state_helpers.TrainingStateHelperContractTests.test_validated_resume_rejects_architecture_mismatch) ... ok
+test_validated_resume_rejects_best_checkpoint_hash_mismatch (test_training_state_helpers.TrainingStateHelperContractTests.test_validated_resume_rejects_best_checkpoint_hash_mismatch) ... ok
+test_validated_resume_rejects_state_from_another_experiment (test_training_state_helpers.TrainingStateHelperContractTests.test_validated_resume_rejects_state_from_another_experiment) ... ok
+test_validated_resume_requires_checkpoint_metadata (test_training_state_helpers.TrainingStateHelperContractTests.test_validated_resume_requires_checkpoint_metadata) ... ok
+test_validated_resume_requires_last_training_state (test_training_state_helpers.TrainingStateHelperContractTests.test_validated_resume_requires_last_training_state) ... ok
+test_validated_resume_uses_last_state_without_best_checkpoint (test_training_state_helpers.TrainingStateHelperContractTests.test_validated_resume_uses_last_state_without_best_checkpoint) ... ok
+
+======================================================================
+ERROR: test_checkpoint_roundtrip (unittest.loader._FailedTest.test_checkpoint_roundtrip)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_checkpoint_roundtrip
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_checkpoint_roundtrip.py", line 18, in <module>
+    from models.gavit import GAViT
+  File "/Users/patrick/Projects/GAViT_Project/models/gavit.py", line 3, in <module>
+    from torch_geometric.nn import global_mean_pool
+ModuleNotFoundError: No module named 'torch_geometric'
+
+
+======================================================================
+ERROR: test_same_local_weight_file_initializes_both_backbones (test_scene_runtime.RuntimeTests.test_same_local_weight_file_initializes_both_backbones)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 143, in test_same_local_weight_file_initializes_both_backbones
+    import timm
+ModuleNotFoundError: No module named 'timm'
+
+======================================================================
+ERROR: test_soft_assignment_diagnostics (unittest.loader._FailedTest.test_soft_assignment_diagnostics)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_soft_assignment_diagnostics
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_soft_assignment_diagnostics.py", line 5, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_soft_entrypoints (unittest.loader._FailedTest.test_soft_entrypoints)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_soft_entrypoints
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_soft_entrypoints.py", line 9, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_soft_gavit (unittest.loader._FailedTest.test_soft_gavit)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_soft_gavit
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_soft_gavit.py", line 3, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_soft_region_grouping (unittest.loader._FailedTest.test_soft_region_grouping)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_soft_region_grouping
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_soft_region_grouping.py", line 3, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_sparse_hybrid_model (unittest.loader._FailedTest.test_sparse_hybrid_model)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_sparse_hybrid_model
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_sparse_hybrid_model.py", line 10, in <module>
+    from models.gavit import GAViT
+  File "/Users/patrick/Projects/GAViT_Project/models/gavit.py", line 3, in <module>
+    from torch_geometric.nn import global_mean_pool
+ModuleNotFoundError: No module named 'torch_geometric'
+
+
+======================================================================
+ERROR: test_token_refinement (unittest.loader._FailedTest.test_token_refinement)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_token_refinement
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_token_refinement.py", line 6, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_token_refinement_runtime (unittest.loader._FailedTest.test_token_refinement_runtime)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_token_refinement_runtime
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_token_refinement_runtime.py", line 5, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+FAIL: test_calibration_selection_cannot_be_reused_for_another_seed_or_manifest (test_scene_runtime.RuntimeTests.test_calibration_selection_cannot_be_reused_for_another_seed_or_manifest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 18, in runtime
+    return importlib.import_module('scene_classification.runner')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/runner.py", line 27, in <module>
+    from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity, refinement_name
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/modeling.py", line 7, in <module>
+    from models.swin_backbone import SwinBackbone
+  File "/Users/patrick/Projects/GAViT_Project/models/swin_backbone.py", line 3, in <module>
+    import timm
+ModuleNotFoundError: No module named 'timm'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 162, in test_calibration_selection_cannot_be_reused_for_another_seed_or_manifest
+    'final_epoch': 30, 'training': runtime().training_identity(self.config()),
+                                   ^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 20, in runtime
+    raise AssertionError('scene_classification.runner not implemented') from exc
+AssertionError: scene_classification.runner not implemented
+
+======================================================================
+FAIL: test_completed_report_must_match_checkpoint_sidecar (test_scene_runtime.RuntimeTests.test_completed_report_must_match_checkpoint_sidecar)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 18, in runtime
+    return importlib.import_module('scene_classification.runner')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/runner.py", line 27, in <module>
+    from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity, refinement_name
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/modeling.py", line 7, in <module>
+    from models.swin_backbone import SwinBackbone
+  File "/Users/patrick/Projects/GAViT_Project/models/swin_backbone.py", line 3, in <module>
+    import timm
+ModuleNotFoundError: No module named 'timm'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 197, in test_completed_report_must_match_checkpoint_sidecar
+    runtime().validate_source_run(source, meta, 'exit_code=0\n')
+    ^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 20, in runtime
+    raise AssertionError('scene_classification.runner not implemented') from exc
+AssertionError: scene_classification.runner not implemented
+
+======================================================================
+FAIL: test_formal_random_init_and_synthetic_are_rejected (test_scene_runtime.RuntimeTests.test_formal_random_init_and_synthetic_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 18, in runtime
+    return importlib.import_module('scene_classification.runner')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/runner.py", line 27, in <module>
+    from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity, refinement_name
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/modeling.py", line 7, in <module>
+    from models.swin_backbone import SwinBackbone
+  File "/Users/patrick/Projects/GAViT_Project/models/swin_backbone.py", line 3, in <module>
+    import timm
+ModuleNotFoundError: No module named 'timm'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 115, in test_formal_random_init_and_synthetic_are_rejected
+    cfg = self.config(phase=phase, output=str(Path(self.tmp.name) / phase))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 41, in config
+    return runtime().RunConfig(**kwargs)
+           ^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 20, in runtime
+    raise AssertionError('scene_classification.runner not implemented') from exc
+AssertionError: scene_classification.runner not implemented
+
+======================================================================
+FAIL: test_grouped_manifest_reaches_training_and_checkpoint_identity (test_scene_runtime.RuntimeTests.test_grouped_manifest_reaches_training_and_checkpoint_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 18, in runtime
+    return importlib.import_module('scene_classification.runner')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/runner.py", line 27, in <module>
+    from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity, refinement_name
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/modeling.py", line 7, in <module>
+    from models.swin_backbone import SwinBackbone
+  File "/Users/patrick/Projects/GAViT_Project/models/swin_backbone.py", line 3, in <module>
+    import timm
+ModuleNotFoundError: No module named 'timm'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 128, in test_grouped_manifest_reaches_training_and_checkpoint_identity
+    cfg = self.config(manifest=str(grouped))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 41, in config
+    return runtime().RunConfig(**kwargs)
+           ^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 20, in runtime
+    raise AssertionError('scene_classification.runner not implemented') from exc
+AssertionError: scene_classification.runner not implemented
+
+======================================================================
+FAIL: test_real_models_train_save_reload_and_evaluate_validation (test_scene_runtime.RuntimeTests.test_real_models_train_save_reload_and_evaluate_validation) (model='swin', grouping=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 18, in runtime
+    return importlib.import_module('scene_classification.runner')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/runner.py", line 27, in <module>
+    from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity, refinement_name
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/modeling.py", line 7, in <module>
+    from models.swin_backbone import SwinBackbone
+  File "/Users/patrick/Projects/GAViT_Project/models/swin_backbone.py", line 3, in <module>
+    import timm
+ModuleNotFoundError: No module named 'timm'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 47, in test_real_models_train_save_reload_and_evaluate_validation
+    cfg = self.config(model=name, output=str(Path(self.tmp.name) / (name + str(grouping))), **extra)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 41, in config
+    return runtime().RunConfig(**kwargs)
+           ^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 20, in runtime
+    raise AssertionError('scene_classification.runner not implemented') from exc
+AssertionError: scene_classification.runner not implemented
+
+======================================================================
+FAIL: test_real_models_train_save_reload_and_evaluate_validation (test_scene_runtime.RuntimeTests.test_real_models_train_save_reload_and_evaluate_validation) (model='gavit', grouping=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 18, in runtime
+    return importlib.import_module('scene_classification.runner')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/runner.py", line 27, in <module>
+    from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity, refinement_name
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/modeling.py", line 7, in <module>
+    from models.swin_backbone import SwinBackbone
+  File "/Users/patrick/Projects/GAViT_Project/models/swin_backbone.py", line 3, in <module>
+    import timm
+ModuleNotFoundError: No module named 'timm'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 47, in test_real_models_train_save_reload_and_evaluate_validation
+    cfg = self.config(model=name, output=str(Path(self.tmp.name) / (name + str(grouping))), **extra)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 41, in config
+    return runtime().RunConfig(**kwargs)
+           ^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 20, in runtime
+    raise AssertionError('scene_classification.runner not implemented') from exc
+AssertionError: scene_classification.runner not implemented
+
+======================================================================
+FAIL: test_real_models_train_save_reload_and_evaluate_validation (test_scene_runtime.RuntimeTests.test_real_models_train_save_reload_and_evaluate_validation) (model='gavit', grouping='soft_prototype')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 18, in runtime
+    return importlib.import_module('scene_classification.runner')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/runner.py", line 27, in <module>
+    from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity, refinement_name
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/modeling.py", line 7, in <module>
+    from models.swin_backbone import SwinBackbone
+  File "/Users/patrick/Projects/GAViT_Project/models/swin_backbone.py", line 3, in <module>
+    import timm
+ModuleNotFoundError: No module named 'timm'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 47, in test_real_models_train_save_reload_and_evaluate_validation
+    cfg = self.config(model=name, output=str(Path(self.tmp.name) / (name + str(grouping))), **extra)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 41, in config
+    return runtime().RunConfig(**kwargs)
+           ^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 20, in runtime
+    raise AssertionError('scene_classification.runner not implemented') from exc
+AssertionError: scene_classification.runner not implemented
+
+======================================================================
+FAIL: test_soft_calibration_cannot_be_refit_as_fixed_or_different_assignment (test_scene_runtime.RuntimeTests.test_soft_calibration_cannot_be_refit_as_fixed_or_different_assignment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 18, in runtime
+    return importlib.import_module('scene_classification.runner')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/runner.py", line 27, in <module>
+    from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity, refinement_name
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/modeling.py", line 7, in <module>
+    from models.swin_backbone import SwinBackbone
+  File "/Users/patrick/Projects/GAViT_Project/models/swin_backbone.py", line 3, in <module>
+    import timm
+ModuleNotFoundError: No module named 'timm'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 175, in test_soft_calibration_cannot_be_refit_as_fixed_or_different_assignment
+    soft = runtime().architecture('gavit', 30, grouping='soft_prototype')
+           ^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 20, in runtime
+    raise AssertionError('scene_classification.runner not implemented') from exc
+AssertionError: scene_classification.runner not implemented
+
+======================================================================
+FAIL: test_training_config_is_model_independent (test_scene_runtime.RuntimeTests.test_training_config_is_model_independent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 18, in runtime
+    return importlib.import_module('scene_classification.runner')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/runner.py", line 27, in <module>
+    from .modeling import architecture, build_model, capture_graph_once, image_transform, transform_identity, refinement_name
+  File "/Users/patrick/Projects/GAViT_Project/scene_classification/modeling.py", line 7, in <module>
+    from models.swin_backbone import SwinBackbone
+  File "/Users/patrick/Projects/GAViT_Project/models/swin_backbone.py", line 3, in <module>
+    import timm
+ModuleNotFoundError: No module named 'timm'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 139, in test_training_config_is_model_independent
+    a, b = self.config(model='swin'), self.config(model='gavit')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 41, in config
+    return runtime().RunConfig(**kwargs)
+           ^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_scene_runtime.py", line 20, in runtime
+    raise AssertionError('scene_classification.runner not implemented') from exc
+AssertionError: scene_classification.runner not implemented
+
+----------------------------------------------------------------------
+Ran 185 tests in 6.069s
+
+FAILED (failures=9, errors=9)

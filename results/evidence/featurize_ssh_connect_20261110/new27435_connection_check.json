@@ -1,0 +1,94 @@
+{
+  "client_date": "2026-11-10",
+  "host": "workspace.featurize.cn",
+  "port": 27435,
+  "authentication": "publickey only",
+  "connected": true,
+  "remote_command_succeeded": true,
+  "training_started": false,
+  "attempts": [
+    {
+      "log": "new27435_default_debug.log",
+      "server_banner_received": true,
+      "key_exchange_completed": true,
+      "publickey_offered": true,
+      "authenticated": false,
+      "last_lines": [
+        "debug2: we sent a publickey packet, wait for reply",
+        "debug1: Server accepts key: /Users/patrick/.ssh/featurize_gavit_ed25519 ED25519 SHA256:rUfU3NopTlizBWFgBGms51+twQ++d3NLPGDjj/kXHPk explicit agent",
+        "Connection to 198.18.0.44 port 27435 timed out"
+      ]
+    },
+    {
+      "log": "new27435_en0_debug.log",
+      "server_banner_received": false,
+      "key_exchange_completed": false,
+      "publickey_offered": false,
+      "authenticated": false,
+      "last_lines": [
+        "debug1: Local version string SSH-2.0-OpenSSH_10.2",
+        "kex_exchange_identification: Connection closed by remote host",
+        "Connection closed by UNKNOWN port 65535"
+      ]
+    },
+    {
+      "log": "new27435_socks_debug.log",
+      "server_banner_received": true,
+      "key_exchange_completed": true,
+      "publickey_offered": true,
+      "authenticated": false,
+      "last_lines": [
+        "debug2: pubkey_prepare: done",
+        "debug1: Offering public key: /Users/patrick/.ssh/featurize_gavit_ed25519 ED25519 SHA256:rUfU3NopTlizBWFgBGms51+twQ++d3NLPGDjj/kXHPk explicit agent",
+        "debug2: we sent a publickey packet, wait for reply"
+      ]
+    },
+    {
+      "log": "new27435_socks_long_debug.log",
+      "server_banner_received": false,
+      "key_exchange_completed": false,
+      "publickey_offered": false,
+      "authenticated": false,
+      "last_lines": [
+        "debug1: Local version string SSH-2.0-OpenSSH_10.2",
+        "Connection timed out during banner exchange",
+        "Connection to UNKNOWN port 65535 timed out"
+      ]
+    },
+    {
+      "log": "new27435_socks_ip_debug.log",
+      "server_banner_received": false,
+      "key_exchange_completed": false,
+      "publickey_offered": false,
+      "authenticated": false,
+      "last_lines": [
+        "debug1: Local version string SSH-2.0-OpenSSH_10.2",
+        "Connection timed out during banner exchange",
+        "Connection to UNKNOWN port 65535 timed out"
+      ]
+    },
+    {
+      "log": "new27435_ipqos_debug.log",
+      "server_banner_received": true,
+      "key_exchange_completed": false,
+      "publickey_offered": false,
+      "authenticated": false,
+      "last_lines": [
+        "debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none",
+        "debug1: expecting SSH2_MSG_KEX_ECDH_REPLY",
+        "Connection to 183.223.25.19 port 27435 timed out"
+      ]
+    }
+  ],
+  "next_diagnostic": "Await user network-path change; no automatic repeated retries",
+  "route": "en0 physically bound while proxy remains enabled",
+  "local_en0_ip": "172.20.10.9",
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 3080",
+    "uuid": "GPU-0d9901ca-d2e0-d398-b9b4-2550e6db2fed",
+    "memory_total_mib": 10240,
+    "memory_free_mib": 9874,
+    "driver": "610.57.04"
+  },
+  "success_log": "new27435_hotspot_debug.log"
+}

@@ -1,0 +1,293 @@
+\chapter{Graph-Augmented Vision Transformer}
+\label{chap:method}
+
+\section{Problem formulation and architectural scope}
+
+This study investigates whether explicit region aggregation and graph reasoning
+provide useful additional structure for remote sensing scene classification.
+The comparison uses a common Swin-T backbone, so that the principal architectural
+changes occur after the backbone feature extraction stage. Swin was proposed by
+Liu et al.~\cite{liu2021swin}; its shifted-window hierarchy already supports
+contextual interaction. The motivation here is therefore to test an additional
+regional inductive bias, rather than to assume that the backbone lacks spatial
+or contextual modelling.
+
+Let $I\in\mathbb{R}^{3\times224\times224}$ denote a preprocessed RGB image, and
+let $C$ denote the number of output classes. For single-label classification,
+the target $y$ is one class index in $\{1,\ldots,C\}$. For multi-label
+classification, the target is a binary vector
+$\boldsymbol{y}\in\{0,1\}^{C}$. The backbone produces a sequence
+$X=[x_1,\ldots,x_N]^{\mathsf T}\in\mathbb{R}^{N\times D}$, where $N=49$
+and $D=768$. The tokens occupy a $7\times7$ spatial grid. They are contextual
+features from the final backbone stage, rather than independent raw-image
+patches.
+
+We implement a Graph-Augmented Vision Transformer (GAViT) with four successive
+operations: token-to-region aggregation, sparse region graph construction,
+graph attention, and region-to-token feedback. The principal comparison uses
+either a fixed spatial partition with learned pooling weights or a local,
+image-dependent soft assignment. Both versions retain $K=16$ region anchors
+and the same explicit graph-edge budget. The term \emph{region} denotes a group
+of feature tokens; it does not imply a supervised object or land-cover segment.
+
+\section{Shared feature extractor and baseline}
+
+The backbone is the \texttt{swin\_tiny\_patch4\_window7\_224} model.
+Its final feature map has spatial dimensions $7\times7$ and 768 channels and
+is reshaped into $X$. The experiments fine-tune the backbone from the recorded
+ImageNet-pretrained checkpoint. No additional classification token is inserted.
+
+The baseline first computes the global representation
+\begin{equation}
+ \bar{x}=\frac{1}{N}\sum_{n=1}^{N}x_n,
+ \label{eq:baseline-pooling}
+\end{equation}
+where $n$ indexes tokens. Its logit vector is
+\begin{equation}
+ \boldsymbol{\ell}=W_c\,\operatorname{Dropout}
+       \!\left(\operatorname{LN}(\bar{x})\right)+b_c.
+ \label{eq:classifier}
+\end{equation}
+Here $\operatorname{LN}$ denotes layer normalisation,
+$W_c\in\mathbb{R}^{C\times D}$ and $b_c\in\mathbb{R}^{C}$ are classifier
+parameters, and $\operatorname{Dropout}$ uses probability 0.1 during training
+and is disabled during evaluation. GAViT uses the same form of classifier
+after its feedback operation.
+
+\section{Fixed spatial partition with attentive pooling}
+
+\subsection{Deterministic token membership}
+
+For the assignment formula only, region identifiers are zero-based. A token at
+grid coordinate $(u,v)$, with $u,v\in\{0,\ldots,6\}$, is assigned to
+\begin{equation}
+ a(u,v)=4\left\lfloor\frac{4u}{7}\right\rfloor
+          +\left\lfloor\frac{4v}{7}\right\rfloor.
+ \label{eq:fixed-assignment}
+\end{equation}
+The function $a$ maps each token to one of the 16 anchors. We write $a(n)$ for
+the assignment of token $n$. Along each grid axis, the resulting group sizes
+are $[2,2,2,1]$. Thus, nine regions contain four tokens, six contain two tokens,
+and one contains one token. This is a partition of a $7\times7$ feature grid;
+it is not a division into 16 equally sized input-image crops.
+
+\subsection{Learned pooling within each region}
+
+A shared scorer produces one scalar $s_n=f_{\theta}(x_n)$ per token.
+The scorer $f_{\theta}$ consists of a 768-to-192 linear layer, a Gaussian error
+linear unit (GELU), and a 192-to-1 linear layer. Its trainable parameters are
+denoted collectively by $\theta$. The fixed-membership pooling weights are
+\begin{equation}
+ w^{(0)}_{nk}=
+ \frac{\mathbf{1}[a(n)=k]\exp(s_n)}
+ {\sum_{m=1}^{N}\mathbf{1}[a(m)=k]\exp(s_m)},
+ \qquad
+ r_k=\sum_{n=1}^{N}w^{(0)}_{nk}x_n,
+ \label{eq:fixed-pooling}
+\end{equation}
+where $k\in\{0,\ldots,K-1\}$ indexes regions, $m$ is a second token index,
+$\mathbf{1}[\cdot]$ is an indicator, and
+$r_k\in\mathbb{R}^{D}$ is the pooled region feature.
+The weights sum to one over the tokens in each region. The scorer changes
+which member tokens contribute most strongly, but it does not move the
+partition boundaries or change the member set.
+
+\section{Local prototype soft assignment}
+
+The soft version changes token membership while preserving the anchor layout.
+It constructs image-dependent prototypes from the fixed partition, measures
+token--prototype similarity in a learned projection space, and restricts
+assignment to nearby anchors. This is a single assignment step; it is not an
+iterative clustering procedure or a bank of independently learned class
+prototypes.
+
+\subsection{Projected tokens and image-dependent prototypes}
+
+Let $P\in\mathbb{R}^{128\times D}$ denote a learned linear projection without
+bias. Define
+\begin{equation}
+ z_n=\operatorname{unit}\!\left(P\operatorname{LN}_{a}(x_n)\right),
+ \qquad
+ p_k=\operatorname{unit}\!\left(\sum_{n=1}^{N}w^{(0)}_{nk}z_n\right),
+ \label{eq:soft-prototypes}
+\end{equation}
+where $\operatorname{LN}_{a}$ is the assignment projection's layer
+normalisation, $z_n\in\mathbb{R}^{128}$ is a normalised token projection, and
+$p_k\in\mathbb{R}^{128}$ is the current image's prototype for anchor $k$.
+The operation $\operatorname{unit}(v)=v/\max(\|v\|_2,\epsilon)$ normalises
+a vector $v$, with a small positive numerical stabiliser $\epsilon$.
+The initial weights $w^{(0)}$ are those in Equation~\eqref{eq:fixed-pooling}.
+Consequently, the prototypes change with the image and the backbone features.
+
+\subsection{Local membership and separate aggregation weights}
+
+Let $g(k)=(\lfloor k/4\rfloor,k\bmod4)$ be the grid coordinate of anchor $k$.
+The candidate set for token $n$ is
+\begin{equation}
+ \mathcal{C}(n)=
+ \{k:\|g(a(n))-g(k)\|_{\infty}\leq1\},
+ \label{eq:local-candidates}
+\end{equation}
+where $\|\cdot\|_{\infty}$ measures the largest absolute coordinate difference.
+This restriction permits assignment to adjacent anchors, including diagonal
+neighbours, while maintaining a spatial prior. With temperature $\tau=0.1$,
+the membership matrix $S\in\mathbb{R}^{N\times K}$ is
+\begin{equation}
+ S_{nk}=
+ \begin{cases}
+ \displaystyle\frac{\exp(z_n^{\mathsf T}p_k/\tau)}
+ {\sum_{j\in\mathcal{C}(n)}\exp(z_n^{\mathsf T}p_j/\tau)},
+       & k\in\mathcal{C}(n),\\[0.7em]
+ 0,    & k\notin\mathcal{C}(n).
+ \end{cases}
+ \label{eq:membership}
+\end{equation}
+Here $j$ indexes candidate regions, and $\sum_k S_{nk}=1$ for every token.
+
+Membership and region pooling use different normalisations. Define the pooling
+matrix $W\in\mathbb{R}^{N\times K}$ by
+\begin{equation}
+ W_{nk}=\frac{S_{nk}\exp(s_n)}
+                {\sum_{m=1}^{N}S_{mk}\exp(s_m)},
+ \qquad
+ r_k=\sum_{n=1}^{N}W_{nk}x_n.
+ \label{eq:soft-pooling}
+\end{equation}
+Thus, $S$ sums to one over regions for each token, whereas $W$ sums to one over
+tokens for each region. The implementation computes the latter operation using
+$\log S$ and a token-axis softmax. Region aggregation uses the original
+768-dimensional tokens, rather than the 128-dimensional projection.
+
+The projection and assignment normalisation add 99,840 trainable parameters
+relative to the fixed grouping module. Gradients pass through the local
+membership calculation, the image-dependent prototypes and the pooling
+weights. The locality mask remains fixed. The resulting regions may overlap
+in their token contributions, but they retain anchor identities and are not
+unconstrained semantic segments.
+
+\section{Sparse spatial and feature graph}
+
+The graph is constructed once per image from its pooled region features.
+Its node set is $\mathcal{V}=\{0,\ldots,K-1\}$. Let
+$\mathcal{N}_{4}(i)$ denote the up, down, left and right anchor neighbours of
+node $i$, restricted to the $4\times4$ grid. The directed spatial edge set is
+\begin{equation}
+ \mathcal{E}_{s}=\{(j\rightarrow i):j\in\mathcal{N}_{4}(i)\}.
+ \label{eq:spatial-edges}
+\end{equation}
+It contains 48 edges. Each neighbouring anchor pair contributes both message
+directions.
+
+Feature edges provide a second source of connectivity. For every query node
+$i$, the cosine score to candidate node $j$ is
+\begin{equation}
+ c_{ij}=\frac{r_i^{\mathsf T}r_j}
+ {\max(\|r_i\|_2,\epsilon)\max(\|r_j\|_2,\epsilon)}.
+ \label{eq:region-cosine}
+\end{equation}
+Let $\mathcal{T}_2(i)$ contain the two candidates with the highest scores
+among $\mathcal{V}\setminus(\{i\}\cup\mathcal{N}_{4}(i))$. Equal scores
+are resolved by preferring the smaller region index. The feature and combined
+edge sets are
+\begin{equation}
+ \mathcal{E}_{f}=\{(j\rightarrow i):j\in\mathcal{T}_2(i)\},
+ \qquad
+ \mathcal{E}=\mathcal{E}_{s}\cup\mathcal{E}_{f}.
+ \label{eq:feature-edges}
+\end{equation}
+There are 32 feature edges and 80 unique explicit non-self edges in total.
+The count describes the graph supplied to the graph-attention operator,
+before its internal edge processing. It is not a count of every message
+handled internally by that operator.
+
+An edge $j\rightarrow i$ supplies information from selected neighbour $j$ to
+query $i$. The feature graph depends on the image, while the spatial graph
+retains the fixed anchor adjacency in both grouping variants. In particular,
+soft region geometry is not used to recompute spatial touching relationships
+or region centroids. Cosine similarity selects connectivity; its numeric
+value is not supplied as an additional message weight to the graph-attention
+layers. The top-two selection is discrete, so differentiable soft membership
+does not make the entire graph topology differentiable. Both graph-attention
+layers share the graph constructed before message passing.
+
+\section{Graph attention and token feedback}
+
+Graph attention networks (GATs) were proposed by
+Veli\v{c}kovi\'{c} et al.~\cite{velickovic2018gat} to learn neighbour
+aggregation weights. Here, let $R\in\mathbb{R}^{K\times D}$ be the matrix
+of region features. An input linear projection maps its rows to width 1024,
+yielding $H^{(0)}\in\mathbb{R}^{K\times1024}$. Two graph-attention layers
+then apply
+\begin{equation}
+ H^{(l+1)}=\operatorname{Dropout}\!\left(
+  \operatorname{GELU}\!\left[
+  \operatorname{LN}_{l}\!\left(
+   \operatorname{GAT}_{l}(H^{(l)},\mathcal{E})+H^{(l)}
+  \right)\right]\right),\quad l\in\{0,1\}.
+ \label{eq:gat-block}
+\end{equation}
+The layer index is $l$, $\operatorname{LN}_{l}$ is its layer normalisation,
+and $\operatorname{GAT}_{l}$ has four concatenated attention heads with 256
+output channels per head. Both attention dropout and the output dropout use
+probability 0.1. The residual connection preserves the 1024-dimensional shape.
+
+Let $h_k^{(2)}$ denote row $k$ of $H^{(2)}$. A learned projection
+$Q\in\mathbb{R}^{D\times1024}$ with bias $b_f\in\mathbb{R}^{D}$ and a
+further layer normalisation $\operatorname{LN}_{f}$ produces
+\begin{equation}
+ F_k=\operatorname{LN}_{f}(Qh_k^{(2)}+b_f),
+ \label{eq:region-feedback}
+\end{equation}
+where $F_k\in\mathbb{R}^{D}$ is the feedback for region $k$. The updated
+tokens are
+\begin{equation}
+ x'_n=
+ \begin{cases}
+ x_n+F_{a(n)}, & \text{fixed grouping},\\
+ x_n+\sum_{k=0}^{K-1}S_{nk}F_k, & \text{soft grouping}.
+ \end{cases}
+ \label{eq:token-feedback}
+\end{equation}
+No learned scalar gate is applied at this interface. The updated tokens are
+mean-pooled and passed to the classifier in Equation~\eqref{eq:classifier}.
+The principal model does not apply another Transformer block after feedback.
+
+This placement also limits the interpretation of token feedback. In the soft
+version, the vector passed to the classifier satisfies
+\begin{equation}
+ \frac{1}{N}\sum_{n=1}^{N}x'_n
+ =\bar{x}+\sum_{k=0}^{K-1}\mu_kF_k,
+ \qquad
+ \mu_k=\frac{1}{N}\sum_{n=1}^{N}S_{nk}.
+ \label{eq:pooled-feedback}
+\end{equation}
+Here $\mu_k$ is the average membership mass of region $k$. This identity
+describes the final pooling step, not the complete effect of assignment:
+$S$ also changes the upstream region features, feature-edge selection and
+graph outputs. It nevertheless prevents an unsupported claim that feedback
+is followed by further token-to-token reasoning in the principal model.
+
+\section{Classification objectives}
+
+For single-label tasks, let $q_c$ be the softmax probability of class $c$,
+computed from logit $\ell_c$. The per-image cross-entropy objective is
+\begin{equation}
+ q_c=\frac{\exp(\ell_c)}{\sum_{j=1}^{C}\exp(\ell_j)},
+ \qquad \mathcal{L}_{\mathrm{single}}=-\log q_y,
+ \label{eq:single-loss}
+\end{equation}
+where $j$ now indexes output classes and $y$ is the target class.
+For multi-label tasks, define $p_c=\sigma(\ell_c)$, where $\sigma$ is the
+sigmoid function and $y_c$ is the binary target for class $c$. The objective is
+\begin{equation}
+ \mathcal{L}_{\mathrm{multi}}=-\frac{1}{C}\sum_{c=1}^{C}
+ \left[y_c\log p_c+(1-y_c)\log(1-p_c)\right].
+ \label{eq:multi-loss}
+\end{equation}
+Both objectives are averaged over the training minibatch. The implementation
+uses binary cross-entropy directly on logits for numerical stability in the
+multi-label case. No region masks, object annotations or auxiliary grouping
+loss are used in the principal models. Consequently, classification training
+alone does not establish that the learned grouping recovers semantic
+boundaries. That question requires separate evidence from the classification
+comparison and qualitative analysis.

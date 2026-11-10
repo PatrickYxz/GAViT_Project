@@ -1,0 +1,175 @@
+{
+  "started_utc": "2026-10-31T13:34:15.084856+00:00",
+  "url": "https://download.pytorch.org/models/swin_b-68c6b09e.pth",
+  "kind": "torchvision.Swin_B_Weights.IMAGENET1K_V1",
+  "is_original_hgtnet_weights": false,
+  "required_total_bytes": 351654207,
+  "segments": [
+    {
+      "index": 0,
+      "first": 37065378,
+      "last": 56727179,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range00.part"
+    },
+    {
+      "index": 1,
+      "first": 56727180,
+      "last": 76388981,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range01.part"
+    },
+    {
+      "index": 2,
+      "first": 76388982,
+      "last": 96050783,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range02.part"
+    },
+    {
+      "index": 3,
+      "first": 96050784,
+      "last": 115712585,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range03.part"
+    },
+    {
+      "index": 4,
+      "first": 115712586,
+      "last": 135374387,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range04.part"
+    },
+    {
+      "index": 5,
+      "first": 135374388,
+      "last": 155036189,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range05.part"
+    },
+    {
+      "index": 6,
+      "first": 155036190,
+      "last": 174697991,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range06.part"
+    },
+    {
+      "index": 7,
+      "first": 174697992,
+      "last": 194359793,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range07.part"
+    },
+    {
+      "index": 8,
+      "first": 194359794,
+      "last": 214021595,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range08.part"
+    },
+    {
+      "index": 9,
+      "first": 214021596,
+      "last": 233683397,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range09.part"
+    },
+    {
+      "index": 10,
+      "first": 233683398,
+      "last": 253345199,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range10.part"
+    },
+    {
+      "index": 11,
+      "first": 253345200,
+      "last": 273007001,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range11.part"
+    },
+    {
+      "index": 12,
+      "first": 273007002,
+      "last": 292668803,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range12.part"
+    },
+    {
+      "index": 13,
+      "first": 292668804,
+      "last": 312330605,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range13.part"
+    },
+    {
+      "index": 14,
+      "first": 312330606,
+      "last": 331992407,
+      "exit_code": 0,
+      "bytes": 19661802,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range14.part"
+    },
+    {
+      "index": 15,
+      "first": 331992408,
+      "last": 351654206,
+      "exit_code": 0,
+      "bytes": 19661799,
+      "range_header_matched": true,
+      "valid": true,
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range15.part"
+    }
+  ],
+  "sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893",
+  "bytes": 351654207,
+  "status": "downloaded_official_candidate_bytes",
+  "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.pth",
+  "elapsed_seconds": 95.15272233309224,
+  "ended_utc": "2026-10-31T13:35:50.233698+00:00"
+}

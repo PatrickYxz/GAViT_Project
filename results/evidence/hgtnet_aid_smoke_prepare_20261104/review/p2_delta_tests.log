@@ -1,0 +1,9 @@
+test_status_needs_exit_progress_summary_checkpoint_and_current_sources (tests.test_hgtnet_aid_entry.EntryTests.test_status_needs_exit_progress_summary_checkpoint_and_current_sources) ... ok
+test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) ... ok
+test_missing_or_malformed_required_completion_artifacts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_missing_or_malformed_required_completion_artifacts_stay_incomplete) ... ok
+test_end_check_receipt_requires_actual_end_identity_selected_images_and_checkpoint (tests.test_hgtnet_aid_entry.EntryTests.test_end_check_receipt_requires_actual_end_identity_selected_images_and_checkpoint) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.269s
+
+OK

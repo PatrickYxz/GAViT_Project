@@ -1,0 +1,37 @@
+{
+  "source": "current-turn actual exec_command/write_stdin completion results",
+  "runs": [
+    {
+      "action": "final_bundle_build",
+      "exit_code": 0,
+      "command": "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python tools/package_hgtnet_nwpu_smoke.py build --output output/hgtnet_nwpu_smoke_3080_20261031.pyz",
+      "receipt": "final_bundle_build.json"
+    },
+    {
+      "action": "full_model_cpu_fixture_02",
+      "exit_code": 0,
+      "exec_session": 3324,
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 KMP_INIT_AT_FORK=FALSE /private/tmp/gavit-dfagcn-cpu-20261027/bin/python results/evidence/hgtnet_3080_smoke_prepare_20261031/full_model_cpu_fixture.py --output results/evidence/hgtnet_3080_smoke_prepare_20261031/full_model_cpu_fixture_02",
+      "log": "../full_model_cpu_fixture_02/run.log"
+    },
+    {
+      "action": "final_related_suite",
+      "exit_code": 0,
+      "exec_session": 20769,
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 KMP_INIT_AT_FORK=FALSE /private/tmp/gavit-dfagcn-cpu-20261027/bin/python results/evidence/hgtnet_3080_smoke_prepare_20261031/integration/run_related_tests.py",
+      "log": "related_suite.log"
+    },
+    {
+      "action": "final_pyz_stdlib_inspect",
+      "exit_code": 0,
+      "command": "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python results/evidence/hgtnet_3080_smoke_prepare_20261031/integration/inspect_bundle_without_ml.py --bundle output/hgtnet_nwpu_smoke_3080_20261031.pyz",
+      "receipt": "bundle_inspect_guard.json"
+    },
+    {
+      "action": "final_pyz_status",
+      "exit_code": 0,
+      "command": "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python output/hgtnet_nwpu_smoke_3080_20261031.pyz status",
+      "receipt": "actual_bundle_status.json"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-17",
+  "dataset": "BigEarthNet-19",
+  "status": "geometry_comparison_first_batch_complete",
+  "scope": "fixed_partition_geometry_only",
+  "sample_rows": [97389, 14680, 28450, 4439],
+  "split": "val",
+  "selection": "All four locally archived historical diagnostic threshold-flip cases; not a representative sample",
+  "manifest": "output/pdf/ben_grid3_grid4_20261017/figure_manifest.json",
+  "export_validation": "output/pdf/ben_grid3_grid4_20261017/export_qa.json",
+  "analysis": "docs/ben_grid3_grid4_analysis_20261017.md",
+  "pdf": "output/pdf/ben_grid3_grid4_20261017/ben_grid3_grid4_cases.pdf",
+  "png_300dpi": "output/pdf/ben_grid3_grid4_20261017/ben_grid3_grid4_300dpi.png",
+  "observations": [
+    {"row": 97389, "finding": "Smaller left-column aggregation units, while the light linear texture still crosses multiple regions", "classification_effect": null},
+    {"row": 14680, "finding": "The lower lighter-green patch is split across additional regions; finer grouping does not establish greater spatial coherence", "classification_effect": null},
+    {"row": 28450, "finding": "Both regular grids intersect irregular patches and oblique textures; neither follows content boundaries", "classification_effect": null},
+    {"row": 4439, "finding": "Left-column width decreases from96 to64 display pixels, narrowing the unit containing the coastal strip; land/coast/water mixing and fragmentation remain", "classification_effect": null}
+  ],
+  "semantic_quality_metrics": null,
+  "classification_metrics": null,
+  "new_model_inference": false,
+  "new_training": false,
+  "paid_gpu_used": false,
+  "actual_K9_model_evaluated": false,
+  "graph_edges_compared": false,
+  "three_model_same_image_comparison_complete": false,
+  "next_requirements": [
+    "Verify existing BEN K9 weights/code before any trained3x3 graph or prediction comparison",
+    "Align existing Swin/fixed4x4/soft weights and per-image predictions by seed, stage and split",
+    "Capture authentic model edges and test a separate frozen-weight edge intervention if the claim concerns edge utility"
+  ]
+}

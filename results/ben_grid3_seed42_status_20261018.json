@@ -1,0 +1,265 @@
+{
+  "date": "2026-10-18",
+  "status": "TRAINING_SUMMARY_TEST_METRICS_AUDITED_VISUALIZATION_COMPLETE",
+  "authorization": "用户：那就补吧，我真的想快点结束掉这个东西了",
+  "formal_authorized": true,
+  "server_training_started": true,
+  "server_training_start_verified": false,
+  "scope": {
+    "primary_deliverable": "Trained fixed3x3 versus fixed4x4 same-image visualization on BEN; performance metrics provide context",
+    "new_formal_models": [
+      "fixed_K9_seed42"
+    ],
+    "historical_reference": "fixed_K16_seed42_cd39be9",
+    "new_swin_or_soft_or_k16_training": false
+  },
+  "output": "/home/featurize/work/ben_grid3_seed42_20261018_01",
+  "base_commit": "cd39be91a013bcf98099808c451300f87d3898b7",
+  "snapshot_sha256": "f82d37a9cc1d18920a553fa1e4fd516e9d9ebda9d9abddb6595e12a69a944f58",
+  "architecture": {
+    "num_classes": 19,
+    "num_regions": 9,
+    "knn_k": 5,
+    "gat_hidden": 256,
+    "gat_heads": 4,
+    "gat_layers": 2,
+    "dropout": 0.1,
+    "grouping": "attentive_spatial",
+    "edge_type": "sparse_hybrid",
+    "integration": "token_feedback"
+  },
+  "graph_topology": {
+    "name": "sparse_hybrid_grid3_4n_top2",
+    "spatial_connectivity": 4,
+    "feature_k": 2,
+    "spatial_directed_edges": 24,
+    "feature_directed_edges": 18,
+    "total_directed_edges": 42,
+    "message_direction": "neighbor_to_query",
+    "cosine_role": "topology_only"
+  },
+  "expected_parameters": 31366926,
+  "training": {
+    "seed": 42,
+    "epochs": 30,
+    "batch_size": 32,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "scheduler": "CosineAnnealingLR",
+    "loss": "BCEWithLogitsLoss",
+    "f1_threshold": 0.5
+  },
+  "num_workers": 4,
+  "data_splits": {
+    "train": {
+      "count": 237871,
+      "sha256": "25734fd9e8dc7fd78fb259e768ae91fe11b297e1caa50a2d57b74b0296413d8f"
+    },
+    "val": {
+      "count": 122342,
+      "sha256": "1c6627cb48e33588538c4e411e4f1b94560827f27d59fb7aeb0ea2b5d30c2a45"
+    },
+    "test": {
+      "count": 119825,
+      "sha256": "cea165a6443fc5ee44de0a3c55f53ce70505c4e25aba9ca8b52d76634df77204"
+    }
+  },
+  "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+  "target_hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "uuid": "GPU-8734427f-061f-9fdb-97eb-fe9190a11225"
+  },
+  "precision": {
+    "dtype": "torch.float32",
+    "matmul_tf32": false,
+    "cudnn_tf32": true,
+    "amp": false
+  },
+  "checkpoint": "/home/featurize/work/ben_grid3_seed42_20261018_01/train/gavit.pth",
+  "final_epoch": 30,
+  "best_epoch": 10,
+  "formal_test_metrics": {
+    "samples": 119825,
+    "mAP_percent": 71.07533208222321,
+    "macro_f1_percent": 64.48830571218534,
+    "micro_f1_percent": 76.68872316423352,
+    "f1_threshold": 0.5,
+    "checkpoint_sha256": "c4b77953d6dd2908d7a61ebe7a34f4004e8c219a0843de6ab05aaf207460feff",
+    "per_class_ap_percent": {
+      "Urban fabric": 86.51980810149344,
+      "Industrial or commercial units": 51.637123422709905,
+      "Arable land": 93.18679316602953,
+      "Permanent crops": 62.92872871413756,
+      "Pastures": 86.1013262808726,
+      "Complex cultivation patterns": 69.23862820757662,
+      "Land principally occupied by agriculture, with significant areas of natural vegetation": 72.94995402127765,
+      "Agro-forestry areas": 87.15781094239232,
+      "Broad-leaved forest": 85.9398213222218,
+      "Coniferous forest": 93.77272487307027,
+      "Mixed forest": 90.02901953507208,
+      "Natural grassland and sparsely vegetated areas": 46.617564769159294,
+      "Moors, heathland and sclerophyllous vegetation": 61.14810472076743,
+      "Transitional woodland, shrub": 78.13949455867811,
+      "Beaches, dunes, sands": 9.827636452996988,
+      "Inland wetlands": 62.96008158378324,
+      "Coastal wetlands": 21.58357829287427,
+      "Inland waters": 91.13248124495286,
+      "Marine waters": 99.56062935217518
+    }
+  },
+  "delta_vs_historical_k16": {
+    "mAP_percent": -0.9246679177767874,
+    "macro_f1_percent": -1.511694287814663,
+    "micro_f1_percent": -0.01127683576648053
+  },
+  "estimated_hours": [
+    6,
+    8
+  ],
+  "budget_condition": "Only if the previously reported rate 1.67CNY/hour still applies; platform bill and actual runtime unknown",
+  "actual_cost": null,
+  "install_command": "results/evidence/ben_grid3_seed42_prepare_20261018/install_and_launch_command.txt",
+  "limitations": [
+    "Only one new seed is authorized in this supplement.",
+    "Historical control is not a same-physical-GPU/software-batch pair.",
+    "Training summary, epochs, UUID and resources are now archived. Earlier explicit startup flags reflect the missing original first-batch trace, not unstarted training; original full history/checkpoint bytes remain on server."
+  ],
+  "last_updated": "2026-10-20",
+  "dispatch": {
+    "status": "BEN_GRID3_42_DISPATCHED",
+    "pid": 3599,
+    "output": "/home/featurize/work/ben_grid3_seed42_20261018_01",
+    "training_start_verified": false,
+    "sequence": [
+      "preflight",
+      "smoke",
+      "train30",
+      "best_test"
+    ]
+  },
+  "last_observed_phase": "reported_queue_exit0_and_full_test_metrics",
+  "last_printed_data_progress": {
+    "train": {
+      "last_printed_count": 230000,
+      "expected_count": 237871,
+      "elapsed_seconds": 17.4
+    },
+    "val": {
+      "last_printed_count": 110000,
+      "expected_count": 122342,
+      "elapsed_seconds": 8.3
+    }
+  },
+  "preflight_pass_verified": true,
+  "smoke_pass_verified": true,
+  "launch_evidence": "results/evidence/ben_grid3_seed42_launch_20261019/validation.json",
+  "next_action": "The trained K9/K16 visualization and analysis are complete. Continue the remaining Swin/fixed4x4/soft same-image comparison using existing checkpoints; no additional training is implied.",
+  "visualization": {
+    "priority_confirmed_by_user": "2026-10-20: 记得我们做33是为了补充可视化33和44的对比",
+    "status": "PAIRED_CAPTURE_AUDITED_FIGURES_COMPLETE",
+    "capture_tool_prepared": true,
+    "server_capture_executed": true,
+    "inference_device_default": "cpu",
+    "new_training": false,
+    "original_dataset_reextraction_required": false,
+    "handoff_command": "results/evidence/ben_gridpair42_visual_prepare_20261020/install_and_capture_command.txt",
+    "run_document": "docs/run_ben_gridpair42_visual_20261020.md",
+    "server_output": "/home/featurize/work/ben_gridpair42_visual_20261020_01",
+    "return_artifact": "ben_grid_pair_visual.zip",
+    "local_validation": "results/evidence/ben_gridpair42_visual_prepare_20261020/preparation_validation.json",
+    "geometry_figure_available": true,
+    "paired_k9_k16_capture_complete": true,
+    "trained_model_figure_complete": true,
+    "first_batch_candidate_val_rows": [
+      97389,
+      14680,
+      28450,
+      4439
+    ],
+    "selection_scope": "Reuse all four archived historical diagnostic validation inputs; not a representative or test-benefit sample. All probabilities/edges must be recaptured using the seed42 checkpoints.",
+    "panels": [
+      "original input",
+      "K9 partition and captured graph",
+      "K16 partition and captured graph",
+      "ground-truth labels and paired class probabilities"
+    ],
+    "capture_requirements": [
+      "same input tensor, preprocessing, device and precision",
+      "strict checkpoint loading and source/input/checkpoint identity",
+      "capture leaves logits unchanged within numeric tolerance",
+      "K9 24 spatial + 18 feature edges; K16 48 spatial + 32 feature edges",
+      "preserve all selected outcomes and historical validation selection provenance"
+    ],
+    "existing_tool_gap": "Resolved for the trained K9/K16 comparison; remaining three-model visual comparison is a separate next item.",
+    "delivery_protocol": "docs/run_ben_grid3_seed42_20261018.md#训练后的可视化交付",
+    "server_capture_reported_complete": true,
+    "capture_evidence_basis": "user-pasted console output; no independent server/file read",
+    "reported_groups": 8,
+    "reported_artifact_gate_pass": true,
+    "reported_capture_errors_zero": true,
+    "output_html": "/home/featurize/work/ben_gridpair42_visual_20261020_01/comparison.html",
+    "output_zip": "/home/featurize/work/ben_gridpair42_visual_20261020_01/ben_grid_pair_visual.zip",
+    "run_return_evidence": "results/evidence/ben_gridpair42_visual_run_20261020/validation.json",
+    "artifacts_received": true,
+    "paired_capture_audit_complete": true,
+    "completion_field_scope": "Returned JSON, input/source hashes, topology, probabilities, PT hashes/CRC and exports verified; model forward checks ran on server.",
+    "artifacts_received_from": "/Users/patrick/Downloads/ben_grid_pair_visual",
+    "paired_class_outcomes": {
+      "both_correct": 63,
+      "both_wrong": 9,
+      "k16_only_correct": 3,
+      "k9_only_correct": 1
+    },
+    "actual_cpu_wall_seconds": 21.676718090000122,
+    "raw_tensor_hash_crc_verified": true,
+    "raw_tensor_deserialized_locally": false,
+    "neural_forward_rerun_locally": false,
+    "return_artifact_audit": "results/evidence/ben_gridpair42_visual_return_20261020/validation.json",
+    "pdf": "output/pdf/ben_gridpair42_20261020/ben_gridpair42_cases.pdf",
+    "png": "output/pdf/ben_gridpair42_20261020/graphs_predictions_300dpi.png",
+    "html": "output/pdf/ben_gridpair42_20261020/comparison.html",
+    "analysis": "docs/ben_gridpair42_visual_analysis_20261020.md",
+    "export_validation": "output/pdf/ben_gridpair42_20261020/export_qa.json"
+  },
+  "training_started_evidence": "Inferred from reported parent exit0 plus formal full-test metrics under the released queue; no independent server read",
+  "server_execution_reported_completed": true,
+  "queue_exit_code_reported": 0,
+  "reported_checkpoint_sha256": "c4b77953d6dd2908d7a61ebe7a34f4004e8c219a0843de6ab05aaf207460feff",
+  "formal_metrics_numeric_validation_passed": true,
+  "full_artifact_audit_complete": false,
+  "result_evidence": "results/evidence/ben_grid3_seed42_metrics_20261020/validation.json",
+  "training_summary_audit_complete": true,
+  "actual_training_hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "threads": 8,
+    "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+    "packages": {
+      "torch": "2.2.2",
+      "torchvision": "0.17.2",
+      "timm": "1.0.27",
+      "torch-geometric": "2.8.0",
+      "numpy": "1.26.4",
+      "scikit-learn": "1.9.0",
+      "pillow": "10.3.0"
+    },
+    "gpu_identity": "GPU-8734427f-061f-9fdb-97eb-fe9190a11225, NVIDIA GeForce RTX 4090, 610.57.04"
+  },
+  "actual_training_precision": {
+    "dtype": "torch.float32",
+    "matmul_tf32": false,
+    "cudnn_tf32": true,
+    "amp": false
+  },
+  "training_resources": {
+    "elapsed_seconds": 20705.3940195,
+    "peak_cuda_allocated_bytes": 3884810240,
+    "peak_cuda_reserved_bytes": 4196401152,
+    "effective_training_images_per_second": 344.6507703876251
+  },
+  "parent_wall_seconds": 20974.61716835,
+  "training_summary_evidence": "results/evidence/ben_gridpair42_visual_return_20261020/server_return/source_reports/summary.json",
+  "full_artifact_audit_scope": "Returned training/capture summaries and outputs audited. Original full training history and trained checkpoint bytes remain on server; no local neural rerun."
+}

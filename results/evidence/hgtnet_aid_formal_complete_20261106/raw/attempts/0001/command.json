@@ -1,0 +1,9 @@
+{
+  "argv": [
+    "/home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/external_baselines/hgtnet/aid_formal_entry.py",
+    "run"
+  ],
+  "command": "/environment/miniconda3/bin/python /home/featurize/work/hgtnet_aid_formal_3060_20261105_v1.pyz run --gpu-uuid GPU-df386e6c-dbb3-0952-8190-3265a7bd8ae8 --manifest /home/featurize/work/aid_protocol_20260920_03.json --data-root /home/featurize/data/AID/AID --weights /home/featurize/work/swin_b-68c6b09e.pth --config /home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/configs/hgtnet_aid_independent_v0.json --recipe /home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/configs/hgtnet_aid_formal_v1.json --output /home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01 --capacity-bundle /home/featurize/work/hgtnet_aid_batch16_probe_3060_20261105.pyz --capacity-output /home/featurize/work/hgtnet_aid_batch16_probe_3060_20261105/runs/batch16_seed42_01",
+  "cwd": "/home/featurize/work/hgtnet_aid_formal_3060_20261105_v1",
+  "pid": 9450
+}

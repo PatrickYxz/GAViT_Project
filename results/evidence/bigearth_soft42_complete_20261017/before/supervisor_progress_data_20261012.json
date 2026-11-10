@@ -1,0 +1,912 @@
+{
+  "date": "2026-10-12",
+  "status": "progress_report_draft",
+  "metric_units": "percent; differences in percentage points",
+  "sd_definition": "sample SD ddof1",
+  "sources": [
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/aid_multiseed_summary.json",
+      "sha256": "2418d5841daa98e3e77f51afe37e295969d22bd8f2f950e2746ee5e32510623a"
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/nwpu_two_seed_summary.json",
+      "sha256": "983a97cf349f15f3a7159e0c9cee37cf64c9c4ca816f138d4ece9c914cc60298"
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/bigearth_four_seed_summary.json",
+      "sha256": "fa6ce8b1837bfffb996148beb0d8cb85b640fcf3ac39ce536c3dd2a455b1b68c"
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/bigearth_three_model_two_seed_summary.json",
+      "sha256": "b1c3895aa62944b4f2b712e4e648cddcc8a2a1f9d4aaf09f1a1024a72451a487"
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/results/multiseed_test_results.csv",
+      "sha256": "639a9b45b07625d63c1254a32969637c984a996997248622a647f261d43c0988"
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/results/seed46_seed47_audit_20261012.json",
+      "sha256": "d37b599d98cd40affbb7f5ee803b628a38bba184f8a718a90729c04708010879"
+    }
+  ],
+  "rows": [
+    {
+      "dataset": "AID",
+      "seed": 42,
+      "metric": "test_OA_percent",
+      "swin": 96.34,
+      "fixed": 96.94,
+      "soft": null,
+      "swin_macro_f1": 96.22088514124282,
+      "fixed_macro_f1": 96.7811271561119,
+      "status": "historical_archived",
+      "gpu": "RTX2080Ti"
+    },
+    {
+      "dataset": "AID",
+      "seed": 43,
+      "metric": "test_OA_percent",
+      "swin": 96.86,
+      "fixed": 97.16,
+      "soft": null,
+      "swin_macro_f1": 96.68420610630325,
+      "fixed_macro_f1": 96.95587595593263,
+      "status": "historical_archived",
+      "gpu": "RTX2080Ti"
+    },
+    {
+      "dataset": "AID",
+      "seed": 44,
+      "metric": "test_OA_percent",
+      "swin": 96.84,
+      "fixed": 96.08,
+      "soft": null,
+      "swin_macro_f1": 96.66111935641514,
+      "fixed_macro_f1": 95.87462595609628,
+      "status": "historical_archived",
+      "gpu": "RTX2080Ti"
+    },
+    {
+      "dataset": "AID",
+      "seed": 46,
+      "metric": "test_OA_percent",
+      "swin": 96.56,
+      "fixed": 97.12,
+      "soft": null,
+      "status": "user_reported_original_artifact_audit_pending",
+      "gpu": "RTX4090_user_confirmed_uuid_not_returned",
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "soft_macro_f1": null,
+      "swin_micro_f1": null,
+      "fixed_micro_f1": null,
+      "soft_micro_f1": null
+    },
+    {
+      "dataset": "AID",
+      "seed": 47,
+      "metric": "test_OA_percent",
+      "swin": 95.72,
+      "fixed": 96.08,
+      "soft": null,
+      "status": "user_reported_original_artifact_audit_pending",
+      "gpu": "RTX4090_user_confirmed_uuid_not_returned",
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "soft_macro_f1": null,
+      "swin_micro_f1": null,
+      "fixed_micro_f1": null,
+      "soft_micro_f1": null
+    },
+    {
+      "dataset": "NWPU",
+      "seed": 42,
+      "metric": "test_OA_percent",
+      "swin": 93.93253968253968,
+      "fixed": 94.10317460317461,
+      "soft": 93.86904761904762,
+      "swin_macro_f1": 93.90914546819495,
+      "fixed_macro_f1": 94.08993346277097,
+      "soft_macro_f1": 93.854987219354,
+      "status": "historical_archived",
+      "gpu": "RTX 2080 Ti"
+    },
+    {
+      "dataset": "NWPU",
+      "seed": 43,
+      "metric": "test_OA_percent",
+      "swin": 93.85714285714286,
+      "fixed": 93.76587301587301,
+      "soft": 93.62698412698413,
+      "swin_macro_f1": 93.83452989448766,
+      "fixed_macro_f1": 93.74351252940127,
+      "soft_macro_f1": 93.58782117143805,
+      "status": "historical_archived",
+      "gpu": "RTX 4090"
+    },
+    {
+      "dataset": "NWPU",
+      "seed": 46,
+      "metric": "test_OA_percent",
+      "swin": 93.76,
+      "fixed": 93.96,
+      "soft": 93.54,
+      "status": "user_reported_original_artifact_audit_pending",
+      "gpu": "RTX4090_user_confirmed_uuid_not_returned",
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "soft_macro_f1": null,
+      "swin_micro_f1": null,
+      "fixed_micro_f1": null,
+      "soft_micro_f1": null,
+      "source_precision": {
+        "kind": "rounded_user_reported",
+        "decimal_places": 2,
+        "confirmed_by_user": true
+      }
+    },
+    {
+      "dataset": "NWPU",
+      "seed": 47,
+      "metric": "test_OA_percent",
+      "swin": 93.68,
+      "fixed": 94.19,
+      "soft": 93.55,
+      "status": "user_reported_original_artifact_audit_pending",
+      "gpu": "RTX4090_user_confirmed_uuid_not_returned",
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "soft_macro_f1": null,
+      "swin_micro_f1": null,
+      "fixed_micro_f1": null,
+      "soft_micro_f1": null,
+      "source_precision": {
+        "kind": "rounded_user_reported",
+        "decimal_places": 2,
+        "confirmed_by_user": true
+      }
+    },
+    {
+      "dataset": "BEN",
+      "seed": 42,
+      "metric": "test_mAP_percent",
+      "swin": 70.9,
+      "fixed": 72,
+      "soft": null,
+      "swin_macro_f1": 64.2,
+      "fixed_macro_f1": 66,
+      "soft_macro_f1": null,
+      "swin_micro_f1": 76.6,
+      "fixed_micro_f1": 76.7,
+      "soft_micro_f1": null,
+      "status": "historical_archived_with_execution_limits",
+      "gpu": "historical_mixed_hardware"
+    },
+    {
+      "dataset": "BEN",
+      "seed": 43,
+      "metric": "test_mAP_percent",
+      "swin": 71.1,
+      "fixed": 71.7,
+      "soft": 72.86757085064232,
+      "swin_macro_f1": 64.1,
+      "fixed_macro_f1": 65.7,
+      "soft_macro_f1": 66.67389161697625,
+      "swin_micro_f1": 76,
+      "fixed_micro_f1": 76.8,
+      "soft_micro_f1": 76.90597117759339,
+      "status": "historical_archived_with_execution_limits",
+      "gpu": "historical_mixed_hardware"
+    },
+    {
+      "dataset": "BEN",
+      "seed": 44,
+      "metric": "test_mAP_percent",
+      "swin": 71.4,
+      "fixed": 70.2,
+      "soft": null,
+      "swin_macro_f1": 65.7,
+      "fixed_macro_f1": 65.2,
+      "soft_macro_f1": null,
+      "swin_micro_f1": 76.7,
+      "fixed_micro_f1": 77.1,
+      "soft_micro_f1": null,
+      "status": "historical_archived_with_execution_limits",
+      "gpu": "historical_mixed_hardware"
+    },
+    {
+      "dataset": "BEN",
+      "seed": 45,
+      "metric": "test_mAP_percent",
+      "swin": 71.67692953551497,
+      "fixed": 70.25823624286052,
+      "soft": 70.83691875764855,
+      "swin_macro_f1": 65.08421202330264,
+      "fixed_macro_f1": 64.29547698363885,
+      "soft_macro_f1": 64.86482283595696,
+      "swin_micro_f1": 76.73226436237192,
+      "fixed_micro_f1": 76.70245685151849,
+      "soft_micro_f1": 76.38335430648769,
+      "status": "historical_archived_with_execution_limits",
+      "gpu": "historical_mixed_hardware"
+    },
+    {
+      "dataset": "BEN",
+      "seed": 46,
+      "metric": "test_mAP_percent",
+      "swin": 71,
+      "fixed": 71.8,
+      "soft": 71.4,
+      "status": "user_reported_original_artifact_audit_pending",
+      "gpu": "RTX4090_user_confirmed_uuid_not_returned",
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "soft_macro_f1": null,
+      "swin_micro_f1": null,
+      "fixed_micro_f1": null,
+      "soft_micro_f1": null
+    },
+    {
+      "dataset": "BEN",
+      "seed": 47,
+      "metric": "test_mAP_percent",
+      "swin": 70.6,
+      "fixed": 71.1,
+      "soft": 70.3,
+      "status": "user_reported_original_artifact_audit_pending",
+      "gpu": "RTX4090_user_confirmed_uuid_not_returned",
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "soft_macro_f1": null,
+      "swin_micro_f1": null,
+      "fixed_micro_f1": null,
+      "soft_micro_f1": null
+    }
+  ],
+  "summaries": [
+    {
+      "dataset": "AID",
+      "seeds": [
+        42,
+        43,
+        44,
+        46,
+        47
+      ],
+      "metric": "test_OA_percent",
+      "swin": {
+        "n": 5,
+        "mean": 96.46399999999998,
+        "sample_sd_ddof1": 0.4680598252360491
+      },
+      "fixed": {
+        "n": 5,
+        "mean": 96.676,
+        "sample_sd_ddof1": 0.550345346123687
+      },
+      "paired_fixed_minus_swin_pp": {
+        "n": 5,
+        "mean": 0.2119999999999976,
+        "sample_sd_ddof1": 0.5581397674418135
+      },
+      "fixed_positive_seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "fixed_negative_seeds": [
+        44
+      ],
+      "scope": "descriptive heterogeneous history including user-reported 46/47; not final uniform-protocol result"
+    },
+    {
+      "dataset": "NWPU",
+      "seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "metric": "test_OA_percent",
+      "swin": {
+        "n": 4,
+        "mean": 93.80742063492063,
+        "sample_sd_ddof1": 0.11047142960914658
+      },
+      "fixed": {
+        "n": 4,
+        "mean": 94.0047619047619,
+        "sample_sd_ddof1": 0.1853552809145997
+      },
+      "paired_fixed_minus_swin_pp": {
+        "n": 4,
+        "mean": 0.19734126984126377,
+        "sample_sd_ddof1": 0.24615181828514332
+      },
+      "fixed_positive_seeds": [
+        42,
+        46,
+        47
+      ],
+      "fixed_negative_seeds": [
+        43
+      ],
+      "scope": "descriptive heterogeneous history including user-reported 46/47; not final uniform-protocol result"
+    },
+    {
+      "dataset": "BEN",
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "metric": "test_mAP_percent",
+      "swin": {
+        "n": 6,
+        "mean": 71.1128215892525,
+        "sample_sd_ddof1": 0.3799635061538858
+      },
+      "fixed": {
+        "n": 6,
+        "mean": 71.17637270714341,
+        "sample_sd_ddof1": 0.7929148101095201
+      },
+      "paired_fixed_minus_swin_pp": {
+        "n": 6,
+        "mean": 0.06355111789092405,
+        "sample_sd_ddof1": 1.0852150193497707
+      },
+      "fixed_positive_seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "fixed_negative_seeds": [
+        44,
+        45
+      ],
+      "scope": "descriptive heterogeneous history including user-reported 46/47; not final uniform-protocol result"
+    }
+  ],
+  "soft_three_model_same_seed_summaries": [
+    {
+      "dataset": "NWPU",
+      "seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "swin": {
+        "n": 4,
+        "mean": 93.80742063492063,
+        "sample_sd_ddof1": 0.11047142960914658
+      },
+      "fixed": {
+        "n": 4,
+        "mean": 94.0047619047619,
+        "sample_sd_ddof1": 0.1853552809145997
+      },
+      "soft": {
+        "n": 4,
+        "mean": 93.64650793650794,
+        "sample_sd_ddof1": 0.15336537178840062
+      },
+      "paired_soft_minus_swin_pp": {
+        "n": 4,
+        "mean": -0.16091269841270162,
+        "sample_sd_ddof1": 0.07902045548028515
+      },
+      "paired_soft_minus_fixed_pp": {
+        "n": 4,
+        "mean": -0.3582539682539654,
+        "sample_sd_ddof1": 0.22114998309919695
+      },
+      "scope": "same-seed overlap only; heterogeneous history including user-reported 46/47"
+    },
+    {
+      "dataset": "BEN",
+      "seeds": [
+        43,
+        45,
+        46,
+        47
+      ],
+      "swin": {
+        "n": 4,
+        "mean": 71.09423238387873,
+        "sample_sd_ddof1": 0.4444902051289164
+      },
+      "fixed": {
+        "n": 4,
+        "mean": 71.21455906071512,
+        "sample_sd_ddof1": 0.7085363103529801
+      },
+      "soft": {
+        "n": 4,
+        "mean": 71.35112240207272,
+        "sample_sd_ddof1": 1.1062351481227564
+      },
+      "paired_soft_minus_swin_pp": {
+        "n": 4,
+        "mean": 0.25689001819397816,
+        "sample_sd_ddof1": 1.1278231086450565
+      },
+      "paired_soft_minus_fixed_pp": {
+        "n": 4,
+        "mean": 0.13656334135758996,
+        "sample_sd_ddof1": 0.8987949264394739
+      },
+      "scope": "same-seed overlap only; heterogeneous history including user-reported 46/47"
+    }
+  ],
+  "limits": [
+    "Includes all current selected fixed-variant seeds; no positive-seed filtering",
+    "No across-dataset pooled accuracy",
+    "New46/47 figures are user confirmed; original artifacts pending",
+    "Historical BEN hardware/code/final epochs differ; Swin44 final exit unconfirmed",
+    "New46/47 auxiliary F1/per-class/runtime metrics unavailable",
+    "BEN43-44 controls and new46/47 mAP values include one-decimal rounding"
+  ],
+  "presentation_policy": {
+    "display_decimal_places": 2,
+    "rounding": "ROUND_HALF_UP",
+    "statistics_use_original_available_precision": true,
+    "do_not_round_seeds_before_statistics": true,
+    "NWPU_seed46_seed47_source_precision_user_confirmed": "rounded to two decimal places",
+    "BEN_one_decimal_inputs_keep_original_precision": true
+  },
+  "visualization_presentation_feedback": {
+    "source": "direct user message 2026-10-12",
+    "current_visualization_presentation_acceptable": true,
+    "feedback_is_not_new_semantic_or_causal_validation": true
+  },
+  "reporting_selection": {
+    "requested_seeds": [
+      42,
+      43,
+      46,
+      47
+    ],
+    "source": "direct user instruction 2026-10-13: 应该使用seed42434647四个seed汇报",
+    "selection_after_existing_results": true,
+    "historical_seeds_not_removed": true,
+    "not_a_complete_predefined_seed_stability_summary": true,
+    "missing_soft_results": {
+      "AID": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "BEN": [
+        42
+      ]
+    },
+    "auxiliary_F1_missing_for_new_seeds": [
+      46,
+      47
+    ]
+  },
+  "selected_four_seed_rows": [
+    {
+      "dataset": "AID",
+      "seed": 42,
+      "metric": "test_OA_percent",
+      "swin": 96.34,
+      "fixed": 96.94,
+      "soft": null,
+      "swin_macro_f1": 96.22088514124282,
+      "fixed_macro_f1": 96.7811271561119,
+      "status": "historical_archived",
+      "gpu": "RTX2080Ti"
+    },
+    {
+      "dataset": "AID",
+      "seed": 43,
+      "metric": "test_OA_percent",
+      "swin": 96.86,
+      "fixed": 97.16,
+      "soft": null,
+      "swin_macro_f1": 96.68420610630325,
+      "fixed_macro_f1": 96.95587595593263,
+      "status": "historical_archived",
+      "gpu": "RTX2080Ti"
+    },
+    {
+      "dataset": "AID",
+      "seed": 46,
+      "metric": "test_OA_percent",
+      "swin": 96.56,
+      "fixed": 97.12,
+      "soft": null,
+      "status": "user_reported_original_artifact_audit_pending",
+      "gpu": "RTX4090_user_confirmed_uuid_not_returned",
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "soft_macro_f1": null,
+      "swin_micro_f1": null,
+      "fixed_micro_f1": null,
+      "soft_micro_f1": null
+    },
+    {
+      "dataset": "AID",
+      "seed": 47,
+      "metric": "test_OA_percent",
+      "swin": 95.72,
+      "fixed": 96.08,
+      "soft": null,
+      "status": "user_reported_original_artifact_audit_pending",
+      "gpu": "RTX4090_user_confirmed_uuid_not_returned",
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "soft_macro_f1": null,
+      "swin_micro_f1": null,
+      "fixed_micro_f1": null,
+      "soft_micro_f1": null
+    },
+    {
+      "dataset": "NWPU",
+      "seed": 42,
+      "metric": "test_OA_percent",
+      "swin": 93.93253968253968,
+      "fixed": 94.10317460317461,
+      "soft": 93.86904761904762,
+      "swin_macro_f1": 93.90914546819495,
+      "fixed_macro_f1": 94.08993346277097,
+      "soft_macro_f1": 93.854987219354,
+      "status": "historical_archived",
+      "gpu": "RTX 2080 Ti"
+    },
+    {
+      "dataset": "NWPU",
+      "seed": 43,
+      "metric": "test_OA_percent",
+      "swin": 93.85714285714286,
+      "fixed": 93.76587301587301,
+      "soft": 93.62698412698413,
+      "swin_macro_f1": 93.83452989448766,
+      "fixed_macro_f1": 93.74351252940127,
+      "soft_macro_f1": 93.58782117143805,
+      "status": "historical_archived",
+      "gpu": "RTX 4090"
+    },
+    {
+      "dataset": "NWPU",
+      "seed": 46,
+      "metric": "test_OA_percent",
+      "swin": 93.76,
+      "fixed": 93.96,
+      "soft": 93.54,
+      "status": "user_reported_original_artifact_audit_pending",
+      "gpu": "RTX4090_user_confirmed_uuid_not_returned",
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "soft_macro_f1": null,
+      "swin_micro_f1": null,
+      "fixed_micro_f1": null,
+      "soft_micro_f1": null,
+      "source_precision": {
+        "kind": "rounded_user_reported",
+        "decimal_places": 2,
+        "confirmed_by_user": true
+      }
+    },
+    {
+      "dataset": "NWPU",
+      "seed": 47,
+      "metric": "test_OA_percent",
+      "swin": 93.68,
+      "fixed": 94.19,
+      "soft": 93.55,
+      "status": "user_reported_original_artifact_audit_pending",
+      "gpu": "RTX4090_user_confirmed_uuid_not_returned",
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "soft_macro_f1": null,
+      "swin_micro_f1": null,
+      "fixed_micro_f1": null,
+      "soft_micro_f1": null,
+      "source_precision": {
+        "kind": "rounded_user_reported",
+        "decimal_places": 2,
+        "confirmed_by_user": true
+      }
+    },
+    {
+      "dataset": "BEN",
+      "seed": 42,
+      "metric": "test_mAP_percent",
+      "swin": 70.9,
+      "fixed": 72,
+      "soft": null,
+      "swin_macro_f1": 64.2,
+      "fixed_macro_f1": 66,
+      "soft_macro_f1": null,
+      "swin_micro_f1": 76.6,
+      "fixed_micro_f1": 76.7,
+      "soft_micro_f1": null,
+      "status": "historical_archived_with_execution_limits",
+      "gpu": "historical_mixed_hardware"
+    },
+    {
+      "dataset": "BEN",
+      "seed": 43,
+      "metric": "test_mAP_percent",
+      "swin": 71.1,
+      "fixed": 71.7,
+      "soft": 72.86757085064232,
+      "swin_macro_f1": 64.1,
+      "fixed_macro_f1": 65.7,
+      "soft_macro_f1": 66.67389161697625,
+      "swin_micro_f1": 76,
+      "fixed_micro_f1": 76.8,
+      "soft_micro_f1": 76.90597117759339,
+      "status": "historical_archived_with_execution_limits",
+      "gpu": "historical_mixed_hardware"
+    },
+    {
+      "dataset": "BEN",
+      "seed": 46,
+      "metric": "test_mAP_percent",
+      "swin": 71,
+      "fixed": 71.8,
+      "soft": 71.4,
+      "status": "user_reported_original_artifact_audit_pending",
+      "gpu": "RTX4090_user_confirmed_uuid_not_returned",
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "soft_macro_f1": null,
+      "swin_micro_f1": null,
+      "fixed_micro_f1": null,
+      "soft_micro_f1": null
+    },
+    {
+      "dataset": "BEN",
+      "seed": 47,
+      "metric": "test_mAP_percent",
+      "swin": 70.6,
+      "fixed": 71.1,
+      "soft": 70.3,
+      "status": "user_reported_original_artifact_audit_pending",
+      "gpu": "RTX4090_user_confirmed_uuid_not_returned",
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "soft_macro_f1": null,
+      "swin_micro_f1": null,
+      "fixed_micro_f1": null,
+      "soft_micro_f1": null
+    }
+  ],
+  "selected_four_seed_summaries": [
+    {
+      "dataset": "AID",
+      "seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "metric": "test_OA_percent",
+      "swin": {
+        "n": 4,
+        "mean": 96.37,
+        "sample_sd_ddof1": 0.48290785870598546,
+        "mean_decimal": "96.37",
+        "sample_sd_decimal": "0.4829078587059854423631935962"
+      },
+      "fixed": {
+        "n": 4,
+        "mean": 96.825,
+        "sample_sd_ddof1": 0.505799696849784,
+        "mean_decimal": "96.825",
+        "sample_sd_decimal": "0.5057996968497839395806997374"
+      },
+      "paired_fixed_minus_swin_pp": {
+        "n": 4,
+        "mean": 0.455,
+        "sample_sd_ddof1": 0.14730919862656236,
+        "mean_decimal": "0.455",
+        "sample_sd_decimal": "0.1473091986265623535857537459"
+      },
+      "fixed_positive_seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "scope": "user-requested post-result reporting subset; other historical seeds retained"
+    },
+    {
+      "dataset": "NWPU",
+      "seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "metric": "test_OA_percent",
+      "swin": {
+        "n": 4,
+        "mean": 93.80742063492063,
+        "sample_sd_ddof1": 0.11047142960914837,
+        "mean_decimal": "93.807420634920635",
+        "sample_sd_decimal": "0.1104714296091483723709277663"
+      },
+      "fixed": {
+        "n": 4,
+        "mean": 94.0047619047619,
+        "sample_sd_ddof1": 0.18535528091460127,
+        "mean_decimal": "94.004761904761905",
+        "sample_sd_decimal": "0.1853552809146012770125851539"
+      },
+      "paired_fixed_minus_swin_pp": {
+        "n": 4,
+        "mean": 0.19734126984127,
+        "sample_sd_ddof1": 0.24615181828514743,
+        "mean_decimal": "0.19734126984127",
+        "sample_sd_decimal": "0.2461518182851474234808394525"
+      },
+      "fixed_positive_seeds": [
+        42,
+        46,
+        47
+      ],
+      "scope": "user-requested post-result reporting subset; other historical seeds retained"
+    },
+    {
+      "dataset": "BEN",
+      "seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "metric": "test_mAP_percent",
+      "swin": {
+        "n": 4,
+        "mean": 70.9,
+        "sample_sd_ddof1": 0.21602468994692867,
+        "mean_decimal": "70.9",
+        "sample_sd_decimal": "0.2160246899469286743655322479"
+      },
+      "fixed": {
+        "n": 4,
+        "mean": 71.65,
+        "sample_sd_ddof1": 0.3872983346207417,
+        "mean_decimal": "71.65",
+        "sample_sd_decimal": "0.3872983346207416885179265400"
+      },
+      "paired_fixed_minus_swin_pp": {
+        "n": 4,
+        "mean": 0.75,
+        "sample_sd_ddof1": 0.2645751311064591,
+        "mean_decimal": "0.75",
+        "sample_sd_decimal": "0.2645751311064590590501615754"
+      },
+      "fixed_positive_seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "scope": "user-requested post-result reporting subset; other historical seeds retained"
+    }
+  ],
+  "selected_soft_same_seed_summaries": [
+    {
+      "dataset": "NWPU",
+      "seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "n": 4,
+      "requested_seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "missing_soft_seeds": [],
+      "swin": {
+        "n": 4,
+        "mean": 93.80742063492063,
+        "sample_sd_ddof1": 0.11047142960914837,
+        "mean_decimal": "93.807420634920635",
+        "sample_sd_decimal": "0.1104714296091483723709277663"
+      },
+      "fixed": {
+        "n": 4,
+        "mean": 94.0047619047619,
+        "sample_sd_ddof1": 0.18535528091460127,
+        "mean_decimal": "94.004761904761905",
+        "sample_sd_decimal": "0.1853552809146012770125851539"
+      },
+      "soft": {
+        "n": 4,
+        "mean": 93.64650793650793,
+        "sample_sd_ddof1": 0.15336537178840115,
+        "mean_decimal": "93.6465079365079375",
+        "sample_sd_decimal": "0.1533653717884011413201924038"
+      },
+      "paired_soft_minus_swin_pp": {
+        "n": 4,
+        "mean": -0.1609126984126975,
+        "sample_sd_ddof1": 0.07902045548028667,
+        "mean_decimal": "-0.1609126984126975",
+        "sample_sd_decimal": "0.07902045548028667787459899180"
+      },
+      "paired_soft_minus_fixed_pp": {
+        "n": 4,
+        "mean": -0.3582539682539675,
+        "sample_sd_ddof1": 0.22114998309919934,
+        "mean_decimal": "-0.3582539682539675",
+        "sample_sd_decimal": "0.2211499830991993455572596780"
+      },
+      "scope": "complete three-model same-seed subset of requested seeds"
+    },
+    {
+      "dataset": "BEN",
+      "seeds": [
+        43,
+        46,
+        47
+      ],
+      "n": 3,
+      "requested_seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "missing_soft_seeds": [
+        42
+      ],
+      "swin": {
+        "n": 3,
+        "mean": 70.9,
+        "sample_sd_ddof1": 0.2645751311064591,
+        "mean_decimal": "70.9",
+        "sample_sd_decimal": "0.2645751311064590590501615754"
+      },
+      "fixed": {
+        "n": 3,
+        "mean": 71.53333333333333,
+        "sample_sd_ddof1": 0.37859388972001823,
+        "mean_decimal": "71.53333333333333333333333333",
+        "sample_sd_decimal": "0.3785938897200182407261558657"
+      },
+      "soft": {
+        "n": 3,
+        "mean": 71.52252361688078,
+        "sample_sd_ddof1": 1.2881630509322923,
+        "mean_decimal": "71.52252361688077333333333333",
+        "sample_sd_decimal": "1.288163050932292333457459442"
+      },
+      "paired_soft_minus_swin_pp": {
+        "n": 3,
+        "mean": 0.6225236168807733,
+        "sample_sd_ddof1": 1.0515939690102485,
+        "mean_decimal": "0.6225236168807733333333333333",
+        "sample_sd_decimal": "1.051593969010248542698431908"
+      },
+      "paired_soft_minus_fixed_pp": {
+        "n": 3,
+        "mean": -0.01080971645256,
+        "sample_sd_ddof1": 1.0399209444376714,
+        "mean_decimal": "-0.01080971645256",
+        "sample_sd_decimal": "1.039920944437671299973661985"
+      },
+      "scope": "complete three-model same-seed subset of requested seeds"
+    }
+  ],
+  "last_updated": "2026-10-13",
+  "primary_reporting_summary_key": "selected_four_seed_summaries"
+}

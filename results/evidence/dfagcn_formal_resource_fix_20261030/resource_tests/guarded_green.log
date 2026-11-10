@@ -1,0 +1,14 @@
+ML_IMPORT_AUDIT {"loaded_ml_modules": [], "exit_code": 0}
+test_disk_report_uses_existing_destination_ancestor_and_its_device (__main__.FormalResourceTests.test_disk_report_uses_existing_destination_ancestor_and_its_device) ... ok
+test_existing_scratch_is_rejected_and_its_files_remain_unchanged (__main__.FormalResourceTests.test_existing_scratch_is_rejected_and_its_files_remain_unchanged) ... ok
+test_other_cuda_builds_and_base_versions_are_rejected (__main__.FormalResourceTests.test_other_cuda_builds_and_base_versions_are_rejected) ... ok
+test_reported_base_versions_and_distinct_filesystems_pass_without_importing_ml (__main__.FormalResourceTests.test_reported_base_versions_and_distinct_filesystems_pass_without_importing_ml) ... ok
+test_runtime_accepts_base_metadata_but_keeps_cuda_and_physical_binding_strict (__main__.FormalResourceTests.test_runtime_accepts_base_metadata_but_keeps_cuda_and_physical_binding_strict) ... ok
+test_same_filesystem_requires_the_sum_of_both_budgets (__main__.FormalResourceTests.test_same_filesystem_requires_the_sum_of_both_budgets) ... ok
+test_two_eligible_gpus_require_an_explicit_choice (__main__.FormalResourceTests.test_two_eligible_gpus_require_an_explicit_choice) ... ok
+test_unique_current_gpu_is_bound_explicitly_in_generated_command (__main__.FormalResourceTests.test_unique_current_gpu_is_bound_explicitly_in_generated_command) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.147s
+
+OK

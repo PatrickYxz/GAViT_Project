@@ -1,0 +1,62 @@
+debug1: OpenSSH_10.2p1, LibreSSL 3.3.6
+debug3: Running on Darwin 25.5.0 Darwin Kernel Version 25.5.0: Tue Jun  9 22:28:17 PDT 2026; root:xnu-12377.121.10~1/RELEASE_ARM64_T8142 arm64
+debug3: Started with: ssh -vvv -E results/evidence/featurize_ssh_connect_20261110/new27435_http_connect_debug.log -F output/featurize_gavit_ssh_20261110_p27435.conf -o "ProxyCommand=/usr/bin/nc -x 127.0.0.1:7897 -X connect -G 12 -w 60 workspace.featurize.cn %p" -o KexAlgorithms=curve25519-sha256 -o ConnectTimeout=20 featurize-gavit-20261110-p27435 "nvidia-smi --query-gpu=name,uuid,memory.total,memory.free,driver_version --format=csv,noheader"
+debug1: Reading configuration data output/featurize_gavit_ssh_20261110_p27435.conf
+debug1: output/featurize_gavit_ssh_20261110_p27435.conf line 2: Applying options for featurize-gavit-20261110-p27435
+debug1: Authenticator provider $SSH_SK_PROVIDER did not resolve; disabling
+debug3: channel_clear_timeouts: clearing
+debug1: Executing proxy command: exec /usr/bin/nc -x 127.0.0.1:7897 -X connect -G 12 -w 60 workspace.featurize.cn 27435
+debug3: timeout: 20000 ms remain after connect
+debug1: loaded pubkey from /Users/patrick/.ssh/featurize_gavit_ed25519: ED25519 SHA256:rUfU3NopTlizBWFgBGms51+twQ++d3NLPGDjj/kXHPk
+debug1: identity file /Users/patrick/.ssh/featurize_gavit_ed25519 type 2
+debug1: no identity pubkey loaded from /Users/patrick/.ssh/featurize_gavit_ed25519
+debug1: Local version string SSH-2.0-OpenSSH_10.2
+debug1: Remote protocol version 2.0, remote software version OpenSSH_8.9p1 Ubuntu-3ubuntu0.6
+debug1: compat_banner: match: OpenSSH_8.9p1 Ubuntu-3ubuntu0.6 pat OpenSSH* compat 0x04000000
+debug2: fd 6 setting O_NONBLOCK
+debug2: fd 5 setting O_NONBLOCK
+debug1: Authenticating to workspace.featurize.cn:27435 as 'featurize'
+debug1: using hostkeyalias: [workspace.featurize.cn]:27435
+debug3: record_hostkey: found key type ED25519 in file /Users/patrick/Projects/GAViT_Project/results/evidence/featurize_ssh_connect_20261110/known_hosts:2
+debug3: load_hostkeys_file: loaded 1 keys from [workspace.featurize.cn]:27435
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug3: order_hostkeyalgs: have matching best-preference key type ssh-ed25519-cert-v01@openssh.com, using HostkeyAlgorithms verbatim
+debug3: send packet: type 20
+debug1: SSH2_MSG_KEXINIT sent
+debug3: receive packet: type 20
+debug1: SSH2_MSG_KEXINIT received
+debug2: local client KEXINIT proposal
+debug2: KEX algorithms: curve25519-sha256,ext-info-c,kex-strict-c-v00@openssh.com
+debug2: host key algorithms: ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com
+debug2: compression stoc: none,zlib@openssh.com
+debug2: languages ctos: 
+debug2: languages stoc: 
+debug2: first_kex_follows 0 
+debug2: reserved 0 
+debug2: peer server KEXINIT proposal
+debug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,sntrup761x25519-sha512@openssh.com,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,kex-strict-s-v00@openssh.com
+debug2: host key algorithms: rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com
+debug2: compression stoc: none,zlib@openssh.com
+debug2: languages ctos: 
+debug2: languages stoc: 
+debug2: first_kex_follows 0 
+debug2: reserved 0 
+debug3: kex_choose_conf: will use strict KEX ordering
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ssh-ed25519
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug3: send packet: type 30
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+Connection to UNKNOWN port 65535 timed out

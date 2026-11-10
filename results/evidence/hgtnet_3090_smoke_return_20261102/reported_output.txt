@@ -1,0 +1,8 @@
+GTNET_SMOKE_PROGRESS {"optimizer_steps": 30, "samples_seen": 60, "stage": "training", "training_started": true}
+HGTNET_SMOKE_PROGRESS {"optimizer_steps": 60, "samples_seen": 120, "stage": "training", "training_started": true}
+HGTNET_SMOKE_PROGRESS {"optimizer_steps": 90, "samples_seen": 180, "stage": "training", "training_started": true}
+HGTNET_SMOKE_PROGRESS {"optimizer_steps": 120, "samples_seen": 240, "stage": "training", "training_started": true}
+HGTNET_SMOKE_PROGRESS {"optimizer_steps": 150, "samples_seen": 300, "stage": "training", "training_started": true}
+HGTNET_SMOKE_PROGRESS {"optimizer_steps": 180, "samples_seen": 360, "stage": "training", "training_started": true}
+HGTNET_SMOKE_PROGRESS {"completed": true, "stage": "complete", "training_started": true}
+HGTNET_NWPU_SMOKE_COMPLETE /home/featurize/work/hgtnet_nwpu_smoke_3090_20261102_fix1/runs/nwpu_smoke_seed42_01/summary.json

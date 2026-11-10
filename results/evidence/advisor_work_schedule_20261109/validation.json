@@ -1,0 +1,18 @@
+{
+  "state": "PASS",
+  "independent_dependency_review": "PASS; two wording improvements applied",
+  "checks": {
+    "minimum_budget_3_plus_4_equals_7": true,
+    "matched_budget_7_plus_2_equals_9": true,
+    "single_gpu": true,
+    "author_wait_not_restarted": true,
+    "all_local_links_exist": true,
+    "copy_safe_no_tabs_or_table_rows": true,
+    "new_soft_result_direction_not_predetermined": true
+  },
+  "files": {
+    "docs/advisor_work_schedule_20261109.md": "17e8b18675c3c4054fbed60899ca5ea147d0c3c60999ec08af334d3845b20a55",
+    "docs/advisor_work_schedule_20261109.txt": "d79837016bc5b9c614515caa5ea753fb79fb3a0bc9a8e65189d0d8fe9201f482",
+    "results/evidence/advisor_work_schedule_20261109/schedule.json": "5ede2ad9e59fc65ac90d6226b9fcd59244f24133af900ecbdca70397d3cbd622"
+  }
+}

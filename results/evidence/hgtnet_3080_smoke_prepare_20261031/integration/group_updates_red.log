@@ -1,0 +1,19 @@
+test_bad_input_cannot_leave_a_successful_first_step (test_hgtnet_nwpu_engine.EngineTests.test_bad_input_cannot_leave_a_successful_first_step) ... ok
+test_existing_artifacts_are_preserved (test_hgtnet_nwpu_engine.EngineTests.test_existing_artifacts_are_preserved) ... ok
+test_fixture_cannot_claim_real_gpu_scope_or_test_usage (test_hgtnet_nwpu_engine.EngineTests.test_fixture_cannot_claim_real_gpu_scope_or_test_usage) ... ok
+test_real_cpu_step_val_and_independent_reload (test_hgtnet_nwpu_engine.EngineTests.test_real_cpu_step_val_and_independent_reload) ... FAIL
+test_safe_checkpoint_requires_exact_sha_metadata_and_all_shapes_before_copy (test_hgtnet_nwpu_engine.EngineTests.test_safe_checkpoint_requires_exact_sha_metadata_and_all_shapes_before_copy) ... ok
+test_val_order_or_counts_do_not_silently_change_metrics (test_hgtnet_nwpu_engine.EngineTests.test_val_order_or_counts_do_not_silently_change_metrics) ... ok
+
+======================================================================
+FAIL: test_real_cpu_step_val_and_independent_reload (test_hgtnet_nwpu_engine.EngineTests.test_real_cpu_step_val_and_independent_reload)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_engine.py", line 63, in test_real_cpu_step_val_and_independent_reload
+    self.assertIn('updated_groups',events[0])
+AssertionError: 'updated_groups' not found in {'stage': 'first_optimizer_step', 'training_started': True, 'optimizer_step_succeeded': True, 'optimizer_steps': 1, 'samples_seen': 2, 'loss': 3.685610771179199, 'device': 'cpu', 'gradients': {'passed': True, 'missing': [], 'nonfinite': [], 'groups': {'head': {'tensors': 2, 'l2': 0.688075693491536}}}, 'elapsed_seconds': 0.01158720813691616}
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.345s
+
+FAILED (failures=1)

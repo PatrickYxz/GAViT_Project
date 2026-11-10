@@ -1,0 +1,75 @@
+--- old_3080_package/resources.py
++++ external_baselines/hgtnet/resources.py
+@@ -18,6 +18,7 @@
+ 
+ TARGET_NAME = 'NVIDIA GeForce RTX 3080'
+ TARGET_MEMORY_MIB = 10240
++TARGETS = {TARGET_NAME: TARGET_MEMORY_MIB, 'NVIDIA GeForce RTX 3090': 24576}
+ WORK_BYTES = 2 * 1024 ** 3
+ SCRATCH_BYTES = 1024 ** 3
+ _VERSIONS = {
+@@ -35,6 +36,12 @@
+ 
+ def _integer(value, *, minimum=0):
+     return type(value) is int and value >= minimum
++
++
++def _target_memory(target_name):
++    if not isinstance(target_name, str) or target_name not in TARGETS:
++        raise ValueError('unsupported NVIDIA GPU target')
++    return TARGETS[target_name]
+ 
+ 
+ def _validate_gpu(gpu):
+@@ -90,8 +97,9 @@
+     return result
+ 
+ 
+-def select_gpu(requested_uuid, inventory):
+-    """Bind an explicit UUID, or select the sole idle 10GiB RTX3080."""
++def select_gpu(requested_uuid, inventory, *, target_name=TARGET_NAME):
++    """Bind a physical UUID, or select the sole idle card for the exact target."""
++    target_memory = _target_memory(target_name)
+     if (not isinstance(inventory, dict) or inventory.get('error')
+             or not isinstance(inventory.get('gpus'), list)
+             or not isinstance(inventory.get('processes'), list)):
+@@ -107,12 +115,13 @@
+         raise ValueError('explicit physical GPU UUID is invalid')
+     busy = {row['gpu_uuid'] for row in processes}
+     candidates = [gpu for gpu in gpus
+-                  if gpu['name'] == TARGET_NAME
+-                  and gpu['memory_total_mib'] == TARGET_MEMORY_MIB
++                  if gpu['name'] == target_name
++                  and gpu['memory_total_mib'] == target_memory
+                   and gpu['memory_free_mib'] > 0 and gpu['uuid'] not in busy
+                   and (requested_uuid is None or gpu['uuid'] == requested_uuid)]
+     if len(candidates) != 1:
+-        raise ValueError('exactly one selected idle 10GiB RTX3080 with valid free memory is required')
++        raise ValueError('exactly one selected idle ' + target_name + ' with '
++                         + str(target_memory) + ' MiB and valid free memory is required')
+     return dict(candidates[0])
+ 
+ 
+@@ -147,8 +156,9 @@
+     return blockers
+ 
+ 
+-def check_runtime(runtime, gpu_uuid):
++def check_runtime(runtime, gpu_uuid, *, target_name=TARGET_NAME):
+     """Reject actual imported runtime/device/settings that differ from the gate."""
++    target_memory = _target_memory(target_name)
+     if not isinstance(runtime, dict) or not _uuid(gpu_uuid):
+         raise ValueError('runtime data and an explicit physical GPU UUID are required')
+     python_version = runtime.get('python')
+@@ -170,9 +180,9 @@
+             raise ValueError('actual runtime setting mismatch: ' + key)
+     gpu = runtime.get('gpu')
+     if (not isinstance(gpu, dict) or gpu.get('uuid') != gpu_uuid
+-            or gpu.get('name') != TARGET_NAME
++            or gpu.get('name') != target_name
+             or type(gpu.get('memory_total_mib')) is not int
+-            or gpu['memory_total_mib'] != TARGET_MEMORY_MIB):
++            or gpu['memory_total_mib'] != target_memory):
+         raise ValueError('actual runtime physical GPU identity mismatch')
+     return runtime
+ 

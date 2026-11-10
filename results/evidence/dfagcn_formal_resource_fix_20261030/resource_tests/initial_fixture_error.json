@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "tests/test_dfagcn_formal_resources.py"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 0.27210574969649315,
+  "scope": "stdlib-only mocked resource inventories; no GPU or training"
+}

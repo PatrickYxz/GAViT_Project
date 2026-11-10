@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "verified_on": "2026-10-27",
+  "scope": "Document structure, local links, JSON schema/numeric transcription and explicit null boundaries; not neural-network execution or independent verification of unavailable raster tables.",
+  "checks": {
+    "all_json_parse": true,
+    "required_report_fields_present": true,
+    "two_direct_original_point_values_preserved": true,
+    "all_sd_null": true,
+    "no_secondary_numeric_completion": true,
+    "pooling_and_graph_node_count_explicit_null": true,
+    "gcn_hidden_dims_explicit_null": true,
+    "no_markdown_tables_or_tabs": true,
+    "all_local_links_resolve": true,
+    "relative_link_line_suffixes_removed": true,
+    "no_claimed_pdf_download_or_render": true
+  },
+  "files": [
+    {
+      "path": "docs/external_baselines_20261027/dfagcn_audit.md",
+      "sha256": "f350063aba14306ad5f62abf0c55415675a523e6cb20c999d95bb7a10c7d864b",
+      "bytes": 10626
+    },
+    {
+      "path": "results/evidence/external_baselines_20261027/dfagcn/primary_web_evidence.json",
+      "sha256": "36043261987a5d2296c87af6cea039584cd1db6af127c62ccc035bf086679697",
+      "bytes": 4534
+    },
+    {
+      "path": "results/evidence/external_baselines_20261027/dfagcn/reported_results.json",
+      "sha256": "77a6f748e8be1493ee9d5ce4b62749e8feaa5502980ca3c19a7ad8381d72b548",
+      "bytes": 3473
+    },
+    {
+      "path": "results/evidence/external_baselines_20261027/dfagcn/method_spec.json",
+      "sha256": "9f89e5747403f38fb1a5a92ecc776b273f6f3033b6d1e376b276927ceadb1c96",
+      "bytes": 8068
+    }
+  ],
+  "not_executed": [
+    "model implementation",
+    "dependency installation",
+    "training",
+    "inference",
+    "email",
+    "remote GPU operations"
+  ]
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "phase": "TDD_RED",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_hgtnet_aid_results_analysis.py",
+      "-v"
+    ],
+    "exit_code": 1,
+    "log": "tdd_red.log"
+  },
+  {
+    "phase": "FRESH_GREEN_20261108",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_hgtnet_aid_results_analysis.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "log": "tdd_green_20261108.log",
+    "recorded_at": "2026-11-08T14:05:39.329402+08:00"
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "attempt": 2,
+  "completed": false,
+  "device": "cuda:0",
+  "epoch": 76,
+  "formal_training_started": true,
+  "gradients": {
+    "groups": {
+      "dual_attention": {
+        "l2": 0.0017943220280474145,
+        "tensors": 30
+      },
+      "graph": {
+        "l2": 0.005331040528388744,
+        "tensors": 120
+      },
+      "head": {
+        "l2": 0.00525007663984747,
+        "tensors": 2
+      },
+      "patch_embed": {
+        "l2": 0.010954155674357991,
+        "tensors": 4
+      },
+      "transformer": {
+        "l2": 0.01705115060604033,
+        "tensors": 295
+      }
+    },
+    "missing": [],
+    "nonfinite": [],
+    "passed": true
+  },
+  "loss": 0.00025091355200856924,
+  "optimizer_step_completed": true,
+  "optimizer_step_succeeded": true,
+  "optimizer_steps": 48476,
+  "phase": "refit",
+  "pid": 3136,
+  "post_update_checks_passed": true,
+  "samples_seen": 16,
+  "stage": "first_optimizer_step",
+  "training_started": true,
+  "updated_groups": {
+    "dual_attention": true,
+    "graph": true,
+    "head": true,
+    "patch_embed": true,
+    "transformer": true
+  }
+}

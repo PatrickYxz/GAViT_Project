@@ -1,0 +1,97 @@
+{
+  "observed_at_utc": "2026-11-06T02:22:23.059746+00:00",
+  "scope": "Read-only SSH inspection; no training or evaluation invoked.",
+  "process": {
+    "exit_code": 0,
+    "stdout": "3136 /environment/miniconda3/bin/python /home/featurize/work/hgtnet_aid_formal_3060_20261105_v1.pyz resume --capacity-output /home/featurize/work/hgtnet_aid_batch16_probe_3060_20261105/runs/batch16_seed42_gpu91a8cd0f_01\n",
+    "stderr": ""
+  },
+  "gpu": {
+    "exit_code": 0,
+    "stdout": "NVIDIA GeForce RTX 3060, GPU-91a8cd0f-e755-4d15-863a-8a5bdd741ed4, 12288 MiB, 5111 MiB, 0 %\n",
+    "stderr": ""
+  },
+  "gpu_process": {
+    "exit_code": 0,
+    "stdout": "3136, /environment/miniconda3/bin/python, 5102 MiB\n",
+    "stderr": ""
+  },
+  "log_path": "/home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01/attempts/0002/run.log",
+  "log_read_exit_code": 0,
+  "latest_epoch_completes": [
+    {
+      "attempt": 2,
+      "completed": false,
+      "epoch": 85,
+      "epoch_wall_seconds": 252.56689688699998,
+      "estimate_scope": "running completed-epoch mean for current phase only; recovered last commit may use precommit time excluding snapshot IO; excludes other phases/startup/final test/billing; not guaranteed",
+      "estimated_remaining_phase_seconds": 2572.84127809008,
+      "formal_training_started": true,
+      "observed_epoch_wall_mean_seconds": 233.8946616445527,
+      "optimizer_steps": 51605,
+      "phase": "refit",
+      "pid": 3136,
+      "selected_epoch": 96,
+      "stage": "epoch_complete",
+      "train_accuracy_percent": 99.26,
+      "train_images_per_second": 21.277267776137492,
+      "train_loss": 0.026263915041508153,
+      "train_seconds": 234.99257764699996,
+      "training_started": true
+    },
+    {
+      "attempt": 2,
+      "completed": false,
+      "epoch": 86,
+      "epoch_wall_seconds": 208.27935222199994,
+      "estimate_scope": "running completed-epoch mean for current phase only; recovered last commit may use precommit time excluding snapshot IO; excludes other phases/startup/final test/billing; not guaranteed",
+      "estimated_remaining_phase_seconds": 2335.9680920940673,
+      "formal_training_started": true,
+      "observed_epoch_wall_mean_seconds": 233.59680920940673,
+      "optimizer_steps": 51918,
+      "phase": "refit",
+      "pid": 3136,
+      "selected_epoch": 96,
+      "stage": "epoch_complete",
+      "train_accuracy_percent": 99.96,
+      "train_images_per_second": 26.264212101207384,
+      "train_loss": 0.002238698211184237,
+      "train_seconds": 190.37311992200011,
+      "training_started": true
+    },
+    {
+      "attempt": 2,
+      "completed": false,
+      "epoch": 87,
+      "epoch_wall_seconds": 208.4700449930001,
+      "estimate_scope": "running completed-epoch mean for current phase only; recovered last commit may use precommit time excluding snapshot IO; excludes other phases/startup/final test/billing; not guaranteed",
+      "estimated_remaining_phase_seconds": 2099.7719624484807,
+      "formal_training_started": true,
+      "observed_epoch_wall_mean_seconds": 233.30799582760895,
+      "optimizer_steps": 52231,
+      "phase": "refit",
+      "pid": 3136,
+      "selected_epoch": 96,
+      "stage": "epoch_complete",
+      "train_accuracy_percent": 100.0,
+      "train_images_per_second": 26.264379602899112,
+      "train_loss": 0.0007520173722528852,
+      "train_seconds": 190.37190581300047,
+      "training_started": true
+    }
+  ],
+  "latest_progress": {
+    "attempt": 2,
+    "completed": false,
+    "epoch": 88,
+    "formal_training_started": true,
+    "optimizer_step_completed": true,
+    "optimizer_step_succeeded": true,
+    "optimizer_steps": 52261,
+    "phase": "refit",
+    "pid": 3136,
+    "samples_seen": 480,
+    "stage": "training",
+    "training_started": true
+  }
+}

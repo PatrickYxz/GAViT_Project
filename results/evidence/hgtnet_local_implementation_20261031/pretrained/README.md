@@ -1,0 +1,14 @@
+# Candidate pretraining evidence
+
+This directory verifies the **torchvision Swin-B IMAGENET1K_V1 candidate**, not original HGTNet weights. The mapper changes only compatible stem, the first three attention stages and the first two PatchMerging modules. DA, stage3 Conv2, graph modules and head keep their initialization.
+
+- `red.log`: 10 missing-API behavior failures before implementation.
+- `skipped_namespace_red.log`: additional regression exposes an invalid key incorrectly accepted in the intentionally skipped namespace.
+- `green.log`: 11 behavior tests pass; actual CPU copy uses deliberately tiny namespace fixtures, never a real HGTNet/ImageNet performance claim.
+- `acquisition.json`: historical two single-stream 140-second timeouts, superseded by `acquisition_ranges.json`.
+- `acquisition_ranges.json`: 16 correctly ranged HTTPS segments plus the measured initial prefix reconstruct the complete official file within a final 95-second bounded attempt. Actual full SHA256 matches the official filename prefix. Each response header and log is retained; only our temporary download fragments were removed afterward.
+- `candidate_provenance.json` / `actual_source_probe.json`: measured 351654207 bytes, full SHA256 `68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893`, safely loaded CPU state with all 353 tensors / 87825848 elements matching the complete installed torchvision Swin-B schema and finite values. This probe does not initialize the HGTNet model.
+
+`audit_pretrained_state` never changes the model and never returns `loaded`; meta tensors or disabled value validation set `mode=schema_only` and cannot authorize application. `apply_pretrained_state` performs a complete target-mapping preflight before copying real values. It returns `loaded` only after actual `load_state_dict`; its report alone does not verify an official file identity. `load_pretrained_file` requires a full 64-character expected SHA256 matching prefix `68c6b09e`, hashes an existing file, reads it with `weights_only=True`, validates the complete source schema and every finite value, then applies the compatible mapping. No API downloads weights.
+
+`full_model_meta_probe.json` executes the actual complete target model construction on meta plus the complete official source schema. It finds 318 compatible tensors / 59489486 state elements, 155 intentionally initialized target tensors / 15183194 state elements, and 35 deliberately skipped source tensors. Missing, unexpected, shape and dtype errors are empty. Target total is 473 tensors / 74672680 state elements, so compatible element coverage is 79.6670%; these totals include buffers and are not trainable-parameter counts. The audit explicitly has `mode=schema_only`, `can_apply=false`, no `loaded`, and `pretraining_loaded=false`. Actual HGTNet CPU value initialization is performed separately by root integration.

@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-28",
+  "scope": "Original author-uploaded paper text accessed through ResearchGate; brief mechanism and bibliography checks, not an independent reproduction or visual audit of PDF figures/tables.",
+  "papers": [
+    {
+      "key": "li2024hgtnet",
+      "primary_url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+      "checked": "Original paper text appears under Public Full-text; title, seven authors, JSTARS17:20315–20330, DOI, abstract describes dual attention, hierarchical transformer, graph extractor and skip fusion. No numerical score copied into the chapter.",
+      "claim_scope": "Broad hierarchical transformer/attention/graph feature fusion; no resolution of the max-relative versus average-aggregation implementation ambiguity."
+    },
+    {
+      "key": "xu2022dfagcn",
+      "primary_url": "https://www.researchgate.net/publication/350910107_Deep_Feature_Aggregation_Framework_Driven_by_Graph_Convolutional_Network_for_Scene_Classification_in_Remote_Sensing",
+      "checked": "Original text uploaded by coauthor Hong Huang, with TNNLS33(10):5751–5765 and October2022 masthead; online-first date2021 preserved; four authors and DOI confirmed. Abstract identifies multilevel CNN features, GCN correlation refinement, weighted concatenation and linear classifier.",
+      "claim_scope": "Only the complete-method chain is described. Current primitive code is not claimed to be a completed paper reproduction or benchmark."
+    }
+  ]
+}

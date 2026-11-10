@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checks": 22,
+  "failed": [],
+  "derived": {
+    "epoch1_train_seconds": 250.58360762799998,
+    "epoch1_validation_seconds": 8.641767578000099,
+    "epoch1_wall_seconds": 326.696851827,
+    "epoch1_other_wall_seconds": 67.47147662099991,
+    "reported_remaining_calibration_hours": 8.9841634252425,
+    "first_epoch_conditional_calibration100_total_hours": 9.07491255075,
+    "epoch1_val_correct_arithmetic": 974,
+    "epoch1_train_correct_online_arithmetic": 2415,
+    "epoch2_training_seconds": 236.35908696399997,
+    "epoch2_train_images_per_second_arithmetic": 21.32348734604668
+  }
+}

@@ -1,0 +1,3 @@
+date,scope,gpu,uuid,batch_samples,elapsed_seconds,cuda_peak_allocated_bytes,cuda_peak_reserved_bytes,finite,optimizer_steps,formal_training_started
+2026-10-30,compatibility_vgg_load_and_forward_normalized_zero,RTX3080 10GiB,GPU-70be4364-0641-e89d-828e-78727c6001ec,1,3.127573947998826,587649536,645922816,True,0,False
+2026-10-30,compatibility_disposable_graph_forward_backward_adam_excludes_preparation,RTX3080 10GiB,GPU-70be4364-0641-e89d-828e-78727c6001ec,100,0.571385420000297,155492352,190840832,True,1,False

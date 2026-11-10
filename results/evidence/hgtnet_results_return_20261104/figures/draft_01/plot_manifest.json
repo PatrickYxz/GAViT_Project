@@ -1,0 +1,114 @@
+{
+  "artifacts": [
+    {
+      "bytes": 666611,
+      "description": "All100 calibration epochs and95 fresh-refit epochs, with selected95 and final100 retained",
+      "filename": "hgtnet_seed42_training_history.png",
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_results_return_20261104/figures/hgtnet_seed42_training_history.png",
+      "sha256": "b6ebd8b6633a82b7dbdcc3e26e9755d144d20dc3757cd70bbf0eb53a75f2cf8f"
+    },
+    {
+      "bytes": 74375,
+      "description": "All100 calibration epochs and95 fresh-refit epochs, with selected95 and final100 retained",
+      "filename": "hgtnet_seed42_training_history.svg",
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_results_return_20261104/figures/hgtnet_seed42_training_history.svg",
+      "sha256": "13b542872252d2ea7427ae0a8940060410d58bbbb183642a0f2621c81da85631"
+    },
+    {
+      "bytes": 41929,
+      "description": "All100 calibration epochs and95 fresh-refit epochs, with selected95 and final100 retained",
+      "filename": "hgtnet_seed42_training_history.pdf",
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_results_return_20261104/figures/hgtnet_seed42_training_history.pdf",
+      "sha256": "46996121e2509635579d4383499fa85896fdbecdf15e245efb57e5c58625dcd1"
+    },
+    {
+      "bytes": 458606,
+      "description": "Recall andF1 for all45classes; sorted ascendingrecall; 560testimages/class",
+      "filename": "hgtnet_seed42_all_class_performance.png",
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_results_return_20261104/figures/hgtnet_seed42_all_class_performance.png",
+      "sha256": "c4581bace077d20caa7d492fdd6209f75e04421019a0a81dfafc8ae652be06ff"
+    },
+    {
+      "bytes": 50697,
+      "description": "Recall andF1 for all45classes; sorted ascendingrecall; 560testimages/class",
+      "filename": "hgtnet_seed42_all_class_performance.svg",
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_results_return_20261104/figures/hgtnet_seed42_all_class_performance.svg",
+      "sha256": "720fc2b9fce0dd8b311278309344bf324c418bec5d418f02797ef0be551a1df8"
+    },
+    {
+      "bytes": 31436,
+      "description": "Recall andF1 for all45classes; sorted ascendingrecall; 560testimages/class",
+      "filename": "hgtnet_seed42_all_class_performance.pdf",
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_results_return_20261104/figures/hgtnet_seed42_all_class_performance.pdf",
+      "sha256": "c99214ebc9e5bdbb6fe13228e39ab99c1ddd72c08f193b6154560e578ce5074d"
+    },
+    {
+      "bytes": 584408,
+      "description": "Complete45x45 row-normalized test confusion matrix withdiagonal andalllabels retained",
+      "filename": "hgtnet_seed42_confusion_matrix.png",
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_results_return_20261104/figures/hgtnet_seed42_confusion_matrix.png",
+      "sha256": "544f3b7b7753724203d2f59cf8916231909572d286dbdf8253cb27559b7aa667"
+    },
+    {
+      "bytes": 59260,
+      "description": "Complete45x45 row-normalized test confusion matrix withdiagonal andalllabels retained",
+      "filename": "hgtnet_seed42_confusion_matrix.svg",
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_results_return_20261104/figures/hgtnet_seed42_confusion_matrix.svg",
+      "sha256": "61f6de583e42678ff5f778e561e65bc42528cae580eb05d65e64de511b467b4c"
+    },
+    {
+      "bytes": 41859,
+      "description": "Complete45x45 row-normalized test confusion matrix withdiagonal andalllabels retained",
+      "filename": "hgtnet_seed42_confusion_matrix.pdf",
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_results_return_20261104/figures/hgtnet_seed42_confusion_matrix.pdf",
+      "sha256": "837112632889bab43e0542404dc119d84375f4be5ce6d05b0ef070b6a1207817"
+    },
+    {
+      "bytes": 239592,
+      "description": "Top10 mutualconfusionpairs, bothdirections retained; completecounts available inrawmatrix",
+      "filename": "hgtnet_seed42_top10_bidirectional_confusions.png",
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_results_return_20261104/figures/hgtnet_seed42_top10_bidirectional_confusions.png",
+      "sha256": "bbe0da5b62d2c5578585dea330361718033ae6b4e614c0299f3ec9f9d398c952"
+    },
+    {
+      "bytes": 21099,
+      "description": "Top10 mutualconfusionpairs, bothdirections retained; completecounts available inrawmatrix",
+      "filename": "hgtnet_seed42_top10_bidirectional_confusions.svg",
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_results_return_20261104/figures/hgtnet_seed42_top10_bidirectional_confusions.svg",
+      "sha256": "4d75118442693e1c91d50b742944b5fb6231bfe10e9e695f980b48a8c906cf34"
+    },
+    {
+      "bytes": 28386,
+      "description": "Top10 mutualconfusionpairs, bothdirections retained; completecounts available inrawmatrix",
+      "filename": "hgtnet_seed42_top10_bidirectional_confusions.pdf",
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_results_return_20261104/figures/hgtnet_seed42_top10_bidirectional_confusions.pdf",
+      "sha256": "9db214ec692f711fd8edcceee9585278ccc51aec534b7dfe6086404f0771354b"
+    }
+  ],
+  "checks": {
+    "all100_calibration_and95_refit_epochs_retained": true,
+    "all_class_scores_match": true,
+    "classes": 45,
+    "confusion_all_cells_match": true,
+    "correct": 23718,
+    "errors": 1482,
+    "normalized_row_sum_max_error": 1.4210854715202004e-14,
+    "recomputed_macro_f1_percent": 94.10529172930384,
+    "recomputed_oa_percent": 94.11904761904762,
+    "samples": 25200,
+    "selected95_final100_retained": true,
+    "support_per_class": 560
+  },
+  "interpretation_scope": "Independent HGTNet, NWPU-RESISC45, seed42; one trained model; descriptive diagnostics only.",
+  "matplotlib": "3.11.2",
+  "numpy": "2.5.4",
+  "python": "3.12.13",
+  "script_sha256": "42d14bdc14535090eb453b0f4121c0dbf09775a1b74d7f2f65da6c79ffab7196",
+  "source_files": {
+    "results/evidence/hgtnet_results_return_20261104/files/binding.json": "96c328cc7915c9cfb0696e49473a3e311b6a242ad9d4a9853350760484802f66",
+    "results/evidence/hgtnet_results_return_20261104/files/history.json": "1246c1befc8564a259874d71d58095213076c1400f2f3c8c096e9a567c68e550",
+    "results/evidence/hgtnet_results_return_20261104/files/summary.json": "3c05a61000951d07968bc95008ca6afaaef466e19994392b19c8d6bfbe93e80a",
+    "results/evidence/hgtnet_results_return_20261104/files/test.json": "869986974e4801f2234fd2fa3bace383af2f092fd20359fbe1a252d4af7e37ae"
+  },
+  "training_metric_note": "Online training aggregates changingweights; validation is epochend evaluation; refit no validation; no causaldiagnosis fromcurve shapes"
+}

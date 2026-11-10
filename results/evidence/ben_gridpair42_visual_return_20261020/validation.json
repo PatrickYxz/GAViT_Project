@@ -1,0 +1,84 @@
+{
+  "status": "RETURNED_ARTIFACTS_AUDIT_PASS",
+  "source": "/Users/patrick/Downloads/ben_grid_pair_visual",
+  "archive": "/Users/patrick/Projects/GAViT_Project/results/evidence/ben_gridpair42_visual_return_20261020/server_return",
+  "manifest_files_verified": 37,
+  "capture_groups": 8,
+  "actual_pre_gat_edges_verified": 488,
+  "model_and_config_hashes_match_prepared_release": true,
+  "exit_codes_verified": [
+    0,
+    0
+  ],
+  "svg_and_html_original_input_placements_verified": 24,
+  "svg_and_html_edges_verified": 976,
+  "probabilities_and_outcomes_verified": 76,
+  "threshold": 0.5,
+  "all_class_outcomes": {
+    "both_correct": 63,
+    "both_wrong": 9,
+    "k16_only_correct": 3,
+    "k9_only_correct": 1
+  },
+  "raw_pt_hashes_and_zip_crc_verified": [
+    "captures/row_97389_K9.pt",
+    "captures/row_97389_K16.pt",
+    "captures/row_14680_K9.pt",
+    "captures/row_14680_K16.pt",
+    "captures/row_28450_K9.pt",
+    "captures/row_28450_K16.pt",
+    "captures/row_4439_K9.pt",
+    "captures/row_4439_K16.pt"
+  ],
+  "raw_pt_deserialized": false,
+  "server_neural_forward_checks_verified_from_returned_reports": true,
+  "neural_forward_rerun_locally": false,
+  "figures_visually_inspected": true,
+  "capture_wall_seconds": 21.676718090000122,
+  "training": {
+    "best": {
+      "metric": "val_mAP",
+      "value": 79.1052,
+      "epoch": 10
+    },
+    "final_epoch": 30,
+    "hardware": {
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "cuda": "12.1",
+      "cudnn": 8902,
+      "threads": 8,
+      "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+      "packages": {
+        "torch": "2.2.2",
+        "torchvision": "0.17.2",
+        "timm": "1.0.27",
+        "torch-geometric": "2.8.0",
+        "numpy": "1.26.4",
+        "scikit-learn": "1.9.0",
+        "pillow": "10.3.0"
+      },
+      "gpu_identity": "GPU-8734427f-061f-9fdb-97eb-fe9190a11225, NVIDIA GeForce RTX 4090, 610.57.04"
+    },
+    "precision": {
+      "dtype": "torch.float32",
+      "matmul_tf32": false,
+      "cudnn_tf32": true,
+      "amp": false
+    },
+    "stages_seconds": {
+      "smoke": 11.374708292999912,
+      "train": 20705.3940195,
+      "test": 178.09567023199997
+    },
+    "parent_seconds": 20974.61716835,
+    "peak_cuda_allocated_bytes": 3884810240
+  },
+  "limits": [
+    "The four predetermined historical validation cases are not a population sample.",
+    "K9/K16 were trained in separate batches; this is not a pure causal edge ablation.",
+    "Local audit validates JSON, hashes, PT container CRC and export consistency; neural checks ran on the server."
+  ],
+  "figure_export_validation": "output/pdf/ben_gridpair42_20261020/export_qa.json",
+  "figure_pdf": "output/pdf/ben_gridpair42_20261020/ben_gridpair42_cases.pdf",
+  "analysis": "docs/ben_gridpair42_visual_analysis_20261020.md"
+}

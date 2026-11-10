@@ -1,0 +1,31 @@
+test_completed_zip_recovery_receipt_replaces_pending_inspect_state (test_hgtnet_nwpu_runner.RunnerTests.test_completed_zip_recovery_receipt_replaces_pending_inspect_state)
+Drive the wrapper through real CPU JPEG training, validation and reload. ... HGTNET_SMOKE_DEVICE {"device": "cpu"}
+HGTNET_SMOKE_PROGRESS {"device": "cpu", "elapsed_seconds": 0.044678916689008474, "gradients": {"groups": {"head": {"l2": 1.266037147845021, "tensors": 2}}, "missing": [], "nonfinite": [], "passed": true}, "loss": 4.067587852478027, "optimizer_step_succeeded": true, "optimizer_steps": 1, "samples_seen": 2, "stage": "first_optimizer_step", "training_started": true, "updated_groups": {"head": true}}
+HGTNET_SMOKE_PROGRESS {"completed": true, "stage": "complete", "training_started": true}
+HGTNET_NWPU_SMOKE_COMPLETE /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpq7ko7_gi/output/summary.json
+ok
+test_generated_command_binds_current_uuid_not_historical_one (test_hgtnet_nwpu_runner.RunnerTests.test_generated_command_binds_current_uuid_not_historical_one) ... ok
+test_inspect_missing_resources_has_specific_blockers_and_no_training (test_hgtnet_nwpu_runner.RunnerTests.test_inspect_missing_resources_has_specific_blockers_and_no_training) ... ok
+test_present_zip_is_pending_full_hash_not_rejected_by_unverified_size (test_hgtnet_nwpu_runner.RunnerTests.test_present_zip_is_pending_full_hash_not_rejected_by_unverified_size) ... ok
+test_run_without_uuid_is_rejected_before_creating_output (test_hgtnet_nwpu_runner.RunnerTests.test_run_without_uuid_is_rejected_before_creating_output) ... ok
+test_runtime_failure_is_not_success_and_has_exit_one (test_hgtnet_nwpu_runner.RunnerTests.test_runtime_failure_is_not_success_and_has_exit_one) ... Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tools/run_hgtnet_nwpu_smoke.py", line 159, in run_smoke
+    torch,runtime=_runtime_and_torch(args,preflight['selected_gpu'])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+ValueError: actual CUDA mismatch
+ok
+test_status_missing_is_read_only_and_never_complete (test_hgtnet_nwpu_runner.RunnerTests.test_status_missing_is_read_only_and_never_complete) ... ok
+test_status_requires_both_summary_complete_and_exit_zero (test_hgtnet_nwpu_runner.RunnerTests.test_status_requires_both_summary_complete_and_exit_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.002s
+
+OK

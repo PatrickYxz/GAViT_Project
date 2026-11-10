@@ -1,0 +1,8 @@
+{
+  "scope": "local formatting fixture only, not server evidence",
+  "one_line": true,
+  "shell_variables": false,
+  "nested_shell_quotes": false,
+  "json_output_valid": true,
+  "confusion_matrix_omitted": true
+}

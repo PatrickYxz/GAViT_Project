@@ -1,0 +1,91 @@
+{
+  "checked_on": "2026-10-28",
+  "purpose": "Original-source bibliography and claim checks for Chapter 1. This is not an exhaustive literature search or a claim that every cited paper was read in full.",
+  "chapter": "chapters/01-introduction.tex",
+  "candidate_bibliography": "provenance/intro-candidates.bib",
+  "project_materials_read": [
+    "research_diary.md: latest entries dated 2026-10-27",
+    "thesis/ntu_gavit/README.md",
+    "thesis/ntu_gavit/chapters/03-method.tex",
+    "thesis/ntu_gavit/chapters/04-experimental-setup.tex",
+    "thesis/ntu_gavit/references.bib",
+    "docs/external_baselines_20261027/README.md",
+    "docs/external_baselines_20261027/implementation_plan_20261028.md"
+  ],
+  "sources": [
+    {
+      "key": "deng2009imagenet",
+      "title": "ImageNet: A Large-Scale Hierarchical Image Database",
+      "authors": ["Jia Deng", "Wei Dong", "Richard Socher", "Li-Jia Li", "Kai Li", "Li Fei-Fei"],
+      "year": 2009,
+      "venue": "2009 IEEE Conference on Computer Vision and Pattern Recognition",
+      "pages": "248-255",
+      "doi": "10.1109/CVPR.2009.5206848",
+      "primary_urls": [
+        "https://www.image-net.org/download-images.php",
+        "https://wordnet.cs.princeton.edu/papers/imagenet_cvpr09.pdf",
+        "https://pvl.cs.princeton.edu/research.html",
+        "https://doi.org/10.1109/CVPR.2009.5206848"
+      ],
+      "verification_scope": "The indexed official ImageNet page supplies the complete six-author BibTeX, venue, year and pages. Indexed author-lab/original-PDF records corroborate title and author order. The IEEE original publication record supplies the DOI and conference. A subsequent direct DOI open reached an anti-bot page; direct original-PDF opens were blocked or timed out.",
+      "used_for": "ImageNet as a large natural-image data resource; no claim about the precise training subset or release identity of this project's checkpoint."
+    },
+    {
+      "key": "zhu2017deeprs",
+      "title": "Deep Learning in Remote Sensing: A Comprehensive Review and List of Resources",
+      "authors": ["Xiao Xiang Zhu", "Devis Tuia", "Lichao Mou", "Gui-Song Xia", "Liangpei Zhang", "Feng Xu", "Friedrich Fraundorfer"],
+      "year": 2017,
+      "venue": "IEEE Geoscience and Remote Sensing Magazine",
+      "volume": "5",
+      "number": "4",
+      "pages": "8-36",
+      "doi": "10.1109/MGRS.2017.2762307",
+      "primary_urls": ["https://elib.dlr.de/118694/"],
+      "verification_scope": "Opened the author institution's repository record, which lists all seven authors, complete publication metadata, DOI, abstract and original publisher link. The chapter uses only broad context supported by that abstract and record; no detailed numerical findings are attributed.",
+      "used_for": "The wider role of deep learned representations in remote sensing and their application context."
+    },
+    {
+      "key": "manas2021seco",
+      "title": "Seasonal Contrast: Unsupervised Pre-Training From Uncurated Remote Sensing Data",
+      "authors": ["Oscar Mañas", "Alexandre Lacoste", "Xavier Giró-i-Nieto", "David Vazquez", "Pau Rodríguez"],
+      "year": 2021,
+      "venue": "Proceedings of the IEEE/CVF International Conference on Computer Vision",
+      "pages": "9414-9423",
+      "primary_urls": [
+        "https://openaccess.thecvf.com/content/ICCV2021/html/Manas_Seasonal_Contrast_Unsupervised_Pre-Training_From_Uncurated_Remote_Sensing_Data_ICCV_2021_paper.html",
+        "https://arxiv.org/abs/2103.16607"
+      ],
+      "verification_scope": "The indexed official CVF proceedings page exposes complete five-author BibTeX, title, year, pages and abstract. Opened the author-uploaded arXiv abstract record to corroborate identity and the pretraining description. Subsequent direct CVF HTML/PDF reopens returned 403. No full-paper reading or reproduction is claimed.",
+      "used_for": "An example of in-domain self-supervised pretraining using temporal remote sensing imagery; no reported gain or comparison outcome is copied."
+    }
+  ],
+  "shared_new_entries_supplied_by_remote_review": [
+    {
+      "key": "cheng2020scene",
+      "primary_url": "https://arxiv.org/abs/2005.01094",
+      "checked_here": "Opened accepted-manuscript author record: Gong Cheng, Xingxing Xie, Junwei Han, Lei Guo, Gui-Song Xia; IEEE JSTARS 13:3735-3756 (2020); DOI 10.1109/JSTARS.2020.3005403. No duplicate BibTeX entry written."
+    },
+    {
+      "key": "nogueira2017exploiting",
+      "primary_urls": ["https://arxiv.org/abs/1602.01517", "https://www.sciencedirect.com/science/article/pii/S0031320316301509"],
+      "checked_here": "Opened author arXiv record and publisher-indexed abstract. All three authors verified: Keiller Nogueira, Otávio A. B. Penatti, Jefersson A. dos Santos. Publisher identity: Pattern Recognition 61:539-556 (2017), DOI 10.1016/j.patcog.2016.07.001. Citation key coordinated with the remote-review author."
+    },
+    {
+      "key": "cong2022satmae",
+      "primary_urls": [
+        "https://proceedings.neurips.cc/paper_files/paper/2022/hash/01c561df365429f33fcd7a7faa44c985-Abstract-Conference.html",
+        "https://arxiv.org/abs/2207.08051"
+      ],
+      "checked_here": "Opened official NeurIPS 2022 and author arXiv records. All nine authors verified: Yezhen Cong, Samar Khanna, Chenlin Meng, Patrick Liu, Erik Rozi, Yutong He, Marshall Burke, David B. Lobell, Stefano Ermon. Used solely as an example of masked pretraining adapted to temporal or multispectral satellite imagery."
+    }
+  ],
+  "writing_boundaries": [
+    "No new metric, stable gain, completed external reproduction or significance result is asserted.",
+    "Swin is acknowledged to model context through its shifted-window hierarchy.",
+    "Soft membership and regional pooling use two distinct normalisations; feedback reuses membership weights.",
+    "The contribution is the implemented architecture and evaluation framework, not an assumed favourable result.",
+    "HGTNet and DFAGCN are an independent-reconstruction comparison track with unresolved implementation/protocol choices; they are not described as simply awaiting replies or as completed benchmarks.",
+    "No direct quotation of source abstracts is used; source-derived descriptions are brief and attributed.",
+    "The seven-chapter outline describes the intended complete thesis; it does not assert that Chapters 5-7 have been written."
+  ]
+}

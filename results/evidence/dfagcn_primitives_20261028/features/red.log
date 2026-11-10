@@ -1,0 +1,676 @@
+test_branch_rejects_input_device_different_from_parameters (test_dfagcn_features.FeatureAdapterTests.test_branch_rejects_input_device_different_from_parameters) ... FAIL
+test_complete_torchvision_vgg16_meta_forward_has_paper_layer_shapes (test_dfagcn_features.FeatureAdapterTests.test_complete_torchvision_vgg16_meta_forward_has_paper_layer_shapes) ... FAIL
+test_cpu_convolution_input_rejects_nonfinite_pixels (test_dfagcn_features.FeatureAdapterTests.test_cpu_convolution_input_rejects_nonfinite_pixels) ... FAIL
+test_cpu_convolution_state_roundtrip_preserves_real_outputs (test_dfagcn_features.FeatureAdapterTests.test_cpu_convolution_state_roundtrip_preserves_real_outputs) ... FAIL
+test_fc_method_independently_runs_complete_meta_path_in_eval (test_dfagcn_features.FeatureAdapterTests.test_fc_method_independently_runs_complete_meta_path_in_eval) ... FAIL
+test_features_stay_in_eval_after_parent_or_backbone_train (test_dfagcn_features.FeatureAdapterTests.test_features_stay_in_eval_after_parent_or_backbone_train) ... FAIL
+test_forward_rejects_different_batch_sizes (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_batch_sizes) ... FAIL
+test_forward_rejects_different_input_devices (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_input_devices) ... FAIL
+test_forward_rejects_different_input_dtypes (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_input_dtypes) ... FAIL
+test_input_contract_rejects_invalid_branch_tensors (test_dfagcn_features.FeatureAdapterTests.test_input_contract_rejects_invalid_branch_tensors) ... FAIL
+test_preserves_callers_parameter_gradient_flags (test_dfagcn_features.FeatureAdapterTests.test_preserves_callers_parameter_gradient_flags) ... FAIL
+test_real_cpu_convolutions_preserve_negative_pre_relu_values (test_dfagcn_features.FeatureAdapterTests.test_real_cpu_convolutions_preserve_negative_pre_relu_values) ... FAIL
+test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) ... 
+  test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='not_module') ... FAIL
+  test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='features_missing') ... FAIL
+  test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='features_short') ... FAIL
+  test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='conv_type') ... FAIL
+  test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='conv_channels') ... FAIL
+  test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='conv_kernel') ... FAIL
+  test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='conv_stride') ... FAIL
+  test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='conv_weight_shape') ... FAIL
+  test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='pool_ceil') ... FAIL
+  test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='avgpool_size') ... FAIL
+  test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='fc_width') ... FAIL
+  test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='fc_weight_shape') ... FAIL
+  test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='fc_activation') ... FAIL
+
+======================================================================
+FAIL: test_branch_rejects_input_device_different_from_parameters (test_dfagcn_features.FeatureAdapterTests.test_branch_rejects_input_device_different_from_parameters)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 193, in test_branch_rejects_input_device_different_from_parameters
+    adapter = self.meta_adapter()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 43, in meta_adapter
+    return adapter_from(meta_vgg16())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_complete_torchvision_vgg16_meta_forward_has_paper_layer_shapes (test_dfagcn_features.FeatureAdapterTests.test_complete_torchvision_vgg16_meta_forward_has_paper_layer_shapes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 62, in test_complete_torchvision_vgg16_meta_forward_has_paper_layer_shapes
+    outputs = self.meta_adapter()(
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 43, in meta_adapter
+    return adapter_from(meta_vgg16())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_cpu_convolution_input_rejects_nonfinite_pixels (test_dfagcn_features.FeatureAdapterTests.test_cpu_convolution_input_rejects_nonfinite_pixels)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 117, in test_cpu_convolution_input_rejects_nonfinite_pixels
+    adapter = self.controlled_cpu_adapter()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 57, in controlled_cpu_adapter
+    self.__class__.cpu_adapter = adapter_from(backbone)
+                                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_cpu_convolution_state_roundtrip_preserves_real_outputs (test_dfagcn_features.FeatureAdapterTests.test_cpu_convolution_state_roundtrip_preserves_real_outputs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 127, in test_cpu_convolution_state_roundtrip_preserves_real_outputs
+    adapter = self.controlled_cpu_adapter()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 57, in controlled_cpu_adapter
+    self.__class__.cpu_adapter = adapter_from(backbone)
+                                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_fc_method_independently_runs_complete_meta_path_in_eval (test_dfagcn_features.FeatureAdapterTests.test_fc_method_independently_runs_complete_meta_path_in_eval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 101, in test_fc_method_independently_runs_complete_meta_path_in_eval
+    adapter = self.meta_adapter()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 43, in meta_adapter
+    return adapter_from(meta_vgg16())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_features_stay_in_eval_after_parent_or_backbone_train (test_dfagcn_features.FeatureAdapterTests.test_features_stay_in_eval_after_parent_or_backbone_train)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 92, in test_features_stay_in_eval_after_parent_or_backbone_train
+    adapter = self.controlled_cpu_adapter()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 57, in controlled_cpu_adapter
+    self.__class__.cpu_adapter = adapter_from(backbone)
+                                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_forward_rejects_different_batch_sizes (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_batch_sizes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 178, in test_forward_rejects_different_batch_sizes
+    adapter = self.meta_adapter()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 43, in meta_adapter
+    return adapter_from(meta_vgg16())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_forward_rejects_different_input_devices (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_input_devices)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 183, in test_forward_rejects_different_input_devices
+    adapter = self.meta_adapter()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 43, in meta_adapter
+    return adapter_from(meta_vgg16())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_forward_rejects_different_input_dtypes (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_input_dtypes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 188, in test_forward_rejects_different_input_dtypes
+    adapter = self.meta_adapter()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 43, in meta_adapter
+    return adapter_from(meta_vgg16())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_input_contract_rejects_invalid_branch_tensors (test_dfagcn_features.FeatureAdapterTests.test_input_contract_rejects_invalid_branch_tensors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 142, in test_input_contract_rejects_invalid_branch_tensors
+    adapter = self.meta_adapter()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 43, in meta_adapter
+    return adapter_from(meta_vgg16())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_preserves_callers_parameter_gradient_flags (test_dfagcn_features.FeatureAdapterTests.test_preserves_callers_parameter_gradient_flags)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 112, in test_preserves_callers_parameter_gradient_flags
+    adapter = adapter_from(backbone)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_real_cpu_convolutions_preserve_negative_pre_relu_values (test_dfagcn_features.FeatureAdapterTests.test_real_cpu_convolutions_preserve_negative_pre_relu_values)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 76, in test_real_cpu_convolutions_preserve_negative_pre_relu_values
+    outputs = self.controlled_cpu_adapter().convolutional_features(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 57, in controlled_cpu_adapter
+    self.__class__.cpu_adapter = adapter_from(backbone)
+                                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='not_module')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 232, in test_rejects_incompatible_backbone_layout_or_parameters
+    adapter_from(backbone)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='features_missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 232, in test_rejects_incompatible_backbone_layout_or_parameters
+    adapter_from(backbone)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='features_short')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 232, in test_rejects_incompatible_backbone_layout_or_parameters
+    adapter_from(backbone)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='conv_type')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 232, in test_rejects_incompatible_backbone_layout_or_parameters
+    adapter_from(backbone)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='conv_channels')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 232, in test_rejects_incompatible_backbone_layout_or_parameters
+    adapter_from(backbone)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='conv_kernel')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 232, in test_rejects_incompatible_backbone_layout_or_parameters
+    adapter_from(backbone)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='conv_stride')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 232, in test_rejects_incompatible_backbone_layout_or_parameters
+    adapter_from(backbone)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='conv_weight_shape')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 232, in test_rejects_incompatible_backbone_layout_or_parameters
+    adapter_from(backbone)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='pool_ceil')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 232, in test_rejects_incompatible_backbone_layout_or_parameters
+    adapter_from(backbone)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='avgpool_size')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 232, in test_rejects_incompatible_backbone_layout_or_parameters
+    adapter_from(backbone)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='fc_width')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 232, in test_rejects_incompatible_backbone_layout_or_parameters
+    adapter_from(backbone)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='fc_weight_shape')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 232, in test_rejects_incompatible_backbone_layout_or_parameters
+    adapter_from(backbone)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+======================================================================
+FAIL: test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) (change='fc_activation')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 19, in adapter_from
+    module = importlib.import_module("external_baselines.dfagcn.features")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.features'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 232, in test_rejects_incompatible_backbone_layout_or_parameters
+    adapter_from(backbone)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 21, in adapter_from
+    raise AssertionError("DFAGCN feature adapter has not been implemented") from exc
+AssertionError: DFAGCN feature adapter has not been implemented
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.059s
+
+FAILED (failures=25)

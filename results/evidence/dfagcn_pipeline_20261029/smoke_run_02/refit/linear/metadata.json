@@ -1,0 +1,35 @@
+{
+  "C": 0.1,
+  "arguments": [
+    "/Users/patrick/Projects/GAViT_Project/results/evidence/dfagcn_pipeline_20261029/liblinear/bin/train",
+    "-s",
+    "2",
+    "-c",
+    "0.10000000000000001",
+    "-B",
+    "1",
+    "-e",
+    "0.01",
+    "/Users/patrick/Projects/GAViT_Project/results/evidence/dfagcn_pipeline_20261029/smoke_run_02/refit/linear/train.svm",
+    "/Users/patrick/Projects/GAViT_Project/results/evidence/dfagcn_pipeline_20261029/smoke_run_02/refit/linear/model.txt"
+  ],
+  "bias": 1.0,
+  "bias_regularized": true,
+  "binary_sha256": "d5bcace7c4eef55275effa5483aced737903650382fc8546305c96f8372def64",
+  "class_labels": [
+    0,
+    1
+  ],
+  "elapsed_seconds": 0.00869470788165927,
+  "model_file": "model.txt",
+  "model_sha256": "a3dff3cbe54d5c6390472e1ef18aa704ddc4b37fa6e6716545b949e965906259",
+  "nr_feature": 5632,
+  "operation": "train",
+  "return_code": 0,
+  "schema": "dfagcn-liblinear-cli-v1",
+  "solver": 2,
+  "solver_type": "L2R_L2LOSS_SVC",
+  "termination_tolerance": 0.01,
+  "training_file_sha256": "db1644b103327117ac3e5e0408ec4d86fba8a49cb9b1150f47c06b2edf5bf6b8",
+  "training_samples": 10
+}

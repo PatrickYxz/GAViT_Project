@@ -1,0 +1,155 @@
+{
+  "checked_date": "2026-10-27",
+  "source_url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+  "artifact_kind": "selected_short_primary_source_excerpts_not_full_source_snapshot",
+  "source_interface": "web.run open of full target-paper body; cached fulltext crawl label two weeks ago",
+  "transcription_note": "仅保留核对数值和冲突所必需的短摘录；源工具行号只用于复核本次读取，不是PDF行号。",
+  "excerpts": [
+    {
+      "id": "aid20_mean",
+      "text": "an average accuracy of 96.91%",
+      "section": "IV-C.1",
+      "printed_page": 20323,
+      "table_reference": "II",
+      "source_text_lines": [
+        1322,
+        1324
+      ],
+      "source_url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+      "evidence_type": "manual_transcription_of_directly_opened_primary_fulltext",
+      "is_search_snippet": false,
+      "table_cells_directly_read": false
+    },
+    {
+      "id": "aid50_mean",
+      "text": "reached 98.47%",
+      "section": "IV-C.1",
+      "printed_page": 20323,
+      "table_reference": "II",
+      "source_text_lines": [
+        1328,
+        1330
+      ],
+      "source_url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+      "evidence_type": "manual_transcription_of_directly_opened_primary_fulltext",
+      "is_search_snippet": false,
+      "table_cells_directly_read": false
+    },
+    {
+      "id": "nwpu10_mean",
+      "text": "is 94.52%",
+      "section": "IV-C.2",
+      "printed_page": 20323,
+      "table_reference": "III (printed page 20324)",
+      "source_text_lines": [
+        1373,
+        1377
+      ],
+      "source_url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+      "evidence_type": "manual_transcription_of_directly_opened_primary_fulltext",
+      "is_search_snippet": false,
+      "table_cells_directly_read": false
+    },
+    {
+      "id": "nwpu20_mean",
+      "text": "ratio is 95.75%",
+      "section": "IV-C.2",
+      "printed_page": 20323,
+      "table_reference": "III (printed page 20324)",
+      "source_text_lines": [
+        1379,
+        1380
+      ],
+      "source_url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+      "evidence_type": "manual_transcription_of_directly_opened_primary_fulltext",
+      "is_search_snippet": false,
+      "table_cells_directly_read": false
+    },
+    {
+      "id": "repetitions",
+      "text": "All experiments were conducted ﬁve times",
+      "section": "IV-C",
+      "printed_page": 20322,
+      "source_text_lines": [
+        1279,
+        1283
+      ],
+      "source_url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+      "evidence_type": "manual_transcription_of_directly_opened_primary_fulltext",
+      "is_search_snippet": false,
+      "table_cells_directly_read": false
+    },
+    {
+      "id": "mr_operator",
+      "text": "max-relative graph convolution",
+      "section": "III-C",
+      "printed_page": 20321,
+      "source_text_lines": [
+        1108,
+        1112
+      ],
+      "source_url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+      "evidence_type": "manual_transcription_of_directly_opened_primary_fulltext",
+      "is_search_snippet": false,
+      "table_cells_directly_read": false
+    },
+    {
+      "id": "mean_operator",
+      "text": "average aggregation",
+      "section": "IV-B",
+      "printed_page": 20322,
+      "source_text_lines": [
+        1253,
+        1257
+      ],
+      "source_url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+      "evidence_type": "manual_transcription_of_directly_opened_primary_fulltext",
+      "is_search_snippet": false,
+      "table_cells_directly_read": false
+    }
+  ],
+  "formula_extraction_observations": [
+    {
+      "section": "III-B.1",
+      "printed_page": 20320,
+      "equations": [
+        "4",
+        "5",
+        "7"
+      ],
+      "source_text_lines": [
+        922,
+        939
+      ],
+      "observation_zh": "正文说明通道和空间权重用sigmoid；紧邻式7的符号说明把sigma称GELU；式4/5在文字层括号及MLP位置不完整。未取得PDF公式/图4像素，不能把抽取串当可靠排版公式。"
+    },
+    {
+      "section": "III-B.2",
+      "printed_page": 20320,
+      "equations": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "source_text_lines": [
+        941,
+        978
+      ],
+      "observation_zh": "本文一个STB包括W-MSA和SW-MSA两次attention及各自MLP、LN和残差。"
+    },
+    {
+      "section": "III-C",
+      "printed_page": 20321,
+      "equations": [
+        "12",
+        "13"
+      ],
+      "source_text_lines": [
+        1087,
+        1121
+      ],
+      "observation_zh": "Grapher前后FC+GELU及残差；FFN两FC+GELU及残差；操作说明为最大相对图卷积。"
+    }
+  ]
+}

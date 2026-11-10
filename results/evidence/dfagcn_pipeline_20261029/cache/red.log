@@ -1,0 +1,239 @@
+test_changed_file_and_record_order_rejected_before_output (test_dfagcn_cache_extract.ExtractionContractTests.test_changed_file_and_record_order_rejected_before_output) ... FAIL
+test_pool_and_preprocessing_mismatch_rejected (test_dfagcn_cache_extract.ExtractionContractTests.test_pool_and_preprocessing_mismatch_rejected) ... FAIL
+test_real_vgg_cpu_fc6_and_pooled_convolutions_are_cached (test_dfagcn_cache_extract.ExtractionContractTests.test_real_vgg_cpu_fc6_and_pooled_convolutions_are_cached) ... FAIL
+test_weight_loader_rejects_wrong_sha_before_deserializing (test_dfagcn_cache_extract.ExtractionContractTests.test_weight_loader_rejects_wrong_sha_before_deserializing) ... FAIL
+test_cache_rejects_forged_array_metadata_even_with_intact_data (test_dfagcn_cache_extract.FeatureCacheTests.test_cache_rejects_forged_array_metadata_even_with_intact_data) ... FAIL
+test_cache_rejects_identity_order_mismatch_and_altered_file (test_dfagcn_cache_extract.FeatureCacheTests.test_cache_rejects_identity_order_mismatch_and_altered_file) ... FAIL
+test_exact_sample_count_and_pooling_contract_are_enforced (test_dfagcn_cache_extract.FeatureCacheTests.test_exact_sample_count_and_pooling_contract_are_enforced) ... FAIL
+test_incomplete_bad_batch_keeps_directory_without_complete_index (test_dfagcn_cache_extract.FeatureCacheTests.test_incomplete_bad_batch_keeps_directory_without_complete_index) ... FAIL
+test_streamed_batches_reload_as_independent_tensor_rows (test_dfagcn_cache_extract.FeatureCacheTests.test_streamed_batches_reload_as_independent_tensor_rows) ... FAIL
+
+======================================================================
+FAIL: test_changed_file_and_record_order_rejected_before_output (test_dfagcn_cache_extract.ExtractionContractTests.test_changed_file_and_record_order_rejected_before_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 19, in api
+    return importlib.import_module('external_baselines.dfagcn.' + name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.extraction'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 119, in test_changed_file_and_record_order_rejected_before_output
+    extraction = api('extraction')
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 21, in api
+    raise AssertionError(name + ' is not implemented') from exc
+AssertionError: extraction is not implemented
+
+======================================================================
+FAIL: test_pool_and_preprocessing_mismatch_rejected (test_dfagcn_cache_extract.ExtractionContractTests.test_pool_and_preprocessing_mismatch_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 19, in api
+    return importlib.import_module('external_baselines.dfagcn.' + name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.extraction'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 138, in test_pool_and_preprocessing_mismatch_rejected
+    extraction = api('extraction')
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 21, in api
+    raise AssertionError(name + ' is not implemented') from exc
+AssertionError: extraction is not implemented
+
+======================================================================
+FAIL: test_real_vgg_cpu_fc6_and_pooled_convolutions_are_cached (test_dfagcn_cache_extract.ExtractionContractTests.test_real_vgg_cpu_fc6_and_pooled_convolutions_are_cached)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 19, in api
+    return importlib.import_module('external_baselines.dfagcn.' + name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.extraction'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 154, in test_real_vgg_cpu_fc6_and_pooled_convolutions_are_cached
+    extraction = api('extraction')
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 21, in api
+    raise AssertionError(name + ' is not implemented') from exc
+AssertionError: extraction is not implemented
+
+======================================================================
+FAIL: test_weight_loader_rejects_wrong_sha_before_deserializing (test_dfagcn_cache_extract.ExtractionContractTests.test_weight_loader_rejects_wrong_sha_before_deserializing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 19, in api
+    return importlib.import_module('external_baselines.dfagcn.' + name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.extraction'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 146, in test_weight_loader_rejects_wrong_sha_before_deserializing
+    extraction = api('extraction')
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 21, in api
+    raise AssertionError(name + ' is not implemented') from exc
+AssertionError: extraction is not implemented
+
+======================================================================
+FAIL: test_cache_rejects_forged_array_metadata_even_with_intact_data (test_dfagcn_cache_extract.FeatureCacheTests.test_cache_rejects_forged_array_metadata_even_with_intact_data)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 19, in api
+    return importlib.import_module('external_baselines.dfagcn.' + name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.cache'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 105, in test_cache_rejects_forged_array_metadata_even_with_intact_data
+    module = api('cache')
+             ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 21, in api
+    raise AssertionError(name + ' is not implemented') from exc
+AssertionError: cache is not implemented
+
+======================================================================
+FAIL: test_cache_rejects_identity_order_mismatch_and_altered_file (test_dfagcn_cache_extract.FeatureCacheTests.test_cache_rejects_identity_order_mismatch_and_altered_file)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 19, in api
+    return importlib.import_module('external_baselines.dfagcn.' + name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.cache'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 59, in test_cache_rejects_identity_order_mismatch_and_altered_file
+    module = api('cache')
+             ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 21, in api
+    raise AssertionError(name + ' is not implemented') from exc
+AssertionError: cache is not implemented
+
+======================================================================
+FAIL: test_exact_sample_count_and_pooling_contract_are_enforced (test_dfagcn_cache_extract.FeatureCacheTests.test_exact_sample_count_and_pooling_contract_are_enforced)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 19, in api
+    return importlib.import_module('external_baselines.dfagcn.' + name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.cache'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 94, in test_exact_sample_count_and_pooling_contract_are_enforced
+    module = api('cache')
+             ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 21, in api
+    raise AssertionError(name + ' is not implemented') from exc
+AssertionError: cache is not implemented
+
+======================================================================
+FAIL: test_incomplete_bad_batch_keeps_directory_without_complete_index (test_dfagcn_cache_extract.FeatureCacheTests.test_incomplete_bad_batch_keeps_directory_without_complete_index)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 19, in api
+    return importlib.import_module('external_baselines.dfagcn.' + name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.cache'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 75, in test_incomplete_bad_batch_keeps_directory_without_complete_index
+    module = api('cache')
+             ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 21, in api
+    raise AssertionError(name + ' is not implemented') from exc
+AssertionError: cache is not implemented
+
+======================================================================
+FAIL: test_streamed_batches_reload_as_independent_tensor_rows (test_dfagcn_cache_extract.FeatureCacheTests.test_streamed_batches_reload_as_independent_tensor_rows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 19, in api
+    return importlib.import_module('external_baselines.dfagcn.' + name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.cache'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 42, in test_streamed_batches_reload_as_independent_tensor_rows
+    module = api('cache')
+             ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 21, in api
+    raise AssertionError(name + ' is not implemented') from exc
+AssertionError: cache is not implemented
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.001s
+
+FAILED (failures=9)

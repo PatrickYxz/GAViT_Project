@@ -1,0 +1,20 @@
+======================================================================
+ERROR: test_exclusive_lock_and_owned_output (tests.test_hgtnet_aid_formal_entry.EntryTests.test_exclusive_lock_and_owned_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 31, in test_exclusive_lock_and_owned_output
+    with e._run_lock(output):
+         ~~~~~~~~~~~^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_formal_entry.py", line 81, in _run_lock
+    path=_safe_path(output)
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_formal_entry.py", line 56, in _safe_path
+    if any(p.is_symlink() for p in (path,*path.parents)):raise ValueError('Symbolic links are forbidden: '+str(path))
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Symbolic links are forbidden: /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpunn838r0/run
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.033s
+
+FAILED (errors=1)

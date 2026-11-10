@@ -1,0 +1,14 @@
+{
+  "action": "status",
+  "completed": false,
+  "counts": {
+    "pool": 5000,
+    "test": 5000,
+    "train": 4000,
+    "val": 1000
+  },
+  "formal_training_started": false,
+  "output": "/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/gavit-aid-formal-release-wl07suqv/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01",
+  "schema": "hgtnet-aid-formal-v1",
+  "state": "not_started"
+}

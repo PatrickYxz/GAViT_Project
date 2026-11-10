@@ -1,0 +1,11 @@
+{
+  "entry_sha256": "dd29907ae37d9c01393797ed9e7eed18eebaf7697a8a8b40c60c6b90261da0d0",
+  "error": "RuntimeError: stop after successful resumed staging",
+  "exit_code": 1,
+  "model_stage_reached": true,
+  "partial_directory_preserved": true,
+  "pool_roots": [
+    "/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmp7bjz806k/scratch/pool_attempt_0001"
+  ],
+  "scope": "mocked runtime/ownership with real selected ZIP recovery; no training/GPU"
+}

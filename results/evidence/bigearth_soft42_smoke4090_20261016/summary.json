@@ -1,0 +1,146 @@
+{
+  "status": "complete",
+  "counts": {
+    "train": 96,
+    "val": 64
+  },
+  "device": "NVIDIA GeForce RTX 4090",
+  "epochs": 1,
+  "reload_max_logit_diff": 4.76837158203125e-07,
+  "graph": {
+    "edges_per_image": 80,
+    "spatial_edges": 48,
+    "feature_edges": 32,
+    "actual_forward_checked": true
+  },
+  "best": {
+    "metric": "val_mAP",
+    "value": 37.5025,
+    "epoch": 1
+  },
+  "checkpoint_sha256": "4a6ae6e43001ffe5d729f7eb4e50ef9da4951e3b8422b2e5342b02f88a813398",
+  "training_entry_seconds": 22.7201874400007,
+  "total_seconds_including_reload": 27.455166778000603,
+  "cuda_peak_allocated_bytes": 3932788736,
+  "cuda_peak_reserved_bytes": 4242538496,
+  "main_process_max_rss_kib": 1925056,
+  "precision": {
+    "dtype": "torch.float32",
+    "matmul_tf32": false,
+    "cudnn_tf32": true,
+    "amp": false
+  },
+  "probe_summary": {
+    "split": "val",
+    "samples": 8,
+    "output": "/home/featurize/work/gpucheck_bigearth_soft42_4090_20261013_01/gavit.assignment_probe",
+    "last_epoch": 1,
+    "probe_seconds": 0.997167614999853
+  },
+  "seed": 42,
+  "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "threads": 8,
+    "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+    "packages": {
+      "torch": "2.2.2",
+      "torchvision": "0.17.2",
+      "timm": "1.0.27",
+      "torch-geometric": "2.8.0",
+      "numpy": "1.26.4",
+      "scikit-learn": "1.9.0",
+      "pillow": "10.3.0"
+    },
+    "gpu_identity": "GPU-44825cf0-bd98-bfdc-efbc-0100238a6789, NVIDIA GeForce RTX 4090, 610.57.04"
+  },
+  "metadata": {
+    "model": "gavit",
+    "dataset": "BigEarthNet-19",
+    "architecture": {
+      "num_classes": 19,
+      "num_regions": 16,
+      "knn_k": 5,
+      "gat_hidden": 256,
+      "gat_heads": 4,
+      "gat_layers": 2,
+      "dropout": 0.1,
+      "grouping": "soft_prototype",
+      "edge_type": "sparse_hybrid",
+      "integration": "token_feedback",
+      "soft_assignment": {
+        "assignment_version": "local_prototype_cosine_v1",
+        "assignment_dim": 128,
+        "assignment_radius": 1,
+        "assignment_metric": "chebyshev",
+        "assignment_temperature": 0.1,
+        "assignment_iterations": 1,
+        "assignment_projection": "shared_ln_linear_no_bias",
+        "assignment_init": "xavier_uniform",
+        "assignment_norm_eps": 1e-06,
+        "assignment_ln_eps": 1e-05,
+        "prototype_pooling": "fixed_region_attention",
+        "region_pooling": "attentive_log_membership",
+        "feedback_mapping": "soft_membership",
+        "graph_node_geometry": "anchor_index_prior"
+      }
+    },
+    "graph_topology": {
+      "name": "sparse_hybrid_4n_top2",
+      "spatial_connectivity": 4,
+      "feature_k": 2,
+      "spatial_directed_edges": 48,
+      "feature_directed_edges": 32,
+      "total_directed_edges": 80,
+      "message_direction": "neighbor_to_query",
+      "cosine_role": "topology_only"
+    },
+    "training": {
+      "seed": 42,
+      "epochs": 1,
+      "batch_size": 32,
+      "lr": 0.0003,
+      "weight_decay": 0.0001,
+      "optimizer": "AdamW",
+      "scheduler": "CosineAnnealingLR",
+      "loss": "BCEWithLogitsLoss",
+      "f1_threshold": 0.5
+    },
+    "execution": {
+      "run_stage": "smoke",
+      "run_tag": "soft_prototype_seed42_4090_20261013_01"
+    },
+    "best": {
+      "metric": "val_mAP",
+      "value": 37.5025,
+      "epoch": 1
+    },
+    "checkpoint_sha256": "4a6ae6e43001ffe5d729f7eb4e50ef9da4951e3b8422b2e5342b02f88a813398",
+    "git": {
+      "commit": "ed480e6",
+      "dirty": false
+    },
+    "checkpoint_path": "/home/featurize/work/gpucheck_bigearth_soft42_4090_20261013_01/gavit.pth",
+    "saved_at": "2026-10-16T05:50:33+00:00"
+  },
+  "parameters": 31466766,
+  "train_loss": 0.49704505999883014,
+  "val_mAP_percent": 37.502483541378865,
+  "val_macro_f1_percent": 1.5037593984962405,
+  "graph_probe": {
+    "normalization_errors": {
+      "S_row": 2.384185791015625e-07,
+      "W_column": 2.980232238769531e-07
+    },
+    "actual_forward_checked": true,
+    "images_checked": 8,
+    "snapshots_checked": 3,
+    "edges_per_image": 80,
+    "spatial_edges": 48,
+    "feature_edges": 32
+  },
+  "source_preflight": "approved_preflight.json",
+  "resource_scope": "whole smoke including reload and artifact checks"
+}

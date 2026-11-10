@@ -1,0 +1,24 @@
+test_reload_fidelity_failure_never_returns_complete (__main__.FailureProbes.test_reload_fidelity_failure_never_returns_complete) ... ok
+test_second_training_batch_failure_preserves_true_first_step (__main__.FailureProbes.test_second_training_batch_failure_preserves_true_first_step) ... ok
+test_wrapper_preserves_observed_cpu_first_step_on_later_failure (__main__.FailureProbes.test_wrapper_preserves_observed_cpu_first_step_on_later_failure) ... Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tools/run_hgtnet_nwpu_smoke.py", line 160, in run_smoke
+    torch,runtime=_runtime_and_torch(args,preflight['selected_gpu'])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_3080_smoke_prepare_20261031/review/failure_probes.py", line 86, in injected_runtime
+    raise RuntimeError('independent post-CPU-engine injection')
+RuntimeError: independent post-CPU-engine injection
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.082s
+
+OK

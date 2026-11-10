@@ -1,0 +1,64 @@
+{
+  "schema": "hgtnet-aid-batch16-engine-local-validation-v1",
+  "status": "PASS_LOCAL_TINY_CPU_ENGINE_TESTS",
+  "test_command": "/private/tmp/gavit-hgtnet-probe-cpu-20261102/bin/python -m unittest tests.test_hgtnet_aid_batch_probe_engine -v",
+  "test_count": 12,
+  "exit_code": 0,
+  "runtime": {
+    "python": "3.12.13",
+    "torch_distribution": "2.2.2",
+    "device": "cpu",
+    "threads": 1
+  },
+  "tdd": {
+    "interface_red": "red_interface.log",
+    "interface_failure": "missing independent AID engine",
+    "behavior_red": "red_behavior_corrected.log",
+    "behavior_failures_including_subtests": 24,
+    "green": "green.log",
+    "retained_iteration_logs": [
+      "red_behavior.log",
+      "red_behavior_final.log"
+    ],
+    "iteration_note": "red_behavior_final.log retains three test-scaffold errors from a reference Adam loop initially placed in the rejection helper; corrected before production implementation; corrected RED has assertion failures only"
+  },
+  "checks": {
+    "fixed_30_classes_rejects_45_class_head": true,
+    "fixed16_unique_64_processed_4_updates_1warmup_3measured": true,
+    "five_exact_group_keys_and_finite_positive_group_l2": true,
+    "all_parameter_gradients_required_and_finite_each_step": true,
+    "actual_parameters_equal_independent_four_step_formal_adam_reference": true,
+    "actual_representative_updates_each_group": true,
+    "post_update_failure_keeps_observed_callback_step": true,
+    "later_pre_update_failure_keeps_only_completed_steps": true,
+    "input_tensors_unchanged_and_success_gradients_cleared": true,
+    "no_accuracy_or_checkpoint_claim": true
+  },
+  "scope": "Generated tensors and tiny CPU model with 10 parameter tensors across five semantic groups; not 451-tensor full HGTNet, real AID images or GPU capacity/throughput validation.",
+  "timing_scope": "One warmup excluded from three measured steps; callbacks and post-update parameter diagnostics excluded from elapsed compute time; first-gradient diagnostics occur only inside excluded warmup.",
+  "memory_scope": "Original peak-reset position retained after model/input placement and optimizer construction; includes resident allocations and four-update/diagnostic peaks, not earlier initialization peaks; CPU peaks are null.",
+  "untested_here": [
+    "actual RTX3060 batch16 capacity/timing",
+    "wrapper real-model451 tensor identity",
+    "entry/bundle/status integration",
+    "project-wide regression"
+  ],
+  "source_identity": {
+    "external_baselines/hgtnet/aid_batch_probe_engine.py": {
+      "bytes": 7893,
+      "sha256": "0bc863961d8b4bec039c8d92ce2b9be5ec153024932edb09b2dfc043eec895d7"
+    },
+    "tests/test_hgtnet_aid_batch_probe_engine.py": {
+      "bytes": 13011,
+      "sha256": "6f3e925f6e9ea88c517f4e134d0d05ea787f5843f366a6063230c106dcd877d7"
+    }
+  },
+  "restrictions_observed": {
+    "gpu_used": false,
+    "full_hgtnet_training": false,
+    "dependencies_installed": false,
+    "network_used": false,
+    "old_files_modified_by_engine_task": false,
+    "git_mutation": false
+  }
+}

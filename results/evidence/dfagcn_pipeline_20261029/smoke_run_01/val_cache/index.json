@@ -1,0 +1,94 @@
+{
+  "arrays": {
+    "conv3": {
+      "dtype": "float32",
+      "file": "conv3.npy",
+      "sha256": "fc6841c4f457a689fdb0f2182e156770e8dfe81c96d7d4caf90d543b2ced352e",
+      "shape": [
+        2,
+        12,
+        256
+      ]
+    },
+    "conv4": {
+      "dtype": "float32",
+      "file": "conv4.npy",
+      "sha256": "9516fa76839ec205ffd09ac8c1dafe346bd3cda303de6eeccfba9a1d8b800688",
+      "shape": [
+        2,
+        12,
+        512
+      ]
+    },
+    "conv5": {
+      "dtype": "float32",
+      "file": "conv5.npy",
+      "sha256": "7bbc8793b9be229ebc8e0dec2d1d98bba8cb349009e8bb53617e26b8d836b287",
+      "shape": [
+        2,
+        12,
+        512
+      ]
+    },
+    "fc": {
+      "dtype": "float32",
+      "file": "fc.npy",
+      "sha256": "9c900a461934cc0638f169e7081fe594561655598e7bc76c8a39f104235bc16c",
+      "shape": [
+        2,
+        4096
+      ]
+    }
+  },
+  "identity": {
+    "class_names": [
+      "class_a",
+      "class_b"
+    ],
+    "feature_spec": {
+      "conv_activation": "pre_relu",
+      "fc_activation": "post_relu",
+      "pooling_hw": [
+        3,
+        4
+      ]
+    },
+    "fitted_on_sha256": null,
+    "manifest_sha256": "08226704765cbd3f4ecf2af437ed87b4222ad9f96c70cbfd69c2252c391facb8",
+    "preprocessing": {
+      "augmentation": false,
+      "channels": "RGB",
+      "conv_hw": 448,
+      "fc_hw": 224,
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "resize_mode": "bilinear_stretch",
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "weights_kind": "random_smoke"
+    },
+    "samples": [
+      {
+        "path": "class_a/02.png",
+        "sha256": "f27dc222e4954781cced6f4a67d7ebdf1e75e7840d287c5af7a7bf00f20ae819"
+      },
+      {
+        "path": "class_b/01.png",
+        "sha256": "97a90e35caa56cdb629662cc3a37c1b8ee7f0269557bd51700c01a4c74bb45c5"
+      }
+    ],
+    "schema": "dfagcn-feature-cache-v1",
+    "source_sha256": "6bf25f4accd133bd3e0df663605e50b2f1b07f17470710c4b8e9a896c6a509e6",
+    "stage": "frozen_pretrained",
+    "training_config": null,
+    "weights_sha256": "e53c8bac71bbe650b4cd08338c593b071e3c5106cffd3c1f81b7b456a05217fe"
+  },
+  "key": "6b2a101a8a3930ccf0e728ec91bb74da37a999f9f10ce143b5af32ea7048e9e9",
+  "schema": "dfagcn-pooled-cache-v1"
+}

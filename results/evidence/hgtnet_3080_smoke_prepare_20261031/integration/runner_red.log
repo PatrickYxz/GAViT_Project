@@ -1,0 +1,83 @@
+test_generated_command_binds_current_uuid_not_historical_one (test_hgtnet_nwpu_runner.RunnerTests.test_generated_command_binds_current_uuid_not_historical_one) ... FAIL
+test_inspect_missing_resources_has_specific_blockers_and_no_training (test_hgtnet_nwpu_runner.RunnerTests.test_inspect_missing_resources_has_specific_blockers_and_no_training) ... FAIL
+test_run_without_uuid_is_rejected_before_creating_output (test_hgtnet_nwpu_runner.RunnerTests.test_run_without_uuid_is_rejected_before_creating_output) ... FAIL
+test_runtime_failure_is_not_success_and_has_exit_one (test_hgtnet_nwpu_runner.RunnerTests.test_runtime_failure_is_not_success_and_has_exit_one) ... FAIL
+test_status_missing_is_read_only_and_never_complete (test_hgtnet_nwpu_runner.RunnerTests.test_status_missing_is_read_only_and_never_complete) ... FAIL
+test_status_requires_both_summary_complete_and_exit_zero (test_hgtnet_nwpu_runner.RunnerTests.test_status_requires_both_summary_complete_and_exit_zero) ... FAIL
+
+======================================================================
+FAIL: test_generated_command_binds_current_uuid_not_historical_one (test_hgtnet_nwpu_runner.RunnerTests.test_generated_command_binds_current_uuid_not_historical_one)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_runner.py", line 40, in test_generated_command_binds_current_uuid_not_historical_one
+    m=api()
+      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_runner.py", line 12, in api
+    if not path.exists(): raise AssertionError('HGTNet NWPU runner API missing')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: HGTNet NWPU runner API missing
+
+======================================================================
+FAIL: test_inspect_missing_resources_has_specific_blockers_and_no_training (test_hgtnet_nwpu_runner.RunnerTests.test_inspect_missing_resources_has_specific_blockers_and_no_training)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_runner.py", line 30, in test_inspect_missing_resources_has_specific_blockers_and_no_training
+    m=api()
+      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_runner.py", line 12, in api
+    if not path.exists(): raise AssertionError('HGTNet NWPU runner API missing')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: HGTNet NWPU runner API missing
+
+======================================================================
+FAIL: test_run_without_uuid_is_rejected_before_creating_output (test_hgtnet_nwpu_runner.RunnerTests.test_run_without_uuid_is_rejected_before_creating_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_runner.py", line 50, in test_run_without_uuid_is_rejected_before_creating_output
+    m=api()
+      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_runner.py", line 12, in api
+    if not path.exists(): raise AssertionError('HGTNet NWPU runner API missing')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: HGTNet NWPU runner API missing
+
+======================================================================
+FAIL: test_runtime_failure_is_not_success_and_has_exit_one (test_hgtnet_nwpu_runner.RunnerTests.test_runtime_failure_is_not_success_and_has_exit_one)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_runner.py", line 57, in test_runtime_failure_is_not_success_and_has_exit_one
+    m=api()
+      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_runner.py", line 12, in api
+    if not path.exists(): raise AssertionError('HGTNet NWPU runner API missing')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: HGTNet NWPU runner API missing
+
+======================================================================
+FAIL: test_status_missing_is_read_only_and_never_complete (test_hgtnet_nwpu_runner.RunnerTests.test_status_missing_is_read_only_and_never_complete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_runner.py", line 24, in test_status_missing_is_read_only_and_never_complete
+    m=api()
+      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_runner.py", line 12, in api
+    if not path.exists(): raise AssertionError('HGTNet NWPU runner API missing')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: HGTNet NWPU runner API missing
+
+======================================================================
+FAIL: test_status_requires_both_summary_complete_and_exit_zero (test_hgtnet_nwpu_runner.RunnerTests.test_status_requires_both_summary_complete_and_exit_zero)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_runner.py", line 69, in test_status_requires_both_summary_complete_and_exit_zero
+    m=api()
+      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_runner.py", line 12, in api
+    if not path.exists(): raise AssertionError('HGTNet NWPU runner API missing')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: HGTNet NWPU runner API missing
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+FAILED (failures=6)

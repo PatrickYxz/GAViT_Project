@@ -1,0 +1,3612 @@
+{
+  "checks": {
+    "30class_full_trace": true,
+    "30x30_cm": true,
+    "actual_candidate_loaded": true,
+    "actual_optimizer_update": true,
+    "all_five_groups": true,
+    "complete_and_reload": true,
+    "fixture_only": true,
+    "full_parameter_count": true,
+    "source_unchanged": true
+  },
+  "count": 9,
+  "cpu_fixture_output": "/private/tmp/gavit-aid-fullmodel-cpu-20261104-4txnu5zn",
+  "parameters": {
+    "groups": {
+      "dual_attention": 44077,
+      "graph": 14066432,
+      "head": 15390,
+      "patch_embed": 6528,
+      "transformer": 60479736
+    },
+    "total": 74612163,
+    "trainable": 74612163
+  },
+  "passed": true,
+  "pretraining": {
+    "can_apply": true,
+    "candidate_kind": "torchvision.Swin_B_Weights.IMAGENET1K_V1",
+    "compatible": [
+      {
+        "numel": 128,
+        "source": "features.0.0.bias",
+        "target": "patch_embed.projection.bias"
+      },
+      {
+        "numel": 6144,
+        "source": "features.0.0.weight",
+        "target": "patch_embed.projection.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.0.2.bias",
+        "target": "patch_embed.norm.bias"
+      },
+      {
+        "numel": 128,
+        "source": "features.0.2.weight",
+        "target": "patch_embed.norm.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.0.attn.proj.bias",
+        "target": "stages.0.blocks.0.attn.proj.bias"
+      },
+      {
+        "numel": 16384,
+        "source": "features.1.0.attn.proj.weight",
+        "target": "stages.0.blocks.0.attn.proj.weight"
+      },
+      {
+        "numel": 384,
+        "source": "features.1.0.attn.qkv.bias",
+        "target": "stages.0.blocks.0.attn.qkv.bias"
+      },
+      {
+        "numel": 49152,
+        "source": "features.1.0.attn.qkv.weight",
+        "target": "stages.0.blocks.0.attn.qkv.weight"
+      },
+      {
+        "numel": 676,
+        "source": "features.1.0.attn.relative_position_bias_table",
+        "target": "stages.0.blocks.0.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.1.0.attn.relative_position_index",
+        "target": "stages.0.blocks.0.attn.relative_position_index"
+      },
+      {
+        "numel": 512,
+        "source": "features.1.0.mlp.0.bias",
+        "target": "stages.0.blocks.0.mlp.0.bias"
+      },
+      {
+        "numel": 65536,
+        "source": "features.1.0.mlp.0.weight",
+        "target": "stages.0.blocks.0.mlp.0.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.0.mlp.3.bias",
+        "target": "stages.0.blocks.0.mlp.3.bias"
+      },
+      {
+        "numel": 65536,
+        "source": "features.1.0.mlp.3.weight",
+        "target": "stages.0.blocks.0.mlp.3.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.0.norm1.bias",
+        "target": "stages.0.blocks.0.norm1.bias"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.0.norm1.weight",
+        "target": "stages.0.blocks.0.norm1.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.0.norm2.bias",
+        "target": "stages.0.blocks.0.norm2.bias"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.0.norm2.weight",
+        "target": "stages.0.blocks.0.norm2.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.1.attn.proj.bias",
+        "target": "stages.0.blocks.1.attn.proj.bias"
+      },
+      {
+        "numel": 16384,
+        "source": "features.1.1.attn.proj.weight",
+        "target": "stages.0.blocks.1.attn.proj.weight"
+      },
+      {
+        "numel": 384,
+        "source": "features.1.1.attn.qkv.bias",
+        "target": "stages.0.blocks.1.attn.qkv.bias"
+      },
+      {
+        "numel": 49152,
+        "source": "features.1.1.attn.qkv.weight",
+        "target": "stages.0.blocks.1.attn.qkv.weight"
+      },
+      {
+        "numel": 676,
+        "source": "features.1.1.attn.relative_position_bias_table",
+        "target": "stages.0.blocks.1.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.1.1.attn.relative_position_index",
+        "target": "stages.0.blocks.1.attn.relative_position_index"
+      },
+      {
+        "numel": 512,
+        "source": "features.1.1.mlp.0.bias",
+        "target": "stages.0.blocks.1.mlp.0.bias"
+      },
+      {
+        "numel": 65536,
+        "source": "features.1.1.mlp.0.weight",
+        "target": "stages.0.blocks.1.mlp.0.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.1.mlp.3.bias",
+        "target": "stages.0.blocks.1.mlp.3.bias"
+      },
+      {
+        "numel": 65536,
+        "source": "features.1.1.mlp.3.weight",
+        "target": "stages.0.blocks.1.mlp.3.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.1.norm1.bias",
+        "target": "stages.0.blocks.1.norm1.bias"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.1.norm1.weight",
+        "target": "stages.0.blocks.1.norm1.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.1.norm2.bias",
+        "target": "stages.0.blocks.1.norm2.bias"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.1.norm2.weight",
+        "target": "stages.0.blocks.1.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.2.norm.bias",
+        "target": "stages.0.downsample.norm.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.2.norm.weight",
+        "target": "stages.0.downsample.norm.weight"
+      },
+      {
+        "numel": 131072,
+        "source": "features.2.reduction.weight",
+        "target": "stages.0.downsample.reduction.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.0.attn.proj.bias",
+        "target": "stages.1.blocks.0.attn.proj.bias"
+      },
+      {
+        "numel": 65536,
+        "source": "features.3.0.attn.proj.weight",
+        "target": "stages.1.blocks.0.attn.proj.weight"
+      },
+      {
+        "numel": 768,
+        "source": "features.3.0.attn.qkv.bias",
+        "target": "stages.1.blocks.0.attn.qkv.bias"
+      },
+      {
+        "numel": 196608,
+        "source": "features.3.0.attn.qkv.weight",
+        "target": "stages.1.blocks.0.attn.qkv.weight"
+      },
+      {
+        "numel": 1352,
+        "source": "features.3.0.attn.relative_position_bias_table",
+        "target": "stages.1.blocks.0.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.3.0.attn.relative_position_index",
+        "target": "stages.1.blocks.0.attn.relative_position_index"
+      },
+      {
+        "numel": 1024,
+        "source": "features.3.0.mlp.0.bias",
+        "target": "stages.1.blocks.0.mlp.0.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.3.0.mlp.0.weight",
+        "target": "stages.1.blocks.0.mlp.0.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.0.mlp.3.bias",
+        "target": "stages.1.blocks.0.mlp.3.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.3.0.mlp.3.weight",
+        "target": "stages.1.blocks.0.mlp.3.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.0.norm1.bias",
+        "target": "stages.1.blocks.0.norm1.bias"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.0.norm1.weight",
+        "target": "stages.1.blocks.0.norm1.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.0.norm2.bias",
+        "target": "stages.1.blocks.0.norm2.bias"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.0.norm2.weight",
+        "target": "stages.1.blocks.0.norm2.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.1.attn.proj.bias",
+        "target": "stages.1.blocks.1.attn.proj.bias"
+      },
+      {
+        "numel": 65536,
+        "source": "features.3.1.attn.proj.weight",
+        "target": "stages.1.blocks.1.attn.proj.weight"
+      },
+      {
+        "numel": 768,
+        "source": "features.3.1.attn.qkv.bias",
+        "target": "stages.1.blocks.1.attn.qkv.bias"
+      },
+      {
+        "numel": 196608,
+        "source": "features.3.1.attn.qkv.weight",
+        "target": "stages.1.blocks.1.attn.qkv.weight"
+      },
+      {
+        "numel": 1352,
+        "source": "features.3.1.attn.relative_position_bias_table",
+        "target": "stages.1.blocks.1.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.3.1.attn.relative_position_index",
+        "target": "stages.1.blocks.1.attn.relative_position_index"
+      },
+      {
+        "numel": 1024,
+        "source": "features.3.1.mlp.0.bias",
+        "target": "stages.1.blocks.1.mlp.0.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.3.1.mlp.0.weight",
+        "target": "stages.1.blocks.1.mlp.0.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.1.mlp.3.bias",
+        "target": "stages.1.blocks.1.mlp.3.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.3.1.mlp.3.weight",
+        "target": "stages.1.blocks.1.mlp.3.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.1.norm1.bias",
+        "target": "stages.1.blocks.1.norm1.bias"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.1.norm1.weight",
+        "target": "stages.1.blocks.1.norm1.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.1.norm2.bias",
+        "target": "stages.1.blocks.1.norm2.bias"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.1.norm2.weight",
+        "target": "stages.1.blocks.1.norm2.weight"
+      },
+      {
+        "numel": 1024,
+        "source": "features.4.norm.bias",
+        "target": "stages.1.downsample.norm.bias"
+      },
+      {
+        "numel": 1024,
+        "source": "features.4.norm.weight",
+        "target": "stages.1.downsample.norm.weight"
+      },
+      {
+        "numel": 524288,
+        "source": "features.4.reduction.weight",
+        "target": "stages.1.downsample.reduction.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.0.attn.proj.bias",
+        "target": "stages.2.blocks.0.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.0.attn.proj.weight",
+        "target": "stages.2.blocks.0.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.0.attn.qkv.bias",
+        "target": "stages.2.blocks.0.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.0.attn.qkv.weight",
+        "target": "stages.2.blocks.0.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.0.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.0.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.0.attn.relative_position_index",
+        "target": "stages.2.blocks.0.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.0.mlp.0.bias",
+        "target": "stages.2.blocks.0.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.0.mlp.0.weight",
+        "target": "stages.2.blocks.0.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.0.mlp.3.bias",
+        "target": "stages.2.blocks.0.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.0.mlp.3.weight",
+        "target": "stages.2.blocks.0.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.0.norm1.bias",
+        "target": "stages.2.blocks.0.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.0.norm1.weight",
+        "target": "stages.2.blocks.0.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.0.norm2.bias",
+        "target": "stages.2.blocks.0.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.0.norm2.weight",
+        "target": "stages.2.blocks.0.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.1.attn.proj.bias",
+        "target": "stages.2.blocks.1.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.1.attn.proj.weight",
+        "target": "stages.2.blocks.1.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.1.attn.qkv.bias",
+        "target": "stages.2.blocks.1.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.1.attn.qkv.weight",
+        "target": "stages.2.blocks.1.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.1.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.1.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.1.attn.relative_position_index",
+        "target": "stages.2.blocks.1.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.1.mlp.0.bias",
+        "target": "stages.2.blocks.1.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.1.mlp.0.weight",
+        "target": "stages.2.blocks.1.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.1.mlp.3.bias",
+        "target": "stages.2.blocks.1.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.1.mlp.3.weight",
+        "target": "stages.2.blocks.1.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.1.norm1.bias",
+        "target": "stages.2.blocks.1.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.1.norm1.weight",
+        "target": "stages.2.blocks.1.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.1.norm2.bias",
+        "target": "stages.2.blocks.1.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.1.norm2.weight",
+        "target": "stages.2.blocks.1.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.10.attn.proj.bias",
+        "target": "stages.2.blocks.10.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.10.attn.proj.weight",
+        "target": "stages.2.blocks.10.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.10.attn.qkv.bias",
+        "target": "stages.2.blocks.10.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.10.attn.qkv.weight",
+        "target": "stages.2.blocks.10.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.10.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.10.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.10.attn.relative_position_index",
+        "target": "stages.2.blocks.10.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.10.mlp.0.bias",
+        "target": "stages.2.blocks.10.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.10.mlp.0.weight",
+        "target": "stages.2.blocks.10.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.10.mlp.3.bias",
+        "target": "stages.2.blocks.10.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.10.mlp.3.weight",
+        "target": "stages.2.blocks.10.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.10.norm1.bias",
+        "target": "stages.2.blocks.10.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.10.norm1.weight",
+        "target": "stages.2.blocks.10.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.10.norm2.bias",
+        "target": "stages.2.blocks.10.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.10.norm2.weight",
+        "target": "stages.2.blocks.10.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.11.attn.proj.bias",
+        "target": "stages.2.blocks.11.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.11.attn.proj.weight",
+        "target": "stages.2.blocks.11.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.11.attn.qkv.bias",
+        "target": "stages.2.blocks.11.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.11.attn.qkv.weight",
+        "target": "stages.2.blocks.11.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.11.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.11.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.11.attn.relative_position_index",
+        "target": "stages.2.blocks.11.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.11.mlp.0.bias",
+        "target": "stages.2.blocks.11.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.11.mlp.0.weight",
+        "target": "stages.2.blocks.11.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.11.mlp.3.bias",
+        "target": "stages.2.blocks.11.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.11.mlp.3.weight",
+        "target": "stages.2.blocks.11.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.11.norm1.bias",
+        "target": "stages.2.blocks.11.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.11.norm1.weight",
+        "target": "stages.2.blocks.11.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.11.norm2.bias",
+        "target": "stages.2.blocks.11.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.11.norm2.weight",
+        "target": "stages.2.blocks.11.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.12.attn.proj.bias",
+        "target": "stages.2.blocks.12.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.12.attn.proj.weight",
+        "target": "stages.2.blocks.12.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.12.attn.qkv.bias",
+        "target": "stages.2.blocks.12.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.12.attn.qkv.weight",
+        "target": "stages.2.blocks.12.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.12.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.12.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.12.attn.relative_position_index",
+        "target": "stages.2.blocks.12.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.12.mlp.0.bias",
+        "target": "stages.2.blocks.12.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.12.mlp.0.weight",
+        "target": "stages.2.blocks.12.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.12.mlp.3.bias",
+        "target": "stages.2.blocks.12.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.12.mlp.3.weight",
+        "target": "stages.2.blocks.12.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.12.norm1.bias",
+        "target": "stages.2.blocks.12.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.12.norm1.weight",
+        "target": "stages.2.blocks.12.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.12.norm2.bias",
+        "target": "stages.2.blocks.12.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.12.norm2.weight",
+        "target": "stages.2.blocks.12.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.13.attn.proj.bias",
+        "target": "stages.2.blocks.13.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.13.attn.proj.weight",
+        "target": "stages.2.blocks.13.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.13.attn.qkv.bias",
+        "target": "stages.2.blocks.13.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.13.attn.qkv.weight",
+        "target": "stages.2.blocks.13.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.13.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.13.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.13.attn.relative_position_index",
+        "target": "stages.2.blocks.13.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.13.mlp.0.bias",
+        "target": "stages.2.blocks.13.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.13.mlp.0.weight",
+        "target": "stages.2.blocks.13.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.13.mlp.3.bias",
+        "target": "stages.2.blocks.13.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.13.mlp.3.weight",
+        "target": "stages.2.blocks.13.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.13.norm1.bias",
+        "target": "stages.2.blocks.13.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.13.norm1.weight",
+        "target": "stages.2.blocks.13.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.13.norm2.bias",
+        "target": "stages.2.blocks.13.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.13.norm2.weight",
+        "target": "stages.2.blocks.13.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.14.attn.proj.bias",
+        "target": "stages.2.blocks.14.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.14.attn.proj.weight",
+        "target": "stages.2.blocks.14.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.14.attn.qkv.bias",
+        "target": "stages.2.blocks.14.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.14.attn.qkv.weight",
+        "target": "stages.2.blocks.14.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.14.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.14.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.14.attn.relative_position_index",
+        "target": "stages.2.blocks.14.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.14.mlp.0.bias",
+        "target": "stages.2.blocks.14.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.14.mlp.0.weight",
+        "target": "stages.2.blocks.14.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.14.mlp.3.bias",
+        "target": "stages.2.blocks.14.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.14.mlp.3.weight",
+        "target": "stages.2.blocks.14.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.14.norm1.bias",
+        "target": "stages.2.blocks.14.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.14.norm1.weight",
+        "target": "stages.2.blocks.14.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.14.norm2.bias",
+        "target": "stages.2.blocks.14.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.14.norm2.weight",
+        "target": "stages.2.blocks.14.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.15.attn.proj.bias",
+        "target": "stages.2.blocks.15.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.15.attn.proj.weight",
+        "target": "stages.2.blocks.15.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.15.attn.qkv.bias",
+        "target": "stages.2.blocks.15.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.15.attn.qkv.weight",
+        "target": "stages.2.blocks.15.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.15.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.15.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.15.attn.relative_position_index",
+        "target": "stages.2.blocks.15.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.15.mlp.0.bias",
+        "target": "stages.2.blocks.15.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.15.mlp.0.weight",
+        "target": "stages.2.blocks.15.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.15.mlp.3.bias",
+        "target": "stages.2.blocks.15.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.15.mlp.3.weight",
+        "target": "stages.2.blocks.15.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.15.norm1.bias",
+        "target": "stages.2.blocks.15.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.15.norm1.weight",
+        "target": "stages.2.blocks.15.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.15.norm2.bias",
+        "target": "stages.2.blocks.15.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.15.norm2.weight",
+        "target": "stages.2.blocks.15.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.16.attn.proj.bias",
+        "target": "stages.2.blocks.16.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.16.attn.proj.weight",
+        "target": "stages.2.blocks.16.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.16.attn.qkv.bias",
+        "target": "stages.2.blocks.16.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.16.attn.qkv.weight",
+        "target": "stages.2.blocks.16.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.16.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.16.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.16.attn.relative_position_index",
+        "target": "stages.2.blocks.16.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.16.mlp.0.bias",
+        "target": "stages.2.blocks.16.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.16.mlp.0.weight",
+        "target": "stages.2.blocks.16.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.16.mlp.3.bias",
+        "target": "stages.2.blocks.16.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.16.mlp.3.weight",
+        "target": "stages.2.blocks.16.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.16.norm1.bias",
+        "target": "stages.2.blocks.16.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.16.norm1.weight",
+        "target": "stages.2.blocks.16.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.16.norm2.bias",
+        "target": "stages.2.blocks.16.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.16.norm2.weight",
+        "target": "stages.2.blocks.16.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.17.attn.proj.bias",
+        "target": "stages.2.blocks.17.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.17.attn.proj.weight",
+        "target": "stages.2.blocks.17.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.17.attn.qkv.bias",
+        "target": "stages.2.blocks.17.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.17.attn.qkv.weight",
+        "target": "stages.2.blocks.17.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.17.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.17.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.17.attn.relative_position_index",
+        "target": "stages.2.blocks.17.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.17.mlp.0.bias",
+        "target": "stages.2.blocks.17.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.17.mlp.0.weight",
+        "target": "stages.2.blocks.17.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.17.mlp.3.bias",
+        "target": "stages.2.blocks.17.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.17.mlp.3.weight",
+        "target": "stages.2.blocks.17.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.17.norm1.bias",
+        "target": "stages.2.blocks.17.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.17.norm1.weight",
+        "target": "stages.2.blocks.17.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.17.norm2.bias",
+        "target": "stages.2.blocks.17.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.17.norm2.weight",
+        "target": "stages.2.blocks.17.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.2.attn.proj.bias",
+        "target": "stages.2.blocks.2.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.2.attn.proj.weight",
+        "target": "stages.2.blocks.2.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.2.attn.qkv.bias",
+        "target": "stages.2.blocks.2.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.2.attn.qkv.weight",
+        "target": "stages.2.blocks.2.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.2.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.2.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.2.attn.relative_position_index",
+        "target": "stages.2.blocks.2.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.2.mlp.0.bias",
+        "target": "stages.2.blocks.2.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.2.mlp.0.weight",
+        "target": "stages.2.blocks.2.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.2.mlp.3.bias",
+        "target": "stages.2.blocks.2.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.2.mlp.3.weight",
+        "target": "stages.2.blocks.2.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.2.norm1.bias",
+        "target": "stages.2.blocks.2.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.2.norm1.weight",
+        "target": "stages.2.blocks.2.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.2.norm2.bias",
+        "target": "stages.2.blocks.2.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.2.norm2.weight",
+        "target": "stages.2.blocks.2.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.3.attn.proj.bias",
+        "target": "stages.2.blocks.3.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.3.attn.proj.weight",
+        "target": "stages.2.blocks.3.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.3.attn.qkv.bias",
+        "target": "stages.2.blocks.3.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.3.attn.qkv.weight",
+        "target": "stages.2.blocks.3.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.3.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.3.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.3.attn.relative_position_index",
+        "target": "stages.2.blocks.3.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.3.mlp.0.bias",
+        "target": "stages.2.blocks.3.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.3.mlp.0.weight",
+        "target": "stages.2.blocks.3.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.3.mlp.3.bias",
+        "target": "stages.2.blocks.3.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.3.mlp.3.weight",
+        "target": "stages.2.blocks.3.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.3.norm1.bias",
+        "target": "stages.2.blocks.3.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.3.norm1.weight",
+        "target": "stages.2.blocks.3.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.3.norm2.bias",
+        "target": "stages.2.blocks.3.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.3.norm2.weight",
+        "target": "stages.2.blocks.3.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.4.attn.proj.bias",
+        "target": "stages.2.blocks.4.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.4.attn.proj.weight",
+        "target": "stages.2.blocks.4.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.4.attn.qkv.bias",
+        "target": "stages.2.blocks.4.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.4.attn.qkv.weight",
+        "target": "stages.2.blocks.4.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.4.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.4.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.4.attn.relative_position_index",
+        "target": "stages.2.blocks.4.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.4.mlp.0.bias",
+        "target": "stages.2.blocks.4.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.4.mlp.0.weight",
+        "target": "stages.2.blocks.4.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.4.mlp.3.bias",
+        "target": "stages.2.blocks.4.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.4.mlp.3.weight",
+        "target": "stages.2.blocks.4.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.4.norm1.bias",
+        "target": "stages.2.blocks.4.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.4.norm1.weight",
+        "target": "stages.2.blocks.4.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.4.norm2.bias",
+        "target": "stages.2.blocks.4.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.4.norm2.weight",
+        "target": "stages.2.blocks.4.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.5.attn.proj.bias",
+        "target": "stages.2.blocks.5.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.5.attn.proj.weight",
+        "target": "stages.2.blocks.5.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.5.attn.qkv.bias",
+        "target": "stages.2.blocks.5.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.5.attn.qkv.weight",
+        "target": "stages.2.blocks.5.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.5.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.5.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.5.attn.relative_position_index",
+        "target": "stages.2.blocks.5.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.5.mlp.0.bias",
+        "target": "stages.2.blocks.5.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.5.mlp.0.weight",
+        "target": "stages.2.blocks.5.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.5.mlp.3.bias",
+        "target": "stages.2.blocks.5.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.5.mlp.3.weight",
+        "target": "stages.2.blocks.5.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.5.norm1.bias",
+        "target": "stages.2.blocks.5.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.5.norm1.weight",
+        "target": "stages.2.blocks.5.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.5.norm2.bias",
+        "target": "stages.2.blocks.5.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.5.norm2.weight",
+        "target": "stages.2.blocks.5.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.6.attn.proj.bias",
+        "target": "stages.2.blocks.6.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.6.attn.proj.weight",
+        "target": "stages.2.blocks.6.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.6.attn.qkv.bias",
+        "target": "stages.2.blocks.6.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.6.attn.qkv.weight",
+        "target": "stages.2.blocks.6.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.6.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.6.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.6.attn.relative_position_index",
+        "target": "stages.2.blocks.6.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.6.mlp.0.bias",
+        "target": "stages.2.blocks.6.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.6.mlp.0.weight",
+        "target": "stages.2.blocks.6.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.6.mlp.3.bias",
+        "target": "stages.2.blocks.6.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.6.mlp.3.weight",
+        "target": "stages.2.blocks.6.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.6.norm1.bias",
+        "target": "stages.2.blocks.6.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.6.norm1.weight",
+        "target": "stages.2.blocks.6.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.6.norm2.bias",
+        "target": "stages.2.blocks.6.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.6.norm2.weight",
+        "target": "stages.2.blocks.6.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.7.attn.proj.bias",
+        "target": "stages.2.blocks.7.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.7.attn.proj.weight",
+        "target": "stages.2.blocks.7.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.7.attn.qkv.bias",
+        "target": "stages.2.blocks.7.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.7.attn.qkv.weight",
+        "target": "stages.2.blocks.7.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.7.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.7.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.7.attn.relative_position_index",
+        "target": "stages.2.blocks.7.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.7.mlp.0.bias",
+        "target": "stages.2.blocks.7.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.7.mlp.0.weight",
+        "target": "stages.2.blocks.7.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.7.mlp.3.bias",
+        "target": "stages.2.blocks.7.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.7.mlp.3.weight",
+        "target": "stages.2.blocks.7.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.7.norm1.bias",
+        "target": "stages.2.blocks.7.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.7.norm1.weight",
+        "target": "stages.2.blocks.7.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.7.norm2.bias",
+        "target": "stages.2.blocks.7.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.7.norm2.weight",
+        "target": "stages.2.blocks.7.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.8.attn.proj.bias",
+        "target": "stages.2.blocks.8.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.8.attn.proj.weight",
+        "target": "stages.2.blocks.8.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.8.attn.qkv.bias",
+        "target": "stages.2.blocks.8.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.8.attn.qkv.weight",
+        "target": "stages.2.blocks.8.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.8.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.8.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.8.attn.relative_position_index",
+        "target": "stages.2.blocks.8.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.8.mlp.0.bias",
+        "target": "stages.2.blocks.8.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.8.mlp.0.weight",
+        "target": "stages.2.blocks.8.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.8.mlp.3.bias",
+        "target": "stages.2.blocks.8.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.8.mlp.3.weight",
+        "target": "stages.2.blocks.8.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.8.norm1.bias",
+        "target": "stages.2.blocks.8.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.8.norm1.weight",
+        "target": "stages.2.blocks.8.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.8.norm2.bias",
+        "target": "stages.2.blocks.8.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.8.norm2.weight",
+        "target": "stages.2.blocks.8.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.9.attn.proj.bias",
+        "target": "stages.2.blocks.9.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.9.attn.proj.weight",
+        "target": "stages.2.blocks.9.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.9.attn.qkv.bias",
+        "target": "stages.2.blocks.9.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.9.attn.qkv.weight",
+        "target": "stages.2.blocks.9.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.9.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.9.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.9.attn.relative_position_index",
+        "target": "stages.2.blocks.9.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.9.mlp.0.bias",
+        "target": "stages.2.blocks.9.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.9.mlp.0.weight",
+        "target": "stages.2.blocks.9.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.9.mlp.3.bias",
+        "target": "stages.2.blocks.9.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.9.mlp.3.weight",
+        "target": "stages.2.blocks.9.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.9.norm1.bias",
+        "target": "stages.2.blocks.9.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.9.norm1.weight",
+        "target": "stages.2.blocks.9.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.9.norm2.bias",
+        "target": "stages.2.blocks.9.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.9.norm2.weight",
+        "target": "stages.2.blocks.9.norm2.weight"
+      }
+    ],
+    "coverage": {
+      "compatible_numel": 59489486,
+      "compatible_source_numel_fraction": 0.6773573766119514,
+      "compatible_target_numel_fraction": 0.7967521322076205,
+      "compatible_tensors": 318,
+      "intentionally_initialized_numel": 15175499,
+      "intentionally_initialized_tensors": 155,
+      "loaded_numel": 59489486,
+      "loaded_target_numel_fraction": 0.7967521322076205,
+      "loaded_tensors": 318,
+      "source_numel": 87825848,
+      "source_tensors": 353,
+      "target_numel": 74664985,
+      "target_tensors": 473
+    },
+    "dtype_mismatch": [],
+    "intentionally_initialized": [
+      "graph_blocks1.0.ffn.0.bias",
+      "graph_blocks1.0.ffn.0.weight",
+      "graph_blocks1.0.ffn.2.bias",
+      "graph_blocks1.0.ffn.2.weight",
+      "graph_blocks1.0.ffn_norm.bias",
+      "graph_blocks1.0.ffn_norm.weight",
+      "graph_blocks1.0.in_norm.bias",
+      "graph_blocks1.0.in_norm.weight",
+      "graph_blocks1.0.in_projection.bias",
+      "graph_blocks1.0.in_projection.weight",
+      "graph_blocks1.0.out_projection.bias",
+      "graph_blocks1.0.out_projection.weight",
+      "graph_blocks1.0.relative_conv.projection.bias",
+      "graph_blocks1.0.relative_conv.projection.weight",
+      "graph_blocks1.1.ffn.0.bias",
+      "graph_blocks1.1.ffn.0.weight",
+      "graph_blocks1.1.ffn.2.bias",
+      "graph_blocks1.1.ffn.2.weight",
+      "graph_blocks1.1.ffn_norm.bias",
+      "graph_blocks1.1.ffn_norm.weight",
+      "graph_blocks1.1.in_norm.bias",
+      "graph_blocks1.1.in_norm.weight",
+      "graph_blocks1.1.in_projection.bias",
+      "graph_blocks1.1.in_projection.weight",
+      "graph_blocks1.1.out_projection.bias",
+      "graph_blocks1.1.out_projection.weight",
+      "graph_blocks1.1.relative_conv.projection.bias",
+      "graph_blocks1.1.relative_conv.projection.weight",
+      "graph_blocks1.2.ffn.0.bias",
+      "graph_blocks1.2.ffn.0.weight",
+      "graph_blocks1.2.ffn.2.bias",
+      "graph_blocks1.2.ffn.2.weight",
+      "graph_blocks1.2.ffn_norm.bias",
+      "graph_blocks1.2.ffn_norm.weight",
+      "graph_blocks1.2.in_norm.bias",
+      "graph_blocks1.2.in_norm.weight",
+      "graph_blocks1.2.in_projection.bias",
+      "graph_blocks1.2.in_projection.weight",
+      "graph_blocks1.2.out_projection.bias",
+      "graph_blocks1.2.out_projection.weight",
+      "graph_blocks1.2.relative_conv.projection.bias",
+      "graph_blocks1.2.relative_conv.projection.weight",
+      "graph_blocks1.3.ffn.0.bias",
+      "graph_blocks1.3.ffn.0.weight",
+      "graph_blocks1.3.ffn.2.bias",
+      "graph_blocks1.3.ffn.2.weight",
+      "graph_blocks1.3.ffn_norm.bias",
+      "graph_blocks1.3.ffn_norm.weight",
+      "graph_blocks1.3.in_norm.bias",
+      "graph_blocks1.3.in_norm.weight",
+      "graph_blocks1.3.in_projection.bias",
+      "graph_blocks1.3.in_projection.weight",
+      "graph_blocks1.3.out_projection.bias",
+      "graph_blocks1.3.out_projection.weight",
+      "graph_blocks1.3.relative_conv.projection.bias",
+      "graph_blocks1.3.relative_conv.projection.weight",
+      "graph_blocks1.4.ffn.0.bias",
+      "graph_blocks1.4.ffn.0.weight",
+      "graph_blocks1.4.ffn.2.bias",
+      "graph_blocks1.4.ffn.2.weight",
+      "graph_blocks1.4.ffn_norm.bias",
+      "graph_blocks1.4.ffn_norm.weight",
+      "graph_blocks1.4.in_norm.bias",
+      "graph_blocks1.4.in_norm.weight",
+      "graph_blocks1.4.in_projection.bias",
+      "graph_blocks1.4.in_projection.weight",
+      "graph_blocks1.4.out_projection.bias",
+      "graph_blocks1.4.out_projection.weight",
+      "graph_blocks1.4.relative_conv.projection.bias",
+      "graph_blocks1.4.relative_conv.projection.weight",
+      "graph_blocks1.5.ffn.0.bias",
+      "graph_blocks1.5.ffn.0.weight",
+      "graph_blocks1.5.ffn.2.bias",
+      "graph_blocks1.5.ffn.2.weight",
+      "graph_blocks1.5.ffn_norm.bias",
+      "graph_blocks1.5.ffn_norm.weight",
+      "graph_blocks1.5.in_norm.bias",
+      "graph_blocks1.5.in_norm.weight",
+      "graph_blocks1.5.in_projection.bias",
+      "graph_blocks1.5.in_projection.weight",
+      "graph_blocks1.5.out_projection.bias",
+      "graph_blocks1.5.out_projection.weight",
+      "graph_blocks1.5.relative_conv.projection.bias",
+      "graph_blocks1.5.relative_conv.projection.weight",
+      "graph_blocks2.0.ffn.0.bias",
+      "graph_blocks2.0.ffn.0.weight",
+      "graph_blocks2.0.ffn.2.bias",
+      "graph_blocks2.0.ffn.2.weight",
+      "graph_blocks2.0.ffn_norm.bias",
+      "graph_blocks2.0.ffn_norm.weight",
+      "graph_blocks2.0.in_norm.bias",
+      "graph_blocks2.0.in_norm.weight",
+      "graph_blocks2.0.in_projection.bias",
+      "graph_blocks2.0.in_projection.weight",
+      "graph_blocks2.0.out_projection.bias",
+      "graph_blocks2.0.out_projection.weight",
+      "graph_blocks2.0.relative_conv.projection.bias",
+      "graph_blocks2.0.relative_conv.projection.weight",
+      "graph_blocks2.1.ffn.0.bias",
+      "graph_blocks2.1.ffn.0.weight",
+      "graph_blocks2.1.ffn.2.bias",
+      "graph_blocks2.1.ffn.2.weight",
+      "graph_blocks2.1.ffn_norm.bias",
+      "graph_blocks2.1.ffn_norm.weight",
+      "graph_blocks2.1.in_norm.bias",
+      "graph_blocks2.1.in_norm.weight",
+      "graph_blocks2.1.in_projection.bias",
+      "graph_blocks2.1.in_projection.weight",
+      "graph_blocks2.1.out_projection.bias",
+      "graph_blocks2.1.out_projection.weight",
+      "graph_blocks2.1.relative_conv.projection.bias",
+      "graph_blocks2.1.relative_conv.projection.weight",
+      "graph_transition1.depthwise.weight",
+      "graph_transition1.norm.bias",
+      "graph_transition1.norm.weight",
+      "graph_transition1.pointwise.weight",
+      "graph_transition2.depthwise.weight",
+      "graph_transition2.norm.bias",
+      "graph_transition2.norm.weight",
+      "graph_transition2.pointwise.weight",
+      "head.bias",
+      "head.weight",
+      "stages.0.da.channel_mlp.0.bias",
+      "stages.0.da.channel_mlp.0.weight",
+      "stages.0.da.channel_mlp.2.bias",
+      "stages.0.da.channel_mlp.2.weight",
+      "stages.0.da.spatial.0.bias",
+      "stages.0.da.spatial.0.weight",
+      "stages.0.da.spatial.1.bias",
+      "stages.0.da.spatial.1.weight",
+      "stages.0.da.spatial.2.bias",
+      "stages.0.da.spatial.2.weight",
+      "stages.1.da.channel_mlp.0.bias",
+      "stages.1.da.channel_mlp.0.weight",
+      "stages.1.da.channel_mlp.2.bias",
+      "stages.1.da.channel_mlp.2.weight",
+      "stages.1.da.spatial.0.bias",
+      "stages.1.da.spatial.0.weight",
+      "stages.1.da.spatial.1.bias",
+      "stages.1.da.spatial.1.weight",
+      "stages.1.da.spatial.2.bias",
+      "stages.1.da.spatial.2.weight",
+      "stages.2.da.channel_mlp.0.bias",
+      "stages.2.da.channel_mlp.0.weight",
+      "stages.2.da.channel_mlp.2.bias",
+      "stages.2.da.channel_mlp.2.weight",
+      "stages.2.da.spatial.0.bias",
+      "stages.2.da.spatial.0.weight",
+      "stages.2.da.spatial.1.bias",
+      "stages.2.da.spatial.1.weight",
+      "stages.2.da.spatial.2.bias",
+      "stages.2.da.spatial.2.weight",
+      "stages.2.downsample.norm.bias",
+      "stages.2.downsample.norm.weight",
+      "stages.2.downsample.projection.weight"
+    ],
+    "invalid": [],
+    "is_original_hgtnet_weights": false,
+    "loaded": [
+      {
+        "numel": 128,
+        "source": "features.0.0.bias",
+        "target": "patch_embed.projection.bias"
+      },
+      {
+        "numel": 6144,
+        "source": "features.0.0.weight",
+        "target": "patch_embed.projection.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.0.2.bias",
+        "target": "patch_embed.norm.bias"
+      },
+      {
+        "numel": 128,
+        "source": "features.0.2.weight",
+        "target": "patch_embed.norm.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.0.attn.proj.bias",
+        "target": "stages.0.blocks.0.attn.proj.bias"
+      },
+      {
+        "numel": 16384,
+        "source": "features.1.0.attn.proj.weight",
+        "target": "stages.0.blocks.0.attn.proj.weight"
+      },
+      {
+        "numel": 384,
+        "source": "features.1.0.attn.qkv.bias",
+        "target": "stages.0.blocks.0.attn.qkv.bias"
+      },
+      {
+        "numel": 49152,
+        "source": "features.1.0.attn.qkv.weight",
+        "target": "stages.0.blocks.0.attn.qkv.weight"
+      },
+      {
+        "numel": 676,
+        "source": "features.1.0.attn.relative_position_bias_table",
+        "target": "stages.0.blocks.0.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.1.0.attn.relative_position_index",
+        "target": "stages.0.blocks.0.attn.relative_position_index"
+      },
+      {
+        "numel": 512,
+        "source": "features.1.0.mlp.0.bias",
+        "target": "stages.0.blocks.0.mlp.0.bias"
+      },
+      {
+        "numel": 65536,
+        "source": "features.1.0.mlp.0.weight",
+        "target": "stages.0.blocks.0.mlp.0.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.0.mlp.3.bias",
+        "target": "stages.0.blocks.0.mlp.3.bias"
+      },
+      {
+        "numel": 65536,
+        "source": "features.1.0.mlp.3.weight",
+        "target": "stages.0.blocks.0.mlp.3.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.0.norm1.bias",
+        "target": "stages.0.blocks.0.norm1.bias"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.0.norm1.weight",
+        "target": "stages.0.blocks.0.norm1.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.0.norm2.bias",
+        "target": "stages.0.blocks.0.norm2.bias"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.0.norm2.weight",
+        "target": "stages.0.blocks.0.norm2.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.1.attn.proj.bias",
+        "target": "stages.0.blocks.1.attn.proj.bias"
+      },
+      {
+        "numel": 16384,
+        "source": "features.1.1.attn.proj.weight",
+        "target": "stages.0.blocks.1.attn.proj.weight"
+      },
+      {
+        "numel": 384,
+        "source": "features.1.1.attn.qkv.bias",
+        "target": "stages.0.blocks.1.attn.qkv.bias"
+      },
+      {
+        "numel": 49152,
+        "source": "features.1.1.attn.qkv.weight",
+        "target": "stages.0.blocks.1.attn.qkv.weight"
+      },
+      {
+        "numel": 676,
+        "source": "features.1.1.attn.relative_position_bias_table",
+        "target": "stages.0.blocks.1.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.1.1.attn.relative_position_index",
+        "target": "stages.0.blocks.1.attn.relative_position_index"
+      },
+      {
+        "numel": 512,
+        "source": "features.1.1.mlp.0.bias",
+        "target": "stages.0.blocks.1.mlp.0.bias"
+      },
+      {
+        "numel": 65536,
+        "source": "features.1.1.mlp.0.weight",
+        "target": "stages.0.blocks.1.mlp.0.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.1.mlp.3.bias",
+        "target": "stages.0.blocks.1.mlp.3.bias"
+      },
+      {
+        "numel": 65536,
+        "source": "features.1.1.mlp.3.weight",
+        "target": "stages.0.blocks.1.mlp.3.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.1.norm1.bias",
+        "target": "stages.0.blocks.1.norm1.bias"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.1.norm1.weight",
+        "target": "stages.0.blocks.1.norm1.weight"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.1.norm2.bias",
+        "target": "stages.0.blocks.1.norm2.bias"
+      },
+      {
+        "numel": 128,
+        "source": "features.1.1.norm2.weight",
+        "target": "stages.0.blocks.1.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.2.norm.bias",
+        "target": "stages.0.downsample.norm.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.2.norm.weight",
+        "target": "stages.0.downsample.norm.weight"
+      },
+      {
+        "numel": 131072,
+        "source": "features.2.reduction.weight",
+        "target": "stages.0.downsample.reduction.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.0.attn.proj.bias",
+        "target": "stages.1.blocks.0.attn.proj.bias"
+      },
+      {
+        "numel": 65536,
+        "source": "features.3.0.attn.proj.weight",
+        "target": "stages.1.blocks.0.attn.proj.weight"
+      },
+      {
+        "numel": 768,
+        "source": "features.3.0.attn.qkv.bias",
+        "target": "stages.1.blocks.0.attn.qkv.bias"
+      },
+      {
+        "numel": 196608,
+        "source": "features.3.0.attn.qkv.weight",
+        "target": "stages.1.blocks.0.attn.qkv.weight"
+      },
+      {
+        "numel": 1352,
+        "source": "features.3.0.attn.relative_position_bias_table",
+        "target": "stages.1.blocks.0.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.3.0.attn.relative_position_index",
+        "target": "stages.1.blocks.0.attn.relative_position_index"
+      },
+      {
+        "numel": 1024,
+        "source": "features.3.0.mlp.0.bias",
+        "target": "stages.1.blocks.0.mlp.0.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.3.0.mlp.0.weight",
+        "target": "stages.1.blocks.0.mlp.0.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.0.mlp.3.bias",
+        "target": "stages.1.blocks.0.mlp.3.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.3.0.mlp.3.weight",
+        "target": "stages.1.blocks.0.mlp.3.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.0.norm1.bias",
+        "target": "stages.1.blocks.0.norm1.bias"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.0.norm1.weight",
+        "target": "stages.1.blocks.0.norm1.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.0.norm2.bias",
+        "target": "stages.1.blocks.0.norm2.bias"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.0.norm2.weight",
+        "target": "stages.1.blocks.0.norm2.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.1.attn.proj.bias",
+        "target": "stages.1.blocks.1.attn.proj.bias"
+      },
+      {
+        "numel": 65536,
+        "source": "features.3.1.attn.proj.weight",
+        "target": "stages.1.blocks.1.attn.proj.weight"
+      },
+      {
+        "numel": 768,
+        "source": "features.3.1.attn.qkv.bias",
+        "target": "stages.1.blocks.1.attn.qkv.bias"
+      },
+      {
+        "numel": 196608,
+        "source": "features.3.1.attn.qkv.weight",
+        "target": "stages.1.blocks.1.attn.qkv.weight"
+      },
+      {
+        "numel": 1352,
+        "source": "features.3.1.attn.relative_position_bias_table",
+        "target": "stages.1.blocks.1.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.3.1.attn.relative_position_index",
+        "target": "stages.1.blocks.1.attn.relative_position_index"
+      },
+      {
+        "numel": 1024,
+        "source": "features.3.1.mlp.0.bias",
+        "target": "stages.1.blocks.1.mlp.0.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.3.1.mlp.0.weight",
+        "target": "stages.1.blocks.1.mlp.0.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.1.mlp.3.bias",
+        "target": "stages.1.blocks.1.mlp.3.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.3.1.mlp.3.weight",
+        "target": "stages.1.blocks.1.mlp.3.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.1.norm1.bias",
+        "target": "stages.1.blocks.1.norm1.bias"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.1.norm1.weight",
+        "target": "stages.1.blocks.1.norm1.weight"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.1.norm2.bias",
+        "target": "stages.1.blocks.1.norm2.bias"
+      },
+      {
+        "numel": 256,
+        "source": "features.3.1.norm2.weight",
+        "target": "stages.1.blocks.1.norm2.weight"
+      },
+      {
+        "numel": 1024,
+        "source": "features.4.norm.bias",
+        "target": "stages.1.downsample.norm.bias"
+      },
+      {
+        "numel": 1024,
+        "source": "features.4.norm.weight",
+        "target": "stages.1.downsample.norm.weight"
+      },
+      {
+        "numel": 524288,
+        "source": "features.4.reduction.weight",
+        "target": "stages.1.downsample.reduction.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.0.attn.proj.bias",
+        "target": "stages.2.blocks.0.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.0.attn.proj.weight",
+        "target": "stages.2.blocks.0.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.0.attn.qkv.bias",
+        "target": "stages.2.blocks.0.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.0.attn.qkv.weight",
+        "target": "stages.2.blocks.0.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.0.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.0.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.0.attn.relative_position_index",
+        "target": "stages.2.blocks.0.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.0.mlp.0.bias",
+        "target": "stages.2.blocks.0.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.0.mlp.0.weight",
+        "target": "stages.2.blocks.0.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.0.mlp.3.bias",
+        "target": "stages.2.blocks.0.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.0.mlp.3.weight",
+        "target": "stages.2.blocks.0.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.0.norm1.bias",
+        "target": "stages.2.blocks.0.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.0.norm1.weight",
+        "target": "stages.2.blocks.0.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.0.norm2.bias",
+        "target": "stages.2.blocks.0.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.0.norm2.weight",
+        "target": "stages.2.blocks.0.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.1.attn.proj.bias",
+        "target": "stages.2.blocks.1.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.1.attn.proj.weight",
+        "target": "stages.2.blocks.1.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.1.attn.qkv.bias",
+        "target": "stages.2.blocks.1.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.1.attn.qkv.weight",
+        "target": "stages.2.blocks.1.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.1.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.1.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.1.attn.relative_position_index",
+        "target": "stages.2.blocks.1.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.1.mlp.0.bias",
+        "target": "stages.2.blocks.1.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.1.mlp.0.weight",
+        "target": "stages.2.blocks.1.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.1.mlp.3.bias",
+        "target": "stages.2.blocks.1.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.1.mlp.3.weight",
+        "target": "stages.2.blocks.1.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.1.norm1.bias",
+        "target": "stages.2.blocks.1.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.1.norm1.weight",
+        "target": "stages.2.blocks.1.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.1.norm2.bias",
+        "target": "stages.2.blocks.1.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.1.norm2.weight",
+        "target": "stages.2.blocks.1.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.10.attn.proj.bias",
+        "target": "stages.2.blocks.10.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.10.attn.proj.weight",
+        "target": "stages.2.blocks.10.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.10.attn.qkv.bias",
+        "target": "stages.2.blocks.10.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.10.attn.qkv.weight",
+        "target": "stages.2.blocks.10.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.10.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.10.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.10.attn.relative_position_index",
+        "target": "stages.2.blocks.10.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.10.mlp.0.bias",
+        "target": "stages.2.blocks.10.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.10.mlp.0.weight",
+        "target": "stages.2.blocks.10.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.10.mlp.3.bias",
+        "target": "stages.2.blocks.10.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.10.mlp.3.weight",
+        "target": "stages.2.blocks.10.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.10.norm1.bias",
+        "target": "stages.2.blocks.10.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.10.norm1.weight",
+        "target": "stages.2.blocks.10.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.10.norm2.bias",
+        "target": "stages.2.blocks.10.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.10.norm2.weight",
+        "target": "stages.2.blocks.10.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.11.attn.proj.bias",
+        "target": "stages.2.blocks.11.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.11.attn.proj.weight",
+        "target": "stages.2.blocks.11.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.11.attn.qkv.bias",
+        "target": "stages.2.blocks.11.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.11.attn.qkv.weight",
+        "target": "stages.2.blocks.11.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.11.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.11.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.11.attn.relative_position_index",
+        "target": "stages.2.blocks.11.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.11.mlp.0.bias",
+        "target": "stages.2.blocks.11.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.11.mlp.0.weight",
+        "target": "stages.2.blocks.11.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.11.mlp.3.bias",
+        "target": "stages.2.blocks.11.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.11.mlp.3.weight",
+        "target": "stages.2.blocks.11.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.11.norm1.bias",
+        "target": "stages.2.blocks.11.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.11.norm1.weight",
+        "target": "stages.2.blocks.11.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.11.norm2.bias",
+        "target": "stages.2.blocks.11.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.11.norm2.weight",
+        "target": "stages.2.blocks.11.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.12.attn.proj.bias",
+        "target": "stages.2.blocks.12.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.12.attn.proj.weight",
+        "target": "stages.2.blocks.12.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.12.attn.qkv.bias",
+        "target": "stages.2.blocks.12.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.12.attn.qkv.weight",
+        "target": "stages.2.blocks.12.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.12.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.12.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.12.attn.relative_position_index",
+        "target": "stages.2.blocks.12.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.12.mlp.0.bias",
+        "target": "stages.2.blocks.12.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.12.mlp.0.weight",
+        "target": "stages.2.blocks.12.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.12.mlp.3.bias",
+        "target": "stages.2.blocks.12.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.12.mlp.3.weight",
+        "target": "stages.2.blocks.12.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.12.norm1.bias",
+        "target": "stages.2.blocks.12.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.12.norm1.weight",
+        "target": "stages.2.blocks.12.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.12.norm2.bias",
+        "target": "stages.2.blocks.12.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.12.norm2.weight",
+        "target": "stages.2.blocks.12.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.13.attn.proj.bias",
+        "target": "stages.2.blocks.13.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.13.attn.proj.weight",
+        "target": "stages.2.blocks.13.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.13.attn.qkv.bias",
+        "target": "stages.2.blocks.13.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.13.attn.qkv.weight",
+        "target": "stages.2.blocks.13.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.13.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.13.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.13.attn.relative_position_index",
+        "target": "stages.2.blocks.13.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.13.mlp.0.bias",
+        "target": "stages.2.blocks.13.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.13.mlp.0.weight",
+        "target": "stages.2.blocks.13.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.13.mlp.3.bias",
+        "target": "stages.2.blocks.13.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.13.mlp.3.weight",
+        "target": "stages.2.blocks.13.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.13.norm1.bias",
+        "target": "stages.2.blocks.13.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.13.norm1.weight",
+        "target": "stages.2.blocks.13.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.13.norm2.bias",
+        "target": "stages.2.blocks.13.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.13.norm2.weight",
+        "target": "stages.2.blocks.13.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.14.attn.proj.bias",
+        "target": "stages.2.blocks.14.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.14.attn.proj.weight",
+        "target": "stages.2.blocks.14.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.14.attn.qkv.bias",
+        "target": "stages.2.blocks.14.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.14.attn.qkv.weight",
+        "target": "stages.2.blocks.14.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.14.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.14.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.14.attn.relative_position_index",
+        "target": "stages.2.blocks.14.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.14.mlp.0.bias",
+        "target": "stages.2.blocks.14.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.14.mlp.0.weight",
+        "target": "stages.2.blocks.14.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.14.mlp.3.bias",
+        "target": "stages.2.blocks.14.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.14.mlp.3.weight",
+        "target": "stages.2.blocks.14.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.14.norm1.bias",
+        "target": "stages.2.blocks.14.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.14.norm1.weight",
+        "target": "stages.2.blocks.14.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.14.norm2.bias",
+        "target": "stages.2.blocks.14.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.14.norm2.weight",
+        "target": "stages.2.blocks.14.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.15.attn.proj.bias",
+        "target": "stages.2.blocks.15.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.15.attn.proj.weight",
+        "target": "stages.2.blocks.15.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.15.attn.qkv.bias",
+        "target": "stages.2.blocks.15.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.15.attn.qkv.weight",
+        "target": "stages.2.blocks.15.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.15.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.15.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.15.attn.relative_position_index",
+        "target": "stages.2.blocks.15.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.15.mlp.0.bias",
+        "target": "stages.2.blocks.15.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.15.mlp.0.weight",
+        "target": "stages.2.blocks.15.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.15.mlp.3.bias",
+        "target": "stages.2.blocks.15.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.15.mlp.3.weight",
+        "target": "stages.2.blocks.15.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.15.norm1.bias",
+        "target": "stages.2.blocks.15.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.15.norm1.weight",
+        "target": "stages.2.blocks.15.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.15.norm2.bias",
+        "target": "stages.2.blocks.15.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.15.norm2.weight",
+        "target": "stages.2.blocks.15.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.16.attn.proj.bias",
+        "target": "stages.2.blocks.16.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.16.attn.proj.weight",
+        "target": "stages.2.blocks.16.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.16.attn.qkv.bias",
+        "target": "stages.2.blocks.16.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.16.attn.qkv.weight",
+        "target": "stages.2.blocks.16.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.16.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.16.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.16.attn.relative_position_index",
+        "target": "stages.2.blocks.16.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.16.mlp.0.bias",
+        "target": "stages.2.blocks.16.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.16.mlp.0.weight",
+        "target": "stages.2.blocks.16.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.16.mlp.3.bias",
+        "target": "stages.2.blocks.16.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.16.mlp.3.weight",
+        "target": "stages.2.blocks.16.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.16.norm1.bias",
+        "target": "stages.2.blocks.16.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.16.norm1.weight",
+        "target": "stages.2.blocks.16.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.16.norm2.bias",
+        "target": "stages.2.blocks.16.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.16.norm2.weight",
+        "target": "stages.2.blocks.16.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.17.attn.proj.bias",
+        "target": "stages.2.blocks.17.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.17.attn.proj.weight",
+        "target": "stages.2.blocks.17.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.17.attn.qkv.bias",
+        "target": "stages.2.blocks.17.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.17.attn.qkv.weight",
+        "target": "stages.2.blocks.17.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.17.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.17.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.17.attn.relative_position_index",
+        "target": "stages.2.blocks.17.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.17.mlp.0.bias",
+        "target": "stages.2.blocks.17.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.17.mlp.0.weight",
+        "target": "stages.2.blocks.17.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.17.mlp.3.bias",
+        "target": "stages.2.blocks.17.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.17.mlp.3.weight",
+        "target": "stages.2.blocks.17.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.17.norm1.bias",
+        "target": "stages.2.blocks.17.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.17.norm1.weight",
+        "target": "stages.2.blocks.17.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.17.norm2.bias",
+        "target": "stages.2.blocks.17.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.17.norm2.weight",
+        "target": "stages.2.blocks.17.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.2.attn.proj.bias",
+        "target": "stages.2.blocks.2.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.2.attn.proj.weight",
+        "target": "stages.2.blocks.2.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.2.attn.qkv.bias",
+        "target": "stages.2.blocks.2.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.2.attn.qkv.weight",
+        "target": "stages.2.blocks.2.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.2.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.2.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.2.attn.relative_position_index",
+        "target": "stages.2.blocks.2.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.2.mlp.0.bias",
+        "target": "stages.2.blocks.2.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.2.mlp.0.weight",
+        "target": "stages.2.blocks.2.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.2.mlp.3.bias",
+        "target": "stages.2.blocks.2.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.2.mlp.3.weight",
+        "target": "stages.2.blocks.2.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.2.norm1.bias",
+        "target": "stages.2.blocks.2.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.2.norm1.weight",
+        "target": "stages.2.blocks.2.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.2.norm2.bias",
+        "target": "stages.2.blocks.2.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.2.norm2.weight",
+        "target": "stages.2.blocks.2.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.3.attn.proj.bias",
+        "target": "stages.2.blocks.3.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.3.attn.proj.weight",
+        "target": "stages.2.blocks.3.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.3.attn.qkv.bias",
+        "target": "stages.2.blocks.3.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.3.attn.qkv.weight",
+        "target": "stages.2.blocks.3.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.3.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.3.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.3.attn.relative_position_index",
+        "target": "stages.2.blocks.3.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.3.mlp.0.bias",
+        "target": "stages.2.blocks.3.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.3.mlp.0.weight",
+        "target": "stages.2.blocks.3.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.3.mlp.3.bias",
+        "target": "stages.2.blocks.3.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.3.mlp.3.weight",
+        "target": "stages.2.blocks.3.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.3.norm1.bias",
+        "target": "stages.2.blocks.3.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.3.norm1.weight",
+        "target": "stages.2.blocks.3.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.3.norm2.bias",
+        "target": "stages.2.blocks.3.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.3.norm2.weight",
+        "target": "stages.2.blocks.3.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.4.attn.proj.bias",
+        "target": "stages.2.blocks.4.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.4.attn.proj.weight",
+        "target": "stages.2.blocks.4.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.4.attn.qkv.bias",
+        "target": "stages.2.blocks.4.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.4.attn.qkv.weight",
+        "target": "stages.2.blocks.4.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.4.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.4.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.4.attn.relative_position_index",
+        "target": "stages.2.blocks.4.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.4.mlp.0.bias",
+        "target": "stages.2.blocks.4.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.4.mlp.0.weight",
+        "target": "stages.2.blocks.4.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.4.mlp.3.bias",
+        "target": "stages.2.blocks.4.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.4.mlp.3.weight",
+        "target": "stages.2.blocks.4.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.4.norm1.bias",
+        "target": "stages.2.blocks.4.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.4.norm1.weight",
+        "target": "stages.2.blocks.4.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.4.norm2.bias",
+        "target": "stages.2.blocks.4.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.4.norm2.weight",
+        "target": "stages.2.blocks.4.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.5.attn.proj.bias",
+        "target": "stages.2.blocks.5.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.5.attn.proj.weight",
+        "target": "stages.2.blocks.5.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.5.attn.qkv.bias",
+        "target": "stages.2.blocks.5.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.5.attn.qkv.weight",
+        "target": "stages.2.blocks.5.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.5.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.5.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.5.attn.relative_position_index",
+        "target": "stages.2.blocks.5.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.5.mlp.0.bias",
+        "target": "stages.2.blocks.5.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.5.mlp.0.weight",
+        "target": "stages.2.blocks.5.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.5.mlp.3.bias",
+        "target": "stages.2.blocks.5.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.5.mlp.3.weight",
+        "target": "stages.2.blocks.5.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.5.norm1.bias",
+        "target": "stages.2.blocks.5.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.5.norm1.weight",
+        "target": "stages.2.blocks.5.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.5.norm2.bias",
+        "target": "stages.2.blocks.5.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.5.norm2.weight",
+        "target": "stages.2.blocks.5.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.6.attn.proj.bias",
+        "target": "stages.2.blocks.6.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.6.attn.proj.weight",
+        "target": "stages.2.blocks.6.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.6.attn.qkv.bias",
+        "target": "stages.2.blocks.6.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.6.attn.qkv.weight",
+        "target": "stages.2.blocks.6.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.6.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.6.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.6.attn.relative_position_index",
+        "target": "stages.2.blocks.6.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.6.mlp.0.bias",
+        "target": "stages.2.blocks.6.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.6.mlp.0.weight",
+        "target": "stages.2.blocks.6.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.6.mlp.3.bias",
+        "target": "stages.2.blocks.6.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.6.mlp.3.weight",
+        "target": "stages.2.blocks.6.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.6.norm1.bias",
+        "target": "stages.2.blocks.6.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.6.norm1.weight",
+        "target": "stages.2.blocks.6.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.6.norm2.bias",
+        "target": "stages.2.blocks.6.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.6.norm2.weight",
+        "target": "stages.2.blocks.6.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.7.attn.proj.bias",
+        "target": "stages.2.blocks.7.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.7.attn.proj.weight",
+        "target": "stages.2.blocks.7.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.7.attn.qkv.bias",
+        "target": "stages.2.blocks.7.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.7.attn.qkv.weight",
+        "target": "stages.2.blocks.7.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.7.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.7.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.7.attn.relative_position_index",
+        "target": "stages.2.blocks.7.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.7.mlp.0.bias",
+        "target": "stages.2.blocks.7.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.7.mlp.0.weight",
+        "target": "stages.2.blocks.7.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.7.mlp.3.bias",
+        "target": "stages.2.blocks.7.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.7.mlp.3.weight",
+        "target": "stages.2.blocks.7.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.7.norm1.bias",
+        "target": "stages.2.blocks.7.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.7.norm1.weight",
+        "target": "stages.2.blocks.7.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.7.norm2.bias",
+        "target": "stages.2.blocks.7.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.7.norm2.weight",
+        "target": "stages.2.blocks.7.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.8.attn.proj.bias",
+        "target": "stages.2.blocks.8.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.8.attn.proj.weight",
+        "target": "stages.2.blocks.8.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.8.attn.qkv.bias",
+        "target": "stages.2.blocks.8.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.8.attn.qkv.weight",
+        "target": "stages.2.blocks.8.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.8.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.8.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.8.attn.relative_position_index",
+        "target": "stages.2.blocks.8.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.8.mlp.0.bias",
+        "target": "stages.2.blocks.8.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.8.mlp.0.weight",
+        "target": "stages.2.blocks.8.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.8.mlp.3.bias",
+        "target": "stages.2.blocks.8.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.8.mlp.3.weight",
+        "target": "stages.2.blocks.8.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.8.norm1.bias",
+        "target": "stages.2.blocks.8.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.8.norm1.weight",
+        "target": "stages.2.blocks.8.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.8.norm2.bias",
+        "target": "stages.2.blocks.8.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.8.norm2.weight",
+        "target": "stages.2.blocks.8.norm2.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.9.attn.proj.bias",
+        "target": "stages.2.blocks.9.attn.proj.bias"
+      },
+      {
+        "numel": 262144,
+        "source": "features.5.9.attn.proj.weight",
+        "target": "stages.2.blocks.9.attn.proj.weight"
+      },
+      {
+        "numel": 1536,
+        "source": "features.5.9.attn.qkv.bias",
+        "target": "stages.2.blocks.9.attn.qkv.bias"
+      },
+      {
+        "numel": 786432,
+        "source": "features.5.9.attn.qkv.weight",
+        "target": "stages.2.blocks.9.attn.qkv.weight"
+      },
+      {
+        "numel": 2704,
+        "source": "features.5.9.attn.relative_position_bias_table",
+        "target": "stages.2.blocks.9.attn.relative_position_bias_table"
+      },
+      {
+        "numel": 2401,
+        "source": "features.5.9.attn.relative_position_index",
+        "target": "stages.2.blocks.9.attn.relative_position_index"
+      },
+      {
+        "numel": 2048,
+        "source": "features.5.9.mlp.0.bias",
+        "target": "stages.2.blocks.9.mlp.0.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.9.mlp.0.weight",
+        "target": "stages.2.blocks.9.mlp.0.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.9.mlp.3.bias",
+        "target": "stages.2.blocks.9.mlp.3.bias"
+      },
+      {
+        "numel": 1048576,
+        "source": "features.5.9.mlp.3.weight",
+        "target": "stages.2.blocks.9.mlp.3.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.9.norm1.bias",
+        "target": "stages.2.blocks.9.norm1.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.9.norm1.weight",
+        "target": "stages.2.blocks.9.norm1.weight"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.9.norm2.bias",
+        "target": "stages.2.blocks.9.norm2.bias"
+      },
+      {
+        "numel": 512,
+        "source": "features.5.9.norm2.weight",
+        "target": "stages.2.blocks.9.norm2.weight"
+      }
+    ],
+    "missing": [],
+    "mode": "applied",
+    "nonfinite": [],
+    "schema_version": "hgtnet-pretrained-audit-v1",
+    "shape_mismatch": [],
+    "source": {
+      "bytes": 351654207,
+      "is_original_hgtnet_weights": false,
+      "kind": "torchvision.Swin_B_Weights.IMAGENET1K_V1",
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.pth",
+      "sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893",
+      "url": "https://download.pytorch.org/models/swin_b-68c6b09e.pth"
+    },
+    "source_identity_verified": true,
+    "source_intentionally_skipped": [
+      "features.6.norm.bias",
+      "features.6.norm.weight",
+      "features.6.reduction.weight",
+      "features.7.0.attn.proj.bias",
+      "features.7.0.attn.proj.weight",
+      "features.7.0.attn.qkv.bias",
+      "features.7.0.attn.qkv.weight",
+      "features.7.0.attn.relative_position_bias_table",
+      "features.7.0.attn.relative_position_index",
+      "features.7.0.mlp.0.bias",
+      "features.7.0.mlp.0.weight",
+      "features.7.0.mlp.3.bias",
+      "features.7.0.mlp.3.weight",
+      "features.7.0.norm1.bias",
+      "features.7.0.norm1.weight",
+      "features.7.0.norm2.bias",
+      "features.7.0.norm2.weight",
+      "features.7.1.attn.proj.bias",
+      "features.7.1.attn.proj.weight",
+      "features.7.1.attn.qkv.bias",
+      "features.7.1.attn.qkv.weight",
+      "features.7.1.attn.relative_position_bias_table",
+      "features.7.1.attn.relative_position_index",
+      "features.7.1.mlp.0.bias",
+      "features.7.1.mlp.0.weight",
+      "features.7.1.mlp.3.bias",
+      "features.7.1.mlp.3.weight",
+      "features.7.1.norm1.bias",
+      "features.7.1.norm1.weight",
+      "features.7.1.norm2.bias",
+      "features.7.1.norm2.weight",
+      "head.bias",
+      "head.weight",
+      "norm.bias",
+      "norm.weight"
+    ],
+    "source_validation": {
+      "all_values_finite": true,
+      "complete_schema": true,
+      "schema_source": "installed torchvision.models.swin_b(weights=None) on meta",
+      "source_numel": 87825848,
+      "source_tensors": 353
+    },
+    "unexpected": []
+  },
+  "scope": "Two generated Tensor inputs, one real CPU update, full30-class HGTNet and actual candidate initialization; no AID image or GPU measurement.",
+  "source_identity": {
+    "configs/hgtnet_aid_independent_v0.json": "fa79d79aeb3417ea20ec63124455d250d13c4bf0a12a4cdc2a366ccc21f4b1d1",
+    "external_baselines/__init__.py": "3e758420ecf381f2b3f83df1761bcfcbc7c3276e82254d979a24883592536a7f",
+    "external_baselines/hgtnet/__init__.py": "fe58f2557e28226d7b063d647693c93aa5686edd970db854f3319bc99bd34046",
+    "external_baselines/hgtnet/aid_data.py": "5fdc086cb0512086f93189955f8bda274fd6a9332a2c54afbda911881147d0f8",
+    "external_baselines/hgtnet/aid_engine.py": "bedf4f592fcd3b968ea6641a0ae82353292172a09dbd5f3bff713cace17cc848",
+    "external_baselines/hgtnet/aid_entry.py": "4352dba37cb96a6726db489e535dea95d8d74e97909644a2f7464fbdaa13204e",
+    "external_baselines/hgtnet/attention.py": "de24aa15ef75428d0298622550b09abafb3d95735ca7e8592833a0d662dd6092",
+    "external_baselines/hgtnet/checkpoint.py": "bb8ecf96ae990be9930c8456b3655f250f5be09bc1e4207c390b3675b943129a",
+    "external_baselines/hgtnet/config.py": "ec15d152c82622100bcf94bbe252a61f572090364c2859c9dd967acdb0f0af32",
+    "external_baselines/hgtnet/graph.py": "2fb54633aa8dc9401a493cef6f20bd3f41d52bc4009548ef43fa368df31bb564",
+    "external_baselines/hgtnet/model.py": "c64a231a32d4e5c7fa57fc6110c9c9d54819e85ba85b8e6b2293684ab6798df6",
+    "external_baselines/hgtnet/nwpu_engine.py": "5cfbb03e08d935323bc0f18c7b957515dad5a8d637d0d71f6ebc6e996b5368f3",
+    "external_baselines/hgtnet/pretrained.py": "75d3018ee44b7faef68a7a689203a66d29d601fe7fa542fb5738f8b1dbbae47e",
+    "external_baselines/hgtnet/resources.py": "dbd1a61a4088fae6066e8b02f94204335febcdbc277a39b534f1bbcf8cfaee47",
+    "external_baselines/hgtnet/smoke.py": "f38664e87e6eff82e5a3047fc6102d34cbe126cb9e8e07052385823ca8129e5f",
+    "tools/inspect_hgtnet_aid_inputs.py": "4e3b66b91f115d99d01e39fe168e8cf5dd18503ec8593e45c39dbccfcd0eb7b4",
+    "tools/package_hgtnet_aid_smoke.py": "cade6ecc5a45176067e6ad1c57c95cd378719a6d80be332c77f141562cfd0ed2"
+  },
+  "trace": {
+    "fusion": [
+      2,
+      512
+    ],
+    "graph_indices": [
+      [
+        {
+          "indices_sha256": "4456ede961559c46d742ff7d4fa6fb388e581d211c2067742a8a4683aedabf40",
+          "indices_shape": [
+            2,
+            49,
+            20
+          ],
+          "k": 20,
+          "self_edges": 0
+        },
+        {
+          "indices_sha256": "02b432cabe13c3289d11a7d41d42409230c5876df618878a7b4ccf973decfaab",
+          "indices_shape": [
+            2,
+            49,
+            20
+          ],
+          "k": 20,
+          "self_edges": 0
+        },
+        {
+          "indices_sha256": "0493d579b1c7a56dc7d7c801ebff850d9f0964a0e6c23b0ce087f8eb1c6010b8",
+          "indices_shape": [
+            2,
+            49,
+            20
+          ],
+          "k": 20,
+          "self_edges": 0
+        },
+        {
+          "indices_sha256": "fda2e10fdf920391b8e16a8efb73f34c8efb1cec27677a380d1d582cb10be489",
+          "indices_shape": [
+            2,
+            49,
+            20
+          ],
+          "k": 20,
+          "self_edges": 0
+        },
+        {
+          "indices_sha256": "6f67e592ffe427bb095b55bd08e9412a8f7ca1780753426bd679c5209ff2cfe9",
+          "indices_shape": [
+            2,
+            49,
+            20
+          ],
+          "k": 20,
+          "self_edges": 0
+        },
+        {
+          "indices_sha256": "11c756949cd2013acde8370e42b14d03585d2a5a9ebd952721d48e9e1f148c86",
+          "indices_shape": [
+            2,
+            49,
+            20
+          ],
+          "k": 20,
+          "self_edges": 0
+        }
+      ],
+      [
+        {
+          "indices_sha256": "27c116f392a15a1077509b5fae0c2906f85da4777b6ebe0120c06e2407ed3a86",
+          "indices_shape": [
+            2,
+            25,
+            20
+          ],
+          "k": 20,
+          "self_edges": 0
+        },
+        {
+          "indices_sha256": "69b33cc3b3fb58646af9ae9a22a65ada5cf54f4c47d0598d03ff1bfe038765c2",
+          "indices_shape": [
+            2,
+            25,
+            20
+          ],
+          "k": 20,
+          "self_edges": 0
+        }
+      ]
+    ],
+    "graph_outputs": [
+      [
+        2,
+        256,
+        7,
+        7
+      ],
+      [
+        2,
+        512,
+        5,
+        5
+      ]
+    ],
+    "input": [
+      2,
+      3,
+      224,
+      224
+    ],
+    "logits": [
+      2,
+      30
+    ],
+    "patch": [
+      2,
+      128,
+      56,
+      56
+    ],
+    "stage_outputs": [
+      [
+        2,
+        256,
+        28,
+        28
+      ],
+      [
+        2,
+        512,
+        14,
+        14
+      ],
+      [
+        2,
+        512,
+        7,
+        7
+      ]
+    ]
+  },
+  "wall_seconds": 2.4652054999023676
+}

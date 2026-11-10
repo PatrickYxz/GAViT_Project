@@ -1,0 +1,12 @@
+[
+  {
+    "epoch": 1,
+    "optimizer_steps": 2,
+    "train_accuracy_percent": 0.0,
+    "train_images_per_second": 2.287825840626544,
+    "train_loss": 5.139927625656128,
+    "train_seconds": 1.7483848328702152,
+    "val_loss": 2.1160054206848145,
+    "validation_seconds": 0.1763691669330001
+  }
+]

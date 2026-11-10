@@ -1,0 +1,9 @@
+{
+  "local_links_checked": 35,
+  "source_bundle_and_review_hashes_match": true,
+  "protected_inputs_unchanged": 21,
+  "legacy_metric_files_unchanged": 19,
+  "legacy_entrypoint_files_unchanged": 12,
+  "all_json_parse": true,
+  "remote_formal_training_started": false
+}

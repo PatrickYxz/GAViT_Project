@@ -1,0 +1,2 @@
+init f 8.000e-01 |g| 8.907e-01
+iter  1 f 5.598e-01 |g| 2.010e-04 CG   3 step_size 1.00e+00 

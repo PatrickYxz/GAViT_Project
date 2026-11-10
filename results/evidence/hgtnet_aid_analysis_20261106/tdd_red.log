@@ -1,0 +1,90 @@
+test_metric_reconstruction_rejects_invalid_or_truncated_predictions (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_metric_reconstruction_rejects_invalid_or_truncated_predictions) ... 
+  test_metric_reconstruction_rejects_invalid_or_truncated_predictions (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_metric_reconstruction_rejects_invalid_or_truncated_predictions) (labels=[0, 1], predictions=[0]) ... FAIL
+  test_metric_reconstruction_rejects_invalid_or_truncated_predictions (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_metric_reconstruction_rejects_invalid_or_truncated_predictions) (labels=[0], predictions=[True]) ... FAIL
+  test_metric_reconstruction_rejects_invalid_or_truncated_predictions (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_metric_reconstruction_rejects_invalid_or_truncated_predictions) (labels=[0], predictions=[2]) ... FAIL
+  test_metric_reconstruction_rejects_invalid_or_truncated_predictions (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_metric_reconstruction_rejects_invalid_or_truncated_predictions) (labels=[], predictions=[]) ... FAIL
+test_metrics_keep_zero_support_class_in_macro_average (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_metrics_keep_zero_support_class_in_macro_average) ... FAIL
+test_prediction_order_and_labels_must_equal_original_manifest (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_prediction_order_and_labels_must_equal_original_manifest) ... FAIL
+test_validation_ties_select_earliest_epoch_and_require_complete_order (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_validation_ties_select_earliest_epoch_and_require_complete_order) ... FAIL
+
+======================================================================
+FAIL: test_metric_reconstruction_rejects_invalid_or_truncated_predictions (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_metric_reconstruction_rejects_invalid_or_truncated_predictions) (labels=[0, 1], predictions=[0])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_results_analysis.py", line 58, in test_metric_reconstruction_rejects_invalid_or_truncated_predictions
+    api().reconstruct_metrics(labels, predictions, ['a', 'b'])
+    ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_results_analysis.py", line 11, in api
+    raise AssertionError('offline AID analysis entry is not implemented')
+AssertionError: offline AID analysis entry is not implemented
+
+======================================================================
+FAIL: test_metric_reconstruction_rejects_invalid_or_truncated_predictions (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_metric_reconstruction_rejects_invalid_or_truncated_predictions) (labels=[0], predictions=[True])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_results_analysis.py", line 58, in test_metric_reconstruction_rejects_invalid_or_truncated_predictions
+    api().reconstruct_metrics(labels, predictions, ['a', 'b'])
+    ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_results_analysis.py", line 11, in api
+    raise AssertionError('offline AID analysis entry is not implemented')
+AssertionError: offline AID analysis entry is not implemented
+
+======================================================================
+FAIL: test_metric_reconstruction_rejects_invalid_or_truncated_predictions (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_metric_reconstruction_rejects_invalid_or_truncated_predictions) (labels=[0], predictions=[2])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_results_analysis.py", line 58, in test_metric_reconstruction_rejects_invalid_or_truncated_predictions
+    api().reconstruct_metrics(labels, predictions, ['a', 'b'])
+    ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_results_analysis.py", line 11, in api
+    raise AssertionError('offline AID analysis entry is not implemented')
+AssertionError: offline AID analysis entry is not implemented
+
+======================================================================
+FAIL: test_metric_reconstruction_rejects_invalid_or_truncated_predictions (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_metric_reconstruction_rejects_invalid_or_truncated_predictions) (labels=[], predictions=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_results_analysis.py", line 58, in test_metric_reconstruction_rejects_invalid_or_truncated_predictions
+    api().reconstruct_metrics(labels, predictions, ['a', 'b'])
+    ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_results_analysis.py", line 11, in api
+    raise AssertionError('offline AID analysis entry is not implemented')
+AssertionError: offline AID analysis entry is not implemented
+
+======================================================================
+FAIL: test_metrics_keep_zero_support_class_in_macro_average (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_metrics_keep_zero_support_class_in_macro_average)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_results_analysis.py", line 21, in test_metrics_keep_zero_support_class_in_macro_average
+    result = api().reconstruct_metrics([0, 0, 1], [0, 1, 1], ['a', 'b', 'c'])
+             ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_results_analysis.py", line 11, in api
+    raise AssertionError('offline AID analysis entry is not implemented')
+AssertionError: offline AID analysis entry is not implemented
+
+======================================================================
+FAIL: test_prediction_order_and_labels_must_equal_original_manifest (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_prediction_order_and_labels_must_equal_original_manifest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_results_analysis.py", line 38, in test_prediction_order_and_labels_must_equal_original_manifest
+    rows = api().validate_predictions(packet, manifest, 'test')
+           ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_results_analysis.py", line 11, in api
+    raise AssertionError('offline AID analysis entry is not implemented')
+AssertionError: offline AID analysis entry is not implemented
+
+======================================================================
+FAIL: test_validation_ties_select_earliest_epoch_and_require_complete_order (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_validation_ties_select_earliest_epoch_and_require_complete_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_results_analysis.py", line 64, in test_validation_ties_select_earliest_epoch_and_require_complete_order
+    self.assertEqual(api().earliest_best_epoch(history), 2)
+                     ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_results_analysis.py", line 11, in api
+    raise AssertionError('offline AID analysis entry is not implemented')
+AssertionError: offline AID analysis entry is not implemented
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=7)

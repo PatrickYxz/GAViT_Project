@@ -1,0 +1,47 @@
+{
+  "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest tests.test_dfagcn_delivery -v",
+  "extra_members_green": {
+    "failures": 0,
+    "log": "green.log",
+    "seconds": 1.242,
+    "tests": 14
+  },
+  "extra_members_red": {
+    "failures": 4,
+    "log": "red.log",
+    "tests": 14
+  },
+  "final_green": {
+    "failures": 0,
+    "log": "status_green.log",
+    "seconds": 1.273,
+    "tests": 15
+  },
+  "final_package_built": false,
+  "immutable_artifacts": {
+    "output/dfagcn_gpu_probe_3080_20261030.pyz": {
+      "bytes": 133564,
+      "sha256": "0d8ff18b2ecc9cd4903eb6c4833d3757b7c4e27605e0ac18d936b9158a7eac21"
+    },
+    "output/dfagcn_nwpu_smoke_20261029.pyz": {
+      "bytes": 134156,
+      "sha256": "f7ff678be35517aca7edc3a181862a56d739cc0be1a7496a5c63dac4b269daca"
+    }
+  },
+  "intermediate_test_assertion_correction": {
+    "cause": "Expected obsolete error wording; implementation correctly rejected changed helper. Assertion now checks changed and helper path.",
+    "log": "green_attempt_01.log"
+  },
+  "modified_sources": {
+    "tests/test_dfagcn_delivery.py": "cae56d5aab2b109beec3595d18ca210c2e564888c8ff405b189b4ed5b7a0e0b7",
+    "tools/package_dfagcn_nwpu_smoke.py": "b5f6a52144bdbb8e8e93d8f31eab198c2942f544e1313c89e2c147d530023de7"
+  },
+  "old_bundle_bytes_unchanged": true,
+  "status": "passed",
+  "status_red": {
+    "failures": 1,
+    "log": "status_red.log",
+    "tests": 1
+  },
+  "whitespace_check": "passed"
+}

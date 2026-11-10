@@ -1,0 +1,89 @@
+{
+  "bundle_id": "cc25746e7cc34705a454bf472938d2b7ad0db30b895c4ffb5d4485d1573285e9",
+  "bytes": 63235,
+  "manifest": {
+    "bootstrap_sha256": "cade6ecc5a45176067e6ad1c57c95cd378719a6d80be332c77f141562cfd0ed2",
+    "bundle_id": "cc25746e7cc34705a454bf472938d2b7ad0db30b895c4ffb5d4485d1573285e9",
+    "compiled_binaries_included": false,
+    "files": {
+      "bundled_weights_provenance.json": {
+        "bytes": 310,
+        "sha256": "d139fa9f3171d86f193b607d8a601019a695e7fe1ff3b92b6a736e761b7e4305"
+      },
+      "configs/hgtnet_aid_independent_v0.json": {
+        "bytes": 2854,
+        "sha256": "fa79d79aeb3417ea20ec63124455d250d13c4bf0a12a4cdc2a366ccc21f4b1d1"
+      },
+      "external_baselines/__init__.py": {
+        "bytes": 75,
+        "sha256": "3e758420ecf381f2b3f83df1761bcfcbc7c3276e82254d979a24883592536a7f"
+      },
+      "external_baselines/hgtnet/__init__.py": {
+        "bytes": 84,
+        "sha256": "fe58f2557e28226d7b063d647693c93aa5686edd970db854f3319bc99bd34046"
+      },
+      "external_baselines/hgtnet/aid_data.py": {
+        "bytes": 7254,
+        "sha256": "5fdc086cb0512086f93189955f8bda274fd6a9332a2c54afbda911881147d0f8"
+      },
+      "external_baselines/hgtnet/aid_engine.py": {
+        "bytes": 19720,
+        "sha256": "bedf4f592fcd3b968ea6641a0ae82353292172a09dbd5f3bff713cace17cc848"
+      },
+      "external_baselines/hgtnet/aid_entry.py": {
+        "bytes": 34840,
+        "sha256": "22acb01983492526e6a24bdb2acf303cd077f8023242b3125a2bf3f7708c39d7"
+      },
+      "external_baselines/hgtnet/attention.py": {
+        "bytes": 9475,
+        "sha256": "de24aa15ef75428d0298622550b09abafb3d95735ca7e8592833a0d662dd6092"
+      },
+      "external_baselines/hgtnet/checkpoint.py": {
+        "bytes": 8827,
+        "sha256": "bb8ecf96ae990be9930c8456b3655f250f5be09bc1e4207c390b3675b943129a"
+      },
+      "external_baselines/hgtnet/config.py": {
+        "bytes": 3524,
+        "sha256": "ec15d152c82622100bcf94bbe252a61f572090364c2859c9dd967acdb0f0af32"
+      },
+      "external_baselines/hgtnet/graph.py": {
+        "bytes": 9106,
+        "sha256": "2fb54633aa8dc9401a493cef6f20bd3f41d52bc4009548ef43fa368df31bb564"
+      },
+      "external_baselines/hgtnet/model.py": {
+        "bytes": 6950,
+        "sha256": "c64a231a32d4e5c7fa57fc6110c9c9d54819e85ba85b8e6b2293684ab6798df6"
+      },
+      "external_baselines/hgtnet/nwpu_engine.py": {
+        "bytes": 14075,
+        "sha256": "5cfbb03e08d935323bc0f18c7b957515dad5a8d637d0d71f6ebc6e996b5368f3"
+      },
+      "external_baselines/hgtnet/pretrained.py": {
+        "bytes": 12803,
+        "sha256": "75d3018ee44b7faef68a7a689203a66d29d601fe7fa542fb5738f8b1dbbae47e"
+      },
+      "external_baselines/hgtnet/resources.py": {
+        "bytes": 10742,
+        "sha256": "dbd1a61a4088fae6066e8b02f94204335febcdbc277a39b534f1bbcf8cfaee47"
+      },
+      "external_baselines/hgtnet/smoke.py": {
+        "bytes": 11085,
+        "sha256": "f38664e87e6eff82e5a3047fc6102d34cbe126cb9e8e07052385823ca8129e5f"
+      },
+      "tools/inspect_hgtnet_aid_inputs.py": {
+        "bytes": 18930,
+        "sha256": "4e3b66b91f115d99d01e39fe168e8cf5dd18503ec8593e45c39dbccfcd0eb7b4"
+      },
+      "tools/package_hgtnet_aid_smoke.py": {
+        "bytes": 9562,
+        "sha256": "cade6ecc5a45176067e6ad1c57c95cd378719a6d80be332c77f141562cfd0ed2"
+      }
+    },
+    "runner": "external_baselines/hgtnet/aid_entry.py",
+    "schema": "hgtnet-aid-delivery-v1",
+    "target_gpu": "3060",
+    "weight_file_included": false
+  },
+  "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_aid_smoke_prepare_20261104/entry_delivery/p2_stdlib_delivery_fixture.pyz",
+  "sha256": "a70b6fbf038aa82daac9398b1d75c057d37b4fe3bf18167604b95d6f6a9d3961"
+}

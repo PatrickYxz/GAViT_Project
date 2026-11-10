@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-28",
+  "command": "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest discover -s tests -p test_dfagcn_features.py -v",
+  "red": {
+    "exit_code": 1,
+    "test_methods": 13,
+    "failures_including_subtests": 25,
+    "reason": "Feature implementation absent; ModuleNotFoundError converted to assertion failure; no collection errors"
+  },
+  "green": {
+    "exit_code": 0,
+    "test_methods": 13,
+    "reported_elapsed_seconds": 0.965,
+    "failures": 0
+  },
+  "runtime": {
+    "python": "3.12.13",
+    "torch": "2.2.2",
+    "torchvision": "0.17.2",
+    "numpy": "1.26.4",
+    "device": "CPU plus meta shape checks"
+  },
+  "verified": [
+    "complete untrained standard torchvision VGG16 meta shape path for both inputs",
+    "real CPU convolutional pre-ReLU negative values survive later inplace ReLU",
+    "CPU convolution state_dict save/load preserves outputs",
+    "eval/no_grad extraction and caller parameter requires_grad flags",
+    "invalid inputs and incompatible VGG16-D layouts rejected"
+  ],
+  "not_verified": [
+    "FC6 numerical CPU execution",
+    "MatConvNet pretrained checkpoint conversion or numerical parity",
+    "preprocessing parity",
+    "trained features or dataset accuracy",
+    "complete DFAGCN architecture and training"
+  ],
+  "sha256": {
+    "external_baselines/dfagcn/features.py": "2bdf43f7ff78504b9ee5823e00e48092bde890f460ab64c7337fafd94b9553f1",
+    "tests/test_dfagcn_features.py": "4b3f89f4519413c5124cb231c167e1c92bc9574677540dff4444a611d89fddcb",
+    "results/evidence/dfagcn_primitives_20261028/features/red.log": "b71e6e984e2a19ccaaae97374f2ac55f030e771942faa815dea98a7c9f65f25b",
+    "results/evidence/dfagcn_primitives_20261028/features/green.log": "6ae07028b6de47e0c44f7207d615c8486109eba20aabf5a594534b798f5cdcbc"
+  }
+}

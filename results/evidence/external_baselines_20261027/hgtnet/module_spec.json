@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "checked_date": "2026-10-27",
+  "implementation_name": "HGTNet-independent-reimplementation-v0",
+  "cli_model_candidate": "hgtnet_independent_v0",
+  "official": false,
+  "status": "paper_audit_and_spec_draft_only",
+  "source_url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+  "implemented": false,
+  "model_validation_executed": false,
+  "training_authorized_by_this_audit": false,
+  "paper_confirmed": {
+    "input_shape": "B,3,224,224",
+    "patch_size": 4,
+    "embedding_channels": 128,
+    "da_input_channels": [
+      128,
+      256,
+      512
+    ],
+    "da_preserves_shape": true,
+    "da_branches": "parallel channel and spatial; summed weighted features",
+    "spatial_attention_kernel_sizes": [
+      3,
+      3,
+      3
+    ],
+    "spatial_attention_dilations": [
+      1,
+      2,
+      3
+    ],
+    "stb_count": [
+      1,
+      1,
+      9
+    ],
+    "attention_heads": [
+      4,
+      8,
+      16
+    ],
+    "stage_output_channels": [
+      256,
+      512,
+      512
+    ],
+    "stb_contains": [
+      "W-MSA",
+      "MLP",
+      "SW-MSA",
+      "MLP"
+    ],
+    "vig_group_depths": [
+      6,
+      2
+    ],
+    "neighbors_k": 20,
+    "vig_activation": "GELU",
+    "graph_aggregation": "conflicting mr_max in III-C versus average in IV-B",
+    "optimizer": "Adam",
+    "epochs": 100,
+    "batch_size": 16,
+    "learning_rate": 1e-05,
+    "weight_decay": 5e-05,
+    "loss": "cross_entropy",
+    "pretraining_statement": "partial ImageNet weights; file and mapping unknown",
+    "evaluation_repetitions": 5,
+    "evaluation_metrics": [
+      "OA",
+      "confusion matrix"
+    ],
+    "framework_reported": {
+      "python": "3.8",
+      "pytorch": "1.11.0",
+      "cuda": "11.3",
+      "os": "Ubuntu 20.04",
+      "gpu": "NVIDIA RTX 3090 24 GB"
+    }
+  },
+  "derived_not_direct_paper_numbers": {
+    "patch_embedding_spatial_shape": [
+      56,
+      56
+    ],
+    "attention_block_counts_if_STB_pair_mapping": [
+      2,
+      2,
+      18
+    ],
+    "attention_head_dims_if_pre_downsample_channels": [
+      32,
+      32,
+      32
+    ]
+  },
+  "engineering_candidates_not_author_confirmed": {
+    "da_gate": "sigmoid, following body prose",
+    "da_channel_mlp_reduction": 16,
+    "da_channel_mlp_hidden_activation": "ReLU",
+    "da_spatial_conv_channels": [
+      2,
+      1,
+      1,
+      1
+    ],
+    "da_spatial_conv_padding": [
+      1,
+      2,
+      3
+    ],
+    "da_spatial_intermediate_activation": null,
+    "window_size": 7,
+    "shift_size": 3,
+    "transformer_mlp_ratio": 4,
+    "attention_dropout": 0.0,
+    "mlp_dropout": 0.0,
+    "drop_path": 0.0,
+    "shape_policy": "independent_14_to_7",
+    "shape_policy_explanation": "candidate only: last transformer stage spatial size 14x14; graph groups 14x14 then 7x7",
+    "graph_channels": [
+      256,
+      512
+    ],
+    "dwconv": "depthwise 3x3 plus pointwise 1x1; second reduction stride2 padding1",
+    "graph_operator_primary": "mr_max",
+    "graph_operator_ambiguity_probe": "relative_mean on same relative messages and edges",
+    "fusion_candidate": "gap_sum then linear classifier",
+    "output_num_classes": {
+      "AID": 30,
+      "NWPU-RESISC45": 45
+    }
+  },
+  "unresolved_core": [
+    "original figure 3 spatial resolutions and actual downsample locations",
+    "DWConv widths, kernels, padding and normalization",
+    "mr_max versus average aggregation conflict",
+    "DA Eq4/Eq5 extraction and sigmoid versus GELU symbol inconsistency",
+    "window/shift/relative-position/drop-path and exact STB library mapping",
+    "graph distance, normalization, self-neighbor, dilation and relative position",
+    "skip source, sum versus concat, pooling and classifier",
+    "specific pretrained file, ImageNet variant and per-tensor load mapping",
+    "augmentation, normalization, scheduler, validation and checkpoint selection",
+    "repeat split/seed mechanism and SD formula"
+  ],
+  "shape_constraints_not_paper_dimension_claims": [
+    {
+      "constraint": "N >= k if self included; N >= k+1 if excluded",
+      "k": 20
+    },
+    {
+      "hypothetical_path": "56->28->14->7 then 7->4",
+      "last_N": 16,
+      "valid_for_k20": false,
+      "is_claim_of_author_path": false
+    },
+    {
+      "hypothetical_path": "transformer ends14; graph14->7",
+      "graph_N": [
+        196,
+        49
+      ],
+      "valid_for_k20": true,
+      "is_claim_of_author_path": false
+    }
+  ],
+  "minimum_engineering_checks_planned": [
+    "configuration/shape trace and STB pair count",
+    "DA broadcast, parallel fusion and constant-gate fixture",
+    "hand-computed graph direction, max/mean and batch isolation",
+    "finite forward/backward and gradients in each major module",
+    "save/reload in fresh process and eval logits tolerance",
+    "pretrained identity and per-tensor load coverage",
+    "real small-data smoke only after explicit execution scope and resource authorization"
+  ],
+  "baseline_result_origin_separation": {
+    "literature_file": "reported_results.json",
+    "project_rerun_results": null,
+    "must_not_fill_missing_rerun_from_literature": true
+  }
+}

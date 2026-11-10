@@ -1,0 +1,66 @@
+test_resume_after_partial_pool_recovery_uses_new_attempt_destination (test_hgtnet_formal_entry.FormalEntryTests.test_resume_after_partial_pool_recovery_uses_new_attempt_destination) ... HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 90090, "stage": "first_optimizer_step", "training_started": true}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 238, in run_formal_entry
+    result.update(_run_model(args,torch,runtime,inputs,binding,progress,args.resume))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 74, in fail
+    def fail(a,t,r,i,b,p,resume):self.first(p);raise RuntimeError('fixture later failure')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: fixture later failure
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 224, in run_formal_entry
+    try:DATA.validate_selected(args.data_root,inputs['selected']['pool']);args._pool_root=args.data_root
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_data.py", line 83, in validate_selected
+    rows, root = _records(records), _root(root)
+                                    ^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_data.py", line 70, in _root
+    if root.is_symlink() or not root.is_dir(): raise ValueError('Formal data root must be an actual directory')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Formal data root must be an actual directory
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 226, in run_formal_entry
+    args._pool_root=DATA.recover_selected(args.archive,inputs['selected']['pool'],args.scratch_root/'pool',
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 155, in recover
+    self.assertEqual(Path(destination),a.scratch_root/'pool_attempt_0002')
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/case.py", line 885, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/case.py", line 878, in _baseAssertEqual
+    raise self.failureException(msg)
+AssertionError: Posix[39 chars]5j2k_kvp0tzmrj40000gn/T/tmp763mzhqr/scratch/pool') != Posix[39 chars]5j2k_kvp0tzmrj40000gn/T/tmp763mzhqr/scratch/pool_attempt_0002')
+FAIL
+
+======================================================================
+FAIL: test_resume_after_partial_pool_recovery_uses_new_attempt_destination (test_hgtnet_formal_entry.FormalEntryTests.test_resume_after_partial_pool_recovery_uses_new_attempt_destination)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 161, in test_resume_after_partial_pool_recovery_uses_new_attempt_destination
+    self.assertEqual(m.run_formal_entry(a,resume=True),0)
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 1 test in 5.222s
+
+FAILED (failures=1)

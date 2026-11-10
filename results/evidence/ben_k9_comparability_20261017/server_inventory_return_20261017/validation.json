@@ -1,0 +1,170 @@
+{
+  "scope": "Local parsing and reporting validation of supplied server stdout, not direct server access or model evaluation",
+  "checks": [
+    {
+      "check": "attachment_byte_copy",
+      "passed": true
+    },
+    {
+      "check": "raw_sha",
+      "passed": true
+    },
+    {
+      "check": "inventory_count",
+      "passed": true
+    },
+    {
+      "check": "suffix_counts",
+      "passed": true
+    },
+    {
+      "check": "no_named_candidate",
+      "passed": true
+    },
+    {
+      "check": "text_search_no_matches",
+      "passed": true
+    },
+    {
+      "check": "prepared_commands_retained",
+      "passed": true
+    },
+    {
+      "check": "audit_current_status",
+      "passed": true
+    },
+    {
+      "check": "k9_metrics_remain_missing",
+      "passed": true
+    },
+    {
+      "check": "no_new_execution_claim",
+      "passed": true
+    },
+    {
+      "check": "unchanged_source:results/comparison_table.csv",
+      "passed": true
+    },
+    {
+      "check": "unchanged_source:results/ablation_study.csv",
+      "passed": true
+    },
+    {
+      "check": "unchanged_source:results/bigearth_comparison.csv",
+      "passed": true
+    },
+    {
+      "check": "unchanged_source:.worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "passed": true
+    },
+    {
+      "check": "unchanged_source:results/multiseed_test_results.csv",
+      "passed": true
+    },
+    {
+      "check": "unchanged_source:results/evidence/bigearth_soft42_preflight_20261016/server_return.json",
+      "passed": true
+    },
+    {
+      "check": "unchanged_source:.worktrees/sparse-hybrid-4n-top2/models/gavit.py",
+      "passed": true
+    },
+    {
+      "check": "unchanged_source:.worktrees/sparse-hybrid-4n-top2/models/graph_construction.py",
+      "passed": true
+    },
+    {
+      "check": "no_trailing_whitespace:docs/ben_k9_k16_comparability_audit_20261017.md",
+      "passed": true
+    },
+    {
+      "check": "link:../results/comparison_table.csv",
+      "passed": true
+    },
+    {
+      "check": "link:../results/ablation_study.csv",
+      "passed": true
+    },
+    {
+      "check": "link:../.worktrees/sparse-hybrid-4n-top2/research_diary.md",
+      "passed": true
+    },
+    {
+      "check": "link:../.worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/bigearth_soft42_preflight_20261016/server_return.json",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/ben_k9_comparability_20261017/server_inventory_return_20261017/server_return.txt",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/ben_k9_comparability_20261017/server_inventory_return_20261017/parsed_inventory.json",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/ben_k9_comparability_20261017/server_inventory_commands.txt",
+      "passed": true
+    },
+    {
+      "check": "link:../results/ben_k9_k16_comparability_audit_20261017.json",
+      "passed": true
+    },
+    {
+      "check": "no_trailing_whitespace:docs/ben_grid3_grid4_analysis_20261017.md",
+      "passed": true
+    },
+    {
+      "check": "link:../output/pdf/ben_grid3_grid4_20261017/ben_grid3_grid4_cases.pdf",
+      "passed": true
+    },
+    {
+      "check": "link:../output/pdf/ben_grid3_grid4_20261017/ben_grid3_grid4_300dpi.png",
+      "passed": true
+    },
+    {
+      "check": "link:../output/pdf/ben_grid3_grid4_20261017/README.md",
+      "passed": true
+    },
+    {
+      "check": "link:../output/pdf/ben_grid3_grid4_20261017/figure_manifest.json",
+      "passed": true
+    },
+    {
+      "check": "link:../output/pdf/ben_grid3_grid4_20261017/export_qa.json",
+      "passed": true
+    },
+    {
+      "check": "link:../output/pdf/ben_grid3_grid4_20261017/row_97389_grid3_grid4.png",
+      "passed": true
+    },
+    {
+      "check": "link:../output/pdf/ben_grid3_grid4_20261017/row_14680_grid3_grid4.png",
+      "passed": true
+    },
+    {
+      "check": "link:../output/pdf/ben_grid3_grid4_20261017/row_28450_grid3_grid4.png",
+      "passed": true
+    },
+    {
+      "check": "link:../output/pdf/ben_grid3_grid4_20261017/row_4439_grid3_grid4.png",
+      "passed": true
+    },
+    {
+      "check": "link:ben_k9_k16_comparability_audit_20261017.md",
+      "passed": true
+    },
+    {
+      "check": "one_current_diary_entry:research_diary.md",
+      "passed": true
+    },
+    {
+      "check": "one_current_diary_entry:.worktrees/sparse-hybrid-4n-top2/research_diary.md",
+      "passed": true
+    }
+  ],
+  "passed": 41
+}

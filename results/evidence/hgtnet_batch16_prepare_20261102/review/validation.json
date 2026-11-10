@@ -1,0 +1,37 @@
+{
+  "all_old_fix1_payload_equal": true,
+  "errors": 0,
+  "failures": 0,
+  "gpu_run": false,
+  "old_fix1_payload_equal": {
+    "configs/hgtnet_independent_v0.json": true,
+    "external_baselines/__init__.py": true,
+    "external_baselines/hgtnet/__init__.py": true,
+    "external_baselines/hgtnet/__main__.py": true,
+    "external_baselines/hgtnet/attention.py": true,
+    "external_baselines/hgtnet/checkpoint.py": true,
+    "external_baselines/hgtnet/config.py": true,
+    "external_baselines/hgtnet/graph.py": true,
+    "external_baselines/hgtnet/model.py": true,
+    "external_baselines/hgtnet/nwpu_data.py": true,
+    "external_baselines/hgtnet/nwpu_engine.py": true,
+    "external_baselines/hgtnet/pretrained.py": true,
+    "external_baselines/hgtnet/resources.py": true,
+    "external_baselines/hgtnet/smoke.py": true,
+    "tools/run_dfagcn_nwpu_smoke.py": true,
+    "tools/run_hgtnet_nwpu_smoke.py": true
+  },
+  "schema": "hgtnet-batch16-independent-review-v1",
+  "scope": "real CPU tensor engine fixtures plus stdlib orchestration/delivery tests; no target GPU, full batch16 memory/throughput or formal result",
+  "source_hashes": {
+    "external_baselines/hgtnet/batch_probe.py": "d0cd9add10541ae4436243fb677b18f3610a7160d4bd824eb1ff24b2da8e3b89",
+    "external_baselines/hgtnet/batch_probe_engine.py": "453914b407a6dafd2b5f0d12402948f607e7bd5ff261f7d714d9560daba43ea4",
+    "tests/test_hgtnet_batch_probe_cli.py": "24d48f1f769c0a81fae9ab0d4613e2f0af67bf0a2d78bc3b729995439b87fb4a",
+    "tests/test_hgtnet_batch_probe_delivery.py": "9bbb772db6d83bd0c8c933e85922c0074e7fd594d1dceed702770cf7e3eea10e",
+    "tests/test_hgtnet_batch_probe_engine.py": "03eca6643f2ed4f98d1d828f5c6c4b5ab76c4bbaa9f11386851d0a3b8d3f18d1",
+    "tools/package_hgtnet_nwpu_smoke.py": "d87c5901564737485d5e72cc88cf1fa13d86ebcaef1364594431b8a8e67e7336"
+  },
+  "source_unchanged_during_review": true,
+  "successful": true,
+  "tests_run": 28
+}

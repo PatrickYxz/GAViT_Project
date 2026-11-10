@@ -1,0 +1,9 @@
+test_metric_reconstruction_rejects_invalid_or_truncated_predictions (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_metric_reconstruction_rejects_invalid_or_truncated_predictions) ... ok
+test_metrics_keep_zero_support_class_in_macro_average (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_metrics_keep_zero_support_class_in_macro_average) ... ok
+test_prediction_order_and_labels_must_equal_original_manifest (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_prediction_order_and_labels_must_equal_original_manifest) ... ok
+test_validation_ties_select_earliest_epoch_and_require_complete_order (test_hgtnet_aid_results_analysis.AIDResultsAnalysisTests.test_validation_ties_select_earliest_epoch_and_require_complete_order) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.018s
+
+OK

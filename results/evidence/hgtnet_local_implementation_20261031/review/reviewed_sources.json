@@ -1,0 +1,18 @@
+{
+  "scope": "independent code review and targeted actual small CPU probe",
+  "critical": [],
+  "important": [],
+  "minor": [],
+  "targeted_probe_exit_code": 0,
+  "full_model_execution": "parent evidence required",
+  "reviewed_sources": {
+    "config.py": "ec15d152c82622100bcf94bbe252a61f572090364c2859c9dd967acdb0f0af32",
+    "attention.py": "de24aa15ef75428d0298622550b09abafb3d95735ca7e8592833a0d662dd6092",
+    "graph.py": "2fb54633aa8dc9401a493cef6f20bd3f41d52bc4009548ef43fa368df31bb564",
+    "model.py": "c64a231a32d4e5c7fa57fc6110c9c9d54819e85ba85b8e6b2293684ab6798df6",
+    "pretrained.py": "75d3018ee44b7faef68a7a689203a66d29d601fe7fa542fb5738f8b1dbbae47e",
+    "checkpoint.py": "bb8ecf96ae990be9930c8456b3655f250f5be09bc1e4207c390b3675b943129a",
+    "smoke.py": "f38664e87e6eff82e5a3047fc6102d34cbe126cb9e8e07052385823ca8129e5f",
+    "__main__.py": "bbd0f570801f3352495f3f2d273738c1b8a0d87b8e7ecca4cc49ed685377c3cd"
+  }
+}

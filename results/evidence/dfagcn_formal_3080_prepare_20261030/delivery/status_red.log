@@ -1,0 +1,15 @@
+test_custom_runner_status_is_forwarded_without_starting_a_run (tests.test_dfagcn_delivery.DeliveryTests.test_custom_runner_status_is_forwarded_without_starting_a_run) ... FAIL
+
+======================================================================
+FAIL: test_custom_runner_status_is_forwarded_without_starting_a_run (tests.test_dfagcn_delivery.DeliveryTests.test_custom_runner_status_is_forwarded_without_starting_a_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 100, in test_custom_runner_status_is_forwarded_without_starting_a_run
+    self.assertEqual(status.returncode,0,status.stderr)
+AssertionError: 2 != 0 : DFAGCN delivery failed: use inspect, build-linear or run; nothing starts automatically
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.049s
+
+FAILED (failures=1)

@@ -1,0 +1,75 @@
+{
+  "status": "server_preflight_pass_smoke_pending",
+  "seed": 42,
+  "dataset": "BigEarthNet-19",
+  "user_authorized": true,
+  "server_preflight_received": true,
+  "server_smoke_received": false,
+  "server_training_started": false,
+  "formal_test_metrics": null,
+  "selected_reporting_seeds": [
+    42,
+    43,
+    46,
+    47
+  ],
+  "missing_formal_soft_seed": 42,
+  "existing_soft_metric_seeds": [
+    43,
+    46,
+    47
+  ],
+  "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "parameters": 31466766,
+  "counts": {
+    "train": 237871,
+    "val": 122342,
+    "test": 119825
+  },
+  "epochs": 30,
+  "f1_threshold": 0.5,
+  "gpu_required": "NVIDIA GeForce RTX 4090",
+  "gpu_uuid": "GPU-44825cf0-bd98-bfdc-efbc-0100238a6789",
+  "formal_output": "/home/featurize/work/bigearth_soft42_20261013_01",
+  "guide": "docs/run_ben_soft42_20261013.md",
+  "local_checks": {
+    "new_soft42": 8,
+    "existing_seed43_regression": 11,
+    "passed": 19,
+    "exit_code": 0
+  },
+  "full_suite": {
+    "command": "python3 -B -m pytest",
+    "exit_code": 1,
+    "status": "not_executed_missing_dependency",
+    "reason": "/opt/homebrew/opt/python@3.14/bin/python3.14: No module named pytest"
+  },
+  "preparation_evidence": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/evidence/bigearth_soft42_prepare_20261013",
+  "next_action": "Run the existing handoff smoke command on the current4090; preserve output and return run.exit/summary.json",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "threads": 8,
+    "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+    "packages": {
+      "torch": "2.2.2",
+      "torchvision": "0.17.2",
+      "timm": "1.0.27",
+      "torch-geometric": "2.8.0",
+      "numpy": "1.26.4",
+      "scikit-learn": "1.9.0",
+      "pillow": "10.3.0"
+    },
+    "gpu_identity": "GPU-44825cf0-bd98-bfdc-efbc-0100238a6789, NVIDIA GeForce RTX 4090, 610.57.04"
+  },
+  "precision": {
+    "dtype": "torch.float32",
+    "matmul_tf32": false,
+    "cudnn_tf32": true,
+    "amp": false
+  },
+  "latest_evidence_received_date": "2026-10-16",
+  "preflight_evidence": "results/evidence/bigearth_soft42_preflight_20261016/server_return.json",
+  "evidence_scope": "Latest received stage is preflight; no smoke or formal-start evidence received."
+}

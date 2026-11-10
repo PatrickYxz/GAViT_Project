@@ -1,0 +1,22 @@
+{
+  "initial_failed_root_command": "python3 -m unittest discover -s tests -p 'test_hgtnet_aid_batch_probe_e*.py' -q",
+  "result": "Pattern also matched numerical engine test; systemPython3.14 has noTorch, so1 import error. No production failure inferred.",
+  "initial_candidate_build": "Rejected macOS tempfile path through symlink /var; correct safe guard behavior. Candidate rebuilt using resolved /private path, no production changes.",
+  "corrected_commands": [
+    {
+      "command": "python3 -m unittest discover -s tests -p 'test_hgtnet_aid_batch_probe_entry.py' -q",
+      "tests": 8,
+      "exit_code": 0
+    },
+    {
+      "command": "/private/tmp/gavit-hgtnet-probe-cpu-20261102/bin/python -m unittest discover -s tests -p 'test_hgtnet_aid_batch_probe_engine.py' -q",
+      "tests": 12,
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tests -p 'test_hgtnet_aid_batch_probe_delivery.py' -q",
+      "tests": 6,
+      "exit_code": 0
+    }
+  ]
+}

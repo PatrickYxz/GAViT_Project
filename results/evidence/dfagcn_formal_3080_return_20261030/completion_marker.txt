@@ -1,0 +1,1 @@
+DFAGCN_FORMAL_COMPLETE /home/featurize/work/dfagcn_nwpu_formal_3080_20261030_fix1/runs/nwpu_seed42_01/summary.json

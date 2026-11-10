@@ -1,0 +1,8 @@
+{
+  "source": "user-pasted NVIDIA inventory, not direct remote access or CUDA training verification",
+  "name": "NVIDIA GeForce RTX 3090",
+  "uuid": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1",
+  "memory_total_mib": 24576,
+  "memory_free_mib": 24123,
+  "driver_version": "610.57.04"
+}

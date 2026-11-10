@@ -1,0 +1,44 @@
+{
+  "device": "cpu",
+  "elapsed_seconds": 1.1402461249381304,
+  "gradients": {
+    "groups": {
+      "dual_attention": {
+        "l2": 1.9005917740542868,
+        "tensors": 30
+      },
+      "graph": {
+        "l2": 24.742122072144824,
+        "tensors": 120
+      },
+      "head": {
+        "l2": 20.59967501746326,
+        "tensors": 2
+      },
+      "patch_embed": {
+        "l2": 6.896959577303291,
+        "tensors": 4
+      },
+      "transformer": {
+        "l2": 38.826515776443316,
+        "tensors": 295
+      }
+    },
+    "missing": [],
+    "nonfinite": [],
+    "passed": true
+  },
+  "loss": 3.9669289588928223,
+  "optimizer_step_succeeded": true,
+  "optimizer_steps": 1,
+  "samples_seen": 2,
+  "stage": "first_optimizer_step",
+  "training_started": true,
+  "updated_groups": {
+    "dual_attention": true,
+    "graph": true,
+    "head": true,
+    "patch_embed": true,
+    "transformer": true
+  }
+}

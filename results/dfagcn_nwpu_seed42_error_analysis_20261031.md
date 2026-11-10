@@ -1,0 +1,70 @@
+# DFAGCN NWPU seed42：逐图复核与误差分析
+
+复核日期：2026-10-31；实验批次：2026-10-30。输入为用户下载的正式test.json，分析未调用模型、读取原始图片或启动训练。
+
+## 核验结论
+
+- 25200条预测与路径一一对应，路径唯一且有序；45类各560张。
+- 按冻结流程的“类别目录即标签”规则重建真实类别，重新构造全部45×45混淆矩阵，与返回文件的2025个单元格完全一致。
+- 正确21806张、错误3394张；独立复算OA为86.53174603174604%，显示86.53%。
+- 独立复算macro-F1为86.45890874660425%，与服务器86.45890874660422%相差2.84×10^-14，远低于1e-10容差，显示86.46%。不是位级相等，也不改变正式统计值。
+- 45类support、逐类accuracy/recall和F1全部复核通过；record seal及manifest/cache引用、计时与先前摘要吻合。独立32项核验通过。
+
+## 最弱的10个类别
+
+这里的逐类accuracy是以真实类别为分母的召回率，区别于precision。各类分母均为560。
+
+- palace：accuracy/recall 58.04%，precision 68.86%，F1 62.98%；正确325/560，漏判235、误报147。
+- church：accuracy/recall 65.36%，precision 68.93%，F1 67.09%；正确366/560，漏判194、误报165。
+- tennis_court：accuracy/recall 66.96%，precision 76.53%，F1 71.43%；正确375/560，漏判185、误报115。
+- basketball_court：accuracy/recall 72.86%，precision 76.40%，F1 74.59%；正确408/560，漏判152、误报126。
+- railway：accuracy/recall 74.29%，precision 83.87%，F1 78.79%；正确416/560，漏判144、误报80。
+- industrial_area：accuracy/recall 77.86%，precision 81.65%，F1 79.71%；正确436/560，漏判124、误报98。
+- baseball_diamond：accuracy/recall 78.21%，precision 80.37%，F1 79.28%；正确438/560，漏判122、误报107。
+- freeway：accuracy/recall 78.57%，precision 78.57%，F1 78.57%；正确440/560，漏判120、误报120。
+- medium_residential：accuracy/recall 80.36%，precision 74.75%，F1 77.45%；正确450/560，漏判110、误报152。
+- railway_station：accuracy/recall 80.36%，precision 70.53%，F1 75.13%；正确450/560，漏判110、误报188。
+
+最弱五类共910次漏判，占全部3394次错误的26.81%。这是对本次测试结果按召回率排序后的描述，不是实验前预设的子集，也不表示其余类别没有问题。
+
+## 表现最好的5个类别
+
+- chaparral：accuracy/recall 99.64%，正确558/560，F1 98.85%。
+- circular_farmland：accuracy/recall 98.21%，正确550/560，F1 98.21%。
+- sea_ice：accuracy/recall 98.04%，正确549/560，F1 98.30%。
+- snowberg：accuracy/recall 98.04%，正确549/560，F1 97.00%。
+- cloud：accuracy/recall 97.32%，正确545/560，F1 97.23%。
+
+## 主要混淆：保留两个方向
+
+以下按同一类别对的双向误分总数排序。箭头方向为真实类别→预测类别。
+
+- church ↔ palace：共142张；church→palace 58张，反向84张。
+- railway ↔ railway_station：共85张；railway→railway_station 65张，反向20张。
+- basketball_court ↔ tennis_court：共79张；basketball_court→tennis_court 39张，反向40张。
+- church ↔ commercial_area：共68张；church→commercial_area 42张，反向26张。
+- lake ↔ wetland：共66张；lake→wetland 26张，反向40张。
+
+排名按计数降序，平局按类别名排序；全部非零项均保留在CSV。前五个双向类别对共440次错误，占12.96%；前十个有向混淆合计498次，占14.67%。这些数值不足以把全部性能差距归结为几个混淆对。
+
+最大的单向误分是palace→church，84/560=15.00%；反向church→palace为58/560=10.36%。其次railway→railway_station为65/560=11.61%。这提示后续可优先检查这些具体样本；尚未查看对应原图/特征，因此不判定是骨干、图传播、分类器、欠拟合或标注造成。
+
+## 完整明细与图稿
+
+- [45类完整指标CSV](dfagcn_nwpu_seed42_per_class_20261031.csv)。
+- [全部25200条预测CSV](dfagcn_nwpu_seed42_predictions_20261031.csv)、[3394条错误样本CSV](dfagcn_nwpu_seed42_errors_20261031.csv)。
+- [原始计数混淆矩阵CSV](dfagcn_nwpu_seed42_confusion_matrix_20261031.csv)。
+- [全部非零有向混淆CSV](dfagcn_nwpu_seed42_confusions_20261031.csv)、[全部非零双向类别对CSV](dfagcn_nwpu_seed42_confusion_pairs_20261031.csv)。
+- [完整分析JSON](dfagcn_nwpu_seed42_analysis_20261031.json)、[原始test.json与核验](evidence/dfagcn_test_predictions_20261031/README.md)。
+- [误差概览PNG](figures/dfagcn_nwpu_seed42_20261031/dfagcn_nwpu_seed42_error_summary.png)、[PDF](figures/dfagcn_nwpu_seed42_20261031/dfagcn_nwpu_seed42_error_summary.pdf)、[SVG](figures/dfagcn_nwpu_seed42_20261031/dfagcn_nwpu_seed42_error_summary.svg)。
+- [完整45类归一化混淆矩阵PNG](figures/dfagcn_nwpu_seed42_20261031/dfagcn_nwpu_seed42_confusion_matrix_row_normalized.png)、[PDF](figures/dfagcn_nwpu_seed42_20261031/dfagcn_nwpu_seed42_confusion_matrix_row_normalized.pdf)、[SVG](figures/dfagcn_nwpu_seed42_20261031/dfagcn_nwpu_seed42_confusion_matrix_row_normalized.svg)。
+
+## 与现有比较的关系
+
+本次核对没有改变86.53% OA、86.46% macro-F1，也没有改变同seed42固定GAViT94.10% OA及7.57pp差值。它把DFAGCN指标从“摘要报告”提升为“返回预测与矩阵的本地独立复算”。旧模型的全部逐图预测尚未取回，不能把净多1908张正确写成“纠正1908张且无新增错误”。
+
+原manifest/图像、完整cache、refit记录及checkpoint字节尚未回收，引用一致不等于逐字节审计这些外部工件。仍是披露不同骨干、预训练、优化、选轮和硬件条件的完整方法单seed比较，不扩展为模块因果或跨seed稳定优势。
+
+## 可复制到汇报的补充
+
+已取回DFAGCN正式逐图预测，并对25200张样本、45类各560张、全部混淆矩阵和逐类指标完成本地复算。OA86.53%、macro-F1 86.46%与服务器摘要一致。召回率最低的是palace（58.04%）、church（65.36%）和tennis_court（66.96%）；最弱五类占全部错误的26.81%。主要双向混淆包括palace/church（142张）、railway/railway_station（85张）和basketball_court/tennis_court（79张）。这些是描述性错误结构，尚不能直接归因于某个图模块或训练机制。

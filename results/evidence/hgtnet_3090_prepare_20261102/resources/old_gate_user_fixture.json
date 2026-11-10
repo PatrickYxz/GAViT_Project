@@ -1,0 +1,12 @@
+{
+  "old_default_rejection_expected": true,
+  "error": "exactly one selected idle 10GiB RTX3080 with valid free memory is required",
+  "user_reported_gpu": {
+    "name": "NVIDIA GeForce RTX 3090",
+    "uuid": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1",
+    "memory_total_mib": 24576,
+    "memory_free_mib": 24123,
+    "driver_version": "610.57.04"
+  },
+  "live_gpu_query_performed": false
+}

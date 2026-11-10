@@ -1,0 +1,40 @@
+{
+  "batch_size": 16,
+  "counts": {
+    "pool": 6300,
+    "test": 25200,
+    "train": 5040,
+    "val": 1260
+  },
+  "cpu_fixture": "results/evidence/hgtnet_formal_prepare_20261102/full_model_cpu_fixture_03/summary.json",
+  "formal_benchmark_result": false,
+  "guide": "output/hgtnet_nwpu_formal_3090_README_20261103.md",
+  "identity_validation": "results/evidence/hgtnet_formal_prepare_20261102/integration/validation.json",
+  "latest_server_result": "results/hgtnet_nwpu_seed42_20261103.json",
+  "latest_server_state": "SERVER_REPORTED_FORMAL_COMPLETE_IDENTITIES_MATCH_PREDICTIONS_PENDING",
+  "max_calibration_epochs": 100,
+  "package": {
+    "bundle_id": "9a673b432dd8dea6b8cb175a559515c2092d953f8fd4016362dd325726c35710",
+    "bytes": 83604,
+    "path": "/Users/patrick/Projects/GAViT_Project/output/hgtnet_nwpu_formal_3090_20261103_v1.pyz",
+    "sha256": "b2bc9077cf37e75c83fbb72e7c4047d2fb9ede04db8fb4e4a56344500ff572e1"
+  },
+  "recipe": "configs/hgtnet_nwpu_formal_v1.json",
+  "recipe_canonical_sha256": "ce72e1822d55632b6dd9b02cdb4dc32da7e3e77eedca815b83981ff559c1af85",
+  "related_suite": {
+    "errors": 0,
+    "failures": 0,
+    "not_claimed": "unrelated legacy dependency suite, targetGPU, realNWPU or formal metrics",
+    "python": "3.12.13 (main, Jun 11 2026, 03:55:21) [Clang 22.1.3 ]",
+    "scope": [
+      "test_dfagcn_*.py",
+      "test_hgtnet_*.py"
+    ],
+    "seconds": 49.04009195882827,
+    "skipped": 0,
+    "successful": true,
+    "tests_run": 386
+  },
+  "seed": 42,
+  "state": "LOCAL_FORMAL_SEED42_READY_REAL3090_RUN_PENDING"
+}

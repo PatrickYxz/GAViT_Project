@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-17",
+  "question": "Does an existing comparable fixed K9 result support a K9 versus K16 performance comparison, especially on BEN-19?",
+  "status": "LOCAL_AND_REPORTED_SERVER_INVENTORY_NO_COMPARABLE_K9_IDENTIFIED",
+  "training_started": false,
+  "new_model_evaluation_run": false,
+  "remote_access_performed": false,
+  "comparable_ben_k9_identified_locally": false,
+  "ben_k9_test_map_percent": null,
+  "delta_k16_minus_k9_pp": null,
+  "legacy_candidates": [
+    {
+      "dataset": "NWPU-RESISC45",
+      "variant": "K9 SpatialGrouping mean pooling + GAT",
+      "val_accuracy_percent_reported": 96.5,
+      "test_accuracy_percent_diary_only": 95.9,
+      "seed": null,
+      "checkpoint_name_hint": "best_gavit_K9_spatial.pth",
+      "comparable_to_current_ben": false
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "variant": "K16 attentive_spatial + token_feedback",
+      "val_accuracy_percent_reported": 96.2,
+      "test_accuracy_percent_diary_only": 95.8,
+      "test_count": 4725,
+      "correct": 4526,
+      "seed": null,
+      "comparable_pure_k_ablation": false
+    }
+  ],
+  "existing_ben_fixed42_control": {
+    "Model": "GAViT v2",
+    "Variant": "sparse-hybrid K16 attentive_spatial 4n top2 token_feedback",
+    "Dataset": "BigEarthNet-19",
+    "Seed": "42",
+    "Best_Val_mAP(%)": "79.2087",
+    "Best_Epoch": "13",
+    "Final_Val_mAP(%)": "76.9",
+    "Test_mAP(%)": "72.0",
+    "Test_Macro_F1(%)": "66.0",
+    "Test_Micro_F1(%)": "76.7",
+    "Params(M)": "31.366926",
+    "Epochs": "30",
+    "Batch_Size": "32",
+    "LR": "3e-4",
+    "Weight_Decay": "1e-4",
+    "Optimizer": "AdamW",
+    "Scheduler": "CosineAnnealingLR",
+    "Threshold": "0.5",
+    "Git_Commit": "cd39be9",
+    "GPU": "NVIDIA GeForce RTX 4090",
+    "Peak_GPU_Memory(GiB)": "3.65",
+    "Train_Wall_Time(h)": "6.64",
+    "Test_Time": "00:11:05.55",
+    "Notes": "Formal sparse-hybrid seed42; best checkpoint evaluated on RTX 3060; test peak CUDA allocated 0.60 GiB; test throughput 5.91 batch/s; single-seed result; training cost pending confirmation"
+  },
+  "ben_result_rows_reviewed": 13,
+  "cautions": [
+    "No K9 score is inferred from geometry overlays or from the old 70.4/70.6 BEN results.",
+    "Historical NWPU scores have not been independently re-evaluated.",
+    "No matching Git change does not exclude an unrecorded CLI override.",
+    "The supplied Featurize inventory was reviewed as text; original NTU storage and model-weight contents remain uninspected."
+  ],
+  "source_sha256": {
+    "results/comparison_table.csv": "54efc5572b6271e9019bd5546951ae84f9f06bf23fc7ff58021036b419de562f",
+    "results/ablation_study.csv": "33182d7a7802e11c0580e66b7736c1d679af45ba4399b47369b582d8e9bd2011",
+    "results/bigearth_comparison.csv": "015ad730b7a73426e63b06c3d71624cd0a239b6115b83e131cb3c887c42801db",
+    ".worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv": "184d3d8894216e1b5ec092ff8326929a1c6dc2d4fede662886758a95001e90cf",
+    "results/multiseed_test_results.csv": "639a9b45b07625d63c1254a32969637c984a996997248622a647f261d43c0988",
+    "results/evidence/bigearth_soft42_preflight_20261016/server_return.json": "d441c82ba60991423fa6a30465f027a11472d434dabf2b8f913dc501e2f82450",
+    ".worktrees/sparse-hybrid-4n-top2/models/gavit.py": "39b2fd72be3afca0bb450ff5b700966c75c8aa277b2cf303b6c3faf129faba3e",
+    ".worktrees/sparse-hybrid-4n-top2/models/graph_construction.py": "a0c36ceaf7a2f73b857c0eaac50df4abfb9c5617a4952f333a0dc514900dd8cc"
+  },
+  "initial_ben_git_evidence": {
+    "train_bigearth.py": {
+      "commit": "0b1e02c",
+      "sha256_of_captured_text": "15fd60261a70d1f47148a04f6e036266aa04c6bae2029034da144b51914db71a"
+    },
+    "jobs/run_bigearth_train.sh": {
+      "commit": "0b1e02c",
+      "sha256_of_captured_text": "4b5b8644929e02e1998445fdba64509bc99a64e79651bc7b07d6708dfc9d804d"
+    }
+  },
+  "server_inventory_commands": "results/evidence/ben_k9_comparability_20261017/server_inventory_commands.txt",
+  "server_inventory_limits": [
+    "Candidate matches are not confirmed experiment results.",
+    "Second command scans only json/log/out/err files smaller than 20 MiB.",
+    "Generic weights without metadata need later identity checks.",
+    "Pruned data/dependency directories and other server roots are not searched."
+  ],
+  "next_action": "No existing comparable BEN K9 result can currently enter the K9/K16 performance table. If a new K-only ablation is pursued, first prepare a K9 implementation with matched pooling, feedback, graph rule and training protocol; no training was launched by this audit.",
+  "server_inventory_received": true,
+  "server_inventory_evidence": "results/evidence/ben_k9_comparability_20261017/server_inventory_return_20261017/parsed_inventory.json",
+  "server_inventory_observation": {
+    "evidence_type": "user_pasted_server_stdout",
+    "raw_sha256": "2d032da46b31c8da1e3aa1e8c7e3e0f238530c88b8b2a5227e08042042853246",
+    "listed_paths": 510,
+    "listed_suffix_counts": {
+      ".pth": 136,
+      ".pt": 373,
+      ".safetensors": 1
+    },
+    "explicit_k9_or_3x3_named_candidates": [],
+    "second_command_match_lines": [],
+    "visible_errors": []
+  },
+  "comparable_ben_k9_identified_in_supplied_inventory": false
+}

@@ -1,0 +1,181 @@
+ase) ➜ ~ python -B -u /home/featurize/work/bigearth_soft42_handoff_20261013_01/handoff_bigearth_soft42.py smoke
+BIGEARTH_PREPARE_PASS /home/featurize/work/gpucheck_bigearth_soft42_4090_20261013_01 archive_bytes 9620902
+DEVICE NVIDIA GeForce RTX 4090 torch 2.2.2+cu121 CUDA 12.1 matmul_tf32 False cudnn_tf32 True
+Train: 96  |  Val: 64
+Model: GAVIT | 31,466,766 params | Device: cuda
+
+============================================================
+Training GAVIT on BigEarthNet-19 | 1 epochs
+============================================================
+
+Epoch [1/1] Train: 100%|███████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:01<00:00,  2.46it/s]
+Epoch [ 1/1]  Loss: 0.4970  |  Val mAP: 37.5%  |  Val F1: 1.5%
+  Best model saved -> /home/featurize/work/gpucheck_bigearth_soft42_4090_20261013_01/gavit.pth
+SOFT EPOCH {"epoch": 1, "train_loss": 0.49704505999883014, "val_mAP_percent": 37.502483541378865, "val_macro_f1_percent": 1.5037593984962405, "epoch_wall_seconds_excluding_probe": 12.118229961999532, "assignment_probe": {"epoch": 1, "split": "val", "samples": 8, "sample_ids": ["/home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170613T101031_N9999_R022_T34VER/S2A_MSIL2A_20170613T101031_N9999_R022_T34VER_13_75", "/home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170617T113321_N9999_R080_T29UPU/S2A_MSIL2A_20170617T113321_N9999_R080_T29UPU_30_73", "/home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170617T113321_N9999_R080_T29UPU/S2A_MSIL2A_20170617T113321_N9999_R080_T29UPU_41_19", "/home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170617T113321_N9999_R080_T29UPU/S2A_MSIL2A_20170617T113321_N9999_R080_T29UPU_63_75", "/home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170617T113321_N9999_R080_T29UPU/S2A_MSIL2A_20170617T113321_N9999_R080_T29UPU_71_45", "/home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170701T093031_N9999_R136_T35VPK/S2A_MSIL2A_20170701T093031_N9999_R136_T35VPK_52_74", "/home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170803T094031_N9999_R036_T34TCR/S2A_MSIL2A_20170803T094031_N9999_R036_T34TCR_72_30", "/home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170813T112121_N9999_R037_T29SNC/S2A_MSIL2A_20170813T112121_N9999_R037_T29SNC_19_24"], "entropy_mean": 1.1737079620361328, "region_mass": [[4.0699615478515625, 3.2401304244995117, 3.5398733615875244, 2.535897731781006, 3.2070560455322266, 4.446537017822266, 3.9468626976013184, 1.3751733303070068, 4.073916435241699, 4.686598300933838, 4.383067607879639, 2.6908488273620605, 1.6262425184249878, 1.7817871570587158, 2.395376205444336, 1.0006712675094604], [2.801403522491455, 4.1423821449279785, 4.841652870178223, 1.0599051713943481, 3.016785144805908, 5.189830780029297, 3.711200475692749, 1.8780853748321533, 4.747325897216797, 4.488426208496094, 4.220048904418945, 2.2053024768829346, 1.3720699548721313, 2.107793092727661, 2.217385768890381, 1.0004016160964966], [4.080060005187988, 4.389927387237549, 2.8910748958587646, 1.771217703819275, 2.8837785720825195, 3.2487082481384277, 6.336513996124268, 2.2068090438842773, 4.072858810424805, 3.226494312286377, 4.154061317443848, 1.9226231575012207, 1.2078077793121338, 3.5901427268981934, 1.5299729108810425, 1.4879484176635742], [4.051113605499268, 4.108078956604004, 3.4092352390289307, 1.4820343255996704, 3.37571120262146, 4.814390182495117, 4.676616668701172, 1.668023943901062, 3.088134527206421, 4.219578266143799, 4.155525207519531, 2.38965106010437, 2.6359708309173584, 1.4377713203430176, 2.39571213722229, 1.0924525260925293], [2.676391839981079, 4.515849590301514, 2.534048080444336, 2.178354501724243, 3.519075870513916, 4.2847065925598145, 5.063267230987549, 2.1281356811523438, 3.681785821914673, 4.747250556945801, 4.172115325927734, 1.8179285526275635, 1.391880989074707, 2.537735939025879, 2.5422654151916504, 1.2092084884643555], [3.358217239379883, 3.443035840988159, 3.721660614013672, 2.687455654144287, 4.325769424438477, 4.714809417724609, 4.293558597564697, 2.3332409858703613, 2.104900360107422, 4.48933219909668, 3.5072855949401855, 1.4904961585998535, 2.301384449005127, 2.1020731925964355, 2.6042981147766113, 1.5224827527999878], [3.322521209716797, 3.894522190093994, 3.437350273132324, 2.2637178897857666, 3.763277530670166, 4.982597351074219, 5.124467849731445, 1.4923374652862549, 3.5963327884674072, 3.729376792907715, 3.4029834270477295, 2.220289468765259, 1.350383996963501, 2.754805088043213, 2.545715093612671, 1.1193208694458008], [3.027554988861084, 4.014152526855469, 3.715955972671509, 2.1380562782287598, 3.616122245788574, 4.747092247009277, 3.5561585426330566, 2.3132197856903076, 3.5155177116394043, 4.865970134735107, 3.874237537384033, 2.1843857765197754, 2.0243706703186035, 2.224161386489868, 1.8314933776855469, 1.3515515327453613]], "argmax_occupancy": [[4, 3, 4, 3, 0, 5, 4, 0, 6, 3, 6, 4, 1, 2, 3, 1], [2, 1, 8, 0, 1, 8, 2, 2, 7, 6, 4, 2, 0, 3, 2, 1], [7, 4, 3, 2, 0, 4, 7, 1, 4, 0, 5, 3, 1, 5, 1, 2], [6, 5, 3, 1, 0, 6, 2, 2, 2, 7, 4, 3, 4, 1, 2, 1], [1, 6, 3, 1, 0, 6, 5, 2, 5, 6, 5, 0, 1, 3, 4, 1], [4, 2, 3, 3, 5, 5, 5, 4, 1, 4, 4, 1, 4, 0, 3, 1], [4, 1, 3, 2, 1, 8, 8, 1, 5, 2, 4, 3, 1, 3, 2, 1], [3, 5, 5, 2, 1, 3, 2, 2, 3, 7, 7, 2, 2, 2, 2, 1]], "prototype_norm_min": 0.6541929244995117, "prototype_norm_mean": 0.8573325872421265, "low_norm_prototypes": 0, "prototype_cosine_off_diagonal_mean": 0.6864444613456726, "prototype_cosine_off_diagonal_max": 0.9950326681137085, "mean_abs_delta_S": 0.053466737270355225, "feedback_norm": [27.549497604370117, 27.55620002746582, 27.533958435058594, 27.570119857788086, 27.496356964111328, 27.572582244873047, 27.557079315185547, 27.55939292907715], "token_norm": [17.296268463134766, 16.098041534423828, 16.869346618652344, 15.334831237792969, 16.56650161743164, 17.02919578552246, 14.802647590637207, 15.387825965881348], "feedback_to_token_ratio": [1.5928000211715698, 1.71177339553833, 1.6321887969970703, 1.7978756427764893, 1.6597564220428467, 1.619135856628418, 1.8616317510604858, 1.7909867763519287], "zero_input_images": 0, "probe_seconds": 0.033176144000208296}}
+
+Best Validation mAP: 37.5%
+BIGEARTH_SOFT42_SMOKE_COMPLETE {"status": "complete", "counts": {"train": 96, "val": 64}, "device": "NVIDIA GeForce RTX 4090", "epochs": 1, "reload_max_logit_diff": 4.76837158203125e-07, "graph": {"edges_per_image": 80, "spatial_edges": 48, "feature_edges": 32, "actual_forward_checked": true}, "best": {"metric": "val_mAP", "value": 37.5025, "epoch": 1}, "checkpoint_sha256": "4a6ae6e43001ffe5d729f7eb4e50ef9da4951e3b8422b2e5342b02f88a813398", "training_entry_seconds": 22.7201874400007, "total_seconds_including_reload": 27.455166778000603, "cuda_peak_allocated_bytes": 3932788736, "cuda_peak_reserved_bytes": 4242538496, "main_process_max_rss_kib": 1925056, "precision": {"dtype": "torch.float32", "matmul_tf32": false, "cudnn_tf32": true, "amp": false}, "probe_summary": {"split": "val", "samples": 8, "output": "/home/featurize/work/gpucheck_bigearth_soft42_4090_20261013_01/gavit.assignment_probe", "last_epoch": 1, "probe_seconds": 0.997167614999853}, "seed": 42, "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5", "hardware": {"gpu": "NVIDIA GeForce RTX 4090", "cuda": "12.1", "cudnn": 8902, "threads": 8, "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]", "packages": {"torch": "2.2.2", "torchvision": "0.17.2", "timm": "1.0.27", "torch-geometric": "2.8.0", "numpy": "1.26.4", "scikit-learn": "1.9.0", "pillow": "10.3.0"}, "gpu_identity": "GPU-44825cf0-bd98-bfdc-efbc-0100238a6789, NVIDIA GeForce RTX 4090, 610.57.04"}, "metadata": {"model": "gavit", "dataset": "BigEarthNet-19", "architecture": {"num_classes": 19, "num_regions": 16, "knn_k": 5, "gat_hidden": 256, "gat_heads": 4, "gat_layers": 2, "dropout": 0.1, "grouping": "soft_prototype", "edge_type": "sparse_hybrid", "integration": "token_feedback", "soft_assignment": {"assignment_version": "local_prototype_cosine_v1", "assignment_dim": 128, "assignment_radius": 1, "assignment_metric": "chebyshev", "assignment_temperature": 0.1, "assignment_iterations": 1, "assignment_projection": "shared_ln_linear_no_bias", "assignment_init": "xavier_uniform", "assignment_norm_eps": 1e-06, "assignment_ln_eps": 1e-05, "prototype_pooling": "fixed_region_attention", "region_pooling": "attentive_log_membership", "feedback_mapping": "soft_membership", "graph_node_geometry": "anchor_index_prior"}}, "graph_topology": {"name": "sparse_hybrid_4n_top2", "spatial_connectivity": 4, "feature_k": 2, "spatial_directed_edges": 48, "feature_directed_edges": 32, "total_directed_edges": 80, "message_direction": "neighbor_to_query", "cosine_role": "topology_only"}, "training": {"seed": 42, "epochs": 1, "batch_size": 32, "lr": 0.0003, "weight_decay": 0.0001, "optimizer": "AdamW", "scheduler": "CosineAnnealingLR", "loss": "BCEWithLogitsLoss", "f1_threshold": 0.5}, "execution": {"run_stage": "smoke", "run_tag": "soft_prototype_seed42_4090_20261013_01"}, "best": {"metric": "val_mAP", "value": 37.5025, "epoch": 1}, "checkpoint_sha256": "4a6ae6e43001ffe5d729f7eb4e50ef9da4951e3b8422b2e5342b02f88a813398", "git": {"commit": "ed480e6", "dirty": false}, "checkpoint_path": "/home/featurize/work/gpucheck_bigearth_soft42_4090_20261013_01/gavit.pth", "saved_at": "2026-10-16T05:50:33+00:00"}, "parameters": 31466766, "train_loss": 0.49704505999883014, "val_mAP_percent": 37.502483541378865, "val_macro_f1_percent": 1.5037593984962405, "graph_probe": {"normalization_errors": {"S_row": 2.384185791015625e-07, "W_column": 2.980232238769531e-07}, "actual_forward_checked": true, "images_checked": 8, "snapshots_checked": 3, "edges_per_image": 80, "spatial_edges": 48, "feature_edges": 32}, "source_preflight": "approved_preflight.json", "resource_scope": "whole smoke including reload and artifact checks"}
+Traceback (most recent call last):
+  File "/home/featurize/work/bigearth_soft42_handoff_20261013_01/handoff_bigearth_soft42.py", line 170, in <module>
+    smoke(root)
+  File "/home/featurize/work/bigearth_soft42_handoff_20261013_01/handoff_bigearth_soft42.py", line 108, in smoke
+    check_smoke(SMOKE,ready,helper)
+  File "/home/featurize/work/bigearth_soft42_handoff_20261013_01/handoff_bigearth_soft42.py", line 47, in check_smoke
+    require((root/'run.exit').read_text().strip() == 'exit_code=0', 'Smoke did not exit0')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/environment/miniconda3/lib/python3.11/pathlib.py", line 1058, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/environment/miniconda3/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/featurize/work/gpucheck_bigearth_soft42_4090_20261013_01/run.exit'
+(base) ➜ ~ cat /home/featurize/work/gpucheck_bigearth_soft42_4090_20261013_01/run.exit /home/featurize/work/gpucheck_bigearth_soft42_4090_20261013_01/summary.json
+exit_code=0
+{
+  "status": "complete",
+  "counts": {
+    "train": 96,
+    "val": 64
+  },
+  "device": "NVIDIA GeForce RTX 4090",
+  "epochs": 1,
+  "reload_max_logit_diff": 4.76837158203125e-07,
+  "graph": {
+    "edges_per_image": 80,
+    "spatial_edges": 48,
+    "feature_edges": 32,
+    "actual_forward_checked": true
+  },
+  "best": {
+    "metric": "val_mAP",
+    "value": 37.5025,
+    "epoch": 1
+  },
+  "checkpoint_sha256": "4a6ae6e43001ffe5d729f7eb4e50ef9da4951e3b8422b2e5342b02f88a813398",
+  "training_entry_seconds": 22.7201874400007,
+  "total_seconds_including_reload": 27.455166778000603,
+  "cuda_peak_allocated_bytes": 3932788736,
+  "cuda_peak_reserved_bytes": 4242538496,
+  "main_process_max_rss_kib": 1925056,
+  "precision": {
+    "dtype": "torch.float32",
+    "matmul_tf32": false,
+    "cudnn_tf32": true,
+    "amp": false
+  },
+  "probe_summary": {
+    "split": "val",
+    "samples": 8,
+    "output": "/home/featurize/work/gpucheck_bigearth_soft42_4090_20261013_01/gavit.assignment_probe",
+    "last_epoch": 1,
+    "probe_seconds": 0.997167614999853
+  },
+  "seed": 42,
+  "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "threads": 8,
+    "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+    "packages": {
+      "torch": "2.2.2",
+      "torchvision": "0.17.2",
+      "timm": "1.0.27",
+      "torch-geometric": "2.8.0",
+      "numpy": "1.26.4",
+      "scikit-learn": "1.9.0",
+      "pillow": "10.3.0"
+    },
+    "gpu_identity": "GPU-44825cf0-bd98-bfdc-efbc-0100238a6789, NVIDIA GeForce RTX 4090, 610.57.04"
+  },
+  "metadata": {
+    "model": "gavit",
+    "dataset": "BigEarthNet-19",
+    "architecture": {
+      "num_classes": 19,
+      "num_regions": 16,
+      "knn_k": 5,
+      "gat_hidden": 256,
+      "gat_heads": 4,
+      "gat_layers": 2,
+      "dropout": 0.1,
+      "grouping": "soft_prototype",
+      "edge_type": "sparse_hybrid",
+      "integration": "token_feedback",
+      "soft_assignment": {
+        "assignment_version": "local_prototype_cosine_v1",
+        "assignment_dim": 128,
+        "assignment_radius": 1,
+        "assignment_metric": "chebyshev",
+        "assignment_temperature": 0.1,
+        "assignment_iterations": 1,
+        "assignment_projection": "shared_ln_linear_no_bias",
+        "assignment_init": "xavier_uniform",
+        "assignment_norm_eps": 1e-06,
+        "assignment_ln_eps": 1e-05,
+        "prototype_pooling": "fixed_region_attention",
+        "region_pooling": "attentive_log_membership",
+        "feedback_mapping": "soft_membership",
+        "graph_node_geometry": "anchor_index_prior"
+      }
+    },
+    "graph_topology": {
+      "name": "sparse_hybrid_4n_top2",
+      "spatial_connectivity": 4,
+      "feature_k": 2,
+      "spatial_directed_edges": 48,
+      "feature_directed_edges": 32,
+      "total_directed_edges": 80,
+      "message_direction": "neighbor_to_query",
+      "cosine_role": "topology_only"
+    },
+    "training": {
+      "seed": 42,
+      "epochs": 1,
+      "batch_size": 32,
+      "lr": 0.0003,
+      "weight_decay": 0.0001,
+      "optimizer": "AdamW",
+      "scheduler": "CosineAnnealingLR",
+      "loss": "BCEWithLogitsLoss",
+      "f1_threshold": 0.5
+    },
+    "execution": {
+      "run_stage": "smoke",
+      "run_tag": "soft_prototype_seed42_4090_20261013_01"
+    },
+    "best": {
+      "metric": "val_mAP",
+      "value": 37.5025,
+      "epoch": 1
+    },
+    "checkpoint_sha256": "4a6ae6e43001ffe5d729f7eb4e50ef9da4951e3b8422b2e5342b02f88a813398",
+    "git": {
+      "commit": "ed480e6",
+      "dirty": false
+    },
+    "checkpoint_path": "/home/featurize/work/gpucheck_bigearth_soft42_4090_20261013_01/gavit.pth",
+    "saved_at": "2026-10-16T05:50:33+00:00"
+  },
+  "parameters": 31466766,
+  "train_loss": 0.49704505999883014,
+  "val_mAP_percent": 37.502483541378865,
+  "val_macro_f1_percent": 1.5037593984962405,
+  "graph_probe": {
+    "normalization_errors": {
+      "S_row": 2.384185791015625e-07,
+      "W_column": 2.980232238769531e-07
+    },
+    "actual_forward_checked": true,
+    "images_checked": 8,
+    "snapshots_checked": 3,
+    "edges_per_image": 80,
+    "spatial_edges": 48,
+    "feature_edges": 32
+  },
+  "source_preflight": "approved_preflight.json",
+  "resource_scope": "whole smoke including reload and artifact checks"
+}
+(base) ➜ ~ 

@@ -1,0 +1,44 @@
+[
+  {"exit_code": 0},
+  {
+    "calibration_seconds": 3.4554767979999497,
+    "completed": true,
+    "counts": {"pool": 450, "test": 0, "train": 360, "val": 90},
+    "cuda_peak_allocated_bytes": 609131008,
+    "cuda_peak_reserved_bytes": 727711744,
+    "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+    "physical_gpu_uuid": "GPU-d78aad24-a3ce-faa2-a189-674ccaa4d6f1",
+    "pipeline_source_sha256": "3c5e3795dcbbce7193811e05f45a5b73af3da70174166844d634f4838a0f4c3d",
+    "pooled_feature_extraction_seconds": 6.892843317000029,
+    "recipe_sha256": "684f5bbe0e09e4cdff9fea194cc029aa5679af438f5ece8ac6125fd85f75689d",
+    "refit_seconds": 4.244405087000018,
+    "reload_max_abs_error": 0.0,
+    "runtime": {
+      "amp": false,
+      "cpu_threads": 8,
+      "cuda": "12.1",
+      "cudnn": 8902,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "cudnn_tf32": false,
+      "device": "cuda:0",
+      "gpu": {
+        "memory_total_mib": 24564,
+        "name": "NVIDIA GeForce RTX 4090",
+        "uuid": "GPU-d78aad24-a3ce-faa2-a189-674ccaa4d6f1"
+      },
+      "matmul_tf32": false,
+      "numpy": "1.26.4",
+      "pillow": "10.3.0",
+      "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+      "seed": 42,
+      "torch": "2.2.2+cu121",
+      "torchvision": "0.17.2+cu121"
+    },
+    "selected_C": 1.0,
+    "selected_epoch": 1,
+    "training_started": true,
+    "wall_seconds": 26.263705574000028,
+    "weights_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0"
+  }
+]

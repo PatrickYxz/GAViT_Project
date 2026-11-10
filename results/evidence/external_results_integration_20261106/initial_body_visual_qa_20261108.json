@@ -1,0 +1,609 @@
+{
+  "source_pdf": "/Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108/initial_export/main.pdf",
+  "source_pdf_sha256": "8f937b4aa19fc58bb2b79c5366e3440aa635ca1523b5537a3269f094a5ca48bf",
+  "source_pages": 46,
+  "groups": [
+    [
+      5,
+      6,
+      7,
+      9
+    ],
+    [
+      10,
+      11,
+      12,
+      13
+    ],
+    [
+      14,
+      15,
+      16,
+      17
+    ],
+    [
+      18,
+      19,
+      20,
+      21
+    ],
+    [
+      22,
+      23,
+      24,
+      25
+    ],
+    [
+      27,
+      29,
+      30,
+      32
+    ],
+    [
+      43,
+      44,
+      45,
+      46
+    ]
+  ],
+  "pages": [
+    {
+      "physical_page": 5,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "3867b2ed7d5bb7804bcc529704dfbf1f3fc088ece7d487eb46cbd0c47b80455d",
+      "rgb_sha256": "830d475fe95a2e394076c745026f4553186eee40f3328c42310c822c7934e86d",
+      "page_content_sha256": "a18e1fe9b09baa0c8fa24d6917b968d4ada2a45734dea26669a6e9c1f5b37641",
+      "page_text_sha256": "8518c2a77f52ae5b6dcec607f1adf3fcb009dffcfba8aed2d9cf0ee376234dba",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 6,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "2d13f3cb5156dd77c87247316f96a21f22a205211cef2e9a7a81a241271c6251",
+      "rgb_sha256": "87cd9fcea941fbc28f3fa1148fa06da9a00fdb105a9683331c61bbec3c789f20",
+      "page_content_sha256": "59d697437ceaa935e3c7b668ca3a9aeaf381c3c800153dede37965f8b8d8ba45",
+      "page_text_sha256": "f70416af117369ee6913954fa00618e72245a53fc56a218614bbf4991b75016c",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 7,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "391868d44581772059033ccffd89429af3e55e16508191e6ee01c7e73a420baf",
+      "rgb_sha256": "ceb74288ff9631b345675a39fa7df87fd06c09cde1ded0f2e240ec528433ad6a",
+      "page_content_sha256": "fb729c653f5e9c85665cf0a52841cea5b88152c261b70ece6694a9bf86e42510",
+      "page_text_sha256": "65311ecfb364050931e4141d3f9c01ef125ee39478571f4878b1f14649e5fe7c",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 9,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "91967b4dc660db6fd07108dbe4dec2e2491193147580d15981ab198cd3f7f997",
+      "rgb_sha256": "fa8877f775dff2699132668acbbab0063148285bf4a3b9150eef394c923756cb",
+      "page_content_sha256": "0cf8a716731646cf91474e62423ad56b52ba395f7ddfdb9f1915c1ddce37da9e",
+      "page_text_sha256": "174795dd53095d3bdb83d6202e8ead373a7369c255fafd8a379599a36f6693d9",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 10,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "fd30cbd3ec15767a4335cef0b7127d3ac6ea367f84a4c4ee7220e2355de2d374",
+      "rgb_sha256": "f1984d0e02502c285d4b3cb554306e19eed97602e2f24f17c8013e57fe9ae095",
+      "page_content_sha256": "320be48ddad3c53b6bede205acccd6a6147a6a470ec60e5064e3c55326310383",
+      "page_text_sha256": "9e37d4a3b83d77d1e6ef399de1bad4d34c43e48c328ea1d6a50c549d36650528",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 11,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "ccc42461eb06e3da5e46d86a63e42dc41b39c7de1c3dbc97af223b5947548cf1",
+      "rgb_sha256": "ab53c3110d8870b66db6327fe1d47130c51e4cc90d4deb08edd6e6718096d144",
+      "page_content_sha256": "d1397ae59295bc3e1489daf4480d5b5d6ba53403e7f18e8d5ebe78faac34a7c3",
+      "page_text_sha256": "8d17c794ada9774b7ccf44f06dab2e394720a1b5b1f86426ffeae2a6b41e11ec",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 12,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "418d6dd6fc5893c09d44224cc7f9dd95dd6d73013c2bad5ce40658c2067ebe1e",
+      "rgb_sha256": "96c941abe9e35db3f8a5fcd5671100060e48991c454bf8cf35e92bdde8c0ab4e",
+      "page_content_sha256": "971befe05e618258e38a78f9692ca7a048f70f96b3fd59b73b4bc8b06a3cefb7",
+      "page_text_sha256": "3e5a870ad61a40ac15ff71d0f4ef91019e6153c9aaff1dd0a520ff48880ac3f5",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 13,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "71a86528b92ac3d35317ab0f17c2790784f63095b259d5b510ef5c5523056160",
+      "rgb_sha256": "f25f9683c4d01d55b0a6c693b092adc390b5c4a812537c5c03507148075064d7",
+      "page_content_sha256": "368a7ae21a5952cb4b855881a203545f7b6c92062a831963a6b19ffe64007172",
+      "page_text_sha256": "89c817d2fb25d2c2aad01592788975413b72da45c79b995c887167b18d9f41cf",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 14,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "3bd709604def4ac9a88a011ac4efd29697dafbc48743e6f96c90f517ab425525",
+      "rgb_sha256": "76b216c4bfb966b66c992a6724d5ee40a94a39f4633e9b5527b46cd7c022d8fd",
+      "page_content_sha256": "9acd50857d636e60cd68b770909a76b8f58e105f8f6b8c721b21250884e35f2d",
+      "page_text_sha256": "2374ac39a984c7cd007b15a206f6d10d47a7947e848c64e35e28a2591cd4ad9d",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 15,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "f16465c51a0924a414195914f7b0b86543a1eaebef9b9472186bee222dfbb019",
+      "rgb_sha256": "1d067e7bce6b519ca2548e29c632d5b6944d4a68f463569992da8b970c9bc9ae",
+      "page_content_sha256": "3540e5ca95e815375566a9f572c4efffec1e4dc929dd221e97b1eaad0fbc6fc6",
+      "page_text_sha256": "ae5d2baa144359c5c3c03c719fd0766750cb2a63eda3c5b059690196191043ee",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 16,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "e098b50791979fbc52044e5cd301cd12a3eeb3fa7dfca67538d9dc30baf74cdc",
+      "rgb_sha256": "065babda9df42f91b2ee6b511b29caaa1c1b4712fe93e6c7d9112bf65a72f698",
+      "page_content_sha256": "ba2a5a64271156baedaa6854846d9699922223afb9e997c30f81978abc1a3719",
+      "page_text_sha256": "34b2683d74cba310bed0dcb178abb26b8f33753649cfa058f233933bd4cd7b1b",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 17,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "df8445704e1ef25445dea4b91da45d26d98aebbb91b8e68835bfaf3899fbb84a",
+      "rgb_sha256": "3c8f05d186cb08a466d942be0bd93ced6add54fb79b5086195f4b0d65e4b70f5",
+      "page_content_sha256": "ab2e83d80de653bbd09c4d3f1fcc10757e826a45b62caf6b8c805457030d0020",
+      "page_text_sha256": "d1c05359c15cc3f7e177ccf3561b9cba4c75a22090c746db8ae643548d6c46d0",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 18,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "586a93d3fd90bb13372021693b875890d6341a0d254d05dad9f8a07bd115d2d7",
+      "rgb_sha256": "99431f63b2ab2b9e793907d94dcabcdbd96f88a73a474aa8cd1a5d189fd5df07",
+      "page_content_sha256": "7a8bf36a3b9aa6eb5d26c26e3a90e524d1d4bf15c2e91e48365db11abd2d3827",
+      "page_text_sha256": "da6453adeb75efd8aff5425c044b0f652bef776bd1d2726762bc3e25acc77d41",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 19,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "165872a624bd69521d18be011aeaa4b37ec9a9f4cc342aed5ebc2b4e56f0341a",
+      "rgb_sha256": "7f754653e0b733e2851140c368fcfad9c22b550dc5a31e051da6cae00b577a0c",
+      "page_content_sha256": "73da1f3805d5883090b2f059f23195cba1425806bc487b5c07753e9854caa2d5",
+      "page_text_sha256": "3255c8fe0812d42d8b1f8151e7049de2cf94259cb9c25b351a32a7bd95170996",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 20,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "75bc898dd673ab4340aa0c8b69c5633c8a2a3cb8adda6eb368a512a58de45f08",
+      "rgb_sha256": "7e523a055da76689bdcd832835c405802d3ab2a305f8eff821dacdff6a3e00fc",
+      "page_content_sha256": "38dbf07260d60d669a51ea78f64fbf9124e9e924ed0f64b7ae10e01615dc8864",
+      "page_text_sha256": "57a31451f9e0736bb6025806b813e0e235d776f5c99a63aa34af2e9e99ec5ed7",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 21,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "82dfed89ba7191b97f7f9904d096307c81fb7e84d20e7baeaeee96d29b7b2df8",
+      "rgb_sha256": "e34be1c325f19480d26ae2cf771e58fba1dacd3badbd7426d7c1676a640d5bef",
+      "page_content_sha256": "81017582c5661b5f6c38117e64f1b3cde458fde075d35b3cd78ae920783e0216",
+      "page_text_sha256": "5acbf8fd87f505da68d6ff1117b53c0fa2e020e0f41d51c2cff35ea1c05a2fd5",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 22,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "a16c426212ca65dad2d1c012183cc80382617b6eece46b899a2f937f6d0f01b9",
+      "rgb_sha256": "8e5d32484d7467c25e1530105eecd33a98d60d237d3b9f6b98702b44b0e2b8c5",
+      "page_content_sha256": "9c1320861e6390954b96ceb51932924a052af4e188c0dedabaefc87a76b90e32",
+      "page_text_sha256": "1a73e2bea2fa927984514d8d0a252fcac550c38f8ff8ba10fd72600931f66055",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 23,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "17de6d01f5494d67b4775c30f07b915f52563c5f2e8d65f5329de5c898e43207",
+      "rgb_sha256": "fa40af4a4fc84040ae55ed3bfd3284164a71f9715b26eeca80aa8d1d9340f7bf",
+      "page_content_sha256": "0d2fefeb4fb1ac90437eea83308d6b5acbb352ffc48a68da0ac378f89d3687e4",
+      "page_text_sha256": "a4b68d81058ceba2b09b9b4e927df7f8ae1486010ec953b930298510ec9954d5",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 24,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "c01ff8b4fc8b0b3fff8f41b636da2ef42f5ff873496a101b0dea3263b6c51bd1",
+      "rgb_sha256": "8f68f5c163bacee5db3ba8d19bc8d996ccd67da8f5011e2d14886c43b69057e4",
+      "page_content_sha256": "ed9f5b2dd94fcb555409efcfea4baab40134fd374b97c04d260f7370f182c6d2",
+      "page_text_sha256": "5fc9c98d1ea567edbb2dd2c4e51dbb0e7b8ac726c5d00d87165cae177950946e",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 25,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "e01824c20cf11bf968a481217a4a9ddf773b3c19c95cd4e86b582168c338ab74",
+      "rgb_sha256": "3d0c9a87fd3ee783ea3c554e2d501901953a35e6f7a1bad2f03b455d6fc7d73a",
+      "page_content_sha256": "869a65f03aaeff24e8a203444181ebda19fef1f045ba0d4c4b765345d4affe9e",
+      "page_text_sha256": "642523201c45c81ccfa9773f38b27e66eafc98b221aeadcdd6599ef75142e52f",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 27,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "59b486711bd6869123f3b80a0679fc67041acb758c803c6531e2ea204d95dc47",
+      "rgb_sha256": "4a405969740bd4925a7980c485d1187bd93480bf49231036924b37e79de00d82",
+      "page_content_sha256": "0a69a4134e65ecf06a98bd4b215128bf870e378021b244672cd5572d7749328b",
+      "page_text_sha256": "469a29f9ff4b5801fc6b28faee52330c9ac45ff8a5138d2e28283d04a8eb492d",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 29,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "04e6d0c38cc8c5c9a67bb6be8254f66ff91b3c02802f6535d35907793774bc7c",
+      "rgb_sha256": "01206547b65f7dce0119a629b281696ac7c647cc0714bfcc26f8ae4ec46a81e9",
+      "page_content_sha256": "a14552a45b346358aeecd9d6114650b8d849e691eab92d6f6d4ba6fd51fc9918",
+      "page_text_sha256": "9c3e7c8d68f8fd05d8a7d435372961425182c1d1ef3a7c0938195278b2792aa7",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 30,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "1e1bd027e09ea324263b870def9b83784764fffcf5853e6fddbd8bf62d160696",
+      "rgb_sha256": "8cb2a00353030873cc9a1dd407a24b45f6a2e2618117c9d9b9a152a775bf84c3",
+      "page_content_sha256": "a5232e3d09c44a649962d6975a89a42e06f850f4f045c651200f0db9abc37e18",
+      "page_text_sha256": "16e5f3a9411b72414a3b2bc4dbb06480ae14940817f9f68167016f24196f4a7b",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 32,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "e9d3e90f4636beae31112e2886b73217694435359afec21279404951f6ac6119",
+      "rgb_sha256": "938ccaf1c3e4519d5db1bbef0401fe6c7f6761dacc909b0578f8daaf1c5994bc",
+      "page_content_sha256": "33cc041e664586d1fa16a321c944481c1fe94d43c8532ba3c80385a3304955a7",
+      "page_text_sha256": "aeceefb043a360e4c9de6fcdde0ffe3089c9a970a77b6f2f2f4077087408e57b",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 43,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "08455149c201f41368f593137e22d5286dacc01df82f8bc8616e138ddcb7ef04",
+      "rgb_sha256": "8cd4160751bf5576156ad141a24b1e75e92f0971bd5a849fb065b10c74fd181f",
+      "page_content_sha256": "9c14e74a2e8ff8c7fd1ab998560f99e87c06321519f288a6582e548d9916c54a",
+      "page_text_sha256": "1ff9fb1d09a07b2a23664b3f82773ca90680aa9b7eb1fcc0157b95d14d3173d7",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 44,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "3a0221dc0c3ee2db8b719e0f62c61acafb44a5824d59437b63eec7ddc6ff838e",
+      "rgb_sha256": "3e2c53d57d164dee5397867b0839d1f2eea6cd183b57d61b5bc27d2b27ced887",
+      "page_content_sha256": "442c1c4580ca39ac78ed55520af017289a1ac1981dfe93fddcbd3e4a4558d835",
+      "page_text_sha256": "fe86caaceacf38f5f4f5524272898c0f765f6a1b799b219ec178936e50533e45",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 45,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "99659190b8b18882256e812d6a16210ded3993133941a82b7758a887f6f6f720",
+      "rgb_sha256": "1e093803ebc83f2622a3a3b02ec6d4b0067ba9205728f3c84d52c3b41ff4e60e",
+      "page_content_sha256": "b0b3b13de9dfcc648000d8188c7109da3962e15c9b32b72434e1df80bd12b98c",
+      "page_text_sha256": "cbc75302eba44c63f133cf2e2150ff9d399f9dbbedffcaa3be18a645fa494666",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    },
+    {
+      "physical_page": 46,
+      "size": [
+        786,
+        1111
+      ],
+      "render_dpi": 95,
+      "png_sha256": "108b3a1eb09c7d45315db475f78903252498bdfcf0411bc421bdb48391f592af",
+      "rgb_sha256": "5b8950ceccbb688379aec59efca8d9e753e0cdee5f3d7f837e339c27059e7059",
+      "page_content_sha256": "f58ebe54e3aa36d32ec11ec577a998f76c92ac708dc2bee27f3f34e832666f7c",
+      "page_text_sha256": "6a433668f2c2d8b76d00e67c4982ca12c0c5450d2f2baf37d01ee563975efe5c",
+      "mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ]
+    }
+  ],
+  "status": "VISUALLY_REVIEWED_ASSIGNED_SCOPE_NO_MATERIAL_DEFECT",
+  "inspection_method": "Poppler pdftoppm at95dpi; actual view_image of contact sheets1-7, followed by individual page18/24/30 inspection. Not a text-extraction-only review.",
+  "inspected_physical_pages": [
+    5,
+    6,
+    7,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    27,
+    29,
+    30,
+    32,
+    43,
+    44,
+    45,
+    46
+  ],
+  "root_already_reviewed_exclusions": [
+    8,
+    26,
+    28,
+    31
+  ],
+  "individual_followup_pages": [
+    18,
+    24,
+    30
+  ],
+  "observations": {
+    "pages5_7_9_17": "Body text, chapter/section starts and footer numbers render within margins; no clipping, overlap or missing-glyph boxes observed.",
+    "page18": "Table2.1 compact but readable; header and all rows remain inside text block; no overlapping columns or clipped caption.",
+    "pages19_25": "Method notation and equations3.1-3.17 render with complete brackets, sums, indices and right-side numbers. Page24 equations3.12-3.15 individually checked.",
+    "page27": "Table4.1 count columns aligned, entire table and caption within margins.",
+    "pages29_30": "Metric equations4.1-4.5 fit within the text block with separated equation numbers. Page30 square-root/sample-SD expression individually checked.",
+    "page32": "Only a three-line continuation of Chapter4 remains above otherwise blank space. This is a naturally sparse chapter-ending page, not an empty or lost-content page; no source change recommended in this read-only review.",
+    "pages43_46": "References24-50 render with readable accented names, line-wrapped URLs and consistent footer numbers; no clipped long URL or missing-glyph box observed. Last page legitimately ends after three entries."
+  },
+  "hash_mapping_reuse_rule": "Re-render final PDF with pdftoppm95dpi. A matching decoded RGB SHA256 plus matching page dimensions proves identical page appearance for these observations. Decoded page-content SHA256 and media box provide an additional mapping check; PDF whole-file hash may change after TOC/Chapter5 edits. Do not carry observations onto pages whose render/geometry differs.",
+  "text_hash_note": "Pypdf emitted an optional fontTools warning for a CFF math font while extracting text; visual conclusions and primary reuse mapping rely on Poppler renders/RGB hashes, not extracted-text completeness."
+}

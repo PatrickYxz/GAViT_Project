@@ -3,3 +3,8 @@
 *.py    text eol=lf
 *.md    text eol=lf
 *.csv   text eol=lf
+
+# Experimental receipts and immutable bundles must keep their original SHA bytes.
+/results/** -text
+/output/** -text
+/thesis/** -text

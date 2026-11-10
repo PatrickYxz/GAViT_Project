@@ -1,0 +1,63 @@
+{
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-c",
+    "run resource tests with ML import guard"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 1.258640291634947,
+  "ml_import_audit": {
+    "loaded_ml_modules": [],
+    "exit_code": 0
+  },
+  "protected_baseline": "results/evidence/dfagcn_formal_3080_prepare_20261030/protected_inputs.json",
+  "protected_file_checks": {
+    "configs/dfagcn_independent_v1.json": true,
+    "configs/dfagcn_nwpu_smoke_v1.json": true,
+    "external_baselines/dfagcn/__init__.py": true,
+    "external_baselines/dfagcn/__main__.py": true,
+    "external_baselines/dfagcn/cache.py": true,
+    "external_baselines/dfagcn/cli.py": true,
+    "external_baselines/dfagcn/config.py": true,
+    "external_baselines/dfagcn/extraction.py": true,
+    "external_baselines/dfagcn/features.py": true,
+    "external_baselines/dfagcn/fusion.py": true,
+    "external_baselines/dfagcn/graph.py": true,
+    "external_baselines/dfagcn/identity.py": true,
+    "external_baselines/dfagcn/linear.py": true,
+    "external_baselines/dfagcn/model.py": true,
+    "external_baselines/dfagcn/pipeline.py": true,
+    "external_baselines/dfagcn/smoke.py": true,
+    "output/dfagcn_gpu_probe_3080_20261030.pyz": true,
+    "output/dfagcn_nwpu_smoke_20261029.pyz": true,
+    "tools/probe_dfagcn_gpu.py": true,
+    "tools/run_dfagcn_nwpu_smoke.py": true
+  },
+  "protected_files_unchanged": true,
+  "scope": "independent stdlib resource tests and file SHA verification; no GPU or training",
+  "resource_fix_protected_baseline": "results/evidence/dfagcn_formal_resource_fix_20261030/protected_inputs.json",
+  "resource_fix_protected_file_checks": {
+    "external_baselines/dfagcn/config.py": true,
+    "external_baselines/dfagcn/linear.py": true,
+    "external_baselines/dfagcn/graph.py": true,
+    "external_baselines/dfagcn/cache.py": true,
+    "external_baselines/dfagcn/__init__.py": true,
+    "external_baselines/dfagcn/features.py": true,
+    "external_baselines/dfagcn/model.py": true,
+    "external_baselines/dfagcn/cli.py": true,
+    "external_baselines/dfagcn/extraction.py": true,
+    "external_baselines/dfagcn/pipeline.py": true,
+    "external_baselines/dfagcn/fusion.py": true,
+    "external_baselines/dfagcn/identity.py": true,
+    "external_baselines/dfagcn/__main__.py": true,
+    "external_baselines/dfagcn/smoke.py": true,
+    "configs/dfagcn_independent_v1.json": true,
+    "tools/probe_dfagcn_gpu.py": true,
+    "tools/run_dfagcn_nwpu_smoke.py": true,
+    "tools/package_dfagcn_nwpu_smoke.py": true,
+    "output/dfagcn_nwpu_formal_3080_20261030.pyz": true,
+    "output/dfagcn_gpu_probe_3080_20261030.pyz": true,
+    "output/dfagcn_nwpu_smoke_20261029.pyz": true
+  },
+  "resource_fix_protected_files_unchanged": true
+}

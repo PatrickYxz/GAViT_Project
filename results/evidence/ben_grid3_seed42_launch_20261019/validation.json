@@ -1,0 +1,397 @@
+{
+  "date_received": "2026-10-19",
+  "evidence_type": "copy_of_current_user_pasted_message",
+  "direct_server_access": false,
+  "user_return_sha256": "16a6e2c60c54b0f3e6f5979ffcb6334eec651de247f4857e356b17ff91023677",
+  "dispatch": {
+    "status": "BEN_GRID3_42_DISPATCHED",
+    "pid": 3599,
+    "output": "/home/featurize/work/ben_grid3_seed42_20261018_01",
+    "training_start_verified": false,
+    "sequence": [
+      "preflight",
+      "smoke",
+      "train30",
+      "best_test"
+    ]
+  },
+  "observed_phase": "preflight_rgb_scan",
+  "last_printed_progress": {
+    "train": {
+      "last_printed_count": 230000,
+      "expected_count": 237871,
+      "elapsed_seconds": 17.4
+    },
+    "val": {
+      "last_printed_count": 110000,
+      "expected_count": 122342,
+      "elapsed_seconds": 8.3
+    }
+  },
+  "rgb_progress_lines": {
+    "train": 23,
+    "val": 11
+  },
+  "preflight_pass_verified": false,
+  "smoke_pass_verified": false,
+  "formal_training_start_verified": false,
+  "gpu_uuid_reported": null,
+  "process_liveness_independently_verified": false,
+  "metrics_reported": null,
+  "limits": "Partial tail plus dispatch output only; no independent server file/weight/process read; counters are printed positions, not model metrics or gate completion.",
+  "checks": [
+    {
+      "check": "matching_output",
+      "passed": true
+    },
+    {
+      "check": "dispatch_status_pid",
+      "passed": true
+    },
+    {
+      "check": "not_claimed_started",
+      "passed": true
+    },
+    {
+      "check": "expected_sequence",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_10000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_20000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_20000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_30000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_30000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_40000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_40000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_50000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_50000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_60000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_60000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_70000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_70000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_80000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_80000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_90000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_90000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_100000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_100000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_110000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_110000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_120000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_120000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_130000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_130000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_140000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_140000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_150000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_150000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_160000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_160000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_170000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_170000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_180000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_180000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_190000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_190000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_200000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_200000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_210000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_210000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_220000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_220000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_train_230000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_train_230000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_val_10000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_val_20000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_val_20000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_val_30000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_val_30000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_val_40000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_val_40000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_val_50000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_val_50000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_val_60000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_val_60000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_val_70000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_val_70000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_val_80000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_val_80000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_val_90000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_val_90000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_val_100000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_val_100000",
+      "passed": true
+    },
+    {
+      "check": "scan_count_matches_val_110000",
+      "passed": true
+    },
+    {
+      "check": "scan_progress_monotonic_val_110000",
+      "passed": true
+    },
+    {
+      "check": "34_rgb_lines",
+      "passed": true
+    },
+    {
+      "check": "last_train_print",
+      "passed": true
+    },
+    {
+      "check": "last_val_print",
+      "passed": true
+    },
+    {
+      "check": "preflight_started",
+      "passed": true
+    },
+    {
+      "check": "no_full_gate_or_formal_start_reported",
+      "passed": true
+    },
+    {
+      "check": "no_visible_error",
+      "passed": true
+    },
+    {
+      "check": "formal_metrics_still_null",
+      "passed": true
+    },
+    {
+      "check": "historical_source_preserved:results/comparison_table.csv",
+      "passed": true
+    },
+    {
+      "check": "historical_source_preserved:results/ablation_study.csv",
+      "passed": true
+    },
+    {
+      "check": "historical_source_preserved:results/bigearth_comparison.csv",
+      "passed": true
+    },
+    {
+      "check": "historical_source_preserved:.worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "passed": true
+    },
+    {
+      "check": "historical_source_preserved:results/multiseed_test_results.csv",
+      "passed": true
+    },
+    {
+      "check": "historical_source_preserved:results/evidence/bigearth_soft42_preflight_20261016/server_return.json",
+      "passed": true
+    },
+    {
+      "check": "historical_source_preserved:.worktrees/sparse-hybrid-4n-top2/models/gavit.py",
+      "passed": true
+    },
+    {
+      "check": "historical_source_preserved:.worktrees/sparse-hybrid-4n-top2/models/graph_construction.py",
+      "passed": true
+    },
+    {
+      "check": "installation_command_unchanged",
+      "passed": true
+    },
+    {
+      "check": "bash_read_command_syntax",
+      "passed": true
+    },
+    {
+      "check": "zsh_read_command_syntax",
+      "passed": true
+    }
+  ],
+  "passed": 88
+}

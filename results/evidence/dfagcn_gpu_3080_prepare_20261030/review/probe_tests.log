@@ -1,0 +1,15 @@
+test_exact_3080_uuid_capacity_and_idle_gate (test_dfagcn_gpu_probe.GPUProbeTests.test_exact_3080_uuid_capacity_and_idle_gate) ... ok
+test_expected_cache_header_rejects_changed_order_and_declared_shapes (test_dfagcn_gpu_probe.GPUProbeTests.test_expected_cache_header_rejects_changed_order_and_declared_shapes) ... ok
+test_fresh_cuda_required_before_environment_mutation (test_dfagcn_gpu_probe.GPUProbeTests.test_fresh_cuda_required_before_environment_mutation) ... ok
+test_frozen_manifest_and_pool_only_select_450_train_validation_images (test_dfagcn_gpu_probe.GPUProbeTests.test_frozen_manifest_and_pool_only_select_450_train_validation_images) ... ok
+test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels) ... ok
+test_inventory_parses_driver_and_free_memory_at_external_io_boundary (test_dfagcn_gpu_probe.GPUProbeTests.test_inventory_parses_driver_and_free_memory_at_external_io_boundary) ... ok
+test_missing_resource_inspect_is_read_only_and_does_not_train (test_dfagcn_gpu_probe.GPUProbeTests.test_missing_resource_inspect_is_read_only_and_does_not_train) ... ok
+test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu (test_dfagcn_gpu_probe.GPUProbeTests.test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu) ... ok
+test_run_requires_explicit_uuid (test_dfagcn_gpu_probe.GPUProbeTests.test_run_requires_explicit_uuid) ... ok
+test_weight_metadata_conflicts_and_incomplete_digest_are_rejected (test_dfagcn_gpu_probe.GPUProbeTests.test_weight_metadata_conflicts_and_incomplete_digest_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.877s
+
+OK

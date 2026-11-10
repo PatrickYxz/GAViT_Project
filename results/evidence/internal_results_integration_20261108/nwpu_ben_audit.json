@@ -1,0 +1,4220 @@
+{
+  "audited_at_utc": "2026-11-08T06:44:32.906085+00:00",
+  "ben_19class_AP": {
+    "42_fixed": {
+      "all19_rows": [
+        {
+          "candidate_AP_percent": 86.3,
+          "candidate_model": "fixed",
+          "class": "Urban fabric",
+          "class_zh": "城市建成区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.2,
+          "delta_decimal": "-0.2",
+          "delta_interval_pp": [
+            -0.3,
+            -0.1
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 86.5
+        },
+        {
+          "candidate_AP_percent": 51.1,
+          "candidate_model": "fixed",
+          "class": "Industrial or commercial units",
+          "class_zh": "工业或商业区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -1.3,
+          "delta_decimal": "-1.3",
+          "delta_interval_pp": [
+            -1.4,
+            -1.2
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 52.4
+        },
+        {
+          "candidate_AP_percent": 93.8,
+          "candidate_model": "fixed",
+          "class": "Arable land",
+          "class_zh": "耕地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.5,
+          "delta_decimal": "0.5",
+          "delta_interval_pp": [
+            0.4,
+            0.6
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 93.3
+        },
+        {
+          "candidate_AP_percent": 61.2,
+          "candidate_model": "fixed",
+          "class": "Permanent crops",
+          "class_zh": "多年生作物",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 2.4,
+          "delta_decimal": "2.4",
+          "delta_interval_pp": [
+            2.3,
+            2.5
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 58.8
+        },
+        {
+          "candidate_AP_percent": 85.8,
+          "candidate_model": "fixed",
+          "class": "Pastures",
+          "class_zh": "牧场",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.4,
+          "delta_decimal": "-0.4",
+          "delta_interval_pp": [
+            -0.5,
+            -0.3
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 86.2
+        },
+        {
+          "candidate_AP_percent": 70.1,
+          "candidate_model": "fixed",
+          "class": "Complex cultivation patterns",
+          "class_zh": "复杂耕作模式",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 2.1,
+          "delta_decimal": "2.1",
+          "delta_interval_pp": [
+            2.0,
+            2.2
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 68.0
+        },
+        {
+          "candidate_AP_percent": 73.7,
+          "candidate_model": "fixed",
+          "class": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+          "class_zh": "农业与自然植被混合区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.7,
+          "delta_decimal": "0.7",
+          "delta_interval_pp": [
+            0.6,
+            0.8
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 73.0
+        },
+        {
+          "candidate_AP_percent": 87.1,
+          "candidate_model": "fixed",
+          "class": "Agro-forestry areas",
+          "class_zh": "农林复合区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.2,
+          "delta_decimal": "-0.2",
+          "delta_interval_pp": [
+            -0.3,
+            -0.1
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 87.3
+        },
+        {
+          "candidate_AP_percent": 86.0,
+          "candidate_model": "fixed",
+          "class": "Broad-leaved forest",
+          "class_zh": "阔叶林",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.9,
+          "delta_decimal": "0.9",
+          "delta_interval_pp": [
+            0.8,
+            1.0
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 85.1
+        },
+        {
+          "candidate_AP_percent": 93.5,
+          "candidate_model": "fixed",
+          "class": "Coniferous forest",
+          "class_zh": "针叶林",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.0,
+          "delta_decimal": "0.0",
+          "delta_interval_pp": [
+            -0.1,
+            0.1
+          ],
+          "direction_at_reported_precision": "unresolved_at_rounding",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 93.5
+        },
+        {
+          "candidate_AP_percent": 89.8,
+          "candidate_model": "fixed",
+          "class": "Mixed forest",
+          "class_zh": "混交林",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.5,
+          "delta_decimal": "0.5",
+          "delta_interval_pp": [
+            0.4,
+            0.6
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 89.3
+        },
+        {
+          "candidate_AP_percent": 42.1,
+          "candidate_model": "fixed",
+          "class": "Natural grassland and sparsely vegetated areas",
+          "class_zh": "天然草地/稀疏植被",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.8,
+          "delta_decimal": "-0.8",
+          "delta_interval_pp": [
+            -0.9,
+            -0.7
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 42.9
+        },
+        {
+          "candidate_AP_percent": 61.8,
+          "candidate_model": "fixed",
+          "class": "Moors, heathland and sclerophyllous vegetation",
+          "class_zh": "荒原/石南灌丛/硬叶植被",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 5.0,
+          "delta_decimal": "5.0",
+          "delta_interval_pp": [
+            4.9,
+            5.1
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 56.8
+        },
+        {
+          "candidate_AP_percent": 78.8,
+          "candidate_model": "fixed",
+          "class": "Transitional woodland, shrub",
+          "class_zh": "过渡林地/灌丛",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.5,
+          "delta_decimal": "0.5",
+          "delta_interval_pp": [
+            0.4,
+            0.6
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 78.3
+        },
+        {
+          "candidate_AP_percent": 16.8,
+          "candidate_model": "fixed",
+          "class": "Beaches, dunes, sands",
+          "class_zh": "沙滩/沙丘/沙地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 3.5,
+          "delta_decimal": "3.5",
+          "delta_interval_pp": [
+            3.4,
+            3.6
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 13.3
+        },
+        {
+          "candidate_AP_percent": 64.1,
+          "candidate_model": "fixed",
+          "class": "Inland wetlands",
+          "class_zh": "内陆湿地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 1.4,
+          "delta_decimal": "1.4",
+          "delta_interval_pp": [
+            1.3,
+            1.5
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 62.7
+        },
+        {
+          "candidate_AP_percent": 34.7,
+          "candidate_model": "fixed",
+          "class": "Coastal wetlands",
+          "class_zh": "海岸湿地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 4.4,
+          "delta_decimal": "4.4",
+          "delta_interval_pp": [
+            4.3,
+            4.5
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 30.3
+        },
+        {
+          "candidate_AP_percent": 91.7,
+          "candidate_model": "fixed",
+          "class": "Inland waters",
+          "class_zh": "内陆水体",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.8,
+          "delta_decimal": "0.8",
+          "delta_interval_pp": [
+            0.7,
+            0.9
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 90.9
+        },
+        {
+          "candidate_AP_percent": 99.6,
+          "candidate_model": "fixed",
+          "class": "Marine waters",
+          "class_zh": "海洋水域",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.1,
+          "delta_decimal": "0.1",
+          "delta_interval_pp": [
+            0.0,
+            0.2
+          ],
+          "direction_at_reported_precision": "unresolved_at_rounding",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 99.5
+        }
+      ],
+      "classes": 19,
+      "raw_sign_counts": {
+        "negative": 5,
+        "positive": 13,
+        "zero": 1
+      },
+      "rounding_robust_direction_counts": {
+        "decrease": 5,
+        "increase": 12,
+        "unresolved_at_rounding": 2
+      }
+    },
+    "42_soft": {
+      "all19_rows": [
+        {
+          "candidate_AP_percent": 86.47986349141502,
+          "candidate_model": "soft",
+          "class": "Urban fabric",
+          "class_zh": "城市建成区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.02013650858498,
+          "delta_decimal": "-0.02013650858498",
+          "delta_interval_pp": [
+            -0.07013650858498,
+            0.02986349141502
+          ],
+          "direction_at_reported_precision": "unresolved_at_rounding",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 86.5
+        },
+        {
+          "candidate_AP_percent": 50.07587759233172,
+          "candidate_model": "soft",
+          "class": "Industrial or commercial units",
+          "class_zh": "工业或商业区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -2.32412240766828,
+          "delta_decimal": "-2.32412240766828",
+          "delta_interval_pp": [
+            -2.37412240766828,
+            -2.27412240766828
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 52.4
+        },
+        {
+          "candidate_AP_percent": 92.98062388899054,
+          "candidate_model": "soft",
+          "class": "Arable land",
+          "class_zh": "耕地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.31937611100946,
+          "delta_decimal": "-0.31937611100946",
+          "delta_interval_pp": [
+            -0.36937611100946,
+            -0.26937611100946
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 93.3
+        },
+        {
+          "candidate_AP_percent": 61.556257058390926,
+          "candidate_model": "soft",
+          "class": "Permanent crops",
+          "class_zh": "多年生作物",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 2.756257058390926,
+          "delta_decimal": "2.756257058390926",
+          "delta_interval_pp": [
+            2.706257058390926,
+            2.806257058390926
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 58.8
+        },
+        {
+          "candidate_AP_percent": 86.3479778181642,
+          "candidate_model": "soft",
+          "class": "Pastures",
+          "class_zh": "牧场",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.1479778181642,
+          "delta_decimal": "0.1479778181642",
+          "delta_interval_pp": [
+            0.0979778181642,
+            0.1979778181642
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 86.2
+        },
+        {
+          "candidate_AP_percent": 68.26056264980738,
+          "candidate_model": "soft",
+          "class": "Complex cultivation patterns",
+          "class_zh": "复杂耕作模式",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.26056264980738,
+          "delta_decimal": "0.26056264980738",
+          "delta_interval_pp": [
+            0.21056264980738,
+            0.31056264980738
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 68.0
+        },
+        {
+          "candidate_AP_percent": 72.90182452731646,
+          "candidate_model": "soft",
+          "class": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+          "class_zh": "农业与自然植被混合区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.09817547268354,
+          "delta_decimal": "-0.09817547268354",
+          "delta_interval_pp": [
+            -0.14817547268354,
+            -0.04817547268354
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 73.0
+        },
+        {
+          "candidate_AP_percent": 86.33334308893332,
+          "candidate_model": "soft",
+          "class": "Agro-forestry areas",
+          "class_zh": "农林复合区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.96665691106668,
+          "delta_decimal": "-0.96665691106668",
+          "delta_interval_pp": [
+            -1.01665691106668,
+            -0.91665691106668
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 87.3
+        },
+        {
+          "candidate_AP_percent": 86.14056246520138,
+          "candidate_model": "soft",
+          "class": "Broad-leaved forest",
+          "class_zh": "阔叶林",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 1.04056246520138,
+          "delta_decimal": "1.04056246520138",
+          "delta_interval_pp": [
+            0.99056246520138,
+            1.09056246520138
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 85.1
+        },
+        {
+          "candidate_AP_percent": 93.96257073390733,
+          "candidate_model": "soft",
+          "class": "Coniferous forest",
+          "class_zh": "针叶林",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.46257073390733,
+          "delta_decimal": "0.46257073390733",
+          "delta_interval_pp": [
+            0.41257073390733,
+            0.51257073390733
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 93.5
+        },
+        {
+          "candidate_AP_percent": 89.50482641623492,
+          "candidate_model": "soft",
+          "class": "Mixed forest",
+          "class_zh": "混交林",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.20482641623492,
+          "delta_decimal": "0.20482641623492",
+          "delta_interval_pp": [
+            0.15482641623492,
+            0.25482641623492
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 89.3
+        },
+        {
+          "candidate_AP_percent": 49.13715424695671,
+          "candidate_model": "soft",
+          "class": "Natural grassland and sparsely vegetated areas",
+          "class_zh": "天然草地/稀疏植被",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 6.23715424695671,
+          "delta_decimal": "6.23715424695671",
+          "delta_interval_pp": [
+            6.18715424695671,
+            6.28715424695671
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 42.9
+        },
+        {
+          "candidate_AP_percent": 59.444987115608306,
+          "candidate_model": "soft",
+          "class": "Moors, heathland and sclerophyllous vegetation",
+          "class_zh": "荒原/石南灌丛/硬叶植被",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 2.644987115608306,
+          "delta_decimal": "2.644987115608306",
+          "delta_interval_pp": [
+            2.594987115608306,
+            2.694987115608306
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 56.8
+        },
+        {
+          "candidate_AP_percent": 77.73526853555907,
+          "candidate_model": "soft",
+          "class": "Transitional woodland, shrub",
+          "class_zh": "过渡林地/灌丛",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.56473146444093,
+          "delta_decimal": "-0.56473146444093",
+          "delta_interval_pp": [
+            -0.61473146444093,
+            -0.51473146444093
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 78.3
+        },
+        {
+          "candidate_AP_percent": 8.873563515683342,
+          "candidate_model": "soft",
+          "class": "Beaches, dunes, sands",
+          "class_zh": "沙滩/沙丘/沙地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -4.426436484316658,
+          "delta_decimal": "-4.426436484316658",
+          "delta_interval_pp": [
+            -4.476436484316658,
+            -4.376436484316658
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 13.3
+        },
+        {
+          "candidate_AP_percent": 62.1383660742552,
+          "candidate_model": "soft",
+          "class": "Inland wetlands",
+          "class_zh": "内陆湿地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.5616339257448,
+          "delta_decimal": "-0.5616339257448",
+          "delta_interval_pp": [
+            -0.6116339257448,
+            -0.5116339257448
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 62.7
+        },
+        {
+          "candidate_AP_percent": 10.662911592859055,
+          "candidate_model": "soft",
+          "class": "Coastal wetlands",
+          "class_zh": "海岸湿地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -19.637088407140944,
+          "delta_decimal": "-19.637088407140945",
+          "delta_interval_pp": [
+            -19.687088407140944,
+            -19.587088407140946
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 30.3
+        },
+        {
+          "candidate_AP_percent": 91.17608894627384,
+          "candidate_model": "soft",
+          "class": "Inland waters",
+          "class_zh": "内陆水体",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.27608894627384,
+          "delta_decimal": "0.27608894627384",
+          "delta_interval_pp": [
+            0.22608894627384,
+            0.32608894627384
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 90.9
+        },
+        {
+          "candidate_AP_percent": 99.60421098030477,
+          "candidate_model": "soft",
+          "class": "Marine waters",
+          "class_zh": "海洋水域",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.10421098030477,
+          "delta_decimal": "0.10421098030477",
+          "delta_interval_pp": [
+            0.05421098030477,
+            0.15421098030477
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 42,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 99.5
+        }
+      ],
+      "classes": 19,
+      "raw_sign_counts": {
+        "negative": 9,
+        "positive": 10,
+        "zero": 0
+      },
+      "rounding_robust_direction_counts": {
+        "decrease": 8,
+        "increase": 10,
+        "unresolved_at_rounding": 1
+      }
+    },
+    "43_fixed": {
+      "all19_rows": [
+        {
+          "candidate_AP_percent": 86.5,
+          "candidate_model": "fixed",
+          "class": "Urban fabric",
+          "class_zh": "城市建成区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.6,
+          "delta_decimal": "0.6",
+          "delta_interval_pp": [
+            0.5,
+            0.7
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 85.9
+        },
+        {
+          "candidate_AP_percent": 50.8,
+          "candidate_model": "fixed",
+          "class": "Industrial or commercial units",
+          "class_zh": "工业或商业区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.6,
+          "delta_decimal": "0.6",
+          "delta_interval_pp": [
+            0.5,
+            0.7
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 50.2
+        },
+        {
+          "candidate_AP_percent": 93.3,
+          "candidate_model": "fixed",
+          "class": "Arable land",
+          "class_zh": "耕地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.2,
+          "delta_decimal": "-0.2",
+          "delta_interval_pp": [
+            -0.3,
+            -0.1
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 93.5
+        },
+        {
+          "candidate_AP_percent": 63.3,
+          "candidate_model": "fixed",
+          "class": "Permanent crops",
+          "class_zh": "多年生作物",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 3.3,
+          "delta_decimal": "3.3",
+          "delta_interval_pp": [
+            3.2,
+            3.4
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 60.0
+        },
+        {
+          "candidate_AP_percent": 86.3,
+          "candidate_model": "fixed",
+          "class": "Pastures",
+          "class_zh": "牧场",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.1,
+          "delta_decimal": "-0.1",
+          "delta_interval_pp": [
+            -0.2,
+            0.0
+          ],
+          "direction_at_reported_precision": "unresolved_at_rounding",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 86.4
+        },
+        {
+          "candidate_AP_percent": 69.0,
+          "candidate_model": "fixed",
+          "class": "Complex cultivation patterns",
+          "class_zh": "复杂耕作模式",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.4,
+          "delta_decimal": "-0.4",
+          "delta_interval_pp": [
+            -0.5,
+            -0.3
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 69.4
+        },
+        {
+          "candidate_AP_percent": 72.6,
+          "candidate_model": "fixed",
+          "class": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+          "class_zh": "农业与自然植被混合区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.2,
+          "delta_decimal": "0.2",
+          "delta_interval_pp": [
+            0.1,
+            0.3
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 72.4
+        },
+        {
+          "candidate_AP_percent": 87.0,
+          "candidate_model": "fixed",
+          "class": "Agro-forestry areas",
+          "class_zh": "农林复合区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.0,
+          "delta_decimal": "0.0",
+          "delta_interval_pp": [
+            -0.1,
+            0.1
+          ],
+          "direction_at_reported_precision": "unresolved_at_rounding",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 87.0
+        },
+        {
+          "candidate_AP_percent": 85.7,
+          "candidate_model": "fixed",
+          "class": "Broad-leaved forest",
+          "class_zh": "阔叶林",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.1,
+          "delta_decimal": "-0.1",
+          "delta_interval_pp": [
+            -0.2,
+            0.0
+          ],
+          "direction_at_reported_precision": "unresolved_at_rounding",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 85.8
+        },
+        {
+          "candidate_AP_percent": 93.4,
+          "candidate_model": "fixed",
+          "class": "Coniferous forest",
+          "class_zh": "针叶林",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.3,
+          "delta_decimal": "-0.3",
+          "delta_interval_pp": [
+            -0.4,
+            -0.2
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 93.7
+        },
+        {
+          "candidate_AP_percent": 89.9,
+          "candidate_model": "fixed",
+          "class": "Mixed forest",
+          "class_zh": "混交林",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.9,
+          "delta_decimal": "0.9",
+          "delta_interval_pp": [
+            0.8,
+            1.0
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 89.0
+        },
+        {
+          "candidate_AP_percent": 48.5,
+          "candidate_model": "fixed",
+          "class": "Natural grassland and sparsely vegetated areas",
+          "class_zh": "天然草地/稀疏植被",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 1.3,
+          "delta_decimal": "1.3",
+          "delta_interval_pp": [
+            1.2,
+            1.4
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 47.2
+        },
+        {
+          "candidate_AP_percent": 60.6,
+          "candidate_model": "fixed",
+          "class": "Moors, heathland and sclerophyllous vegetation",
+          "class_zh": "荒原/石南灌丛/硬叶植被",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 4.2,
+          "delta_decimal": "4.2",
+          "delta_interval_pp": [
+            4.1,
+            4.3
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 56.4
+        },
+        {
+          "candidate_AP_percent": 78.9,
+          "candidate_model": "fixed",
+          "class": "Transitional woodland, shrub",
+          "class_zh": "过渡林地/灌丛",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.3,
+          "delta_decimal": "0.3",
+          "delta_interval_pp": [
+            0.2,
+            0.4
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 78.6
+        },
+        {
+          "candidate_AP_percent": 8.6,
+          "candidate_model": "fixed",
+          "class": "Beaches, dunes, sands",
+          "class_zh": "沙滩/沙丘/沙地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -2.7,
+          "delta_decimal": "-2.7",
+          "delta_interval_pp": [
+            -2.8,
+            -2.6
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 11.3
+        },
+        {
+          "candidate_AP_percent": 63.1,
+          "candidate_model": "fixed",
+          "class": "Inland wetlands",
+          "class_zh": "内陆湿地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 2.9,
+          "delta_decimal": "2.9",
+          "delta_interval_pp": [
+            2.8,
+            3.0
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 60.2
+        },
+        {
+          "candidate_AP_percent": 34.4,
+          "candidate_model": "fixed",
+          "class": "Coastal wetlands",
+          "class_zh": "海岸湿地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 1.6,
+          "delta_decimal": "1.6",
+          "delta_interval_pp": [
+            1.5,
+            1.7
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 32.8
+        },
+        {
+          "candidate_AP_percent": 91.5,
+          "candidate_model": "fixed",
+          "class": "Inland waters",
+          "class_zh": "内陆水体",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.1,
+          "delta_decimal": "-0.1",
+          "delta_interval_pp": [
+            -0.2,
+            0.0
+          ],
+          "direction_at_reported_precision": "unresolved_at_rounding",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 91.6
+        },
+        {
+          "candidate_AP_percent": 99.6,
+          "candidate_model": "fixed",
+          "class": "Marine waters",
+          "class_zh": "海洋水域",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.1,
+          "delta_decimal": "-0.1",
+          "delta_interval_pp": [
+            -0.2,
+            0.0
+          ],
+          "direction_at_reported_precision": "unresolved_at_rounding",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.1,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 99.7
+        }
+      ],
+      "classes": 19,
+      "raw_sign_counts": {
+        "negative": 8,
+        "positive": 10,
+        "zero": 1
+      },
+      "rounding_robust_direction_counts": {
+        "decrease": 4,
+        "increase": 10,
+        "unresolved_at_rounding": 5
+      }
+    },
+    "43_soft": {
+      "all19_rows": [
+        {
+          "candidate_AP_percent": 86.90412749223422,
+          "candidate_model": "soft",
+          "class": "Urban fabric",
+          "class_zh": "城市建成区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 1.00412749223422,
+          "delta_decimal": "1.00412749223422",
+          "delta_interval_pp": [
+            0.95412749223422,
+            1.05412749223422
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 85.9
+        },
+        {
+          "candidate_AP_percent": 49.81336195915655,
+          "candidate_model": "soft",
+          "class": "Industrial or commercial units",
+          "class_zh": "工业或商业区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.38663804084345,
+          "delta_decimal": "-0.38663804084345",
+          "delta_interval_pp": [
+            -0.43663804084345,
+            -0.33663804084345
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 50.2
+        },
+        {
+          "candidate_AP_percent": 93.61706167535287,
+          "candidate_model": "soft",
+          "class": "Arable land",
+          "class_zh": "耕地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.11706167535287,
+          "delta_decimal": "0.11706167535287",
+          "delta_interval_pp": [
+            0.06706167535287,
+            0.16706167535287
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 93.5
+        },
+        {
+          "candidate_AP_percent": 64.69772332306674,
+          "candidate_model": "soft",
+          "class": "Permanent crops",
+          "class_zh": "多年生作物",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 4.69772332306674,
+          "delta_decimal": "4.69772332306674",
+          "delta_interval_pp": [
+            4.64772332306674,
+            4.74772332306674
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 60.0
+        },
+        {
+          "candidate_AP_percent": 86.19617659467306,
+          "candidate_model": "soft",
+          "class": "Pastures",
+          "class_zh": "牧场",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.20382340532694,
+          "delta_decimal": "-0.20382340532694",
+          "delta_interval_pp": [
+            -0.25382340532694,
+            -0.15382340532694
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 86.4
+        },
+        {
+          "candidate_AP_percent": 68.38043079497643,
+          "candidate_model": "soft",
+          "class": "Complex cultivation patterns",
+          "class_zh": "复杂耕作模式",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -1.01956920502357,
+          "delta_decimal": "-1.01956920502357",
+          "delta_interval_pp": [
+            -1.06956920502357,
+            -0.96956920502357
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 69.4
+        },
+        {
+          "candidate_AP_percent": 72.60580110578749,
+          "candidate_model": "soft",
+          "class": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+          "class_zh": "农业与自然植被混合区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.20580110578749,
+          "delta_decimal": "0.20580110578749",
+          "delta_interval_pp": [
+            0.15580110578749,
+            0.25580110578749
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 72.4
+        },
+        {
+          "candidate_AP_percent": 87.56101008698272,
+          "candidate_model": "soft",
+          "class": "Agro-forestry areas",
+          "class_zh": "农林复合区",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.56101008698272,
+          "delta_decimal": "0.56101008698272",
+          "delta_interval_pp": [
+            0.51101008698272,
+            0.61101008698272
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 87.0
+        },
+        {
+          "candidate_AP_percent": 86.06064969452527,
+          "candidate_model": "soft",
+          "class": "Broad-leaved forest",
+          "class_zh": "阔叶林",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.26064969452527,
+          "delta_decimal": "0.26064969452527",
+          "delta_interval_pp": [
+            0.21064969452527,
+            0.31064969452527
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 85.8
+        },
+        {
+          "candidate_AP_percent": 93.37999171286387,
+          "candidate_model": "soft",
+          "class": "Coniferous forest",
+          "class_zh": "针叶林",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.32000828713613,
+          "delta_decimal": "-0.32000828713613",
+          "delta_interval_pp": [
+            -0.37000828713613,
+            -0.27000828713613
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 93.7
+        },
+        {
+          "candidate_AP_percent": 89.60883457152102,
+          "candidate_model": "soft",
+          "class": "Mixed forest",
+          "class_zh": "混交林",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 0.60883457152102,
+          "delta_decimal": "0.60883457152102",
+          "delta_interval_pp": [
+            0.55883457152102,
+            0.65883457152102
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 89.0
+        },
+        {
+          "candidate_AP_percent": 45.88227402959922,
+          "candidate_model": "soft",
+          "class": "Natural grassland and sparsely vegetated areas",
+          "class_zh": "天然草地/稀疏植被",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -1.31772597040078,
+          "delta_decimal": "-1.31772597040078",
+          "delta_interval_pp": [
+            -1.36772597040078,
+            -1.26772597040078
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 47.2
+        },
+        {
+          "candidate_AP_percent": 60.989909708927534,
+          "candidate_model": "soft",
+          "class": "Moors, heathland and sclerophyllous vegetation",
+          "class_zh": "荒原/石南灌丛/硬叶植被",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 4.589909708927534,
+          "delta_decimal": "4.589909708927534",
+          "delta_interval_pp": [
+            4.539909708927534,
+            4.639909708927534
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 56.4
+        },
+        {
+          "candidate_AP_percent": 78.58765428689567,
+          "candidate_model": "soft",
+          "class": "Transitional woodland, shrub",
+          "class_zh": "过渡林地/灌丛",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.01234571310433,
+          "delta_decimal": "-0.01234571310433",
+          "delta_interval_pp": [
+            -0.06234571310433,
+            0.03765428689567
+          ],
+          "direction_at_reported_precision": "unresolved_at_rounding",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 78.6
+        },
+        {
+          "candidate_AP_percent": 23.773897508570297,
+          "candidate_model": "soft",
+          "class": "Beaches, dunes, sands",
+          "class_zh": "沙滩/沙丘/沙地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 12.473897508570298,
+          "delta_decimal": "12.473897508570297",
+          "delta_interval_pp": [
+            12.423897508570297,
+            12.523897508570297
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 11.3
+        },
+        {
+          "candidate_AP_percent": 62.84234311307374,
+          "candidate_model": "soft",
+          "class": "Inland wetlands",
+          "class_zh": "内陆湿地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 2.64234311307374,
+          "delta_decimal": "2.64234311307374",
+          "delta_interval_pp": [
+            2.59234311307374,
+            2.69234311307374
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 60.2
+        },
+        {
+          "candidate_AP_percent": 42.61340595488735,
+          "candidate_model": "soft",
+          "class": "Coastal wetlands",
+          "class_zh": "海岸湿地",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": 9.81340595488735,
+          "delta_decimal": "9.81340595488735",
+          "delta_interval_pp": [
+            9.76340595488735,
+            9.86340595488735
+          ],
+          "direction_at_reported_precision": "increase",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 32.8
+        },
+        {
+          "candidate_AP_percent": 91.38628018657404,
+          "candidate_model": "soft",
+          "class": "Inland waters",
+          "class_zh": "内陆水体",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.21371981342596,
+          "delta_decimal": "-0.21371981342596",
+          "delta_interval_pp": [
+            -0.26371981342596,
+            -0.16371981342596
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 91.6
+        },
+        {
+          "candidate_AP_percent": 99.58291236253619,
+          "candidate_model": "soft",
+          "class": "Marine waters",
+          "class_zh": "海洋水域",
+          "dataset": "BigEarthNet-19",
+          "delta_AP_pp_approx": -0.11708763746381,
+          "delta_decimal": "-0.11708763746381",
+          "delta_interval_pp": [
+            -0.16708763746381,
+            -0.06708763746381
+          ],
+          "direction_at_reported_precision": "decrease",
+          "metric": "test_AP_percent",
+          "reference_model": "Swin-T",
+          "rounding_uncertainty_pp": 0.05,
+          "seed": 43,
+          "statistical_significance_tested": false,
+          "swin_AP_percent": 99.7
+        }
+      ],
+      "classes": 19,
+      "raw_sign_counts": {
+        "negative": 8,
+        "positive": 11,
+        "zero": 0
+      },
+      "rounding_robust_direction_counts": {
+        "decrease": 7,
+        "increase": 11,
+        "unresolved_at_rounding": 1
+      }
+    }
+  },
+  "ben_rows": [
+    {
+      "best_epoch": null,
+      "best_val_mAP_percent": 78.8,
+      "commit": "legacy",
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "H_archived_rounded_historical_controls",
+      "f1_threshold": 0.5,
+      "final_epoch": 30,
+      "final_val_mAP_percent": 75.8,
+      "gpu": "待确认",
+      "mAP_percent": 70.9,
+      "macro_f1_percent": 64.2,
+      "metric_precision": "printed_one_decimal",
+      "micro_f1_percent": 76.6,
+      "model": "swin",
+      "notes": "Historical formal baseline; best epoch, GPU, peak memory, wall time and cost pending confirmation",
+      "raw_predictions_downloaded": false,
+      "seed": 42,
+      "selection": "best_validation_mAP_checkpoint; no train+val fresh refit",
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "status": "completed_test",
+      "test_samples": 119825,
+      "train_samples": 237871,
+      "val_samples": 122342
+    },
+    {
+      "best_epoch": 13,
+      "best_val_mAP_percent": 79.2087,
+      "commit": "cd39be9",
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "H_archived_rounded_historical_controls",
+      "f1_threshold": 0.5,
+      "final_epoch": 30,
+      "final_val_mAP_percent": 76.9,
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "mAP_percent": 72.0,
+      "macro_f1_percent": 66.0,
+      "metric_precision": "printed_one_decimal",
+      "micro_f1_percent": 76.7,
+      "model": "fixed",
+      "notes": "Formal sparse-hybrid seed42; best checkpoint evaluated on RTX 3060; test peak CUDA allocated 0.60 GiB; test throughput 5.91 batch/s; single-seed result; training cost pending confirmation",
+      "raw_predictions_downloaded": false,
+      "seed": 42,
+      "selection": "best_validation_mAP_checkpoint; no train+val fresh refit",
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "status": "completed_test",
+      "test_samples": 119825,
+      "train_samples": 237871,
+      "val_samples": 122342
+    },
+    {
+      "best_epoch": 10,
+      "best_val_mAP_percent": 78.75,
+      "best_val_precision": "metadata-rounded-four-decimal; exact full best history not local",
+      "checkpoint_sha256": "23314ea561f753b1aad73025148d7b9788bbdddc4f38f49afeca59a6aec91c35",
+      "commit": "ed480e6",
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "A_archived_machine_reports",
+      "f1_threshold": 0.5,
+      "final_epoch": 30,
+      "final_val_mAP_percent": 75.70723466069043,
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "mAP_percent": 70.1745705651681,
+      "macro_f1_percent": 64.04828509185678,
+      "metric_precision": "full_returned",
+      "micro_f1_percent": 76.7999586513447,
+      "model": "soft",
+      "notes": "Formal soft42 full30 and119825 test complete; queue/train/test exit0; best10/val78.7500; exact19AP and checkpoint SHA chain agree: 23314ea561f753b1aad73025148d7b9788bbdddc4f38f49afeca59a6aec91c35. Final30 val75.70723466069043. GPU UUID44825cf0-bd98-bfdc-efbc-0100238a6789; repaired workerSHA 09722f10542bed449d2e80df0041387e113cab58db403b3979e07f192194f767. Original scheduler failures preserved; no smoke retraining. Queue20808.021594s, runtime at historical1.67yuan/h about9.65yuan; bill/setup/idle unknown. Throughput includes validation/IO and probes, not pure model speed. Legacy42 control provenance and code/hardware differences retained. Evidence: ../../results/evidence/bigearth_soft42_complete_20261017/summary.json",
+      "raw_predictions_downloaded": false,
+      "seed": 42,
+      "selection": "best_validation_mAP_checkpoint; no train+val fresh refit",
+      "source": "results/evidence/bigearth_soft42_complete_20261017/summary.json",
+      "status": "completed_test",
+      "test_samples": 119825,
+      "train_samples": 237871,
+      "val_samples": 122342,
+      "worker_sha256": "09722f10542bed449d2e80df0041387e113cab58db403b3979e07f192194f767"
+    },
+    {
+      "best_epoch": 6,
+      "best_val_mAP_percent": 78.3459,
+      "commit": "bb9f1cf",
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "H_archived_rounded_historical_controls",
+      "f1_threshold": 0.5,
+      "final_epoch": 30,
+      "final_val_mAP_percent": 75.8,
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "mAP_percent": 71.1,
+      "macro_f1_percent": 64.1,
+      "metric_precision": "printed_one_decimal",
+      "micro_f1_percent": 76.0,
+      "model": "swin",
+      "notes": "Formal paired seed43 baseline; final Val macro-F1 71.1%; best checkpoint hash verified; retry1 identity",
+      "raw_predictions_downloaded": false,
+      "seed": 43,
+      "selection": "best_validation_mAP_checkpoint; no train+val fresh refit",
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "status": "completed_test",
+      "test_samples": 119825,
+      "train_samples": 237871,
+      "val_samples": 122342
+    },
+    {
+      "best_epoch": 8,
+      "best_val_mAP_percent": 78.4728,
+      "commit": "bb9f1cf",
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "H_archived_rounded_historical_controls",
+      "f1_threshold": 0.5,
+      "final_epoch": 21,
+      "final_val_mAP_percent": null,
+      "gpu": "NVIDIA GeForce RTX 4090 (train); NVIDIA GeForce RTX 3060 (test)",
+      "mAP_percent": 71.7,
+      "macro_f1_percent": 65.7,
+      "metric_precision": "printed_one_decimal",
+      "micro_f1_percent": 76.8,
+      "model": "fixed",
+      "notes": "Formal paired seed43 result using epoch-8 best checkpoint; planned 30 epochs but stopped after epoch 21 and not resumed; checkpoint hash verified; successful test log retry2; test timing and memory pending; 19 per-class APs archived 2026-10-10 from existing log excerpt: results/evidence/bigearth_seed43_per_class_20261010/server_return.txt",
+      "raw_predictions_downloaded": false,
+      "seed": 43,
+      "selection": "best_validation_mAP_checkpoint; no train+val fresh refit",
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "status": "completed_test",
+      "test_samples": 119825,
+      "train_samples": 237871,
+      "val_samples": 122342
+    },
+    {
+      "best_epoch": 8,
+      "best_val_mAP_percent": 78.99004691745016,
+      "checkpoint_sha256": "c01403d67df77ec03f173877ca3466e1211d06015cd83dc89672629595e387a7",
+      "commit": "ed480e6",
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "A_archived_machine_reports",
+      "f1_threshold": 0.5,
+      "final_epoch": 30,
+      "final_val_mAP_percent": 75.6996819828042,
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "mAP_percent": 72.86757085064232,
+      "macro_f1_percent": 66.67389161697625,
+      "metric_precision": "full_returned",
+      "micro_f1_percent": 76.90597117759339,
+      "model": "soft",
+      "notes": "Formal soft43 full30 and119825 test complete; queue/train/test exits0. Best epoch8/full-history val mAP78.99004691745016; metadata rounded78.9900. Precise metrics/19AP and checkpoint hash chain agree. Current4090 GPU UUID unchanged; code/pretraining/splits/software/precision verified. Queue22941.731309s; train22679.135110s/test197.353206s; train allocated3.662695GiB/reserved3.943359GiB, test allocated0.595415GiB. Queue runtime cost at1.67yuan/h10.642414yuan, not bill incl recovery/idle. Peak/timing include artifact checks; RSS excludes loader workers; effective314.656images/s includes validation/IO, not pure model speed. 8val initial/best/final probes normalized/48+32 edges; full30 epoch IDs but only first/best/last rows returned locally. Old43 rounded controls/fixed saved21/code/hardware confounds retained. Evidence results/evidence/bigearth_soft43_complete_20261012/reported_summary_output.txt",
+      "raw_predictions_downloaded": false,
+      "seed": 43,
+      "selection": "best_validation_mAP_checkpoint; no train+val fresh refit",
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_soft43_test_summary.json",
+      "status": "completed_test",
+      "test_samples": 119825,
+      "train_samples": 237871,
+      "val_samples": 122342
+    },
+    {
+      "best_epoch": 9,
+      "best_val_mAP_percent": 78.5782,
+      "commit": "a23a566",
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "H_archived_rounded_historical_controls",
+      "f1_threshold": 0.5,
+      "final_epoch": null,
+      "final_val_mAP_percent": null,
+      "gpu": "NVIDIA GeForce RTX 3080",
+      "mAP_percent": 71.4,
+      "macro_f1_percent": 65.7,
+      "metric_precision": "printed_one_decimal",
+      "micro_f1_percent": 76.7,
+      "model": "swin",
+      "notes": "Seed44 best-checkpoint test returned by user: 71.4/65.7/76.7; 3745/3745 batches; Exit status0. Metadata best epoch9 Val mAP78.5782; returned sha256sum matches sidecar. Preflight confirms RTX3080, a23a566, Python3.11.8, torch2.2.2, CUDA12.1. Latest returned validation is epoch27: Loss0.0268, Val mAP75.7, F1 71.0; train.exit is missing; at least27 validation rounds observed, final completion/exit cause unknown. Epochs and Final_Val_mAP remain blank until final training state is confirmed. Test_Time is whole-command7:55.63; loop7:01. Test device not independently recorded. Evidence: results/evidence/seed44_reconciliation_20260914.json",
+      "raw_predictions_downloaded": false,
+      "seed": 44,
+      "selection": "best_validation_mAP_checkpoint; no train+val fresh refit",
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "status": "completed_test",
+      "test_samples": 119825,
+      "train_samples": 237871,
+      "training_completion_status": "at_least_epoch27_observed; final_exit_unknown",
+      "val_samples": 122342
+    },
+    {
+      "best_epoch": 17,
+      "best_val_mAP_percent": 78.5171,
+      "commit": "36345f7",
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "H_archived_rounded_historical_controls",
+      "f1_threshold": 0.5,
+      "final_epoch": 26,
+      "final_val_mAP_percent": 76.9,
+      "gpu": "NVIDIA GeForce RTX 3080",
+      "mAP_percent": 70.2,
+      "macro_f1_percent": 65.2,
+      "metric_precision": "printed_one_decimal",
+      "micro_f1_percent": 77.1,
+      "model": "fixed",
+      "notes": "Returned test.log confirms 70.2/65.2/77.1, 19 class APs, test_exit=0. Current metadata and matching server sha256sum show best epoch17 Val mAP78.5171; historical diary epoch19/77.9 discrepancy retained in evidence/seed44_reconciliation_20260914.json. Epoch26/final Val76.9/GPU memory4.2GiB/test5:20 remain historical reported fields, not newly reverified. Per user direction, keep provenance discrepancy noted and focus on effect analysis; no new training/test or historical-score alteration. Test log does not contain a checkpoint hash.",
+      "raw_predictions_downloaded": false,
+      "seed": 44,
+      "selection": "best_validation_mAP_checkpoint; no train+val fresh refit",
+      "selection_provenance_discrepancy": {
+        "old_root_csv_or_diary_best_epoch": 19,
+        "old_root_csv_or_diary_best_val_mAP": 77.9,
+        "reconciled_metadata_best_epoch": 17,
+        "reconciled_metadata_best_val_mAP": 78.5171,
+        "score_unchanged": true,
+        "source": ".worktrees/sparse-hybrid-4n-top2/results/evidence/seed44_reconciliation_20260914.json"
+      },
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "status": "completed_test",
+      "test_samples": 119825,
+      "train_samples": 237871,
+      "val_samples": 122342
+    },
+    {
+      "best_epoch": null,
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "N_no_result",
+      "final_epoch": null,
+      "mAP_percent": null,
+      "macro_f1_percent": null,
+      "micro_f1_percent": null,
+      "model": "soft",
+      "seed": 44,
+      "source": null,
+      "status": "not_run_or_no_completed_result"
+    },
+    {
+      "best_epoch": 6,
+      "best_val_mAP_percent": 78.6509,
+      "commit": "deb2b45",
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "A_archived_machine_reports",
+      "f1_threshold": 0.5,
+      "final_epoch": 30,
+      "final_val_mAP_percent": null,
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "mAP_percent": 71.67692953551497,
+      "macro_f1_percent": 65.08421202330264,
+      "metric_precision": "full_returned",
+      "micro_f1_percent": 76.73226436237192,
+      "model": "swin",
+      "notes": "Seed45 formal 30/30; queue and all six stage exits reported 0. Exact returned metrics; best metadata/train/test hash chain agrees, checkpoint bytes not received locally. Same-run shared GPU/software/precision supported by common identity and verified launcher hash. CUDA peak includes saved-state verification; RSS excludes workers. Stage timing excludes preflight/import/idle. Swin final val/history pending; GAViT final val from preceding same-run epoch30 excerpt. Source: results/evidence/bigearth_seed45_20260922_01/summary.json",
+      "raw_predictions_downloaded": false,
+      "seed": 45,
+      "selection": "best_validation_mAP_checkpoint; no train+val fresh refit",
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "status": "completed_test",
+      "test_samples": 119825,
+      "train_samples": 237871,
+      "val_samples": 122342
+    },
+    {
+      "best_epoch": 10,
+      "best_val_mAP_percent": 78.2951,
+      "commit": "deb2b45",
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "A_archived_machine_reports",
+      "f1_threshold": 0.5,
+      "final_epoch": 30,
+      "final_val_mAP_percent": 76.61513448708149,
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "mAP_percent": 70.25823624286052,
+      "macro_f1_percent": 64.29547698363885,
+      "metric_precision": "full_returned",
+      "micro_f1_percent": 76.70245685151849,
+      "model": "fixed",
+      "notes": "Seed45 formal 30/30; queue and all six stage exits reported 0. Exact returned metrics; best metadata/train/test hash chain agrees, checkpoint bytes not received locally. Same-run shared GPU/software/precision supported by common identity and verified launcher hash. CUDA peak includes saved-state verification; RSS excludes workers. Stage timing excludes preflight/import/idle. Swin final val/history pending; GAViT final val from preceding same-run epoch30 excerpt. Source: results/evidence/bigearth_seed45_20260922_01/summary.json",
+      "raw_predictions_downloaded": false,
+      "seed": 45,
+      "selection": "best_validation_mAP_checkpoint; no train+val fresh refit",
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "status": "completed_test",
+      "test_samples": 119825,
+      "train_samples": 237871,
+      "val_samples": 122342
+    },
+    {
+      "best_epoch": 11,
+      "best_val_mAP_percent": 78.7037,
+      "checkpoint_sha256": "4969f401bf297c3885ee0ac02938ae102413fc2e8c1bc8e0a628e9e918bd35e2",
+      "commit": "ed480e6",
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "A_archived_machine_reports",
+      "f1_threshold": 0.5,
+      "final_epoch": 30,
+      "final_val_mAP_percent": 76.22925381660184,
+      "gpu": "NVIDIA GeForce RTX 2080 Ti",
+      "mAP_percent": 70.83691875764855,
+      "macro_f1_percent": 64.86482283595696,
+      "metric_precision": "full_returned",
+      "micro_f1_percent": 76.38335430648769,
+      "model": "soft",
+      "notes": "Formal soft45 30/30 and full119825 test complete; queue/train/test exits0 and completion marker returned after instance return. Metadata/test checkpoint SHA agrees: 4969f401bf297c3885ee0ac02938ae102413fc2e8c1bc8e0a628e9e918bd35e2. Same frozen protocol/pretrain as fixed45, different physical2080Ti UUID; prior controls retained. History tail contains complete17-30 only; full stage resource/probe summary received and matched to frozen identity. Queue 53058.733037157s; allocated peak recorded; reserved train 4.029296875 GiB. Stage scope includes checkpoint/probe checks; RSS excludes loader workers; effective throughput includes validation/IO, not a model-only benchmark. 8 val images and initial/best/final snapshots checked; 48+32 edges and S/W normalization passed. Summary source: results/evidence/bigearth_soft45_complete_20261001/reported_summary_output.txt. Actual cost unknown. Raw evidence: results/evidence/bigearth_soft45_complete_20261001/reported_output.txt; analysis: results/bigearth_soft45_ablation.md. Single seed, no stability claim.",
+      "raw_predictions_downloaded": false,
+      "seed": 45,
+      "selection": "best_validation_mAP_checkpoint; no train+val fresh refit",
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/evidence/bigearth_soft45_complete_20261001/reported_summary_output.txt",
+      "status": "completed_test",
+      "test_samples": 119825,
+      "train_samples": 237871,
+      "val_samples": 122342
+    },
+    {
+      "best_epoch": null,
+      "checkpoint_sha256": null,
+      "commit": null,
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "R_user_confirmed_primary_only_lost_originals",
+      "expected_f1_threshold": 0.5,
+      "f1_threshold": null,
+      "final_epoch": null,
+      "gpu": "RTX4090 user-confirmed; UUID unavailable",
+      "mAP_percent": 71.0,
+      "macro_f1_percent": null,
+      "metric_precision": "printed_one_decimal",
+      "micro_f1_percent": null,
+      "model": "swin",
+      "raw_predictions_downloaded": false,
+      "seed": 46,
+      "source": "results/seed46_seed47_reconstruction_20261104.json",
+      "source_printed_value": "71.0",
+      "status": "user_confirmed_historical_score_original_records_lost",
+      "test_samples": 119825
+    },
+    {
+      "best_epoch": null,
+      "checkpoint_sha256": null,
+      "commit": null,
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "R_user_confirmed_primary_only_lost_originals",
+      "expected_f1_threshold": 0.5,
+      "f1_threshold": null,
+      "final_epoch": null,
+      "gpu": "RTX4090 user-confirmed; UUID unavailable",
+      "mAP_percent": 71.8,
+      "macro_f1_percent": null,
+      "metric_precision": "printed_one_decimal",
+      "micro_f1_percent": null,
+      "model": "fixed",
+      "raw_predictions_downloaded": false,
+      "seed": 46,
+      "source": "results/seed46_seed47_reconstruction_20261104.json",
+      "source_printed_value": "71.8",
+      "status": "user_confirmed_historical_score_original_records_lost",
+      "test_samples": 119825
+    },
+    {
+      "best_epoch": null,
+      "checkpoint_sha256": null,
+      "commit": null,
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "R_user_confirmed_primary_only_lost_originals",
+      "expected_f1_threshold": 0.5,
+      "f1_threshold": null,
+      "final_epoch": null,
+      "gpu": "RTX4090 user-confirmed; UUID unavailable",
+      "mAP_percent": 71.4,
+      "macro_f1_percent": null,
+      "metric_precision": "printed_one_decimal",
+      "micro_f1_percent": null,
+      "model": "soft",
+      "raw_predictions_downloaded": false,
+      "seed": 46,
+      "source": "results/seed46_seed47_reconstruction_20261104.json",
+      "source_printed_value": "71.4",
+      "status": "user_confirmed_historical_score_original_records_lost",
+      "test_samples": 119825
+    },
+    {
+      "best_epoch": null,
+      "checkpoint_sha256": null,
+      "commit": null,
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "R_user_confirmed_primary_only_lost_originals",
+      "expected_f1_threshold": 0.5,
+      "f1_threshold": null,
+      "final_epoch": null,
+      "gpu": "RTX4090 user-confirmed; UUID unavailable",
+      "mAP_percent": 70.6,
+      "macro_f1_percent": null,
+      "metric_precision": "printed_one_decimal",
+      "micro_f1_percent": null,
+      "model": "swin",
+      "raw_predictions_downloaded": false,
+      "seed": 47,
+      "source": "results/seed46_seed47_reconstruction_20261104.json",
+      "source_printed_value": "70.6",
+      "status": "user_confirmed_historical_score_original_records_lost",
+      "test_samples": 119825
+    },
+    {
+      "best_epoch": null,
+      "checkpoint_sha256": null,
+      "commit": null,
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "R_user_confirmed_primary_only_lost_originals",
+      "expected_f1_threshold": 0.5,
+      "f1_threshold": null,
+      "final_epoch": null,
+      "gpu": "RTX4090 user-confirmed; UUID unavailable",
+      "mAP_percent": 71.1,
+      "macro_f1_percent": null,
+      "metric_precision": "printed_one_decimal",
+      "micro_f1_percent": null,
+      "model": "fixed",
+      "raw_predictions_downloaded": false,
+      "seed": 47,
+      "source": "results/seed46_seed47_reconstruction_20261104.json",
+      "source_printed_value": "71.1",
+      "status": "user_confirmed_historical_score_original_records_lost",
+      "test_samples": 119825
+    },
+    {
+      "best_epoch": null,
+      "checkpoint_sha256": null,
+      "commit": null,
+      "dataset": "BigEarthNet-19",
+      "evidence_level": "R_user_confirmed_primary_only_lost_originals",
+      "expected_f1_threshold": 0.5,
+      "f1_threshold": null,
+      "final_epoch": null,
+      "gpu": "RTX4090 user-confirmed; UUID unavailable",
+      "mAP_percent": 70.3,
+      "macro_f1_percent": null,
+      "metric_precision": "printed_one_decimal",
+      "micro_f1_percent": null,
+      "model": "soft",
+      "raw_predictions_downloaded": false,
+      "seed": 47,
+      "source": "results/seed46_seed47_reconstruction_20261104.json",
+      "source_printed_value": "70.3",
+      "status": "user_confirmed_historical_score_original_records_lost",
+      "test_samples": 119825
+    }
+  ],
+  "checks": [
+    {
+      "name": "NWPU_OA_integer_42_swin",
+      "passed": true
+    },
+    {
+      "name": "NWPU_OA_integer_42_fixed",
+      "passed": true
+    },
+    {
+      "name": "NWPU_OA_integer_42_soft",
+      "passed": true
+    },
+    {
+      "name": "NWPU_OA_integer_43_swin",
+      "passed": true
+    },
+    {
+      "name": "NWPU_OA_integer_43_fixed",
+      "passed": true
+    },
+    {
+      "name": "NWPU_OA_integer_43_soft",
+      "passed": true
+    },
+    {
+      "name": "reported_only_missing_F1_NWPU-RESISC4546Swin-T Baseline",
+      "passed": true
+    },
+    {
+      "name": "reported_only_missing_F1_NWPU-RESISC4547Swin-T Baseline",
+      "passed": true
+    },
+    {
+      "name": "reported_only_missing_F1_NWPU-RESISC4546GAViT (fixed grouping)",
+      "passed": true
+    },
+    {
+      "name": "reported_only_missing_F1_NWPU-RESISC4547GAViT (fixed grouping)",
+      "passed": true
+    },
+    {
+      "name": "reported_only_missing_F1_NWPU-RESISC4546GAViT soft_prototype",
+      "passed": true
+    },
+    {
+      "name": "reported_only_missing_F1_NWPU-RESISC4547GAViT soft_prototype",
+      "passed": true
+    },
+    {
+      "name": "reported_only_missing_F1_BigEarthNet-1946Swin-T Baseline",
+      "passed": true
+    },
+    {
+      "name": "reported_only_missing_F1_BigEarthNet-1947Swin-T Baseline",
+      "passed": true
+    },
+    {
+      "name": "reported_only_missing_F1_BigEarthNet-1946GAViT (fixed grouping)",
+      "passed": true
+    },
+    {
+      "name": "reported_only_missing_F1_BigEarthNet-1947GAViT (fixed grouping)",
+      "passed": true
+    },
+    {
+      "name": "reported_only_missing_F1_BigEarthNet-1946GAViT soft_prototype",
+      "passed": true
+    },
+    {
+      "name": "reported_only_missing_F1_BigEarthNet-1947GAViT soft_prototype",
+      "passed": true
+    },
+    {
+      "name": "soft43_original_report_hash",
+      "passed": true
+    },
+    {
+      "name": "soft43_completed_formal_not_preflight",
+      "passed": true
+    },
+    {
+      "name": "soft42_completed_train_test",
+      "passed": true
+    },
+    {
+      "name": "soft42_19AP_mean",
+      "passed": true
+    },
+    {
+      "name": "soft43_19AP_mean",
+      "passed": true
+    },
+    {
+      "name": "AP19_unique_42_fixed",
+      "passed": true
+    },
+    {
+      "name": "AP19_unique_42_soft",
+      "passed": true
+    },
+    {
+      "name": "AP19_unique_43_fixed",
+      "passed": true
+    },
+    {
+      "name": "AP19_unique_43_soft",
+      "passed": true
+    },
+    {
+      "name": "K9_full_test_metrics",
+      "passed": true
+    },
+    {
+      "name": "K9_K16_four_case_decisions",
+      "passed": true
+    },
+    {
+      "name": "AP19_same_class_set_and_subtraction_42_fixed",
+      "passed": true
+    },
+    {
+      "name": "AP19_same_class_set_and_subtraction_42_soft",
+      "passed": true
+    },
+    {
+      "name": "AP19_same_class_set_and_subtraction_43_fixed",
+      "passed": true
+    },
+    {
+      "name": "AP19_same_class_set_and_subtraction_43_soft",
+      "passed": true
+    }
+  ],
+  "critical_boundaries": [
+    "Keep46/47 primary-only rows separate from archived machine-report rows; all F1/AP/epoch/checkpoint/GPU UUID blanks remain null.",
+    "Do not turn the user-selected42/43/46/47 reporting subset into a prespecified or complete-seed stability claim; retain BEN44/45 negative results.",
+    "BEN soft43 old preflight training_started=false is historical only; later20261012 full30/test119825/exits0 evidence genuinely establishes completion.",
+    "Root results/bigearth_comparison.csv is a shorter legacy table; worktree table contains later soft42/43/45 and44 reconciliation. Do not overwrite old source.",
+    "BEN fixed44 best17/78.5171 in later metadata conflicts with historical root best19/77.9; preserve this identity caveat while retaining original70.2/65.2/77.1 test scores.",
+    "Old NWPU K9 val96.5/test95.9 and K16 test95.8(4526/4725) have a different test split and architecture/pooling/feedback; not current25200 protocol or pure K ablation.",
+    "Old BEN uncorrected-kNN70.4 and corrected-kNN70.6 are distinct architecture/direction identities, not extra seeds of fixed sparse-hybrid72.0.",
+    "BEN43 fixed stops21,44 fixed26; Swin44 final training exit unknown. Record best and final independently.",
+    "BEN19 APs are not AID30 per-class OA/F1, and no46/47 class AP is available.",
+    "Cross-seed/hardware/code/budget variance cannot isolate hardware effects, grouping mechanisms, statistical equivalence or stable superiority.",
+    "Original internal full prediction arrays/checkpoint tensors are not locally present for these audits; mean of19 returned APs is not a fresh full-test AP recomputation.",
+    "Four selected BEN cases and90 NWPU calibration cases diagnose tradeoffs, not semantic quality or population gain."
+  ],
+  "descriptive_statistics": {
+    "ben_all_controls42_43_44_45_46_47_mAP_mixed": {
+      "interpretation": "Descriptive fixed-split statistics only; historical hardware/code/budget/evidence differences prevent pure seed variance or causal/significance claims.",
+      "metric": "mAP_percent",
+      "models": {
+        "fixed": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports",
+            "R_user_confirmed_primary_only_lost_originals",
+            "R_user_confirmed_primary_only_lost_originals"
+          ],
+          "mean": 71.17637270714341,
+          "n": 6,
+          "sample_sd": 0.7929148101095201,
+          "seeds": [
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+          ],
+          "values": [
+            72.0,
+            71.7,
+            70.2,
+            70.25823624286052,
+            71.8,
+            71.1
+          ]
+        },
+        "soft": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports",
+            "A_archived_machine_reports",
+            "R_user_confirmed_primary_only_lost_originals",
+            "R_user_confirmed_primary_only_lost_originals"
+          ],
+          "mean": 71.1158120346918,
+          "n": 5,
+          "sample_sd": 1.0930105201649984,
+          "seeds": [
+            42,
+            43,
+            45,
+            46,
+            47
+          ],
+          "values": [
+            70.1745705651681,
+            72.86757085064232,
+            70.83691875764855,
+            71.4,
+            70.3
+          ]
+        },
+        "swin": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports",
+            "R_user_confirmed_primary_only_lost_originals",
+            "R_user_confirmed_primary_only_lost_originals"
+          ],
+          "mean": 71.11282158925249,
+          "n": 6,
+          "sample_sd": 0.37996350615388585,
+          "seeds": [
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+          ],
+          "values": [
+            70.9,
+            71.1,
+            71.4,
+            71.67692953551497,
+            71.0,
+            70.6
+          ]
+        }
+      },
+      "paired_seed_deltas": {
+        "fixed_minus_swin": {
+          "mean_pp": 0.06355111789092405,
+          "n": 6,
+          "negative": 2,
+          "positive": 4,
+          "sample_sd_pp": 1.0852150193497707,
+          "seeds": [
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+          ],
+          "values": [
+            1.0999999999999943,
+            0.6000000000000085,
+            -1.2000000000000028,
+            -1.4186932926544529,
+            0.7999999999999972,
+            0.5
+          ]
+        },
+        "soft_minus_fixed": {
+          "mean_pp": -0.2558352138803087,
+          "n": 5,
+          "negative": 3,
+          "positive": 2,
+          "sample_sd_pp": 1.1729268394102659,
+          "seeds": [
+            42,
+            43,
+            45,
+            46,
+            47
+          ],
+          "values": [
+            -1.8254294348319036,
+            1.1675708506423206,
+            0.5786825147880279,
+            -0.3999999999999915,
+            -0.7999999999999972
+          ]
+        },
+        "soft_minus_swin": {
+          "mean_pp": 0.060426127588800685,
+          "n": 5,
+          "negative": 3,
+          "positive": 2,
+          "sample_sd_pp": 1.07097106630103,
+          "seeds": [
+            42,
+            43,
+            45,
+            46,
+            47
+          ],
+          "values": [
+            -0.7254294348319092,
+            1.767570850642329,
+            -0.840010777866425,
+            0.4000000000000057,
+            -0.29999999999999716
+          ]
+        }
+      },
+      "seeds": [
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ]
+    },
+    "ben_common42_43_45_46_47_mAP_mixed": {
+      "interpretation": "Descriptive fixed-split statistics only; historical hardware/code/budget/evidence differences prevent pure seed variance or causal/significance claims.",
+      "metric": "mAP_percent",
+      "models": {
+        "fixed": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports",
+            "R_user_confirmed_primary_only_lost_originals",
+            "R_user_confirmed_primary_only_lost_originals"
+          ],
+          "mean": 71.3716472485721,
+          "n": 5,
+          "sample_sd": 0.7070369658917427,
+          "seeds": [
+            42,
+            43,
+            45,
+            46,
+            47
+          ],
+          "values": [
+            72.0,
+            71.7,
+            70.25823624286052,
+            71.8,
+            71.1
+          ]
+        },
+        "soft": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports",
+            "A_archived_machine_reports",
+            "R_user_confirmed_primary_only_lost_originals",
+            "R_user_confirmed_primary_only_lost_originals"
+          ],
+          "mean": 71.1158120346918,
+          "n": 5,
+          "sample_sd": 1.0930105201649984,
+          "seeds": [
+            42,
+            43,
+            45,
+            46,
+            47
+          ],
+          "values": [
+            70.1745705651681,
+            72.86757085064232,
+            70.83691875764855,
+            71.4,
+            70.3
+          ]
+        },
+        "swin": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports",
+            "R_user_confirmed_primary_only_lost_originals",
+            "R_user_confirmed_primary_only_lost_originals"
+          ],
+          "mean": 71.05538590710299,
+          "n": 5,
+          "sample_sd": 0.39461867749905455,
+          "seeds": [
+            42,
+            43,
+            45,
+            46,
+            47
+          ],
+          "values": [
+            70.9,
+            71.1,
+            71.67692953551497,
+            71.0,
+            70.6
+          ]
+        }
+      },
+      "paired_seed_deltas": {
+        "fixed_minus_swin": {
+          "mean_pp": 0.31626134146910945,
+          "n": 5,
+          "negative": 1,
+          "positive": 4,
+          "sample_sd_pp": 0.9965671675912672,
+          "seeds": [
+            42,
+            43,
+            45,
+            46,
+            47
+          ],
+          "values": [
+            1.0999999999999943,
+            0.6000000000000085,
+            -1.4186932926544529,
+            0.7999999999999972,
+            0.5
+          ]
+        },
+        "soft_minus_fixed": {
+          "mean_pp": -0.2558352138803087,
+          "n": 5,
+          "negative": 3,
+          "positive": 2,
+          "sample_sd_pp": 1.1729268394102659,
+          "seeds": [
+            42,
+            43,
+            45,
+            46,
+            47
+          ],
+          "values": [
+            -1.8254294348319036,
+            1.1675708506423206,
+            0.5786825147880279,
+            -0.3999999999999915,
+            -0.7999999999999972
+          ]
+        },
+        "soft_minus_swin": {
+          "mean_pp": 0.060426127588800685,
+          "n": 5,
+          "negative": 3,
+          "positive": 2,
+          "sample_sd_pp": 1.07097106630103,
+          "seeds": [
+            42,
+            43,
+            45,
+            46,
+            47
+          ],
+          "values": [
+            -0.7254294348319092,
+            1.767570850642329,
+            -0.840010777866425,
+            0.4000000000000057,
+            -0.29999999999999716
+          ]
+        }
+      },
+      "seeds": [
+        42,
+        43,
+        45,
+        46,
+        47
+      ]
+    },
+    "ben_controls_historical42_43_44_45_macroF1": {
+      "interpretation": "Descriptive fixed-split statistics only; historical hardware/code/budget/evidence differences prevent pure seed variance or causal/significance claims.",
+      "metric": "macro_f1_percent",
+      "models": {
+        "fixed": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports"
+          ],
+          "mean": 65.29886924590971,
+          "n": 4,
+          "sample_sd": 0.7458912735736702,
+          "seeds": [
+            42,
+            43,
+            44,
+            45
+          ],
+          "values": [
+            66.0,
+            65.7,
+            65.2,
+            64.29547698363885
+          ]
+        },
+        "soft": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports",
+            "A_archived_machine_reports"
+          ],
+          "mean": 65.19566651493,
+          "n": 3,
+          "sample_sd": 1.3437059057415766,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            64.04828509185678,
+            66.67389161697625,
+            64.86482283595696
+          ]
+        },
+        "swin": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports"
+          ],
+          "mean": 64.77105300582566,
+          "n": 4,
+          "sample_sd": 0.7610135260083256,
+          "seeds": [
+            42,
+            43,
+            44,
+            45
+          ],
+          "values": [
+            64.2,
+            64.1,
+            65.7,
+            65.08421202330264
+          ]
+        }
+      },
+      "paired_seed_deltas": {
+        "fixed_minus_swin": {
+          "mean_pp": 0.5278162400840536,
+          "n": 4,
+          "negative": 2,
+          "positive": 2,
+          "sample_sd_pp": 1.3610955182753328,
+          "seeds": [
+            42,
+            43,
+            44,
+            45
+          ],
+          "values": [
+            1.7999999999999972,
+            1.6000000000000085,
+            -0.5,
+            -0.7887350396637913
+          ]
+        },
+        "soft_minus_fixed": {
+          "mean_pp": -0.1361591462829542,
+          "n": 3,
+          "negative": 1,
+          "positive": 2,
+          "sample_sd_pp": 1.585274853848287,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            -1.9517149081432166,
+            0.9738916169762462,
+            0.5693458523181079
+          ]
+        },
+        "soft_minus_swin": {
+          "mean_pp": 0.7342625071624506,
+          "n": 3,
+          "negative": 2,
+          "positive": 1,
+          "sample_sd_pp": 1.593524834532597,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            -0.15171490814321942,
+            2.5738916169762547,
+            -0.21938918734568347
+          ]
+        }
+      },
+      "seeds": [
+        42,
+        43,
+        44,
+        45
+      ]
+    },
+    "ben_controls_historical42_43_44_45_microF1": {
+      "interpretation": "Descriptive fixed-split statistics only; historical hardware/code/budget/evidence differences prevent pure seed variance or causal/significance claims.",
+      "metric": "micro_f1_percent",
+      "models": {
+        "fixed": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports"
+          ],
+          "mean": 76.82561421287963,
+          "n": 4,
+          "sample_sd": 0.18875938317508129,
+          "seeds": [
+            42,
+            43,
+            44,
+            45
+          ],
+          "values": [
+            76.7,
+            76.8,
+            77.1,
+            76.70245685151849
+          ]
+        },
+        "soft": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports",
+            "A_archived_machine_reports"
+          ],
+          "mean": 76.69642804514193,
+          "n": 3,
+          "sample_sd": 0.2762626256058034,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            76.7999586513447,
+            76.90597117759339,
+            76.38335430648769
+          ]
+        },
+        "swin": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports"
+          ],
+          "mean": 76.50806609059298,
+          "n": 4,
+          "sample_sd": 0.34335913499726917,
+          "seeds": [
+            42,
+            43,
+            44,
+            45
+          ],
+          "values": [
+            76.6,
+            76.0,
+            76.7,
+            76.73226436237192
+          ]
+        }
+      },
+      "paired_seed_deltas": {
+        "fixed_minus_swin": {
+          "mean_pp": 0.31754812228664164,
+          "n": 4,
+          "negative": 1,
+          "positive": 3,
+          "sample_sd_pp": 0.3685743922340871,
+          "seeds": [
+            42,
+            43,
+            44,
+            45
+          ],
+          "values": [
+            0.10000000000000853,
+            0.7999999999999972,
+            0.3999999999999915,
+            -0.029807510853430585
+          ]
+        },
+        "soft_minus_fixed": {
+          "mean_pp": -0.03772423869757328,
+          "n": 3,
+          "negative": 1,
+          "positive": 2,
+          "sample_sd_pp": 0.24369930462393602,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            0.09995865134469284,
+            0.10597117759338914,
+            -0.3191025450308018
+          ]
+        },
+        "soft_minus_swin": {
+          "mean_pp": 0.2523399243512851,
+          "n": 3,
+          "negative": 1,
+          "positive": 2,
+          "sample_sd_pp": 0.6290783543048672,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            0.19995865134470137,
+            0.9059711775933863,
+            -0.3489100558842324
+          ]
+        }
+      },
+      "seeds": [
+        42,
+        43,
+        44,
+        45
+      ]
+    },
+    "ben_predefined_historical42_43_44_45_mAP": {
+      "interpretation": "Descriptive fixed-split statistics only; historical hardware/code/budget/evidence differences prevent pure seed variance or causal/significance claims.",
+      "metric": "mAP_percent",
+      "models": {
+        "fixed": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports"
+          ],
+          "mean": 71.03955906071513,
+          "n": 4,
+          "sample_sd": 0.9440963570644372,
+          "seeds": [
+            42,
+            43,
+            44,
+            45
+          ],
+          "values": [
+            72.0,
+            71.7,
+            70.2,
+            70.25823624286052
+          ]
+        },
+        "soft": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports",
+            "A_archived_machine_reports"
+          ],
+          "mean": 71.29302005781966,
+          "n": 3,
+          "sample_sd": 1.4032405108905597,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            70.1745705651681,
+            72.86757085064232,
+            70.83691875764855
+          ]
+        },
+        "swin": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports"
+          ],
+          "mean": 71.26923238387874,
+          "n": 4,
+          "sample_sd": 0.3407292619937379,
+          "seeds": [
+            42,
+            43,
+            44,
+            45
+          ],
+          "values": [
+            70.9,
+            71.1,
+            71.4,
+            71.67692953551497
+          ]
+        }
+      },
+      "paired_seed_deltas": {
+        "fixed_minus_swin": {
+          "mean_pp": -0.22967332316361322,
+          "n": 4,
+          "negative": 2,
+          "positive": 2,
+          "sample_sd_pp": 1.2664505934738326,
+          "seeds": [
+            42,
+            43,
+            44,
+            45
+          ],
+          "values": [
+            1.0999999999999943,
+            0.6000000000000085,
+            -1.2000000000000028,
+            -1.4186932926544529
+          ]
+        },
+        "soft_minus_fixed": {
+          "mean_pp": -0.026392023133851694,
+          "n": 3,
+          "negative": 1,
+          "positive": 2,
+          "sample_sd_pp": 1.5855910804943465,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            -1.8254294348319036,
+            1.1675708506423206,
+            0.5786825147880279
+          ]
+        },
+        "soft_minus_swin": {
+          "mean_pp": 0.06737687931466496,
+          "n": 3,
+          "negative": 2,
+          "positive": 1,
+          "sample_sd_pp": 1.473525322533379,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            -0.7254294348319092,
+            1.767570850642329,
+            -0.840010777866425
+          ]
+        }
+      },
+      "seeds": [
+        42,
+        43,
+        44,
+        45
+      ]
+    },
+    "ben_three_model_common_archived42_43_45_mAP": {
+      "interpretation": "Descriptive fixed-split statistics only; historical hardware/code/budget/evidence differences prevent pure seed variance or causal/significance claims.",
+      "metric": "mAP_percent",
+      "models": {
+        "fixed": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports"
+          ],
+          "mean": 71.31941208095351,
+          "n": 3,
+          "sample_sd": 0.931166268458145,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            72.0,
+            71.7,
+            70.25823624286052
+          ]
+        },
+        "soft": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports",
+            "A_archived_machine_reports"
+          ],
+          "mean": 71.29302005781966,
+          "n": 3,
+          "sample_sd": 1.4032405108905597,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            70.1745705651681,
+            72.86757085064232,
+            70.83691875764855
+          ]
+        },
+        "swin": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports"
+          ],
+          "mean": 71.225643178505,
+          "n": 3,
+          "sample_sd": 0.40341607803544993,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            70.9,
+            71.1,
+            71.67692953551497
+          ]
+        }
+      },
+      "paired_seed_deltas": {
+        "fixed_minus_swin": {
+          "mean_pp": 0.09376890244851666,
+          "n": 3,
+          "negative": 1,
+          "positive": 2,
+          "sample_sd_pp": 1.3334753161239117,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            1.0999999999999943,
+            0.6000000000000085,
+            -1.4186932926544529
+          ]
+        },
+        "soft_minus_fixed": {
+          "mean_pp": -0.026392023133851694,
+          "n": 3,
+          "negative": 1,
+          "positive": 2,
+          "sample_sd_pp": 1.5855910804943465,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            -1.8254294348319036,
+            1.1675708506423206,
+            0.5786825147880279
+          ]
+        },
+        "soft_minus_swin": {
+          "mean_pp": 0.06737687931466496,
+          "n": 3,
+          "negative": 2,
+          "positive": 1,
+          "sample_sd_pp": 1.473525322533379,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            -0.7254294348319092,
+            1.767570850642329,
+            -0.840010777866425
+          ]
+        }
+      },
+      "seeds": [
+        42,
+        43,
+        45
+      ]
+    },
+    "ben_three_model_common_archived42_43_45_macroF1": {
+      "interpretation": "Descriptive fixed-split statistics only; historical hardware/code/budget/evidence differences prevent pure seed variance or causal/significance claims.",
+      "metric": "macro_f1_percent",
+      "models": {
+        "fixed": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports"
+          ],
+          "mean": 65.33182566121295,
+          "n": 3,
+          "sample_sd": 0.9099527109318325,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            66.0,
+            65.7,
+            64.29547698363885
+          ]
+        },
+        "soft": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports",
+            "A_archived_machine_reports"
+          ],
+          "mean": 65.19566651493,
+          "n": 3,
+          "sample_sd": 1.3437059057415766,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            64.04828509185678,
+            66.67389161697625,
+            64.86482283595696
+          ]
+        },
+        "swin": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports"
+          ],
+          "mean": 64.46140400776754,
+          "n": 3,
+          "sample_sd": 0.5416801345453537,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            64.2,
+            64.1,
+            65.08421202330264
+          ]
+        }
+      },
+      "paired_seed_deltas": {
+        "fixed_minus_swin": {
+          "mean_pp": 0.8704216534454048,
+          "n": 3,
+          "negative": 1,
+          "positive": 2,
+          "sample_sd_pp": 1.4403474230951299,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            1.7999999999999972,
+            1.6000000000000085,
+            -0.7887350396637913
+          ]
+        },
+        "soft_minus_fixed": {
+          "mean_pp": -0.1361591462829542,
+          "n": 3,
+          "negative": 1,
+          "positive": 2,
+          "sample_sd_pp": 1.585274853848287,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            -1.9517149081432166,
+            0.9738916169762462,
+            0.5693458523181079
+          ]
+        },
+        "soft_minus_swin": {
+          "mean_pp": 0.7342625071624506,
+          "n": 3,
+          "negative": 2,
+          "positive": 1,
+          "sample_sd_pp": 1.593524834532597,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            -0.15171490814321942,
+            2.5738916169762547,
+            -0.21938918734568347
+          ]
+        }
+      },
+      "seeds": [
+        42,
+        43,
+        45
+      ]
+    },
+    "ben_three_model_common_archived42_43_45_microF1": {
+      "interpretation": "Descriptive fixed-split statistics only; historical hardware/code/budget/evidence differences prevent pure seed variance or causal/significance claims.",
+      "metric": "micro_f1_percent",
+      "models": {
+        "fixed": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports"
+          ],
+          "mean": 76.73415228383949,
+          "n": 3,
+          "sample_sd": 0.05703902455785266,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            76.7,
+            76.8,
+            76.70245685151849
+          ]
+        },
+        "soft": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports",
+            "A_archived_machine_reports"
+          ],
+          "mean": 76.69642804514193,
+          "n": 3,
+          "sample_sd": 0.2762626256058034,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            76.7999586513447,
+            76.90597117759339,
+            76.38335430648769
+          ]
+        },
+        "swin": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "A_archived_machine_reports"
+          ],
+          "mean": 76.44408812079064,
+          "n": 3,
+          "sample_sd": 0.3902360307031294,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            76.6,
+            76.0,
+            76.73226436237192
+          ]
+        }
+      },
+      "paired_seed_deltas": {
+        "fixed_minus_swin": {
+          "mean_pp": 0.29006416304885835,
+          "n": 3,
+          "negative": 1,
+          "positive": 2,
+          "sample_sd_pp": 0.4463613063693864,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            0.10000000000000853,
+            0.7999999999999972,
+            -0.029807510853430585
+          ]
+        },
+        "soft_minus_fixed": {
+          "mean_pp": -0.03772423869757328,
+          "n": 3,
+          "negative": 1,
+          "positive": 2,
+          "sample_sd_pp": 0.24369930462393602,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            0.09995865134469284,
+            0.10597117759338914,
+            -0.3191025450308018
+          ]
+        },
+        "soft_minus_swin": {
+          "mean_pp": 0.2523399243512851,
+          "n": 3,
+          "negative": 1,
+          "positive": 2,
+          "sample_sd_pp": 0.6290783543048672,
+          "seeds": [
+            42,
+            43,
+            45
+          ],
+          "values": [
+            0.19995865134470137,
+            0.9059711775933863,
+            -0.3489100558842324
+          ]
+        }
+      },
+      "seeds": [
+        42,
+        43,
+        45
+      ]
+    },
+    "ben_user_selected42_43_46_47_mAP_mixed": {
+      "interpretation": "Descriptive fixed-split statistics only; historical hardware/code/budget/evidence differences prevent pure seed variance or causal/significance claims.",
+      "metric": "mAP_percent",
+      "models": {
+        "fixed": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "R_user_confirmed_primary_only_lost_originals",
+            "R_user_confirmed_primary_only_lost_originals"
+          ],
+          "mean": 71.65,
+          "n": 4,
+          "sample_sd": 0.38729833462074414,
+          "seeds": [
+            42,
+            43,
+            46,
+            47
+          ],
+          "values": [
+            72.0,
+            71.7,
+            71.8,
+            71.1
+          ]
+        },
+        "soft": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports",
+            "R_user_confirmed_primary_only_lost_originals",
+            "R_user_confirmed_primary_only_lost_originals"
+          ],
+          "mean": 71.1855353539526,
+          "n": 4,
+          "sample_sd": 1.2491945623468135,
+          "seeds": [
+            42,
+            43,
+            46,
+            47
+          ],
+          "values": [
+            70.1745705651681,
+            72.86757085064232,
+            71.4,
+            70.3
+          ]
+        },
+        "swin": {
+          "evidence_levels": [
+            "H_archived_rounded_historical_controls",
+            "H_archived_rounded_historical_controls",
+            "R_user_confirmed_primary_only_lost_originals",
+            "R_user_confirmed_primary_only_lost_originals"
+          ],
+          "mean": 70.9,
+          "n": 4,
+          "sample_sd": 0.21602468994692955,
+          "seeds": [
+            42,
+            43,
+            46,
+            47
+          ],
+          "values": [
+            70.9,
+            71.1,
+            71.0,
+            70.6
+          ]
+        }
+      },
+      "paired_seed_deltas": {
+        "fixed_minus_swin": {
+          "mean_pp": 0.75,
+          "n": 4,
+          "negative": 0,
+          "positive": 4,
+          "sample_sd_pp": 0.26457513110645475,
+          "seeds": [
+            42,
+            43,
+            46,
+            47
+          ],
+          "values": [
+            1.0999999999999943,
+            0.6000000000000085,
+            0.7999999999999972,
+            0.5
+          ]
+        },
+        "soft_minus_fixed": {
+          "mean_pp": -0.4644646460473929,
+          "n": 4,
+          "negative": 3,
+          "positive": 1,
+          "sample_sd_pp": 1.2426456565340236,
+          "seeds": [
+            42,
+            43,
+            46,
+            47
+          ],
+          "values": [
+            -1.8254294348319036,
+            1.1675708506423206,
+            -0.3999999999999915,
+            -0.7999999999999972
+          ]
+        },
+        "soft_minus_swin": {
+          "mean_pp": 0.2855353539526071,
+          "n": 4,
+          "negative": 2,
+          "positive": 2,
+          "sample_sd_pp": 1.091548261802722,
+          "seeds": [
+            42,
+            43,
+            46,
+            47
+          ],
+          "values": [
+            -0.7254294348319092,
+            1.767570850642329,
+            0.4000000000000057,
+            -0.29999999999999716
+          ]
+        }
+      },
+      "seeds": [
+        42,
+        43,
+        46,
+        47
+      ]
+    },
+    "nwpu_all_42_43_46_47_OA_mixed": {
+      "interpretation": "Descriptive fixed-split statistics only; historical hardware/code/budget/evidence differences prevent pure seed variance or causal/significance claims.",
+      "metric": "oa_percent",
+      "models": {
+        "fixed": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports",
+            "R_user_confirmed_primary_only_lost_originals",
+            "R_user_confirmed_primary_only_lost_originals"
+          ],
+          "mean": 94.0047619047619,
+          "n": 4,
+          "sample_sd": 0.1853552809145997,
+          "seeds": [
+            42,
+            43,
+            46,
+            47
+          ],
+          "values": [
+            94.10317460317461,
+            93.76587301587301,
+            93.96,
+            94.19
+          ]
+        },
+        "soft": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports",
+            "R_user_confirmed_primary_only_lost_originals",
+            "R_user_confirmed_primary_only_lost_originals"
+          ],
+          "mean": 93.64650793650793,
+          "n": 4,
+          "sample_sd": 0.15336537178840062,
+          "seeds": [
+            42,
+            43,
+            46,
+            47
+          ],
+          "values": [
+            93.86904761904762,
+            93.62698412698413,
+            93.54,
+            93.55
+          ]
+        },
+        "swin": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports",
+            "R_user_confirmed_primary_only_lost_originals",
+            "R_user_confirmed_primary_only_lost_originals"
+          ],
+          "mean": 93.80742063492065,
+          "n": 4,
+          "sample_sd": 0.11047142960914658,
+          "seeds": [
+            42,
+            43,
+            46,
+            47
+          ],
+          "values": [
+            93.93253968253968,
+            93.85714285714286,
+            93.76,
+            93.68
+          ]
+        }
+      },
+      "paired_seed_deltas": {
+        "fixed_minus_swin": {
+          "mean_pp": 0.19734126984126377,
+          "n": 4,
+          "negative": 1,
+          "positive": 3,
+          "sample_sd_pp": 0.24615181828514332,
+          "seeds": [
+            42,
+            43,
+            46,
+            47
+          ],
+          "values": [
+            0.17063492063492447,
+            -0.09126984126984894,
+            0.19999999999998863,
+            0.5099999999999909
+          ]
+        },
+        "soft_minus_fixed": {
+          "mean_pp": -0.3582539682539654,
+          "n": 4,
+          "negative": 4,
+          "positive": 0,
+          "sample_sd_pp": 0.22114998309919695,
+          "seeds": [
+            42,
+            43,
+            46,
+            47
+          ],
+          "values": [
+            -0.23412698412698774,
+            -0.13888888888888573,
+            -0.4199999999999875,
+            -0.6400000000000006
+          ]
+        },
+        "soft_minus_swin": {
+          "mean_pp": -0.16091269841270162,
+          "n": 4,
+          "negative": 4,
+          "positive": 0,
+          "sample_sd_pp": 0.07902045548028516,
+          "seeds": [
+            42,
+            43,
+            46,
+            47
+          ],
+          "values": [
+            -0.06349206349206327,
+            -0.23015873015873467,
+            -0.21999999999999886,
+            -0.13000000000000966
+          ]
+        }
+      },
+      "seeds": [
+        42,
+        43,
+        46,
+        47
+      ]
+    },
+    "nwpu_archived_42_43_F1": {
+      "interpretation": "Descriptive fixed-split statistics only; historical hardware/code/budget/evidence differences prevent pure seed variance or causal/significance claims.",
+      "metric": "macro_f1_percent",
+      "models": {
+        "fixed": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports"
+          ],
+          "mean": 93.91672299608612,
+          "n": 2,
+          "sample_sd": 0.24495659113068796,
+          "seeds": [
+            42,
+            43
+          ],
+          "values": [
+            94.08993346277097,
+            93.74351252940127
+          ]
+        },
+        "soft": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports"
+          ],
+          "mean": 93.72140419539602,
+          "n": 2,
+          "sample_sd": 0.18891492418417824,
+          "seeds": [
+            42,
+            43
+          ],
+          "values": [
+            93.854987219354,
+            93.58782117143805
+          ]
+        },
+        "swin": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports"
+          ],
+          "mean": 93.8718376813413,
+          "n": 2,
+          "sample_sd": 0.0527611781505502,
+          "seeds": [
+            42,
+            43
+          ],
+          "values": [
+            93.90914546819495,
+            93.83452989448766
+          ]
+        }
+      },
+      "paired_seed_deltas": {
+        "fixed_minus_swin": {
+          "mean_pp": 0.044885314744817606,
+          "n": 2,
+          "negative": 1,
+          "positive": 1,
+          "sample_sd_pp": 0.19219541298013776,
+          "seeds": [
+            42,
+            43
+          ],
+          "values": [
+            0.18078799457602202,
+            -0.0910173650863868
+          ]
+        },
+        "soft_minus_fixed": {
+          "mean_pp": -0.19531880069009588,
+          "n": 2,
+          "negative": 2,
+          "positive": 0,
+          "sample_sd_pp": 0.056041666946509715,
+          "seeds": [
+            42,
+            43
+          ],
+          "values": [
+            -0.2349462434169709,
+            -0.15569135796322087
+          ]
+        },
+        "soft_minus_swin": {
+          "mean_pp": -0.15043348594527828,
+          "n": 2,
+          "negative": 2,
+          "positive": 0,
+          "sample_sd_pp": 0.13615374603362804,
+          "seeds": [
+            42,
+            43
+          ],
+          "values": [
+            -0.054158248840948886,
+            -0.24670872304960767
+          ]
+        }
+      },
+      "seeds": [
+        42,
+        43
+      ]
+    },
+    "nwpu_archived_42_43_OA": {
+      "interpretation": "Descriptive fixed-split statistics only; historical hardware/code/budget/evidence differences prevent pure seed variance or causal/significance claims.",
+      "metric": "oa_percent",
+      "models": {
+        "fixed": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports"
+          ],
+          "mean": 93.93452380952381,
+          "n": 2,
+          "sample_sd": 0.2385082396859447,
+          "seeds": [
+            42,
+            43
+          ],
+          "values": [
+            94.10317460317461,
+            93.76587301587301
+          ]
+        },
+        "soft": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports"
+          ],
+          "mean": 93.74801587301587,
+          "n": 2,
+          "sample_sd": 0.17116473671579255,
+          "seeds": [
+            42,
+            43
+          ],
+          "values": [
+            93.86904761904762,
+            93.62698412698413
+          ]
+        },
+        "swin": {
+          "evidence_levels": [
+            "A_archived_machine_reports",
+            "A_archived_machine_reports"
+          ],
+          "mean": 93.89484126984127,
+          "n": 2,
+          "sample_sd": 0.05331360651803127,
+          "seeds": [
+            42,
+            43
+          ],
+          "values": [
+            93.93253968253968,
+            93.85714285714286
+          ]
+        }
+      },
+      "paired_seed_deltas": {
+        "fixed_minus_swin": {
+          "mean_pp": 0.039682539682537765,
+          "n": 2,
+          "negative": 1,
+          "positive": 1,
+          "sample_sd_pp": 0.18519463316791343,
+          "seeds": [
+            42,
+            43
+          ],
+          "values": [
+            0.17063492063492447,
+            -0.09126984126984894
+          ]
+        },
+        "soft_minus_fixed": {
+          "mean_pp": -0.18650793650793673,
+          "n": 2,
+          "negative": 2,
+          "positive": 0,
+          "sample_sd_pp": 0.06734350297015217,
+          "seeds": [
+            42,
+            43
+          ],
+          "values": [
+            -0.23412698412698774,
+            -0.13888888888888573
+          ]
+        },
+        "soft_minus_swin": {
+          "mean_pp": -0.14682539682539897,
+          "n": 2,
+          "negative": 2,
+          "positive": 0,
+          "sample_sd_pp": 0.11785113019776126,
+          "seeds": [
+            42,
+            43
+          ],
+          "values": [
+            -0.06349206349206327,
+            -0.23015873015873467
+          ]
+        }
+      },
+      "seeds": [
+        42,
+        43
+      ]
+    }
+  },
+  "diagnostics": {
+    "ben_K9_K16": {
+      "captured_nonself_preGAT_edges": 488,
+      "case_outcomes": {
+        "both_correct": 63,
+        "both_wrong": 9,
+        "k16_only_correct": 3,
+        "k9_only_correct": 1
+      },
+      "delta_k16_minus_k9_approx_pp": {
+        "mAP_percent": 0.9246679177767874,
+        "macro_f1_percent": 1.511694287814663,
+        "micro_f1_percent": 0.01127683576648053
+      },
+      "edges_per_image": {
+        "K16": {
+          "feature": 32,
+          "spatial": 48,
+          "total": 80
+        },
+        "K9": {
+          "feature": 18,
+          "spatial": 24,
+          "total": 42
+        }
+      },
+      "four_validation_rows": [
+        97389,
+        14680,
+        28450,
+        4439
+      ],
+      "historical_k16": {
+        "base_commit": "cd39be91a013bcf98099808c451300f87d3898b7",
+        "checkpoint_sha256": "9b9acb76d93fa8799e979a227ce1d2496573da937b9329ab0ce3ca1c3f29859e",
+        "metrics": {
+          "mAP_percent": 72.0,
+          "macro_f1_percent": 66.0,
+          "micro_f1_percent": 76.7
+        },
+        "original_printed_decimals": 1,
+        "regions": 16
+      },
+      "k9_best_epoch": 10,
+      "k9_checkpoint_sha256": "c4b77953d6dd2908d7a61ebe7a34f4004e8c219a0843de6ab05aaf207460feff",
+      "k9_final_epoch": 30,
+      "k9_metrics": {
+        "checkpoint_sha256": "c4b77953d6dd2908d7a61ebe7a34f4004e8c219a0843de6ab05aaf207460feff",
+        "f1_threshold": 0.5,
+        "mAP_percent": 71.07533208222321,
+        "macro_f1_percent": 64.48830571218534,
+        "micro_f1_percent": 76.68872316423352,
+        "per_class_ap_percent": {
+          "Agro-forestry areas": 87.15781094239232,
+          "Arable land": 93.18679316602953,
+          "Beaches, dunes, sands": 9.827636452996988,
+          "Broad-leaved forest": 85.9398213222218,
+          "Coastal wetlands": 21.58357829287427,
+          "Complex cultivation patterns": 69.23862820757662,
+          "Coniferous forest": 93.77272487307027,
+          "Industrial or commercial units": 51.637123422709905,
+          "Inland waters": 91.13248124495286,
+          "Inland wetlands": 62.96008158378324,
+          "Land principally occupied by agriculture, with significant areas of natural vegetation": 72.94995402127765,
+          "Marine waters": 99.56062935217518,
+          "Mixed forest": 90.02901953507208,
+          "Moors, heathland and sclerophyllous vegetation": 61.14810472076743,
+          "Natural grassland and sparsely vegetated areas": 46.617564769159294,
+          "Pastures": 86.1013262808726,
+          "Permanent crops": 62.92872871413756,
+          "Transitional woodland, shrub": 78.13949455867811,
+          "Urban fabric": 86.51980810149344
+        },
+        "samples": 119825
+      },
+      "limits": [
+        "Single seed42; no statistical significance or seed stability test.",
+        "Historical control software/precision/physical GPU batch differ; it is not a same-environment causal experiment.",
+        "K16 aggregate metrics and AP originally printed to one decimal; two-decimal display adds no precision.",
+        "Trained K9/K16 figures are now complete on four historical diagnostic validation inputs; these cases do not estimate population gains or isolate edge causality."
+      ]
+    },
+    "ben_feedback_zero_seed44": {
+      "intervention": "Same trained weights; zero feedback projection output vs normal feedback",
+      "limits": [
+        "Not K9/K16 experiment; not soft experiment.",
+        "Not retrained graph-free baseline or population effect estimate.",
+        "Full feedback-branch intervention does not identify a particular edge causal contribution."
+      ],
+      "normal_corrects_false_positive": 2,
+      "normal_introduces_false_negative": 2,
+      "rows": [
+        97389,
+        14680,
+        28450,
+        4439
+      ],
+      "sampling": "All4 threshold flips among24 fixed diagnostic validation images",
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/seed44_feedback_figure_caption.md"
+    },
+    "nwpu42_test_pairs": {
+      "fixed_vs_swin": {
+        "both_correct": 23128,
+        "both_wrong": 943,
+        "corrects": 586,
+        "introduces": 543,
+        "net_correct": 43
+      },
+      "reference": "archived server paired-count return; raw25200 CSV not downloaded",
+      "soft_vs_fixed": {
+        "both_correct": 23117,
+        "both_wrong": 948,
+        "corrects": 538,
+        "introduces": 597,
+        "net_correct": -59
+      },
+      "soft_vs_swin": {
+        "both_correct": 23085,
+        "both_wrong": 959,
+        "corrects": 570,
+        "introduces": 586,
+        "net_correct": -16
+      }
+    },
+    "nwpu90_validation_cases": {
+      "both_correct": 82,
+      "both_wrong": 5,
+      "dominant_token_assignment_changed_percent": 39.09,
+      "fixed_only_correct": 0,
+      "identity": "seed42 calibration best fixed/soft, not refit test or Swin comparison",
+      "interpretation": "Regional memberships/construction edges and selected predictions; not semantic segmentation quality or population gain.",
+      "soft_only_correct": 3
+    }
+  },
+  "evidence_levels": {
+    "A_archived_machine_reports": "Original user-returned machine summaries/logs with recorded identity/completion checks; not local full prediction/checkpoint re-evaluation.",
+    "H_archived_rounded_historical_controls": "Archived historical control logs/metadata; one-decimal metrics and budget/identity/completion caveats retained.",
+    "N_no_result": "No completed result; never impute.",
+    "R_user_confirmed_primary_only_lost_originals": "User reconfirmed historical main scores; original platform/records and F1 lost, no local metric reconstruction possible."
+  },
+  "nwpu_rows": [
+    {
+      "calibration_epochs": 30,
+      "checkpoint_sha256": "0c89fd0d5c374b85cdba68893d2fe29c1a9c803ba582b2deb8975015f5da1c4d",
+      "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+      "correct": 23671,
+      "dataset": "NWPU-RESISC45",
+      "evidence_level": "A_archived_machine_reports",
+      "gpu": "RTX 2080 Ti",
+      "macro_f1_percent": 93.90914546819495,
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "metric_precision": "full_returned",
+      "model": "swin",
+      "oa_percent": 93.93253968253968,
+      "parameters": 27555495,
+      "raw_predictions_downloaded": false,
+      "refit_epochs": 29,
+      "seed": 42,
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/evidence/nwpu_refit_test42_20260929/server_return.json",
+      "test_samples": 25200
+    },
+    {
+      "calibration_epochs": 30,
+      "checkpoint_sha256": "38aa3d94c16a4d22710174ddc6cb6519cb5fdd272c4215ca7e15c8902a8f544e",
+      "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+      "correct": 23714,
+      "dataset": "NWPU-RESISC45",
+      "evidence_level": "A_archived_machine_reports",
+      "gpu": "RTX 2080 Ti",
+      "macro_f1_percent": 94.08993346277097,
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "metric_precision": "full_returned",
+      "model": "fixed",
+      "oa_percent": 94.10317460317461,
+      "parameters": 31386920,
+      "raw_predictions_downloaded": false,
+      "refit_epochs": 29,
+      "seed": 42,
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/evidence/nwpu_refit_test42_20260929/server_return.json",
+      "test_samples": 25200
+    },
+    {
+      "calibration_epochs": 30,
+      "checkpoint_sha256": "2d25957190f3988136a721ae3c266b5785e99c0f9564ece611303a2186813b69",
+      "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+      "correct": 23655,
+      "dataset": "NWPU-RESISC45",
+      "evidence_level": "A_archived_machine_reports",
+      "gpu": "RTX 2080 Ti",
+      "macro_f1_percent": 93.854987219354,
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "metric_precision": "full_returned",
+      "model": "soft",
+      "oa_percent": 93.86904761904762,
+      "parameters": 31486760,
+      "raw_predictions_downloaded": false,
+      "refit_epochs": 28,
+      "seed": 42,
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/evidence/nwpu_refit_test42_20260929/server_return.json",
+      "test_samples": 25200
+    },
+    {
+      "calibration_epochs": 30,
+      "checkpoint_sha256": "6d2b4a488a8dccff72467a47c0c8f5d0c6ceace0aca03b12ef921b560bb9f632",
+      "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+      "correct": 23652,
+      "dataset": "NWPU-RESISC45",
+      "evidence_level": "A_archived_machine_reports",
+      "gpu": "RTX 4090",
+      "macro_f1_percent": 93.83452989448766,
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "metric_precision": "full_returned",
+      "model": "swin",
+      "oa_percent": 93.85714285714286,
+      "parameters": 27555495,
+      "raw_predictions_downloaded": false,
+      "refit_epochs": 23,
+      "seed": 43,
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/evidence/seed43_nwpu_final_20261011/reported_summary.json",
+      "test_samples": 25200
+    },
+    {
+      "calibration_epochs": 30,
+      "checkpoint_sha256": "9ebdc6521adaed11befe7573f5a310e78f2bd83816e74a0c9e6864588c72b1c2",
+      "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+      "correct": 23629,
+      "dataset": "NWPU-RESISC45",
+      "evidence_level": "A_archived_machine_reports",
+      "gpu": "RTX 4090",
+      "macro_f1_percent": 93.74351252940127,
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "metric_precision": "full_returned",
+      "model": "fixed",
+      "oa_percent": 93.76587301587301,
+      "parameters": 31386920,
+      "raw_predictions_downloaded": false,
+      "refit_epochs": 26,
+      "seed": 43,
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/evidence/seed43_nwpu_final_20261011/reported_summary.json",
+      "test_samples": 25200
+    },
+    {
+      "calibration_epochs": 30,
+      "checkpoint_sha256": "462fa99c13bf159878b7901e8d33b569dc3fa8781cef1a21ef60b2e56f76556c",
+      "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+      "correct": 23594,
+      "dataset": "NWPU-RESISC45",
+      "evidence_level": "A_archived_machine_reports",
+      "gpu": "RTX 4090",
+      "macro_f1_percent": 93.58782117143805,
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "metric_precision": "full_returned",
+      "model": "soft",
+      "oa_percent": 93.62698412698413,
+      "parameters": 31486760,
+      "raw_predictions_downloaded": false,
+      "refit_epochs": 29,
+      "seed": 43,
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/evidence/seed43_nwpu_final_20261011/reported_summary.json",
+      "test_samples": 25200
+    },
+    {
+      "calibration_epochs": null,
+      "checkpoint_sha256": null,
+      "commit": null,
+      "correct": null,
+      "dataset": "NWPU-RESISC45",
+      "evidence_level": "R_user_confirmed_primary_only_lost_originals",
+      "expected_manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "gpu": "RTX4090 user-confirmed; UUID unavailable",
+      "macro_f1_percent": null,
+      "manifest_sha256": null,
+      "metric_precision": "printed_two_decimal",
+      "model": "swin",
+      "oa_percent": 93.76,
+      "parameters": null,
+      "raw_predictions_downloaded": false,
+      "refit_epochs": null,
+      "seed": 46,
+      "source": "results/seed46_seed47_reconstruction_20261104.json",
+      "source_printed_value": "93.76",
+      "test_samples": 25200
+    },
+    {
+      "calibration_epochs": null,
+      "checkpoint_sha256": null,
+      "commit": null,
+      "correct": null,
+      "dataset": "NWPU-RESISC45",
+      "evidence_level": "R_user_confirmed_primary_only_lost_originals",
+      "expected_manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "gpu": "RTX4090 user-confirmed; UUID unavailable",
+      "macro_f1_percent": null,
+      "manifest_sha256": null,
+      "metric_precision": "printed_two_decimal",
+      "model": "fixed",
+      "oa_percent": 93.96,
+      "parameters": null,
+      "raw_predictions_downloaded": false,
+      "refit_epochs": null,
+      "seed": 46,
+      "source": "results/seed46_seed47_reconstruction_20261104.json",
+      "source_printed_value": "93.96",
+      "test_samples": 25200
+    },
+    {
+      "calibration_epochs": null,
+      "checkpoint_sha256": null,
+      "commit": null,
+      "correct": null,
+      "dataset": "NWPU-RESISC45",
+      "evidence_level": "R_user_confirmed_primary_only_lost_originals",
+      "expected_manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "gpu": "RTX4090 user-confirmed; UUID unavailable",
+      "macro_f1_percent": null,
+      "manifest_sha256": null,
+      "metric_precision": "printed_two_decimal",
+      "model": "soft",
+      "oa_percent": 93.54,
+      "parameters": null,
+      "raw_predictions_downloaded": false,
+      "refit_epochs": null,
+      "seed": 46,
+      "source": "results/seed46_seed47_reconstruction_20261104.json",
+      "source_printed_value": "93.54",
+      "test_samples": 25200
+    },
+    {
+      "calibration_epochs": null,
+      "checkpoint_sha256": null,
+      "commit": null,
+      "correct": null,
+      "dataset": "NWPU-RESISC45",
+      "evidence_level": "R_user_confirmed_primary_only_lost_originals",
+      "expected_manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "gpu": "RTX4090 user-confirmed; UUID unavailable",
+      "macro_f1_percent": null,
+      "manifest_sha256": null,
+      "metric_precision": "printed_two_decimal",
+      "model": "swin",
+      "oa_percent": 93.68,
+      "parameters": null,
+      "raw_predictions_downloaded": false,
+      "refit_epochs": null,
+      "seed": 47,
+      "source": "results/seed46_seed47_reconstruction_20261104.json",
+      "source_printed_value": "93.68",
+      "test_samples": 25200
+    },
+    {
+      "calibration_epochs": null,
+      "checkpoint_sha256": null,
+      "commit": null,
+      "correct": null,
+      "dataset": "NWPU-RESISC45",
+      "evidence_level": "R_user_confirmed_primary_only_lost_originals",
+      "expected_manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "gpu": "RTX4090 user-confirmed; UUID unavailable",
+      "macro_f1_percent": null,
+      "manifest_sha256": null,
+      "metric_precision": "printed_two_decimal",
+      "model": "fixed",
+      "oa_percent": 94.19,
+      "parameters": null,
+      "raw_predictions_downloaded": false,
+      "refit_epochs": null,
+      "seed": 47,
+      "source": "results/seed46_seed47_reconstruction_20261104.json",
+      "source_printed_value": "94.19",
+      "test_samples": 25200
+    },
+    {
+      "calibration_epochs": null,
+      "checkpoint_sha256": null,
+      "commit": null,
+      "correct": null,
+      "dataset": "NWPU-RESISC45",
+      "evidence_level": "R_user_confirmed_primary_only_lost_originals",
+      "expected_manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "gpu": "RTX4090 user-confirmed; UUID unavailable",
+      "macro_f1_percent": null,
+      "manifest_sha256": null,
+      "metric_precision": "printed_two_decimal",
+      "model": "soft",
+      "oa_percent": 93.55,
+      "parameters": null,
+      "raw_predictions_downloaded": false,
+      "refit_epochs": null,
+      "seed": 47,
+      "source": "results/seed46_seed47_reconstruction_20261104.json",
+      "source_printed_value": "93.55",
+      "test_samples": 25200
+    }
+  ],
+  "protocols": {
+    "ben": {
+      "ap_scope": "Class AP and macro-mAP are ranking metrics; F1 threshold0.5 does not define AP.",
+      "classes": 19,
+      "f1_threshold": 0.5,
+      "input": "RGB",
+      "selection": "best validation mAP checkpoint; no fresh train+val pool refit",
+      "split_sha256": {
+        "test": "cea165a6443fc5ee44de0a3c55f53ce70505c4e25aba9ca8b52d76634df77204",
+        "train": "25734fd9e8dc7fd78fb259e768ae91fe11b297e1caa50a2d57b74b0296413d8f",
+        "val": "1c6627cb48e33588538c4e411e4f1b94560827f27d59fb7aeb0ea2b5d30c2a45"
+      },
+      "test": 119825,
+      "train": 237871,
+      "val": 122342
+    },
+    "nwpu": {
+      "calibration_cap": 30,
+      "classes": 45,
+      "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+      "params": {
+        "fixed": 31386920,
+        "soft": 31486760,
+        "swin": 27555495
+      },
+      "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+      "refit_pool": 6300,
+      "selection": "earliest highest validation OA then fresh pretrained-state pool refit; evaluate last refit checkpoint",
+      "test": 25200,
+      "train": 5040,
+      "val": 1260
+    }
+  },
+  "recommended_thesis_tables": [
+    "NWPU archived42/43 OA+macroF1+selected refit epochs+GPU+evidence column, preserving seed43 negatives.",
+    "BEN all historical42/43/44/45 three metrics with missing soft44, best/final/checkpoint-selection/budget caveats.",
+    "Separate user-confirmed46/47 primary-only appendix table, F1/AP/identity fields explicitly unavailable.",
+    "Seed-scope-specific descriptive mean/sampleSD; if mixed historical summaries included, name seed set and evidence mix in caption.",
+    "Separate BEN K9/K16 single-seed historical grid-size observation and seed44 feedback-zero diagnostic; neither is pure edge causal ablation."
+  ],
+  "schema": "gavit-nwpu-ben-internal-evidence-audit-v1",
+  "scope": "Read-only local source/summary/log/CSV audit and stdlib arithmetic; no network, SSH, GPU, model execution, or alteration of existing thesis/results.",
+  "source_sha256": {
+    ".worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv": "184d3d8894216e1b5ec092ff8326929a1c6dc2d4fede662886758a95001e90cf",
+    ".worktrees/sparse-hybrid-4n-top2/results/bigearth_four_seed_summary.json": "fa6ce8b1837bfffb996148beb0d8cb85b640fcf3ac39ce536c3dd2a455b1b68c",
+    ".worktrees/sparse-hybrid-4n-top2/results/bigearth_soft43_test_summary.json": "050692f8fbd2485f316272a825be6ce61d145840f8d76c65515563728e7715b9",
+    ".worktrees/sparse-hybrid-4n-top2/results/evidence/bigearth_soft43_complete_20261012/reported_output.txt": "806d5c105a49049a067dfd011f1469cfc5ba7f8735e68a445fd223c585cb4580",
+    ".worktrees/sparse-hybrid-4n-top2/results/evidence/bigearth_soft43_complete_20261012/reported_summary_output.txt": "05cd97e4dfdf658d414edb00fdd1812312dc702434f0445d4a86496f556d4fa8",
+    ".worktrees/sparse-hybrid-4n-top2/results/evidence/bigearth_soft43_complete_20261012/resource_validation.json": "fd1a3fa77e29c016f927c9add46fb05889be5d3ebba44158b08a59ba2ee54774",
+    ".worktrees/sparse-hybrid-4n-top2/results/evidence/nwpu_refit_test42_20260929/test_pairs_server_summary.json": "1ac38babefc66f55044748176d77a7a8c3f7b3a87bd95b826d199b1247bd9c1a",
+    ".worktrees/sparse-hybrid-4n-top2/results/evidence/seed44_reconciliation_20260914.json": "bb9ff946ebf6dcbe198b87d117aa6e2b5e8152391c528e669bd150b81c38a15d",
+    ".worktrees/sparse-hybrid-4n-top2/results/nwpu_seed42_closeout.md": "d04d1cee1a4f8d067cc7c806fab5152eaebb61848c5e17f678711258d0bea958",
+    ".worktrees/sparse-hybrid-4n-top2/results/nwpu_seed43_test_summary.json": "a6cfc009762061c57cbed16fa9cde3561b6ca75fa93b54e461dcf94dadc02fda",
+    ".worktrees/sparse-hybrid-4n-top2/results/nwpu_two_seed_comparison.csv": "054bba00e2a05c88bffa74631fd2a5470f3fc5491010476986cc42108c4779f8",
+    ".worktrees/sparse-hybrid-4n-top2/results/seed44_feedback_figure_caption.md": "c1f410abc0902134ebd041ae25668b3f0446278de4f4cb875b572cd068e10e59",
+    "docs/ben_gridpair42_visual_analysis_20261020.md": "7a43738d3d6780554352b78eb973648e2b9d2972b855f74f36de86badaa23c4c",
+    "docs/supervisor_progress_report_20261012.md": "335ada4d942a8e84be8f85aebe3f1b511cad9eff34fb84eb7c266bcc22153c7a",
+    "research_diary.md": "f442faf0f791a3bd1c03c6addc0d8baabccf78eefc1da0b2454652797f5856c5",
+    "results/ben_four_seed_three_model_20261017.json": "28acccd309868f2505338e3749bb79a88255c64131f619fdbc12e0ea01fdbde1",
+    "results/ben_grid3_grid4_seed42_20261020.json": "0f8f02e88a487dd32ca6c6df62715aa4d687cd9ec75d363924390a4fd1d8987c",
+    "results/ben_seed42_seed43_vs_swin_20261013.json": "cad1f51d246bc043b9f422fbd4ddd73c71adbfc588392753ccdaf8aa060fd238",
+    "results/evidence/bigearth_soft42_complete_20261017/summary.json": "f2fc2e08396b2fb6b646d7d5b7313d163d0012b532a46ef8ef9f08f8c6e07965",
+    "results/evidence/bigearth_soft42_complete_20261017/validation.json": "7bda08aca396402a5459e032e53d4a84e0afe40911aa2de3c05c29442ae304c1",
+    "results/multiseed_test_results.csv": "639a9b45b07625d63c1254a32969637c984a996997248622a647f261d43c0988",
+    "results/seed46_seed47_reconstruction_20261104.json": "6bec50cec48c6f69e22100bf7cac441728645bcb0694d6213c548c83ce3ea12d"
+  },
+  "status": "READY_FOR_EVIDENCE_BOUNDED_THESIS_INTEGRATION"
+}

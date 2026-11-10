@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-30",
+  "status": "FORMAL_RESOURCE_BLOCKERS_FIXED_OFFLINE_NEW_SERVER_RUN_PENDING",
+  "bundle": {
+    "path": "/Users/patrick/Projects/GAViT_Project/output/dfagcn_nwpu_formal_3080_20261030_fix1.pyz",
+    "bytes": 151769,
+    "sha256": "79398dc4b6d703be65cd32a968d49daa6640fe6c4bbab6a33e930b312954a6c4"
+  },
+  "package_tests": {
+    "methods": 148,
+    "seconds": 10.756,
+    "passed": true,
+    "log": "package_tests.log",
+    "local_environment": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 KMP_INIT_AT_FORK=FALSE"
+  },
+  "independent_resource_tests_passed": 8,
+  "whole_process_stdlib_guard_passed": true,
+  "independent_review": "passed; no Critical/Important/Minor findings",
+  "review_path": "review/independent_review.json",
+  "source_sha256": {
+    "tools/run_dfagcn_nwpu_formal.py": "24e6386c16d8022df8cb2b708dc5c456e6872be553418914d3982c6c5a7ec563",
+    "tests/test_dfagcn_formal_runner.py": "9f648f7d3ebbc7f0a6f2cf0b36d276a4f01ead0c37fc6380083b28958a4e4c32",
+    "tests/test_dfagcn_formal_resources.py": "0a4352a4df00d65ab987d8509e263e0f2fd6fd47dfa5c5c76a9e268846eb67e3"
+  },
+  "protected_inputs_unchanged": 21,
+  "distribution_gate": "exact base or cu121 suffix accepted; actual imported CUDA12.1/cuDNN8902/precision and physical binding still required",
+  "uuid_policy": "inspect selects one eligible idle10GiB3080 or explicit; run requires explicit actual UUID",
+  "reported_current_uuid": "GPU-0d9901ca-d2e0-d398-b9b4-2550e6db2fed",
+  "reported_work_free_bytes": 17029922816,
+  "persistent_required_bytes": 16508521324,
+  "scratch_required_bytes": 42949672960,
+  "reported_scratch_available": "349GiB on /dev/vda3; data directory absent, default uses /tmp",
+  "same_device_budgets_combined": true,
+  "core_algorithm_files_changed": false,
+  "recipe_changed": false,
+  "old_packages_changed": false,
+  "new_bundle_status": "not_started",
+  "local_inspect": "expected failure: no server manifest/targetGPU/target software/native binaries; full official weight SHA verified",
+  "formal_training_started": false,
+  "remote_operations_performed": false,
+  "git_commit_or_push": false,
+  "user_files_deleted": false,
+  "not_established": "new physical card CUDA and full formal training result remain pending actual server run; prior probe retained under prior UUID"
+}

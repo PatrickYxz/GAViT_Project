@@ -1,0 +1,45 @@
+test_archive_bad_selected_content_remains_incomplete (test_dfagcn_real_runner.RealRunnerTests.test_archive_bad_selected_content_remains_incomplete) ... ok
+test_archive_restores_only_selected_members_and_checks_image_bytes (test_dfagcn_real_runner.RealRunnerTests.test_archive_restores_only_selected_members_and_checks_image_bytes) ... ok
+test_archive_wrong_global_hash_or_unsafe_or_ambiguous_member_is_rejected (test_dfagcn_real_runner.RealRunnerTests.test_archive_wrong_global_hash_or_unsafe_or_ambiguous_member_is_rejected) ... ok
+test_cli_run_requires_uuid_before_any_resource_mutation (test_dfagcn_real_runner.RealRunnerTests.test_cli_run_requires_uuid_before_any_resource_mutation) ... ok
+test_config_file_changes_after_binding_are_rejected (test_dfagcn_real_runner.RealRunnerTests.test_config_file_changes_after_binding_are_rejected) ... FAIL
+test_frozen_manifest_selects_exact_360_90_without_test (test_dfagcn_real_runner.RealRunnerTests.test_frozen_manifest_selects_exact_360_90_without_test) ... ok
+test_full_weight_sha_required_and_metadata_conflicts_rejected (test_dfagcn_real_runner.RealRunnerTests.test_full_weight_sha_required_and_metadata_conflicts_rejected) ... ok
+test_gpu_gate_requires_exact_uuid_4090_and_idle_card (test_dfagcn_real_runner.RealRunnerTests.test_gpu_gate_requires_exact_uuid_4090_and_idle_card) ... ok
+test_gpu_selection_requires_fresh_cuda_context_before_environment_change (test_dfagcn_real_runner.RealRunnerTests.test_gpu_selection_requires_fresh_cuda_context_before_environment_change) ... FAIL
+test_inspect_missing_resources_is_stdlib_read_only_and_never_trains (test_dfagcn_real_runner.RealRunnerTests.test_inspect_missing_resources_is_stdlib_read_only_and_never_trains) ... ok
+test_manifest_bad_counts_or_duplicate_or_classmap_is_rejected (test_dfagcn_real_runner.RealRunnerTests.test_manifest_bad_counts_or_duplicate_or_classmap_is_rejected) ... ok
+
+======================================================================
+FAIL: test_config_file_changes_after_binding_are_rejected (test_dfagcn_real_runner.RealRunnerTests.test_config_file_changes_after_binding_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_real_runner.py", line 178, in test_config_file_changes_after_binding_are_rejected
+    self.assertTrue(hasattr(value,'require_unchanged_recipe'),
+AssertionError: False is not true : recipe file must remain bound to its pre-run checksum
+
+======================================================================
+FAIL: test_gpu_selection_requires_fresh_cuda_context_before_environment_change (test_dfagcn_real_runner.RealRunnerTests.test_gpu_selection_requires_fresh_cuda_context_before_environment_change)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_real_runner.py", line 147, in test_gpu_selection_requires_fresh_cuda_context_before_environment_change
+    value._verified_imports_and_device(args,{'uuid':'GPU-new'})
+  File "/Users/patrick/Projects/GAViT_Project/tools/run_dfagcn_nwpu_smoke.py", line 331, in _verified_imports_and_device
+    import torchvision
+  File "/private/tmp/gavit-dfagcn-cpu-20261027/lib/python3.12/site-packages/torchvision/__init__.py", line 6, in <module>
+    from torchvision import _meta_registrations, datasets, io, models, ops, transforms, utils
+  File "/private/tmp/gavit-dfagcn-cpu-20261027/lib/python3.12/site-packages/torchvision/_meta_registrations.py", line 4, in <module>
+    import torch._custom_ops
+ModuleNotFoundError: No module named 'torch._custom_ops'; 'torch' is not a package
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_real_runner.py", line 151, in test_gpu_selection_requires_fresh_cuda_context_before_environment_change
+    self.fail('initialized CUDA context was not rejected before imports: '+type(exc).__name__)
+AssertionError: initialized CUDA context was not rejected before imports: ModuleNotFoundError
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.189s
+
+FAILED (failures=2)

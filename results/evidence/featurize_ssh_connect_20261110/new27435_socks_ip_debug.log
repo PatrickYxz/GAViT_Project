@@ -1,0 +1,11 @@
+debug1: OpenSSH_10.2p1, LibreSSL 3.3.6
+debug1: Reading configuration data output/featurize_gavit_ssh_20261110_p27435.conf
+debug1: output/featurize_gavit_ssh_20261110_p27435.conf line 2: Applying options for featurize-gavit-20261110-p27435
+debug1: Authenticator provider $SSH_SK_PROVIDER did not resolve; disabling
+debug1: Executing proxy command: exec /usr/bin/nc -x 127.0.0.1:7897 -X 5 -G 15 -w 45 183.223.25.19 27435
+debug1: loaded pubkey from /Users/patrick/.ssh/featurize_gavit_ed25519: ED25519 SHA256:rUfU3NopTlizBWFgBGms51+twQ++d3NLPGDjj/kXHPk
+debug1: identity file /Users/patrick/.ssh/featurize_gavit_ed25519 type 2
+debug1: no identity pubkey loaded from /Users/patrick/.ssh/featurize_gavit_ed25519
+debug1: Local version string SSH-2.0-OpenSSH_10.2
+Connection timed out during banner exchange
+Connection to UNKNOWN port 65535 timed out

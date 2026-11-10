@@ -1,0 +1,29 @@
+[
+  {
+    "original_architecture": {
+      "backbone": "swin_tiny_patch4_window7_224",
+      "dropout": 0.1,
+      "num_classes": 30
+    },
+    "original_path": ".worktrees/sparse-hybrid-4n-top2/results/evidence/aid_swin_calibrate42_20260920_01/run.json",
+    "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+    "sha256": "4ca9a57bacb5436c1912823f95250fb980e68123cfe623b1742df9fda0964148"
+  },
+  {
+    "original_architecture": {
+      "dropout": 0.1,
+      "edge_type": "sparse_hybrid",
+      "gat_heads": 4,
+      "gat_hidden": 256,
+      "gat_layers": 2,
+      "grouping": "attentive_spatial",
+      "integration": "token_feedback",
+      "knn_k": 5,
+      "num_classes": 30,
+      "num_regions": 16
+    },
+    "original_path": ".worktrees/sparse-hybrid-4n-top2/results/evidence/aid_gavit_calibrate42_20260920_01/run.json",
+    "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+    "sha256": "ede0e4769d62eb36c23bad81b689072db8ca547fc142ec2046fea00054c97263"
+  }
+]

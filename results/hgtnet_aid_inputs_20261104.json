@@ -1,0 +1,55 @@
+{
+  "checks_passed": 17,
+  "counts": {
+    "pool": 5000,
+    "test": 5000,
+    "train": 4000,
+    "val": 1000
+  },
+  "date": "2026-11-04",
+  "disk_free_bytes": {
+    "instance_local_ancestor": 346846744576,
+    "work": 9767485440
+  },
+  "evidence": "results/evidence/hgtnet_aid_inputs_restored_20261104",
+  "formal_training_started": false,
+  "gpu_inventory": {
+    "driver_version": "610.57.04",
+    "index": 0,
+    "memory_total_mib": 12288,
+    "name": "NVIDIA GeForce RTX 3060",
+    "uuid": "GPU-7acce72a-93cd-e56f-35d8-5d33ecf6655e"
+  },
+  "image_check": {
+    "checked": 300,
+    "default_root_exists": true,
+    "invalid": 0,
+    "missing": 0,
+    "verified": 300
+  },
+  "initial_weights_sha256_reported_verified": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893",
+  "manifest_sha256_reported_verified": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+  "new_test_metrics": null,
+  "next_action": "Prepare independent30class/240train/60val/1epoch/batch2 smoke for actual RTX3060; no formal training or test.",
+  "original_archive_recovery_reference": {
+    "bytes": 2628474154,
+    "current_file_existence_verified": true,
+    "current_file_sha_verified": true,
+    "current_verification_source": "User-returned sha256sum OK in chained restore command",
+    "expected_sha256": "cdb1af67657ef1ed42ed481bf009df689ddc9ea13dfb6eb36277882312703bf7",
+    "historical_confirmation": "research_diary.md entry 2026-09-20 AID压缩包哈希确认",
+    "historical_user_reported_sha_verified": true,
+    "path": "/home/featurize/work/AID_visionflan_20260920.zip",
+    "source": ".worktrees/sparse-hybrid-4n-top2/docs/download_aid.md"
+  },
+  "runtime_CUDA_verified": false,
+  "scope": "Manifest/initial weight verification is reported by the server inspector; original byte files not downloaded locally. GPU information is nvidia-smi inventory, not Torch/CUDA/model verification.",
+  "selected_counts": {
+    "test": 0,
+    "train": 240,
+    "val": 60
+  },
+  "source_type": "user_returned_input_inventory",
+  "status": "SERVER_REPORTED_AID_SMOKE_INPUTS_VERIFIED_GPU_SMOKE_PENDING",
+  "training_started": false
+}

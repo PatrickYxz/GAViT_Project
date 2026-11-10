@@ -1,0 +1,101 @@
+{
+  "status": "instance_returned_completion_artifacts_pending",
+  "seed": 42,
+  "dataset": "BigEarthNet-19",
+  "user_authorized": true,
+  "server_preflight_received": true,
+  "server_smoke_received": true,
+  "server_training_started": null,
+  "formal_test_metrics": null,
+  "selected_reporting_seeds": [
+    42,
+    43,
+    46,
+    47
+  ],
+  "missing_formal_soft_seed": 42,
+  "existing_soft_metric_seeds": [
+    43,
+    46,
+    47
+  ],
+  "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "parameters": 31466766,
+  "counts": {
+    "train": 237871,
+    "val": 122342,
+    "test": 119825
+  },
+  "epochs": 30,
+  "f1_threshold": 0.5,
+  "gpu_required": "NVIDIA GeForce RTX 4090",
+  "gpu_uuid": "GPU-44825cf0-bd98-bfdc-efbc-0100238a6789",
+  "formal_output": "/home/featurize/work/bigearth_soft42_20261013_01",
+  "guide": "docs/run_ben_soft42_20261013.md",
+  "local_checks": {
+    "new_soft42": 8,
+    "existing_seed43_regression": 11,
+    "passed": 19,
+    "exit_code": 0
+  },
+  "full_suite": {
+    "command": "python3 -B -m pytest",
+    "exit_code": 1,
+    "status": "not_executed_missing_dependency",
+    "reason": "/opt/homebrew/opt/python@3.14/bin/python3.14: No module named pytest"
+  },
+  "preparation_evidence": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/evidence/bigearth_soft42_prepare_20261013",
+  "next_action": "Read persisted three run.exit files, summary.json and run.log; no GPU/preflight/raw-data extraction/relaunch",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "threads": 8,
+    "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+    "packages": {
+      "torch": "2.2.2",
+      "torchvision": "0.17.2",
+      "timm": "1.0.27",
+      "torch-geometric": "2.8.0",
+      "numpy": "1.26.4",
+      "scikit-learn": "1.9.0",
+      "pillow": "10.3.0"
+    },
+    "gpu_identity": "GPU-44825cf0-bd98-bfdc-efbc-0100238a6789, NVIDIA GeForce RTX 4090, 610.57.04"
+  },
+  "precision": {
+    "dtype": "torch.float32",
+    "matmul_tf32": false,
+    "cudnn_tf32": true,
+    "amp": false
+  },
+  "latest_evidence_received_date": "2026-10-17",
+  "preflight_evidence": "results/evidence/bigearth_soft42_preflight_20261016/server_return.json",
+  "evidence_scope": "User reports instance returned; latest saved technical receipt is queue dispatch, no completion/result artifacts received.",
+  "server_smoke_returned_artifact_checks_passed": true,
+  "server_smoke_outer_process_success": false,
+  "smoke_wrapper_error": "FileNotFoundError: run.exit is written by atexit after the controller prematurely reads it",
+  "smoke_evidence": "results/evidence/bigearth_soft42_smoke4090_20261016/summary.json",
+  "smoke_validation": "results/evidence/bigearth_soft42_smoke4090_20261016/validation.json",
+  "smoke_checkpoint_sha256": "4a6ae6e43001ffe5d729f7eb4e50ef9da4951e3b8422b2e5342b02f88a813398",
+  "smoke_reload_max_logit_diff": 4.76837158203125e-07,
+  "scheduler_repair_required": null,
+  "scheduler_repair_applied_on_server": null,
+  "scheduler_repair_command": "results/evidence/bigearth_soft42_smoke4090_20261016/repair_and_launch_command.txt",
+  "server_queue_dispatched": true,
+  "server_queue_pid": 5807,
+  "server_training_start_verified": false,
+  "scheduler_repair_confirmation": "Launch receipt returned, but repair marker/SHA not included; do not repeat repair or launch while queue state is being checked.",
+  "launch_evidence": "results/evidence/bigearth_soft42_launch_20261016/launch.json",
+  "latest_preflight_evidence": "results/evidence/bigearth_soft42_launch_20261016/preflight.json",
+  "runtime_log": "/home/featurize/work/bigearth_soft42_20261013_01/run.log",
+  "authoritative_stage_exit_paths": [
+    "gavit_train/run.exit",
+    "gavit_test/run.exit"
+  ],
+  "instance_return_reported": true,
+  "instance_return_reported_date": "2026-10-17",
+  "queue_pid_scope": "Historical dispatch PID from the returned instance; not a live process check",
+  "completion_verified": false,
+  "readback_plan": "results/evidence/bigearth_soft42_result_check_20261017/user_report_and_read_plan.json"
+}

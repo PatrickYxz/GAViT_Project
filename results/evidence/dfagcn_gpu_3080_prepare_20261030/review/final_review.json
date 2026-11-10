@@ -1,0 +1,75 @@
+{
+  "checks": {
+    "actual_formal_recipe_graph_batch100_single_disposable_adam_step": true,
+    "cache_order_preprocessing_source_and_actual_array_sha_verified_by_run": true,
+    "custom_portable_entrypoint_backwards_compatible_and_hashed": true,
+    "full_weight_sha_and_loaded_tensor_validation": true,
+    "hardware_doc_does_not_claim_3080_measurements": true,
+    "immutable_manifest_complete_sha_and_counts": true,
+    "initial_preparation_protected_metric_files_unchanged": 19,
+    "inspect_is_inventory_only_and_marks_array_bytes_unverified": true,
+    "no_epochs_accuracy_selection_test_or_checkpoint_write": true,
+    "old_bundle_and17_old_code_recipe_files_unchanged": true,
+    "selected_device_name_and_capacity_checked": true,
+    "uuid_before_cuda_initialization": true,
+    "vgg_real_forward_batch1_after_weight_validation": true
+  },
+  "not_established": [
+    "RTX3080 numerical/CUDA execution success",
+    "RTX3080 peak memory or timing",
+    "formal NWPU model accuracy",
+    "remote checkpoint current filesystem status"
+  ],
+  "resolved_findings": [
+    {
+      "before": "gpu_inventory silently ignored nonempty compute-app CSV rows with unexpected column counts; independent reproduction accepted the selected UUID as idle.",
+      "green_evidence": "../probe/process_csv_green.log",
+      "independent_final_green": "process_csv_test_final.log",
+      "independent_reproduction": "malformed_compute_row.json",
+      "red_evidence": "../probe/process_csv_red.log",
+      "resolution": "Unexpected process column count now produces inventory.error; require_gpu rejects unavailable/uncertain inventory.",
+      "severity": "P2",
+      "title": "Malformed compute-process CSV could be accepted as idle"
+    }
+  ],
+  "review_write_scope": "Only review evidence files modified by reviewer; no implementation, test, old bundle or checkpoint modifications.",
+  "scope": "Local independent source and CPU/stdlib verification of portable bounded 3080 probe; no target GPU execution or formal training.",
+  "source_sha256": {
+    "configs/dfagcn_independent_v1.json": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+    "docs/external_baselines_20261027/hardware_3080_20261030.md": "713888ef91cff57ea7d6bcf1072a3b1e0f36d018ffec69274ccf17247eb4eb56",
+    "tests/test_dfagcn_delivery.py": "9fe93e45b4ec0e02e2a92ecfa4c73c2531f7127e10b90dc2c66ab019d36ca061",
+    "tests/test_dfagcn_gpu_probe.py": "97b18b0da5609a079df45178fc8a375b5889108e29f1c08c0cc23d311e2f3f4c",
+    "tools/package_dfagcn_nwpu_smoke.py": "89a3395372dee8f06feb487bc43dc2ad523518fb718bf16c39bd2569879b1da5",
+    "tools/probe_dfagcn_gpu.py": "1eae9207ebeedafcd5ed901ab302238169c97bd5b4e50398bed4a60e21e15791"
+  },
+  "status": "REVIEW_PASSED_WITH_FIXED_IDLE_GATE_FINDING",
+  "target_gpu_executed": false,
+  "tests": {
+    "independent_delivery": {
+      "exit_code": 0,
+      "log": "delivery_tests.log",
+      "passed": 10,
+      "total": 10
+    },
+    "independent_final_added_gate": {
+      "exit_code": 0,
+      "log": "process_csv_test_final.log",
+      "passed": 1,
+      "total": 1
+    },
+    "independent_final_combined_attempt": {
+      "exit_code": 134,
+      "interpretation": "Host libomp SHM initialization abort on Torch import, not a reported assertion failure; initial 10-test numerical suite and focused final parser regression are separate successful evidence.",
+      "log": "probe_tests_final.log"
+    },
+    "independent_initial_probe": {
+      "actual_cpu_batch100_forward_backward_adam": true,
+      "exit_code": 0,
+      "log": "probe_tests.log",
+      "original_feature_inputs_unchanged": true,
+      "passed": 10,
+      "total": 10
+    }
+  },
+  "unresolved_findings": []
+}

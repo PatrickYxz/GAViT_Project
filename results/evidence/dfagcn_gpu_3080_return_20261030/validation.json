@@ -1,0 +1,118 @@
+{
+  "status": "SERVER_REPORTED_3080_BOUNDED_PROBE_PASS",
+  "evidence_source": "direct user terminal return; no remote access by assistant",
+  "date": "2026-10-30",
+  "observed": {
+    "DFAGCN_GPU_PROBE_DEVICE": {
+      "amp": false,
+      "cpu_threads": 8,
+      "cuda": "12.1",
+      "cudnn": 8902,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "cudnn_tf32": false,
+      "device": "cuda:0",
+      "dtype": "float32",
+      "gpu": {
+        "driver_version": "610.57.04",
+        "memory_free_mib": 9874,
+        "memory_total_mib": 10240,
+        "name": "NVIDIA GeForce RTX 3080",
+        "uuid": "GPU-70be4364-0641-e89d-828e-78727c6001ec"
+      },
+      "matmul_tf32": false,
+      "numpy": "1.26.4",
+      "physical_gpu_uuid": "GPU-70be4364-0641-e89d-828e-78727c6001ec",
+      "pillow": "10.3.0",
+      "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+      "seed": 42,
+      "torch": "2.2.2+cu121",
+      "torchvision": "0.17.2+cu121"
+    },
+    "DFAGCN_GPU_PROBE_VGG_BATCH": {
+      "batch_samples": 1,
+      "cuda_peak_allocated_bytes": 587649536,
+      "cuda_peak_reserved_bytes": 645922816,
+      "elapsed_seconds": 3.127573947998826,
+      "finite": true,
+      "input": "normalized zero tensors for compatibility/memory only",
+      "shapes": {
+        "conv3": [
+          1,
+          256,
+          112,
+          112
+        ],
+        "conv4": [
+          1,
+          512,
+          56,
+          56
+        ],
+        "conv5": [
+          1,
+          512,
+          28,
+          28
+        ],
+        "fc": [
+          1,
+          4096
+        ]
+      }
+    },
+    "DFAGCN_GPU_PROBE_GRAPH_BATCH": {
+      "batch_samples": 100,
+      "classes": 45,
+      "cuda_peak_allocated_bytes": 155492352,
+      "cuda_peak_reserved_bytes": 190840832,
+      "device": "cuda:0",
+      "disposable_parameters_changed": true,
+      "elapsed_seconds": 0.571385420000297,
+      "formal_training_started": false,
+      "gradients_finite": true,
+      "loss": 11.601445198059082,
+      "optimizer_steps": 1,
+      "parameters_finite": true
+    }
+  },
+  "complete_marker": "DFAGCN_GPU_PROBE_COMPLETE /home/featurize/work/dfagcn_gpu_probe_3080_20261030/runs/gpu_probe_01/summary.json",
+  "formal_training_started": false,
+  "probe_complete_accepted": true,
+  "full_remote_json_copied": false,
+  "completion_basis": "matching delivered source prints COMPLETE after summary completed=true and run.exit0 are saved",
+  "checks": {
+    "actual_disposable_parameter_update": true,
+    "bundle_entrypoint": true,
+    "complete_marker": true,
+    "complete_output_identity": true,
+    "deterministic_runtime": true,
+    "exactly_one_optimizer_step": true,
+    "finite_gradients_and_parameters": true,
+    "finite_positive_loss": true,
+    "graph_batch100": true,
+    "graph_classes45": true,
+    "graph_cuda": true,
+    "local_source_matches_delivered_bundle": true,
+    "memory_free_within_capacity": true,
+    "memory_peaks_consistent": true,
+    "no_formal_training": true,
+    "positive_elapsed": true,
+    "precision": true,
+    "seed_cpu_threads": true,
+    "selected_capacity": true,
+    "selected_gpu_name": true,
+    "selected_uuid": true,
+    "vgg_batch1": true,
+    "vgg_contract_shapes": true,
+    "vgg_finite": true
+  },
+  "interpretation_limits": [
+    "The run establishes the current10GiB RTX3080 CUDA, verified VGG batch1 and full-recipe graph batch100 compatibility; it does not estimate formal OA, stable gains or paper-method numerical equivalence.",
+    "VGG inputs are normalized zero tensors; graph inputs reuse the prior450-sample frozen features solely for this disposable check. The complete real-image3080 formal pool extraction is a separate next stage.",
+    "Memory values are PyTorch allocated/reserved peaks for two separately measured stages, not total process/GPU resident memory. They should not be summed as simultaneous usage or presented as formal training peak.",
+    "VGG elapsed includes verified weight loading and forward; graph elapsed starts after model/features/device preparation. Neither figure alone measures formal epoch duration or end-to-end throughput.",
+    "The pasted return did not include the full summary/preflight/source_identity/cache digest records as independently copied JSON. The marker proves their successful write and relevant gates under this delivered runner, but exact remote identity hashes are not independently archived by this review. This limits provenance detail, not compatibility acceptance; no rerun or checkpoint download is necessary."
+  ],
+  "user_terminal_return_sha256": "5c1480cf5d039d326cb227ad7fbed9671399ef187c2a949c4d4dd59878805e2e"
+}

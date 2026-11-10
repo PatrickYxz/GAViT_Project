@@ -1,0 +1,30 @@
+{
+  "schema": "gavit_hgtnet_local_cpu_runtime_v1",
+  "verified": true,
+  "scope": "local tiny CPU forward/backward/optimizer only; no HGTNet/GPU/NWPU claim",
+  "executable": "/private/tmp/gavit-hgtnet-probe-cpu-20261102/bin/python",
+  "python": "3.12.13 (main, Jun 11 2026, 03:55:21) [Clang 22.1.3 ]",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "machine": "arm64",
+  "versions": {
+    "torch": "2.2.2",
+    "torchvision": "0.17.2",
+    "numpy": "1.26.4",
+    "pillow": "10.3.0"
+  },
+  "torch_threads": 1,
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "KMP_INIT_AT_FORK": "FALSE"
+  },
+  "device": "cpu",
+  "output_shape": [
+    3,
+    2
+  ],
+  "loss": 0.6596710681915283,
+  "finite_gradients": true,
+  "parameters_updated": true,
+  "wall_seconds": 28.83978437492624
+}

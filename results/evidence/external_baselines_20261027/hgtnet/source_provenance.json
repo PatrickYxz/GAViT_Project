@@ -1,0 +1,131 @@
+{
+  "checked_date": "2026-10-27",
+  "primary_paper": {
+    "title": "A Hierarchical Graph-Enhanced Transformer Network for Remote Sensing Scene Classification",
+    "authors": [
+      "Ziwei Li",
+      "Weiming Xu",
+      "Shiyu Yang",
+      "Juan Wang",
+      "Hua Su",
+      "Zhanchao Huang",
+      "Sheng Wu"
+    ],
+    "doi": "10.1109/JSTARS.2024.3491335",
+    "journal": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+    "volume": "17",
+    "year": 2024,
+    "printed_pages": "20315-20330",
+    "public_fulltext_url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+    "doi_url": "https://doi.org/10.1109/JSTARS.2024.3491335",
+    "pdf_saved": false,
+    "pdf_local_path": null,
+    "pdf_sha256": null,
+    "fulltext_bytes_saved": false,
+    "fulltext_bytes_sha256": null,
+    "directly_read_sections": [
+      "III-A",
+      "III-B.1",
+      "III-B.2",
+      "III-C",
+      "IV-B",
+      "IV-C.1",
+      "IV-C.2",
+      "V-C",
+      "V-D"
+    ],
+    "body_extraction_available": true,
+    "table_II_cells_directly_read": false,
+    "table_III_cells_directly_read": false,
+    "figure_3_pixels_inspected": false,
+    "figure_4_pixels_inspected": false,
+    "paper_license_page_label": "CC BY-NC-ND 4.0",
+    "license_scope_note": "论文许可不等于代码或权重许可。"
+  },
+  "author_identity_page": {
+    "url": "https://ovoyu.github.io/",
+    "locator": "Co-Author Papers / 2024, target title and DOI",
+    "verified": true,
+    "code_link_at_target_entry_seen": false
+  },
+  "retrieval_attempts": [
+    {
+      "target": "original paper public fulltext HTML",
+      "url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+      "method": "web.run open",
+      "outcome": "primary full body readable, tables not expanded",
+      "source_crawl_label": "two weeks ago"
+    },
+    {
+      "target": "ResearchGate public PDF link one",
+      "url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification/fulltext/6a5677127fcc0765f3ea3d10/A-Hierarchical-Graph-Enhanced-Transformer-Network-for-Remote-Sensing-Scene-Classification.pdf",
+      "method": "web.run click public PDF link",
+      "outcome": "Cache miss"
+    },
+    {
+      "target": "ResearchGate public PDF link two",
+      "url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification/fulltext/6729c7955852dd723ca90a46/A-Hierarchical-Graph-Enhanced-Transformer-Network-for-Remote-Sensing-Scene-Classification.pdf",
+      "method": "web.run click/open public PDF link",
+      "outcome": "Cache miss"
+    },
+    {
+      "target": "public PDF file",
+      "method": "local urllib public URL download once",
+      "outcome": "DNS/network resolution failed; no bytes saved"
+    },
+    {
+      "target": "publisher page/PDF",
+      "url": "https://doi.org/10.1109/JSTARS.2024.3491335",
+      "method": "web.run direct open",
+      "outcome": "not accessible via tool"
+    },
+    {
+      "target": "figure 3 public figure page",
+      "url": "https://www.researchgate.net/figure/Overview-of-HGTNet-a-The-architecture-of-HGTNet-b-Structure-of-the-DA-STB-c_fig2_385542196",
+      "method": "web.run click figure link",
+      "outcome": "caption page readable; image/download link Cache miss; no pixels inspected"
+    },
+    {
+      "target": "public fulltext in browser",
+      "url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+      "method": "background IAB navigation",
+      "outcome": "DataDome access restriction; stopped; no CAPTCHA interaction"
+    }
+  ],
+  "secondary_component_reference": [
+    {
+      "name": "ViG author reference implementation, not HGTNet official code",
+      "url": "https://github.com/huawei-noah/Efficient-AI-Backbones/blob/master/vig_pytorch/gcn_lib/torch_vertex.py",
+      "read_locator": "MRConv2d, DyGraphConv2d, Grapher",
+      "purpose": "clarify max-relative operator meaning; cannot resolve author-specific HGTNet ambiguity",
+      "source_bytes_saved": false,
+      "immutable_commit_verified": false
+    },
+    {
+      "name": "ViG author graph reference",
+      "url": "https://github.com/huawei-noah/Efficient-AI-Backbones/blob/master/vig_pytorch/gcn_lib/torch_edge.py",
+      "read_locator": "dense_knn_matrix",
+      "purpose": "shape/reference only; not adopted as known HGTNet graph configuration",
+      "source_bytes_saved": false,
+      "immutable_commit_verified": false
+    }
+  ],
+  "historical_context_read": [
+    "research_diary.md latest entries dated 2026-10-20",
+    "results/comparison_table.csv",
+    "results/ablation_study.csv",
+    ".worktrees/sparse-hybrid-4n-top2/docs/external_methods_audit_20260919.md",
+    ".worktrees/sparse-hybrid-4n-top2/docs/external_methods_readiness_20260924.md",
+    ".worktrees/sparse-hybrid-4n-top2/docs/external_methods_refresh_20261006.md"
+  ],
+  "scope": {
+    "training_started": false,
+    "model_forward_run": false,
+    "dependencies_installed": false,
+    "email_sent": false,
+    "official_code_obtained": false,
+    "pretrained_weights_obtained": false,
+    "historical_files_edited": false
+  },
+  "integrity_note": "本目录JSON和短摘录的哈希可核对本地记录本身；不能替代未取得的原PDF或全文字节SHA。"
+}

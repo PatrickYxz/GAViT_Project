@@ -1,0 +1,25 @@
+test_registered_probe_is_selected_once_and_keeps_common_runner (tests.test_hgtnet_batch_probe_delivery.BatchProbeDeliveryTests.test_registered_probe_is_selected_once_and_keeps_common_runner) ... FAIL
+test_cli_probe_inspect_and_status_dispatch_without_ml_or_runs (tests.test_hgtnet_batch_probe_delivery.BatchProbeDeliveryTests.test_cli_probe_inspect_and_status_dispatch_without_ml_or_runs) ... FAIL
+
+======================================================================
+FAIL: test_registered_probe_is_selected_once_and_keeps_common_runner (tests.test_hgtnet_batch_probe_delivery.BatchProbeDeliveryTests.test_registered_probe_is_selected_once_and_keeps_common_runner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_batch_probe_delivery.py", line 73, in test_registered_probe_is_selected_once_and_keeps_common_runner
+    self.assertIn('runner_member', inspect.signature(delivery.build_bundle).parameters,
+AssertionError: 'runner_member' not found in mappingproxy(OrderedDict({'output_path': <Parameter "output_path">, 'target_gpu': <Parameter "target_gpu='3080'">})) : builder lacks registered runner selection
+
+======================================================================
+FAIL: test_cli_probe_inspect_and_status_dispatch_without_ml_or_runs (tests.test_hgtnet_batch_probe_delivery.BatchProbeDeliveryTests.test_cli_probe_inspect_and_status_dispatch_without_ml_or_runs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_batch_probe_delivery.py", line 89, in test_cli_probe_inspect_and_status_dispatch_without_ml_or_runs
+    self.assertEqual(built.returncode, 0, built.stderr)
+AssertionError: 2 != 0 : usage: package_hgtnet_nwpu_smoke.py [-h] {build} ...
+package_hgtnet_nwpu_smoke.py: error: unrecognized arguments: --runner-member external_baselines/hgtnet/batch_probe.py
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.024s
+
+FAILED (failures=2)

@@ -1,0 +1,66 @@
+--- external_baselines/hgtnet/aid_formal_entry.py before
++++ external_baselines/hgtnet/aid_formal_entry.py after
+@@ -162,9 +162,10 @@
+     blockers=[];report=dict(schema=SCHEMA,action='inspect',ready=False,formal_training_started=False,
+         input_scope='real_aid',counts=dict(PROTO.REAL_COUNTS),target_gpu='3060',output=str(args.output),
+         requested_gpu_uuid=args.gpu_uuid,resume=_resume(args),blockers=blockers,
++        build_provenance=None,
+         readiness_scope='stdlib pool5000 byte hashes, pinned candidate/source, current GPU capacity proof; actual run verifies CUDA')
+     binding=None
+-    checks=[('source',lambda:report.update(source_identity=_source_identity())),
++    checks=[('source',lambda:report.update(source_identity=_source_identity(),build_provenance=_build_provenance())),
+         ('config',lambda:report.update(config_sha256=CONFIG_SHA) if _check_config(args.config) else None),
+         ('weights',lambda:report.update(_check_weights(args.weights)))]
+     for key,check in checks:
+@@ -207,6 +208,25 @@
+ def _observed_steps(output):
+     try:return max(0,int(_json(Path(output)/'optimizer_progress.json')['optimizer_steps']))
+     except (OSError,ValueError,TypeError,KeyError):return 0
++
++def _archive_discarded_first_steps(output,attempt,committed_steps):
++    """Move receipts from rolled-back updates, keeping their original bytes."""
++    if type(committed_steps) is not int or committed_steps<0:
++        raise ValueError('Restored committed optimizer steps must be a nonnegative integer')
++    for name in ('first_calibration_step.json','first_refit_step.json','first_step.json'):
++        path=_safe_path(Path(output)/name)
++        if not path.exists():continue
++        receipt=_json(path);steps=receipt.get('optimizer_steps')
++        if type(steps) is not int or steps<1:raise ValueError('Invalid first-step optimizer counter')
++        if steps<=committed_steps:continue
++        archive=_safe_path(Path(attempt)/('discarded_'+name))
++        if archive.exists():raise FileExistsError('Discarded first-step receipt already archived: '+str(archive))
++        path.rename(archive)
++
++def _build_provenance():
++    metadata=ROOT/'delivery_manifest.json'
++    if metadata.exists() or metadata.is_symlink():return _json(metadata).get('build_provenance')
++    return None
+ 
+ def _run_model(args,torch,runtime,inputs,binding,progress,resume):
+     from external_baselines.hgtnet.model import HGTNet,parameter_counts
+@@ -255,6 +275,7 @@
+             source_identity=_source_identity(),recipe_sha256=binding['recipe_sha256'],config_sha256=CONFIG_SHA,
+             manifest_sha256=DATA.MANIFEST_SHA,weights_sha256=WEIGHTS_SHA)
+         result.update(prior_observed_optimizer_steps=steps,
++            build_provenance=preflight.get('build_provenance'),
+             optimizer_steps_scope='accepted calibration/refit trajectory; prior discarded partial updates retained in attempts')
+         _write(args.output/'summary.json',result);_write(args.output/'run.exit','running\n');started=time.perf_counter()
+         with (args._attempt/'run.log').open('x') as log,contextlib.redirect_stdout(SAFE._Tee(sys.stdout,log)),contextlib.redirect_stderr(SAFE._Tee(sys.stderr,log)):
+@@ -270,6 +291,7 @@
+                 def progress(value):
+                     value=dict(value,pid=os.getpid(),attempt=number)
+                     if value.get('stage')=='resumed':
++                        _archive_discarded_first_steps(args.output,args._attempt,value['optimizer_steps'])
+                         result['resumed_committed_optimizer_steps']=value['optimizer_steps']
+                         result['discarded_partial_optimizer_steps']=max(0,steps-value['optimizer_steps'])
+                     if value.get('stage')=='before_test':_assert_unchanged(args,inputs,binding);args._test_authorized=True
+@@ -498,6 +520,9 @@
+     observed=SAFE._observed_training(output)
+     report['optimizer_steps']=max(observed['optimizer_steps'],summary.get('optimizer_steps',0) if type(summary.get('optimizer_steps')) is int else 0)
+     report['training_started']=observed['training_started'] or summary.get('training_started') is True
++    try:real_aid=PROTO.validate_binding(_json(output/'binding.json'))['input_scope']=='real_aid'
++    except (OSError,ValueError,KeyError,TypeError):real_aid=False
++    if real_aid and observed['optimizer_steps']>0:report['formal_training_started']=True
+     for key in ('best_val_metrics','test_metrics'):
+         if isinstance(summary.get(key),dict):report[key]={k:summary[key][k] for k in ('accuracy_percent','macro_f1_percent','scope') if k in summary[key]}
+     try:source_ok=summary.get('source_identity')==_source_identity() if summary else None

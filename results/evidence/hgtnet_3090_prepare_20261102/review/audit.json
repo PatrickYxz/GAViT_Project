@@ -1,0 +1,34 @@
+{
+  "actual_gpu_or_cuda_verified": false,
+  "actual_source_zipapp_inspect_status_without_ml": true,
+  "automatic_training": false,
+  "changed_payloads": [
+    "external_baselines/hgtnet/resources.py",
+    "tools/run_hgtnet_nwpu_smoke.py"
+  ],
+  "inspect_fixture_gpu_selected": {
+    "driver_version": "610.57.04",
+    "memory_free_mib": 24123,
+    "memory_total_mib": 24576,
+    "name": "NVIDIA GeForce RTX 3090",
+    "uuid": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1"
+  },
+  "old_bundle_sha256": "e798372589f83359f6d33d3c78d48ea1a82a760310b23f26aa0d6e689835ce78",
+  "scope": "local independent stdlib review; no actual CUDA/training",
+  "unchanged_payloads": [
+    "configs/hgtnet_independent_v0.json",
+    "external_baselines/__init__.py",
+    "external_baselines/hgtnet/__init__.py",
+    "external_baselines/hgtnet/__main__.py",
+    "external_baselines/hgtnet/attention.py",
+    "external_baselines/hgtnet/checkpoint.py",
+    "external_baselines/hgtnet/config.py",
+    "external_baselines/hgtnet/graph.py",
+    "external_baselines/hgtnet/model.py",
+    "external_baselines/hgtnet/nwpu_data.py",
+    "external_baselines/hgtnet/nwpu_engine.py",
+    "external_baselines/hgtnet/pretrained.py",
+    "external_baselines/hgtnet/smoke.py",
+    "tools/run_dfagcn_nwpu_smoke.py"
+  ]
+}

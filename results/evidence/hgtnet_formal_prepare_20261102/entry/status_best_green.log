@@ -1,0 +1,6 @@
+test_short_status_keeps_metrics_without_large_prediction_or_confusion_arrays (test_hgtnet_formal_entry.FormalEntryTests.test_short_status_keeps_metrics_without_large_prediction_or_confusion_arrays) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 3.031s
+
+OK

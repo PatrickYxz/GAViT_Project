@@ -1,0 +1,70 @@
+test_actual_runtime_failure_records_exit_one_without_training_or_scratch (test_hgtnet_batch_probe_cli.ProbeTests.test_actual_runtime_failure_records_exit_one_without_training_or_scratch) ... Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/batch_probe.py", line 147, in run_probe
+    torch,runtime = COMMON._runtime_and_torch(args,preflight['selected_gpu'])
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1176, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1180, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1241, in _execute_mock_call
+    raise effect
+ValueError: CUDA mismatch
+ok
+test_command_honors_delivery_entry_and_exact_target_profile (test_hgtnet_batch_probe_cli.ProbeTests.test_command_honors_delivery_entry_and_exact_target_profile) ... usage: python3.14 -m unittest inspect [-h] [--output OUTPUT]
+                                      [--target-gpu {3090}]
+                                      [--gpu-uuid GPU_UUID]
+                                      [--manifest MANIFEST]
+                                      [--data-root DATA_ROOT]
+                                      [--archive ARCHIVE] [--weights WEIGHTS]
+                                      [--config CONFIG]
+                                      [--scratch-root SCRATCH_ROOT]
+python3.14 -m unittest inspect: error: argument --target-gpu: invalid choice: '3080' (choose from '3090')
+ok
+test_failure_after_first_optimizer_keeps_evidence_and_never_completes (test_hgtnet_batch_probe_cli.ProbeTests.test_failure_after_first_optimizer_keeps_evidence_and_never_completes) ... HGTNET_BATCH16_PROBE_PROGRESS {"optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 80249, "stage": "optimizer_step"}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/batch_probe.py", line 171, in run_probe
+    result.update(_run_model(torch,cfg,data_root,records,args.weights,args.output,progress))
+                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1176, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1180, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1247, in _execute_mock_call
+    result = effect(*args, **kwargs)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_batch_probe_cli.py", line 138, in fail
+    raise RuntimeError('later allocation failed')
+RuntimeError: later allocation failed
+ok
+test_final_image_change_rejects_engine_success_and_keeps_four_update_receipt (test_hgtnet_batch_probe_cli.ProbeTests.test_final_image_change_rejects_engine_success_and_keeps_four_update_receipt) ... HGTNET_BATCH16_PROBE_PROGRESS {"optimizer_step_succeeded": true, "optimizer_steps": 4, "pid": 80249, "stage": "optimizer_step"}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/batch_probe.py", line 178, in run_probe
+    DATA.validate_selected(data_root,records)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/nwpu_data.py", line 94, in validate_selected
+    return _helper().validate_selected(root, _records(records))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tools/run_dfagcn_nwpu_smoke.py", line 119, in validate_selected
+    raise ValueError('selected image SHA256 mismatch: '+row['path'])
+ValueError: selected image SHA256 mismatch: class_00/train_000.jpg
+ok
+test_inspect_imports_no_ml_even_when_all_resources_are_missing (test_hgtnet_batch_probe_cli.ProbeTests.test_inspect_imports_no_ml_even_when_all_resources_are_missing) ... ok
+test_inspect_never_requires_unselected_train_val_or_test_bytes (test_hgtnet_batch_probe_cli.ProbeTests.test_inspect_never_requires_unselected_train_val_or_test_bytes) ... ok
+test_inspect_rejects_changed_manifest_even_if_selected_bytes_still_exist (test_hgtnet_batch_probe_cli.ProbeTests.test_inspect_rejects_changed_manifest_even_if_selected_bytes_still_exist) ... ok
+test_missing_api_red_then_selects_one_sorted_train_image_per_label_0_to_15 (test_hgtnet_batch_probe_cli.ProbeTests.test_missing_api_red_then_selects_one_sorted_train_image_per_label_0_to_15) ... ok
+test_run_requires_uuid_and_new_paths_before_writing_anything (test_hgtnet_batch_probe_cli.ProbeTests.test_run_requires_uuid_and_new_paths_before_writing_anything) ... ok
+test_short_status_exposes_measured_capacity_scope_without_accuracy (test_hgtnet_batch_probe_cli.ProbeTests.test_short_status_exposes_measured_capacity_scope_without_accuracy) ... ok
+test_status_requires_exit_zero_and_completion_marker_and_has_no_ml_import (test_hgtnet_batch_probe_cli.ProbeTests.test_status_requires_exit_zero_and_completion_marker_and_has_no_ml_import) ... ok
+test_valid_restored_cache_wins_and_bad_hash_falls_back_to_data_root (test_hgtnet_batch_probe_cli.ProbeTests.test_valid_restored_cache_wins_and_bad_hash_falls_back_to_data_root) ... ok
+test_zip_recovery_extracts_only_16_train_images_and_reports_verified_receipt (test_hgtnet_batch_probe_cli.ProbeTests.test_zip_recovery_extracts_only_16_train_images_and_reports_verified_receipt) ... HGTNET_BATCH16_PROBE_PROGRESS {"optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 80249, "stage": "optimizer_step"}
+HGTNET_BATCH16_PROBE_PROGRESS {"completed": true, "optimizer_steps": 4, "pid": 80249, "stage": "complete", "training_started": true}
+HGTNET_BATCH16_PROBE_COMPLETE /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpfb17xrux/output/summary.json
+ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.628s
+
+OK

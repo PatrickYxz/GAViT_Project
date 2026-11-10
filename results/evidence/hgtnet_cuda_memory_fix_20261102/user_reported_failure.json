@@ -1,0 +1,44 @@
+{
+  "schema": "hgtnet-user-reported-cuda-memory-failure-v1",
+  "provenance": "User terminal observations relayed in the parent task. Structured reconstruction; not a complete raw terminal transcript, direct server access, or local CUDA execution.",
+  "date": "2026-11-02",
+  "delivered_package": "hgtnet_nwpu_smoke_3090_20261102.pyz",
+  "inspect_ready": true,
+  "weights_sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893",
+  "failure_stage": "tools/run_hgtnet_nwpu_smoke.py:_runtime_and_torch, before training",
+  "error": "Actual CUDA-visible device differs from selected RTX3090",
+  "cuda_visible_devices": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1",
+  "cuda_diagnostic": {
+    "cuda_version": "12.1",
+    "available": true,
+    "device_count": 1,
+    "device_name": "NVIDIA GeForce RTX 3090",
+    "properties_total_memory_display_mb": 24123,
+    "compute_capability_major": 8,
+    "compute_capability_minor": 6,
+    "multi_processor_count": 82,
+    "raw_total_memory_bytes": null,
+    "total_memory_note": "Only the _CudaDeviceProperties display value 24123MB was supplied; the exact raw byte count is not established by this record."
+  },
+  "nvml_inventory": {
+    "name": "NVIDIA GeForce RTX 3090",
+    "uuid": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1",
+    "memory_total_mib": 24576,
+    "memory_free_mib": 24123,
+    "driver_version": "610.57.04"
+  },
+  "comparison": {
+    "nvml_total_mib": 24576,
+    "cuda_display_total_mib": 24123,
+    "reported_difference_mib": 453,
+    "old_gate_requires_exact_equality": true
+  },
+  "torch_version_confirmed": false,
+  "torch_version_note": "The diagnostic printed torch.version (a module), rather than torch.__version__. The complete PyTorch version is not established by this diagnostic.",
+  "unverified": [
+    "Cause of the 453 MiB difference",
+    "Full imported runtime version/setting gate",
+    "Training/forward/backward/validation/checkpoint execution"
+  ],
+  "before_runner_sha256": "55005dd6e173914944010d33fe516517c4c2d298b115df10bceac5d7bffc50d5"
+}

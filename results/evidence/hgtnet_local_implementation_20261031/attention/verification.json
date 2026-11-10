@@ -1,0 +1,62 @@
+{
+  "candidate": "HGTNet-independent-v0",
+  "scope": "Task 1 local CPU module engineering; no dataset accuracy, GPU execution, or training claim",
+  "timestamp_local": "2026-10-31T21:32:24.663812+08:00",
+  "software": {
+    "python": "3.12.13",
+    "torch": "2.2.2",
+    "torchvision": "0.17.2"
+  },
+  "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 KMP_INIT_AT_FORK=FALSE /private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest discover -s tests -p test_hgtnet_attention.py -v",
+  "red": {
+    "log": "01_red.log",
+    "exit_code": 1,
+    "reason": "ModuleNotFoundError: No module named external_baselines.hgtnet; expected missing implementation API",
+    "functional_assertions_executed": 0
+  },
+  "green": {
+    "log": "02_green.log",
+    "exit_code": 0,
+    "tests": 18,
+    "unittest_seconds": 0.096
+  },
+  "native_omp_failure": false,
+  "source_sha256": {
+    "external_baselines/hgtnet/attention.py": "de24aa15ef75428d0298622550b09abafb3d95735ca7e8592833a0d662dd6092",
+    "tests/test_hgtnet_attention.py": "321f592d25eedf40c058ab15e0c1153e6f30e61af98f82023b054d94a072d74d"
+  },
+  "torchvision_swin_source": {
+    "path": "/private/tmp/gavit-dfagcn-cpu-20261027/lib/python3.12/site-packages/torchvision/models/swin_transformer.py",
+    "sha256": "570be722659c8db95ab218f438e372703267224cfecd10e99b7eb9bff6b4fb3a"
+  },
+  "parameter_namespace": {
+    "patch_embedding": [
+      "projection",
+      "norm"
+    ],
+    "stage": [
+      "da",
+      "blocks",
+      "downsample"
+    ],
+    "patch_merge": [
+      "downsample.reduction",
+      "downsample.norm"
+    ],
+    "third_stage_new_downsample": [
+      "downsample.projection",
+      "downsample.norm"
+    ]
+  },
+  "engineering_choices": [
+    "Channel MLP uses shared Linear/ReLU/Linear with minimum hidden width 1 for small module tests.",
+    "Spatial gate uses biased Conv2d layers with dilation/padding 1/2/3 and no intermediate activations.",
+    "Third stage uses biasless Conv2 stride2 plus per-location channel LayerNorm, independently selected rather than official author code."
+  ],
+  "input_boundaries": [
+    "BCHW only; nonempty dimensions; expected channels; finite floating dtype/device matching module.",
+    "PatchEmbedding requires patch-divisible height and width.",
+    "PatchMerging retains torchvision padding behavior for odd spatial dimensions; Conv2 retains standard floor output for odd dimensions. Full-model shape contract belongs to model.py."
+  ],
+  "suite_scope": "18 attention module tests only; integrated HGTNet and broader relevant tests run by root agent."
+}

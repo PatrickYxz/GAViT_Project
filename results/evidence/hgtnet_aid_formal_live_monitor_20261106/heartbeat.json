@@ -1,0 +1,18 @@
+{
+  "automation_id": "hgtnet-aid",
+  "status": "PAUSED",
+  "kind": "heartbeat",
+  "destination": "current_thread",
+  "interval_minutes": 5,
+  "local_monitor_pid": null,
+  "local_poll_seconds": 60,
+  "scope": "Observe existing attempt2 only; no run/resume/test. Stop heartbeat after completed result verification.",
+  "notification_scope": "Meaningful stage changes, completion, failure or required user action; ordinary progress yields no finding.",
+  "previous_local_monitor_pid": 44534,
+  "local_monitor_session_id": null,
+  "ssh_connection_reuse": true,
+  "connection_retry_limit": 3,
+  "monitor_state": "COMPLETED",
+  "final_receipt": "poll_026.json",
+  "final_audit": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_aid_formal_complete_20261106/root_audit.json"
+}

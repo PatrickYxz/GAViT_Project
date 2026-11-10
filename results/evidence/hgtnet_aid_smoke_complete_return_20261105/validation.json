@@ -1,0 +1,78 @@
+{
+  "scope": "Stdlib validation of user-pasted events and exact delivered/local source identity; not a rerun, GPU query or downloaded-artifact acceptance.",
+  "passed": true,
+  "checks": [
+    {
+      "name": "original_zip_sha_check_reported_ok",
+      "passed": true
+    },
+    {
+      "name": "run_uses_existing_package_and_dynamic_gpu_selection",
+      "passed": true
+    },
+    {
+      "name": "reported_runtime_passes_current_strict_validator",
+      "passed": true
+    },
+    {
+      "name": "reported_cuda_capacity_metadata_recomputes_exactly",
+      "passed": true
+    },
+    {
+      "name": "capacity_gap_is_not_peak_memory",
+      "passed": true
+    },
+    {
+      "name": "first_actual_step_and_samples",
+      "passed": true
+    },
+    {
+      "name": "five_gradient_groups_and_tensor_counts",
+      "passed": true
+    },
+    {
+      "name": "all_group_gradient_norms_finite_positive",
+      "passed": true
+    },
+    {
+      "name": "gradient_diagnostic_passed_without_missing_or_nonfinite",
+      "passed": true
+    },
+    {
+      "name": "representative_parameter_update_per_group",
+      "passed": true
+    },
+    {
+      "name": "finite_first_loss_and_positive_step_time",
+      "passed": true
+    },
+    {
+      "name": "reported_training_progress_30_60_90_120",
+      "passed": true
+    },
+    {
+      "name": "reported_final_complete_120_steps",
+      "passed": true
+    },
+    {
+      "name": "final_complete_marker_expected_path",
+      "passed": true
+    },
+    {
+      "name": "existing_bundle_size_and_sha_unchanged",
+      "passed": true
+    },
+    {
+      "name": "all_17_local_source_config_bytes_match_delivered_bundle",
+      "passed": true
+    },
+    {
+      "name": "stdlib_only_audit_no_ml_imports",
+      "passed": true
+    }
+  ],
+  "checks_passed": 17,
+  "reported_complete": true,
+  "final_status_pending": true,
+  "training_executed_by_this_audit": false
+}

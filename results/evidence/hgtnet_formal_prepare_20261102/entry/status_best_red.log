@@ -1,0 +1,15 @@
+test_short_status_keeps_metrics_without_large_prediction_or_confusion_arrays (test_hgtnet_formal_entry.FormalEntryTests.test_short_status_keeps_metrics_without_large_prediction_or_confusion_arrays) ... ERROR
+
+======================================================================
+ERROR: test_short_status_keeps_metrics_without_large_prediction_or_confusion_arrays (test_hgtnet_formal_entry.FormalEntryTests.test_short_status_keeps_metrics_without_large_prediction_or_confusion_arrays)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 179, in test_short_status_keeps_metrics_without_large_prediction_or_confusion_arrays
+    self.assertEqual(report['best_val_metrics']['accuracy_percent'],71.0)
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'best_val_metrics'
+
+----------------------------------------------------------------------
+Ran 1 test in 2.868s
+
+FAILED (errors=1)

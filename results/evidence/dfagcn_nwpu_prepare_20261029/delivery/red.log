@@ -1,0 +1,230 @@
+test_bundle_excludes_weights_and_binaries_and_pins_source_bytes (test_dfagcn_delivery.DeliveryTests.test_bundle_excludes_weights_and_binaries_and_pins_source_bytes) ... FAIL
+test_invalid_weights_metadata_fails_before_artifact_creation (test_dfagcn_delivery.DeliveryTests.test_invalid_weights_metadata_fails_before_artifact_creation) ... FAIL
+test_optional_weights_metadata_is_validated_and_shipped (test_dfagcn_delivery.DeliveryTests.test_optional_weights_metadata_is_validated_and_shipped) ... FAIL
+test_path_traversal_and_duplicate_archive_members_are_rejected (test_dfagcn_delivery.DeliveryTests.test_path_traversal_and_duplicate_archive_members_are_rejected) ... FAIL
+test_preexisting_or_partial_workspace_is_never_overwritten (test_dfagcn_delivery.DeliveryTests.test_preexisting_or_partial_workspace_is_never_overwritten) ... FAIL
+test_real_official_source_build_produces_verified_local_binaries (test_dfagcn_delivery.DeliveryTests.test_real_official_source_build_produces_verified_local_binaries) ... FAIL
+test_real_zipapp_inspect_delegates_and_reuse_checks_immutable_files (test_dfagcn_delivery.DeliveryTests.test_real_zipapp_inspect_delegates_and_reuse_checks_immutable_files) ... FAIL
+
+======================================================================
+FAIL: test_bundle_excludes_weights_and_binaries_and_pins_source_bytes (test_dfagcn_delivery.DeliveryTests.test_bundle_excludes_weights_and_binaries_and_pins_source_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 18, in api
+    return importlib.import_module('tools.package_dfagcn_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 39, in test_bundle_excludes_weights_and_binaries_and_pins_source_bytes
+    record=self.build()
+           ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 33, in build
+    return api().build_bundle(self.bundle,runner_path=self.runner,**kwargs)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 20, in api
+    raise AssertionError('portable DFAGCN delivery builder is not implemented') from exc
+AssertionError: portable DFAGCN delivery builder is not implemented
+
+======================================================================
+FAIL: test_invalid_weights_metadata_fails_before_artifact_creation (test_dfagcn_delivery.DeliveryTests.test_invalid_weights_metadata_fails_before_artifact_creation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 18, in api
+    return importlib.import_module('tools.package_dfagcn_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 106, in test_invalid_weights_metadata_fails_before_artifact_creation
+    self.build(weights_metadata_path=meta)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 33, in build
+    return api().build_bundle(self.bundle,runner_path=self.runner,**kwargs)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 20, in api
+    raise AssertionError('portable DFAGCN delivery builder is not implemented') from exc
+AssertionError: portable DFAGCN delivery builder is not implemented
+
+======================================================================
+FAIL: test_optional_weights_metadata_is_validated_and_shipped (test_dfagcn_delivery.DeliveryTests.test_optional_weights_metadata_is_validated_and_shipped)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 18, in api
+    return importlib.import_module('tools.package_dfagcn_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 98, in test_optional_weights_metadata_is_validated_and_shipped
+    self.build(weights_metadata_path=meta)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 33, in build
+    return api().build_bundle(self.bundle,runner_path=self.runner,**kwargs)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 20, in api
+    raise AssertionError('portable DFAGCN delivery builder is not implemented') from exc
+AssertionError: portable DFAGCN delivery builder is not implemented
+
+======================================================================
+FAIL: test_path_traversal_and_duplicate_archive_members_are_rejected (test_dfagcn_delivery.DeliveryTests.test_path_traversal_and_duplicate_archive_members_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 18, in api
+    return importlib.import_module('tools.package_dfagcn_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 80, in test_path_traversal_and_duplicate_archive_members_are_rejected
+    self.build()
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 33, in build
+    return api().build_bundle(self.bundle,runner_path=self.runner,**kwargs)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 20, in api
+    raise AssertionError('portable DFAGCN delivery builder is not implemented') from exc
+AssertionError: portable DFAGCN delivery builder is not implemented
+
+======================================================================
+FAIL: test_preexisting_or_partial_workspace_is_never_overwritten (test_dfagcn_delivery.DeliveryTests.test_preexisting_or_partial_workspace_is_never_overwritten)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 18, in api
+    return importlib.import_module('tools.package_dfagcn_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 69, in test_preexisting_or_partial_workspace_is_never_overwritten
+    self.build()
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 33, in build
+    return api().build_bundle(self.bundle,runner_path=self.runner,**kwargs)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 20, in api
+    raise AssertionError('portable DFAGCN delivery builder is not implemented') from exc
+AssertionError: portable DFAGCN delivery builder is not implemented
+
+======================================================================
+FAIL: test_real_official_source_build_produces_verified_local_binaries (test_dfagcn_delivery.DeliveryTests.test_real_official_source_build_produces_verified_local_binaries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 18, in api
+    return importlib.import_module('tools.package_dfagcn_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 110, in test_real_official_source_build_produces_verified_local_binaries
+    self.build()
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 33, in build
+    return api().build_bundle(self.bundle,runner_path=self.runner,**kwargs)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 20, in api
+    raise AssertionError('portable DFAGCN delivery builder is not implemented') from exc
+AssertionError: portable DFAGCN delivery builder is not implemented
+
+======================================================================
+FAIL: test_real_zipapp_inspect_delegates_and_reuse_checks_immutable_files (test_dfagcn_delivery.DeliveryTests.test_real_zipapp_inspect_delegates_and_reuse_checks_immutable_files)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 18, in api
+    return importlib.import_module('tools.package_dfagcn_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 53, in test_real_zipapp_inspect_delegates_and_reuse_checks_immutable_files
+    self.build()
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 33, in build
+    return api().build_bundle(self.bundle,runner_path=self.runner,**kwargs)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_delivery.py", line 20, in api
+    raise AssertionError('portable DFAGCN delivery builder is not implemented') from exc
+AssertionError: portable DFAGCN delivery builder is not implemented
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.004s
+
+FAILED (failures=7)

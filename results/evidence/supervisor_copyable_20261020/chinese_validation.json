@@ -1,0 +1,14 @@
+{
+  "source": "docs/supervisor_progress_report_20261012.md",
+  "backup": "results/evidence/supervisor_copyable_20261020/before/supervisor_progress_report_20261012.md",
+  "plaintext": "docs/supervisor_progress_report_20261012_plaintext.txt",
+  "table_count_before": 10,
+  "data_rows_preserved": 42,
+  "data_cells_preserved": 250,
+  "all_non_table_lines_preserved": true,
+  "numeric_tokens_preserved": true,
+  "table_count_after": 0,
+  "no_tabs": true,
+  "before_sha256": "35026545a9435440bb841c33a4ca875e126e69447235f8a5fdd228a87aa2d03a",
+  "after_sha256": "8179053a364b92563108cb6ee9d9aeae589c8a2aea3057b34bfd24bff8047638"
+}

@@ -1,0 +1,84 @@
+{
+  "schema": "hgtnet-independent-architecture-v0",
+  "implementation": "hgtnet_independent_v0",
+  "official": false,
+  "scope": "local_engineering_only",
+  "image_size": 224,
+  "in_channels": 3,
+  "patch_size": 4,
+  "stage_channels": [
+    128,
+    256,
+    512
+  ],
+  "stb_counts": [
+    1,
+    1,
+    9
+  ],
+  "heads": [
+    4,
+    8,
+    16
+  ],
+  "stage_output_channels": [
+    256,
+    512,
+    512
+  ],
+  "stage_downsamples": [
+    "patch_merge",
+    "patch_merge",
+    "conv2_same_channels"
+  ],
+  "window_size": 7,
+  "shift_size": 3,
+  "mlp_ratio": 4.0,
+  "dropout": 0.0,
+  "attention_dropout": 0.0,
+  "drop_path": 0.0,
+  "norm_eps": 1e-05,
+  "da_reduction": 16,
+  "graph_channels": [
+    256,
+    512
+  ],
+  "graph_depths": [
+    6,
+    2
+  ],
+  "graph_k": 20,
+  "graph_operator": "mr_max",
+  "graph_exclude_self": true,
+  "graph_ffn_ratio": 4,
+  "graph_transition_strides": [
+    1,
+    1
+  ],
+  "graph_transition_paddings": [
+    1,
+    0
+  ],
+  "shape_policy": "independent_text_7_to_5",
+  "fusion": "gap_sum",
+  "num_classes": 30,
+  "seed": 42,
+  "pretrained_candidate": {
+    "kind": "torchvision_swin_b_imagenet1k_v1",
+    "url": "https://download.pytorch.org/models/swin_b-68c6b09e.pth",
+    "sha256_prefix": "68c6b09e",
+    "full_file_identity": "must_be_supplied_explicitly_to_loader"
+  },
+  "choices": {
+    "identity": "Independent local implementation; not author code or a verified original numerical reproduction.",
+    "source_confirmed": "DA parallel sum; stage channels/depths/heads; STB pair meaning; stage output channels; ViG group6/2 and experimental k20; skip fusion.",
+    "stage3_downsample": "Conv2 stride2 keeping512 with LayerNorm is an explicit independent choice; source figure pixels remain unavailable.",
+    "graph_transitions": "Depthwise3 plus pointwise, widths256/512, second stride1 padding0 for7to5 are explicit choices preserving k20 and three stage downsampling.",
+    "attention": "Torchvision Swin blocks; window7 shift3 mlp4, no dropouts/drop-path and LN eps1e-5 are explicit engineering settings.",
+    "DA": "reduction16/ReLU, spatial2to1to1to1, no intermediate spatial activation, sigmoid follows prose; formula-symbol ambiguity remains.",
+    "graph": "Projected-feature Euclidean kNN, self excluded, stable index ties and per-block rebuild; LayerNorm and FFN expansion4 are explicit choices. mr_max is primary; relative_mean is an ambiguity probe.",
+    "fusion": "GAP each visual/graph branch then sum and linear head is an independent choice.",
+    "pretraining": "Swin-B partial candidate only. New DA/last downsample/graph/head initialize separately; no automatic download or official HGTNet pretrained claim.",
+    "evaluation": "No train/eval dataset protocol or optimizer is defined by this architecture config; formal experiments require separate frozen recipe and verified inputs."
+  }
+}

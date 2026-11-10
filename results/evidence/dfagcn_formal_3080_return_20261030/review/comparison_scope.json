@@ -1,0 +1,138 @@
+{
+  "schema": "dfagcn-comparison-scope-review-v1",
+  "date": "2026-10-30",
+  "scope": "Read-only current protocol and reporting-boundary review; no source/diary/table changes, remote calls, or training.",
+  "new_dfagcn_metric_basis": "Current user summary relayed by parent task; no local raw numeric return was present at this reviewer read. Parent must bind the values to archived raw return and identity checks before marking the formal row audited.",
+  "dfagcn": {
+    "oa_percent": "86.53174603174604",
+    "macro_f1_percent": "86.45890874660422",
+    "correct_implied_by_oa": 21806,
+    "samples": 25200,
+    "seed": 42,
+    "gpu": "RTX 3080 10 GiB",
+    "gpu_uuid": "GPU-0d9901ca-d2e0-d398-b9b4-2550e6db2fed",
+    "source_type": "independent_reimplementation",
+    "implementation": "dfagcn_independent_v1"
+  },
+  "shared_protocol": {
+    "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+    "train": 5040,
+    "val": 1260,
+    "fresh_refit_pool": 6300,
+    "test": 25200,
+    "class_count": 45,
+    "split_seed": 42,
+    "val_split_seed": 4242,
+    "training_seed": 42,
+    "test_excluded_from_selection": true
+  },
+  "same_seed_comparisons": [
+    {
+      "model": "swin",
+      "oa_percent": "93.93253968253968",
+      "macro_f1_percent": "93.90914546819495",
+      "correct": 23671,
+      "gpu": "RTX 2080 Ti",
+      "model_minus_dfagcn_oa_pp": "7.40079365079364",
+      "model_minus_dfagcn_macro_f1_pp": "7.45023672159073",
+      "model_correct_minus_dfagcn": 1865,
+      "checkpoint_sha256": "0c89fd0d5c374b85cdba68893d2fe29c1a9c803ba582b2deb8975015f5da1c4d"
+    },
+    {
+      "model": "fixed",
+      "oa_percent": "94.10317460317461",
+      "macro_f1_percent": "94.08993346277097",
+      "correct": 23714,
+      "gpu": "RTX 2080 Ti",
+      "model_minus_dfagcn_oa_pp": "7.57142857142857",
+      "model_minus_dfagcn_macro_f1_pp": "7.63102471616675",
+      "model_correct_minus_dfagcn": 1908,
+      "checkpoint_sha256": "38aa3d94c16a4d22710174ddc6cb6519cb5fdd272c4215ca7e15c8902a8f544e"
+    },
+    {
+      "model": "soft",
+      "oa_percent": "93.86904761904762",
+      "macro_f1_percent": "93.854987219354",
+      "correct": 23655,
+      "gpu": "RTX 2080 Ti",
+      "model_minus_dfagcn_oa_pp": "7.33730158730158",
+      "model_minus_dfagcn_macro_f1_pp": "7.39607847274978",
+      "model_correct_minus_dfagcn": 1849,
+      "checkpoint_sha256": "2d25957190f3988136a721ae3c266b5785e99c0f9564ece611303a2186813b69"
+    }
+  ],
+  "differences": [
+    "Frozen torchvision ImageNet VGG16 with 224 FC6 and 448 convolution streams versus fine-tuned Swin-T ImageNet backbone at RGB224.",
+    "DFAGCN: stretch resize, ImageNet RGB normalization, no augmentation; Swin family: common established RGB224 augmentation.",
+    "DFAGCN: independent 7x7 pooling, Euclidean k10 union, three GCN256x2/MLP1024-512 branches and 5632-dimension LIBLINEAR fusion; Swin family: different backbone and fixed/soft GAT architecture.",
+    "DFAGCN: Adam0.001, batch100, StepLR50x0.1, validation CE epoch choice (cap100), validation OA C choice; Swin family: AdamW0.0003/wd0.0001, batch32, cosineTmax30, validation OA epoch choice29/29/28.",
+    "DFAGCN RTX3080 versus existing seed42 Swin/fixed/soft RTX2080Ti; timings and memory are per-setup resource observations rather than fair hardware-matched efficiency comparisons.",
+    "torchvision VGG16 weights/preprocessing and unknown-original architecture choices are explicitly independent; they have not been shown numerically equivalent to the paper MatConvNet checkpoint/Table I."
+  ],
+  "allowed_claim": "Full-method same-fixed-split single-training-seed performance comparison under disclosed distinct recipes, after new result provenance is verified.",
+  "disallowed_claims": [
+    "Official DFAGCN code or exact numerical reproduction of paper.",
+    "Stable or statistically significant method ranking from one DFAGCN training seed.",
+    "A graph/grouping module causes the full-method difference.",
+    "Hardware-matched speedup, memory saving or cost reduction from these different GPUs and pipelines.",
+    "Original paper values are direct paired results on this manifest.",
+    "The DFAGCN comparison establishes stable GAViT improvement over Swin."
+  ],
+  "literature_reference": {
+    "dfagcn_nwpu_20_percent_paper_oa": "89.29",
+    "source_type": "paper_reported",
+    "repeats": "10 random train/test splits",
+    "sd": null,
+    "boundary": "Reference background only; no same-manifest paired interpretation; original mean/SD table cells remain unverified."
+  },
+  "low_cost_next_steps": [
+    "Use existing test metrics/confusion matrix to independently recompute25200 samples,21806 correct,45 supports560 and macro-F1; retain full per-class accuracy/F1.",
+    "Describe largest per-class deficits and largest confusion directions from existing outputs, without attributing causes from class names.",
+    "If existing predictions.csv files can be read, align exact unique image paths, labels, class order and manifest; compute both-correct, corrections, introduced-errors and both-wrong against seed42 Swin/fixed/soft, with net differences1865/1908/1849 as consistency checks.",
+    "Summarize saved extraction/calibration/refit/test times and per-stage memory separately, preserving GPU/setup identity; separate cached classifier timing from full-pipeline timing.",
+    "Retain this recipe, negative/positive findings and exact provenance. Do not tune to the test or rerun solely to match paper89.29."
+  ],
+  "candidate_chinese_report": "本次新增了DFAGCN独立实现的NWPU-RESISC45 seed42正式结果：在固定20%训练池、80%测试划分上，测试OA为86.532%，macro-F1为86.459%。同一清单、同一训练seed的Swin-T、固定4×4 GAViT及软分配GAViT测试OA分别为93.933%、94.103%和93.869%；固定GAViT相对该DFAGCN实现高7.571个百分点。这里比较的是本项目披露配置下的完整方法：DFAGCN采用冻结torchvision VGG16、三支GCN与LIBLINEAR，预训练、预处理、优化和选轮规则与Swin系列不同，且本次使用RTX3080，既有seed42三模型使用RTX2080Ti。因此，这一结果支持同一划分上的单seed方法比较，不能归因于某个图模块，也不能称为原作者实现或原论文分数的数值复现。GAViT相对自身Swin基线的稳定增益仍未建立：固定版seed42仅提高0.171个百分点，seed43下降0.091个百分点。",
+  "inputs": [
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/nwpu_two_seed_comparison.csv",
+      "sha256": "054bba00e2a05c88bffa74631fd2a5470f3fc5491010476986cc42108c4779f8"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/nwpu_seed42_test_comparison.md",
+      "sha256": "e037b4ab42bb3f9e566e977cb8abebd78bd33395ebbbdfb92e59db5b9db8a064"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/nwpu_seed42_closeout.md",
+      "sha256": "d04d1cee1a4f8d067cc7c806fab5152eaebb61848c5e17f678711258d0bea958"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/nwpu_seed42_calibration_comparison.md",
+      "sha256": "ebdbc3f29cc36b706b315f0656a7ae6413712b260a16652d397022db678ce569"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/nwpu_two_seed_summary.md",
+      "sha256": "ad020bbaa1fe7e5c3f0a2a7f9ae3376115015384e43074f57ae04ad1f1afa3e2"
+    },
+    {
+      "path": "docs/external_baselines_20261027/protocol_and_acceptance.md",
+      "sha256": "c9998d1b435f061ab4720c1fb20c1b97cf17afe49d4695a95395bfaaee467824"
+    },
+    {
+      "path": "docs/external_baselines_20261027/formal_3080_runner_20261030.md",
+      "sha256": "6c1c28c2f57f148628ee449d9bf0f249c772a154843e7bb204ed1c7c8921d2df"
+    },
+    {
+      "path": "docs/external_baselines_20261027/pipeline_design_20261029.md",
+      "sha256": "2227080b441a41af002cfd6ff5e0f01a4d492939f1d688cc659fcb3b111086a0"
+    },
+    {
+      "path": "docs/external_baselines_20261027/literature_comparison.md",
+      "sha256": "fae4d62fb6324025fecab097290e0888547efb217b2e932bf0ea4140b08392c3"
+    },
+    {
+      "path": "configs/dfagcn_independent_v1.json",
+      "sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92"
+    }
+  ]
+}

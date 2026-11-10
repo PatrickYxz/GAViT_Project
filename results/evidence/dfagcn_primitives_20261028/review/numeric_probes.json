@@ -1,0 +1,21 @@
+{
+  "checks": [
+    {
+      "case": "independent_scalar_reference_euclidean",
+      "matches": true
+    },
+    {
+      "case": "independent_scalar_reference_cosine",
+      "matches": true
+    },
+    {
+      "case": "gcn_mixed_dtype_rejected",
+      "matches": true
+    },
+    {
+      "case": "gcn_meta_adjacency_not_numerical_rejected",
+      "matches": true
+    }
+  ],
+  "all_pass": true
+}

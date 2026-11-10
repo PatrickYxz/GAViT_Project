@@ -1,0 +1,21 @@
+test_hgtnet_attention (unittest.loader._FailedTest.test_hgtnet_attention) ... ERROR
+
+======================================================================
+ERROR: test_hgtnet_attention (unittest.loader._FailedTest.test_hgtnet_attention)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_hgtnet_attention
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_attention.py", line 10, in <module>
+    from external_baselines.hgtnet.attention import (
+ModuleNotFoundError: No module named 'external_baselines.hgtnet'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

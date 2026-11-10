@@ -1,0 +1,53 @@
+{
+  "scope": "stdlib/data/ownership orchestration tests with fake GPU/engine boundary; not target GPU/formal metrics",
+  "initial_api_red": {
+    "tests_run": 12,
+    "failures": 12,
+    "errors": 0,
+    "log": "red.log"
+  },
+  "base_green": {
+    "tests_run": 13,
+    "failures": 0,
+    "errors": 0,
+    "log": "green.log"
+  },
+  "compact_status_red": {
+    "tests_run": 1,
+    "errors": 1,
+    "log": "status_red.log"
+  },
+  "best_val_status_red": {
+    "tests_run": 1,
+    "errors": 1,
+    "log": "status_best_red.log"
+  },
+  "latest_status_green": {
+    "tests_run": 1,
+    "failures": 0,
+    "errors": 0,
+    "log": "status_best_green.log"
+  },
+  "sources": {
+    "external_baselines/hgtnet/formal_entry.py": "dd29907ae37d9c01393797ed9e7eed18eebaf7697a8a8b40c60c6b90261da0d0",
+    "tests/test_hgtnet_formal_entry.py": "e7aaba3ce672bbe359692e5eb79d4bfd51c722cb78b075223ce5fe86866637e2"
+  },
+  "note": "Fresh-review partial-pool repair has effective RED then final current full14 GREEN; root full integration rerun pending.",
+  "initial_entry_sources": {
+    "external_baselines/hgtnet/formal_entry.py": "1f8d108b5218baa0bb522cdc8f94f055a75b9447544380e9767c049a6f037909",
+    "tests/test_hgtnet_formal_entry.py": "eb3af2a3b2d9823372e7448d1278088aab7e1a0401a5875c26dc24a5529f3968"
+  },
+  "partial_pool_red": {
+    "tests_run": 1,
+    "failures": 1,
+    "errors": 0,
+    "log": "partial_pool_red.log"
+  },
+  "final_current_entry_green": {
+    "tests_run": 14,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 32.707,
+    "log": "final_green.log"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 KMP_INIT_AT_FORK=FALSE /private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest discover -s tests -p test_hgtnet_resources.py -v",
+  "green": {
+    "failures": 0,
+    "log": "green.log",
+    "tests": 15
+  },
+  "notes": [
+    "Inspect inventory imports no ML libraries, verified in a fresh import-forbidden subprocess.",
+    "Runtime base Torch/vision version accepted only with separate exact CUDA12.1/cuDNN8902/settings gate.",
+    "Output and scratch capacity uses existing real ancestors, st_dev and same-volume combined budget without creating paths.",
+    "First green attempt exposed macOS /var alias in the disk fixture; fixture now uses real path before mocking disk boundaries."
+  ],
+  "red": {
+    "failures": 15,
+    "log": "red.log",
+    "reason": "HGTNet resource API missing",
+    "tests": 15
+  },
+  "scope": "stdlib resource gates only; NVIDIA/disk boundaries use fixtures; no target GPU run",
+  "sha256": {
+    "external_baselines/hgtnet/resources.py": "5a4000e7fbf6b3f8b563d8f6f5b6a952d2246efded1e4458e909f28247d9889b",
+    "tests/test_hgtnet_resources.py": "f570be9aa8e703d7f29a70e15ec5503c9f7057d19cc6dac32ae703dc829c63d0"
+  }
+}

@@ -1,0 +1,230 @@
+test_archive_tampering_duplicate_traversal_collision_and_symlink_are_rejected (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_archive_tampering_duplicate_traversal_collision_and_symlink_are_rejected) ... FAIL
+test_build_pins_exact_scoped_sources_and_full_candidate_metadata (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_build_pins_exact_scoped_sources_and_full_candidate_metadata) ... FAIL
+test_build_rejects_linked_source_and_sidecar_collision_without_overwrite (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_build_rejects_linked_source_and_sidecar_collision_without_overwrite) ... FAIL
+test_foreign_or_partial_workspace_is_preserved (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_foreign_or_partial_workspace_is_preserved) ... FAIL
+test_real_zipapp_forwards_inspect_status_and_run_with_stdlib_only (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_real_zipapp_forwards_inspect_status_and_run_with_stdlib_only) ... FAIL
+test_reuse_refuses_source_receipt_and_manifest_changes (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_source_receipt_and_manifest_changes) ... FAIL
+test_unrecognized_actions_do_not_install_or_start_runner (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_unrecognized_actions_do_not_install_or_start_runner) ... FAIL
+test_workspace_and_tracked_file_symlinks_are_rejected (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_workspace_and_tracked_file_symlinks_are_rejected) ... FAIL
+
+======================================================================
+FAIL: test_archive_tampering_duplicate_traversal_collision_and_symlink_are_rejected (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_archive_tampering_duplicate_traversal_collision_and_symlink_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 19, in api
+    return importlib.import_module('tools.package_hgtnet_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools.package_hgtnet_nwpu_smoke'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 176, in test_archive_tampering_duplicate_traversal_collision_and_symlink_are_rejected
+    self.build()
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 58, in build
+    with patch.object(api(), 'ROOT', self.repository):
+                      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 21, in api
+    raise AssertionError('HGTNet standalone delivery is not implemented') from exc
+AssertionError: HGTNet standalone delivery is not implemented
+
+======================================================================
+FAIL: test_build_pins_exact_scoped_sources_and_full_candidate_metadata (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_build_pins_exact_scoped_sources_and_full_candidate_metadata)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 19, in api
+    return importlib.import_module('tools.package_hgtnet_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools.package_hgtnet_nwpu_smoke'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 75, in test_build_pins_exact_scoped_sources_and_full_candidate_metadata
+    record = self.build()
+             ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 58, in build
+    with patch.object(api(), 'ROOT', self.repository):
+                      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 21, in api
+    raise AssertionError('HGTNet standalone delivery is not implemented') from exc
+AssertionError: HGTNet standalone delivery is not implemented
+
+======================================================================
+FAIL: test_build_rejects_linked_source_and_sidecar_collision_without_overwrite (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_build_rejects_linked_source_and_sidecar_collision_without_overwrite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 19, in api
+    return importlib.import_module('tools.package_hgtnet_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools.package_hgtnet_nwpu_smoke'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 205, in test_build_rejects_linked_source_and_sidecar_collision_without_overwrite
+    self.build()
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 58, in build
+    with patch.object(api(), 'ROOT', self.repository):
+                      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 21, in api
+    raise AssertionError('HGTNet standalone delivery is not implemented') from exc
+AssertionError: HGTNet standalone delivery is not implemented
+
+======================================================================
+FAIL: test_foreign_or_partial_workspace_is_preserved (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_foreign_or_partial_workspace_is_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 19, in api
+    return importlib.import_module('tools.package_hgtnet_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools.package_hgtnet_nwpu_smoke'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 130, in test_foreign_or_partial_workspace_is_preserved
+    self.build()
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 58, in build
+    with patch.object(api(), 'ROOT', self.repository):
+                      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 21, in api
+    raise AssertionError('HGTNet standalone delivery is not implemented') from exc
+AssertionError: HGTNet standalone delivery is not implemented
+
+======================================================================
+FAIL: test_real_zipapp_forwards_inspect_status_and_run_with_stdlib_only (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_real_zipapp_forwards_inspect_status_and_run_with_stdlib_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 19, in api
+    return importlib.import_module('tools.package_hgtnet_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools.package_hgtnet_nwpu_smoke'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 103, in test_real_zipapp_forwards_inspect_status_and_run_with_stdlib_only
+    self.build()
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 58, in build
+    with patch.object(api(), 'ROOT', self.repository):
+                      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 21, in api
+    raise AssertionError('HGTNet standalone delivery is not implemented') from exc
+AssertionError: HGTNet standalone delivery is not implemented
+
+======================================================================
+FAIL: test_reuse_refuses_source_receipt_and_manifest_changes (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_source_receipt_and_manifest_changes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 19, in api
+    return importlib.import_module('tools.package_hgtnet_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools.package_hgtnet_nwpu_smoke'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 141, in test_reuse_refuses_source_receipt_and_manifest_changes
+    self.build()
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 58, in build
+    with patch.object(api(), 'ROOT', self.repository):
+                      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 21, in api
+    raise AssertionError('HGTNet standalone delivery is not implemented') from exc
+AssertionError: HGTNet standalone delivery is not implemented
+
+======================================================================
+FAIL: test_unrecognized_actions_do_not_install_or_start_runner (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_unrecognized_actions_do_not_install_or_start_runner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 19, in api
+    return importlib.import_module('tools.package_hgtnet_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools.package_hgtnet_nwpu_smoke'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 122, in test_unrecognized_actions_do_not_install_or_start_runner
+    self.build()
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 58, in build
+    with patch.object(api(), 'ROOT', self.repository):
+                      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 21, in api
+    raise AssertionError('HGTNet standalone delivery is not implemented') from exc
+AssertionError: HGTNet standalone delivery is not implemented
+
+======================================================================
+FAIL: test_workspace_and_tracked_file_symlinks_are_rejected (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_workspace_and_tracked_file_symlinks_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 19, in api
+    return importlib.import_module('tools.package_hgtnet_nwpu_smoke')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'tools.package_hgtnet_nwpu_smoke'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 155, in test_workspace_and_tracked_file_symlinks_are_rejected
+    self.build()
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 58, in build
+    with patch.object(api(), 'ROOT', self.repository):
+                      ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 21, in api
+    raise AssertionError('HGTNet standalone delivery is not implemented') from exc
+AssertionError: HGTNet standalone delivery is not implemented
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.014s
+
+FAILED (failures=8)

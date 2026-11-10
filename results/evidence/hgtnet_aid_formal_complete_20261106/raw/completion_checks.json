@@ -1,0 +1,22 @@
+{
+  "config": true,
+  "manifest": true,
+  "pool": {
+    "checked_count": 5000,
+    "test_image_bytes_read": 0,
+    "verified_bytes": 1360995657,
+    "verified_count": 5000
+  },
+  "pool_image_count": 5000,
+  "recipe": true,
+  "source_identity": true,
+  "test": {
+    "checked_count": 5000,
+    "test_image_bytes_read": 1360688756,
+    "verified_bytes": 1360688756,
+    "verified_count": 5000
+  },
+  "test_authorized": true,
+  "test_image_count": 5000,
+  "weights": true
+}

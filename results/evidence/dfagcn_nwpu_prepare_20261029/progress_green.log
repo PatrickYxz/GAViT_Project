@@ -1,0 +1,44 @@
+test_actual_training_emits_first_batch_and_epoch_progress (test_dfagcn_pipeline.PipelineTests.test_actual_training_emits_first_batch_and_epoch_progress) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_calibration_refit_and_test_complete_with_actual_linear_binaries (test_dfagcn_pipeline.PipelineTests.test_calibration_refit_and_test_complete_with_actual_linear_binaries) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+DFAGCN_TRAIN_BATCH {"phase": "calibration", "epoch": 1, "batch_samples": 4, "device": "cpu", "loss": 2.033965826034546}
+DFAGCN_EPOCH {"epoch": 1, "train_ce_sum": 1.8277284502983093, "learning_rate": 0.001, "val_ce_sum": 1.2970123291015625, "elapsed_seconds": 0.00440983334556222, "phase": "calibration"}
+DFAGCN_TRAIN_BATCH {"phase": "refit", "epoch": 1, "batch_samples": 4, "device": "cpu", "loss": 2.033965826034546}
+DFAGCN_EPOCH {"epoch": 1, "train_ce_sum": 1.72158522605896, "learning_rate": 0.001, "elapsed_seconds": 0.003401624970138073, "phase": "refit"}
+ok
+test_stage_rejects_wrong_split_random_formal_and_calibration_as_final (test_dfagcn_pipeline.PipelineTests.test_stage_rejects_wrong_split_random_formal_and_calibration_as_final) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+DFAGCN_TRAIN_BATCH {"phase": "calibration", "epoch": 1, "batch_samples": 4, "device": "cpu", "loss": 2.033965826034546}
+DFAGCN_EPOCH {"epoch": 1, "train_ce_sum": 1.8277284502983093, "learning_rate": 0.001, "val_ce_sum": 1.2970123291015625, "elapsed_seconds": 0.0052119167521595955, "phase": "calibration"}
+ok
+test_subset_smoke_cannot_be_used_as_complete_final_refit (test_dfagcn_pipeline.PipelineTests.test_subset_smoke_cannot_be_used_as_complete_final_refit) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+DFAGCN_TRAIN_BATCH {"phase": "calibration", "epoch": 1, "batch_samples": 2, "device": "cpu", "loss": 2.033966064453125}
+DFAGCN_EPOCH {"epoch": 1, "train_ce_sum": 2.033966064453125, "learning_rate": 0.001, "val_ce_sum": 1.6214909553527832, "elapsed_seconds": 0.003395458683371544, "phase": "calibration"}
+DFAGCN_TRAIN_BATCH {"phase": "refit", "epoch": 1, "batch_samples": 4, "device": "cpu", "loss": 2.033965826034546}
+DFAGCN_EPOCH {"epoch": 1, "train_ce_sum": 2.033965826034546, "learning_rate": 0.001, "elapsed_seconds": 0.001700457651168108, "phase": "refit"}
+ok
+test_tampered_selection_recipe_and_refit_checkpoint_are_rejected (test_dfagcn_pipeline.PipelineTests.test_tampered_selection_recipe_and_refit_checkpoint_are_rejected) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+DFAGCN_TRAIN_BATCH {"phase": "calibration", "epoch": 1, "batch_samples": 4, "device": "cpu", "loss": 2.033965826034546}
+DFAGCN_EPOCH {"epoch": 1, "train_ce_sum": 1.8277284502983093, "learning_rate": 0.001, "val_ce_sum": 1.2970123291015625, "elapsed_seconds": 0.004941292107105255, "phase": "calibration"}
+DFAGCN_TRAIN_BATCH {"phase": "refit", "epoch": 1, "batch_samples": 4, "device": "cpu", "loss": 2.033965826034546}
+DFAGCN_EPOCH {"epoch": 1, "train_ce_sum": 1.72158522605896, "learning_rate": 0.001, "elapsed_seconds": 0.0038352920673787594, "phase": "refit"}
+ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 2.210s
+
+OK

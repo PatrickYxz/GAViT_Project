@@ -1,0 +1,110 @@
+{
+  "scope": "Local document, source identity and synthetic shell-command validation; no server or CUDA execution",
+  "checks": [
+    {
+      "check": "bash_syntax",
+      "passed": true
+    },
+    {
+      "check": "zsh_syntax",
+      "passed": true
+    },
+    {
+      "check": "fixture_command_exit_1",
+      "passed": true
+    },
+    {
+      "check": "fixture_command_errors_1",
+      "passed": true
+    },
+    {
+      "check": "fixture_command_exit_2",
+      "passed": true
+    },
+    {
+      "check": "fixture_command_errors_2",
+      "passed": true
+    },
+    {
+      "check": "generic_weight_path_listed",
+      "passed": true
+    },
+    {
+      "check": "k9_weight_path_listed",
+      "passed": true
+    },
+    {
+      "check": "candidate_detected_summary.json",
+      "passed": true
+    },
+    {
+      "check": "candidate_detected_best.pth.meta.json",
+      "passed": true
+    },
+    {
+      "check": "candidate_detected_train.log",
+      "passed": true
+    },
+    {
+      "check": "candidate_detected_final.out",
+      "passed": true
+    },
+    {
+      "check": "candidate_detected_geometry.err",
+      "passed": true
+    },
+    {
+      "check": "not_matched_ninety.json",
+      "passed": true
+    },
+    {
+      "check": "not_matched_nineteen.json",
+      "passed": true
+    },
+    {
+      "check": "not_matched_random.log",
+      "passed": true
+    },
+    {
+      "check": "not_matched_large.log",
+      "passed": true
+    },
+    {
+      "check": "not_matched_ignored.json",
+      "passed": true
+    },
+    {
+      "check": "not_matched_ignored.log",
+      "passed": true
+    },
+    {
+      "check": "fixture_input_inventory_unchanged",
+      "passed": true
+    },
+    {
+      "check": "ben_table_13_rows",
+      "passed": true
+    },
+    {
+      "check": "ben_variants_no_explicit_k9",
+      "passed": true
+    },
+    {
+      "check": "fixed42_map_72",
+      "passed": true
+    },
+    {
+      "check": "previous_multiseed_sha_retained",
+      "passed": true
+    },
+    {
+      "check": "initial_ben_job_explicit_k16",
+      "passed": true
+    },
+    {
+      "check": "git_targeted_history_no_match",
+      "passed": true
+    }
+  ],
+  "passed": 26
+}

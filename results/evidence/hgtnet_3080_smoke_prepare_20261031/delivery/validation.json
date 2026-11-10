@@ -1,0 +1,42 @@
+{
+  "checks": [
+    "exact payload and source SHA256",
+    "full external candidate weights SHA and size metadata",
+    "real pyz argv forwarding and workspace root",
+    "real CLI build/status with forbidden ML imports",
+    "no implicit training or dependency/build actions",
+    "foreign/partial/mutated workspace refused",
+    "workspace/source/receipt/manifest symlinks refused",
+    "archive traversal/duplicate/collision/symlink/tamper refusal",
+    "untracked importable source injection refusal",
+    "no overwrite of bundle/sidecar"
+  ],
+  "final_production_bundle_built": false,
+  "note": "Parent task builds final production bundle after all HGTNet runtime sources exist, then runs integrated related/broad verification.",
+  "scope": "source-only HGTNet zipapp builder and immutable bootstrap; fixture runner only",
+  "source_sha256": {
+    "tests/test_hgtnet_nwpu_delivery.py": "ae58ca02e7ebe88918e8d047d3f582c565613a63cf5c6d1562f2133d9f214662",
+    "tools/package_hgtnet_nwpu_smoke.py": "0b9387792f2ae24e4eff7880904dfbfc93501325f9f5420af3e7441e6991bc3f"
+  },
+  "target_gpu_executed": false,
+  "tests": {
+    "command": "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest tests.test_hgtnet_nwpu_delivery -v",
+    "count": 10,
+    "exit_code": 0,
+    "log": "green.log"
+  },
+  "valid_red": [
+    {
+      "log": "red.log",
+      "reason": "missing delivery module produced explicit assertion failure before implementation"
+    },
+    {
+      "log": "red_full.log",
+      "reason": "all initial missing-API behaviors failed before implementation"
+    },
+    {
+      "log": "added_sources_red.log",
+      "reason": "five untracked source/config additions were initially accepted; now rejected"
+    }
+  ]
+}

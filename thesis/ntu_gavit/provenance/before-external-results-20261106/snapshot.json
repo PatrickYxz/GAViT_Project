@@ -1,0 +1,33 @@
+{
+  "stage": "before_external_results_20261106",
+  "files": [
+    {
+      "path": "main.tex",
+      "bytes": 7998,
+      "sha256": "5fb459d82db6540af380f47a08fec29953531459ed01694375a1bed4431774d8"
+    },
+    {
+      "path": "chapters/01-introduction.tex",
+      "bytes": 8883,
+      "sha256": "8617239b73028ed0ef8ee1657285514e6d418ec1e5af38272ea5557a96762132"
+    },
+    {
+      "path": "chapters/04-experimental-setup.tex",
+      "bytes": 14706,
+      "sha256": "f38ff2213118e028f3039faff9028048992cd72a508d36626e4639e339637629"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4941,
+      "sha256": "84a787d6c511918871aed79b7cf553aeeeec4a71d09339b6d9e77bb5e5e1934a"
+    },
+    {
+      "path": "EVIDENCE.md",
+      "bytes": 6624,
+      "sha256": "0f10415f6e627007cdb5b434a8417ed1c64d6b24cc1d623e7792283f70675580"
+    }
+  ],
+  "absent_before": [
+    "chapters/05-external-comparisons.tex"
+  ]
+}

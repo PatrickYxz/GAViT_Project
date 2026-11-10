@@ -1,0 +1,2 @@
+/environment/miniconda3/bin/python /home/featurize/work/hgtnet_aid_smoke_3060_20261104.pyz run --gpu-uuid GPU-7acce72a-93cd-e56f-35d8-5d33ecf6655e
+HGTNet AID delivery failed: preflight blockers: inputs, target_gpu

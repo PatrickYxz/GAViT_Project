@@ -1,0 +1,51 @@
+{
+  "provenance": "Local stdlib field/identity checks of direct user status transcription; no inference of perclass results without original predictions.",
+  "raw_bytes": 1432,
+  "raw_sha256": "e82fe934eaed0a226ac32b4075916425396017a21416bd646019c057d5884ed0",
+  "checks": [
+    {
+      "name": "status_complete_exit0",
+      "passed": true
+    },
+    {
+      "name": "server_status_completion_and_source_checks",
+      "passed": true
+    },
+    {
+      "name": "scope_counts_steps_epoch",
+      "passed": true
+    },
+    {
+      "name": "exact_bound_identities",
+      "passed": true
+    },
+    {
+      "name": "same_actual_gpu_pid_output",
+      "passed": true
+    },
+    {
+      "name": "complete_progress",
+      "passed": true
+    },
+    {
+      "name": "checkpoint_sha_and_zero_reload",
+      "passed": true
+    },
+    {
+      "name": "bounded_finite_reported_val_metrics",
+      "passed": true
+    },
+    {
+      "name": "reported_accuracy_matches_46_of_60",
+      "passed": true
+    },
+    {
+      "name": "positive_ordered_allocator_peaks_and_wall",
+      "passed": true
+    }
+  ],
+  "checks_passed": 10,
+  "passed": true,
+  "server_artifacts_downloaded": false,
+  "gpu_or_training_executed": false
+}

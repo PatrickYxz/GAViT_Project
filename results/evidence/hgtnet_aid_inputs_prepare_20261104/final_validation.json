@@ -1,0 +1,101 @@
+{
+  "passed": true,
+  "count": 50,
+  "checks": {
+    "frozen_source": true,
+    "frozen_bundle": true,
+    "zip_crc": true,
+    "zip_source": true,
+    "historical_csv_unchanged": true,
+    "nwpu_bundle_unchanged": true,
+    "record_review_exists": true,
+    "inspector_review_exists": true,
+    "link:docs/supervisor_progress_report_20261012.md:../.worktrees/sparse-hybrid-4n-top2/docs/supervisor_latest_email_received_20260924.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../results/seed46_seed47_reconstruction_20261104.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:ben_gridpair42_visual_analysis_20261020.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:ben_grid3_grid4_analysis_20261017.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:ben_seed42_seed43_vs_swin_20261013.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:per_class_findings_20261013.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../results/hgtnet_nwpu_seed42_analysis_20261104.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:external_baselines_20261027/hgtnet_aid_preparation_20261104.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../output/hgtnet_seed42_verified_summary_20261104.txt": true,
+    "link:docs/supervisor_progress_report_20261012.md:../results/external_baselines_nwpu_seed42_20261030.csv": true,
+    "link:docs/supervisor_progress_report_20261012.md:../results/dfagcn_nwpu_seed42_error_analysis_20261031.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../results/dfagcn_nwpu_seed42_per_class_20261031.csv": true,
+    "link:docs/supervisor_progress_report_20261012.md:../results/dfagcn_nwpu_seed42_20261030.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../results/evidence/dfagcn_formal_3080_return_20261030/validation.json": true,
+    "link:docs/supervisor_progress_report_20261012.md:ben_four_seed_three_model_20261017.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../results/ben_four_seed_three_model_20261017.csv": true,
+    "link:docs/supervisor_progress_report_20261012.md:../results/evidence/bigearth_soft42_complete_20261017/validation.json": true,
+    "link:docs/supervisor_progress_report_20261012.md:../results/multiseed_test_results.csv": true,
+    "link:docs/supervisor_progress_report_20261012.md:../results/seed46_seed47_audit_20261012.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../results/supervisor_progress_data_20261012.json": true,
+    "link:docs/supervisor_progress_report_20261012.md:../.worktrees/sparse-hybrid-4n-top2/results/aid_multiseed_summary.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../.worktrees/sparse-hybrid-4n-top2/results/nwpu_two_seed_summary.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../.worktrees/sparse-hybrid-4n-top2/results/bigearth_four_seed_summary.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../.worktrees/sparse-hybrid-4n-top2/results/bigearth_three_model_two_seed_summary.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../.worktrees/sparse-hybrid-4n-top2/results/nwpu_regions_visual_review_20260930.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../.worktrees/sparse-hybrid-4n-top2/deliverables/nwpu_regions_review_20260930/correction_and_failure_example.png": true,
+    "link:docs/supervisor_progress_report_20261012.md:../.worktrees/sparse-hybrid-4n-top2/output/pdf/seed44_feedback_figure/README.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../.worktrees/sparse-hybrid-4n-top2/results/aid_efficiency_summary.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../.worktrees/sparse-hybrid-4n-top2/docs/external_methods_refresh_20261006.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../.worktrees/sparse-hybrid-4n-top2/docs/thesis_related_work_20261006.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:../.worktrees/sparse-hybrid-4n-top2/docs/thesis_experiments_discussion_20261006.md": true,
+    "link:docs/supervisor_progress_report_20261012.md:supervisor_email_draft_20261012.md": true,
+    "link:docs/external_baselines_20261027/hgtnet_aid_preparation_20261104.md:../../.worktrees/sparse-hybrid-4n-top2/docs/run_aid_formal_seed42.md": true,
+    "link:docs/external_baselines_20261027/hgtnet_aid_preparation_20261104.md:../../.worktrees/sparse-hybrid-4n-top2/results/aid_multiseed_summary.md": true,
+    "link:docs/external_baselines_20261027/hgtnet_aid_preparation_20261104.md:protocol_and_acceptance.md": true,
+    "link:docs/external_baselines_20261027/hgtnet_aid_preparation_20261104.md:../../results/hgtnet_nwpu_seed42_analysis_20261104.md": true,
+    "link:results/seed46_seed47_reconstruction_20261104.md:seed46_seed47_reconstruction_20261104.json": true,
+    "link:results/seed46_seed47_reconstruction_20261104.md:multiseed_test_results.csv": true,
+    "link:results/seed46_seed47_reconstruction_20261104.md:seed46_seed47_audit_20261012.md": true,
+    "final_report_sha": true,
+    "final_plaintext_sha": true,
+    "diff_check": true
+  },
+  "artifacts": {
+    "tools/inspect_hgtnet_aid_inputs.py": {
+      "bytes": 18930,
+      "sha256": "4e3b66b91f115d99d01e39fe168e8cf5dd18503ec8593e45c39dbccfcd0eb7b4"
+    },
+    "output/hgtnet_aid_inputs_20261104.pyz": {
+      "bytes": 6520,
+      "sha256": "1cd2ab967cdbc386b294b397c6804bf06c5796c01332c709e44646f98d03f036"
+    },
+    "output/hgtnet_aid_inputs_README_20261104.md": {
+      "bytes": 3750,
+      "sha256": "7338b1865d81c3ce0998f7ce332d0ee223aab0c0214b4167fcbd9e7196a1b320"
+    },
+    "docs/supervisor_progress_report_20261012.md": {
+      "bytes": 26978,
+      "sha256": "b3f444f7f0e6826934610a1f319cd35549da12907bfbbf94ccb425c1acf0631e"
+    },
+    "docs/supervisor_progress_report_20261012_plaintext.txt": {
+      "bytes": 26989,
+      "sha256": "a260004b49a55f0e8e3c6c04fee4100c6f30f11e7ba0c4ef77bd3075ba3f5d10"
+    },
+    "results/seed46_seed47_reconstruction_20261104.json": {
+      "bytes": 16070,
+      "sha256": "6bec50cec48c6f69e22100bf7cac441728645bcb0694d6213c548c83ce3ea12d"
+    },
+    "results/seed46_seed47_reconstruction_20261104.md": {
+      "bytes": 2426,
+      "sha256": "3bb812c0810983bd682baf483674d2474aac0e4fb6692ebadf1103547d92b539"
+    },
+    "docs/external_baselines_20261027/hgtnet_aid_preparation_20261104.md": {
+      "bytes": 3495,
+      "sha256": "e50b38744bb518d837da4426fb82791f6b8eebfd54b2fc0167045c65b01cb095"
+    },
+    "docs/superpowers/plans/2026-11-04-hgtnet-aid-inputs.md": {
+      "bytes": 4054,
+      "sha256": "aad2165fa474fbbe81ac8738645773e20743303495d4d4bc2e3b596ec3bbe2a3"
+    },
+    "research_diary.md": {
+      "bytes": 227732,
+      "sha256": "fd1e814d7d8df8ee9237d06553af984f75d711af8d0ab7efa004e334e47c6c2a"
+    }
+  },
+  "training_started": false,
+  "target_server_inputs_checked": false,
+  "scope": "Final local delivery integrity and documentation; actual target assets/GPU smoke remain pending."
+}

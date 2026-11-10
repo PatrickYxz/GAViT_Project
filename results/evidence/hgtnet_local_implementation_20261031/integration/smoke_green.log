@@ -1,0 +1,12 @@
+test_bad_cli_never_claims_complete (test_hgtnet_smoke.SmokeTests.test_bad_cli_never_claims_complete) ... usage: python -m unittest [-h] {smoke,verify-reload} ...
+python -m unittest: error: --weights and --weights-sha256 must be supplied together
+ok
+test_existing_output_cannot_be_overwritten_or_reused (test_hgtnet_smoke.SmokeTests.test_existing_output_cannot_be_overwritten_or_reused) ... ok
+test_finite_zero_gradient_cannot_pass_as_learning (test_hgtnet_smoke.SmokeTests.test_finite_zero_gradient_cannot_pass_as_learning) ... ok
+test_gradients_report_rejects_missing_and_nonfinite (test_hgtnet_smoke.SmokeTests.test_gradients_report_rejects_missing_and_nonfinite) ... ok
+test_new_output_does_not_allow_path_through_symlink (test_hgtnet_smoke.SmokeTests.test_new_output_does_not_allow_path_through_symlink) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.374s
+
+OK

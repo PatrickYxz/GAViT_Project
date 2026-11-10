@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-30",
+  "source": "direct user nvidia-smi terminal return",
+  "name": "NVIDIA GeForce RTX 3080",
+  "uuid": "GPU-70be4364-0641-e89d-828e-78727c6001ec",
+  "memory_total_mib": 10240,
+  "memory_free_mib_reported": 9874,
+  "driver_version": "610.57.04",
+  "memory_total_gib": 10.0,
+  "current_scope": "User-selected hardware for next DFAGCN seed42 experiment preparation; does not rewrite historical4090smoke",
+  "gpu_probe_completed": false,
+  "formal_training_started": false
+}

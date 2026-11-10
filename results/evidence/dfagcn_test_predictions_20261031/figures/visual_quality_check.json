@@ -1,0 +1,12 @@
+{
+  "svg_embedded_raster_images": {
+    "dfagcn_nwpu_seed42_confusion_matrix_row_normalized.svg": 0,
+    "dfagcn_nwpu_seed42_error_summary.svg": 0
+  },
+  "png_visual_review": "Both final PNGs inspected with view_image: titles, axes, class labels, count annotations and footnotes readable; no clipping or overlap observed.",
+  "all_svg_cells_vector": true,
+  "png_sha256": {
+    "dfagcn_nwpu_seed42_error_summary.png": "751858f0708a48a394155ddaeaceffcf9f1b60e87237c0f2a34f646376c26d3a",
+    "dfagcn_nwpu_seed42_confusion_matrix_row_normalized.png": "dbf0183cfab178fe31122dfc59b46aa8bb14cc979c12899c3481233183280467"
+  }
+}

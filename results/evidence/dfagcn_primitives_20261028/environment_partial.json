@@ -1,0 +1,16 @@
+{
+  "python": "3.12.13",
+  "packages": {
+    "pillow": "10.3.0",
+    "Jinja2": "3.1.4",
+    "fsspec": "2024.6.1",
+    "numpy": "1.26.4",
+    "pip": "25.0.1",
+    "mpmath": "1.3.0",
+    "MarkupSafe": "3.0.3",
+    "networkx": "3.3",
+    "sympy": "1.13.1",
+    "typing_extensions": "4.12.2"
+  },
+  "torch_installed": false
+}

@@ -1,0 +1,1058 @@
+{
+  "state": "PASS_ALL28_BODY_PAGES_IDENTICAL",
+  "initial_pdf": "/Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108/initial_export/main.pdf",
+  "initial_pdf_sha256": "8f937b4aa19fc58bb2b79c5366e3440aa635ca1523b5537a3269f094a5ca48bf",
+  "initial_page_count": 46,
+  "final_pdf": "/Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108/main.pdf",
+  "final_pdf_sha256": "0802b80887af025dc059ff49604100096c584b82a89374c5cc14c493ea89b0e2",
+  "final_page_count": 47,
+  "render_command": "pdftoppm -f5 -l32 -r95 -png <PDF> <prefix>",
+  "initial_visual_qa_manifest": "/Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108/body_qa/qa_mapping.json",
+  "initial_visual_qa_manifest_sha256": "438624881f05c3426a2f1ce7399acdd8f8e31f379a31d5e13fa716642485115c",
+  "reviewed_by_this_agent_pages": [
+    5,
+    6,
+    7,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    27,
+    29,
+    30,
+    32
+  ],
+  "root_previously_reviewed_pages": [
+    8,
+    26,
+    28,
+    31
+  ],
+  "comparison_count": 28,
+  "all_rgb_and_dimensions_match": true,
+  "all_decoded_content_and_mediabox_match": true,
+  "scope": "Final physical5-32 only. Reuses actual initial visual observations for identical page appearance; does not certify revised TOC/Chapter5 or shifted references. No repeat human-style visual inspection required for these byte-identical renders.",
+  "pages": [
+    {
+      "initial_physical_page": 5,
+      "final_physical_page": 5,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "830d475fe95a2e394076c745026f4553186eee40f3328c42310c822c7934e86d",
+      "final_rgb_sha256": "830d475fe95a2e394076c745026f4553186eee40f3328c42310c822c7934e86d",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "a18e1fe9b09baa0c8fa24d6917b968d4ada2a45734dea26669a6e9c1f5b37641",
+      "final_page_content_sha256": "a18e1fe9b09baa0c8fa24d6917b968d4ada2a45734dea26669a6e9c1f5b37641",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 6,
+      "final_physical_page": 6,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "87cd9fcea941fbc28f3fa1148fa06da9a00fdb105a9683331c61bbec3c789f20",
+      "final_rgb_sha256": "87cd9fcea941fbc28f3fa1148fa06da9a00fdb105a9683331c61bbec3c789f20",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "59d697437ceaa935e3c7b668ca3a9aeaf381c3c800153dede37965f8b8d8ba45",
+      "final_page_content_sha256": "59d697437ceaa935e3c7b668ca3a9aeaf381c3c800153dede37965f8b8d8ba45",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 7,
+      "final_physical_page": 7,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "ceb74288ff9631b345675a39fa7df87fd06c09cde1ded0f2e240ec528433ad6a",
+      "final_rgb_sha256": "ceb74288ff9631b345675a39fa7df87fd06c09cde1ded0f2e240ec528433ad6a",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "fb729c653f5e9c85665cf0a52841cea5b88152c261b70ece6694a9bf86e42510",
+      "final_page_content_sha256": "fb729c653f5e9c85665cf0a52841cea5b88152c261b70ece6694a9bf86e42510",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 8,
+      "final_physical_page": 8,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "8bcd3e9d194a3df03b2c2ef588aa9e48059f30ad5cefe0e79c1cbe821718d8ea",
+      "final_rgb_sha256": "8bcd3e9d194a3df03b2c2ef588aa9e48059f30ad5cefe0e79c1cbe821718d8ea",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "6adf5ea60da04845dc1402966559a1ed10c60efd1c01c2bcaf28d2f7c05c70cb",
+      "final_page_content_sha256": "6adf5ea60da04845dc1402966559a1ed10c60efd1c01c2bcaf28d2f7c05c70cb",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "root",
+      "original_qa_rgb_match": null,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 9,
+      "final_physical_page": 9,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "fa8877f775dff2699132668acbbab0063148285bf4a3b9150eef394c923756cb",
+      "final_rgb_sha256": "fa8877f775dff2699132668acbbab0063148285bf4a3b9150eef394c923756cb",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "0cf8a716731646cf91474e62423ad56b52ba395f7ddfdb9f1915c1ddce37da9e",
+      "final_page_content_sha256": "0cf8a716731646cf91474e62423ad56b52ba395f7ddfdb9f1915c1ddce37da9e",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 10,
+      "final_physical_page": 10,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "f1984d0e02502c285d4b3cb554306e19eed97602e2f24f17c8013e57fe9ae095",
+      "final_rgb_sha256": "f1984d0e02502c285d4b3cb554306e19eed97602e2f24f17c8013e57fe9ae095",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "320be48ddad3c53b6bede205acccd6a6147a6a470ec60e5064e3c55326310383",
+      "final_page_content_sha256": "320be48ddad3c53b6bede205acccd6a6147a6a470ec60e5064e3c55326310383",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 11,
+      "final_physical_page": 11,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "ab53c3110d8870b66db6327fe1d47130c51e4cc90d4deb08edd6e6718096d144",
+      "final_rgb_sha256": "ab53c3110d8870b66db6327fe1d47130c51e4cc90d4deb08edd6e6718096d144",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "d1397ae59295bc3e1489daf4480d5b5d6ba53403e7f18e8d5ebe78faac34a7c3",
+      "final_page_content_sha256": "d1397ae59295bc3e1489daf4480d5b5d6ba53403e7f18e8d5ebe78faac34a7c3",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 12,
+      "final_physical_page": 12,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "96c941abe9e35db3f8a5fcd5671100060e48991c454bf8cf35e92bdde8c0ab4e",
+      "final_rgb_sha256": "96c941abe9e35db3f8a5fcd5671100060e48991c454bf8cf35e92bdde8c0ab4e",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "971befe05e618258e38a78f9692ca7a048f70f96b3fd59b73b4bc8b06a3cefb7",
+      "final_page_content_sha256": "971befe05e618258e38a78f9692ca7a048f70f96b3fd59b73b4bc8b06a3cefb7",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 13,
+      "final_physical_page": 13,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "f25f9683c4d01d55b0a6c693b092adc390b5c4a812537c5c03507148075064d7",
+      "final_rgb_sha256": "f25f9683c4d01d55b0a6c693b092adc390b5c4a812537c5c03507148075064d7",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "368a7ae21a5952cb4b855881a203545f7b6c92062a831963a6b19ffe64007172",
+      "final_page_content_sha256": "368a7ae21a5952cb4b855881a203545f7b6c92062a831963a6b19ffe64007172",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 14,
+      "final_physical_page": 14,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "76b216c4bfb966b66c992a6724d5ee40a94a39f4633e9b5527b46cd7c022d8fd",
+      "final_rgb_sha256": "76b216c4bfb966b66c992a6724d5ee40a94a39f4633e9b5527b46cd7c022d8fd",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "9acd50857d636e60cd68b770909a76b8f58e105f8f6b8c721b21250884e35f2d",
+      "final_page_content_sha256": "9acd50857d636e60cd68b770909a76b8f58e105f8f6b8c721b21250884e35f2d",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 15,
+      "final_physical_page": 15,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "1d067e7bce6b519ca2548e29c632d5b6944d4a68f463569992da8b970c9bc9ae",
+      "final_rgb_sha256": "1d067e7bce6b519ca2548e29c632d5b6944d4a68f463569992da8b970c9bc9ae",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "3540e5ca95e815375566a9f572c4efffec1e4dc929dd221e97b1eaad0fbc6fc6",
+      "final_page_content_sha256": "3540e5ca95e815375566a9f572c4efffec1e4dc929dd221e97b1eaad0fbc6fc6",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 16,
+      "final_physical_page": 16,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "065babda9df42f91b2ee6b511b29caaa1c1b4712fe93e6c7d9112bf65a72f698",
+      "final_rgb_sha256": "065babda9df42f91b2ee6b511b29caaa1c1b4712fe93e6c7d9112bf65a72f698",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "ba2a5a64271156baedaa6854846d9699922223afb9e997c30f81978abc1a3719",
+      "final_page_content_sha256": "ba2a5a64271156baedaa6854846d9699922223afb9e997c30f81978abc1a3719",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 17,
+      "final_physical_page": 17,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "3c8f05d186cb08a466d942be0bd93ced6add54fb79b5086195f4b0d65e4b70f5",
+      "final_rgb_sha256": "3c8f05d186cb08a466d942be0bd93ced6add54fb79b5086195f4b0d65e4b70f5",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "ab2e83d80de653bbd09c4d3f1fcc10757e826a45b62caf6b8c805457030d0020",
+      "final_page_content_sha256": "ab2e83d80de653bbd09c4d3f1fcc10757e826a45b62caf6b8c805457030d0020",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 18,
+      "final_physical_page": 18,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "99431f63b2ab2b9e793907d94dcabcdbd96f88a73a474aa8cd1a5d189fd5df07",
+      "final_rgb_sha256": "99431f63b2ab2b9e793907d94dcabcdbd96f88a73a474aa8cd1a5d189fd5df07",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "7a8bf36a3b9aa6eb5d26c26e3a90e524d1d4bf15c2e91e48365db11abd2d3827",
+      "final_page_content_sha256": "7a8bf36a3b9aa6eb5d26c26e3a90e524d1d4bf15c2e91e48365db11abd2d3827",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 19,
+      "final_physical_page": 19,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "7f754653e0b733e2851140c368fcfad9c22b550dc5a31e051da6cae00b577a0c",
+      "final_rgb_sha256": "7f754653e0b733e2851140c368fcfad9c22b550dc5a31e051da6cae00b577a0c",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "73da1f3805d5883090b2f059f23195cba1425806bc487b5c07753e9854caa2d5",
+      "final_page_content_sha256": "73da1f3805d5883090b2f059f23195cba1425806bc487b5c07753e9854caa2d5",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 20,
+      "final_physical_page": 20,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "7e523a055da76689bdcd832835c405802d3ab2a305f8eff821dacdff6a3e00fc",
+      "final_rgb_sha256": "7e523a055da76689bdcd832835c405802d3ab2a305f8eff821dacdff6a3e00fc",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "38dbf07260d60d669a51ea78f64fbf9124e9e924ed0f64b7ae10e01615dc8864",
+      "final_page_content_sha256": "38dbf07260d60d669a51ea78f64fbf9124e9e924ed0f64b7ae10e01615dc8864",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 21,
+      "final_physical_page": 21,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "e34be1c325f19480d26ae2cf771e58fba1dacd3badbd7426d7c1676a640d5bef",
+      "final_rgb_sha256": "e34be1c325f19480d26ae2cf771e58fba1dacd3badbd7426d7c1676a640d5bef",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "81017582c5661b5f6c38117e64f1b3cde458fde075d35b3cd78ae920783e0216",
+      "final_page_content_sha256": "81017582c5661b5f6c38117e64f1b3cde458fde075d35b3cd78ae920783e0216",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 22,
+      "final_physical_page": 22,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "8e5d32484d7467c25e1530105eecd33a98d60d237d3b9f6b98702b44b0e2b8c5",
+      "final_rgb_sha256": "8e5d32484d7467c25e1530105eecd33a98d60d237d3b9f6b98702b44b0e2b8c5",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "9c1320861e6390954b96ceb51932924a052af4e188c0dedabaefc87a76b90e32",
+      "final_page_content_sha256": "9c1320861e6390954b96ceb51932924a052af4e188c0dedabaefc87a76b90e32",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 23,
+      "final_physical_page": 23,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "fa40af4a4fc84040ae55ed3bfd3284164a71f9715b26eeca80aa8d1d9340f7bf",
+      "final_rgb_sha256": "fa40af4a4fc84040ae55ed3bfd3284164a71f9715b26eeca80aa8d1d9340f7bf",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "0d2fefeb4fb1ac90437eea83308d6b5acbb352ffc48a68da0ac378f89d3687e4",
+      "final_page_content_sha256": "0d2fefeb4fb1ac90437eea83308d6b5acbb352ffc48a68da0ac378f89d3687e4",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 24,
+      "final_physical_page": 24,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "8f68f5c163bacee5db3ba8d19bc8d996ccd67da8f5011e2d14886c43b69057e4",
+      "final_rgb_sha256": "8f68f5c163bacee5db3ba8d19bc8d996ccd67da8f5011e2d14886c43b69057e4",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "ed9f5b2dd94fcb555409efcfea4baab40134fd374b97c04d260f7370f182c6d2",
+      "final_page_content_sha256": "ed9f5b2dd94fcb555409efcfea4baab40134fd374b97c04d260f7370f182c6d2",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 25,
+      "final_physical_page": 25,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "3d0c9a87fd3ee783ea3c554e2d501901953a35e6f7a1bad2f03b455d6fc7d73a",
+      "final_rgb_sha256": "3d0c9a87fd3ee783ea3c554e2d501901953a35e6f7a1bad2f03b455d6fc7d73a",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "869a65f03aaeff24e8a203444181ebda19fef1f045ba0d4c4b765345d4affe9e",
+      "final_page_content_sha256": "869a65f03aaeff24e8a203444181ebda19fef1f045ba0d4c4b765345d4affe9e",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 26,
+      "final_physical_page": 26,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "3f4ec28eafdd99c8f61bbb2b17795c06d57027bdd22f084f217035a21f45a5f9",
+      "final_rgb_sha256": "3f4ec28eafdd99c8f61bbb2b17795c06d57027bdd22f084f217035a21f45a5f9",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "6dbf597784e37fd13d6d923a865fc9e1690369ede2c7dccbcd83af6b3c04c95f",
+      "final_page_content_sha256": "6dbf597784e37fd13d6d923a865fc9e1690369ede2c7dccbcd83af6b3c04c95f",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "root",
+      "original_qa_rgb_match": null,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 27,
+      "final_physical_page": 27,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "4a405969740bd4925a7980c485d1187bd93480bf49231036924b37e79de00d82",
+      "final_rgb_sha256": "4a405969740bd4925a7980c485d1187bd93480bf49231036924b37e79de00d82",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "0a69a4134e65ecf06a98bd4b215128bf870e378021b244672cd5572d7749328b",
+      "final_page_content_sha256": "0a69a4134e65ecf06a98bd4b215128bf870e378021b244672cd5572d7749328b",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 28,
+      "final_physical_page": 28,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "d3705a5e6479a0dd09757eb1ab59558a4a61e118e03b20b65020b25ad26fbf2d",
+      "final_rgb_sha256": "d3705a5e6479a0dd09757eb1ab59558a4a61e118e03b20b65020b25ad26fbf2d",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "073d3902e7856e9f6613e5fc71195699282b9e2451208bd875eb7206c516e0eb",
+      "final_page_content_sha256": "073d3902e7856e9f6613e5fc71195699282b9e2451208bd875eb7206c516e0eb",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "root",
+      "original_qa_rgb_match": null,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 29,
+      "final_physical_page": 29,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "01206547b65f7dce0119a629b281696ac7c647cc0714bfcc26f8ae4ec46a81e9",
+      "final_rgb_sha256": "01206547b65f7dce0119a629b281696ac7c647cc0714bfcc26f8ae4ec46a81e9",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "a14552a45b346358aeecd9d6114650b8d849e691eab92d6f6d4ba6fd51fc9918",
+      "final_page_content_sha256": "a14552a45b346358aeecd9d6114650b8d849e691eab92d6f6d4ba6fd51fc9918",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 30,
+      "final_physical_page": 30,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "8cb2a00353030873cc9a1dd407a24b45f6a2e2618117c9d9b9a152a775bf84c3",
+      "final_rgb_sha256": "8cb2a00353030873cc9a1dd407a24b45f6a2e2618117c9d9b9a152a775bf84c3",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "a5232e3d09c44a649962d6975a89a42e06f850f4f045c651200f0db9abc37e18",
+      "final_page_content_sha256": "a5232e3d09c44a649962d6975a89a42e06f850f4f045c651200f0db9abc37e18",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 31,
+      "final_physical_page": 31,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "a103fa9753395e5480c3ff2b683805ef8117eefabf6ab42318cbc8592c057f69",
+      "final_rgb_sha256": "a103fa9753395e5480c3ff2b683805ef8117eefabf6ab42318cbc8592c057f69",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "86e38fbd3b147b8006f4468482065307dcb898b283db774bd5518aba2bb20943",
+      "final_page_content_sha256": "86e38fbd3b147b8006f4468482065307dcb898b283db774bd5518aba2bb20943",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "root",
+      "original_qa_rgb_match": null,
+      "observation_reused": true
+    },
+    {
+      "initial_physical_page": 32,
+      "final_physical_page": 32,
+      "render_dpi": 95,
+      "initial_rgb_sha256": "938ccaf1c3e4519d5db1bbef0401fe6c7f6761dacc909b0578f8daaf1c5994bc",
+      "final_rgb_sha256": "938ccaf1c3e4519d5db1bbef0401fe6c7f6761dacc909b0578f8daaf1c5994bc",
+      "initial_size": [
+        786,
+        1111
+      ],
+      "final_size": [
+        786,
+        1111
+      ],
+      "rgb_match": true,
+      "dimensions_match": true,
+      "initial_page_content_sha256": "33cc041e664586d1fa16a321c944481c1fe94d43c8532ba3c80385a3304955a7",
+      "final_page_content_sha256": "33cc041e664586d1fa16a321c944481c1fe94d43c8532ba3c80385a3304955a7",
+      "decoded_content_match": true,
+      "initial_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "final_mediabox": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "mediabox_match": true,
+      "initial_visual_review_by": "next_baseline_scope",
+      "original_qa_rgb_match": true,
+      "observation_reused": true
+    }
+  ]
+}

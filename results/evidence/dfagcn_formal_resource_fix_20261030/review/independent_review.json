@@ -1,0 +1,66 @@
+{
+  "findings": {
+    "Critical": [],
+    "Important": [],
+    "Minor": []
+  },
+  "original_pyz_current_files_changed": [
+    "tools/run_dfagcn_nwpu_formal.py"
+  ],
+  "original_pyz_current_files_unchanged": [
+    "configs/dfagcn_independent_v1.json",
+    "configs/dfagcn_nwpu_smoke_v1.json",
+    "experiment_identity.py",
+    "external_baselines/__init__.py",
+    "external_baselines/dfagcn/__init__.py",
+    "external_baselines/dfagcn/__main__.py",
+    "external_baselines/dfagcn/cache.py",
+    "external_baselines/dfagcn/cli.py",
+    "external_baselines/dfagcn/config.py",
+    "external_baselines/dfagcn/extraction.py",
+    "external_baselines/dfagcn/features.py",
+    "external_baselines/dfagcn/fusion.py",
+    "external_baselines/dfagcn/graph.py",
+    "external_baselines/dfagcn/identity.py",
+    "external_baselines/dfagcn/linear.py",
+    "external_baselines/dfagcn/model.py",
+    "external_baselines/dfagcn/pipeline.py",
+    "external_baselines/dfagcn/smoke.py",
+    "grouping_identity.py",
+    "scene_classification/__init__.py",
+    "scene_classification/data.py",
+    "scene_classification/metrics.py",
+    "tools/probe_dfagcn_gpu.py",
+    "tools/run_dfagcn_nwpu_smoke.py"
+  ],
+  "original_pyz_sha256": "66cbb46bc8bc0fb8a79e7e95794534e6efb430ee1630be2258c91df16c98861b",
+  "probes": {
+    "output_inside_scratch": "PASS",
+    "previous_binary_default_does_not_bypass_capacity_gates": "PASS",
+    "previous_binary_symlink_rejected_by_inspection": "PASS",
+    "same_output_and_scratch": "PASS",
+    "scratch_inside_output": "PASS"
+  },
+  "resource_arithmetic": {
+    "artifact_margin_after_checkpoint_and_linear_numeric_payload_bytes": 963051422,
+    "fixed_graph_parameters": 2957447,
+    "float32_formatter_probe_finite_values": 99638,
+    "formatter_longest_observed": "-1.4012984643248171e-45",
+    "formatter_max_observed_chars": 23,
+    "four_checkpoints_tensor_payload_bytes": 47319152,
+    "persistent_budget_bytes": 16508521324,
+    "reported_free_beyond_budget_bytes": 521401492,
+    "reported_work_free_bytes": 17029922816,
+    "svm_row_upper_bytes": 163331,
+    "svm_rows": 94500,
+    "svm_total_upper_bytes": 15434779500,
+    "ten_linear_models_numeric_text_upper_bytes": 63371250
+  },
+  "review_scope": "read-only code audit and stdlib-only probes; no ML imports, GPU, training, or full data",
+  "runner_sha256": "24e6386c16d8022df8cb2b708dc5c456e6872be553418914d3982c6c5a7ec563",
+  "tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 TMPDIR=<review> python3 -m unittest discover -s tests -p test_dfagcn_formal_resources.py -v",
+    "result": "8 passed",
+    "seconds": 1.07
+  }
+}

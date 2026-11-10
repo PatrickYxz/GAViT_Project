@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "adam_step_not_completed_epoch_rejected": true,
+    "changed_adam_lr_rejected_before_save": true,
+    "generation_epoch_mismatch_rejected": true,
+    "out_of_recipe_epoch_rejected": true,
+    "receipt_payload_epoch_mismatch_falls_back": true,
+    "restored_optimizer_valid": true,
+    "valid_epoch_snapshot_roundtrip": true,
+    "wrong_moment_shape_rejected": true
+  },
+  "checks_count": 8,
+  "passed": true,
+  "schema": "hgtnet-checkpoint-postfix-review-v1",
+  "scope": "actual small CPU tensors; storage/restore boundaries only; no target GPU or benchmark",
+  "sources": {
+    "external_baselines/hgtnet/formal_checkpoints.py": "dd504dcdcbf1a2e3683b4434e89c84cab30b7c37df57ead1f68e2395a27f95d2",
+    "external_baselines/hgtnet/formal_protocol.py": "90a1ff5ba73961e772c80417cf29a31200d8ab6a465214e1cb71283b962e27f8"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "NWPU42_partial_class_rows": 24,
+  "BEN43_full_class_rows": 19,
+  "AID42_43_class_rows": 30,
+  "gallery_corrections": 3,
+  "gallery_joint_errors": 5,
+  "BEN43_directions": {
+    "up": 8,
+    "down": 8,
+    "unresolved_at_reference_rounding": 3
+  },
+  "four_seed_class_coverage_complete": false,
+  "sources_and_links_verified": true,
+  "original_score_CSV_unchanged": true
+}

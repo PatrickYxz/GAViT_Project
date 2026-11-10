@@ -1,0 +1,104 @@
+{
+  "bundle_source": {
+    "initial_url": "https://relay.fullyjustified.net/default_bundle_v33.tar.index.gz",
+    "note": "Initial compiler request to relay failed; curl verified its HTTPS redirect and index. Explicit direct bundle URL compiled successfully with TLS verification intact.",
+    "verified_redirect": "https://data1b.fullyjustified.net/tlextras-2022.0r0.tar.index.gz"
+  },
+  "command": "env TECTONIC_CACHE_DIR=/private/tmp/gavit_tectonic_20261108/cache /private/tmp/gavit_tectonic_20261108/tectonic --untrusted --bundle https://data1b.fullyjustified.net/tlextras-2022.0r0.tar --keep-logs --keep-intermediates --outdir /Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108 main.tex",
+  "compile_exit_code": 0,
+  "compile_result": "SUCCESS",
+  "compiler": {
+    "archive_bytes": 21704674,
+    "archive_sha256": "a3f1cac7c5678f01661a92212f58480ae3b0634115d880dbc59e2953ded45667",
+    "archive_url": "https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%400.17.0/tectonic-0.17.0-aarch64-apple-darwin.tar.gz",
+    "binary": "/private/tmp/gavit_tectonic_20261108/tectonic",
+    "binary_sha256": "b52b5a730e2b0b33087304f7720f649603953f270a6b1c88bb031e1ae01f7f9c",
+    "cache": "/private/tmp/gavit_tectonic_20261108/cache",
+    "name": "Tectonic",
+    "platform": "aarch64-apple-darwin",
+    "release_url": "https://github.com/tectonic-typesetting/tectonic/releases/tag/tectonic%400.17.0",
+    "version": "0.17.0"
+  },
+  "created_at_utc": "2026-11-08T06:13:42.229754+00:00",
+  "cwd": "/Users/patrick/Projects/GAViT_Project/thesis/ntu_gavit",
+  "global_install_or_environment_change": false,
+  "method": "Ordinary standalone official Tectonic source compilation; no application-private interfaces or UI automation.",
+  "output": {
+    "bytes": 810572,
+    "pages": 46,
+    "path": "/Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108/initial_export/main.pdf",
+    "sha256": "8f937b4aa19fc58bb2b79c5366e3440aa635ca1523b5537a3269f094a5ca48bf"
+  },
+  "pdf_skill_marker": "Root ran once before compilation; not repeated by this agent.",
+  "schema": "gavit-local-ordinary-tex-export-v1",
+  "source_files_verified_count": 19,
+  "source_snapshot": {
+    "chapters/01-introduction.tex": "ac56873d1cb2526bebaa2503ca1c5c5ed67962760d21be7b1ea29fdcf211ae5b",
+    "chapters/02-literature-review.tex": "77d5073aa7dfd07b4f4c7e286af76838c5eb6d269ec5e722999b25d4b572072b",
+    "chapters/03-method.tex": "e036fa93a09be0ff86facb4ca0c2f84c74d243c23318eda2f436fb125d44115f",
+    "chapters/04-experimental-setup.tex": "5d470a8c91b6b194b51577d1a7be2232d82f0bbe201aa4c161f3f36dd88d5cd3",
+    "chapters/05-external-comparisons.tex": "bc0d55fe2c1e018959d2cb83d3d038e2f4c3121c3fe79696451177a2c71d81fd",
+    "images/external_aid_20261106/hgtnet_aid_seed42_confusion_matrix.png": "add9a13f7420172b893faab40b4e423ac4d12827b84bfd1a2be7adf45ddc4c52",
+    "images/external_aid_20261106/hgtnet_aid_seed42_training_history.png": "53d066d0effd6e9cd4a4ce96379adc5bd5c132c1b85131a08a75808da097909b",
+    "main.tex": "48ff011995f6b4c477fa64fb7c2b364300920f8a2e5e32900315ce7a38f83dbb",
+    "provenance/before-external-results-20261106/chapters/01-introduction.tex": "8617239b73028ed0ef8ee1657285514e6d418ec1e5af38272ea5557a96762132",
+    "provenance/before-external-results-20261106/chapters/04-experimental-setup.tex": "f38ff2213118e028f3039faff9028048992cd72a508d36626e4639e339637629",
+    "provenance/before-external-results-20261106/main.tex": "5fb459d82db6540af380f47a08fec29953531459ed01694375a1bed4431774d8",
+    "provenance/before-intro-review-20261028/main.tex": "5a75086fab25641e6c38a602475efc426ed647e6911e4e0ec176c20d59d7b63c",
+    "provenance/before-intro-review-20261028/references.bib": "3c87ad8d1730604c8e3be0118ff3fe29c7ceb8f11037cda577df0fb03509b685",
+    "provenance/foundation-candidates.bib": "6e8262e05531dec798e131c5f0495ef77386af0c7f640e29627b14c08e38b642",
+    "provenance/graph-grouping-candidates.bib": "27288eea4abe92741b584d121d107224c65020e34a309fcabc389d834200fea0",
+    "provenance/intro-candidates.bib": "ab2310668a2dfea50ae029fd7971dc33f5e41cd45c5248ca9ba273500d872131",
+    "provenance/remote-candidates.bib": "51a3f1125d6403d80a8a69f2206e984593ea55d15e1db2e1c692a9980c7ecf90",
+    "provenance/upstream-main.tex": "bcfab10440fa4a9151abc4908ffe9fc3b67af20b5e42374d81a9af6ebed76ae3",
+    "references.bib": "fadee6936a8d4b91043a0c6fa9c2794aee595bb072e4861990d70246a4a9997f"
+  },
+  "source_unchanged_verified_after_compile": true,
+  "visual_result": "NEEDS_LAYOUT_FIXES",
+  "visual_review": {
+    "clean_observations": [
+      "Cover date and scope are correct.",
+      "TOC continuation pages3–4 and Ch5 body/tables33–36/39 fit page margins without observed clipping or overlap.",
+      "References pages40–42 render normally."
+    ],
+    "findings": [
+      {
+        "issue": "TOC Contents heading overlaps auto-added Contents entry; Pages header overlaps its roman i.",
+        "physical_page": 2
+      },
+      {
+        "issue": "Figure5.1 and5.2 raster contents fit margins but final A4 font sizes are approximately3–4pt for several axis/legend/class/cell labels, too small for normal reading.",
+        "physical_pages": [
+          37,
+          38
+        ],
+        "recommendation": "Generate thesis-only compact figures at near-final physical width with readable final fonts; retain original analysis figures."
+      }
+    ],
+    "limits": "This review covers cover/TOC/Ch5 and first reference pages; root separately reviews intro/setup. It is not a final all46-page visual acceptance.",
+    "physical_pdf_pages": [
+      1,
+      2,
+      3,
+      4,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42
+    ],
+    "render_directory": "/Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108/renders",
+    "render_dpi": 120
+  },
+  "warnings": {
+    "missing_character_count": 0,
+    "overfull_hbox_count": 0,
+    "undefined_reference_or_citation_count": 0,
+    "underfull_hbox_count": 27
+  }
+}

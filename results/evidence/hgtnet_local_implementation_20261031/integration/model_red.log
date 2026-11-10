@@ -1,0 +1,205 @@
+test_bad_inputs_fail_before_attention_even_on_meta_model (test_hgtnet_model.ModelTests.test_bad_inputs_fail_before_attention_even_on_meta_model) ... FAIL
+test_class30_changes_only_head_shape (test_hgtnet_model.ModelTests.test_class30_changes_only_head_shape) ... FAIL
+test_model_owns_config_without_caller_alias (test_hgtnet_model.ModelTests.test_model_owns_config_without_caller_alias) ... FAIL
+test_no_implicit_online_or_pretrained_loading (test_hgtnet_model.ModelTests.test_no_implicit_online_or_pretrained_loading) ... FAIL
+test_parameter_groups_account_for_every_parameter_once (test_hgtnet_model.ModelTests.test_parameter_groups_account_for_every_parameter_once) ... FAIL
+test_real_full_architecture_not_a_swin_t_or_tiny_surrogate (test_hgtnet_model.ModelTests.test_real_full_architecture_not_a_swin_t_or_tiny_surrogate) ... FAIL
+test_trace_uses_real_computation_shapes_and_graph_indices (test_hgtnet_model.ModelTests.test_trace_uses_real_computation_shapes_and_graph_indices) ... FAIL
+
+======================================================================
+FAIL: test_bad_inputs_fail_before_attention_even_on_meta_model (test_hgtnet_model.ModelTests.test_bad_inputs_fail_before_attention_even_on_meta_model)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 14, in api
+    return importlib.import_module('external_baselines.hgtnet.model')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.model'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 68, in test_bad_inputs_fail_before_attention_even_on_meta_model
+    m = self.model()
+        ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 26, in model
+    return api().HGTNet(self.cfg)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 16, in api
+    raise AssertionError('HGTNet model API is missing') from exc
+AssertionError: HGTNet model API is missing
+
+======================================================================
+FAIL: test_class30_changes_only_head_shape (test_hgtnet_model.ModelTests.test_class30_changes_only_head_shape)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 14, in api
+    return importlib.import_module('external_baselines.hgtnet.model')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.model'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 63, in test_class30_changes_only_head_shape
+    m = api().HGTNet(cfg)
+        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 16, in api
+    raise AssertionError('HGTNet model API is missing') from exc
+AssertionError: HGTNet model API is missing
+
+======================================================================
+FAIL: test_model_owns_config_without_caller_alias (test_hgtnet_model.ModelTests.test_model_owns_config_without_caller_alias)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 14, in api
+    return importlib.import_module('external_baselines.hgtnet.model')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.model'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 50, in test_model_owns_config_without_caller_alias
+    m = self.model()
+        ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 26, in model
+    return api().HGTNet(self.cfg)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 16, in api
+    raise AssertionError('HGTNet model API is missing') from exc
+AssertionError: HGTNet model API is missing
+
+======================================================================
+FAIL: test_no_implicit_online_or_pretrained_loading (test_hgtnet_model.ModelTests.test_no_implicit_online_or_pretrained_loading)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 14, in api
+    return importlib.import_module('external_baselines.hgtnet.model')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.model'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 83, in test_no_implicit_online_or_pretrained_loading
+    m = self.model()
+        ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 26, in model
+    return api().HGTNet(self.cfg)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 16, in api
+    raise AssertionError('HGTNet model API is missing') from exc
+AssertionError: HGTNet model API is missing
+
+======================================================================
+FAIL: test_parameter_groups_account_for_every_parameter_once (test_hgtnet_model.ModelTests.test_parameter_groups_account_for_every_parameter_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 14, in api
+    return importlib.import_module('external_baselines.hgtnet.model')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.model'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 41, in test_parameter_groups_account_for_every_parameter_once
+    m = self.model()
+        ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 26, in model
+    return api().HGTNet(self.cfg)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 16, in api
+    raise AssertionError('HGTNet model API is missing') from exc
+AssertionError: HGTNet model API is missing
+
+======================================================================
+FAIL: test_real_full_architecture_not_a_swin_t_or_tiny_surrogate (test_hgtnet_model.ModelTests.test_real_full_architecture_not_a_swin_t_or_tiny_surrogate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 14, in api
+    return importlib.import_module('external_baselines.hgtnet.model')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.model'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 29, in test_real_full_architecture_not_a_swin_t_or_tiny_surrogate
+    m = self.model()
+        ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 26, in model
+    return api().HGTNet(self.cfg)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 16, in api
+    raise AssertionError('HGTNet model API is missing') from exc
+AssertionError: HGTNet model API is missing
+
+======================================================================
+FAIL: test_trace_uses_real_computation_shapes_and_graph_indices (test_hgtnet_model.ModelTests.test_trace_uses_real_computation_shapes_and_graph_indices)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 14, in api
+    return importlib.import_module('external_baselines.hgtnet.model')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.model'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 78, in test_trace_uses_real_computation_shapes_and_graph_indices
+    m = self.model()
+        ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 26, in model
+    return api().HGTNet(self.cfg)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 16, in api
+    raise AssertionError('HGTNet model API is missing') from exc
+AssertionError: HGTNet model API is missing
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.002s
+
+FAILED (failures=7)

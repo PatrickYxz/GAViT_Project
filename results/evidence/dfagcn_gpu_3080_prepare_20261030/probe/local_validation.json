@@ -1,0 +1,42 @@
+{
+  "broader_run": "host libomp aborted before discovery; not an application test result",
+  "checkpoint_written": false,
+  "formal_training_started": false,
+  "initial_implementation_green": {
+    "cache_inputs_unchanged": true,
+    "contains_real_cpu_graph_batch100": true,
+    "passed": 10,
+    "seconds": 1.289,
+    "tests": 10
+  },
+  "initial_implementation_red": {
+    "failures": 10,
+    "reason": "probe not implemented",
+    "tests": 10
+  },
+  "schema": "dfagcn-gpu-probe-local-validation-v1",
+  "scope": "CPU graph test uses actual full-recipe model and actual Torch tensors with synthetic finite features. GPU metadata/process checks mock external nvidia-smi I/O only. No CUDA inference/training was claimed.",
+  "source_sha256": {
+    "tests/test_dfagcn_gpu_probe.py": "97b18b0da5609a079df45178fc8a375b5889108e29f1c08c0cc23d311e2f3f4c",
+    "tools/probe_dfagcn_gpu.py": "1eae9207ebeedafcd5ed901ab302238169c97bd5b4e50398bed4a60e21e15791"
+  },
+  "stdlib_import_proof": {
+    "expected_cache_sample_count": 450,
+    "forbidden_import_attempts": [],
+    "inspect_called": true,
+    "inspect_ready": false,
+    "numerical_modules_imported": [],
+    "output_created": false,
+    "scope": "Real stdlib-only execution of valid manifest identity construction and missing-resource inspection; external GPU inventory fixture only; no hardware or numerical compute executed."
+  },
+  "strict_process_csv_gate_green": {
+    "passed": 1,
+    "tests": 1
+  },
+  "strict_process_csv_gate_red": {
+    "failures": 1,
+    "reason": "malformed nonempty compute-app row ignored",
+    "tests": 1
+  },
+  "target_hardware_executed": false
+}

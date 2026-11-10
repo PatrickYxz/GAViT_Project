@@ -1,0 +1,48 @@
+{
+  "schema": "dfagcn-delivery-local-check-v1",
+  "date": "2026-10-29",
+  "command": "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest discover -s tests -p test_dfagcn_delivery.py -v",
+  "red": {
+    "methods": 7,
+    "failures": 7,
+    "exit_code": 1,
+    "cause": "portable builder absent"
+  },
+  "green": {
+    "methods": 7,
+    "exit_code": 0,
+    "reported_seconds": 0.998
+  },
+  "verified": [
+    "actual stdlib zipapp install and runner delegation",
+    "per-file identity reuse, refuse altered source",
+    "refuse foreign/incomplete output workspace without overwrite",
+    "reject traversal and duplicate zip members before workspace creation",
+    "optional full weights SHA metadata validation, no weights/binaries bundled",
+    "actual official v250 source compilation on current macOS arm64 plus binary hash reuse/tamper checks",
+    "native platform/compiler version recorded and foreign-platform binary reuse refused",
+    "original zipapp entry passed to runner-generated commands",
+    "actual packaged stdlib runner inspect refuses missing local NWPU/GPU/weights, training_started false"
+  ],
+  "not_verified": [
+    "target Linux compilation or RTX4090 execution",
+    "real Featurize filesystem/currentdata",
+    "officialVGG file fullbytes (provided by root separately)"
+  ],
+  "sha256": {
+    "tools/package_dfagcn_nwpu_smoke.py": "e6cba45abf892f55fb8e0391739b7a00c7a2d402b7f1c6fb95220b3b587285cf",
+    "tests/test_dfagcn_delivery.py": "0ccc023ed4005d342e161693904722d1899e8487dcb01521bef90ea7bd25434d"
+  },
+  "regression_red_green": [
+    "missing native-platform identity",
+    "zipapp original-entry propagation",
+    "foreign-platform compiled-binary reuse"
+  ],
+  "actual_runner_probe": {
+    "bundle": "package_without_weights_probe.pyz",
+    "bytes": 133213,
+    "sha256": "7e3b85dffeb84d79d4c865dd995e6d4a93cfd573d651a63b09bd57d3ca2d6853",
+    "exit_code": 2,
+    "expected": "resource inventory reports missing actual Featurize resources, no training starts"
+  }
+}

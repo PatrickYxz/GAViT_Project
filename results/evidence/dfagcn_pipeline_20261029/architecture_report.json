@@ -1,0 +1,7 @@
+{
+  "dataset_classes": 45,
+  "graph_and_heads_parameters": 2957447,
+  "frozen_vgg_used_parameters": 117479232,
+  "neural_parameters_excluding_liblinear": 120436679,
+  "scope": "architecture count only; unused VGG FC7/FC8 excluded, actual LIBLINEAR fitted weights and runtime/peak memory not included"
+}

@@ -1,0 +1,193 @@
+{
+  "date": "2026-11-05",
+  "state": "SERVER_REPORTED_AID_SMOKE_COMPLETE_STATUS_CHECKED",
+  "evidence_source": "Direct user terminal output; source-path inference explicitly separate; final status/artifact bytes not returned yet.",
+  "evidence": "results/evidence/hgtnet_aid_smoke_complete_return_20261105/reported_output.txt",
+  "bundle_sha256": "a70b6fbf038aa82daac9398b1d75c057d37b4fe3bf18167604b95d6f6a9d3961",
+  "git_head": "058f1d8b79d0be538ec358eb742d2cd3992921d4",
+  "frozen_scope": {
+    "seed": 42,
+    "classes": 30,
+    "epochs": 1,
+    "batch_size": 2,
+    "counts": {
+      "train": 240,
+      "val": 60,
+      "test": 0
+    },
+    "formal_training_started": false,
+    "basis": "Delivered frozen smoke configuration and normal completion path; train240/120 updates directly reported."
+  },
+  "reported_runtime": {
+    "amp": false,
+    "cpu_threads": 8,
+    "cuda": "12.1",
+    "cuda_device": {
+      "available": true,
+      "cuda_total_mib": 11909,
+      "device_count": 1,
+      "interface_gap_bytes": 397279232,
+      "interface_gap_mib": 378.875,
+      "max_interface_gap_mib": 1024,
+      "name": "NVIDIA GeForce RTX 3060",
+      "nvml_total_mib": 12288,
+      "total_memory_bytes": 12487622656
+    },
+    "cuda_visible_devices": "GPU-df386e6c-dbb3-0952-8190-3265a7bd8ae8",
+    "cudnn": 8902,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "cudnn_tf32": false,
+    "device": "cuda:0",
+    "dtype": "float32",
+    "gpu": {
+      "driver_version": "610.57.04",
+      "memory_free_mib": 11909,
+      "memory_total_mib": 12288,
+      "name": "NVIDIA GeForce RTX 3060",
+      "uuid": "GPU-df386e6c-dbb3-0952-8190-3265a7bd8ae8"
+    },
+    "matmul_tf32": false,
+    "numpy": "1.26.4",
+    "physical_gpu_uuid": "GPU-df386e6c-dbb3-0952-8190-3265a7bd8ae8",
+    "pid": 3130,
+    "pillow": "10.3.0",
+    "python": "3.11.8",
+    "seed": 42,
+    "torch": "2.2.2+cu121",
+    "torchvision": "0.17.2+cu121"
+  },
+  "reported_first_step": {
+    "device": "cuda:0",
+    "diagnostic_passed": true,
+    "elapsed_seconds": 2.786303352999994,
+    "gradients": {
+      "groups": {
+        "dual_attention": {
+          "l2": 4.449255169941215,
+          "tensors": 30
+        },
+        "graph": {
+          "l2": 27.822686753651755,
+          "tensors": 120
+        },
+        "head": {
+          "l2": 20.99360358846652,
+          "tensors": 2
+        },
+        "patch_embed": {
+          "l2": 54.53839683898478,
+          "tensors": 4
+        },
+        "transformer": {
+          "l2": 61.67126328301058,
+          "tensors": 295
+        }
+      },
+      "missing": [],
+      "nonfinite": [],
+      "passed": true
+    },
+    "loss": 3.747433662414551,
+    "optimizer_step_succeeded": true,
+    "optimizer_steps": 1,
+    "samples_seen": 2,
+    "stage": "first_optimizer_step",
+    "training_started": true,
+    "updated_groups": {
+      "dual_attention": true,
+      "graph": true,
+      "head": true,
+      "patch_embed": true,
+      "transformer": true
+    }
+  },
+  "reported_optimizer_steps": 120,
+  "reported_train_samples_seen": 240,
+  "reported_complete_marker": true,
+  "reported_summary_path": "/home/featurize/work/hgtnet_aid_smoke_3060_20261104/runs/aid_smoke_seed42_01/summary.json",
+  "normal_completion_path_requirements": {
+    "basis": "Current source matches all17 delivered source/config payloads. These are code requirements behind the returned marker, not independent inspection of server artifact bytes.",
+    "ordered_validation_predictions": 60,
+    "independent_checkpoint_reload_tolerance": 1e-06,
+    "end_rechecks": [
+      "source",
+      "config",
+      "manifest",
+      "initial_weights",
+      "300_selected_image_hashes",
+      "checkpoint_bytes"
+    ],
+    "consistent_completion_artifacts": true,
+    "run_exit_written_before_marker": 0
+  },
+  "pending_status_values": {},
+  "memory_boundary": "Reported total capacity and NVML/CUDA interface gap are not peak allocated/reserved memory.",
+  "next_read_only_command": null,
+  "next_stage": "Prepare independent formal AID recipe/budget; actual3060 batch16 capacity/compute gate uses16 frozen train images/four disposable updates before any formal training.",
+  "protected_result_sha256": {
+    "results/comparison_table.csv": "54efc5572b6271e9019bd5546951ae84f9f06bf23fc7ff58021036b419de562f",
+    "results/ablation_study.csv": "33182d7a7802e11c0580e66b7736c1d679af45ba4399b47369b582d8e9bd2011",
+    "results/external_baselines_nwpu_seed42_20261030.csv": "4e57cd424e5adf075fcd33911537807e3cc9d16c8f759ea9497bc3cc2c19c0ce"
+  },
+  "reported_status": {
+    "action": "status",
+    "best_epoch": 1,
+    "checkpoint": {
+      "reload_max_abs_error": 0.0,
+      "sha256": "9d2040b95eb27756f8f82f26c3b49e05fd787849776e45fa7df9088a8a076910"
+    },
+    "completed": true,
+    "completion_evidence_valid": true,
+    "config_sha256": "f313abb893b29d674ace281d8d2905670ee65db131f4240640079123e783589b",
+    "counts": {
+      "test": 0,
+      "train": 240,
+      "val": 60
+    },
+    "cuda_peak_allocated_bytes": 1536937984,
+    "cuda_peak_reserved_bytes": 1694498816,
+    "exit_code": 0,
+    "final_epoch": 1,
+    "formal_training_started": false,
+    "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+    "optimizer_steps": 120,
+    "output": "/home/featurize/work/hgtnet_aid_smoke_3060_20261104/runs/aid_smoke_seed42_01",
+    "physical_gpu_uuid": "GPU-df386e6c-dbb3-0952-8190-3265a7bd8ae8",
+    "progress": {
+      "completed": true,
+      "optimizer_steps": 120,
+      "pid": 3130,
+      "stage": "complete",
+      "training_started": true
+    },
+    "schema": "hgtnet-aid-smoke-v1",
+    "smoke_val": {
+      "accuracy_percent": 76.66666666666667,
+      "macro_f1_percent": 72.34920634920634
+    },
+    "source_identity_matches": true,
+    "state": "complete",
+    "training_started": true,
+    "wall_seconds": 48.76537990199995,
+    "weights_sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893"
+  },
+  "status_evidence": "results/evidence/hgtnet_aid_smoke_complete_return_20261105/status_reported_output.txt",
+  "status_provenance": "Direct user terminal return of current package status; status validates its server-side JSON/byte hashes; server artifacts were not downloaded or queried directly here.",
+  "summary_status_values": {
+    "accuracy_percent": 76.66666666666667,
+    "macro_f1_percent": 72.34920634920634,
+    "checkpoint_sha256": "9d2040b95eb27756f8f82f26c3b49e05fd787849776e45fa7df9088a8a076910",
+    "reload_max_abs_error": 0.0,
+    "cuda_peak_allocated_bytes": 1536937984,
+    "cuda_peak_reserved_bytes": 1694498816,
+    "cuda_peak_allocated_gib": 1.4313850402832031,
+    "cuda_peak_reserved_gib": 1.578125,
+    "wall_seconds": 48.76537990199995,
+    "exit_code": 0,
+    "completion_evidence_valid": true,
+    "source_identity_matches": true
+  },
+  "next_capacity_bundle": "output/hgtnet_aid_batch16_probe_3060_20261105.pyz",
+  "next_capacity_bundle_sha256": "fd54b4c1a21db1731d1addb0808c49104c11113b610883b79b2c6af456fc80f5"
+}

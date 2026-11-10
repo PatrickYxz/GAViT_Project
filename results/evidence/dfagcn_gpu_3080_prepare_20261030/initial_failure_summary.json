@@ -1,0 +1,39 @@
+{
+  "scope": "initial118method combination, superseded by final119GREEN",
+  "native_openmp_shm_error": true,
+  "items": [
+    {
+      "kind": "ERROR",
+      "test": "test_actual_multiclass_cli_preserves_labels_and_trailing_zero_width (test_dfagcn_linear.LiblinearBoundaryTests.test_actual_multiclass_cli_preserves_labels_and_trailing_zero_width)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_modified_model_bytes_are_rejected_before_prediction (test_dfagcn_linear.LiblinearBoundaryTests.test_modified_model_bytes_are_rejected_before_prediction)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_prediction_rejects_feature_width_mismatch (test_dfagcn_linear.LiblinearBoundaryTests.test_prediction_rejects_feature_width_mismatch)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_actual_training_emits_first_batch_and_epoch_progress (test_dfagcn_pipeline.PipelineTests.test_actual_training_emits_first_batch_and_epoch_progress)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_calibration_refit_and_test_complete_with_actual_linear_binaries (test_dfagcn_pipeline.PipelineTests.test_calibration_refit_and_test_complete_with_actual_linear_binaries)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_stage_rejects_wrong_split_random_formal_and_calibration_as_final (test_dfagcn_pipeline.PipelineTests.test_stage_rejects_wrong_split_random_formal_and_calibration_as_final)"
+    },
+    {
+      "kind": "FAIL",
+      "test": "test_real_official_source_build_produces_verified_local_binaries (test_dfagcn_delivery.DeliveryTests.test_real_official_source_build_produces_verified_local_binaries)"
+    },
+    {
+      "kind": "FAIL",
+      "test": "test_real_zipapp_inspect_delegates_and_reuse_checks_immutable_files (test_dfagcn_delivery.DeliveryTests.test_real_zipapp_inspect_delegates_and_reuse_checks_immutable_files)"
+    }
+  ],
+  "resolution": "direct serial rerun final119methods passed; no assertions bypassed"
+}

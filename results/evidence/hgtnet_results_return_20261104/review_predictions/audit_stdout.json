@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "checks_count": 131,
+  "metrics_recomputed": {
+    "samples": 25200,
+    "correct": 23718,
+    "errors": 1482,
+    "oa_percent": 94.11904761904762,
+    "macro_f1_percent": 94.10529172930384,
+    "reported_macro_f1_percent": 94.10529172930384,
+    "absolute_error_macro_f1": 0.0,
+    "absolute_tolerance": 1e-10
+  },
+  "HGT_vs_DF_paired": {
+    "both_correct": 21303,
+    "HGT_corrected": 2415,
+    "both_wrong": 979,
+    "HGT_regressed": 503
+  }
+}

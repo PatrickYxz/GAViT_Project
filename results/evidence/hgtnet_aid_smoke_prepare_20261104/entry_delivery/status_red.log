@@ -1,0 +1,19 @@
+..........E.......
+======================================================================
+ERROR: test_status_handles_malformed_evidence_and_preserves_durable_update (tests.test_hgtnet_aid_entry.EntryTests.test_status_handles_malformed_evidence_and_preserves_durable_update)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 129, in test_status_handles_malformed_evidence_and_preserves_durable_update
+    report=api().status(output)
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_entry.py", line 391, in status
+    if not summary:report.update(_observed_training(output))
+                                 ~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_entry.py", line 273, in _observed_training
+    actual=value.get('optimizer_steps')
+           ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'get'
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.431s
+
+FAILED (errors=1)

@@ -1,0 +1,41 @@
+test_build_actual_3090_bundle_and_target_reaches_bootstrap (test_hgtnet_3090_delivery.TargetDeliveryTests.test_build_actual_3090_bundle_and_target_reaches_bootstrap) ... FAIL
+test_parser_honors_delivery_target_and_command_binds_profile (test_hgtnet_3090_delivery.TargetDeliveryTests.test_parser_honors_delivery_target_and_command_binds_profile) ... FAIL
+test_runtime_checks_selected_3090_instead_of_fixed_3080 (test_hgtnet_3090_delivery.TargetDeliveryTests.test_runtime_checks_selected_3090_instead_of_fixed_3080) ... FAIL
+test_unknown_profile_is_rejected_without_creating_files (test_hgtnet_3090_delivery.TargetDeliveryTests.test_unknown_profile_is_rejected_without_creating_files) ... FAIL
+
+======================================================================
+FAIL: test_build_actual_3090_bundle_and_target_reaches_bootstrap (test_hgtnet_3090_delivery.TargetDeliveryTests.test_build_actual_3090_bundle_and_target_reaches_bootstrap)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_3090_delivery.py", line 59, in test_build_actual_3090_bundle_and_target_reaches_bootstrap
+    self.assertIn('target_gpu',inspect.signature(delivery.build_bundle).parameters,
+AssertionError: 'target_gpu' not found in mappingproxy(OrderedDict({'output_path': <Parameter "output_path">})) : builder cannot bind a3090 target
+
+======================================================================
+FAIL: test_parser_honors_delivery_target_and_command_binds_profile (test_hgtnet_3090_delivery.TargetDeliveryTests.test_parser_honors_delivery_target_and_command_binds_profile)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_3090_delivery.py", line 52, in test_parser_honors_delivery_target_and_command_binds_profile
+    self.assertTrue(hasattr(args,'target_gpu'),'runner has no target profile')
+AssertionError: False is not true : runner has no target profile
+
+======================================================================
+FAIL: test_runtime_checks_selected_3090_instead_of_fixed_3080 (test_hgtnet_3090_delivery.TargetDeliveryTests.test_runtime_checks_selected_3090_instead_of_fixed_3080)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_3090_delivery.py", line 28, in test_runtime_checks_selected_3090_instead_of_fixed_3080
+    self.assertTrue(hasattr(args,'target_gpu'),'runtime lacks explicit GPU profile')
+AssertionError: False is not true : runtime lacks explicit GPU profile
+
+======================================================================
+FAIL: test_unknown_profile_is_rejected_without_creating_files (test_hgtnet_3090_delivery.TargetDeliveryTests.test_unknown_profile_is_rejected_without_creating_files)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_3090_delivery.py", line 78, in test_unknown_profile_is_rejected_without_creating_files
+    self.assertIn('target_gpu',inspect.signature(delivery.build_bundle).parameters)
+AssertionError: 'target_gpu' not found in mappingproxy(OrderedDict({'output_path': <Parameter "output_path">}))
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.011s
+
+FAILED (failures=4)

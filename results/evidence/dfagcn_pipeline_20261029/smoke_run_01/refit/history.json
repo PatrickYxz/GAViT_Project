@@ -1,0 +1,8 @@
+[
+  {
+    "elapsed_seconds": 0.003925291355699301,
+    "epoch": 1,
+    "learning_rate": 0.001,
+    "train_ce_sum": 2.0805356025695803
+  }
+]

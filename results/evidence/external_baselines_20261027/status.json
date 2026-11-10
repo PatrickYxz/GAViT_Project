@@ -1,0 +1,13 @@
+{
+  "stage": "MATERIALS_AND_SOURCE_AUDIT_COMPLETE",
+  "selected_first_method": "DFAGCN",
+  "selection_basis": "confirmed method chain and fewer unresolved core architecture choices than HGTNet; not chosen by score",
+  "next_scope": "confirmed components and feature/data interfaces; full architecture still requires Table I/pooling/weights/preprocessing decisions",
+  "model_implementation_complete": false,
+  "tensor_validation_complete": false,
+  "real_smoke_complete": false,
+  "formal_comparison_complete": false,
+  "paid_training_started": false,
+  "new_benchmark_scores": false,
+  "author_reply_required_to_start_confirmed_components": false
+}

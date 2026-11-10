@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "count": 9,
+  "checks": {
+    "old_uuid_reproduces_rejection": true,
+    "auto_selects_current_idle3060": true,
+    "new_explicit_uuid_passes": true,
+    "manifest_selection_passed": true,
+    "weights_reference_passed": true,
+    "single_line_commands": true,
+    "sha_gate_and_preserve": true,
+    "bash_syntax": true,
+    "original_bundle_unchanged": true
+  },
+  "gpu_inventory_replay_only": true,
+  "actual_server_restore_or_training_executed": false
+}

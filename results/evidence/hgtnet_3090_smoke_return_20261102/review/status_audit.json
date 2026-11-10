@@ -1,0 +1,438 @@
+{
+  "schema": "hgtnet3090-smoke-status-independent-audit-v1",
+  "result": "PASS",
+  "passed": 70,
+  "total": 70,
+  "status_file": "results/evidence/hgtnet_3090_smoke_return_20261102/status_reported.json",
+  "status_file_sha256": "620b4b83b49529513f4319f1013ab9ddff6598e6917fcd04cd6b6edf4a78a917",
+  "origin": "User-reported status transcribed locally by root; server original summary/exit/checkpoint/runtime/history/prediction bytes not retrieved.",
+  "accepted_state": "SERVER_REPORTED_HGTNET_REAL_NWPU_SMOKE_COMPLETE_SUMMARY_IDENTITIES_MATCH",
+  "computed_arithmetic": {
+    "validation_correct": 33,
+    "validation_errors": 57,
+    "val_count": 90,
+    "allocated_mib": 1466.8203125,
+    "reserved_mib": 1610.0,
+    "allocated_gib": 1.4324417114257812,
+    "reserved_gib": 1.572265625,
+    "wall_seconds": 58.25750263300006
+  },
+  "limits": [
+    "Macro-F1 is server-reported, not independently recomputed from predictions.",
+    "Checkpoint SHA and numerical reload error are server-reported, not checkpoint-original byte retrieval.",
+    "Runtime gates are verified in delivered code; status omits full runtime version fields.",
+    "Whole-smoke wall time does not establish training or inference throughput, billable duration, or costs.",
+    "Small engineering smoke only; no formal performance, original-paper numerical replication, or method benefit claim."
+  ],
+  "checks": [
+    {
+      "name": "reported_state",
+      "passed": true,
+      "details": {
+        "reported": "complete",
+        "expected": "complete"
+      }
+    },
+    {
+      "name": "reported_completed",
+      "passed": true,
+      "details": {
+        "reported": true,
+        "expected": true
+      }
+    },
+    {
+      "name": "reported_exit_code",
+      "passed": true,
+      "details": {
+        "reported": 0,
+        "expected": 0
+      }
+    },
+    {
+      "name": "reported_training_started",
+      "passed": true,
+      "details": {
+        "reported": true,
+        "expected": true
+      }
+    },
+    {
+      "name": "reported_formal_training_started",
+      "passed": true,
+      "details": {
+        "reported": false,
+        "expected": false
+      }
+    },
+    {
+      "name": "reported_target_gpu",
+      "passed": true,
+      "details": {
+        "reported": "3090",
+        "expected": "3090"
+      }
+    },
+    {
+      "name": "reported_physical_gpu_uuid",
+      "passed": true,
+      "details": {
+        "reported": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1",
+        "expected": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1"
+      }
+    },
+    {
+      "name": "reported_counts",
+      "passed": true,
+      "details": {
+        "reported": {
+          "test": 0,
+          "train": 360,
+          "val": 90
+        },
+        "expected": {
+          "train": 360,
+          "val": 90,
+          "test": 0
+        }
+      }
+    },
+    {
+      "name": "reported_optimizer_steps",
+      "passed": true,
+      "details": {
+        "reported": 180,
+        "expected": 180
+      }
+    },
+    {
+      "name": "reported_best_epoch",
+      "passed": true,
+      "details": {
+        "reported": 1,
+        "expected": 1
+      }
+    },
+    {
+      "name": "reported_final_epoch",
+      "passed": true,
+      "details": {
+        "reported": 1,
+        "expected": 1
+      }
+    },
+    {
+      "name": "reported_weights_sha256",
+      "passed": true,
+      "details": {
+        "reported": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893",
+        "expected": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893"
+      }
+    },
+    {
+      "name": "reported_config_sha256",
+      "passed": true,
+      "details": {
+        "reported": "af6ef410125e9d47c87acd0acec1a6db6e0119656793124ceafcb2379eedac25",
+        "expected": "af6ef410125e9d47c87acd0acec1a6db6e0119656793124ceafcb2379eedac25"
+      }
+    },
+    {
+      "name": "reported_manifest_sha256",
+      "passed": true,
+      "details": {
+        "reported": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+        "expected": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e"
+      }
+    },
+    {
+      "name": "reported_wall_seconds",
+      "passed": true,
+      "details": {
+        "reported": 58.25750263300006,
+        "expected": 58.25750263300006
+      }
+    },
+    {
+      "name": "reported_cuda_peak_allocated_bytes",
+      "passed": true,
+      "details": {
+        "reported": 1538072576,
+        "expected": 1538072576
+      }
+    },
+    {
+      "name": "reported_cuda_peak_reserved_bytes",
+      "passed": true,
+      "details": {
+        "reported": 1688207360,
+        "expected": 1688207360
+      }
+    },
+    {
+      "name": "reported_checkpoint_sha",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "reported_reload_zero",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "reported_validation_oa",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "reported_validation_macro_f1",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "oa_integer_consistency",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "step_count_consistency",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "actual_zipapp_sha",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "delivery_target3090",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:bundled_weights_provenance.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:configs/hgtnet_independent_v0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:configs/hgtnet_independent_v0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:external_baselines/__init__.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:external_baselines/__init__.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:external_baselines/hgtnet/__init__.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:external_baselines/hgtnet/__init__.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:external_baselines/hgtnet/__main__.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:external_baselines/hgtnet/__main__.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:external_baselines/hgtnet/attention.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:external_baselines/hgtnet/attention.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:external_baselines/hgtnet/checkpoint.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:external_baselines/hgtnet/checkpoint.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:external_baselines/hgtnet/config.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:external_baselines/hgtnet/config.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:external_baselines/hgtnet/graph.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:external_baselines/hgtnet/graph.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:external_baselines/hgtnet/model.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:external_baselines/hgtnet/model.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:external_baselines/hgtnet/nwpu_data.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:external_baselines/hgtnet/nwpu_data.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:external_baselines/hgtnet/nwpu_engine.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:external_baselines/hgtnet/nwpu_engine.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:external_baselines/hgtnet/pretrained.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:external_baselines/hgtnet/pretrained.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:external_baselines/hgtnet/resources.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:external_baselines/hgtnet/resources.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:external_baselines/hgtnet/smoke.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:external_baselines/hgtnet/smoke.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:tools/run_dfagcn_nwpu_smoke.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:tools/run_dfagcn_nwpu_smoke.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "payload_identity:tools/run_hgtnet_nwpu_smoke.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "current_source_matches_payload:tools/run_hgtnet_nwpu_smoke.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "canonical_config_sha",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "config_class_seed",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "provenance_weight_sha",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "runner_fixed_config_sha",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "runner_fixed_weight_sha",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "data_fixed_manifest_sha",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "status_complete_gate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "final_identity_recheck",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "checkpoint_reload_tolerance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "history_and_prediction_persisted",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "allocator_scope_explicit",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "timing_scope_explicit",
+      "passed": true,
+      "details": null
+    }
+  ]
+}

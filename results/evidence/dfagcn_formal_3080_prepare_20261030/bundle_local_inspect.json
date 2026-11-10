@@ -1,0 +1,59 @@
+{
+  "action": "inspect",
+  "blockers": [
+    "data_manifest",
+    "python_version",
+    "version:torch",
+    "version:torchvision",
+    "binary:train",
+    "binary:predict",
+    "target_gpu"
+  ],
+  "dependencies": {
+    "Pillow": {
+      "import_tested": false,
+      "located": true,
+      "version": "10.3.0"
+    },
+    "numpy": {
+      "import_tested": false,
+      "located": true,
+      "version": "1.26.4"
+    },
+    "python": "3.12.13",
+    "torch": {
+      "import_tested": false,
+      "located": true,
+      "version": "2.2.2"
+    },
+    "torchvision": {
+      "import_tested": false,
+      "located": true,
+      "version": "0.17.2"
+    }
+  },
+  "disk": {
+    "checked_path": "/Users/patrick/Projects/GAViT_Project/output/dfagcn_nwpu_formal_3080_20261030",
+    "feature_cache_bytes": 10102579200,
+    "free_bytes": 277633089536,
+    "minimum_gate_bytes": 42949672960,
+    "scope": "capacity gate includes duplicate split caches, nine-C text files and recovered images; not measured cost"
+  },
+  "formal_training_started": false,
+  "gpu_error": "working NVIDIA query and explicit physical UUID required",
+  "manifest_error": "[Errno 2] No such file or directory: '/home/featurize/work/nwpu_protocol_20260927_02.json'",
+  "native_binaries": {},
+  "nvidia": {
+    "error": "[Errno 2] No such file or directory: 'nvidia-smi'",
+    "gpus": [],
+    "processes": []
+  },
+  "output": "/Users/patrick/Projects/GAViT_Project/output/dfagcn_nwpu_formal_3080_20261030/runs/nwpu_seed42_01",
+  "readiness_scope": "stdlib inventory; run verifies actual imports, CUDA/software and staged ZIP hashes; no repeated smoke",
+  "ready": false,
+  "recipe_sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+  "requested_gpu_uuid": "GPU-70be4364-0641-e89d-828e-78727c6001ec",
+  "schema": "dfagcn-nwpu-formal-3080-v1",
+  "weights_bytes": 553433881,
+  "weights_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0"
+}

@@ -1,0 +1,18 @@
+test_branch_rejects_input_device_different_from_parameters (test_dfagcn_features.FeatureAdapterTests.test_branch_rejects_input_device_different_from_parameters) ... ok
+test_complete_torchvision_vgg16_meta_forward_has_paper_layer_shapes (test_dfagcn_features.FeatureAdapterTests.test_complete_torchvision_vgg16_meta_forward_has_paper_layer_shapes) ... ok
+test_cpu_convolution_input_rejects_nonfinite_pixels (test_dfagcn_features.FeatureAdapterTests.test_cpu_convolution_input_rejects_nonfinite_pixels) ... ok
+test_cpu_convolution_state_roundtrip_preserves_real_outputs (test_dfagcn_features.FeatureAdapterTests.test_cpu_convolution_state_roundtrip_preserves_real_outputs) ... ok
+test_fc_method_independently_runs_complete_meta_path_in_eval (test_dfagcn_features.FeatureAdapterTests.test_fc_method_independently_runs_complete_meta_path_in_eval) ... ok
+test_features_stay_in_eval_after_parent_or_backbone_train (test_dfagcn_features.FeatureAdapterTests.test_features_stay_in_eval_after_parent_or_backbone_train) ... ok
+test_forward_rejects_different_batch_sizes (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_batch_sizes) ... ok
+test_forward_rejects_different_input_devices (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_input_devices) ... ok
+test_forward_rejects_different_input_dtypes (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_input_dtypes) ... ok
+test_input_contract_rejects_invalid_branch_tensors (test_dfagcn_features.FeatureAdapterTests.test_input_contract_rejects_invalid_branch_tensors) ... ok
+test_preserves_callers_parameter_gradient_flags (test_dfagcn_features.FeatureAdapterTests.test_preserves_callers_parameter_gradient_flags) ... ok
+test_real_cpu_convolutions_preserve_negative_pre_relu_values (test_dfagcn_features.FeatureAdapterTests.test_real_cpu_convolutions_preserve_negative_pre_relu_values) ... ok
+test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.965s
+
+OK

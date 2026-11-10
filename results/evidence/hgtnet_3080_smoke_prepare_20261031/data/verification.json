@@ -1,0 +1,11 @@
+{
+  "data_tests": 11,
+  "helper_regression_tests": 11,
+  "local_fixture_only": true,
+  "real_nwpu_or_gpu_verified": false,
+  "sha256": {
+    "external_baselines/hgtnet/nwpu_data.py": "9c9b8ad586d4d903f562be7d499436f4ec1779a2e197aa6bc146c125bbccee4e",
+    "tests/test_hgtnet_nwpu_data.py": "c65c968927cb6432675f2bd866c4744e2e74e5dbc8083546ed32266ddf4a2dd0",
+    "tools/run_dfagcn_nwpu_smoke.py": "ff3311966cf80ca4e15fb2a865c3dff1ca67e42dbcd0a944de8b6cddcbc5203d"
+  }
+}

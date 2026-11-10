@@ -1,0 +1,499 @@
+\chapter{Literature Review}
+\label{chap:related-work}
+
+\section{Scope and comparison perspective}
+
+Remote sensing scene classification connects visual representation learning
+with a question about spatial organisation: which arrangements of land-cover
+elements distinguish one scene from another? Cheng et al.~\cite{cheng2020scene}
+reviewed this problem through its methods, benchmarks and remaining challenges.
+Thapa et al.~\cite{thapa2023review} subsequently examined deep-learning-based
+scene classification. These reviews provide a broad context for the present
+study, whose focus is the narrower relationship between contextual image
+features, regional aggregation and explicit graph reasoning.
+
+This chapter follows three connected streams: visual backbones for remote
+sensing, graph-based image understanding, and region grouping. It compares
+methods along five dimensions: the visual unit represented by a node or token;
+the rule defining its neighbours; the operation aggregating their information;
+the position of the relational module; and the supervision used to learn the
+representation. This organisation separates architectural similarity from
+evidence that two methods solve the same task under comparable conditions.
+
+Scene classification assigns an image-level description. A single-label
+benchmark selects one scene category, whereas a multi-label benchmark permits
+several land-cover labels for the same image. Neither task directly requires
+object boxes or semantic masks. Thus, a region useful for classification need
+not coincide with an annotated object. This distinction matters when grouping
+and graph visualisations are interpreted: class supervision can reward a
+predictive representation without enforcing a human-defined segmentation.
+
+The chapter includes general vision methods where their mechanisms directly
+inform GAViT. Their inclusion does not imply that their natural-image,
+video, point-cloud or segmentation results transfer unchanged to remote
+sensing classification. Likewise, the review distinguishes a design precedent
+from a reproduced experimental comparator.
+
+\section{Learning contextual visual representations}
+
+\subsection{Convolutional features and transfer to remote sensing}
+
+Convolutional neural networks (CNNs) learn spatially shared feature extractors
+whose receptive fields expand through successive layers. Simonyan and
+Zisserman~\cite{simonyan2015vgg} investigated deep networks built from small
+convolution filters. He et al.~\cite{he2016resnet} introduced residual learning
+to facilitate optimisation of substantially deeper networks. These designs
+provide two relevant foundations: hierarchical features describe images at
+different levels, and residual paths allow an additional transformation to
+modify an existing representation. Neither property alone specifies an
+explicit graph between image regions.
+
+The usefulness of natural-image pretraining for aerial scenes was investigated
+directly. Penatti et al.~\cite{penatti2015deepfeatures} examined whether deep
+features generalised from everyday objects to remote sensing and aerial
+scenes. Hu et al.~\cite{hu2015transferring} studied transferring pretrained
+CNN representations to high-resolution scene classification. Nogueira
+et al.~\cite{nogueira2017exploiting} further investigated ways of exploiting
+CNNs for this task. Together, these studies motivate treating pretraining and
+adaptation as experimental factors, rather than attributing every performance
+difference to the last architectural module.
+
+Scale handling is another example of a distinct design choice. Xie
+et al.~\cite{xie2019scalefree} investigated a scale-free CNN that replaced
+fully connected processing with convolutional operations and global pooling
+to accommodate variable image sizes. Accommodating scale variation through
+the feature extractor differs from constructing content-adaptive region
+membership. These mechanisms may address related scene variation without
+being equivalent architectural interventions.
+
+Transfer also affects the interpretation of a common-backbone comparison.
+Using the same pretrained feature extractor provides a controlled starting
+point, but joint fine-tuning can change that extractor differently in two
+models. A graph-augmented model therefore includes both its added relational
+operations and the representation learned in their presence. Removing its
+graph after training does not recover an independently trained backbone
+baseline. This is an experimental distinction, rather than a limitation
+specific to CNNs or Transformers.
+
+CNNs remain a relevant comparison class. Liu et al.~\cite{liu2022convnext}
+revisited convolutional design and introduced ConvNeXt through a systematic
+modernisation of a residual network. This work cautions against explaining
+architectural performance solely by a CNN-versus-Transformer label. For the
+present study, the main backbone is held fixed so that the regional branch
+can be examined without simultaneously replacing the entire feature hierarchy.
+
+\subsection{Attention, image tokens and hierarchical backbones}
+
+Vaswani et al.~\cite{vaswani2017attention} introduced the Transformer around
+attention-based sequence processing. Its relevance here is the content-dependent
+combination of representations, rather than the original language task.
+Dosovitskiy et al.~\cite{dosovitskiy2021vit} applied a Transformer to image
+patch sequences in the Vision Transformer (ViT). Patch tokenisation supplied
+a regular input representation; attention subsequently contextualised those
+tokens. The resulting features should not be interpreted as independent
+unprocessed image blocks.
+
+Training choices remained consequential. Touvron
+et al.~\cite{touvron2021deit} studied data-efficient image Transformers and
+attention-based distillation. Their work demonstrated that architecture,
+training recipe and teacher information must be considered together. A
+comparison using different pretraining data or distillation supervision does
+not isolate the effect of a regional graph, even when both models contain
+Transformer layers.
+
+Hierarchical Transformers provided another route to organising spatial
+information. Wang et al.~\cite{wang2021pvt} proposed the Pyramid Vision
+Transformer, which progressively reduced spatial resolution to form a
+feature hierarchy. Liu et al.~\cite{liu2021swin} used local windows and
+shifted-window connections in Swin. These approaches made multi-scale and
+cross-location interaction part of the backbone design. Consequently, adding
+a graph above Swin tests a further relational organisation of features that
+already contain context; it does not introduce context into an otherwise
+context-free model.
+
+Backbone token resolution constrains the regional branch. A late-stage
+representation is computationally compact and carries high-level information,
+but its spatial units can mix several land-cover elements. Moving a graph to
+earlier features would change its node count, receptive fields and cost.
+Similarly, treating every patch as a node differs from aggregating several
+contextual tokens into one region. This motivates examining node construction
+and insertion depth alongside the choice of graph operator.
+
+\subsection{Remote sensing Transformers and domain pretraining}
+
+Bazi et al.~\cite{bazi2021remotevit} investigated vision Transformers for
+remote sensing image classification. Zhang et al.~\cite{zhang2021trs}
+also studied Transformer-based remote sensing scene representation. Their
+relevance is the application of token interactions to scene-level recognition;
+using attention does not by itself imply that the model learns explicit
+geographic objects or their semantic relationships.
+
+Xu et al.~\cite{xu2025hetmcl} more recently combined high-frequency-enhancing
+Transformer processing with multi-layer contextual learning for remote
+sensing scene classification. This provides a further example of treating
+feature detail and contextual fusion jointly. Its frequency-based design
+differs from defining a small graph of pooled regions, and its reported
+results do not identify which mechanism would improve the shared-backbone
+protocol used here.
+
+Recent representation learning also changes what is available before task
+fine-tuning. He et al.~\cite{he2022mae} proposed masked autoencoders, using
+an asymmetric encoder--decoder to reconstruct missing image content. In
+remote sensing, Cong et al.~\cite{cong2022satmae} considered temporal and
+multispectral information in masked-autoencoder pretraining. Reed
+et al.~\cite{reed2023scalemae} incorporated scale awareness, while Noman
+et al.~\cite{noman2024satmaepp} investigated multi-scale reconstruction.
+These works make the pretraining signal and spatial scale important parts
+of the representation-learning problem.
+
+Liu et al.~\cite{liu2024remoteclip} developed RemoteCLIP through visual--language
+representation learning for remote sensing. Such supervision differs from
+learning only from the image-level labels of a downstream scene dataset.
+Additional text, temporal observations or spectral bands can improve the
+information available to a model, but they also change the comparison
+conditions. This thesis uses RGB inputs and a common recorded pretrained
+backbone in its internal architectural comparisons. Domain-pretrained methods
+are therefore relevant context, rather than automatically interchangeable
+baselines under that protocol.
+
+Across these studies, richer pretraining and explicit relational structure
+address different design choices. Stronger initial features may reduce the
+remaining benefit of an added module, or may make meaningful grouping easier.
+Neither possibility follows from architectural inspection alone. Holding
+the backbone initialisation and downstream data protocol fixed is useful for
+testing one specific regional design, while broader backbone comparisons
+would answer a separate question about representation quality.
+
+\section{Explicit graphs for visual understanding}
+
+\subsection{Nodes, adjacency and message aggregation}
+
+A graph representation requires a definition of its entities and connections.
+For an image, nodes may describe pixels, patches, pooled regions or objects.
+Spatial adjacency, feature similarity and known semantic relations encode
+different assumptions about which nodes should exchange information. A
+network that predicts scene labels from a feature-neighbour graph should
+therefore be distinguished from one that predicts labelled subject--relation--object
+triples in a conventional scene graph.
+
+Kipf and Welling~\cite{kipf2017gcn} developed a graph convolutional network
+(GCN) using normalised neighbourhood propagation. Hamilton
+et al.~\cite{hamilton2017graphsage} proposed learning neighbourhood
+aggregation functions for inductive node representation. Veli\v{c}kovi\'{c}
+et al.~\cite{velickovic2018gat} introduced graph attention to learn how
+neighbours contribute within a supplied connectivity structure. These works
+established useful aggregation mechanisms, but did not establish that a
+particular image grouping or feature-distance rule is semantically correct.
+
+The distinction between topology and aggregation is central to GAViT.
+Selecting a neighbour by cosine similarity answers which representation is
+eligible to contribute. Attention then determines its contribution according
+to the graph layer. The two scores need not be identical. A fixed spatial
+edge can receive a learned attention weight, while a content-selected edge
+can be used without passing its original similarity value as a message
+coefficient. Reporting a graph therefore requires specifying both decisions.
+
+Directed edges add another necessary detail. If a query selects a feature
+neighbour, the intended aggregation usually requires the neighbour's
+representation to reach the query. Reversing the stored direction can change
+that operation. The explicit direction, treatment of self-connections and
+duplicate spatial/feature edges are consequently part of the method
+definition, even when they are not visible in a schematic diagram.
+
+\subsection{Dynamic feature graphs and visual backbones}
+
+Wang et al.~\cite{wang2019dgcnn} introduced EdgeConv in a dynamic graph
+network for point clouds. Its feature-space neighbourhoods provide a useful
+precedent for content-dependent connectivity. However, a point-cloud graph
+and a regional image graph have different geometric inputs and prediction
+settings. The precedent supports a design option, not a direct transfer of
+the reported task performance.
+
+Han et al.~\cite{han2022vig} represented images through patch nodes in
+Vision GNN (ViG). Their design combined a graph aggregation module with
+feature transformations in a visual backbone. Munir
+et al.~\cite{munir2024greedyvig} subsequently investigated efficient graph
+construction for vision graph networks. These works connect connectivity
+choices to computational behaviour: the cost of constructing neighbours is
+part of an image graph model, rather than a free preprocessing assumption.
+
+Graph recomputation is also a separate architectural choice. A model may
+construct a feature graph once and reuse it through several message-passing
+layers, or update neighbours after intermediate features change. Both may
+be described as content-dependent, but their information paths and costs
+differ. GAViT uses a low-node-count regional branch above a pretrained visual
+hierarchy, which differs from replacing that hierarchy with repeated graph
+blocks. Its evaluation must include the pooling, graph construction and
+feedback that create the branch, not only the graph layer in isolation.
+
+\subsection{Graph and attention as complementary operators}
+
+Chen et al.~\cite{chen2019glore} proposed Graph-Based Global Reasoning
+Networks, which projected coordinate-space features to a smaller interaction
+space using weighted pooling, performed graph convolution, and broadcast
+the resulting information back. This is a particularly direct precedent
+for aggregation, graph reasoning and return to a spatial representation.
+The distinction of GAViT therefore concerns its anchored grouping, sparse
+spatial-and-feature topology and late-stage feedback implementation, rather
+than the general existence of this three-step organisation.
+
+Graph networks and Transformers can be combined at different levels.
+Ramp\'{a}\v{s}ek et al.~\cite{rampasek2022graphgps} studied a framework that
+combined local message passing, global attention and structural information
+for graph learning. This offered a general perspective on complementary
+information paths, although its graph benchmarks were not a direct evaluation
+of regional remote sensing image classification.
+
+For visual models, complementary paths can appear as parallel feature
+branches, alternating blocks or late-stage augmentation. Their meanings
+depend on the units exchanged between the branches. A channel-attention
+operation, token self-attention and a graph over pooled regions are not
+interchangeable merely because all use learned weights. Comparing their
+insertion points and node granularity is more informative than grouping
+them under a single attention label.
+
+This observation also bounds claims of novelty. Combining graph learning
+with attention-based vision has substantial precedent. The contribution of
+a particular system can instead concern a precisely specified construction,
+its controlled comparison and what its analysis reveals about the conditions
+under which the added structure is useful.
+
+\section{From fixed partitions to learned token groups}
+
+\subsection{Fixed grids and hard feature grouping}
+
+Fixed spatial partitions offer stable region identifiers and inexpensive
+membership rules. They also provide an immediate interpretation for spatial
+neighbours. Their boundaries are determined by coordinates, however, so a
+linear structure or mixed scene may cross several groups. Learned weighting
+within a fixed group changes its pooled representation without changing
+which tokens belong to it. This distinction is particularly important when
+the term attention-guided grouping is used.
+
+Hard feature grouping offers a different trade-off. Clustering can place
+similar tokens together even when their positions differ, but the resulting
+groups may lose a consistent spatial identity. The choice of feature metric,
+number of groups, initialisation and handling of empty groups then becomes
+part of the model. A discrete membership rule also differs from a soft
+assignment through which downstream gradients can change token membership.
+These alternatives motivate retaining a fixed grouping as a reference
+rather than assuming that increased flexibility must improve classification.
+
+\subsection{Superpixels, locality and differentiable association}
+
+Achanta et al.~\cite{achanta2012slic} proposed Simple Linear Iterative
+Clustering (SLIC) superpixels using a local combination of appearance and
+position. Jampani et al.~\cite{jampani2018ssn} introduced Superpixel Sampling
+Networks (SSN), connecting differentiable superpixel formation with learned
+features and downstream objectives. The shared lesson for this thesis is
+that content dependence and spatial constraints can coexist. They need not
+be treated as mutually exclusive grouping strategies.
+
+The level at which grouping operates nevertheless matters. Pixel-level
+superpixels can be assessed against fine spatial boundaries, whereas a
+group of late-stage contextual tokens may have a much coarser and overlapping
+relationship to the input. A fixed anchor can provide a useful prior without
+being a true object centre. Conversely, a visually irregular group does not
+automatically imply a poor classification representation. The appropriate
+claim depends on the supervision, spatial resolution and measured outcome.
+
+Differentiable association also requires specifying its normalisation. A
+token may distribute membership mass across several regions, while a region
+separately normalises the weights of all contributing tokens. These answer
+different questions: where a token belongs, and how a region is represented.
+Separating the two is useful when the same membership is subsequently used
+to send region information back to the original tokens.
+
+\subsection{Object-centric and semantically supervised groups}
+
+Locatello et al.~\cite{locatello2020slot} introduced Slot Attention to
+organise input features through a set of competing slots and iterative
+updates. Its grouping mechanism provides a reference for differentiating
+input membership from slot aggregation. Its exchangeable slot identities
+also differ from regions bound to a persistent spatial anchor. A graph
+defined by neighbouring anchor indices cannot be transferred to arbitrary
+slots without explaining the new meaning of adjacency.
+
+Xu et al.~\cite{xu2022groupvit} proposed GroupViT, in which semantic
+segmentation emerged through image--text supervision and hierarchical visual
+grouping. It illustrates how the learning signal and grouping architecture
+interact. GAViT uses scene classification labels rather than the same
+visual--language supervision, so it cannot inherit GroupViT's semantic
+segmentation interpretation solely by using learned assignments.
+
+These methods also show why soft grouping should be specified concretely.
+The term can describe competitive slots, local cluster associations or
+hierarchical group-token assignments. They need not use the same update
+rule, locality, forward representation or gradient estimator. A negative
+result for a single local-prototype design therefore does not reject
+learnable grouping as a whole; a positive classification result would
+likewise not establish object discovery without an appropriate evaluation.
+
+\subsection{Token aggregation, interaction and reconstruction}
+
+Wu et al.~\cite{wu2020visualtransformers} explored visual Transformers that
+organised spatial features through visual tokens. Ryoo
+et al.~\cite{ryoo2021tokenlearner} introduced TokenLearner and TokenFuser in
+a video representation framework, combining adaptive token extraction with
+a mechanism for returning information to spatial features. These provide
+prior examples of reducing the number of units used for interaction while
+retaining a connection to a denser visual representation.
+
+Huang et al.~\cite{huang2023stvit} proposed a vision Transformer with super
+token sampling, denoted STViT: sparse associations aggregated visual tokens,
+interaction occurred among super tokens, and information was mapped back.
+Chang et al.~\cite{chang2023semanticstvit} introduced Semantic Token ViT,
+which uses the same STViT abbreviation for a different architecture. Its
+STViT-R variant restores spatial representations through attention from
+image-token queries to semantic-token keys and values. Both studies provide
+prior examples of compact token interaction and return to a denser spatial
+representation. GAViT uses its particular regional assignments and sparse
+graph operator within this established organisational pattern.
+
+Bolya et al.~\cite{bolya2023tome} proposed Token Merging to reduce token
+redundancy through merging. This makes computational efficiency a distinct
+purpose for grouping. A method that reduces tokens inside a backbone may
+save subsequent computation, whereas a regional branch added after a full
+backbone introduces its own cost. Similar reductions in node count therefore
+do not imply similar overall speed or memory behaviour.
+
+The local prototype variant in this thesis occupies a restricted position
+among these alternatives. It retains anchor neighbourhoods, constructs
+prototypes from each image's contextual tokens, and uses one local assignment
+step before sparse graph reasoning. It neither implements the complete
+iterative Slot Attention procedure nor replaces super-token attention with
+an equivalent operator. Its value is tested as a specified grouping and
+feedback variant, rather than inferred from the success of a related family.
+
+\section{Directly related remote sensing graph methods}
+
+\subsection{Hierarchical graph-enhanced Transformers}
+
+Li et al.~\cite{li2024hgtnet} proposed a Hierarchical Graph-Enhanced
+Transformer Network (HGTNet) for remote sensing scene classification. The
+method combined hierarchical Transformer representations, attention modules
+and graph-based feature extraction. It is directly relevant to the claim
+that explicit relations can complement visual attention in this application.
+Its placement and organisation of modules differ from a single regional
+graph above the final stage of a shared Swin-T backbone.
+
+This difference makes HGTNet a complete-method comparator rather than a
+single-component ablation. A comparison must retain and disclose its
+backbone, graph operations, feature fusion and pretraining assumptions.
+Replacing those elements with an available Swin--GAT sequence would create
+a different implementation. Its published performance also depends on its
+reported benchmark protocol; it cannot be inserted into a common-protocol
+result column as though it were measured in this project.
+
+\subsection{Deep feature aggregation through graph convolution}
+
+Xu et al.~\cite{xu2022dfagcn} proposed a Deep Feature Aggregation Framework
+driven by a Graph Convolutional Network (DFAGCN). Their method combined
+multiple levels of convolutional features, graph-based aggregation, feature
+fusion and a final linear classification stage. Its relationship to GAViT
+lies in aggregating visual information through an explicit graph, while
+its feature source and processing chain differ from the token-feedback
+design studied here.
+
+The complete chain matters when defining a comparison. Multiscale feature
+extraction, graph training, fusion coefficients and the classifier's
+selection procedure can each change the resulting representation. A
+standalone graph-convolution layer attached to the present classifier is
+therefore not a reproduction of DFAGCN. Independent implementation choices
+must be recorded where the available specification leaves uncertainty.
+Preparing or verifying individual components also does not establish a
+completed benchmark result.
+
+Table~\ref{tab:relational-designs} summarises the architectural relationships
+most relevant to the study. Its entries compare designs, not performance
+under a shared experimental protocol.
+
+\begin{table}[tbp]
+ \centering
+ \caption{Selected relational designs and their relationship to GAViT.
+ The table describes architectural organisation rather than a ranking of
+ published classification scores.}
+ \label{tab:relational-designs}
+ \small
+ \setlength{\tabcolsep}{4pt}
+ \begin{tabular}{p{2.3cm}p{4.0cm}p{6.6cm}}
+  \toprule
+  Method & Visual units and interaction & Relationship to the present study\\
+  \midrule
+  GloRe (2019) & Pooled interaction-space graph and broadcasting & Direct graph precedent for aggregation, relational reasoning and mapping back.\\[0.4em]
+  ViG (2022) & Patch-node graph backbone & Repeated visual graph processing differs from a late regional branch.\\[0.4em]
+  TokenLearner (2021) & Adaptive tokens and spatial fusion & Aggregation and return to spatial features predate the present framework.\\[0.4em]
+  Super Token Sampling (2023) & Sparse token association and super-token attention & Shares the broad aggregation--interaction--mapping organisation; the interaction operator differs.\\[0.4em]
+  HGTNet (2024) & Hierarchical Transformer and graph feature fusion & Direct remote sensing comparator with a different full architecture.\\[0.4em]
+  DFAGCN (2022) & Multilevel CNN features and graph aggregation & Direct graph-based comparator with a different staged training and classification chain.\\[0.4em]
+  GAViT & Anchored token groups and sparse regional GAT & Tests fixed and local-prototype membership with a common backbone and feedback interface.\\
+  \bottomrule
+ \end{tabular}
+\end{table}
+
+\section{Evaluation, interpretability and computational trade-offs}
+
+Architectural comparisons require compatible evidence. The number of training
+images, validation rule, pretraining, augmentation and numerical settings
+can all affect the meaning of a result. Fixed-split training repetitions
+measure a different source of variation from experiments that redraw the
+data partition. Published means and standard deviations should therefore
+be accompanied by their repetition protocol. A higher number in a paper
+using another split or additional supervision is not an isolated estimate
+of the benefit of its graph module.
+
+Single-label and multi-label metrics also answer different questions. Overall
+accuracy counts correct scene decisions, whereas average precision assesses
+the ranking of examples for a label. Macro-averaged measures weight classes
+equally, while micro-averaged measures combine their decisions. For a
+multi-label task, threshold-dependent and ranking metrics can move in
+different directions. This thesis fixes its principal measures before
+comparison and preserves per-class outcomes, rather than changing the main
+criterion after observing favourable results.
+
+Qualitative evidence is useful when its meaning is precise. A partition
+shows membership, a graph plot shows selected connectivity, and a weight
+map shows a particular aggregation mechanism. None automatically measures
+semantic region quality. In particular, similarity-based feature edges
+can connect predictive contexts without representing named relationships
+between objects. Evaluating graph reasoning therefore benefits from showing
+both corrected examples and newly introduced errors, together with full-set
+classification results. Selected successful images alone cannot establish
+a general explanation of model behaviour.
+
+Efficiency likewise belongs to the research question. Pooling reduces the
+number of nodes in a graph but does not eliminate backbone computation or
+the cost of constructing the graph. Parameter count, forward latency,
+throughput, memory and total training duration describe different aspects
+of that cost. Comparisons should state whether inputs are already on the
+device and whether loading, preprocessing and transfer are included. An
+added branch can have modest memory overhead yet affect latency through
+its sequence of operations; this must be measured under shared conditions.
+
+\section{Synthesis and research position}
+
+The literature supports three distinctions that guide the experimental
+questions in Chapter~\ref{chap:introduction}. First, a strong contextual
+backbone and an explicit regional graph are different forms of organisation.
+Their combination is plausible, but its incremental benefit must be
+established through a common-backbone comparison. Second, learnable pooling
+weights, learnable membership and learned graph attention are separate
+sources of flexibility. Increasing one does not establish that the resulting
+regions better represent land-cover entities or improve scene recognition.
+Third, aggregation and feedback have clear precedents, so the present work
+is positioned around a defined regional construction and its evaluation.
+
+GAViT accordingly combines a pretrained Swin-T hierarchy with anchored region
+aggregation, a sparse spatial-and-feature graph, graph attention and feedback
+to the original tokens. Its fixed and local-prototype variants share the
+main interfaces while changing the membership mechanism. Chapter~\ref{chap:method}
+specifies the implementation; Chapter~\ref{chap:setup} separates the data
+and model-selection protocols needed to assess it.
+
+The intended evidence includes classification performance across tasks and
+training repetitions, component comparisons, computational cost and
+diagnostic visualisations. These support a bounded account of when the
+added structure helps, when it harms, and which explanations remain
+unresolved. This positioning allows positive and negative observations to
+inform the same research questions without presupposing that a more
+elaborate architecture must outperform its shared backbone.

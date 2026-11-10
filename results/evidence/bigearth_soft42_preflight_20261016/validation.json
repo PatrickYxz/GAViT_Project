@@ -1,0 +1,42 @@
+{
+  "status": "returned_preflight_reconciled",
+  "received_date": "2026-10-16",
+  "seed": 42,
+  "checks": [
+    "Correct preflight identity",
+    "Preflight explicitly did not start formal training",
+    "Frozen release matches",
+    "All three full split counts and SHA256 match",
+    "Inventory found no formal/partial42 or unreadable reports",
+    "Only known old engineering smoke found",
+    "Swin42 rounded metrics match existing record",
+    "Legacy baseline provenance limitation retained",
+    "Fixed42 rounded metrics match existing record",
+    "Fixed42 training seed/recipe/final30 match",
+    "Fixed42 code and best13 match",
+    "Fixed42 architecture identity matches",
+    "Returned fixed42 metadata/checkpoint hash agree",
+    "Valid reported checkpoint/test-log digests: /home/featurize/work/GAViT_Project/checkpoints/best_bigearth_swin.pth",
+    "Valid reported checkpoint/test-log digests: /home/featurize/work/GAViT_Project/checkpoints/best_bigearth_gavit_sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654.pth",
+    "Requested GPU model",
+    "Software matches validated soft43",
+    "FP32/no AMP and TF32 flags match soft43",
+    "Actual returned UUID is recorded",
+    "Changed physical4090 with same model retained",
+    "Delivered package SHA integrity",
+    "Worker expects delivered preflight SHA",
+    "Next command matches delivered command"
+  ],
+  "source_sha256": "3f0f744190b13d1d2eba36fdf7c274ac63fed4a0a3a76c6235c847eeb08438e5",
+  "source_attachment": "/Users/patrick/.codex/attachments/f8876583-fb9b-4c5d-ba5b-bec2a656cdb9/已粘贴的文本.txt",
+  "normalization": "Original pasted fragment omitted the opening brace; prepend one brace and parse only the JSON object, preserving original bytes separately.",
+  "evidence_scope": "User-returned preflight; no independent live server connection or checkpoint download.",
+  "gpu_uuid": "GPU-44825cf0-bd98-bfdc-efbc-0100238a6789",
+  "smoke_received": false,
+  "formal_training_started_as_of_preflight": false,
+  "limitations": [
+    "Legacy Swin42 has no sidecar; old checkpoint/log association and full protocol are not newly proven.",
+    "Historical code/hardware differences remain.",
+    "Current4090 CUDA smoke and formal run still await returned evidence."
+  ]
+}

@@ -1,0 +1,36 @@
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+{
+  "schema": "dfagcn-real-engineering-smoke-v1",
+  "completed": true,
+  "mode": "engineering",
+  "dataset": "synthetic",
+  "pretrained": false,
+  "weights_kind": "random_smoke",
+  "images": 20,
+  "counts": {
+    "test": 10,
+    "val": 2,
+    "train": 8
+  },
+  "recipe_sha256": "52540b7a9462eb82d9d646ea916c446a8f1a9de71f24bddce1e1eb9b1268412a",
+  "weights_tensor_sha256": "e53c8bac71bbe650b4cd08338c593b071e3c5106cffd3c1f81b7b456a05217fe",
+  "selected_epoch": 1,
+  "selected_C": 0.1,
+  "refit_samples": 10,
+  "reload_max_abs_error": 0.0,
+  "runtime": {
+    "python": "3.12.13",
+    "torch": "2.2.2",
+    "torchvision": "0.17.2",
+    "numpy": "1.26.4",
+    "device": "cpu",
+    "cpu_threads": 1
+  },
+  "vgg_and_frozen_cache_seconds": 5.739386042114347,
+  "total_elapsed_seconds": 6.028270208276808,
+  "test_samples": 10,
+  "claim_scope": "Engineering image/VGG/graph/train/refit/LIBLINEAR/test chain only; no NWPU score or pretrained-parity claim."
+}

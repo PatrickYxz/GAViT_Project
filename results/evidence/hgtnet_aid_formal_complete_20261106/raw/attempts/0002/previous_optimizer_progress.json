@@ -1,0 +1,14 @@
+{
+  "attempt": 1,
+  "completed": false,
+  "epoch": 76,
+  "formal_training_started": true,
+  "optimizer_step_completed": true,
+  "optimizer_step_succeeded": true,
+  "optimizer_steps": 48655,
+  "phase": "refit",
+  "pid": 9450,
+  "samples_seen": 2880,
+  "stage": "training",
+  "training_started": true
+}

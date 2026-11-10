@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "reviewed_date": "2026-10-31",
+  "scope": "primary-source architecture recheck only; no model code or GPU execution",
+  "primary_source_url": "https://www.researchgate.net/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification",
+  "doi_url": "https://doi.org/10.1109/JSTARS.2024.3491335",
+  "author_homepage": "https://ovoyu.github.io/",
+  "source_access": {
+    "fulltext_body": "read through web open; body includes printed-page labels and equations",
+    "pdf_attempt_limit": 2,
+    "pdf_attempts": [
+      {
+        "url": "https://www.researchgate.net/publication/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification/fulltext/6a5677127fcc0765f3ea3d10/A-Hierarchical-Graph-Enhanced-Transformer-Network-for-Remote-Sensing-Scene-Classification.pdf",
+        "result": "web fetch Cache miss"
+      },
+      {
+        "url": "https://www.researchgate.net/publication/publication/385542196_A_Hierarchical_Graph-Enhanced_Transformer_Network_for_Remote_Sensing_Scene_Classification/fulltext/6729c7955852dd723ca90a46/A-Hierarchical-Graph-Enhanced-Transformer-Network-for-Remote-Sensing-Scene-Classification.pdf",
+        "result": "web fetch Cache miss"
+      }
+    ],
+    "pdf_downloaded": false,
+    "pdf_sha256": null,
+    "figure3_page": "https://www.researchgate.net/figure/Overview-of-HGTNet-a-The-architecture-of-HGTNet-b-Structure-of-the-DA-STB-c_fig2_385542196",
+    "figure3_page_read": true,
+    "figure3_pixels_read": false,
+    "figure3_image_url_returned_by_page": "https://www.researchgate.net/figure/publication/385542196/figure/fig2/AS%3A11431281288585368%401730791343140/Overview-of-HGTNet-a-The-architecture-of-HGTNet-b-Structure-of-the-DA-STB-c.jpg",
+    "figure3_image_result": "linked image fetch Cache miss; ordinary urllib attempt failed at DNS; image query found no target diagram",
+    "figure4_page": "https://www.researchgate.net/figure/Detailed-structure-diagram-of-DA-module_fig3_385542196",
+    "figure4_page_result": "Cache miss",
+    "figure4_pixels_read": false,
+    "access_boundary": "No authentication, CAPTCHA handling, payment or access-control bypass. No further PDF attempts after the two failures."
+  },
+  "confirmed": [
+    {
+      "id": "embedding_and_channels",
+      "section": "IV-B",
+      "printed_page": 20322,
+      "web_text_lines": [1231, 1249],
+      "facts": {
+        "input": [3, 224, 224],
+        "patch_size": 4,
+        "embedding_channels": 128,
+        "da_input_channels": [128, 256, 512],
+        "da_preserves_channels_and_spatial_size": true,
+        "stage_output_channels": [256, 512, 512],
+        "paper_stb_depths": [1, 1, 9],
+        "heads": [4, 8, 16]
+      }
+    },
+    {
+      "id": "stb_pair_mapping",
+      "section": "III-B.2 equations 8-11",
+      "printed_page": 20320,
+      "web_text_lines": [941, 978],
+      "facts": {
+        "one_paper_stb_contains": ["LN+W-MSA+residual", "LN+MLP+residual", "LN+SW-MSA+residual", "LN+MLP+residual"],
+        "derived_single_attention_depths": [2, 2, 18],
+        "mapping_kind": "direct consequence of equations, not evidence that any specific Swin library was used"
+      }
+    },
+    {
+      "id": "stage_downsampling_text",
+      "section": "III-A and III-B",
+      "printed_page": 20319,
+      "web_text_lines": [772, 811],
+      "facts": {
+        "each_stage_described_as_downsampling": true,
+        "da_stb_components": ["DA", "L STB modules", "downsampling module"],
+        "exact_spatial_shapes_from_figure_confirmed": false,
+        "interpretation": "The prose favors spatial reduction at all three stages. A third stage that keeps 14x14 is an engineering choice that must be disclosed, even though exact downsample factors remain unknown."
+      }
+    },
+    {
+      "id": "graph_input_and_dwconv_roles",
+      "section": "III-A",
+      "printed_page": 20319,
+      "web_text_lines": [760, 803],
+      "facts": {
+        "graph_input": "output of transformer extractor",
+        "skip_fusion": "visual features with graph structural features",
+        "first_dwconv_role": "dimensionality reduction",
+        "later_dwconv_role": "spatial size reduction",
+        "multiscale_graph_taps_confirmed": false,
+        "dwconv_exact_width_stride_kernel_padding_confirmed": false
+      }
+    },
+    {
+      "id": "graph_operator_and_depth",
+      "section": "III-C equations 12-13 and IV-B",
+      "printed_pages": [20321, 20322],
+      "web_text_lines": [[1087, 1121], [1249, 1259]],
+      "facts": {
+        "vig_group_depths": [6, 2],
+        "activation": "GELU",
+        "grapher_formula": "FC_out(GELU(GraphConv(FC_in(X)))) + X",
+        "ffn_formula": "FC2(GELU(FC1(XG))) + XG",
+        "method_section_operator": "max-relative graph convolution",
+        "setup_section_operator": "average aggregation",
+        "operator_conflict_resolved": false,
+        "implementation_primary_candidate": "mr_max following explicit III-C operator and explanation",
+        "relative_mean_status": "project-defined ambiguity probe; not established as author's implementation"
+      }
+    },
+    {
+      "id": "k20_vs_illustration_k10",
+      "section": "Fig.5 caption and IV-B",
+      "printed_pages": [20321, 20322],
+      "web_text_lines": [[1040, 1042], [1251, 1255]],
+      "facts": {
+        "figure5_visualization_k": 10,
+        "experimental_setup_k": 20,
+        "interpretation": "The caption labels the displayed visualization k10; it does not establish k10 as the training configuration. Use k20 when following the setup, while retaining the discrepancy in provenance."
+      }
+    },
+    {
+      "id": "da_equations",
+      "section": "III-B.1 equations 1-7",
+      "printed_pages": [20319, 20320],
+      "web_text_lines": [852, 939],
+      "facts": {
+        "branches": "parallel channel and spatial attention on the same input; sum weighted outputs",
+        "channel_pool": "spatial average and max; shared fully connected transform; aggregate; sigmoid",
+        "spatial_pool": "channel average and max; concatenate; three 3x3 dilated convolutions with dilations 1,2,3; sigmoid",
+        "sigma_conflict": "body prose says sigmoid; equation-adjacent symbol definition says GELU",
+        "equations_4_5_text_layer_reliable": false,
+        "figure4_pixels_available": false,
+        "sigmoid_candidate_status": "engineering resolution prioritizing prose; not verified author code",
+        "mlp_reduction_hidden_activations_spatial_widths_confirmed": false
+      }
+    }
+  ],
+  "unconfirmed_core": [
+    "Original figure3 arrow topology, spatial resolutions, graph taps and DWConv specifications",
+    "Third stage downsample stride and channel projection details",
+    "Graph widths, normalization, self-loop policy, graph distance, dilation and relative-position terms",
+    "Fusion sum versus concatenation, skip origin, pooling type/order, classifier details",
+    "Exact ImageNet checkpoint, architecture identity, tensor mapping and preprocessing",
+    "Window size, shift size, MLP ratio, dropout, stochastic depth and LN epsilon"
+  ],
+  "shape_candidates_not_author_confirmed": [
+    {
+      "name": "independent_14_to_7",
+      "transformer_spatial": [56, 28, 14, 14],
+      "graph_spatial": [14, 7],
+      "graph_nodes": [196, 49],
+      "k20_feasible": true,
+      "strength": "compatible with keeping the first three Swin-B attention stages and two standard merging layers",
+      "disclosure": "third stage spatial reduction omitted relative to the literal each-stage-downsamples prose"
+    },
+    {
+      "name": "text_consistent_7_to_5",
+      "transformer_spatial": [56, 28, 14, 7],
+      "graph_spatial": [7, 5],
+      "graph_nodes": [49, 25],
+      "second_dwconv_example": {"kernel_size": 3, "stride": 1, "padding": 0},
+      "k20_feasible": true,
+      "strength": "retains all three stage reductions and later graph spatial reduction described in III-A",
+      "disclosure": "final-stage downsample projection, 7-to-5 DWConv and all graph widths remain engineering hypotheses; this is not asserted to match figure3"
+    },
+    {
+      "name": "invalid_7_to_4_with_k20",
+      "graph_spatial": [7, 4],
+      "graph_nodes": [49, 16],
+      "k20_feasible": false,
+      "must_reject_before_graph_construction": true,
+      "must_not_silently_clip_k": true
+    }
+  ],
+  "pretraining_assessment": {
+    "paper_statement": "partial ImageNet pretraining",
+    "swin_b_first_three_stages": "shape-compatible candidate based on channels/depths/heads, not author-confirmed source",
+    "required_label": "partial candidate mapping / independent reimplementation",
+    "official_hgtnet_repo_found": false,
+    "search_scope": "targeted title/HGTNet GitHub search and coauthor homepage; no authenticated or exhaustive repository crawl",
+    "coauthor_homepage_finding": "2024 title/DOI match; no HGTNet source or pretrained download link in the listed paper entry",
+    "note": "CDLNet GitHub links in the ResearchGate page belong to a different suggested publication and are not HGTNet code"
+  }
+}

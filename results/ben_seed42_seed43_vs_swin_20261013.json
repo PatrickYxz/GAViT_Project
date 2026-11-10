@@ -1,0 +1,2200 @@
+{
+  "date": "2026-10-13",
+  "dataset": "BigEarthNet-19",
+  "seeds_shown_separately": [
+    42,
+    43
+  ],
+  "reference_for_all_available_comparisons": "Swin-T",
+  "source_files": [
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/bigearth_four_seed_per_class_comparison.csv",
+      "sha256": "2651da9ad54329ddc46172733e53cf15fefe0978d7230f6d4cc5a0e40c4af0b4"
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/results/ben_seed43_vs_swin_20261013.json",
+      "sha256": "0bc3d98c8012bb1609ca093c6428b666bd5fcc3e42a39dec1fdc9de65c4c6b4e"
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/bigearth_soft42_complete_20261017/summary.json",
+      "sha256": "f2fc2e08396b2fb6b646d7d5b7313d163d0012b532a46ef8ef9f08f8c6e07965"
+    }
+  ],
+  "per_seed": {
+    "42": {
+      "fixed": {
+        "reference": "Swin-T",
+        "seed": 42,
+        "status": "historical_formal_test_printed_metrics",
+        "all19_rows": [
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Urban fabric",
+            "class_zh": "城市建成区",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 86.5,
+            "candidate_AP_percent": 86.3,
+            "delta_AP_pp_approx": -0.2,
+            "delta_decimal": "-0.2",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -0.3,
+              -0.1
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Industrial or commercial units",
+            "class_zh": "工业或商业区",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 52.4,
+            "candidate_AP_percent": 51.1,
+            "delta_AP_pp_approx": -1.3,
+            "delta_decimal": "-1.3",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -1.4,
+              -1.2
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Arable land",
+            "class_zh": "耕地",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 93.3,
+            "candidate_AP_percent": 93.8,
+            "delta_AP_pp_approx": 0.5,
+            "delta_decimal": "0.5",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              0.4,
+              0.6
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Permanent crops",
+            "class_zh": "多年生作物",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 58.8,
+            "candidate_AP_percent": 61.2,
+            "delta_AP_pp_approx": 2.4,
+            "delta_decimal": "2.4",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              2.3,
+              2.5
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Pastures",
+            "class_zh": "牧场",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 86.2,
+            "candidate_AP_percent": 85.8,
+            "delta_AP_pp_approx": -0.4,
+            "delta_decimal": "-0.4",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -0.5,
+              -0.3
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Complex cultivation patterns",
+            "class_zh": "复杂耕作模式",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 68.0,
+            "candidate_AP_percent": 70.1,
+            "delta_AP_pp_approx": 2.1,
+            "delta_decimal": "2.1",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              2.0,
+              2.2
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+            "class_zh": "农业与自然植被混合区",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 73.0,
+            "candidate_AP_percent": 73.7,
+            "delta_AP_pp_approx": 0.7,
+            "delta_decimal": "0.7",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              0.6,
+              0.8
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Agro-forestry areas",
+            "class_zh": "农林复合区",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 87.3,
+            "candidate_AP_percent": 87.1,
+            "delta_AP_pp_approx": -0.2,
+            "delta_decimal": "-0.2",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -0.3,
+              -0.1
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Broad-leaved forest",
+            "class_zh": "阔叶林",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 85.1,
+            "candidate_AP_percent": 86.0,
+            "delta_AP_pp_approx": 0.9,
+            "delta_decimal": "0.9",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              0.8,
+              1.0
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Coniferous forest",
+            "class_zh": "针叶林",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 93.5,
+            "candidate_AP_percent": 93.5,
+            "delta_AP_pp_approx": 0.0,
+            "delta_decimal": "0.0",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -0.1,
+              0.1
+            ],
+            "direction_at_reported_precision": "unresolved_at_rounding",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Mixed forest",
+            "class_zh": "混交林",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 89.3,
+            "candidate_AP_percent": 89.8,
+            "delta_AP_pp_approx": 0.5,
+            "delta_decimal": "0.5",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              0.4,
+              0.6
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Natural grassland and sparsely vegetated areas",
+            "class_zh": "天然草地/稀疏植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 42.9,
+            "candidate_AP_percent": 42.1,
+            "delta_AP_pp_approx": -0.8,
+            "delta_decimal": "-0.8",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -0.9,
+              -0.7
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Moors, heathland and sclerophyllous vegetation",
+            "class_zh": "荒原/石南灌丛/硬叶植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 56.8,
+            "candidate_AP_percent": 61.8,
+            "delta_AP_pp_approx": 5.0,
+            "delta_decimal": "5.0",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              4.9,
+              5.1
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Transitional woodland, shrub",
+            "class_zh": "过渡林地/灌丛",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 78.3,
+            "candidate_AP_percent": 78.8,
+            "delta_AP_pp_approx": 0.5,
+            "delta_decimal": "0.5",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              0.4,
+              0.6
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Beaches, dunes, sands",
+            "class_zh": "沙滩/沙丘/沙地",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 13.3,
+            "candidate_AP_percent": 16.8,
+            "delta_AP_pp_approx": 3.5,
+            "delta_decimal": "3.5",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              3.4,
+              3.6
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Inland wetlands",
+            "class_zh": "内陆湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 62.7,
+            "candidate_AP_percent": 64.1,
+            "delta_AP_pp_approx": 1.4,
+            "delta_decimal": "1.4",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              1.3,
+              1.5
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Coastal wetlands",
+            "class_zh": "海岸湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 30.3,
+            "candidate_AP_percent": 34.7,
+            "delta_AP_pp_approx": 4.4,
+            "delta_decimal": "4.4",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              4.3,
+              4.5
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Inland waters",
+            "class_zh": "内陆水体",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 90.9,
+            "candidate_AP_percent": 91.7,
+            "delta_AP_pp_approx": 0.8,
+            "delta_decimal": "0.8",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              0.7,
+              0.9
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Marine waters",
+            "class_zh": "海洋水域",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 99.5,
+            "candidate_AP_percent": 99.6,
+            "delta_AP_pp_approx": 0.1,
+            "delta_decimal": "0.1",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              0.0,
+              0.2
+            ],
+            "direction_at_reported_precision": "unresolved_at_rounding",
+            "statistical_significance_tested": false
+          }
+        ],
+        "large_numeric_changes": [
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Moors, heathland and sclerophyllous vegetation",
+            "class_zh": "荒原/石南灌丛/硬叶植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 56.8,
+            "candidate_AP_percent": 61.8,
+            "delta_AP_pp_approx": 5.0,
+            "delta_decimal": "5.0",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              4.9,
+              5.1
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Coastal wetlands",
+            "class_zh": "海岸湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 30.3,
+            "candidate_AP_percent": 34.7,
+            "delta_AP_pp_approx": 4.4,
+            "delta_decimal": "4.4",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              4.3,
+              4.5
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Beaches, dunes, sands",
+            "class_zh": "沙滩/沙丘/沙地",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 13.3,
+            "candidate_AP_percent": 16.8,
+            "delta_AP_pp_approx": 3.5,
+            "delta_decimal": "3.5",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              3.4,
+              3.6
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Permanent crops",
+            "class_zh": "多年生作物",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 58.8,
+            "candidate_AP_percent": 61.2,
+            "delta_AP_pp_approx": 2.4,
+            "delta_decimal": "2.4",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              2.3,
+              2.5
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Complex cultivation patterns",
+            "class_zh": "复杂耕作模式",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 68.0,
+            "candidate_AP_percent": 70.1,
+            "delta_AP_pp_approx": 2.1,
+            "delta_decimal": "2.1",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              2.0,
+              2.2
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Inland wetlands",
+            "class_zh": "内陆湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 62.7,
+            "candidate_AP_percent": 64.1,
+            "delta_AP_pp_approx": 1.4,
+            "delta_decimal": "1.4",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              1.3,
+              1.5
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Industrial or commercial units",
+            "class_zh": "工业或商业区",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 52.4,
+            "candidate_AP_percent": 51.1,
+            "delta_AP_pp_approx": -1.3,
+            "delta_decimal": "-1.3",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -1.4,
+              -1.2
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          }
+        ],
+        "large_numeric_changes_display_rule": "absolute AP change>=1pp; display filter only, not significance/model-selection rule",
+        "direction_counts": {
+          "increase": 12,
+          "decrease": 5,
+          "unresolved_at_rounding": 2
+        }
+      },
+      "soft": {
+        "reference": "Swin-T",
+        "seed": 42,
+        "status": "formal_test_complete_user_return_reconciled",
+        "test_mAP_percent": 70.1745705651681,
+        "per_class_AP": {
+          "Urban fabric": 86.47986349141502,
+          "Industrial or commercial units": 50.07587759233172,
+          "Arable land": 92.98062388899054,
+          "Permanent crops": 61.556257058390926,
+          "Pastures": 86.3479778181642,
+          "Complex cultivation patterns": 68.26056264980738,
+          "Land principally occupied by agriculture, with significant areas of natural vegetation": 72.90182452731646,
+          "Agro-forestry areas": 86.33334308893332,
+          "Broad-leaved forest": 86.14056246520138,
+          "Coniferous forest": 93.96257073390733,
+          "Mixed forest": 89.50482641623492,
+          "Natural grassland and sparsely vegetated areas": 49.13715424695671,
+          "Moors, heathland and sclerophyllous vegetation": 59.444987115608306,
+          "Transitional woodland, shrub": 77.73526853555907,
+          "Beaches, dunes, sands": 8.873563515683342,
+          "Inland wetlands": 62.1383660742552,
+          "Coastal wetlands": 10.662911592859055,
+          "Inland waters": 91.17608894627384,
+          "Marine waters": 99.60421098030477
+        },
+        "n_class_rows": 19,
+        "all19_rows": [
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Urban fabric",
+            "class_zh": "城市建成区",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 86.5,
+            "candidate_AP_percent": 86.47986349141502,
+            "delta_AP_pp_approx": -0.02013650858498,
+            "delta_decimal": "-0.02013650858498",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -0.07013650858498,
+              0.02986349141502
+            ],
+            "direction_at_reported_precision": "unresolved_at_rounding",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Industrial or commercial units",
+            "class_zh": "工业或商业区",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 52.4,
+            "candidate_AP_percent": 50.07587759233172,
+            "delta_AP_pp_approx": -2.32412240766828,
+            "delta_decimal": "-2.32412240766828",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -2.37412240766828,
+              -2.27412240766828
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Arable land",
+            "class_zh": "耕地",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 93.3,
+            "candidate_AP_percent": 92.98062388899054,
+            "delta_AP_pp_approx": -0.31937611100946,
+            "delta_decimal": "-0.31937611100946",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -0.36937611100946,
+              -0.26937611100946
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Permanent crops",
+            "class_zh": "多年生作物",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 58.8,
+            "candidate_AP_percent": 61.556257058390926,
+            "delta_AP_pp_approx": 2.756257058390926,
+            "delta_decimal": "2.756257058390926",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              2.706257058390926,
+              2.806257058390926
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Pastures",
+            "class_zh": "牧场",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 86.2,
+            "candidate_AP_percent": 86.3479778181642,
+            "delta_AP_pp_approx": 0.1479778181642,
+            "delta_decimal": "0.1479778181642",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.0979778181642,
+              0.1979778181642
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Complex cultivation patterns",
+            "class_zh": "复杂耕作模式",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 68.0,
+            "candidate_AP_percent": 68.26056264980738,
+            "delta_AP_pp_approx": 0.26056264980738,
+            "delta_decimal": "0.26056264980738",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.21056264980738,
+              0.31056264980738
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+            "class_zh": "农业与自然植被混合区",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 73.0,
+            "candidate_AP_percent": 72.90182452731646,
+            "delta_AP_pp_approx": -0.09817547268354,
+            "delta_decimal": "-0.09817547268354",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -0.14817547268354,
+              -0.04817547268354
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Agro-forestry areas",
+            "class_zh": "农林复合区",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 87.3,
+            "candidate_AP_percent": 86.33334308893332,
+            "delta_AP_pp_approx": -0.96665691106668,
+            "delta_decimal": "-0.96665691106668",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -1.01665691106668,
+              -0.91665691106668
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Broad-leaved forest",
+            "class_zh": "阔叶林",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 85.1,
+            "candidate_AP_percent": 86.14056246520138,
+            "delta_AP_pp_approx": 1.04056246520138,
+            "delta_decimal": "1.04056246520138",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.99056246520138,
+              1.09056246520138
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Coniferous forest",
+            "class_zh": "针叶林",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 93.5,
+            "candidate_AP_percent": 93.96257073390733,
+            "delta_AP_pp_approx": 0.46257073390733,
+            "delta_decimal": "0.46257073390733",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.41257073390733,
+              0.51257073390733
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Mixed forest",
+            "class_zh": "混交林",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 89.3,
+            "candidate_AP_percent": 89.50482641623492,
+            "delta_AP_pp_approx": 0.20482641623492,
+            "delta_decimal": "0.20482641623492",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.15482641623492,
+              0.25482641623492
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Natural grassland and sparsely vegetated areas",
+            "class_zh": "天然草地/稀疏植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 42.9,
+            "candidate_AP_percent": 49.13715424695671,
+            "delta_AP_pp_approx": 6.23715424695671,
+            "delta_decimal": "6.23715424695671",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              6.18715424695671,
+              6.28715424695671
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Moors, heathland and sclerophyllous vegetation",
+            "class_zh": "荒原/石南灌丛/硬叶植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 56.8,
+            "candidate_AP_percent": 59.444987115608306,
+            "delta_AP_pp_approx": 2.644987115608306,
+            "delta_decimal": "2.644987115608306",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              2.594987115608306,
+              2.694987115608306
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Transitional woodland, shrub",
+            "class_zh": "过渡林地/灌丛",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 78.3,
+            "candidate_AP_percent": 77.73526853555907,
+            "delta_AP_pp_approx": -0.56473146444093,
+            "delta_decimal": "-0.56473146444093",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -0.61473146444093,
+              -0.51473146444093
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Beaches, dunes, sands",
+            "class_zh": "沙滩/沙丘/沙地",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 13.3,
+            "candidate_AP_percent": 8.873563515683342,
+            "delta_AP_pp_approx": -4.426436484316658,
+            "delta_decimal": "-4.426436484316658",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -4.476436484316658,
+              -4.376436484316658
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Inland wetlands",
+            "class_zh": "内陆湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 62.7,
+            "candidate_AP_percent": 62.1383660742552,
+            "delta_AP_pp_approx": -0.5616339257448,
+            "delta_decimal": "-0.5616339257448",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -0.6116339257448,
+              -0.5116339257448
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Coastal wetlands",
+            "class_zh": "海岸湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 30.3,
+            "candidate_AP_percent": 10.662911592859055,
+            "delta_AP_pp_approx": -19.637088407140944,
+            "delta_decimal": "-19.637088407140945",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -19.687088407140944,
+              -19.587088407140946
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Inland waters",
+            "class_zh": "内陆水体",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 90.9,
+            "candidate_AP_percent": 91.17608894627384,
+            "delta_AP_pp_approx": 0.27608894627384,
+            "delta_decimal": "0.27608894627384",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.22608894627384,
+              0.32608894627384
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Marine waters",
+            "class_zh": "海洋水域",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 99.5,
+            "candidate_AP_percent": 99.60421098030477,
+            "delta_AP_pp_approx": 0.10421098030477,
+            "delta_decimal": "0.10421098030477",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.05421098030477,
+              0.15421098030477
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          }
+        ],
+        "large_numeric_changes": [
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Natural grassland and sparsely vegetated areas",
+            "class_zh": "天然草地/稀疏植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 42.9,
+            "candidate_AP_percent": 49.13715424695671,
+            "delta_AP_pp_approx": 6.23715424695671,
+            "delta_decimal": "6.23715424695671",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              6.18715424695671,
+              6.28715424695671
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Permanent crops",
+            "class_zh": "多年生作物",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 58.8,
+            "candidate_AP_percent": 61.556257058390926,
+            "delta_AP_pp_approx": 2.756257058390926,
+            "delta_decimal": "2.756257058390926",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              2.706257058390926,
+              2.806257058390926
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Moors, heathland and sclerophyllous vegetation",
+            "class_zh": "荒原/石南灌丛/硬叶植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 56.8,
+            "candidate_AP_percent": 59.444987115608306,
+            "delta_AP_pp_approx": 2.644987115608306,
+            "delta_decimal": "2.644987115608306",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              2.594987115608306,
+              2.694987115608306
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Broad-leaved forest",
+            "class_zh": "阔叶林",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 85.1,
+            "candidate_AP_percent": 86.14056246520138,
+            "delta_AP_pp_approx": 1.04056246520138,
+            "delta_decimal": "1.04056246520138",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.99056246520138,
+              1.09056246520138
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Industrial or commercial units",
+            "class_zh": "工业或商业区",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 52.4,
+            "candidate_AP_percent": 50.07587759233172,
+            "delta_AP_pp_approx": -2.32412240766828,
+            "delta_decimal": "-2.32412240766828",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -2.37412240766828,
+              -2.27412240766828
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Beaches, dunes, sands",
+            "class_zh": "沙滩/沙丘/沙地",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 13.3,
+            "candidate_AP_percent": 8.873563515683342,
+            "delta_AP_pp_approx": -4.426436484316658,
+            "delta_decimal": "-4.426436484316658",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -4.476436484316658,
+              -4.376436484316658
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 42,
+            "class": "Coastal wetlands",
+            "class_zh": "海岸湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 30.3,
+            "candidate_AP_percent": 10.662911592859055,
+            "delta_AP_pp_approx": -19.637088407140944,
+            "delta_decimal": "-19.637088407140945",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -19.687088407140944,
+              -19.587088407140946
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          }
+        ],
+        "large_numeric_changes_display_rule": "absolute AP change>=1pp; display filter only, not statistical significance or model selection",
+        "direction_counts": {
+          "increase": 10,
+          "decrease": 8,
+          "unresolved_at_rounding": 1
+        },
+        "source": "/Users/patrick/Projects/GAViT_Project/results/evidence/bigearth_soft42_complete_20261017/summary.json"
+      }
+    },
+    "43": {
+      "fixed": {
+        "reference": "Swin-T",
+        "seed": 43,
+        "all19_rows": [
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Urban fabric",
+            "class_zh": "城市建成区",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 85.9,
+            "candidate_AP_percent": 86.5,
+            "delta_AP_pp_approx": 0.6,
+            "delta_decimal": "0.6",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              0.5,
+              0.7
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Industrial or commercial units",
+            "class_zh": "工业或商业区",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 50.2,
+            "candidate_AP_percent": 50.8,
+            "delta_AP_pp_approx": 0.6,
+            "delta_decimal": "0.6",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              0.5,
+              0.7
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Arable land",
+            "class_zh": "耕地",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 93.5,
+            "candidate_AP_percent": 93.3,
+            "delta_AP_pp_approx": -0.2,
+            "delta_decimal": "-0.2",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -0.3,
+              -0.1
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Permanent crops",
+            "class_zh": "多年生作物",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 60.0,
+            "candidate_AP_percent": 63.3,
+            "delta_AP_pp_approx": 3.3,
+            "delta_decimal": "3.3",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              3.2,
+              3.4
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Pastures",
+            "class_zh": "牧场",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 86.4,
+            "candidate_AP_percent": 86.3,
+            "delta_AP_pp_approx": -0.1,
+            "delta_decimal": "-0.1",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -0.2,
+              0.0
+            ],
+            "direction_at_reported_precision": "unresolved_at_rounding",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Complex cultivation patterns",
+            "class_zh": "复杂耕作模式",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 69.4,
+            "candidate_AP_percent": 69.0,
+            "delta_AP_pp_approx": -0.4,
+            "delta_decimal": "-0.4",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -0.5,
+              -0.3
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+            "class_zh": "农业与自然植被混合区",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 72.4,
+            "candidate_AP_percent": 72.6,
+            "delta_AP_pp_approx": 0.2,
+            "delta_decimal": "0.2",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              0.1,
+              0.3
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Agro-forestry areas",
+            "class_zh": "农林复合区",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 87.0,
+            "candidate_AP_percent": 87.0,
+            "delta_AP_pp_approx": 0.0,
+            "delta_decimal": "0.0",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -0.1,
+              0.1
+            ],
+            "direction_at_reported_precision": "unresolved_at_rounding",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Broad-leaved forest",
+            "class_zh": "阔叶林",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 85.8,
+            "candidate_AP_percent": 85.7,
+            "delta_AP_pp_approx": -0.1,
+            "delta_decimal": "-0.1",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -0.2,
+              0.0
+            ],
+            "direction_at_reported_precision": "unresolved_at_rounding",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Coniferous forest",
+            "class_zh": "针叶林",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 93.7,
+            "candidate_AP_percent": 93.4,
+            "delta_AP_pp_approx": -0.3,
+            "delta_decimal": "-0.3",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -0.4,
+              -0.2
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Mixed forest",
+            "class_zh": "混交林",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 89.0,
+            "candidate_AP_percent": 89.9,
+            "delta_AP_pp_approx": 0.9,
+            "delta_decimal": "0.9",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              0.8,
+              1.0
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Natural grassland and sparsely vegetated areas",
+            "class_zh": "天然草地/稀疏植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 47.2,
+            "candidate_AP_percent": 48.5,
+            "delta_AP_pp_approx": 1.3,
+            "delta_decimal": "1.3",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              1.2,
+              1.4
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Moors, heathland and sclerophyllous vegetation",
+            "class_zh": "荒原/石南灌丛/硬叶植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 56.4,
+            "candidate_AP_percent": 60.6,
+            "delta_AP_pp_approx": 4.2,
+            "delta_decimal": "4.2",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              4.1,
+              4.3
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Transitional woodland, shrub",
+            "class_zh": "过渡林地/灌丛",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 78.6,
+            "candidate_AP_percent": 78.9,
+            "delta_AP_pp_approx": 0.3,
+            "delta_decimal": "0.3",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              0.2,
+              0.4
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Beaches, dunes, sands",
+            "class_zh": "沙滩/沙丘/沙地",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 11.3,
+            "candidate_AP_percent": 8.6,
+            "delta_AP_pp_approx": -2.7,
+            "delta_decimal": "-2.7",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -2.8,
+              -2.6
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Inland wetlands",
+            "class_zh": "内陆湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 60.2,
+            "candidate_AP_percent": 63.1,
+            "delta_AP_pp_approx": 2.9,
+            "delta_decimal": "2.9",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              2.8,
+              3.0
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Coastal wetlands",
+            "class_zh": "海岸湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 32.8,
+            "candidate_AP_percent": 34.4,
+            "delta_AP_pp_approx": 1.6,
+            "delta_decimal": "1.6",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              1.5,
+              1.7
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Inland waters",
+            "class_zh": "内陆水体",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 91.6,
+            "candidate_AP_percent": 91.5,
+            "delta_AP_pp_approx": -0.1,
+            "delta_decimal": "-0.1",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -0.2,
+              0.0
+            ],
+            "direction_at_reported_precision": "unresolved_at_rounding",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Marine waters",
+            "class_zh": "海洋水域",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 99.7,
+            "candidate_AP_percent": 99.6,
+            "delta_AP_pp_approx": -0.1,
+            "delta_decimal": "-0.1",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -0.2,
+              0.0
+            ],
+            "direction_at_reported_precision": "unresolved_at_rounding",
+            "statistical_significance_tested": false
+          }
+        ],
+        "large_numeric_changes_display_rule": "absolute AP change >=1pp; display filter only, not significance/model-selection rule",
+        "large_numeric_changes": [
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Moors, heathland and sclerophyllous vegetation",
+            "class_zh": "荒原/石南灌丛/硬叶植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 56.4,
+            "candidate_AP_percent": 60.6,
+            "delta_AP_pp_approx": 4.2,
+            "delta_decimal": "4.2",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              4.1,
+              4.3
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Permanent crops",
+            "class_zh": "多年生作物",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 60.0,
+            "candidate_AP_percent": 63.3,
+            "delta_AP_pp_approx": 3.3,
+            "delta_decimal": "3.3",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              3.2,
+              3.4
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Inland wetlands",
+            "class_zh": "内陆湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 60.2,
+            "candidate_AP_percent": 63.1,
+            "delta_AP_pp_approx": 2.9,
+            "delta_decimal": "2.9",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              2.8,
+              3.0
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Coastal wetlands",
+            "class_zh": "海岸湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 32.8,
+            "candidate_AP_percent": 34.4,
+            "delta_AP_pp_approx": 1.6,
+            "delta_decimal": "1.6",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              1.5,
+              1.7
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Natural grassland and sparsely vegetated areas",
+            "class_zh": "天然草地/稀疏植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 47.2,
+            "candidate_AP_percent": 48.5,
+            "delta_AP_pp_approx": 1.3,
+            "delta_decimal": "1.3",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              1.2,
+              1.4
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Beaches, dunes, sands",
+            "class_zh": "沙滩/沙丘/沙地",
+            "reference_model": "Swin-T",
+            "candidate_model": "fixed",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 11.3,
+            "candidate_AP_percent": 8.6,
+            "delta_AP_pp_approx": -2.7,
+            "delta_decimal": "-2.7",
+            "rounding_uncertainty_pp": 0.1,
+            "delta_interval_pp": [
+              -2.8,
+              -2.6
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          }
+        ],
+        "direction_counts": {
+          "increase": 10,
+          "decrease": 4,
+          "unresolved_at_rounding": 5
+        }
+      },
+      "soft": {
+        "reference": "Swin-T",
+        "seed": 43,
+        "all19_rows": [
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Urban fabric",
+            "class_zh": "城市建成区",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 85.9,
+            "candidate_AP_percent": 86.90412749223422,
+            "delta_AP_pp_approx": 1.00412749223422,
+            "delta_decimal": "1.00412749223422",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.95412749223422,
+              1.05412749223422
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Industrial or commercial units",
+            "class_zh": "工业或商业区",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 50.2,
+            "candidate_AP_percent": 49.81336195915655,
+            "delta_AP_pp_approx": -0.38663804084345,
+            "delta_decimal": "-0.38663804084345",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -0.43663804084345,
+              -0.33663804084345
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Arable land",
+            "class_zh": "耕地",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 93.5,
+            "candidate_AP_percent": 93.61706167535287,
+            "delta_AP_pp_approx": 0.11706167535287,
+            "delta_decimal": "0.11706167535287",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.06706167535287,
+              0.16706167535287
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Permanent crops",
+            "class_zh": "多年生作物",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 60.0,
+            "candidate_AP_percent": 64.69772332306674,
+            "delta_AP_pp_approx": 4.69772332306674,
+            "delta_decimal": "4.69772332306674",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              4.64772332306674,
+              4.74772332306674
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Pastures",
+            "class_zh": "牧场",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 86.4,
+            "candidate_AP_percent": 86.19617659467306,
+            "delta_AP_pp_approx": -0.20382340532694,
+            "delta_decimal": "-0.20382340532694",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -0.25382340532694,
+              -0.15382340532694
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Complex cultivation patterns",
+            "class_zh": "复杂耕作模式",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 69.4,
+            "candidate_AP_percent": 68.38043079497643,
+            "delta_AP_pp_approx": -1.01956920502357,
+            "delta_decimal": "-1.01956920502357",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -1.06956920502357,
+              -0.96956920502357
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+            "class_zh": "农业与自然植被混合区",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 72.4,
+            "candidate_AP_percent": 72.60580110578749,
+            "delta_AP_pp_approx": 0.20580110578749,
+            "delta_decimal": "0.20580110578749",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.15580110578749,
+              0.25580110578749
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Agro-forestry areas",
+            "class_zh": "农林复合区",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 87.0,
+            "candidate_AP_percent": 87.56101008698272,
+            "delta_AP_pp_approx": 0.56101008698272,
+            "delta_decimal": "0.56101008698272",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.51101008698272,
+              0.61101008698272
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Broad-leaved forest",
+            "class_zh": "阔叶林",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 85.8,
+            "candidate_AP_percent": 86.06064969452527,
+            "delta_AP_pp_approx": 0.26064969452527,
+            "delta_decimal": "0.26064969452527",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.21064969452527,
+              0.31064969452527
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Coniferous forest",
+            "class_zh": "针叶林",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 93.7,
+            "candidate_AP_percent": 93.37999171286387,
+            "delta_AP_pp_approx": -0.32000828713613,
+            "delta_decimal": "-0.32000828713613",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -0.37000828713613,
+              -0.27000828713613
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Mixed forest",
+            "class_zh": "混交林",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 89.0,
+            "candidate_AP_percent": 89.60883457152102,
+            "delta_AP_pp_approx": 0.60883457152102,
+            "delta_decimal": "0.60883457152102",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.55883457152102,
+              0.65883457152102
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Natural grassland and sparsely vegetated areas",
+            "class_zh": "天然草地/稀疏植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 47.2,
+            "candidate_AP_percent": 45.88227402959922,
+            "delta_AP_pp_approx": -1.31772597040078,
+            "delta_decimal": "-1.31772597040078",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -1.36772597040078,
+              -1.26772597040078
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Moors, heathland and sclerophyllous vegetation",
+            "class_zh": "荒原/石南灌丛/硬叶植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 56.4,
+            "candidate_AP_percent": 60.989909708927534,
+            "delta_AP_pp_approx": 4.589909708927534,
+            "delta_decimal": "4.589909708927534",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              4.539909708927534,
+              4.639909708927534
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Transitional woodland, shrub",
+            "class_zh": "过渡林地/灌丛",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 78.6,
+            "candidate_AP_percent": 78.58765428689567,
+            "delta_AP_pp_approx": -0.01234571310433,
+            "delta_decimal": "-0.01234571310433",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -0.06234571310433,
+              0.03765428689567
+            ],
+            "direction_at_reported_precision": "unresolved_at_rounding",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Beaches, dunes, sands",
+            "class_zh": "沙滩/沙丘/沙地",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 11.3,
+            "candidate_AP_percent": 23.773897508570297,
+            "delta_AP_pp_approx": 12.473897508570298,
+            "delta_decimal": "12.473897508570297",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              12.423897508570297,
+              12.523897508570297
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Inland wetlands",
+            "class_zh": "内陆湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 60.2,
+            "candidate_AP_percent": 62.84234311307374,
+            "delta_AP_pp_approx": 2.64234311307374,
+            "delta_decimal": "2.64234311307374",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              2.59234311307374,
+              2.69234311307374
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Coastal wetlands",
+            "class_zh": "海岸湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 32.8,
+            "candidate_AP_percent": 42.61340595488735,
+            "delta_AP_pp_approx": 9.81340595488735,
+            "delta_decimal": "9.81340595488735",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              9.76340595488735,
+              9.86340595488735
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Inland waters",
+            "class_zh": "内陆水体",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 91.6,
+            "candidate_AP_percent": 91.38628018657404,
+            "delta_AP_pp_approx": -0.21371981342596,
+            "delta_decimal": "-0.21371981342596",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -0.26371981342596,
+              -0.16371981342596
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Marine waters",
+            "class_zh": "海洋水域",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 99.7,
+            "candidate_AP_percent": 99.58291236253619,
+            "delta_AP_pp_approx": -0.11708763746381,
+            "delta_decimal": "-0.11708763746381",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -0.16708763746381,
+              -0.06708763746381
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          }
+        ],
+        "large_numeric_changes_display_rule": "absolute AP change >=1pp; display filter only, not significance/model-selection rule",
+        "large_numeric_changes": [
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Beaches, dunes, sands",
+            "class_zh": "沙滩/沙丘/沙地",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 11.3,
+            "candidate_AP_percent": 23.773897508570297,
+            "delta_AP_pp_approx": 12.473897508570298,
+            "delta_decimal": "12.473897508570297",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              12.423897508570297,
+              12.523897508570297
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Coastal wetlands",
+            "class_zh": "海岸湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 32.8,
+            "candidate_AP_percent": 42.61340595488735,
+            "delta_AP_pp_approx": 9.81340595488735,
+            "delta_decimal": "9.81340595488735",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              9.76340595488735,
+              9.86340595488735
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Permanent crops",
+            "class_zh": "多年生作物",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 60.0,
+            "candidate_AP_percent": 64.69772332306674,
+            "delta_AP_pp_approx": 4.69772332306674,
+            "delta_decimal": "4.69772332306674",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              4.64772332306674,
+              4.74772332306674
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Moors, heathland and sclerophyllous vegetation",
+            "class_zh": "荒原/石南灌丛/硬叶植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 56.4,
+            "candidate_AP_percent": 60.989909708927534,
+            "delta_AP_pp_approx": 4.589909708927534,
+            "delta_decimal": "4.589909708927534",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              4.539909708927534,
+              4.639909708927534
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Inland wetlands",
+            "class_zh": "内陆湿地",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 60.2,
+            "candidate_AP_percent": 62.84234311307374,
+            "delta_AP_pp_approx": 2.64234311307374,
+            "delta_decimal": "2.64234311307374",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              2.59234311307374,
+              2.69234311307374
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Urban fabric",
+            "class_zh": "城市建成区",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 85.9,
+            "candidate_AP_percent": 86.90412749223422,
+            "delta_AP_pp_approx": 1.00412749223422,
+            "delta_decimal": "1.00412749223422",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              0.95412749223422,
+              1.05412749223422
+            ],
+            "direction_at_reported_precision": "increase",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Complex cultivation patterns",
+            "class_zh": "复杂耕作模式",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 69.4,
+            "candidate_AP_percent": 68.38043079497643,
+            "delta_AP_pp_approx": -1.01956920502357,
+            "delta_decimal": "-1.01956920502357",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -1.06956920502357,
+              -0.96956920502357
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          },
+          {
+            "dataset": "BigEarthNet-19",
+            "seed": 43,
+            "class": "Natural grassland and sparsely vegetated areas",
+            "class_zh": "天然草地/稀疏植被",
+            "reference_model": "Swin-T",
+            "candidate_model": "soft",
+            "metric": "test_AP_percent",
+            "swin_AP_percent": 47.2,
+            "candidate_AP_percent": 45.88227402959922,
+            "delta_AP_pp_approx": -1.31772597040078,
+            "delta_decimal": "-1.31772597040078",
+            "rounding_uncertainty_pp": 0.05,
+            "delta_interval_pp": [
+              -1.36772597040078,
+              -1.26772597040078
+            ],
+            "direction_at_reported_precision": "decrease",
+            "statistical_significance_tested": false
+          }
+        ],
+        "direction_counts": {
+          "increase": 11,
+          "decrease": 7,
+          "unresolved_at_rounding": 1
+        }
+      }
+    }
+  },
+  "limits": [
+    "single-seed descriptive class changes; no class-level significance tests",
+    "display threshold is editorial only; all19 classes retained",
+    "fixed43 saved21 epochs and soft43 full30; historical code/hardware differ",
+    "Swin/fixed reference AP rounded one decimal; extra displayed decimal is formatting",
+    "seed46/47 class metrics unavailable; no four-seed class stability claim",
+    "Formal soft42 uses ed480e6/current4090 and30epochs; historical Swin42 has no sidecar and fixed42 uses cd39be9/historical hardware"
+  ],
+  "last_updated": "2026-10-17"
+}

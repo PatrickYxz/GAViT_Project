@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "selected_main_seeds": [
+    42,
+    43,
+    46,
+    47
+  ],
+  "main_n": 4,
+  "BEN_soft_seeds": [
+    43,
+    46,
+    47
+  ],
+  "BEN_soft_n": 3,
+  "BEN_soft42_missing_not_imputed": true,
+  "complete_history_retained": true,
+  "statistics_independently_recomputed": true,
+  "original_CSV_unchanged": true,
+  "visualization_section_unchanged": true,
+  "two_decimal_format_pass": true,
+  "deadline_content_absent": true,
+  "report_sha256": "2aab9c2111b9d7d4fd3710337b183c1b76ad5999bad8d67939b3f59acc0a7935",
+  "email_sha256": "b7ac0a9e3aa54e0c1c6dc829324c38f6dcf6d3d3586adf04bbea30eaca177f90"
+}

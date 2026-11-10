@@ -1,0 +1,19 @@
+.....F....
+======================================================================
+FAIL: test_queue_preflight_saves_report_without_gate_global_b (test_bigearth_soft42.Soft42Tests.test_queue_preflight_saves_report_without_gate_global_b)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_bigearth_soft42.py", line 218, in test_queue_preflight_saves_report_without_gate_global_b
+    self.assertEqual(completed.returncode,0,completed.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpkghjkcvm/queue.py", line 289, in <module>
+    ns['b'].save(root/'preflight.json',ns['report'])
+    ~~^^^^^
+KeyError: 'b'
+
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.103s
+
+FAILED (failures=1)

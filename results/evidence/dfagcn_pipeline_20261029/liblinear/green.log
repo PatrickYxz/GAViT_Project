@@ -1,0 +1,12 @@
+test_actual_multiclass_cli_preserves_labels_and_trailing_zero_width (test_dfagcn_linear.LiblinearBoundaryTests.test_actual_multiclass_cli_preserves_labels_and_trailing_zero_width) ... ok
+test_fit_and_predict_output_directories_are_exclusive (test_dfagcn_linear.LiblinearBoundaryTests.test_fit_and_predict_output_directories_are_exclusive) ... ok
+test_fit_rejects_invalid_labels_and_hyperparameters (test_dfagcn_linear.LiblinearBoundaryTests.test_fit_rejects_invalid_labels_and_hyperparameters) ... ok
+test_fit_rejects_nonfinite_empty_or_nonfloating_features (test_dfagcn_linear.LiblinearBoundaryTests.test_fit_rejects_nonfinite_empty_or_nonfloating_features) ... ok
+test_missing_binary_and_failed_cli_do_not_create_success_metadata (test_dfagcn_linear.LiblinearBoundaryTests.test_missing_binary_and_failed_cli_do_not_create_success_metadata) ... ok
+test_modified_model_bytes_are_rejected_before_prediction (test_dfagcn_linear.LiblinearBoundaryTests.test_modified_model_bytes_are_rejected_before_prediction) ... ok
+test_prediction_rejects_feature_width_mismatch (test_dfagcn_linear.LiblinearBoundaryTests.test_prediction_rejects_feature_width_mismatch) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 4.007s
+
+OK

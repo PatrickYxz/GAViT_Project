@@ -1,0 +1,29 @@
+test_corrupted_committed_artifact_is_never_resumed (tests.test_aid_campaign_state.CampaignStateTests.test_corrupted_committed_artifact_is_never_resumed) ... ok
+test_existing_output_requires_explicit_resume_and_exact_identity (tests.test_aid_campaign_state.CampaignStateTests.test_existing_output_requires_explicit_resume_and_exact_identity) ... ok
+test_interrupted_write_retains_prior_full_epoch (tests.test_aid_campaign_state.CampaignStateTests.test_interrupted_write_retains_prior_full_epoch) ... ok
+test_only_latest_two_accepted_full_states_remain (tests.test_aid_campaign_state.CampaignStateTests.test_only_latest_two_accepted_full_states_remain) ... FAIL
+test_receipt_path_cannot_escape_phase (tests.test_aid_campaign_state.CampaignStateTests.test_receipt_path_cannot_escape_phase) ... ok
+
+======================================================================
+FAIL: test_only_latest_two_accepted_full_states_remain (tests.test_aid_campaign_state.CampaignStateTests.test_only_latest_two_accepted_full_states_remain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_aid_campaign_state.py", line 67, in test_only_latest_two_accepted_full_states_remain
+    self.assertEqual([p.exists() for p in (f / 'train_state.pth' for f in accepted)],
+AssertionError: Lists differ: [False, False, False, True] != [False, False, True, True]
+
+First differing element 2:
+False
+True
+
+- [False, False, False, True]
+?                ^^^^
+
++ [False, False, True, True]
+?                ^^^
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.020s
+
+FAILED (failures=1)

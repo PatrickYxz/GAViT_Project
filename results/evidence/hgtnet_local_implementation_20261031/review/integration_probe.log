@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "scope": "small actual CPU tensors; full model smoke owned by parent",
+  "graph_group_trace_equal_to_normal": true,
+  "trace_digest_matches_actual_indices": true,
+  "graph_batch_isolation": true,
+  "graph_backward_finite": true,
+  "checkpoint_real_source_roundtrip": true,
+  "checkpoint_no_overwrite": true
+}

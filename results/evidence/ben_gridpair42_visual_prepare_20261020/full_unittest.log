@@ -1,0 +1,606 @@
+test_async_work_is_finished_before_stopping_timer (test_aid_efficiency.EfficiencyTests.test_async_work_is_finished_before_stopping_timer) ... ok
+test_mismatched_pair_or_incomplete_results_are_rejected (test_aid_efficiency.EfficiencyTests.test_mismatched_pair_or_incomplete_results_are_rejected) ... ok
+test_other_compute_process_is_rejected (test_aid_efficiency.EfficiencyTests.test_other_compute_process_is_rejected) ... ok
+test_stage_failure_stops_queue_and_preserves_evidence (test_aid_efficiency.EfficiencyTests.test_stage_failure_stops_queue_and_preserves_evidence) ... STAGE swin_b1
+STAGE gavit_b1
+ok
+test_throughput_uses_total_time_and_batch_size (test_aid_efficiency.EfficiencyTests.test_throughput_uses_total_time_and_batch_size) ... ok
+test_cuda_forward_gate_accepts_roundoff_but_rejects_large_or_nonfinite_error (test_ben_grid42.Grid42Tests.test_cuda_forward_gate_accepts_roundoff_but_rejects_large_or_nonfinite_error) ... ok
+test_existing_artifacts_are_preserved_on_duplicate_claim (test_ben_grid42.Grid42Tests.test_existing_artifacts_are_preserved_on_duplicate_claim) ... ok
+test_existing_other_k9_seed42_blocks_retraining_but_current_export_does_not (test_ben_grid42.Grid42Tests.test_existing_other_k9_seed42_blocks_retraining_but_current_export_does_not) ... ok
+test_exported_snapshot_has_honest_identity_and_detects_tampering (test_ben_grid42.Grid42Tests.test_exported_snapshot_has_honest_identity_and_detects_tampering) ... ok
+test_formal_command_trains_only_k9_and_tests_its_best (test_ben_grid42.Grid42Tests.test_formal_command_trains_only_k9_and_tests_its_best) ... ok
+test_installer_exports_exact_release_and_refuses_overwrite (test_ben_grid42.Grid42Tests.test_installer_exports_exact_release_and_refuses_overwrite) ... BEN_GRID3_42_INSTALLED /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmp6gxq97ki/installed
+ok
+test_installer_mismatch_never_creates_a_launch_marker (test_ben_grid42.Grid42Tests.test_installer_mismatch_never_creates_a_launch_marker) ... ok
+test_metadata_and_best_selection_reject_wrong_seed_topology_or_epoch (test_ben_grid42.Grid42Tests.test_metadata_and_best_selection_reject_wrong_seed_topology_or_epoch) ... ok
+test_metric_validator_rejects_partial_or_inconsistent_test (test_ben_grid42.Grid42Tests.test_metric_validator_rejects_partial_or_inconsistent_test) ... ok
+test_stage_failure_stops_before_formal_and_saves_child_exit (test_ben_grid42.Grid42Tests.test_stage_failure_stops_before_formal_and_saves_child_exit) ... START smoke
+FAILED smoke; inspect /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmperphq2ui/smoke/run.log
+ok
+test_topology_records_node_dependent_budget_and_rejects_unapproved_grids (test_ben_grid42.Grid42Tests.test_topology_records_node_dependent_budget_and_rejects_unapproved_grids) ... ok
+test_artifact_gate_reads_persistent_files_and_rejects_changed_weights_before_inference (test_ben_grid_pair_visual.GridPairVisualTests.test_artifact_gate_reads_persistent_files_and_rejects_changed_weights_before_inference) ... ARTIFACT_GATE_PASS: completed30 / exact two weights / frozen source / 4 original PNGs / val labels
+ok
+test_fixed_membership_and_actual_edge_budgets_for_both_grids (test_ben_grid_pair_visual.GridPairVisualTests.test_fixed_membership_and_actual_edge_budgets_for_both_grids) ... ok
+test_installer_refuses_overwrite_path_escape_and_modified_content (test_ben_grid_pair_visual.GridPairVisualTests.test_installer_refuses_overwrite_path_escape_and_modified_content) ... ok
+test_outcomes_include_both_directions_false_positives_and_unchanged_cases (test_ben_grid_pair_visual.GridPairVisualTests.test_outcomes_include_both_directions_false_positives_and_unchanged_cases) ... ok
+test_packager_pins_original_pngs_and_keeps_command_below_shell_argument_limit (test_ben_grid_pair_visual.GridPairVisualTests.test_packager_pins_original_pngs_and_keeps_command_below_shell_argument_limit) ... ok
+test_pooling_weights_keep_membership_and_unit_column_mass (test_ben_grid_pair_visual.GridPairVisualTests.test_pooling_weights_keep_membership_and_unit_column_mass) ... ok
+test_summary_must_bind_seed_epochs_source_and_both_checkpoints (test_ben_grid_pair_visual.GridPairVisualTests.test_summary_must_bind_seed_epochs_source_and_both_checkpoints) ... ok
+test_svg_preserves_input_bytes_and_every_captured_edge_with_direction (test_ben_grid_pair_visual.GridPairVisualTests.test_svg_preserves_input_bytes_and_every_captured_edge_with_direction) ... ok
+test_topology_rejects_fake_assignments_duplicates_and_reversed_feature_flow (test_ben_grid_pair_visual.GridPairVisualTests.test_topology_rejects_fake_assignments_duplicates_and_reversed_feature_flow) ... ok
+test_classifies_captured_edges_and_actual_region_sizes (test_bigearth_feedback_diagnostic.FeedbackDiagnosticTests.test_classifies_captured_edges_and_actual_region_sizes) ... ok
+test_cli_retains_source_identity_and_refuses_output_reuse (test_bigearth_feedback_diagnostic.FeedbackDiagnosticTests.test_cli_retains_source_identity_and_refuses_output_reuse) ... ok
+test_gallery_preparation_works_without_extracted_data_or_torch (test_bigearth_feedback_diagnostic.FeedbackDiagnosticTests.test_gallery_preparation_works_without_extracted_data_or_torch) ... ok
+test_original_mode_fingerprints_the_premerged_input_used_by_reader (test_bigearth_feedback_diagnostic.FeedbackDiagnosticTests.test_original_mode_fingerprints_the_premerged_input_used_by_reader) ... ok
+test_rejects_duplicate_self_cross_graph_and_wrong_incoming_budget (test_bigearth_feedback_diagnostic.FeedbackDiagnosticTests.test_rejects_duplicate_self_cross_graph_and_wrong_incoming_budget) ... ok
+test_rejects_gallery_path_outside_source (test_bigearth_feedback_diagnostic.FeedbackDiagnosticTests.test_rejects_gallery_path_outside_source) ... ok
+test_rejects_nonfinite_probability_and_nonbinary_cached_label (test_bigearth_feedback_diagnostic.FeedbackDiagnosticTests.test_rejects_nonfinite_probability_and_nonbinary_cached_label) ... ok
+test_selects_first_fixed_case_per_stratum_and_shares_image (test_bigearth_feedback_diagnostic.FeedbackDiagnosticTests.test_selects_first_fixed_case_per_stratum_and_shares_image) ... ok
+test_stops_for_missing_gallery_file_and_changed_model_source (test_bigearth_feedback_diagnostic.FeedbackDiagnosticTests.test_stops_for_missing_gallery_file_and_changed_model_source) ... ok
+test_summary_respects_true_label_and_does_not_turn_enriched_cases_into_ap (test_bigearth_feedback_diagnostic.FeedbackDiagnosticTests.test_summary_respects_true_label_and_does_not_turn_enriched_cases_into_ap) ... ok
+test_svg_contains_captured_edges_not_a_rebuilt_knn_graph (test_bigearth_feedback_diagnostic.FeedbackDiagnosticTests.test_svg_contains_captured_edges_not_a_rebuilt_knn_graph) ... ok
+test_archive_contains_completed_metadata_and_relative_files (test_bigearth_pair_diagnostic.CommandTests.test_archive_contains_completed_metadata_and_relative_files) ... ok
+test_count_mismatch_stops_before_inference (test_bigearth_pair_diagnostic.CommandTests.test_count_mismatch_stops_before_inference) ... ok
+test_failed_archive_does_not_mark_run_complete (test_bigearth_pair_diagnostic.CommandTests.test_failed_archive_does_not_mark_run_complete) ... ok
+test_gallery_escapes_labels_and_keeps_both_prediction_directions (test_bigearth_pair_diagnostic.CommandTests.test_gallery_escapes_labels_and_keeps_both_prediction_directions) ... ok
+test_launcher_worker_records_nonzero_exit_on_preflight_failure (test_bigearth_pair_diagnostic.CommandTests.test_launcher_worker_records_nonzero_exit_on_preflight_failure) ... ok
+test_prepare_only_reads_validation_without_gpu_and_never_overwrites (test_bigearth_pair_diagnostic.CommandTests.test_prepare_only_reads_validation_without_gpu_and_never_overwrites) ... ok
+test_selected_images_are_checked_before_gpu_work (test_bigearth_pair_diagnostic.CommandTests.test_selected_images_are_checked_before_gpu_work) ... ok
+test_average_precision_groups_tied_scores (test_bigearth_pair_diagnostic.MetricsAndCasesTests.test_average_precision_groups_tied_scores) ... ok
+test_case_direction_and_threshold_include_true_negatives (test_bigearth_pair_diagnostic.MetricsAndCasesTests.test_case_direction_and_threshold_include_true_negatives) ... ok
+test_missing_positive_or_negative_is_not_rank_evidence (test_bigearth_pair_diagnostic.MetricsAndCasesTests.test_missing_positive_or_negative_is_not_rank_evidence) ... ok
+test_rejects_reordered_missing_or_nonfinite_predictions (test_bigearth_pair_diagnostic.MetricsAndCasesTests.test_rejects_reordered_missing_or_nonfinite_predictions) ... ok
+test_report_excludes_supplement_from_ap_and_preserves_all_cases (test_bigearth_pair_diagnostic.MetricsAndCasesTests.test_report_excludes_supplement_from_ap_and_preserves_all_cases) ... ok
+test_focus_supplements_do_not_change_uniform_sample (test_bigearth_pair_diagnostic.SplitAndSelectionTests.test_focus_supplements_do_not_change_uniform_sample) ... ok
+test_keeps_csv_row_identity_and_accepts_binary_float_strings (test_bigearth_pair_diagnostic.SplitAndSelectionTests.test_keeps_csv_row_identity_and_accepts_binary_float_strings) ... ok
+test_label_statistics_use_multilabel_cooccurrence (test_bigearth_pair_diagnostic.SplitAndSelectionTests.test_label_statistics_use_multilabel_cooccurrence) ... ok
+test_rejects_invalid_binary_labels_and_duplicate_paths (test_bigearth_pair_diagnostic.SplitAndSelectionTests.test_rejects_invalid_binary_labels_and_duplicate_paths) ... ok
+test_failure_stops_queue_without_overwrite (test_bigearth_seed45.Seed45Tests.test_failure_stops_queue_without_overwrite) ... START first
+child output
+START second
+child output
+ok
+test_full_file_gate_and_frozen_split (test_bigearth_seed45.Seed45Tests.test_full_file_gate_and_frozen_split) ... ok
+test_recipe_and_test_use_best_weight (test_bigearth_seed45.Seed45Tests.test_recipe_and_test_use_best_weight) ... ok
+test_worker_records_exact_metrics_without_changing_save_return (test_bigearth_seed45.Seed45Tests.test_worker_records_exact_metrics_without_changing_save_return) ... ERROR
+test_completed_engineering_smoke_can_be_added_between_preflights (test_bigearth_soft42.Soft42Tests.test_completed_engineering_smoke_can_be_added_between_preflights) ... ok
+test_duplicate_claim_preserves_original_marker (test_bigearth_soft42.Soft42Tests.test_duplicate_claim_preserves_original_marker) ... ok
+test_formal_routes_train42_and_tests_its_best_checkpoint (test_bigearth_soft42.Soft42Tests.test_formal_routes_train42_and_tests_its_best_checkpoint) ... ok
+test_missing_stage_and_run_report_are_not_ignored (test_bigearth_soft42.Soft42Tests.test_missing_stage_and_run_report_are_not_ignored) ... ok
+test_old_smoke_does_not_hide_nested_formal_or_partial42 (test_bigearth_soft42.Soft42Tests.test_old_smoke_does_not_hide_nested_formal_or_partial42) ... ok
+test_queue_preflight_saves_report_without_gate_global_b (test_bigearth_soft42.Soft42Tests.test_queue_preflight_saves_report_without_gate_global_b) ... ok
+test_report_rejects_another_seed_incomplete_epochs_or_mismatched_map (test_bigearth_soft42.Soft42Tests.test_report_rejects_another_seed_incomplete_epochs_or_mismatched_map) ... ok
+test_smoke_gate_checks_identity_exit_and_checkpoint_before_launch (test_bigearth_soft42.Soft42Tests.test_smoke_gate_checks_identity_exit_and_checkpoint_before_launch) ... ok
+test_smoke_process_returns_before_launch_checks_atexit_marker (test_bigearth_soft42.Soft42Tests.test_smoke_process_returns_before_launch_checks_atexit_marker) ... ok
+test_soft42_weights_without_sidecar_require_review (test_bigearth_soft42.Soft42Tests.test_soft42_weights_without_sidecar_require_review) ... ok
+test_actual_assignment_and_graph_snapshots_and_corruptions (test_bigearth_soft45.Soft45Tests.test_actual_assignment_and_graph_snapshots_and_corruptions) ... ERROR
+test_duplicate_claim_preserves_live_exit_artifacts (test_bigearth_soft45.Soft45Tests.test_duplicate_claim_preserves_live_exit_artifacts) ... ok
+test_environment_and_test_checkpoint_drift_rejected (test_bigearth_soft45.Soft45Tests.test_environment_and_test_checkpoint_drift_rejected) ... ok
+test_only_soft_training_and_best_checkpoint_route (test_bigearth_soft45.Soft45Tests.test_only_soft_training_and_best_checkpoint_route) ... ok
+test_recording_preserves_save_return_and_training_rng (test_bigearth_soft45.Soft45Tests.test_recording_preserves_save_return_and_training_rng) ... ERROR
+test_success_failure_and_incomplete_exit_zero_stop_queue (test_bigearth_soft45.Soft45Tests.test_success_failure_and_incomplete_exit_zero_stop_queue) ... START gavit_train
+START gavit_test
+START gavit_train
+START gavit_train
+ok
+test_test_arrays_reject_misaligned_labels_nan_and_duplicate_paths (test_bigearth_soft45.Soft45Tests.test_test_arrays_reject_misaligned_labels_nan_and_duplicate_paths) ... ok
+test_training_requires_complete_history_correct_best_and_soft_identity (test_bigearth_soft45.Soft45Tests.test_training_requires_complete_history_correct_best_and_soft_identity) ... ok
+test_checkpoint_roundtrip (unittest.loader._FailedTest.test_checkpoint_roundtrip) ... ERROR
+test_fresh_output_accepts_unused_paths (test_experiment_identity.ArtifactPathTests.test_fresh_output_accepts_unused_paths) ... ok
+test_fresh_output_rejects_every_existing_artifact (test_experiment_identity.ArtifactPathTests.test_fresh_output_rejects_every_existing_artifact) ... ok
+test_run_stage_accepts_only_declared_stages (test_experiment_identity.ArtifactPathTests.test_run_stage_accepts_only_declared_stages) ... ok
+test_run_tag_accepts_safe_slug (test_experiment_identity.ArtifactPathTests.test_run_tag_accepts_safe_slug) ... ok
+test_run_tag_rejects_path_characters_and_spaces (test_experiment_identity.ArtifactPathTests.test_run_tag_rejects_path_characters_and_spaces) ... ok
+test_training_state_path_is_separate_from_best_checkpoint (test_experiment_identity.ArtifactPathTests.test_training_state_path_is_separate_from_best_checkpoint) ... ok
+test_checkpoint_identity_accepts_exact_match (test_experiment_identity.CheckpointIdentityTests.test_checkpoint_identity_accepts_exact_match) ... ok
+test_checkpoint_identity_rejects_wrong_class_count (test_experiment_identity.CheckpointIdentityTests.test_checkpoint_identity_rejects_wrong_class_count) ... ok
+test_checkpoint_identity_rejects_wrong_dataset (test_experiment_identity.CheckpointIdentityTests.test_checkpoint_identity_rejects_wrong_dataset) ... ok
+test_checkpoint_identity_rejects_wrong_model (test_experiment_identity.CheckpointIdentityTests.test_checkpoint_identity_rejects_wrong_model) ... ok
+test_complete_architecture_rejects_missing_key (test_experiment_identity.CheckpointIdentityTests.test_complete_architecture_rejects_missing_key) ... ok
+test_knn_topology_identity_uses_configured_neighbor_count (test_experiment_identity.CheckpointIdentityTests.test_knn_topology_identity_uses_configured_neighbor_count) ... ok
+test_resume_identity_binds_graph_topology_snapshot (test_experiment_identity.CheckpointIdentityTests.test_resume_identity_binds_graph_topology_snapshot) ... ok
+test_sparse_hybrid_topology_identity_is_explicit (test_experiment_identity.CheckpointIdentityTests.test_sparse_hybrid_topology_identity_is_explicit) ... ok
+test_clean_git_requirement_rejects_dirty_or_unknown_state (test_experiment_identity.GitStateTests.test_clean_git_requirement_rejects_dirty_or_unknown_state) ... ok
+test_git_state_distinguishes_clean_and_dirty_tree (test_experiment_identity.GitStateTests.test_git_state_distinguishes_clean_and_dirty_tree) ... ok
+test_metadata_file_is_valid_json (test_experiment_identity.MetadataFileTests.test_metadata_file_is_valid_json) ... ok
+test_metadata_path_replaces_checkpoint_suffix (test_experiment_identity.MetadataFileTests.test_metadata_path_replaces_checkpoint_suffix) ... ok
+test_metadata_roundtrip_adds_checkpoint_path (test_experiment_identity.MetadataFileTests.test_metadata_roundtrip_adds_checkpoint_path) ... ok
+test_cli_writes_single_html_evidence_and_refuses_reuse (test_feedback_case_sheet.CaseSheetTests.test_cli_writes_single_html_evidence_and_refuses_reuse) ... ok
+test_embeds_four_real_assets_and_separates_captured_edge_types (test_feedback_case_sheet.CaseSheetTests.test_embeds_four_real_assets_and_separates_captured_edge_types) ... ok
+test_missing_image_stops_instead_of_creating_a_placeholder (test_feedback_case_sheet.CaseSheetTests.test_missing_image_stops_instead_of_creating_a_placeholder) ... ok
+test_rejects_gallery_or_incomplete_run (test_feedback_case_sheet.CaseSheetTests.test_rejects_gallery_or_incomplete_run) ... ok
+test_rejects_svg_edge_identity_drift (test_feedback_case_sheet.CaseSheetTests.test_rejects_svg_edge_identity_drift) ... ok
+test_rejects_wrong_row_label_and_cache_mismatch (test_feedback_case_sheet.CaseSheetTests.test_rejects_wrong_row_label_and_cache_mismatch) ... ok
+test_graph_construction (unittest.loader._FailedTest.test_graph_construction) ... ERROR
+test_every_missing_or_changed_assignment_field_is_rejected (test_grouping_identity.GroupingIdentityTests.test_every_missing_or_changed_assignment_field_is_rejected) ... ok
+test_invalid_combinations_are_rejected (test_grouping_identity.GroupingIdentityTests.test_invalid_combinations_are_rejected) ... ok
+test_metadata_resolution_preserves_new_identity_and_rejects_fallback (test_grouping_identity.GroupingIdentityTests.test_metadata_resolution_preserves_new_identity_and_rejects_fallback) ... ERROR
+test_old_architectures_and_input_dictionary_are_unchanged (test_grouping_identity.GroupingIdentityTests.test_old_architectures_and_input_dictionary_are_unchanged) ... ok
+test_training_defaults_are_independent_and_checkpoint_is_strict (test_grouping_identity.GroupingIdentityTests.test_training_defaults_are_independent_and_checkpoint_is_strict) ... ok
+test_nwpu_assignment_cache (unittest.loader._FailedTest.test_nwpu_assignment_cache) ... ERROR
+test_nwpu_feedback_sensitivity (unittest.loader._FailedTest.test_nwpu_feedback_sensitivity) ... ERROR
+test_nwpu_neighbors (unittest.loader._FailedTest.test_nwpu_neighbors) ... ERROR
+test_nwpu_pooling_probe (unittest.loader._FailedTest.test_nwpu_pooling_probe) ... ERROR
+test_nwpu_region_visualization (unittest.loader._FailedTest.test_nwpu_region_visualization) ... ERROR
+test_build_v2_split_csvs_from_records_writes_existing_rgb_patches (test_prepare_bigearth.PrepareBigEarthV2Test.test_build_v2_split_csvs_from_records_writes_existing_rgb_patches) ... ok
+test_label_list_to_vec_uses_bigearthnet_19_order (test_prepare_bigearth.PrepareBigEarthV2Test.test_label_list_to_vec_uses_bigearthnet_19_order) ... ok
+test_resolve_patch_dir_supports_v2_nested_tile_layout (test_prepare_bigearth.PrepareBigEarthV2Test.test_resolve_patch_dir_supports_v2_nested_tile_layout) ... ok
+test_all_invalid_candidates_raise (test_prepare_proxy_split.CandidateSelectionTests.test_all_invalid_candidates_raise) ... ok
+test_equal_scores_choose_the_lower_seed (test_prepare_proxy_split.CandidateSelectionTests.test_equal_scores_choose_the_lower_seed) ... ok
+test_missing_positive_class_rejects_candidate (test_prepare_proxy_split.CandidateSelectionTests.test_missing_positive_class_rejects_candidate) ... ok
+test_rejects_invalid_fraction_and_candidate_count (test_prepare_proxy_split.CandidateSelectionTests.test_rejects_invalid_fraction_and_candidate_count) ... ok
+test_sampling_is_deterministic_sorted_and_without_replacement (test_prepare_proxy_split.CandidateSelectionTests.test_sampling_is_deterministic_sorted_and_without_replacement) ... ok
+test_selects_minimum_score_then_lower_seed (test_prepare_proxy_split.CandidateSelectionTests.test_selects_minimum_score_then_lower_seed) ... ok
+test_publish_failure_rolls_back_all_artifacts (test_prepare_proxy_split.PrepareProxySplitTests.test_publish_failure_rolls_back_all_artifacts) ... ok
+test_refuses_to_overwrite_existing_output (test_prepare_proxy_split.PrepareProxySplitTests.test_refuses_to_overwrite_existing_output) ... ok
+test_writes_proxy_csvs_and_auditable_report (test_prepare_proxy_split.PrepareProxySplitTests.test_writes_proxy_csvs_and_auditable_report) ... ok
+test_reads_binary_schema_and_compacts_labels (test_prepare_proxy_split.ReadSplitCsvTests.test_reads_binary_schema_and_compacts_labels) ... ok
+test_rejects_empty_path_nonbinary_label_and_empty_rows (test_prepare_proxy_split.ReadSplitCsvTests.test_rejects_empty_path_nonbinary_label_and_empty_rows) ... ok
+test_rejects_reordered_header (test_prepare_proxy_split.ReadSplitCsvTests.test_rejects_reordered_header) ... ok
+test_formal_gate_rejects_incomplete_or_mismatched_model_reports (test_resource_probe.CommandTests.test_formal_gate_rejects_incomplete_or_mismatched_model_reports) ... ok
+test_formal_pair_preserves_protocol_and_unique_outputs (test_resource_probe.CommandTests.test_formal_pair_preserves_protocol_and_unique_outputs) ... ok
+test_plan_cli_never_creates_output_or_imports_cuda (test_resource_probe.CommandTests.test_plan_cli_never_creates_output_or_imports_cuda) ... ok
+test_smoke_requires_full_preflight_records_not_just_sample_csv (test_resource_probe.CommandTests.test_smoke_requires_full_preflight_records_not_just_sample_csv) ... ok
+test_existing_output_is_never_overwritten (test_resource_probe.SplitTests.test_existing_output_is_never_overwritten) ... ok
+test_malformed_and_duplicate_rows_are_rejected (test_resource_probe.SplitTests.test_malformed_and_duplicate_rows_are_rejected) ... ok
+test_sampling_is_repeatable_and_never_copies_test_split (test_resource_probe.SplitTests.test_sampling_is_repeatable_and_never_copies_test_split) ... ok
+test_scan_finds_missing_band_not_just_existing_patch_directory (test_resource_probe.SplitTests.test_scan_finds_missing_band_not_just_existing_patch_directory) ... ok
+test_changed_image_or_missing_file_rejected (test_scene_data_metrics.ManifestTests.test_changed_image_or_missing_file_rejected) ...   Written: /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmp38_tszkw/split/train.csv  (1 rows)
+  Written: /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmp38_tszkw/split/val.csv  (0 rows)
+  Written: /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmp38_tszkw/split/test.csv  (0 rows)
+  Skipped: {'missing_patch': 1, 'missing_bands': 0, 'unknown_split': 0}
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+ok
+test_corrupt_image_rejected (test_scene_data_metrics.ManifestTests.test_corrupt_image_rejected) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+ok
+test_deterministic_disjoint_relative_manifest (test_scene_data_metrics.ManifestTests.test_deterministic_disjoint_relative_manifest) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_duplicate_pixels_rejected_even_different_encoding (test_scene_data_metrics.ManifestTests.test_duplicate_pixels_rejected_even_different_encoding) ... IMAGE SCAN prepare: 0/21; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/21; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 21/21; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_fixed_smoke_samples_never_include_test (test_scene_data_metrics.ManifestTests.test_fixed_smoke_samples_never_include_test) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_grouped_duplicates_preserve_files_counts_and_disjoint_pixels (test_scene_data_metrics.ManifestTests.test_grouped_duplicates_preserve_files_counts_and_disjoint_pixels) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_grouped_manifest_checks_duplicate_report (test_scene_data_metrics.ManifestTests.test_grouped_manifest_checks_duplicate_report) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+ok
+test_grouped_manifest_rejects_cross_split_duplicate_even_if_counts_match (test_scene_data_metrics.ManifestTests.test_grouped_manifest_rejects_cross_split_duplicate_even_if_counts_match) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+ok
+test_grouped_mode_cannot_silently_relax_split_sizes (test_scene_data_metrics.ManifestTests.test_grouped_mode_cannot_silently_relax_split_sizes) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_grouped_mode_still_rejects_conflicting_labels (test_scene_data_metrics.ManifestTests.test_grouped_mode_still_rejects_conflicting_labels) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_output_is_never_overwritten (test_scene_data_metrics.ManifestTests.test_output_is_never_overwritten) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_relocated_root_is_valid (test_scene_data_metrics.ManifestTests.test_relocated_root_is_valid) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+ok
+test_toy_cannot_masquerade_as_aid (test_scene_data_metrics.ManifestTests.test_toy_cannot_masquerade_as_aid) ... ok
+test_unique_images_keep_previous_seeded_assignment_in_grouped_mode (test_scene_data_metrics.ManifestTests.test_unique_images_keep_previous_seeded_assignment_in_grouped_mode) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_wrong_count_or_duplicate_record_rejected (test_scene_data_metrics.ManifestTests.test_wrong_count_or_duplicate_record_rejected) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN verify: 0/21; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 1/21; elapsed=0.0s (CPU decode + file/pixel hashes)
+ok
+test_wrong_label_or_path_escape_rejected (test_scene_data_metrics.ManifestTests.test_wrong_label_or_path_escape_rejected) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN verify: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+ok
+test_metric_input_errors_are_rejected (test_scene_data_metrics.MetricTests.test_metric_input_errors_are_rejected) ... ok
+test_metrics_include_absent_classes_and_correct_orientation (test_scene_data_metrics.MetricTests.test_metrics_include_absent_classes_and_correct_orientation) ... ok
+test_scene_runtime (unittest.loader._FailedTest.test_scene_runtime) ... ERROR
+test_bigearth_complete_report_and_matching_test_required (test_seed43_launch.Seed43Tests.test_bigearth_complete_report_and_matching_test_required) ... START gavit_train
+START gavit_test
+START gavit_train
+START gavit_train
+START gavit_train
+START gavit_test
+ok
+test_bigearth_only_soft43_and_correct_best_weight_route (test_seed43_launch.Seed43Tests.test_bigearth_only_soft43_and_correct_best_weight_route) ... ok
+test_bigearth_preflight_payload_hash_is_current (test_seed43_launch.Seed43Tests.test_bigearth_preflight_payload_hash_is_current) ... ok
+test_bigearth_preflight_preserves_historical_epoch21_boundary (test_seed43_launch.Seed43Tests.test_bigearth_preflight_preserves_historical_epoch21_boundary) ... ok
+test_bigearth_seed45_metadata_cannot_be_reused_as_seed43 (test_seed43_launch.Seed43Tests.test_bigearth_seed45_metadata_cannot_be_reused_as_seed43) ... ok
+test_nwpu_actual_receipts_use_current_best_not_seed42_epochs (test_seed43_launch.Seed43Tests.test_nwpu_actual_receipts_use_current_best_not_seed42_epochs) ... ok
+test_nwpu_exit_zero_with_incomplete_artifact_stops (test_seed43_launch.Seed43Tests.test_nwpu_exit_zero_with_incomplete_artifact_stops) ... START first
+ok
+test_nwpu_failed_report_still_discovers_existing_checkpoint (test_seed43_launch.Seed43Tests.test_nwpu_failed_report_still_discovers_existing_checkpoint) ... ok
+test_nwpu_own_calibration_routes_and_nine_stages (test_seed43_launch.Seed43Tests.test_nwpu_own_calibration_routes_and_nine_stages) ... ok
+test_nwpu_preflight_accepts_authorized_4090_and_rejects_other_cards (test_seed43_launch.Seed43Tests.test_nwpu_preflight_accepts_authorized_4090_and_rejects_other_cards) ... ok
+test_nwpu_real_child_nonzero_stops_and_preserves_logs (test_seed43_launch.Seed43Tests.test_nwpu_real_child_nonzero_stops_and_preserves_logs) ... START first
+ok
+test_soft_assignment_diagnostics (unittest.loader._FailedTest.test_soft_assignment_diagnostics) ... ERROR
+test_soft_entrypoints (unittest.loader._FailedTest.test_soft_entrypoints) ... ERROR
+test_soft_gavit (unittest.loader._FailedTest.test_soft_gavit) ... ERROR
+test_soft_region_grouping (unittest.loader._FailedTest.test_soft_region_grouping) ... ERROR
+test_sparse_hybrid_model (unittest.loader._FailedTest.test_sparse_hybrid_model) ... ERROR
+test_every_entry_point_accepts_sparse_hybrid_identity (test_sparse_hybrid_static_contract.SparseHybridStaticContractTests.test_every_entry_point_accepts_sparse_hybrid_identity) ... ok
+test_model_dispatches_to_dedicated_builder (test_sparse_hybrid_static_contract.SparseHybridStaticContractTests.test_model_dispatches_to_dedicated_builder) ... ok
+test_train_entry_points_record_explicit_graph_topology (test_sparse_hybrid_static_contract.SparseHybridStaticContractTests.test_train_entry_points_record_explicit_graph_topology) ... ok
+test_spatial_prior_grouping (unittest.loader._FailedTest.test_spatial_prior_grouping) ... ERROR
+test_spatial_prior_runtime (unittest.loader._FailedTest.test_spatial_prior_runtime) ... ERROR
+test_preserves_default_timm_configuration_without_local_file (test_swin_features.BuildSwinModelKwargsTests.test_preserves_default_timm_configuration_without_local_file) ... ok
+test_rejects_missing_local_pretrained_file (test_swin_features.BuildSwinModelKwargsTests.test_rejects_missing_local_pretrained_file) ... ok
+test_uses_local_file_as_pretrained_source (test_swin_features.BuildSwinModelKwargsTests.test_uses_local_file_as_pretrained_source) ... ok
+test_leaves_already_pooled_features_unchanged (test_swin_features.PoolSwinFeaturesTests.test_leaves_already_pooled_features_unchanged) ... ok
+test_pools_both_spatial_dimensions_for_channels_last_features (test_swin_features.PoolSwinFeaturesTests.test_pools_both_spatial_dimensions_for_channels_last_features) ... ok
+test_pools_token_dimension_for_sequence_features (test_swin_features.PoolSwinFeaturesTests.test_pools_token_dimension_for_sequence_features) ... ok
+test_token_refinement (unittest.loader._FailedTest.test_token_refinement) ... ERROR
+test_token_refinement_runtime (unittest.loader._FailedTest.test_token_refinement_runtime) ... ERROR
+test_missing_memory_measurements_are_null_not_zero (test_training_profile.MemoryTests.test_missing_memory_measurements_are_null_not_zero) ... ok
+test_preflight_failure_has_nonzero_exit_and_retained_diagnostics (test_training_profile.MemoryTests.test_preflight_failure_has_nonzero_exit_and_retained_diagnostics) ... ok
+test_process_family_includes_loader_children_and_pss (test_training_profile.MemoryTests.test_process_family_includes_loader_children_and_pss) ... ok
+test_report_collision_preserves_old_report (test_training_profile.MemoryTests.test_report_collision_preserves_old_report) ... ok
+test_tee_persists_training_output_and_preserves_console (test_training_profile.MemoryTests.test_tee_persists_training_output_and_preserves_console) ... ok
+test_loading_time_is_included_and_errors_propagate (test_training_profile.TimingTests.test_loading_time_is_included_and_errors_propagate) ... ok
+test_timing_includes_consumer_work_and_excludes_warmup (test_training_profile.TimingTests.test_timing_includes_consumer_work_and_excludes_warmup) ... ok
+test_failed_state_write_preserves_previous_resume_point (test_training_state_helpers.TrainingStateHelperContractTests.test_failed_state_write_preserves_previous_resume_point) ... ok
+test_missing_training_state_is_fatal (test_training_state_helpers.TrainingStateHelperContractTests.test_missing_training_state_is_fatal) ... ok
+test_non_best_epoch_updates_last_state_without_replacing_best_model (test_training_state_helpers.TrainingStateHelperContractTests.test_non_best_epoch_updates_last_state_without_replacing_best_model) ... ok
+test_round_trip_restores_all_states_and_returns_next_epoch (test_training_state_helpers.TrainingStateHelperContractTests.test_round_trip_restores_all_states_and_returns_next_epoch) ... ok
+test_validated_resume_rejects_architecture_mismatch (test_training_state_helpers.TrainingStateHelperContractTests.test_validated_resume_rejects_architecture_mismatch) ... ok
+test_validated_resume_rejects_best_checkpoint_hash_mismatch (test_training_state_helpers.TrainingStateHelperContractTests.test_validated_resume_rejects_best_checkpoint_hash_mismatch) ... ok
+test_validated_resume_rejects_state_from_another_experiment (test_training_state_helpers.TrainingStateHelperContractTests.test_validated_resume_rejects_state_from_another_experiment) ... ok
+test_validated_resume_requires_checkpoint_metadata (test_training_state_helpers.TrainingStateHelperContractTests.test_validated_resume_requires_checkpoint_metadata) ... ok
+test_validated_resume_requires_last_training_state (test_training_state_helpers.TrainingStateHelperContractTests.test_validated_resume_requires_last_training_state) ... ok
+test_validated_resume_uses_last_state_without_best_checkpoint (test_training_state_helpers.TrainingStateHelperContractTests.test_validated_resume_uses_last_state_without_best_checkpoint) ... ok
+
+======================================================================
+ERROR: test_worker_records_exact_metrics_without_changing_save_return (test_bigearth_seed45.Seed45Tests.test_worker_records_exact_metrics_without_changing_save_return)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_bigearth_seed45.py", line 84, in test_worker_records_exact_metrics_without_changing_save_return
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+======================================================================
+ERROR: test_actual_assignment_and_graph_snapshots_and_corruptions (test_bigearth_soft45.Soft45Tests.test_actual_assignment_and_graph_snapshots_and_corruptions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_bigearth_soft45.py", line 138, in test_actual_assignment_and_graph_snapshots_and_corruptions
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+======================================================================
+ERROR: test_recording_preserves_save_return_and_training_rng (test_bigearth_soft45.Soft45Tests.test_recording_preserves_save_return_and_training_rng)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_bigearth_soft45.py", line 118, in test_recording_preserves_save_return_and_training_rng
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+======================================================================
+ERROR: test_checkpoint_roundtrip (unittest.loader._FailedTest.test_checkpoint_roundtrip)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_checkpoint_roundtrip
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_checkpoint_roundtrip.py", line 16, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_graph_construction (unittest.loader._FailedTest.test_graph_construction)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_graph_construction
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_graph_construction.py", line 3, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_metadata_resolution_preserves_new_identity_and_rejects_fallback (test_grouping_identity.GroupingIdentityTests.test_metadata_resolution_preserves_new_identity_and_rejects_fallback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_grouping_identity.py", line 75, in test_metadata_resolution_preserves_new_identity_and_rejects_fallback
+    from utils import resolve_arch_config
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/utils.py", line 4, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+======================================================================
+ERROR: test_nwpu_assignment_cache (unittest.loader._FailedTest.test_nwpu_assignment_cache)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_nwpu_assignment_cache
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_nwpu_assignment_cache.py", line 9, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_nwpu_feedback_sensitivity (unittest.loader._FailedTest.test_nwpu_feedback_sensitivity)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_nwpu_feedback_sensitivity
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_nwpu_feedback_sensitivity.py", line 7, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_nwpu_neighbors (unittest.loader._FailedTest.test_nwpu_neighbors)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_nwpu_neighbors
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_nwpu_neighbors.py", line 8, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_nwpu_pooling_probe (unittest.loader._FailedTest.test_nwpu_pooling_probe)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_nwpu_pooling_probe
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_nwpu_pooling_probe.py", line 15, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_nwpu_region_visualization (unittest.loader._FailedTest.test_nwpu_region_visualization)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_nwpu_region_visualization
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_nwpu_region_visualization.py", line 12, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_scene_runtime (unittest.loader._FailedTest.test_scene_runtime)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_scene_runtime
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_scene_runtime.py", line 10, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_soft_assignment_diagnostics (unittest.loader._FailedTest.test_soft_assignment_diagnostics)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_soft_assignment_diagnostics
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_soft_assignment_diagnostics.py", line 5, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_soft_entrypoints (unittest.loader._FailedTest.test_soft_entrypoints)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_soft_entrypoints
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_soft_entrypoints.py", line 9, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_soft_gavit (unittest.loader._FailedTest.test_soft_gavit)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_soft_gavit
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_soft_gavit.py", line 3, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_soft_region_grouping (unittest.loader._FailedTest.test_soft_region_grouping)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_soft_region_grouping
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_soft_region_grouping.py", line 3, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_sparse_hybrid_model (unittest.loader._FailedTest.test_sparse_hybrid_model)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_sparse_hybrid_model
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_sparse_hybrid_model.py", line 6, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_spatial_prior_grouping (unittest.loader._FailedTest.test_spatial_prior_grouping)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_spatial_prior_grouping
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_spatial_prior_grouping.py", line 5, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_spatial_prior_runtime (unittest.loader._FailedTest.test_spatial_prior_runtime)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_spatial_prior_runtime
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_spatial_prior_runtime.py", line 8, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_token_refinement (unittest.loader._FailedTest.test_token_refinement)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_token_refinement
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_token_refinement.py", line 6, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+======================================================================
+ERROR: test_token_refinement_runtime (unittest.loader._FailedTest.test_token_refinement_runtime)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_token_refinement_runtime
+Traceback (most recent call last):
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/tests/test_token_refinement_runtime.py", line 5, in <module>
+    import pytest
+ModuleNotFoundError: No module named 'pytest'
+
+
+----------------------------------------------------------------------
+Ran 199 tests in 2.500s
+
+FAILED (errors=21)

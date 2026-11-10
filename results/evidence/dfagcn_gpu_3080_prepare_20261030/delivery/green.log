@@ -1,0 +1,15 @@
+test_bundle_excludes_weights_and_binaries_and_pins_source_bytes (test_dfagcn_delivery.DeliveryTests.test_bundle_excludes_weights_and_binaries_and_pins_source_bytes) ... ok
+test_current_reader_accepts_immutable_legacy_bundle_without_runner_field (test_dfagcn_delivery.DeliveryTests.test_current_reader_accepts_immutable_legacy_bundle_without_runner_field) ... ok
+test_custom_runner_member_is_dispatched_from_manifest (test_dfagcn_delivery.DeliveryTests.test_custom_runner_member_is_dispatched_from_manifest) ... ok
+test_invalid_runner_member_is_rejected_before_output_creation (test_dfagcn_delivery.DeliveryTests.test_invalid_runner_member_is_rejected_before_output_creation) ... ok
+test_invalid_weights_metadata_fails_before_artifact_creation (test_dfagcn_delivery.DeliveryTests.test_invalid_weights_metadata_fails_before_artifact_creation) ... ok
+test_optional_weights_metadata_is_validated_and_shipped (test_dfagcn_delivery.DeliveryTests.test_optional_weights_metadata_is_validated_and_shipped) ... ok
+test_path_traversal_and_duplicate_archive_members_are_rejected (test_dfagcn_delivery.DeliveryTests.test_path_traversal_and_duplicate_archive_members_are_rejected) ... ok
+test_preexisting_or_partial_workspace_is_never_overwritten (test_dfagcn_delivery.DeliveryTests.test_preexisting_or_partial_workspace_is_never_overwritten) ... ok
+test_real_official_source_build_produces_verified_local_binaries (test_dfagcn_delivery.DeliveryTests.test_real_official_source_build_produces_verified_local_binaries) ... ok
+test_real_zipapp_inspect_delegates_and_reuse_checks_immutable_files (test_dfagcn_delivery.DeliveryTests.test_real_zipapp_inspect_delegates_and_reuse_checks_immutable_files) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.420s
+
+OK

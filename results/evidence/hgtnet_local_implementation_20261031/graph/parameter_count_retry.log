@@ -1,0 +1,9 @@
+{
+  "parameter_counts": {
+    "transition1_512_to_256": 136192,
+    "block_C256": 986368,
+    "transition2_256_to_512": 134400,
+    "block_C512": 3938816
+  },
+  "full_graph_parameter_count": 14066432
+}

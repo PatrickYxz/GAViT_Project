@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 0.010679458267986774
+}

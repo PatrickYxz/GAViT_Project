@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-08",
+  "native_compilation": {
+    "result": "success",
+    "tool": "mcp__codex_app__compile_latex_document",
+    "path": "/Users/patrick/Projects/GAViT_Project/thesis/ntu_gavit",
+    "mainFile": "main.tex",
+    "scope": "Current final source after TOC/figure repairs"
+  },
+  "local_compilation": {
+    "result": "success",
+    "exit_code": 0,
+    "command": "TECTONIC_CACHE_DIR=/private/tmp/gavit_tectonic_20261108/cache /private/tmp/gavit_tectonic_20261108/tectonic --untrusted --only-cached --bundle https://data1b.fullyjustified.net/tlextras-2022.0r0.tar --keep-logs --keep-intermediates --outdir /Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108 main.tex",
+    "cwd": "/Users/patrick/Projects/GAViT_Project/thesis/ntu_gavit",
+    "log": "results/evidence/external_results_integration_20261106/compile_final_20261108.log"
+  },
+  "source_sha256": {
+    "main.tex": "77919dece03d946d197b8ced1e10a106fbcecb6efe919c6d6b7d348eeda35d36",
+    "chapters/01-introduction.tex": "ac56873d1cb2526bebaa2503ca1c5c5ed67962760d21be7b1ea29fdcf211ae5b",
+    "chapters/02-literature-review.tex": "77d5073aa7dfd07b4f4c7e286af76838c5eb6d269ec5e722999b25d4b572072b",
+    "chapters/03-method.tex": "e036fa93a09be0ff86facb4ca0c2f84c74d243c23318eda2f436fb125d44115f",
+    "chapters/04-experimental-setup.tex": "5d470a8c91b6b194b51577d1a7be2232d82f0bbe201aa4c161f3f36dd88d5cd3",
+    "chapters/05-external-comparisons.tex": "fae9b0131890a76bb20b62fdf58ae7d492971871db88519abe7c2da15db2f17c",
+    "references.bib": "fadee6936a8d4b91043a0c6fa9c2794aee595bb072e4861990d70246a4a9997f",
+    "images/external_aid_20261108/hgtnet_aid_seed42_training_history.png": "e5c45979ed0a77ea5f4ee4a1b17bd598629af32b5d1823fdd8705885a5920d3c",
+    "images/external_aid_20261108/hgtnet_aid_seed42_confusion_matrix.png": "9ac1a44b8910e585290c31e5ef7eb18bd95679b92668f22ac10c2b0fc859cbcf"
+  },
+  "pdf_sha256": "0802b80887af025dc059ff49604100096c584b82a89374c5cc14c493ea89b0e2"
+}

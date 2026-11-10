@@ -1,0 +1,188 @@
+{
+  "best_checkpoint_sha256": "9c44a54284e7a2d56d99655656e475ba6ea3b6b080802b93ef10bca366ae4517",
+  "cache_content_sha256": "f120733345505d1ed88136baae9571dab87f7fe91a063751b075fa7b67120065",
+  "cache_key": "aaeb0cede2f64a7b653dbf1f72ad9774d0fdf32cda5d432b9f0cc387bb082fcb",
+  "completed": true,
+  "elapsed_seconds": 0.08066558325663209,
+  "feature_identity": {
+    "class_names": [
+      "class_a",
+      "class_b"
+    ],
+    "feature_spec": {
+      "conv_activation": "pre_relu",
+      "fc_activation": "post_relu",
+      "pooling_hw": [
+        3,
+        4
+      ]
+    },
+    "fitted_on_sha256": null,
+    "manifest_sha256": "08226704765cbd3f4ecf2af437ed87b4222ad9f96c70cbfd69c2252c391facb8",
+    "preprocessing": {
+      "augmentation": false,
+      "channels": "RGB",
+      "conv_hw": 448,
+      "fc_hw": 224,
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "resize_mode": "bilinear_stretch",
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "weights_kind": "random_smoke"
+    },
+    "schema": "dfagcn-feature-cache-v1",
+    "source_sha256": "6bf25f4accd133bd3e0df663605e50b2f1b07f17470710c4b8e9a896c6a509e6",
+    "stage": "frozen_pretrained",
+    "training_config": null,
+    "weights_sha256": "e53c8bac71bbe650b4cd08338c593b071e3c5106cffd3c1f81b7b456a05217fe"
+  },
+  "final_checkpoint_sha256": "b7ec5c79162378e5cef95887ff9de4a83adc6f585f26d548b82a25429ce58d6b",
+  "fit_records_sha256": "ae1920626e8483ea66369c15aac606d668d5dbfd27eccc6f3096c87007e943d8",
+  "fit_scope": "train",
+  "limits": {
+    "train_per_class": null,
+    "val_per_class": null
+  },
+  "manifest_sha256": "08226704765cbd3f4ecf2af437ed87b4222ad9f96c70cbfd69c2252c391facb8",
+  "mode": "engineering",
+  "phase": "calibration",
+  "recipe": {
+    "C_grid": [
+      0.1,
+      1.0
+    ],
+    "batch_size": 4,
+    "choices": {
+      "architecture": "Two 256-wide GCN layers, ReLU/dropout after each, mean readout, FC1024/ReLU/dropout then FC512/ReLU are independent choices because complete Table I remains unavailable.",
+      "classifier": "LIBLINEAR solver2 with bias1 is an independent explicit solver choice; the paper confirms LIBLINEAR but does not resolve this solver/bias pair.",
+      "engineering_fixture": "Synthetic/random weights,12 nodes,GCN8,FC512,1 epoch; not the production recipe or a dataset score.",
+      "fusion": "Fixed NWPU alpha0.7 beta0.3 gamma0.4 and the printed C grid are paper-reported values, not fitted to this project's test.",
+      "graph": "k=10 binary undirected nearest-neighbor union is paper-grounded; Euclidean distance, self exclusion and index ties are explicit engineering choices.",
+      "implementation_scope": "Independent project recipe; not official code or a verified Table I transcription.",
+      "optimization": "Adam lr0.001, weight_decay0 and a 100-epoch calibration cap are independent choices; batch100 and factor0.1 every50 epochs follow the readable paper body. Three disjoint branch CE losses are summed.",
+      "pooling": "Adaptive average pooling to 7x7 is an independent bounded-cost choice, not a confirmed paper value or inherited GAViT setting.",
+      "preprocessing": "Frozen torchvision VGG16 ImageNet weights and RGB stretch-resize224/448 with ImageNet mean/std are an independent alternative; no MatConvNet numerical-equivalence claim. Random weights are engineering-smoke only.",
+      "selection": "Validation-only epoch and C selection; selected epoch count is frozen before fresh train+val refit. Test is excluded from selection."
+    },
+    "dropout": 0.0,
+    "epochs": 1,
+    "fc_dims": [
+      512
+    ],
+    "fusion": {
+      "alpha": 0.7,
+      "beta": 0.3,
+      "gamma": 0.4
+    },
+    "gcn_dims": [
+      8
+    ],
+    "implementation": "dfagcn_independent_v1",
+    "knn_k": 2,
+    "learning_rate": 0.001,
+    "liblinear_bias": 1.0,
+    "liblinear_solver": 2,
+    "lr_gamma": 0.1,
+    "lr_step": 50,
+    "metric": "euclidean",
+    "pooling_hw": [
+      3,
+      4
+    ],
+    "schema": "dfagcn-independent-recipe-v1",
+    "seed": 42,
+    "weight_decay": 0.0
+  },
+  "recipe_sha256": "52540b7a9462eb82d9d646ea916c446a8f1a9de71f24bddce1e1eb9b1268412a",
+  "record_sha256": "26923584341ade32ce8c4dd7c6c20fbdbb768db1e8276aa37b6e29fdf77b68d2",
+  "schema": "dfagcn-independent-pipeline-v1",
+  "scores": [
+    {
+      "C": 0.1,
+      "metrics": {
+        "confusion_matrix": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "confusion_orientation": "rows=true, columns=predicted",
+        "macro_f1_percent": 33.333333333333336,
+        "oa_percent": 50.0,
+        "per_class": [
+          {
+            "accuracy_percent": 100.0,
+            "class_index": 0,
+            "class_name": "class_a",
+            "f1_percent": 66.66666666666667,
+            "support": 1
+          },
+          {
+            "accuracy_percent": 0.0,
+            "class_index": 1,
+            "class_name": "class_b",
+            "f1_percent": 0.0,
+            "support": 1
+          }
+        ],
+        "samples": 2,
+        "zero_division": 0
+      },
+      "val_oa_percent": 50.0
+    },
+    {
+      "C": 1.0,
+      "metrics": {
+        "confusion_matrix": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "confusion_orientation": "rows=true, columns=predicted",
+        "macro_f1_percent": 33.333333333333336,
+        "oa_percent": 50.0,
+        "per_class": [
+          {
+            "accuracy_percent": 100.0,
+            "class_index": 0,
+            "class_name": "class_a",
+            "f1_percent": 66.66666666666667,
+            "support": 1
+          },
+          {
+            "accuracy_percent": 0.0,
+            "class_index": 1,
+            "class_name": "class_b",
+            "f1_percent": 0.0,
+            "support": 1
+          }
+        ],
+        "samples": 2,
+        "zero_division": 0
+      },
+      "val_oa_percent": 50.0
+    }
+  ],
+  "seed": 42,
+  "selected_C": 0.1,
+  "selected_epoch": 1,
+  "source_sha256": "104f0a4b42b4f1c3ecec45c26de0cf736054f5118b31d0fb93af76223085de92",
+  "val_cache_content_sha256": "82bca82080a9633a64c1f9dd208d6e264c8e4d83f2b00e33a6ebb9c9eca38034",
+  "val_cache_key": "6b2a101a8a3930ccf0e728ec91bb74da37a999f9f10ce143b5af32ea7048e9e9"
+}

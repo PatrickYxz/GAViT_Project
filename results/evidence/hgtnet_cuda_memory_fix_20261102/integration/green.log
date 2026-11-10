@@ -1,0 +1,12 @@
+test_3080_default_capacity_policy_remains_bounded (test_hgtnet_cuda_device.CudaDeviceTests.test_3080_default_capacity_policy_remains_bounded) ... ok
+test_actual_runtime_adapter_accepts_reported_visible_capacity (test_hgtnet_cuda_device.CudaDeviceTests.test_actual_runtime_adapter_accepts_reported_visible_capacity) ... HGTNET_CUDA_DEVICE_PROBE {"available": true, "cuda": "12.1", "device_count": 1, "name": "NVIDIA GeForce RTX 3090", "torch": "2.2.2+cu121", "total_memory_bytes": 25294798848}
+ok
+test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) ... ok
+test_exact_and_1gib_boundary_are_accepted (test_hgtnet_cuda_device.CudaDeviceTests.test_exact_and_1gib_boundary_are_accepted) ... ok
+test_user_reported_453_mib_gap_keeps_both_observations (test_hgtnet_cuda_device.CudaDeviceTests.test_user_reported_453_mib_gap_keeps_both_observations) ... ok
+test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.022s
+
+OK

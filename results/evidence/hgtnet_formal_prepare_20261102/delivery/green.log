@@ -1,0 +1,9 @@
+test_actual_formal_zipapp_resume_reaches_parser (test_hgtnet_formal_delivery.FormalDeliveryTests.test_actual_formal_zipapp_resume_reaches_parser) ... ok
+test_existing_default_runner_does_not_gain_formal_recipe (test_hgtnet_formal_delivery.FormalDeliveryTests.test_existing_default_runner_does_not_gain_formal_recipe) ... ok
+test_formal_registered_runner_contains_exact_recipe (test_hgtnet_formal_delivery.FormalDeliveryTests.test_formal_registered_runner_contains_exact_recipe) ... ok
+test_formal_runner_wrong_gpu_rejected (test_hgtnet_formal_delivery.FormalDeliveryTests.test_formal_runner_wrong_gpu_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.074s
+
+OK

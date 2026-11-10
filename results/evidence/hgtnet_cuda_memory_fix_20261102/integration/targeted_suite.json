@@ -1,0 +1,16 @@
+{
+  "scope": [
+    "test_hgtnet_3090_*.py",
+    "test_hgtnet_cuda_device.py",
+    "test_hgtnet_resources.py",
+    "test_hgtnet_nwpu_delivery.py"
+  ],
+  "tests_run": 45,
+  "successful": true,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "seconds": 0.345874291844666,
+  "python": "3.12.13 (main, Jun 11 2026, 03:55:21) [Clang 22.1.3 ]",
+  "limitation": "full numeric suite could not import torch/numpy in the expired temporary runtime; see full_suite_attempt.log. No numeric model/data/engine code changed."
+}

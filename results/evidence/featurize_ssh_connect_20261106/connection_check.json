@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-06",
+  "state": "DIRECT_SSH_PUBLICKEY_AUTH_VERIFIED",
+  "user_authorized_endpoint": {
+    "host": "workspace.featurize.cn",
+    "port": 15437,
+    "user": "featurize"
+  },
+  "credential_contents_saved": false,
+  "credential_contents_logged": false,
+  "user_confirmed_public_key_saved": true,
+  "dedicated_local_private_key_exists": true,
+  "dedicated_local_public_key_exists": true,
+  "ssh_agent_key_matches": true,
+  "public_key_fingerprint": "SHA256:rUfU3NopTlizBWFgBGms51+twQ++d3NLPGDjj/kXHPk",
+  "default_sandbox_dns_denied": true,
+  "escalated_host_banner": "OpenSSH_8.9p1 Ubuntu-3ubuntu0.6",
+  "local_dns_address": "198.18.0.11",
+  "observed_virtual_route": {
+    "gateway": "198.18.0.1",
+    "interface": "utun0",
+    "mtu": 9000
+  },
+  "independent_https_dns_answers": {
+    "alidns": "183.223.25.19",
+    "google": "183.223.25.19"
+  },
+  "strict_host_key_check_retained": true,
+  "host_key_pin_file": "results/evidence/featurize_ssh_connect_20261106/known_hosts",
+  "diagnostics": [
+    {
+      "file": "ssh_bound_en0_debug.log",
+      "bytes": 10678,
+      "sha256": "782d89e92c2a077855c06241b1ff496f24e6d2d93db5ab09d86779679dc37f4a",
+      "authenticated": true,
+      "server_accepts_key": true,
+      "public_key_offered": true,
+      "tail": "debug1: Exit status 0"
+    },
+    {
+      "file": "ssh_config_status_debug.log",
+      "bytes": 11442,
+      "sha256": "593a0324f2cc8c67a14a671451358ee18b55840401ed35c304be98dde8293ae6",
+      "authenticated": true,
+      "server_accepts_key": true,
+      "public_key_offered": true,
+      "tail": "debug1: Exit status 0"
+    },
+    {
+      "file": "ssh_curve25519_debug.log",
+      "bytes": 7939,
+      "sha256": "9206c38b748b1c964f8228131300981705c2cd67504e248b55ae3b54a9312da5",
+      "authenticated": false,
+      "server_accepts_key": false,
+      "public_key_offered": true,
+      "tail": "Connection to 198.18.0.11 port 15437 timed out"
+    },
+    {
+      "file": "ssh_debug.log",
+      "bytes": 4873,
+      "sha256": "86ff70d517783ed2749095a88ea04d054973ef2e529ae3a2dd956bd7b3eb6439",
+      "authenticated": false,
+      "server_accepts_key": false,
+      "public_key_offered": false,
+      "tail": "Connection to 198.18.0.11 port 15437 timed out"
+    },
+    {
+      "file": "ssh_ipqos_none_debug.log",
+      "bytes": 1322,
+      "sha256": "c10102f4d7465915778d3f57cb9599768e44fa54b11d0288f7c470805feb48ed",
+      "authenticated": false,
+      "server_accepts_key": false,
+      "public_key_offered": false,
+      "tail": "Connection to 183.223.25.19 port 15437 timed out"
+    },
+    {
+      "file": "ssh_password_auth_debug.log",
+      "bytes": 1502,
+      "sha256": "783f59691b64ed9cce5286dc25ee67e32bc268916011cdb6f377e519d8d4f7ed",
+      "authenticated": false,
+      "server_accepts_key": false,
+      "public_key_offered": false,
+      "tail": "Connection to 198.18.0.11 port 15437 timed out"
+    },
+    {
+      "file": "ssh_password_long_auth_debug.log",
+      "bytes": 1507,
+      "sha256": "ca365c3fa1d6bad0bb9d33b6d6b4d7640fac23bd3f69a352871d25fe3b612249",
+      "authenticated": false,
+      "server_accepts_key": false,
+      "public_key_offered": false,
+      "tail": "Connection to 183.223.25.19 port 15437 timed out"
+    },
+    {
+      "file": "ssh_public_ip_debug.log",
+      "bytes": 8055,
+      "sha256": "4a9322bb16f88e4af9ff38909ddcf9b82328ed39d226a090bc1e4b72158817b6",
+      "authenticated": false,
+      "server_accepts_key": false,
+      "public_key_offered": true,
+      "tail": "Connection to 183.223.25.19 port 15437 timed out"
+    }
+  ],
+  "remote_gpu_query_executed": true,
+  "remote_training_status_read": true,
+  "remote_mutations_performed": false,
+  "training_state": "Actively refitting epoch88, PID3136, same expected GPU; not complete.",
+  "cause": "Standard connection stalled on the virtual-route path. Binding only this connection to physical en0 succeeds with the same pinned host and agent key, including default KEX. Exact tunnel packet/forwarding mechanism was not investigated further.",
+  "requested_user_local_check": "ssh -i /Users/patrick/.ssh/featurize_gavit_ed25519 -p 15437 featurize@workspace.featurize.cn",
+  "next_action": "Use the verified project-only SSH config for read-only checks and authorized commands. No need to relay terminal output. Revalidate endpoint/IP/interface/host key when instance or network changes.",
+  "user_local_standard_ssh_result": "No response followed by Connection closed by 198.18.0.11 port15437.",
+  "login_password_used": false,
+  "successful_network_method": "Project-only ProxyCommand /usr/bin/nc bound to physical en0, verified public IP183.223.25.19, original pinned host key.",
+  "physical_route": {
+    "interface": "en0",
+    "gateway": "172.20.10.1",
+    "mtu": 1500
+  },
+  "ssh_config": "/Users/patrick/Projects/GAViT_Project/output/featurize_gavit_ssh_20261106.conf",
+  "global_proxy_or_ssh_configuration_changed": false,
+  "default_kex_restored_and_verified": true,
+  "direct_status_evidence": "results/evidence/featurize_ssh_connect_20261106/direct_status.json",
+  "direct_process_gpu_log_evidence": "results/evidence/featurize_ssh_connect_20261106/direct_inspection.json",
+  "direct_observation_utc": "2026-11-06T02:22:23.059746+00:00",
+  "evidence_sha256": {
+    "known_hosts": "f246eefd7e085de7b0efacb2bd56c68d799a6f35414fd141aae166e496a35fde",
+    "direct_status.json": "9eb58541a310af6c36382b2ba01b5ec3cbcf9fefe21777d2773e256f0c6d7b09",
+    "direct_inspection.json": "262d2da9f45dc38365c12f44d9f369d82cc036e9d71a4b779569e303ff8f2d76"
+  },
+  "connection_state": "INSTANCE_RETURNED",
+  "do_not_connect": true,
+  "user_confirmed_instance_returned": true,
+  "ssh_profile_retired": true
+}

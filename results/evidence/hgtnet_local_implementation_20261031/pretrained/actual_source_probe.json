@@ -1,0 +1,23 @@
+{
+  "status": "actual_official_torchvision_candidate_source_verified",
+  "model_loaded": false,
+  "is_original_hgtnet_weights": false,
+  "source_url": "https://download.pytorch.org/models/swin_b-68c6b09e.pth",
+  "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.pth",
+  "sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893",
+  "bytes": 351654207,
+  "validation": {
+    "complete_schema": true,
+    "all_values_finite": true,
+    "source_tensors": 353,
+    "source_numel": 87825848,
+    "schema_source": "installed torchvision.models.swin_b(weights=None) on meta"
+  },
+  "software": {
+    "python": "3.12.13",
+    "torch": "2.2.2",
+    "torchvision": "0.17.2"
+  },
+  "timestamp_utc": "2026-10-31T13:36:24.858961+00:00",
+  "elapsed_seconds": 0.4095371253788471
+}

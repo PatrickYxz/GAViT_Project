@@ -1,0 +1,44 @@
+/environment/miniconda3/bin/python /home/featurize/work/hgtnet_aid_smoke_3060_20261104.pyz status
+{
+  "action": "status",
+  "best_epoch": 1,
+  "checkpoint": {
+    "reload_max_abs_error": 0.0,
+    "sha256": "9d2040b95eb27756f8f82f26c3b49e05fd787849776e45fa7df9088a8a076910"
+  },
+  "completed": true,
+  "completion_evidence_valid": true,
+  "config_sha256": "f313abb893b29d674ace281d8d2905670ee65db131f4240640079123e783589b",
+  "counts": {
+    "test": 0,
+    "train": 240,
+    "val": 60
+  },
+  "cuda_peak_allocated_bytes": 1536937984,
+  "cuda_peak_reserved_bytes": 1694498816,
+  "exit_code": 0,
+  "final_epoch": 1,
+  "formal_training_started": false,
+  "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+  "optimizer_steps": 120,
+  "output": "/home/featurize/work/hgtnet_aid_smoke_3060_20261104/runs/aid_smoke_seed42_01",
+  "physical_gpu_uuid": "GPU-df386e6c-dbb3-0952-8190-3265a7bd8ae8",
+  "progress": {
+    "completed": true,
+    "optimizer_steps": 120,
+    "pid": 3130,
+    "stage": "complete",
+    "training_started": true
+  },
+  "schema": "hgtnet-aid-smoke-v1",
+  "smoke_val": {
+    "accuracy_percent": 76.66666666666667,
+    "macro_f1_percent": 72.34920634920634
+  },
+  "source_identity_matches": true,
+  "state": "complete",
+  "training_started": true,
+  "wall_seconds": 48.76537990199995,
+  "weights_sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893"
+}
+(base) ➜ ~

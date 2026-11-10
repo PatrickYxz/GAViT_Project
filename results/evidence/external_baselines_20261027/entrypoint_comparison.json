@@ -1,0 +1,38 @@
+[
+  {
+    "path": "run_scene.py",
+    "root_sha256": "618d5cfc798db0a94d6ad74d513c7fb08a8bdf904f33f8e6e524d0be8cc64f03",
+    "research_worktree_sha256": "fccba60f6533e4e208b7bc5c975c943e365cc5e0dffc43a9ed8cc0cb6e8c98f9",
+    "same_bytes": false
+  },
+  {
+    "path": "scene_classification/data.py",
+    "root_sha256": "ebcf0dd7585a060465df45bdf4e44ec7f47edd95f1fa8a12cbdd5723b948fa69",
+    "research_worktree_sha256": "ebcf0dd7585a060465df45bdf4e44ec7f47edd95f1fa8a12cbdd5723b948fa69",
+    "same_bytes": true
+  },
+  {
+    "path": "scene_classification/metrics.py",
+    "root_sha256": "6ef64ee533d0ca5c2dadae066a6254dcd4d107a24709b77009910067f37320b3",
+    "research_worktree_sha256": "6ef64ee533d0ca5c2dadae066a6254dcd4d107a24709b77009910067f37320b3",
+    "same_bytes": true
+  },
+  {
+    "path": "scene_classification/modeling.py",
+    "root_sha256": "8a2beed6bcb35ba5f4695ec81a899d7cf7394ccbd858a6beb372b1bd3f1ca575",
+    "research_worktree_sha256": "a198202b58b4b2b6b06dd97e1e74bcbe05c8a91319bb4546a87308306929c3b9",
+    "same_bytes": false
+  },
+  {
+    "path": "scene_classification/runner.py",
+    "root_sha256": "5d124ddfd03cb7340b8f65af8a56756d42ad1b2d1638b790373f192ead721f93",
+    "research_worktree_sha256": "4023f3f9ea34d48a4041cdff33040ba5e13f802d744f35a43f3a3827a2969188",
+    "same_bytes": false
+  },
+  {
+    "path": "scene_classification/refinement_audit.py",
+    "root_sha256": "08fdff7df2306c2a03313201ba566cd67f3acfeef2b16ed86d9fac8b085d929c",
+    "research_worktree_sha256": "08fdff7df2306c2a03313201ba566cd67f3acfeef2b16ed86d9fac8b085d929c",
+    "same_bytes": true
+  }
+]

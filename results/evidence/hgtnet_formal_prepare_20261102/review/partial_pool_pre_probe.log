@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 240, in run_formal_entry
+    result.update(_run_model(args,torch,runtime,inputs,binding,progress,args.resume))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_formal_prepare_20261102/review/partial_pool_probe.py", line 38, in model_stage
+    def model_stage(a,*args):reached.append(str(a._pool_root));raise RuntimeError('stop after successful resumed staging')
+                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: stop after successful resumed staging
+{
+  "entry_sha256": "dd29907ae37d9c01393797ed9e7eed18eebaf7697a8a8b40c60c6b90261da0d0",
+  "error": "RuntimeError: stop after successful resumed staging",
+  "exit_code": 1,
+  "model_stage_reached": true,
+  "partial_directory_preserved": true,
+  "pool_roots": [
+    "/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmp7bjz806k/scratch/pool_attempt_0001"
+  ],
+  "scope": "mocked runtime/ownership with real selected ZIP recovery; no training/GPU"
+}

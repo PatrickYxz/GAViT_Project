@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-29",
+  "scope": "Academic source/claim review of Chapters1–2 and consistency with existing methods/setup, not visual PDF QA.",
+  "independent_feedback_received": [
+    "No reported factual blocker concerning GAViT novelty, stable superiority, semantic segmentation or Swin context.",
+    "TokenLearner formal proceedings title, two STViT papers and GloRe precedent were independently checked against original sources.",
+    "Replace editorial instruction about distinguishing STViT titles with a concrete architectural comparison."
+  ],
+  "changes_applied": [
+    "Rewrote STViT comparison with Chang semantic-token attention recovery.",
+    "Defined AID, Swin-Tiny, GAViT and RGB at their first use in the introduction.",
+    "Added DGCNN volume38, issue5, article146 from the coauthor institutional publication record; no inferred page range.",
+    "Explicitly labelled Wu2020 as an arXiv preprint."
+  ],
+  "review_scope_limit": "The first independent pass was interrupted after substantive feedback; a resumed final read-only pass completed on2026-10-29. This is academic claim/scope review, not exhaustive full-text re-reading of all50 papers or visual PDF QA.",
+  "final_source_checks": {
+    "unresolved_citations": [],
+    "unused_entries": [],
+    "unresolved_labels": [],
+    "duplicate_labels": [],
+    "duplicate_keys": [],
+    "missing_inputs": []
+  },
+  "method_setup_hashes_unchanged": true,
+  "bibliography_source_note": "The original source audit documents abstract, full-text and indexed-publisher access separately. All50 entries are cited; this is not an exhaustive literature census.",
+  "final_independent_review": {
+    "result": "passed_no_important_remaining_issues_reported",
+    "date": "2026-10-29",
+    "scope": [
+      "Chapters1–2 consistency with3–4",
+      "GloRe/TokenLearner/twoSTViT identity and key mechanisms",
+      "no unsupported superiority/segmentation/completed-external-comparison claims",
+      "first-use terminology and appropriate draft scope"
+    ],
+    "read_only": true
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "status": "actual_full_hgtnet_and_official_source_meta_schema_audited",
+  "mode": "schema_only",
+  "can_apply": false,
+  "pretraining_loaded": false,
+  "coverage": {
+    "target_tensors": 473,
+    "target_numel": 74672680,
+    "source_tensors": 353,
+    "source_numel": 87825848,
+    "compatible_tensors": 318,
+    "compatible_numel": 59489486,
+    "compatible_target_numel_fraction": 0.7966700271103166,
+    "compatible_source_numel_fraction": 0.6773573766119514,
+    "intentionally_initialized_tensors": 155,
+    "intentionally_initialized_numel": 15183194
+  },
+  "config_sha256": "af6ef410125e9d47c87acd0acec1a6db6e0119656793124ceafcb2379eedac25"
+}

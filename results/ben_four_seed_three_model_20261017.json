@@ -1,0 +1,219 @@
+{
+  "date": "2026-10-17",
+  "dataset": "BigEarthNet-19",
+  "seed42_models": [
+    {
+      "model": "Swin-T",
+      "mAP_percent": 70.9,
+      "macro_f1_percent": 64.2,
+      "micro_f1_percent": 76.6
+    },
+    {
+      "model": "固定GAViT",
+      "mAP_percent": 72.0,
+      "macro_f1_percent": 66.0,
+      "micro_f1_percent": 76.7
+    },
+    {
+      "model": "软分配GAViT",
+      "mAP_percent": 70.1745705651681,
+      "macro_f1_percent": 64.04828509185678,
+      "micro_f1_percent": 76.7999586513447
+    }
+  ],
+  "selected_seeds": [
+    42,
+    43,
+    46,
+    47
+  ],
+  "seed_rows": [
+    {
+      "dataset": "BEN",
+      "seed": 42,
+      "metric": "test_mAP_percent",
+      "swin": 70.9,
+      "fixed": 72,
+      "soft": 70.1745705651681,
+      "swin_macro_f1": 64.2,
+      "fixed_macro_f1": 66,
+      "soft_macro_f1": 64.04828509185678,
+      "swin_micro_f1": 76.6,
+      "fixed_micro_f1": 76.7,
+      "soft_micro_f1": 76.7999586513447,
+      "status": "historical_archived_with_execution_limits",
+      "gpu": "historical_mixed_hardware",
+      "soft_evidence": "results/evidence/bigearth_soft42_complete_20261017/summary.json",
+      "soft_status": "formal_complete_exit0_full30_test119825",
+      "soft_gpu_identity": "GPU-44825cf0-bd98-bfdc-efbc-0100238a6789, NVIDIA GeForce RTX 4090, 610.57.04"
+    },
+    {
+      "dataset": "BEN",
+      "seed": 43,
+      "metric": "test_mAP_percent",
+      "swin": 71.1,
+      "fixed": 71.7,
+      "soft": 72.86757085064232,
+      "swin_macro_f1": 64.1,
+      "fixed_macro_f1": 65.7,
+      "soft_macro_f1": 66.67389161697625,
+      "swin_micro_f1": 76,
+      "fixed_micro_f1": 76.8,
+      "soft_micro_f1": 76.90597117759339,
+      "status": "historical_archived_with_execution_limits",
+      "gpu": "historical_mixed_hardware"
+    },
+    {
+      "dataset": "BEN",
+      "seed": 46,
+      "metric": "test_mAP_percent",
+      "swin": 71,
+      "fixed": 71.8,
+      "soft": 71.4,
+      "status": "user_reported_original_artifact_audit_pending",
+      "gpu": "RTX4090_user_confirmed_uuid_not_returned",
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "soft_macro_f1": null,
+      "swin_micro_f1": null,
+      "fixed_micro_f1": null,
+      "soft_micro_f1": null
+    },
+    {
+      "dataset": "BEN",
+      "seed": 47,
+      "metric": "test_mAP_percent",
+      "swin": 70.6,
+      "fixed": 71.1,
+      "soft": 70.3,
+      "status": "user_reported_original_artifact_audit_pending",
+      "gpu": "RTX4090_user_confirmed_uuid_not_returned",
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "soft_macro_f1": null,
+      "swin_micro_f1": null,
+      "fixed_micro_f1": null,
+      "soft_micro_f1": null
+    }
+  ],
+  "summary": {
+    "dataset": "BEN",
+    "seeds": [
+      42,
+      43,
+      46,
+      47
+    ],
+    "n": 4,
+    "requested_seeds": [
+      42,
+      43,
+      46,
+      47
+    ],
+    "missing_soft_seeds": [],
+    "swin": {
+      "n": 4,
+      "mean": 70.9,
+      "sample_sd_ddof1": 0.21602468994692867,
+      "mean_decimal": "70.9",
+      "sample_sd_decimal": "0.2160246899469286743655322478695998885902"
+    },
+    "fixed": {
+      "n": 4,
+      "mean": 71.65,
+      "sample_sd_ddof1": 0.3872983346207417,
+      "mean_decimal": "71.65",
+      "sample_sd_decimal": "0.3872983346207416885179265399782399610833"
+    },
+    "soft": {
+      "n": 4,
+      "mean": 71.1855353539526,
+      "sample_sd_ddof1": 1.2491945623468101,
+      "mean_decimal": "71.185535353952605",
+      "sample_sd_decimal": "1.249194562346810047805114687507506963164"
+    },
+    "paired_soft_minus_swin_pp": {
+      "n": 4,
+      "mean": 0.285535353952605,
+      "sample_sd_ddof1": 1.0915482618027152,
+      "mean_decimal": "0.285535353952605",
+      "sample_sd_decimal": "1.091548261802715236368651377508028852760"
+    },
+    "paired_soft_minus_fixed_pp": {
+      "n": 4,
+      "mean": -0.464464646047395,
+      "sample_sd_ddof1": 1.2426456565340223,
+      "mean_decimal": "-0.464464646047395",
+      "sample_sd_decimal": "1.242645656534022156526970074204705923038"
+    },
+    "scope": "Same-seed descriptive comparison; historical code/hardware differences and reported46/47 evidence limits retained"
+  },
+  "full_common_history_summary": {
+    "dataset": "BEN",
+    "seeds": [
+      42,
+      43,
+      45,
+      46,
+      47
+    ],
+    "swin": {
+      "n": 5,
+      "mean": 71.05538590710299,
+      "sample_sd_ddof1": 0.3946186774990528,
+      "mean_decimal": "71.055385907102994",
+      "sample_sd_decimal": "0.3946186774990527562631876730027598222578"
+    },
+    "fixed": {
+      "n": 5,
+      "mean": 71.3716472485721,
+      "sample_sd_ddof1": 0.7070369658917419,
+      "mean_decimal": "71.371647248572104",
+      "sample_sd_decimal": "0.7070369658917419668003010272080546881809"
+    },
+    "soft": {
+      "n": 5,
+      "mean": 71.1158120346918,
+      "sample_sd_ddof1": 1.0930105201649953,
+      "mean_decimal": "71.115812034691794",
+      "sample_sd_decimal": "1.093010520164995306983802086073847171463"
+    },
+    "paired_soft_minus_swin_pp": {
+      "n": 5,
+      "mean": 0.0604261275888,
+      "sample_sd_ddof1": 1.0709710663010232,
+      "mean_decimal": "0.06042612758880",
+      "sample_sd_decimal": "1.070971066301023242563645159969461233278"
+    },
+    "paired_soft_minus_fixed_pp": {
+      "n": 5,
+      "mean": -0.25583521388031,
+      "sample_sd_ddof1": 1.1729268394102654,
+      "mean_decimal": "-0.25583521388031",
+      "sample_sd_decimal": "1.172926839410265531986151883708460262113"
+    },
+    "scope": "Same-seed descriptive comparison; historical code/hardware differences and reported46/47 evidence limits retained"
+  },
+  "soft42_best": {
+    "metric": "val_mAP",
+    "value": 78.75,
+    "epoch": 10
+  },
+  "soft42_final_val_mAP_percent": 75.70723466069043,
+  "soft42_checkpoint_sha256": "23314ea561f753b1aad73025148d7b9788bbdddc4f38f49afeca59a6aec91c35",
+  "per_class_source": "/Users/patrick/Projects/GAViT_Project/results/ben_seed42_seed43_vs_swin_20261013.json",
+  "resources": {
+    "queue_seconds": 20808.021593898004,
+    "train_seconds": 20619.281373869,
+    "test_seconds": 155.16684642899781,
+    "peak_train_allocated_bytes": 3932788736,
+    "estimated_runtime_cost_yuan_at_1_67_per_hour": 9.652610017169351,
+    "actual_bill_yuan": null
+  },
+  "evidence_limits": [
+    "User-returned complete logs/metadata/metrics; weights and prediction arrays not downloaded locally",
+    "Seed46/47 aggregate scores user confirmed; original artifacts/F1/per-class/UUID still pending",
+    "Legacy42 controls and43 execution differences remain; specified four-seed subset is descriptive, chosen after prior results"
+  ]
+}

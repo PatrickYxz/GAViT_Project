@@ -1,0 +1,230 @@
+{
+  "best_epoch": 95,
+  "bundle_sha256": "b2bc9077cf37e75c83fbb72e7c4047d2fb9ede04db8fb4e4a56344500ff572e1",
+  "comparison_seed42": [
+    {
+      "correct": 23671,
+      "hgt_minus_model_macro_f1_pp": 0.19614626110889333,
+      "hgt_minus_model_net_correct_arithmetic": 47,
+      "hgt_minus_model_oa_pp": 0.18650793650793673,
+      "macro_f1_percent": 93.90914546819495,
+      "model": "Swin-T",
+      "oa_percent": 93.93253968253968
+    },
+    {
+      "correct": 23714,
+      "hgt_minus_model_macro_f1_pp": 0.015358266532871312,
+      "hgt_minus_model_net_correct_arithmetic": 4,
+      "hgt_minus_model_oa_pp": 0.015873015873012264,
+      "macro_f1_percent": 94.08993346277097,
+      "model": "GAViT fixed4x4",
+      "oa_percent": 94.10317460317461
+    },
+    {
+      "correct": 23655,
+      "hgt_minus_model_macro_f1_pp": 0.2503045099498422,
+      "hgt_minus_model_net_correct_arithmetic": 63,
+      "hgt_minus_model_oa_pp": 0.25,
+      "macro_f1_percent": 93.854987219354,
+      "model": "GAViT local soft",
+      "oa_percent": 93.86904761904762
+    },
+    {
+      "correct": 21806,
+      "hgt_minus_model_macro_f1_pp": 7.64638298269962,
+      "hgt_minus_model_net_correct_arithmetic": 1912,
+      "hgt_minus_model_oa_pp": 7.587301587301582,
+      "macro_f1_percent": 86.45890874660422,
+      "model": "DFAGCN independent v1",
+      "oa_percent": 86.53174603174604
+    }
+  ],
+  "counts": {
+    "pool": 6300,
+    "test": 25200,
+    "train": 5040,
+    "val": 1260
+  },
+  "dataset": "NWPU-RESISC45",
+  "derived": {
+    "allocated_gib": 4.409456729888916,
+    "engine_wall_hours": 6.6388683427925,
+    "fixed_fewer_parameters_percent": 57.93757742074502,
+    "hgt_params_over_fixed_ratio": 2.3774189375701726,
+    "reserved_gib": 4.783203125,
+    "test_correct_arithmetic": 23718,
+    "test_correct_from_predictions": 23718,
+    "test_errors_arithmetic": 1482,
+    "test_errors_from_predictions": 1482,
+    "val_correct_arithmetic": 1173,
+    "val_errors_arithmetic": 87,
+    "wall_hms": "6h40m32.617s",
+    "wall_hours": 6.6757270476188895,
+    "wrapper_wall_minus_engine_seconds": 132.69133737500306
+  },
+  "evidence_type": "server_completed_formal_run_plus_downloaded_prediction_history_metadata_audit",
+  "experiment_date": "2026-11-03",
+  "final_epoch": 100,
+  "history_audit": {
+    "best_epoch": 95,
+    "best_minus_final_oa_pp": 0.6349206349206469,
+    "best_validation_oa": 93.0952380952381,
+    "date": "2026-11-04",
+    "file": "results/evidence/hgtnet_results_return_20261104/files/history.json",
+    "final_epoch": 100,
+    "final_validation_oa": 92.46031746031746,
+    "independent_audit": "results/evidence/hgtnet_results_return_20261104/review_history/validation.json",
+    "refit_epochs": 95
+  },
+  "limitations": [
+    "Original model/checkpoint/optimizer snapshot/manifest/image bytes not returned; hash references and returned metadata do not replace a model-byte audit.",
+    "Prediction labels/paths match disclosed binding and directory taxonomy; original full manifest membership/image hashes not independently revalidated.",
+    "Validation per-epoch metrics recomputed from returned CMs; validation per-image predictions and hidden training randomness not independently replayed.",
+    "No GAViT full predictions in this returned packet; HGT-fixed net4 examples is not paired correction/regression/significance/stability.",
+    "Single seed independent whole-method comparison with differing recipes/backbones/hardware; no graph-module causality or original-paper numeric equivalence.",
+    "No GPU/training or changes to model/source/recipe in this offline analysis."
+  ],
+  "metadata_archive_sha256": "4fc4d51cec3aac5900ac94cdde919818ba58cd0f76add625867623f54d052477",
+  "metrics": {
+    "macro_f1_percent": 94.10529172930384,
+    "oa_percent": 94.11904761904762
+  },
+  "offline_analysis": "results/hgtnet_nwpu_seed42_analysis_20261104.json",
+  "paired_vs_dfagcn": {
+    "both_correct": 21303,
+    "both_wrong": 979,
+    "corrected": 2415,
+    "regressed": 503
+  },
+  "parameters": {
+    "groups": {
+      "dual_attention": 44077,
+      "graph": 14066432,
+      "head": 23085,
+      "patch_embed": 6528,
+      "transformer": 60479736
+    },
+    "total": 74619858,
+    "trainable": 74619858
+  },
+  "prediction_audit": {
+    "correct": 23718,
+    "date": "2026-11-04",
+    "errors": 1482,
+    "file": "results/evidence/hgtnet_results_return_20261104/files/test.json",
+    "file_sha256": "869986974e4801f2234fd2fa3bace383af2f092fd20359fbe1a252d4af7e37ae",
+    "independent_audit": "results/evidence/hgtnet_results_return_20261104/review_predictions/validation.json",
+    "metrics_recomputed": {
+      "macro_f1_percent": 94.10529172930384,
+      "oa_percent": 94.11904761904762
+    },
+    "per_class": "results/hgtnet_nwpu_seed42_per_class_20261104.csv",
+    "samples": 25200,
+    "status": "verified"
+  },
+  "refit_epochs": 95,
+  "reported_status": "results/evidence/hgtnet_formal_complete_return_20261103/status_reported.json",
+  "schema": "hgtnet-formal-result-record-v1",
+  "seed": 42,
+  "source_type": "independent_reimplementation",
+  "status": "DOWNLOADED_RESULTS_METRICS_HISTORY_LOCALLY_RECOMPUTED",
+  "status_reported": {
+    "attempt": 1,
+    "batch_size": 16,
+    "best_epoch": 95,
+    "best_val_metrics": {
+      "accuracy_percent": 93.0952380952381,
+      "macro_f1_percent": 93.03452094979133,
+      "scope": "formal_validation"
+    },
+    "checkpoint_reload": {
+      "loaded": true,
+      "metadata": {
+        "epoch": 95,
+        "initial_state_sha256": "2e954f447be44e4a411fdcbf7673a62fe2876337ec555ab041cf96987fdaaf79",
+        "phase": "refit",
+        "selected_epoch": 95
+      },
+      "reload_max_abs_error": 0.0,
+      "reload_tolerance": 1e-06,
+      "sha256": "716835556fe989739fc39e2d278188739b4d4454a14b5bf4d8d2b9efe060db1c",
+      "state_sha256": "99c7a6a85176f75c37cdde268ec8d06dc318f4c2722db4e2f53bd61631eb3cea"
+    },
+    "checkpoints": {
+      "best_calibration": {
+        "bytes": 300470912,
+        "path": "/home/featurize/work/hgtnet_nwpu_formal_3090_20261103_v1/runs/nwpu_seed42_01/best_calibration.pt",
+        "sha256": "785c19ee225b62d7ac50723a5119e1985dc06eb8612f74b4b75737c61394036a"
+      },
+      "final_calibration": {
+        "bytes": 300470848,
+        "path": "/home/featurize/work/hgtnet_nwpu_formal_3090_20261103_v1/runs/nwpu_seed42_01/final_calibration.pt",
+        "sha256": "ede6f495ef2cc85dc2007e2964460720810a78b70fd28c98263489b292743dfd"
+      },
+      "final_refit": {
+        "bytes": 300470976,
+        "path": "/home/featurize/work/hgtnet_nwpu_formal_3090_20261103_v1/runs/nwpu_seed42_01/final_refit.pt",
+        "sha256": "716835556fe989739fc39e2d278188739b4d4454a14b5bf4d8d2b9efe060db1c"
+      }
+    },
+    "completed": true,
+    "config_sha256": "af6ef410125e9d47c87acd0acec1a6db6e0119656793124ceafcb2379eedac25",
+    "counts": {
+      "pool": 6300,
+      "test": 25200,
+      "train": 5040,
+      "val": 1260
+    },
+    "cuda_peak_allocated_bytes": 4734618112,
+    "cuda_peak_reserved_bytes": 5135925248,
+    "engine_wall_seconds": 23899.926034052998,
+    "exit_code": 0,
+    "final_epoch": 100,
+    "formal_training_started": true,
+    "initial_state_sha256": "2e954f447be44e4a411fdcbf7673a62fe2876337ec555ab041cf96987fdaaf79",
+    "input_scope": "real_nwpu",
+    "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+    "memory_scope": "whole current engine invocation including diagnostics/checkpoint reload; resumed sessions separate",
+    "optimizer_steps": 68930,
+    "output": "/home/featurize/work/hgtnet_nwpu_formal_3090_20261103_v1/runs/nwpu_seed42_01",
+    "parameters": {
+      "groups": {
+        "dual_attention": 44077,
+        "graph": 14066432,
+        "head": 23085,
+        "patch_embed": 6528,
+        "transformer": 60479736
+      },
+      "total": 74619858,
+      "trainable": 74619858
+    },
+    "physical_gpu_uuid": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1",
+    "progress": {
+      "attempt": 1,
+      "completed": true,
+      "formal_training_started": true,
+      "optimizer_steps": 68930,
+      "pid": 2661,
+      "stage": "complete",
+      "training_started": true
+    },
+    "recipe_sha256": "ce72e1822d55632b6dd9b02cdb4dc32da7e3e77eedca815b83981ff559c1af85",
+    "refit_epochs": 95,
+    "refit_initial_state_sha256": "2e954f447be44e4a411fdcbf7673a62fe2876337ec555ab041cf96987fdaaf79",
+    "schema": "hgtnet-nwpu-formal-v1",
+    "selected_epoch": 95,
+    "state": "complete",
+    "target_gpu": "3090",
+    "test_metrics": {
+      "accuracy_percent": 94.11904761904762,
+      "macro_f1_percent": 94.10529172930384,
+      "scope": "formal_test"
+    },
+    "test_path": "/home/featurize/work/hgtnet_nwpu_formal_3090_20261103_v1/runs/nwpu_seed42_01/test.json",
+    "test_sha256": "869986974e4801f2234fd2fa3bace383af2f092fd20359fbe1a252d4af7e37ae",
+    "timing_scope": "epoch train includes reads/augmentation/transfer/diagnostics/updates; epoch wall also validation/checkpoint/history IO; not billed time",
+    "training_started": true,
+    "wall_seconds": 24032.617371428,
+    "weights_sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893"
+  }
+}

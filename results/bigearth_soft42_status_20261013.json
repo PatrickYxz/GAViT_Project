@@ -1,0 +1,149 @@
+{
+  "status": "formal_complete_return_reconciled",
+  "seed": 42,
+  "dataset": "BigEarthNet-19",
+  "user_authorized": true,
+  "server_preflight_received": true,
+  "server_smoke_received": true,
+  "server_training_started": true,
+  "formal_test_metrics": {
+    "samples": 119825,
+    "mAP_percent": 70.1745705651681,
+    "macro_f1_percent": 64.04828509185678,
+    "micro_f1_percent": 76.7999586513447,
+    "f1_threshold": 0.5,
+    "checkpoint_sha256": "23314ea561f753b1aad73025148d7b9788bbdddc4f38f49afeca59a6aec91c35",
+    "per_class_ap_percent": {
+      "Urban fabric": 86.47986349141502,
+      "Industrial or commercial units": 50.07587759233172,
+      "Arable land": 92.98062388899054,
+      "Permanent crops": 61.556257058390926,
+      "Pastures": 86.3479778181642,
+      "Complex cultivation patterns": 68.26056264980738,
+      "Land principally occupied by agriculture, with significant areas of natural vegetation": 72.90182452731646,
+      "Agro-forestry areas": 86.33334308893332,
+      "Broad-leaved forest": 86.14056246520138,
+      "Coniferous forest": 93.96257073390733,
+      "Mixed forest": 89.50482641623492,
+      "Natural grassland and sparsely vegetated areas": 49.13715424695671,
+      "Moors, heathland and sclerophyllous vegetation": 59.444987115608306,
+      "Transitional woodland, shrub": 77.73526853555907,
+      "Beaches, dunes, sands": 8.873563515683342,
+      "Inland wetlands": 62.1383660742552,
+      "Coastal wetlands": 10.662911592859055,
+      "Inland waters": 91.17608894627384,
+      "Marine waters": 99.60421098030477
+    }
+  },
+  "selected_reporting_seeds": [
+    42,
+    43,
+    46,
+    47
+  ],
+  "missing_formal_soft_seed": null,
+  "existing_soft_metric_seeds": [
+    42,
+    43,
+    46,
+    47
+  ],
+  "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "parameters": 31466766,
+  "counts": {
+    "train": 237871,
+    "val": 122342,
+    "test": 119825
+  },
+  "epochs": 30,
+  "f1_threshold": 0.5,
+  "gpu_required": "NVIDIA GeForce RTX 4090",
+  "gpu_uuid": "GPU-44825cf0-bd98-bfdc-efbc-0100238a6789",
+  "formal_output": "/home/featurize/work/bigearth_soft42_20261013_01",
+  "guide": "docs/run_ben_soft42_20261013.md",
+  "local_checks": {
+    "new_soft42": 8,
+    "existing_seed43_regression": 11,
+    "passed": 19,
+    "exit_code": 0
+  },
+  "full_suite": {
+    "command": "python3 -B -m pytest",
+    "exit_code": 1,
+    "status": "not_executed_missing_dependency",
+    "reason": "/opt/homebrew/opt/python@3.14/bin/python3.14: No module named pytest"
+  },
+  "preparation_evidence": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/evidence/bigearth_soft42_prepare_20261013",
+  "next_action": "Use archived formal result and completed four-seed/per-class reports; preserve negative result and collect46/47 original artifacts/F1; no repeat soft42 training",
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "threads": 8,
+    "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+    "packages": {
+      "torch": "2.2.2",
+      "torchvision": "0.17.2",
+      "timm": "1.0.27",
+      "torch-geometric": "2.8.0",
+      "numpy": "1.26.4",
+      "scikit-learn": "1.9.0",
+      "pillow": "10.3.0"
+    },
+    "gpu_identity": "GPU-44825cf0-bd98-bfdc-efbc-0100238a6789, NVIDIA GeForce RTX 4090, 610.57.04"
+  },
+  "precision": {
+    "dtype": "torch.float32",
+    "matmul_tf32": false,
+    "cudnn_tf32": true,
+    "amp": false
+  },
+  "latest_evidence_received_date": "2026-10-17",
+  "preflight_evidence": "results/evidence/bigearth_soft42_preflight_20261016/server_return.json",
+  "evidence_scope": "User-returned queue/train/test exit0, complete summary and log reconciled locally; server checkpoint and prediction-array bytes not independently downloaded",
+  "server_smoke_returned_artifact_checks_passed": true,
+  "server_smoke_outer_process_success": false,
+  "smoke_wrapper_error": "FileNotFoundError: run.exit is written by atexit after the controller prematurely reads it",
+  "smoke_evidence": "results/evidence/bigearth_soft42_smoke4090_20261016/summary.json",
+  "smoke_validation": "results/evidence/bigearth_soft42_smoke4090_20261016/validation.json",
+  "smoke_checkpoint_sha256": "4a6ae6e43001ffe5d729f7eb4e50ef9da4951e3b8422b2e5342b02f88a813398",
+  "smoke_reload_max_logit_diff": 4.76837158203125e-07,
+  "scheduler_repair_required": false,
+  "scheduler_repair_applied_on_server": true,
+  "scheduler_repair_command": "results/evidence/bigearth_soft42_smoke4090_20261016/repair_and_launch_command.txt",
+  "server_queue_dispatched": true,
+  "server_queue_pid": 5807,
+  "server_training_start_verified": true,
+  "scheduler_repair_confirmation": "Both returned formal stage launcher SHAs match the locally repaired worker 09722f10542bed449d2e80df0041387e113cab58db403b3979e07f192194f767; failed historical smoke/dispatch evidence retained",
+  "launch_evidence": "results/evidence/bigearth_soft42_launch_20261016/launch.json",
+  "latest_preflight_evidence": "results/evidence/bigearth_soft42_launch_20261016/preflight.json",
+  "runtime_log": "/home/featurize/work/bigearth_soft42_20261013_01/run.log",
+  "authoritative_stage_exit_paths": [
+    "gavit_train/run.exit",
+    "gavit_test/run.exit"
+  ],
+  "instance_return_reported": true,
+  "instance_return_reported_date": "2026-10-17",
+  "queue_pid_scope": "Historical dispatch PID from the returned instance; not a live process check",
+  "completion_verified": true,
+  "readback_plan": "results/evidence/bigearth_soft42_result_check_20261017/user_report_and_read_plan.json",
+  "training_start_verification_scope": "Retrospective verification from completed full30 formal train/test receipts, not a live first-batch observation",
+  "best": {
+    "metric": "val_mAP",
+    "value": 78.75,
+    "epoch": 10
+  },
+  "final_epoch": 30,
+  "final_val_mAP_percent": 75.70723466069043,
+  "checkpoint_sha256": "23314ea561f753b1aad73025148d7b9788bbdddc4f38f49afeca59a6aec91c35",
+  "resources": {
+    "queue_seconds": 20808.021593898004,
+    "train_seconds": 20619.281373869,
+    "test_seconds": 155.16684642899781,
+    "peak_train_allocated_bytes": 3932788736,
+    "estimated_runtime_cost_yuan_at_1_67_per_hour": 9.652610017169351,
+    "actual_bill_yuan": null
+  },
+  "completion_evidence": "results/evidence/bigearth_soft42_complete_20261017/summary.json",
+  "completion_validation": "results/evidence/bigearth_soft42_complete_20261017/validation.json"
+}

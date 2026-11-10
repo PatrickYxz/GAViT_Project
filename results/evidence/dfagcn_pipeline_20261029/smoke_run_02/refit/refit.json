@@ -1,0 +1,150 @@
+{
+  "cache_content_sha256": "74eb136b37d7a76eecb3a508368246ca82a098dc16f0e6f79dce632a4ff7c4d2",
+  "cache_key": "febee511e19211807c710399198f2f6b72c6d0e33e11b4210002d0a3346fc6b3",
+  "class_names": [
+    "class_a",
+    "class_b"
+  ],
+  "completed": true,
+  "elapsed_seconds": 0.047852166928350925,
+  "epoch": 1,
+  "feature_identity": {
+    "class_names": [
+      "class_a",
+      "class_b"
+    ],
+    "feature_spec": {
+      "conv_activation": "pre_relu",
+      "fc_activation": "post_relu",
+      "pooling_hw": [
+        3,
+        4
+      ]
+    },
+    "fitted_on_sha256": null,
+    "manifest_sha256": "08226704765cbd3f4ecf2af437ed87b4222ad9f96c70cbfd69c2252c391facb8",
+    "preprocessing": {
+      "augmentation": false,
+      "channels": "RGB",
+      "conv_hw": 448,
+      "fc_hw": 224,
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "resize_mode": "bilinear_stretch",
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "weights_kind": "random_smoke"
+    },
+    "schema": "dfagcn-feature-cache-v1",
+    "source_sha256": "6bf25f4accd133bd3e0df663605e50b2f1b07f17470710c4b8e9a896c6a509e6",
+    "stage": "frozen_pretrained",
+    "training_config": null,
+    "weights_sha256": "e53c8bac71bbe650b4cd08338c593b071e3c5106cffd3c1f81b7b456a05217fe"
+  },
+  "fit_metrics": {
+    "confusion_matrix": [
+      [
+        5,
+        0
+      ],
+      [
+        0,
+        5
+      ]
+    ],
+    "confusion_orientation": "rows=true, columns=predicted",
+    "macro_f1_percent": 100.0,
+    "oa_percent": 100.0,
+    "per_class": [
+      {
+        "accuracy_percent": 100.0,
+        "class_index": 0,
+        "class_name": "class_a",
+        "f1_percent": 100.0,
+        "support": 5
+      },
+      {
+        "accuracy_percent": 100.0,
+        "class_index": 1,
+        "class_name": "class_b",
+        "f1_percent": 100.0,
+        "support": 5
+      }
+    ],
+    "samples": 10,
+    "zero_division": 0
+  },
+  "fit_records_sha256": "bfd07ce18003c0a2bc6afdb021d9e915d6ff6f04f5f278b875a5158c0ae1d697",
+  "fit_samples": 10,
+  "fit_scope": "train_plus_val",
+  "limits": {
+    "train_per_class": null,
+    "val_per_class": null
+  },
+  "linear_model_sha256": "a3dff3cbe54d5c6390472e1ef18aa704ddc4b37fa6e6716545b949e965906259",
+  "manifest_sha256": "08226704765cbd3f4ecf2af437ed87b4222ad9f96c70cbfd69c2252c391facb8",
+  "mode": "engineering",
+  "model_sha256": "967f3fee94e7b8180583f9fed0ac1fc78d654f8d85e553ce0a1877fe1b932cdb",
+  "phase": "refit",
+  "recipe": {
+    "C_grid": [
+      0.1,
+      1.0
+    ],
+    "batch_size": 4,
+    "choices": {
+      "architecture": "Two 256-wide GCN layers, ReLU/dropout after each, mean readout, FC1024/ReLU/dropout then FC512/ReLU are independent choices because complete Table I remains unavailable.",
+      "classifier": "LIBLINEAR solver2 with bias1 is an independent explicit solver choice; the paper confirms LIBLINEAR but does not resolve this solver/bias pair.",
+      "engineering_fixture": "Synthetic/random weights,12 nodes,GCN8,FC512,1 epoch; not the production recipe or a dataset score.",
+      "fusion": "Fixed NWPU alpha0.7 beta0.3 gamma0.4 and the printed C grid are paper-reported values, not fitted to this project's test.",
+      "graph": "k=10 binary undirected nearest-neighbor union is paper-grounded; Euclidean distance, self exclusion and index ties are explicit engineering choices.",
+      "implementation_scope": "Independent project recipe; not official code or a verified Table I transcription.",
+      "optimization": "Adam lr0.001, weight_decay0 and a 100-epoch calibration cap are independent choices; batch100 and factor0.1 every50 epochs follow the readable paper body. Three disjoint branch CE losses are summed.",
+      "pooling": "Adaptive average pooling to 7x7 is an independent bounded-cost choice, not a confirmed paper value or inherited GAViT setting.",
+      "preprocessing": "Frozen torchvision VGG16 ImageNet weights and RGB stretch-resize224/448 with ImageNet mean/std are an independent alternative; no MatConvNet numerical-equivalence claim. Random weights are engineering-smoke only.",
+      "selection": "Validation-only epoch and C selection; selected epoch count is frozen before fresh train+val refit. Test is excluded from selection."
+    },
+    "dropout": 0.0,
+    "epochs": 1,
+    "fc_dims": [
+      512
+    ],
+    "fusion": {
+      "alpha": 0.7,
+      "beta": 0.3,
+      "gamma": 0.4
+    },
+    "gcn_dims": [
+      8
+    ],
+    "implementation": "dfagcn_independent_v1",
+    "knn_k": 2,
+    "learning_rate": 0.001,
+    "liblinear_bias": 1.0,
+    "liblinear_solver": 2,
+    "lr_gamma": 0.1,
+    "lr_step": 50,
+    "metric": "euclidean",
+    "pooling_hw": [
+      3,
+      4
+    ],
+    "schema": "dfagcn-independent-recipe-v1",
+    "seed": 42,
+    "weight_decay": 0.0
+  },
+  "recipe_sha256": "52540b7a9462eb82d9d646ea916c446a8f1a9de71f24bddce1e1eb9b1268412a",
+  "record_sha256": "29ed43fcffdf9ca3203b2ba907ed00db1c37fede22fa9c4da83369eac055d49f",
+  "reload_max_abs_error": 0.0,
+  "schema": "dfagcn-independent-pipeline-v1",
+  "seed": 42,
+  "selected_C": 0.1,
+  "selection_sha256": "3d875d0826071595d9a5f801f803324a8c0d72d483929c82d2184f41c20ff09c",
+  "source_sha256": "104f0a4b42b4f1c3ecec45c26de0cf736054f5118b31d0fb93af76223085de92"
+}

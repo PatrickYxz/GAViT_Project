@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "batch2_train360": true,
+    "epoch1": true,
+    "finite_positive_losses_times_throughput": true,
+    "one_epoch_list": true,
+    "phase_times_within_whole_smoke_wall": true,
+    "steps180": true,
+    "train_accuracy_valid_arithmetic": true,
+    "training_rate_matches_count_and_seconds": true
+  },
+  "checks_count": 8,
+  "derived": {
+    "condition": "constant observed batch2 rate only, no startup/val/checkpoint/test/IO changes; not batch16 or formal ETA",
+    "other_smoke_phase_seconds": 15.431895507999798,
+    "same_batch2_no_augmentation_conditional_refit6300_seconds": 714.7156275525005,
+    "same_batch2_no_augmentation_conditional_train5040_seconds": 571.7725020420003,
+    "train_correct_streaming_arithmetic": 44,
+    "train_images_per_second_recomputed": 8.81469462417376,
+    "train_plus_validation_seconds": 42.82560712500026,
+    "validation_images_per_second_arithmetic": 45.34658115361012
+  },
+  "history_sha256": "2a06c118e9f7c1f8d0c2cbbe829065cb99b2647870a082377e6814ed477b3b85",
+  "metric_scope": "training accuracy is accumulated pre-update across evolving weights; val is epoch-end model on distinct samples; gap does not identify its cause",
+  "passed": true,
+  "source": "user-pasted cat history output; no original file/checkpoint/prediction bytes retrieved"
+}

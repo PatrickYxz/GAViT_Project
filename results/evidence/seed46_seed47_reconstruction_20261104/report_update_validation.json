@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "source": "docs/supervisor_progress_report_20261012.md",
+  "source_sha256": "b3f444f7f0e6826934610a1f319cd35549da12907bfbbf94ccb425c1acf0631e",
+  "plaintext": "docs/supervisor_progress_report_20261012_plaintext.txt",
+  "plaintext_sha256": "a260004b49a55f0e8e3c6c04fee4100c6f30f11e7ba0c4ef77bd3075ba3f5d10",
+  "numeric_tokens_preserved": true,
+  "no_tabs_or_markdown_table_rows": true,
+  "source_metrics_csv_unchanged": true,
+  "english_email_edited_in_this_update": false
+}

@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/verify_readonly_bundle.py", line 63, in <module>
+    runpy.run_path(str(BUNDLE), run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 311, in run_path
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/patrick/Projects/GAViT_Project/output/hgtnet_aid_inputs_20261104.pyz/__main__.py", line 12, in <module>
+    import importlib.metadata
+  File "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/verify_readonly_bundle.py", line 36, in guarded_import
+    return original_import(name, *args, **kwargs)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/metadata/__init__.py", line 24, in <module>
+    from ._itertools import always_iterable, unique_everseen
+  File "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/verify_readonly_bundle.py", line 34, in guarded_import
+    raise AssertionError('non-stdlib import: ' + name)
+AssertionError: non-stdlib import: _itertools

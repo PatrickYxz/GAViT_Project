@@ -1,0 +1,40 @@
+base) ➜ ~ pgrep -af hgtnet_aid_formal_3060_20261105_v1.pyz
+3136 /environment/miniconda3/bin/python /home/featurize/work/hgtnet_aid_formal_3060_20261105_v1.pyz resume --capacity-output /home/featurize/work/hgtnet_aid_batch16_probe_3060_20261105/runs/batch16_seed42_gpu91a8cd0f_01
+(base) ➜ ~ tail -n 30 /home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01/resume_launch_20261106.log
+HGTNET_AID_CUDA_DEVICE_PROBE {"available": true, "device_count": 1, "name": "NVIDIA GeForce RTX 3060", "total_memory_bytes": 12487622656}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 2, "completed": false, "epoch": 75, "formal_training_started": true, "optimizer_steps": 48475, "phase": "refit", "pid": 3136, "recovery": {"binding_sha256": "662ceee356d72644ff513e7e5fc9f9fdef1cb20110e911b32253ccdad2f49599", "bytes": 897033192, "epoch": 75, "generation": 175, "path": "/home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01/recovery/slot1.pt", "phase": "refit", "sha256": "bb7c8bb4f2115bd1b384f9a86f47688cf96fada39b3e3ad3ad27ad347be5cefc"}, "stage": "resumed", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 2, "completed": false, "device": "cuda:0", "epoch": 76, "formal_training_started": true, "gradients": {"groups": {"dual_attention": {"l2": 0.0017943220280474145, "tensors": 30}, "graph": {"l2": 0.005331040528388744, "tensors": 120}, "head": {"l2": 0.00525007663984747, "tensors": 2}, "patch_embed": {"l2": 0.010954155674357991, "tensors": 4}, "transformer": {"l2": 0.01705115060604033, "tensors": 295}}, "missing": [], "nonfinite": [], "passed": true}, "loss": 0.00025091355200856924, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48476, "phase": "refit", "pid": 3136, "post_update_checks_passed": true, "samples_seen": 16, "stage": "first_optimizer_step", "training_started": true, "updated_groups": {"dual_attention": true, "graph": true, "head": true, "patch_embed": true, "transformer": true}}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 2, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48505, "phase": "refit", "pid": 3136, "samples_seen": 480, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 2, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48535, "phase": "refit", "pid": 3136, "samples_seen": 960, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 2, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48565, "phase": "refit", "pid": 3136, "samples_seen": 1440, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 2, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48595, "phase": "refit", "pid": 3136, "samples_seen": 1920, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 2, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48625, "phase": "refit", "pid": 3136, "samples_seen": 2400, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 2, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48655, "phase": "refit", "pid": 3136, "samples_seen": 2880, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 2, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48685, "phase": "refit", "pid": 3136, "samples_seen": 3360, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 2, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48715, "phase": "refit", "pid": 3136, "samples_seen": 3840, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 2, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48745, "phase": "refit", "pid": 3136, "samples_seen": 4320, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 2, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48775, "phase": "refit", "pid": 3136, "samples_seen": 4800, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 2, "completed": false, "epoch": 76, "epoch_optimizer_steps": 313, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48788, "phase": "refit", "pid": 3136, "post_update_checks_passed": true, "samples_seen": 5000, "stage": "training_epoch_complete", "train_seconds": 191.05441304200008, "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 2, "completed": false, "epoch": 76, "epoch_wall_seconds": 213.00507161199994, "estimate_scope": "running completed-epoch mean for current phase only; recovered last commit may use precommit time excluding snapshot IO; excludes other phases/startup/final test/billing; not guaranteed", "estimated_remaining_phase_seconds": 4696.991812070257, "formal_training_started": true, "observed_epoch_wall_mean_seconds": 234.84959060351287, "optimizer_steps": 48788, "phase": "refit", "pid": 3136, "selected_epoch": 96, "stage": "epoch_complete", "train_accuracy_percent": 99.92, "train_images_per_second": 26.170554871720416, "train_loss": 0.003590045938978437, "train_seconds": 191.05441304200008, "training_started": true}
+(base) ➜ ~ nvidia-smi
+Fri Nov  6 01:42:01 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.57.04              KMD Version: 610.57.04     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3060        Off |   00000000:09:00.0 Off |                  N/A |
+| 41%   60C    P2            120W /  170W |    5111MiB /  12288MiB |     99%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            3136      C   ...ronment/miniconda3/bin/python       5102MiB |
++-----------------------------------------------------------------------------------------+
+(base) ➜ ~ 

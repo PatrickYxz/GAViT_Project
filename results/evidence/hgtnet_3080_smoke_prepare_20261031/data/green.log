@@ -1,0 +1,16 @@
+test_complete_manifest_selects_fixed_disjoint_360_90_in_path_order (test_hgtnet_nwpu_data.NwpuPreparationTests.test_complete_manifest_selects_fixed_disjoint_360_90_in_path_order) ... ok
+test_manifest_default_digest_rejects_fixture_and_changed_bytes (test_hgtnet_nwpu_data.NwpuPreparationTests.test_manifest_default_digest_rejects_fixture_and_changed_bytes) ... ok
+test_manifest_rejects_invalid_counts_path_label_classmap_or_duplicate (test_hgtnet_nwpu_data.NwpuPreparationTests.test_manifest_rejects_invalid_counts_path_label_classmap_or_duplicate) ... ok
+test_preparation_and_validation_import_no_machine_learning_libraries (test_hgtnet_nwpu_data.NwpuPreparationTests.test_preparation_and_validation_import_no_machine_learning_libraries) ... ok
+test_recovery_reads_only_train_val_and_never_overwrites (test_hgtnet_nwpu_data.NwpuPreparationTests.test_recovery_reads_only_train_val_and_never_overwrites) ... ok
+test_recovery_rejects_bad_zip_hash_unsafe_members_or_image_hash (test_hgtnet_nwpu_data.NwpuPreparationTests.test_recovery_rejects_bad_zip_hash_unsafe_members_or_image_hash) ... ok
+test_selected_validation_rejects_test_duplicate_bad_label_and_parent_symlink (test_hgtnet_nwpu_data.NwpuPreparationTests.test_selected_validation_rejects_test_duplicate_bad_label_and_parent_symlink) ... ok
+test_dataset_checks_hash_before_use_and_owns_record_snapshot (test_hgtnet_nwpu_data.RealImageDatasetTests.test_dataset_checks_hash_before_use_and_owns_record_snapshot) ... ok
+test_dataset_rejects_test_rows_and_inconsistent_class_labels (test_hgtnet_nwpu_data.RealImageDatasetTests.test_dataset_rejects_test_rows_and_inconsistent_class_labels) ... ok
+test_image_resize_uses_bilinear_and_preserves_record_order (test_hgtnet_nwpu_data.RealImageDatasetTests.test_image_resize_uses_bilinear_and_preserves_record_order) ... ok
+test_real_rgb_and_grayscale_jpeg_are_deterministic_imagenet_tensors (test_hgtnet_nwpu_data.RealImageDatasetTests.test_real_rgb_and_grayscale_jpeg_are_deterministic_imagenet_tensors) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 1.422s
+
+OK

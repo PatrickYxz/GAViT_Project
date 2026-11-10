@@ -1,0 +1,87 @@
+{
+  "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m unittest discover -s tests -p test_*.py -v",
+  "methods": 185,
+  "exit_code": 1,
+  "failures": 9,
+  "errors": 9,
+  "missing_modules": [
+    "pytest",
+    "timm",
+    "torch_geometric"
+  ],
+  "items": [
+    {
+      "kind": "ERROR",
+      "test": "test_checkpoint_roundtrip (unittest.loader._FailedTest.test_checkpoint_roundtrip)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_same_local_weight_file_initializes_both_backbones (test_scene_runtime.RuntimeTests.test_same_local_weight_file_initializes_both_backbones)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_soft_assignment_diagnostics (unittest.loader._FailedTest.test_soft_assignment_diagnostics)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_soft_entrypoints (unittest.loader._FailedTest.test_soft_entrypoints)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_soft_gavit (unittest.loader._FailedTest.test_soft_gavit)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_soft_region_grouping (unittest.loader._FailedTest.test_soft_region_grouping)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_sparse_hybrid_model (unittest.loader._FailedTest.test_sparse_hybrid_model)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_token_refinement (unittest.loader._FailedTest.test_token_refinement)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_token_refinement_runtime (unittest.loader._FailedTest.test_token_refinement_runtime)"
+    },
+    {
+      "kind": "FAIL",
+      "test": "test_calibration_selection_cannot_be_reused_for_another_seed_or_manifest (test_scene_runtime.RuntimeTests.test_calibration_selection_cannot_be_reused_for_another_seed_or_manifest)"
+    },
+    {
+      "kind": "FAIL",
+      "test": "test_completed_report_must_match_checkpoint_sidecar (test_scene_runtime.RuntimeTests.test_completed_report_must_match_checkpoint_sidecar)"
+    },
+    {
+      "kind": "FAIL",
+      "test": "test_formal_random_init_and_synthetic_are_rejected (test_scene_runtime.RuntimeTests.test_formal_random_init_and_synthetic_are_rejected)"
+    },
+    {
+      "kind": "FAIL",
+      "test": "test_grouped_manifest_reaches_training_and_checkpoint_identity (test_scene_runtime.RuntimeTests.test_grouped_manifest_reaches_training_and_checkpoint_identity)"
+    },
+    {
+      "kind": "FAIL",
+      "test": "test_real_models_train_save_reload_and_evaluate_validation (test_scene_runtime.RuntimeTests.test_real_models_train_save_reload_and_evaluate_validation) (model='swin', grouping=None)"
+    },
+    {
+      "kind": "FAIL",
+      "test": "test_real_models_train_save_reload_and_evaluate_validation (test_scene_runtime.RuntimeTests.test_real_models_train_save_reload_and_evaluate_validation) (model='gavit', grouping=None)"
+    },
+    {
+      "kind": "FAIL",
+      "test": "test_real_models_train_save_reload_and_evaluate_validation (test_scene_runtime.RuntimeTests.test_real_models_train_save_reload_and_evaluate_validation) (model='gavit', grouping='soft_prototype')"
+    },
+    {
+      "kind": "FAIL",
+      "test": "test_soft_calibration_cannot_be_refit_as_fixed_or_different_assignment (test_scene_runtime.RuntimeTests.test_soft_calibration_cannot_be_refit_as_fixed_or_different_assignment)"
+    },
+    {
+      "kind": "FAIL",
+      "test": "test_training_config_is_model_independent (test_scene_runtime.RuntimeTests.test_training_config_is_model_independent)"
+    }
+  ],
+  "note": "unittest does not execute pytest-style function tests; full pytest entry cannot start"
+}

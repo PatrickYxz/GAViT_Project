@@ -1,0 +1,14 @@
+Subject: Clarification on the complete seed results and thesis framing
+
+Dear Professor Wang,
+
+Thank you for your detailed guidance. Before proceeding, I need to correct the scope of my previous update. I reported the results for seeds 42, 43, 46 and 47, but did not include all completed runs. I should have made this selection and the omitted outcomes clear.
+
+For the originally planned AID seeds 42, 43 and 44, the fixed-grid GAViT minus Swin-T OA differences are +0.60, +0.30 and -0.76 percentage points, respectively, giving a mean difference of approximately +0.047 pp. The historical BigEarthNet runs for seeds 44 and 45 also show negative differences. Some historical runs differ in execution conditions, so I will distinguish comparable repetitions from historical comparisons rather than pool them as equivalent trials.
+
+These additional results mean that the complete record does not currently support a claim of consistent improvement across all completed runs. I will provide the full per-seed results, training conditions and record availability, with means and sample standard deviations for explicitly defined groups. The +0.46 pp and +0.75 pp gains in my earlier update describe the reported four-seed subset.
+
+I understand your recommendation to present soft assignment as a negative ablation where evaluated and to retain the fixed-grid architecture as the final model. I would appreciate your guidance on revising the performance claims and remaining experimental plan in light of the complete results. I apologise for the incomplete presentation in my previous update.
+
+Best regards,
+Xingze

@@ -1,0 +1,131 @@
+{
+  "boundaries": {
+    "downloads_performed": false,
+    "image_decoding_performed": false,
+    "model_or_CUDA_computation_performed": false,
+    "new_split_created": false,
+    "original_AID_zip_identity_known": false,
+    "test_images_opened": false,
+    "training_readiness_claimed": false
+  },
+  "data_root": "/home/featurize/data/AID/AID",
+  "disk": [
+    {
+      "free_bytes": 0,
+      "measured_path": "/home",
+      "requested_path": "/home/featurize/work/aid_protocol_20260920_03.json",
+      "requested_path_exists": false,
+      "role": "manifest",
+      "status": "inventoried",
+      "total_bytes": 0,
+      "used_bytes": 0
+    },
+    {
+      "free_bytes": 0,
+      "measured_path": "/home",
+      "requested_path": "/home/featurize/data/AID/AID",
+      "requested_path_exists": false,
+      "role": "data_root",
+      "status": "inventoried",
+      "total_bytes": 0,
+      "used_bytes": 0
+    },
+    {
+      "free_bytes": 0,
+      "measured_path": "/home",
+      "requested_path": "/home/featurize/work/swin_b-68c6b09e.pth",
+      "requested_path_exists": false,
+      "role": "weights",
+      "status": "inventoried",
+      "total_bytes": 0,
+      "used_bytes": 0
+    }
+  ],
+  "gpu": {
+    "command": [
+      "nvidia-smi",
+      "--query-gpu=index,uuid,name,memory.total,driver_version",
+      "--format=csv,noheader,nounits"
+    ],
+    "detail": "[Errno 2] No such file or directory: 'nvidia-smi'",
+    "devices": [],
+    "status": "unavailable",
+    "timeout_seconds": 10
+  },
+  "input_assets_verified": false,
+  "manifest": {
+    "actual_sha256": null,
+    "class_names": null,
+    "counts": null,
+    "errors": [
+      "symlink_or_non_directory_component"
+    ],
+    "expected_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+    "identity_verified": false,
+    "image_checks": {
+      "checked_count": 0,
+      "invalid": [],
+      "invalid_count": 0,
+      "missing": [],
+      "missing_count": 0,
+      "verified_count": 0
+    },
+    "path": "/home/featurize/work/aid_protocol_20260920_03.json",
+    "pixel_hashes_recomputed": false,
+    "selected_counts": {
+      "test": 0,
+      "train": 0,
+      "val": 0
+    },
+    "selected_paths": {
+      "train": [],
+      "val": []
+    },
+    "size_bytes": null,
+    "split_assignment_recomputed": false,
+    "status": "invalid",
+    "structure_verified": false,
+    "test_image_bytes_read": 0
+  },
+  "package_versions": {
+    "distributions": {
+      "Pillow": {
+        "status": "metadata_found",
+        "version": "12.3.0"
+      },
+      "numpy": {
+        "status": "not_installed",
+        "version": null
+      },
+      "timm": {
+        "status": "not_installed",
+        "version": null
+      },
+      "torch": {
+        "status": "not_installed",
+        "version": null
+      },
+      "torchvision": {
+        "status": "not_installed",
+        "version": null
+      }
+    },
+    "method": "importlib.metadata_only_no_ML_imports",
+    "python": "3.14.6"
+  },
+  "purpose": "read_only_input_inventory_for_future_AID_smoke_preparation",
+  "schema": "hgtnet-aid-input-inventory-v1",
+  "status": "INPUT_CHECK_INCOMPLETE",
+  "training_entry_available": false,
+  "training_started": false,
+  "weights": {
+    "actual_sha256": null,
+    "error": "symlink_or_non_directory_component",
+    "expected_sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893",
+    "identity_verified": false,
+    "path": "/home/featurize/work/swin_b-68c6b09e.pth",
+    "role": "candidate_partial_Swin_B_initialization_not_trained_NWPU_checkpoint",
+    "size_bytes": null,
+    "status": "invalid"
+  }
+}

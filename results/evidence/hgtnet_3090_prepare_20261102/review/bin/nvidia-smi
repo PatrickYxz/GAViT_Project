@@ -1,0 +1,6 @@
+#!/bin/sh
+case "$1" in
+  --query-gpu=*) printf 'NVIDIA GeForce RTX 3090, GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1, 24576, 24123, 610.57.04\n' ;;
+  --query-compute-apps=*) ;;
+  *) exit 1 ;;
+esac

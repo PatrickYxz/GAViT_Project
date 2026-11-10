@@ -1,0 +1,12 @@
+test_fixed_small_budget_cannot_be_expanded_through_parameters (test_hgtnet_batch_probe_engine.BatchProbeEngineTests.test_fixed_small_budget_cannot_be_expanded_through_parameters) ... ok
+test_four_real_updates_and_three_measurements_without_input_mutation (test_hgtnet_batch_probe_engine.BatchProbeEngineTests.test_four_real_updates_and_three_measurements_without_input_mutation) ... ok
+test_frozen_or_non_fp32_model_cannot_understate_formal_memory (test_hgtnet_batch_probe_engine.BatchProbeEngineTests.test_frozen_or_non_fp32_model_cannot_understate_formal_memory) ... ok
+test_invalid_batches_rejected_before_parameter_update (test_hgtnet_batch_probe_engine.BatchProbeEngineTests.test_invalid_batches_rejected_before_parameter_update) ... ok
+test_later_failure_retains_only_genuinely_completed_step_events (test_hgtnet_batch_probe_engine.BatchProbeEngineTests.test_later_failure_retains_only_genuinely_completed_step_events) ... ok
+test_nan_loss_does_not_report_a_successful_optimizer_step (test_hgtnet_batch_probe_engine.BatchProbeEngineTests.test_nan_loss_does_not_report_a_successful_optimizer_step) ... ok
+test_post_update_diagnostic_failure_does_not_erase_observed_update (test_hgtnet_batch_probe_engine.BatchProbeEngineTests.test_post_update_diagnostic_failure_does_not_erase_observed_update) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.455s
+
+OK

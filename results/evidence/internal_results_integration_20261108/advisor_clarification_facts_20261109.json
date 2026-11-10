@@ -1,0 +1,30 @@
+{
+  "prepared_client_date": "2026-11-09",
+  "source": "User-pasted advisor email and currently archived experiment records",
+  "aid_original_planned_seeds": [
+    42,
+    43,
+    44
+  ],
+  "aid_fixed_minus_swin_oa_pp": [
+    0.5999999999999943,
+    0.29999999999999716,
+    -0.7600000000000051
+  ],
+  "aid_mean_delta_pp": 0.04666666666666212,
+  "aid_paired_delta_sample_sd_pp": 0.7145161533046916,
+  "previous_report_subset": [
+    42,
+    43,
+    46,
+    47
+  ],
+  "previous_subset_was_posthoc": true,
+  "ben_negative_historical_seeds": [
+    44,
+    45
+  ],
+  "ben_historical_conditions_require_separate_reporting": true,
+  "clarification_draft_only_not_sent": true,
+  "gpu_work_authorised_by_this_question": false
+}

@@ -1,0 +1,115 @@
+test_changed_image_and_symlinks_are_rejected (test_hgtnet_aid_inputs.AidInputsTests.test_changed_image_and_symlinks_are_rejected) ... FAIL
+test_cli_is_stdout_json_with_inventory_even_when_assets_missing (test_hgtnet_aid_inputs.AidInputsTests.test_cli_is_stdout_json_with_inventory_even_when_assets_missing) ... FAIL
+test_cli_rejects_fixture_sha_and_has_no_override_flag (test_hgtnet_aid_inputs.AidInputsTests.test_cli_rejects_fixture_sha_and_has_no_override_flag) ... FAIL
+test_import_and_main_are_stdlib_only_and_do_not_write (test_hgtnet_aid_inputs.AidInputsTests.test_import_and_main_are_stdlib_only_and_do_not_write) ... FAIL
+test_invalid_metadata_paths_labels_hashes_counts_and_pixel_groups (test_hgtnet_aid_inputs.AidInputsTests.test_invalid_metadata_paths_labels_hashes_counts_and_pixel_groups) ... FAIL
+test_manifest_and_weights_symlinks_are_not_followed (test_hgtnet_aid_inputs.AidInputsTests.test_manifest_and_weights_symlinks_are_not_followed) ... FAIL
+test_missing_images_are_reported_without_claiming_verification (test_hgtnet_aid_inputs.AidInputsTests.test_missing_images_are_reported_without_claiming_verification) ... FAIL
+test_missing_manifest_and_bad_sha_do_not_read_images (test_hgtnet_aid_inputs.AidInputsTests.test_missing_manifest_and_bad_sha_do_not_read_images) ... FAIL
+test_same_class_same_split_duplicate_group_is_preserved (test_hgtnet_aid_inputs.AidInputsTests.test_same_class_same_split_duplicate_group_is_preserved) ... FAIL
+test_selects_240_60_from_unequal_classes_and_reads_no_test_bytes (test_hgtnet_aid_inputs.AidInputsTests.test_selects_240_60_from_unequal_classes_and_reads_no_test_bytes) ... FAIL
+test_weights_stream_full_hash_and_report_missing_or_mismatch (test_hgtnet_aid_inputs.AidInputsTests.test_weights_stream_full_hash_and_report_missing_or_mismatch) ... FAIL
+
+======================================================================
+FAIL: test_changed_image_and_symlinks_are_rejected (test_hgtnet_aid_inputs.AidInputsTests.test_changed_image_and_symlinks_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_inputs.py", line 46, in setUp
+    self.assertTrue(SOURCE.is_file(), 'Standalone read-only AID inspector must exist')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Standalone read-only AID inspector must exist
+
+======================================================================
+FAIL: test_cli_is_stdout_json_with_inventory_even_when_assets_missing (test_hgtnet_aid_inputs.AidInputsTests.test_cli_is_stdout_json_with_inventory_even_when_assets_missing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_inputs.py", line 46, in setUp
+    self.assertTrue(SOURCE.is_file(), 'Standalone read-only AID inspector must exist')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Standalone read-only AID inspector must exist
+
+======================================================================
+FAIL: test_cli_rejects_fixture_sha_and_has_no_override_flag (test_hgtnet_aid_inputs.AidInputsTests.test_cli_rejects_fixture_sha_and_has_no_override_flag)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_inputs.py", line 46, in setUp
+    self.assertTrue(SOURCE.is_file(), 'Standalone read-only AID inspector must exist')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Standalone read-only AID inspector must exist
+
+======================================================================
+FAIL: test_import_and_main_are_stdlib_only_and_do_not_write (test_hgtnet_aid_inputs.AidInputsTests.test_import_and_main_are_stdlib_only_and_do_not_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_inputs.py", line 46, in setUp
+    self.assertTrue(SOURCE.is_file(), 'Standalone read-only AID inspector must exist')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Standalone read-only AID inspector must exist
+
+======================================================================
+FAIL: test_invalid_metadata_paths_labels_hashes_counts_and_pixel_groups (test_hgtnet_aid_inputs.AidInputsTests.test_invalid_metadata_paths_labels_hashes_counts_and_pixel_groups)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_inputs.py", line 46, in setUp
+    self.assertTrue(SOURCE.is_file(), 'Standalone read-only AID inspector must exist')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Standalone read-only AID inspector must exist
+
+======================================================================
+FAIL: test_manifest_and_weights_symlinks_are_not_followed (test_hgtnet_aid_inputs.AidInputsTests.test_manifest_and_weights_symlinks_are_not_followed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_inputs.py", line 46, in setUp
+    self.assertTrue(SOURCE.is_file(), 'Standalone read-only AID inspector must exist')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Standalone read-only AID inspector must exist
+
+======================================================================
+FAIL: test_missing_images_are_reported_without_claiming_verification (test_hgtnet_aid_inputs.AidInputsTests.test_missing_images_are_reported_without_claiming_verification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_inputs.py", line 46, in setUp
+    self.assertTrue(SOURCE.is_file(), 'Standalone read-only AID inspector must exist')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Standalone read-only AID inspector must exist
+
+======================================================================
+FAIL: test_missing_manifest_and_bad_sha_do_not_read_images (test_hgtnet_aid_inputs.AidInputsTests.test_missing_manifest_and_bad_sha_do_not_read_images)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_inputs.py", line 46, in setUp
+    self.assertTrue(SOURCE.is_file(), 'Standalone read-only AID inspector must exist')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Standalone read-only AID inspector must exist
+
+======================================================================
+FAIL: test_same_class_same_split_duplicate_group_is_preserved (test_hgtnet_aid_inputs.AidInputsTests.test_same_class_same_split_duplicate_group_is_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_inputs.py", line 46, in setUp
+    self.assertTrue(SOURCE.is_file(), 'Standalone read-only AID inspector must exist')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Standalone read-only AID inspector must exist
+
+======================================================================
+FAIL: test_selects_240_60_from_unequal_classes_and_reads_no_test_bytes (test_hgtnet_aid_inputs.AidInputsTests.test_selects_240_60_from_unequal_classes_and_reads_no_test_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_inputs.py", line 46, in setUp
+    self.assertTrue(SOURCE.is_file(), 'Standalone read-only AID inspector must exist')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Standalone read-only AID inspector must exist
+
+======================================================================
+FAIL: test_weights_stream_full_hash_and_report_missing_or_mismatch (test_hgtnet_aid_inputs.AidInputsTests.test_weights_stream_full_hash_and_report_missing_or_mismatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_inputs.py", line 46, in setUp
+    self.assertTrue(SOURCE.is_file(), 'Standalone read-only AID inspector must exist')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Standalone read-only AID inspector must exist
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.006s
+
+FAILED (failures=11)

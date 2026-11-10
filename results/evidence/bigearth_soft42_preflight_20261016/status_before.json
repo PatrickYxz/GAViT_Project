@@ -1,0 +1,49 @@
+{
+  "status": "prepared_local_only",
+  "seed": 42,
+  "dataset": "BigEarthNet-19",
+  "user_authorized": true,
+  "server_preflight_received": false,
+  "server_smoke_received": false,
+  "server_training_started": false,
+  "formal_test_metrics": null,
+  "selected_reporting_seeds": [
+    42,
+    43,
+    46,
+    47
+  ],
+  "missing_formal_soft_seed": 42,
+  "existing_soft_metric_seeds": [
+    43,
+    46,
+    47
+  ],
+  "commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "parameters": 31466766,
+  "counts": {
+    "train": 237871,
+    "val": 122342,
+    "test": 119825
+  },
+  "epochs": 30,
+  "f1_threshold": 0.5,
+  "gpu_required": "NVIDIA GeForce RTX 4090",
+  "gpu_uuid": null,
+  "formal_output": "/home/featurize/work/bigearth_soft42_20261013_01",
+  "guide": "docs/run_ben_soft42_20261013.md",
+  "local_checks": {
+    "new_soft42": 8,
+    "existing_seed43_regression": 11,
+    "passed": 19,
+    "exit_code": 0
+  },
+  "full_suite": {
+    "command": "python3 -B -m pytest",
+    "exit_code": 1,
+    "status": "not_executed_missing_dependency",
+    "reason": "/opt/homebrew/opt/python@3.14/bin/python3.14: No module named pytest"
+  },
+  "preparation_evidence": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/evidence/bigearth_soft42_prepare_20261013",
+  "next_action": "Execute installation/preflight command on Featurize; inspect existing results before any training"
+}

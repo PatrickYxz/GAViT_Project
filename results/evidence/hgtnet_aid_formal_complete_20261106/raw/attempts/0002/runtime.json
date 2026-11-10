@@ -1,0 +1,39 @@
+{
+  "amp": false,
+  "cpu_threads": 8,
+  "cuda": "12.1",
+  "cuda_device": {
+    "available": true,
+    "cuda_total_mib": 11909,
+    "device_count": 1,
+    "interface_gap_bytes": 397279232,
+    "interface_gap_mib": 378.875,
+    "max_interface_gap_mib": 1024,
+    "name": "NVIDIA GeForce RTX 3060",
+    "nvml_total_mib": 12288,
+    "total_memory_bytes": 12487622656
+  },
+  "cuda_visible_devices": "GPU-91a8cd0f-e755-4d15-863a-8a5bdd741ed4",
+  "cudnn": 8902,
+  "cudnn_benchmark": false,
+  "cudnn_deterministic": true,
+  "cudnn_tf32": false,
+  "device": "cuda:0",
+  "dtype": "float32",
+  "gpu": {
+    "driver_version": "610.57.04",
+    "memory_free_mib": 11909,
+    "memory_total_mib": 12288,
+    "name": "NVIDIA GeForce RTX 3060",
+    "uuid": "GPU-91a8cd0f-e755-4d15-863a-8a5bdd741ed4"
+  },
+  "matmul_tf32": false,
+  "numpy": "1.26.4",
+  "physical_gpu_uuid": "GPU-91a8cd0f-e755-4d15-863a-8a5bdd741ed4",
+  "pid": 3136,
+  "pillow": "10.3.0",
+  "python": "3.11.8",
+  "seed": 42,
+  "torch": "2.2.2+cu121",
+  "torchvision": "0.17.2+cu121"
+}

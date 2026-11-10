@@ -1,0 +1,219 @@
+{
+  "cached_test_seconds": 66.65749261700012,
+  "command": [
+    "/home/featurize/work/dfagcn_nwpu_formal_3080_20261030_fix1/tools/run_dfagcn_nwpu_formal.py",
+    "run",
+    "--gpu-uuid",
+    "GPU-0d9901ca-d2e0-d398-b9b4-2550e6db2fed",
+    "--manifest",
+    "/home/featurize/work/nwpu_protocol_20260927_02.json",
+    "--data-root",
+    "/home/featurize/data/NWPU-RESISC45",
+    "--archive",
+    "/home/featurize/work/NWPU-RESISC45_a826b44.zip",
+    "--weights",
+    "/home/featurize/work/vgg16-397923af.pth",
+    "--weights-metadata",
+    "/home/featurize/work/dfagcn_nwpu_formal_3080_20261030_fix1/bundled_weights_provenance.json",
+    "--recipe",
+    "/home/featurize/work/dfagcn_nwpu_formal_3080_20261030_fix1/configs/dfagcn_independent_v1.json",
+    "--train-binary",
+    "/home/featurize/work/dfagcn_nwpu_formal_3080_20261030/liblinear/bin/train",
+    "--predict-binary",
+    "/home/featurize/work/dfagcn_nwpu_formal_3080_20261030/liblinear/bin/predict",
+    "--output",
+    "/home/featurize/work/dfagcn_nwpu_formal_3080_20261030_fix1/runs/nwpu_seed42_01",
+    "--background-log",
+    "/home/featurize/work/dfagcn_nwpu_formal_3080_20261030_fix1/formal_seed42_01.log",
+    "--scratch-root",
+    "/tmp/dfagcn_nwpu_formal_3080_20261030_fix1_nwpu_seed42_01",
+    "--weights-sha256",
+    "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0"
+  ],
+  "completed": true,
+  "counts": {
+    "pool": 6300,
+    "test": 25200,
+    "train": 5040,
+    "val": 1260
+  },
+  "cuda_peak_allocated_bytes": 616995328,
+  "cuda_peak_reserved_bytes": 698351616,
+  "formal_training_started": true,
+  "interpretation": "Independent implementation, one seed42; not official-paper numerical equivalence or a stability claim.",
+  "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+  "metrics_path": "/home/featurize/work/dfagcn_nwpu_formal_3080_20261030_fix1/runs/nwpu_seed42_01/test/test.json",
+  "native_binaries": {
+    "predict": {
+      "path": "/home/featurize/work/dfagcn_nwpu_formal_3080_20261030/liblinear/bin/predict",
+      "sha256": "fd8e3a88870145c21d13d163c2bbe724e12ef0c047018426495e65758b4977b0"
+    },
+    "train": {
+      "path": "/home/featurize/work/dfagcn_nwpu_formal_3080_20261030/liblinear/bin/train",
+      "sha256": "39de6baa6e0db556aa08884ef8ed3c9746a7fdabfe599fb11efefafd09f3ec4b"
+    }
+  },
+  "parameters": {
+    "frozen_vgg_extractor": 117479232,
+    "graph_including_three_ce_heads": 2957447,
+    "scope": "neural parameters only; frozen VGG and LIBLINEAR reported separately"
+  },
+  "phase_seconds": {
+    "calibration": 790.69148804,
+    "pool_cache": 168.95325587699972,
+    "refit": 255.987683284,
+    "split_caches": 13.603971595000075,
+    "test": 100.9705742809997,
+    "test_cache": 695.6517035650004
+  },
+  "phases": {
+    "calibration": {
+      "completed": true,
+      "cuda_peak_allocated_bytes": 202593280,
+      "cuda_peak_reserved_bytes": 234881024,
+      "elapsed_seconds": 790.69148804,
+      "identity": {
+        "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+        "physical_gpu_uuid": "GPU-0d9901ca-d2e0-d398-b9b4-2550e6db2fed",
+        "recipe_sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+        "runtime_sha256": "d56d05d63aff4513f4fe733971736e430ecc40532f5ec9e45c032a72aafb1054",
+        "source_identity_sha256": "4b6ce21462fc18755ef568e1553e7cdaffac9208b66a6d51793a23bf1d3d351b",
+        "weights_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0"
+      }
+    },
+    "pool_cache": {
+      "completed": true,
+      "cuda_peak_allocated_bytes": 609131008,
+      "cuda_peak_reserved_bytes": 698351616,
+      "elapsed_seconds": 168.95325587699972,
+      "identity": {
+        "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+        "physical_gpu_uuid": "GPU-0d9901ca-d2e0-d398-b9b4-2550e6db2fed",
+        "recipe_sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+        "runtime_sha256": "d56d05d63aff4513f4fe733971736e430ecc40532f5ec9e45c032a72aafb1054",
+        "source_identity_sha256": "4b6ce21462fc18755ef568e1553e7cdaffac9208b66a6d51793a23bf1d3d351b",
+        "weights_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0"
+      }
+    },
+    "refit": {
+      "completed": true,
+      "cuda_peak_allocated_bytes": 183829504,
+      "cuda_peak_reserved_bytes": 211812352,
+      "elapsed_seconds": 255.987683284,
+      "identity": {
+        "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+        "physical_gpu_uuid": "GPU-0d9901ca-d2e0-d398-b9b4-2550e6db2fed",
+        "recipe_sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+        "runtime_sha256": "d56d05d63aff4513f4fe733971736e430ecc40532f5ec9e45c032a72aafb1054",
+        "source_identity_sha256": "4b6ce21462fc18755ef568e1553e7cdaffac9208b66a6d51793a23bf1d3d351b",
+        "weights_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0"
+      }
+    },
+    "split_caches": {
+      "completed": true,
+      "cuda_peak_allocated_bytes": 8519680,
+      "cuda_peak_reserved_bytes": 14680064,
+      "elapsed_seconds": 13.603971595000075,
+      "identity": {
+        "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+        "physical_gpu_uuid": "GPU-0d9901ca-d2e0-d398-b9b4-2550e6db2fed",
+        "recipe_sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+        "runtime_sha256": "d56d05d63aff4513f4fe733971736e430ecc40532f5ec9e45c032a72aafb1054",
+        "source_identity_sha256": "4b6ce21462fc18755ef568e1553e7cdaffac9208b66a6d51793a23bf1d3d351b",
+        "weights_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0"
+      }
+    },
+    "test": {
+      "completed": true,
+      "cuda_peak_allocated_bytes": 84774400,
+      "cuda_peak_reserved_bytes": 111149056,
+      "elapsed_seconds": 100.9705742809997,
+      "identity": {
+        "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+        "physical_gpu_uuid": "GPU-0d9901ca-d2e0-d398-b9b4-2550e6db2fed",
+        "recipe_sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+        "runtime_sha256": "d56d05d63aff4513f4fe733971736e430ecc40532f5ec9e45c032a72aafb1054",
+        "source_identity_sha256": "4b6ce21462fc18755ef568e1553e7cdaffac9208b66a6d51793a23bf1d3d351b",
+        "weights_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0"
+      }
+    },
+    "test_cache": {
+      "completed": true,
+      "cuda_peak_allocated_bytes": 616995328,
+      "cuda_peak_reserved_bytes": 675282944,
+      "elapsed_seconds": 695.6517035650004,
+      "identity": {
+        "manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+        "physical_gpu_uuid": "GPU-0d9901ca-d2e0-d398-b9b4-2550e6db2fed",
+        "recipe_sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+        "runtime_sha256": "d56d05d63aff4513f4fe733971736e430ecc40532f5ec9e45c032a72aafb1054",
+        "source_identity_sha256": "4b6ce21462fc18755ef568e1553e7cdaffac9208b66a6d51793a23bf1d3d351b",
+        "weights_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0"
+      }
+    }
+  },
+  "physical_gpu_uuid": "GPU-0d9901ca-d2e0-d398-b9b4-2550e6db2fed",
+  "pipeline_source_sha256": "3c5e3795dcbbce7193811e05f45a5b73af3da70174166844d634f4838a0f4c3d",
+  "pool_extraction": {
+    "cache_directory": "/tmp/dfagcn_nwpu_formal_3080_20261030_fix1_nwpu_seed42_01/pool_cache",
+    "cache_key": "e0585002737b8565fe34509ca73adbd4f93bd0b969b57ba1160bec9e99b0debd",
+    "content_sha256": "1d07ad16fa419889cff989086ad549c55201b37f0ca234d560af80794cdd3db4",
+    "data_mode": "persistent_zip_verified_recovery",
+    "feature_images_per_second": 39.290470581781015,
+    "samples": 6300,
+    "timing_scope": "VGG extraction, image reads/preprocessing and cache write/hash/validation; excludes ZIP recovery and weights load",
+    "vgg_extraction_seconds": 160.34422359200016
+  },
+  "recipe_sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+  "refit_path": "/home/featurize/work/dfagcn_nwpu_formal_3080_20261030_fix1/runs/nwpu_seed42_01/refit/refit.json",
+  "reload_max_abs_error": 0.0,
+  "runtime": {
+    "amp": false,
+    "cpu_threads": 8,
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "cudnn_tf32": false,
+    "device": "cuda:0",
+    "dtype": "float32",
+    "gpu": {
+      "driver_version": "610.57.04",
+      "memory_free_mib": 9874,
+      "memory_total_mib": 10240,
+      "name": "NVIDIA GeForce RTX 3080",
+      "uuid": "GPU-0d9901ca-d2e0-d398-b9b4-2550e6db2fed"
+    },
+    "matmul_tf32": false,
+    "numpy": "1.26.4",
+    "physical_gpu_uuid": "GPU-0d9901ca-d2e0-d398-b9b4-2550e6db2fed",
+    "pillow": "10.3.0",
+    "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+    "seed": 42,
+    "torch": "2.2.2+cu121",
+    "torchvision": "0.17.2+cu121"
+  },
+  "schema": "dfagcn-nwpu-formal-3080-v1",
+  "scratch_root": "/tmp/dfagcn_nwpu_formal_3080_20261030_fix1_nwpu_seed42_01",
+  "selected_C": 10,
+  "selected_epoch": 51,
+  "selection_path": "/home/featurize/work/dfagcn_nwpu_formal_3080_20261030_fix1/runs/nwpu_seed42_01/calibration/selection.json",
+  "storage_scope": "regenerable cache/images on instance scratch; checkpoint/history/log/metrics and cache manifests persist in output",
+  "test_extraction": {
+    "cache_directory": "/tmp/dfagcn_nwpu_formal_3080_20261030_fix1_nwpu_seed42_01/test_cache",
+    "cache_key": "f3cd52ba90ace4b1860f37d76a8c6a1734e67ddf2f74e37c86110c9f605f3f7e",
+    "content_sha256": "530662c55e85b3da9da3ae30552021a5019c2c44efba367730926c41fafd6047",
+    "data_mode": "persistent_zip_verified_recovery",
+    "feature_images_per_second": 37.268287716647706,
+    "samples": 25200,
+    "timing_scope": "VGG extraction, image reads/preprocessing and cache write/hash/validation; excludes ZIP recovery and weights load",
+    "vgg_extraction_seconds": 676.1781005770004
+  },
+  "test_metrics": {
+    "macro_f1_percent": 86.45890874660422,
+    "oa_percent": 86.53174603174604
+  },
+  "timing_scope": "cached test excludes VGG; test_extraction reports separate end-to-end extraction stage",
+  "wall_seconds": 2035.63461228,
+  "weights_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0"
+}

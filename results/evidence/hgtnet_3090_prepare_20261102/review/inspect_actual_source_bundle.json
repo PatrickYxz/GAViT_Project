@@ -1,0 +1,91 @@
+{
+  "action": "inspect",
+  "blockers": [
+    "manifest",
+    "weights",
+    "version:python",
+    "dependency:torch",
+    "dependency:torchvision",
+    "dependency:numpy",
+    "dependency:Pillow"
+  ],
+  "config_sha256": "af6ef410125e9d47c87acd0acec1a6db6e0119656793124ceafcb2379eedac25",
+  "dependencies": {
+    "Pillow": {
+      "import_tested": false,
+      "located": false,
+      "version": null
+    },
+    "numpy": {
+      "import_tested": false,
+      "located": false,
+      "version": null
+    },
+    "python": {
+      "import_tested": false,
+      "located": true,
+      "version": "3.12.13"
+    },
+    "torch": {
+      "import_tested": false,
+      "located": false,
+      "version": null
+    },
+    "torchvision": {
+      "import_tested": false,
+      "located": false,
+      "version": null
+    }
+  },
+  "disk": {
+    "blockers": [],
+    "output": {
+      "ancestor": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_3090_prepare_20261102/review/independent_target3090_final",
+      "device": 16777234,
+      "free_bytes": 274109353984,
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_3090_prepare_20261102/review/independent_target3090_final/runs/nwpu_smoke_seed42_01",
+      "required_bytes": 2147483648
+    },
+    "ready": true,
+    "same_volume": true,
+    "scratch": {
+      "ancestor": "/private/tmp",
+      "device": 16777234,
+      "free_bytes": 274109353984,
+      "path": "/tmp/independent_target3090_final_rtx3090_seed42_01",
+      "required_bytes": 1073741824
+    }
+  },
+  "formal_training_started": false,
+  "input_error": "[Errno 2] No such file or directory: '/home/featurize/work/nwpu_protocol_20260927_02.json'",
+  "manifest": "/home/featurize/work/nwpu_protocol_20260927_02.json",
+  "nvidia": {
+    "error": null,
+    "gpus": [
+      {
+        "driver_version": "610.57.04",
+        "memory_free_mib": 24123,
+        "memory_total_mib": 24576,
+        "name": "NVIDIA GeForce RTX 3090",
+        "uuid": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1"
+      }
+    ],
+    "processes": []
+  },
+  "output": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_3090_prepare_20261102/review/independent_target3090_final/runs/nwpu_smoke_seed42_01",
+  "readiness_scope": "stdlib preflight only; run verifies real imports/CUDA and staged ZIP/image bytes",
+  "ready": false,
+  "requested_gpu_uuid": null,
+  "schema": "hgtnet-nwpu-smoke-v2",
+  "scratch_root": "/tmp/independent_target3090_final_rtx3090_seed42_01",
+  "selected_gpu": {
+    "driver_version": "610.57.04",
+    "memory_free_mib": 24123,
+    "memory_total_mib": 24576,
+    "name": "NVIDIA GeForce RTX 3090",
+    "uuid": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1"
+  },
+  "target_gpu": "3090",
+  "weights": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_3090_prepare_20261102/review/swin_b-68c6b09e.pth",
+  "weights_error": "[Errno 2] No such file or directory: '/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_3090_prepare_20261102/review/swin_b-68c6b09e.pth'"
+}

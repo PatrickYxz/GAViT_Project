@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-30",
+  "scope": "Backward-compatible custom Python archive entrypoint; no target GPU execution",
+  "command": "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest discover -s tests -p test_dfagcn_delivery.py -v",
+  "red": {
+    "methods": 10,
+    "failures": 2,
+    "errors": 0,
+    "exit_code": 1,
+    "cause": "runner_member keyword API absent; new tests assert missing API"
+  },
+  "green": {
+    "methods": 10,
+    "failures": 0,
+    "errors": 0,
+    "exit_code": 0,
+    "reported_seconds": 1.42
+  },
+  "verified": [
+    "Actual custom inner Python member stored and dispatched via manifest by a real zipapp process",
+    "Path traversal, reserved source names and packaged-source collisions rejected before any new archive/sidecar",
+    "Default RUNNER API and existing extraction/reuse/hash/foreign-workspace checks pass",
+    "New reader accepts already-shipped legacy manifest without runner field",
+    "Actual pinned official LIBLINEAR source compilation and platform/binary reuse checks still pass"
+  ],
+  "api": "build_bundle(output_path, *, runner_path=None, weights_metadata_path=None, runner_member=RUNNER)",
+  "cli_flag": "--runner-member",
+  "old_bundle_unchanged": {
+    "path": "output/dfagcn_nwpu_smoke_20261029.pyz",
+    "sha256": "f7ff678be35517aca7edc3a181862a56d739cc0be1a7496a5c63dac4b269daca"
+  },
+  "final_gpu_probe_artifact_built": false,
+  "target_linux_or_gpu_run": false,
+  "git_commit_or_push": false,
+  "sha256": {
+    "tools/package_dfagcn_nwpu_smoke.py": "89a3395372dee8f06feb487bc43dc2ad523518fb718bf16c39bd2569879b1da5",
+    "tests/test_dfagcn_delivery.py": "9fe93e45b4ec0e02e2a92ecfa4c73c2531f7127e10b90dc2c66ab019d36ca061"
+  }
+}

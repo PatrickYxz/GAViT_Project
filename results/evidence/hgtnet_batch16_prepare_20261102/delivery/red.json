@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python",
+    "-m",
+    "unittest",
+    "tests.test_hgtnet_batch_probe_delivery.BatchProbeDeliveryTests.test_registered_probe_is_selected_once_and_keeps_common_runner",
+    "tests.test_hgtnet_batch_probe_delivery.BatchProbeDeliveryTests.test_cli_probe_inspect_and_status_dispatch_without_ml_or_runs",
+    "-v"
+  ],
+  "exit_code": 1,
+  "tests_run": 2,
+  "failures": 2,
+  "errors": 0,
+  "reason": "Missing runner_member API and CLI option before implementation",
+  "scope": "stdlib synthetic repository and actual zipapp boundary; no numerical or GPU execution"
+}

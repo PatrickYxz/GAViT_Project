@@ -1,0 +1,186 @@
+{
+  "capacity_scope": "this fixed16 FP32 full-model short probe completed; no long-run memory guarantee or method-performance result",
+  "checks": {
+    "451_trainable_parameter_tensors": true,
+    "actual_cuda_bytes_integer": true,
+    "actual_torch_cuda_report": true,
+    "all5_groups_updated": true,
+    "all_success_receipts": true,
+    "completion_marker_path": true,
+    "completion_progress": true,
+    "compute_timing_scoped": true,
+    "cuda_nominal_allowance_prior_physical": true,
+    "delivered_local_bundle_sha": true,
+    "disposable_only": true,
+    "entry_target_fixed": true,
+    "exact4_update_events": true,
+    "exact5_gradient_groups": true,
+    "finite_positive_loss_time": true,
+    "fixed_batch16": true,
+    "gradient_pass": true,
+    "group_norms_finite_positive": true,
+    "group_tensor_counts": true,
+    "local_current_engine_exact": true,
+    "local_current_entry_exact": true,
+    "runtime_3090": true,
+    "same_pid5457": true,
+    "samples16_to64": true,
+    "source_complete_after_summary_exit_and_marker": true,
+    "source_end_input_recheck": true,
+    "source_exact4_completion_required": true,
+    "steps_sequential": true,
+    "warmup_then3_measured": true
+  },
+  "checks_count": 29,
+  "command": "base) \u279c ~ /environment/miniconda3/bin/python /home/featurize/work/hgtnet_batch16_probe_3090_20261102.pyz run --gpu-uuid GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1 --target-gpu 3090 --manifest /home/featurize/work/nwpu_protocol_20260927_02.json --data-root /home/featurize/data/NWPU-RESISC45 --archive /home/featurize/work/NWPU-RESISC45_a826b44.zip --weights /home/featurize/work/swin_b-68c6b09e.pth --config /home/featurize/work/hgtnet_batch16_probe_3090_20261102/configs/hgtnet_independent_v0.json --output /home/featurize/work/hgtnet_batch16_probe_3090_20261102/runs/batch16_seed42_01 --scratch-root /tmp/hgtnet_batch16_probe_3090_20261102_rtx3090_seed42_01",
+  "derived": {
+    "conditional_compute_calibration_epoch315_seconds": 63.42636194978695,
+    "conditional_compute_max100_calibration_plus100_refit_hours": 3.9655459102644577,
+    "conditional_compute_refit_epoch394_seconds": 79.33329081973352,
+    "cuda_exposed_gib": 23.55810546875,
+    "cuda_exposed_mib": 24123.5,
+    "estimate_scope": "only conditional update compute scaled from three reused-input steps; not end-to-end epoch/runtime/billing; excludes IO, augmentations, validation, saving, refit startup and final test; actual full pipeline unmeasured",
+    "mean_step_seconds": 0.20126396233323854,
+    "measured_aggregate_compute_images_per_second": 79.49759020200715,
+    "measured_step_seconds": [
+      0.1999162600004638,
+      0.20252209699992818,
+      0.20135352999932365
+    ],
+    "median_compute_images_per_second": 79.46222745662192,
+    "median_step_seconds": 0.20135352999932365,
+    "warmup_seconds": 1.0480841400003555
+  },
+  "device_reported": {
+    "available": true,
+    "cuda": "12.1",
+    "device_count": 1,
+    "name": "NVIDIA GeForce RTX 3090",
+    "torch": "2.2.2+cu121",
+    "total_memory_bytes": 25295323136
+  },
+  "formal_benchmark_result": false,
+  "no_rerun_needed": true,
+  "passed": true,
+  "pending": [
+    "summary/status peak allocated/reserved bytes",
+    "whole probe wall_seconds",
+    "summary config/manifest/weights identity",
+    "reported run.exit value"
+  ],
+  "progress_reported": [
+    {
+      "batch_size": 16,
+      "completed": false,
+      "elapsed_seconds": 1.0480841400003555,
+      "formal_training_started": false,
+      "gradients": {
+        "groups": {
+          "dual_attention": {
+            "l2": 0.6473781974555695,
+            "tensors": 30
+          },
+          "graph": {
+            "l2": 8.368064619937309,
+            "tensors": 120
+          },
+          "head": {
+            "l2": 7.415165155854163,
+            "tensors": 2
+          },
+          "patch_embed": {
+            "l2": 10.178163858951711,
+            "tensors": 4
+          },
+          "transformer": {
+            "l2": 13.75404789397443,
+            "tensors": 295
+          }
+        },
+        "missing": [],
+        "nonfinite": [],
+        "passed": true
+      },
+      "loss": 4.158695220947266,
+      "optimizer_step_completed": true,
+      "optimizer_step_succeeded": true,
+      "optimizer_steps": 1,
+      "phase": "warmup",
+      "pid": 5457,
+      "post_update_checks_passed": true,
+      "samples_seen": 16,
+      "stage": "first_optimizer_step",
+      "step_index": 1,
+      "training_started": true,
+      "updated_groups": {
+        "dual_attention": true,
+        "graph": true,
+        "head": true,
+        "patch_embed": true,
+        "transformer": true
+      }
+    },
+    {
+      "batch_size": 16,
+      "completed": false,
+      "elapsed_seconds": 0.1999162600004638,
+      "formal_training_started": false,
+      "loss": 3.8532423973083496,
+      "optimizer_step_completed": true,
+      "optimizer_step_succeeded": true,
+      "optimizer_steps": 2,
+      "phase": "measured",
+      "pid": 5457,
+      "post_update_checks_passed": true,
+      "samples_seen": 32,
+      "stage": "measurement",
+      "step_index": 2,
+      "training_started": true
+    },
+    {
+      "batch_size": 16,
+      "completed": false,
+      "elapsed_seconds": 0.20252209699992818,
+      "formal_training_started": false,
+      "loss": 3.585176467895508,
+      "optimizer_step_completed": true,
+      "optimizer_step_succeeded": true,
+      "optimizer_steps": 3,
+      "phase": "measured",
+      "pid": 5457,
+      "post_update_checks_passed": true,
+      "samples_seen": 48,
+      "stage": "measurement",
+      "step_index": 3,
+      "training_started": true
+    },
+    {
+      "batch_size": 16,
+      "completed": false,
+      "elapsed_seconds": 0.20135352999932365,
+      "formal_training_started": false,
+      "loss": 3.343672037124634,
+      "optimizer_step_completed": true,
+      "optimizer_step_succeeded": true,
+      "optimizer_steps": 4,
+      "phase": "measured",
+      "pid": 5457,
+      "post_update_checks_passed": true,
+      "samples_seen": 64,
+      "stage": "measurement",
+      "step_index": 4,
+      "training_started": true
+    },
+    {
+      "completed": true,
+      "optimizer_steps": 4,
+      "pid": 5457,
+      "stage": "complete",
+      "training_started": true
+    }
+  ],
+  "reported_output_sha256": "a7af487be960a35238ece948573040a24f1e7261d133cd4917f0735bd93a6e37",
+  "schema": "hgtnet-batch16-server-reported-marker-v1",
+  "source": "user-pasted run output; no direct server files retrieved",
+  "state": "SERVER_REPORTED_BATCH16_4_UPDATES_COMPLETE_SUMMARY_PENDING"
+}

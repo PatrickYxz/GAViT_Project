@@ -1,0 +1,981 @@
+test_bad_manifest_identity_json_labels_paths_splits_and_pixel_groups_fail_closed (tests.test_hgtnet_aid_data.AidDataTests.test_bad_manifest_identity_json_labels_paths_splits_and_pixel_groups_fail_closed) ... FAIL
+test_changed_bytes_outside_paths_and_symlink_components_are_rejected (tests.test_hgtnet_aid_data.AidDataTests.test_changed_bytes_outside_paths_and_symlink_components_are_rejected) ... 
+  test_changed_bytes_outside_paths_and_symlink_components_are_rejected (tests.test_hgtnet_aid_data.AidDataTests.test_changed_bytes_outside_paths_and_symlink_components_are_rejected) (relative='../escape.png') ... FAIL
+  test_changed_bytes_outside_paths_and_symlink_components_are_rejected (tests.test_hgtnet_aid_data.AidDataTests.test_changed_bytes_outside_paths_and_symlink_components_are_rejected) (relative='/outside.png') ... FAIL
+  test_changed_bytes_outside_paths_and_symlink_components_are_rejected (tests.test_hgtnet_aid_data.AidDataTests.test_changed_bytes_outside_paths_and_symlink_components_are_rejected) (relative='Airport//a.png') ... FAIL
+  test_changed_bytes_outside_paths_and_symlink_components_are_rejected (tests.test_hgtnet_aid_data.AidDataTests.test_changed_bytes_outside_paths_and_symlink_components_are_rejected) (relative='Airport/./a.png') ... FAIL
+  test_changed_bytes_outside_paths_and_symlink_components_are_rejected (tests.test_hgtnet_aid_data.AidDataTests.test_changed_bytes_outside_paths_and_symlink_components_are_rejected) (relative='Airport\\a.png') ... FAIL
+test_changed_bytes_outside_paths_and_symlink_components_are_rejected (tests.test_hgtnet_aid_data.AidDataTests.test_changed_bytes_outside_paths_and_symlink_components_are_rejected) ... FAIL
+test_dataset_decodes_same_hashed_bytes_instead_of_reopening_path (tests.test_hgtnet_aid_data.AidDataTests.test_dataset_decodes_same_hashed_bytes_instead_of_reopening_path) ... FAIL
+test_dataset_uses_verified_rgb600_bytes_and_fixed_normalization (tests.test_hgtnet_aid_data.AidDataTests.test_dataset_uses_verified_rgb600_bytes_and_fixed_normalization) ... FAIL
+test_new_modules_import_with_ml_forbidden (tests.test_hgtnet_aid_data.AidDataTests.test_new_modules_import_with_ml_forbidden) ... FAIL
+test_non_rgb_or_wrong_original_size_cannot_enter_dataset (tests.test_hgtnet_aid_data.AidDataTests.test_non_rgb_or_wrong_original_size_cannot_enter_dataset) ... 
+  test_non_rgb_or_wrong_original_size_cannot_enter_dataset (tests.test_hgtnet_aid_data.AidDataTests.test_non_rgb_or_wrong_original_size_cannot_enter_dataset) (kwargs={'mode': 'L'}) ... FAIL
+  test_non_rgb_or_wrong_original_size_cannot_enter_dataset (tests.test_hgtnet_aid_data.AidDataTests.test_non_rgb_or_wrong_original_size_cannot_enter_dataset) (kwargs={'size': (224, 224)}) ... FAIL
+test_selection_preserves_unequal_classes_and_industrial_duplicate_group (tests.test_hgtnet_aid_data.AidDataTests.test_selection_preserves_unequal_classes_and_industrial_duplicate_group) ... FAIL
+test_validation_reads_only_supplied_train_val_rows_and_rejects_test_before_open (tests.test_hgtnet_aid_data.AidDataTests.test_validation_reads_only_supplied_train_val_rows_and_rejects_test_before_open) ... FAIL
+test_actual_update_all_five_groups_full_validation_and_independent_reload (tests.test_hgtnet_aid_engine.AidEngineTests.test_actual_update_all_five_groups_full_validation_and_independent_reload) ... FAIL
+test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) ... 
+  test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) (change={'schema': 'hgtnet-nwpu-smoke-binding-v1'}) ... FAIL
+  test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) (change={'input_scope': 'real_nwpu'}) ... FAIL
+  test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) (change={'input_scope': 'real_aid'}) ... FAIL
+  test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) (change={'counts': {'train': 4, 'val': 2, 'test': 1}}) ... FAIL
+  test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) (change={'runtime': {'device': 'cuda:0'}}) ... FAIL
+  test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) (change={'val_labels': [True, 1]}) ... FAIL
+  test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) (change={'val_paths': ['a.png', 'a.png']}) ... FAIL
+test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) ... FAIL
+test_checkpoint_wrong_sha_binding_schema_keys_dtype_shape_or_values_never_copy (tests.test_hgtnet_aid_engine.AidEngineTests.test_checkpoint_wrong_sha_binding_schema_keys_dtype_shape_or_values_never_copy) ... FAIL
+test_existing_artifacts_cannot_be_overwritten (tests.test_hgtnet_aid_engine.AidEngineTests.test_existing_artifacts_cannot_be_overwritten) ... 
+  test_existing_artifacts_cannot_be_overwritten (tests.test_hgtnet_aid_engine.AidEngineTests.test_existing_artifacts_cannot_be_overwritten) (name='first_step.json') ... FAIL
+  test_existing_artifacts_cannot_be_overwritten (tests.test_hgtnet_aid_engine.AidEngineTests.test_existing_artifacts_cannot_be_overwritten) (name='smoke_epoch1.pt') ... FAIL
+  test_existing_artifacts_cannot_be_overwritten (tests.test_hgtnet_aid_engine.AidEngineTests.test_existing_artifacts_cannot_be_overwritten) (name='history.json') ... FAIL
+  test_existing_artifacts_cannot_be_overwritten (tests.test_hgtnet_aid_engine.AidEngineTests.test_existing_artifacts_cannot_be_overwritten) (name='val_predictions.json') ... FAIL
+  test_existing_artifacts_cannot_be_overwritten (tests.test_hgtnet_aid_engine.AidEngineTests.test_existing_artifacts_cannot_be_overwritten) (name='optimizer_progress.json') ... FAIL
+test_failure_after_update_retains_actual_progress_and_first_step (tests.test_hgtnet_aid_engine.AidEngineTests.test_failure_after_update_retains_actual_progress_and_first_step) ... FAIL
+test_full_240_60_fixture_performs_120_updates_without_claiming_real_input (tests.test_hgtnet_aid_engine.AidEngineTests.test_full_240_60_fixture_performs_120_updates_without_claiming_real_input) ... FAIL
+test_missing_architectural_gradient_group_fails_before_update (tests.test_hgtnet_aid_engine.AidEngineTests.test_missing_architectural_gradient_group_fails_before_update) ... FAIL
+test_nonfinite_first_input_or_gradient_does_not_claim_training_started (tests.test_hgtnet_aid_engine.AidEngineTests.test_nonfinite_first_input_or_gradient_does_not_claim_training_started) ... 
+  test_nonfinite_first_input_or_gradient_does_not_claim_training_started (tests.test_hgtnet_aid_engine.AidEngineTests.test_nonfinite_first_input_or_gradient_does_not_claim_training_started) (bad_input=False) ... FAIL
+  test_nonfinite_first_input_or_gradient_does_not_claim_training_started (tests.test_hgtnet_aid_engine.AidEngineTests.test_nonfinite_first_input_or_gradient_does_not_claim_training_started) (bad_input=True) ... FAIL
+test_nonfinite_parameter_after_actual_step_is_recorded_as_started (tests.test_hgtnet_aid_engine.AidEngineTests.test_nonfinite_parameter_after_actual_step_is_recorded_as_started) ... FAIL
+test_sampler_seed_order_and_dropped_records_are_rejected (tests.test_hgtnet_aid_engine.AidEngineTests.test_sampler_seed_order_and_dropped_records_are_rejected) ... FAIL
+
+======================================================================
+FAIL: test_bad_manifest_identity_json_labels_paths_splits_and_pixel_groups_fail_closed (tests.test_hgtnet_aid_data.AidDataTests.test_bad_manifest_identity_json_labels_paths_splits_and_pixel_groups_fail_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_data')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 71, in test_bad_manifest_identity_json_labels_paths_splits_and_pixel_groups_fail_closed
+    self.prepare(expected='0' * 64)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 35, in prepare
+    return api().prepare_inputs(path, expected_sha256=digest)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 21, in api
+    raise AssertionError('AID data interface must be implemented') from exc
+AssertionError: AID data interface must be implemented
+
+======================================================================
+FAIL: test_changed_bytes_outside_paths_and_symlink_components_are_rejected (tests.test_hgtnet_aid_data.AidDataTests.test_changed_bytes_outside_paths_and_symlink_components_are_rejected) (relative='../escape.png')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_data')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 100, in test_changed_bytes_outside_paths_and_symlink_components_are_rejected
+    api().validate_selected(self.root, [dict(row, path=relative)])
+    ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 21, in api
+    raise AssertionError('AID data interface must be implemented') from exc
+AssertionError: AID data interface must be implemented
+
+======================================================================
+FAIL: test_changed_bytes_outside_paths_and_symlink_components_are_rejected (tests.test_hgtnet_aid_data.AidDataTests.test_changed_bytes_outside_paths_and_symlink_components_are_rejected) (relative='/outside.png')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_data')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 100, in test_changed_bytes_outside_paths_and_symlink_components_are_rejected
+    api().validate_selected(self.root, [dict(row, path=relative)])
+    ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 21, in api
+    raise AssertionError('AID data interface must be implemented') from exc
+AssertionError: AID data interface must be implemented
+
+======================================================================
+FAIL: test_changed_bytes_outside_paths_and_symlink_components_are_rejected (tests.test_hgtnet_aid_data.AidDataTests.test_changed_bytes_outside_paths_and_symlink_components_are_rejected) (relative='Airport//a.png')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_data')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 100, in test_changed_bytes_outside_paths_and_symlink_components_are_rejected
+    api().validate_selected(self.root, [dict(row, path=relative)])
+    ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 21, in api
+    raise AssertionError('AID data interface must be implemented') from exc
+AssertionError: AID data interface must be implemented
+
+======================================================================
+FAIL: test_changed_bytes_outside_paths_and_symlink_components_are_rejected (tests.test_hgtnet_aid_data.AidDataTests.test_changed_bytes_outside_paths_and_symlink_components_are_rejected) (relative='Airport/./a.png')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_data')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 100, in test_changed_bytes_outside_paths_and_symlink_components_are_rejected
+    api().validate_selected(self.root, [dict(row, path=relative)])
+    ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 21, in api
+    raise AssertionError('AID data interface must be implemented') from exc
+AssertionError: AID data interface must be implemented
+
+======================================================================
+FAIL: test_changed_bytes_outside_paths_and_symlink_components_are_rejected (tests.test_hgtnet_aid_data.AidDataTests.test_changed_bytes_outside_paths_and_symlink_components_are_rejected) (relative='Airport\\a.png')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_data')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 100, in test_changed_bytes_outside_paths_and_symlink_components_are_rejected
+    api().validate_selected(self.root, [dict(row, path=relative)])
+    ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 21, in api
+    raise AssertionError('AID data interface must be implemented') from exc
+AssertionError: AID data interface must be implemented
+
+======================================================================
+FAIL: test_changed_bytes_outside_paths_and_symlink_components_are_rejected (tests.test_hgtnet_aid_data.AidDataTests.test_changed_bytes_outside_paths_and_symlink_components_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_data')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 103, in test_changed_bytes_outside_paths_and_symlink_components_are_rejected
+    api().validate_selected(self.root, [row])
+    ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 21, in api
+    raise AssertionError('AID data interface must be implemented') from exc
+AssertionError: AID data interface must be implemented
+
+======================================================================
+FAIL: test_dataset_decodes_same_hashed_bytes_instead_of_reopening_path (tests.test_hgtnet_aid_data.AidDataTests.test_dataset_decodes_same_hashed_bytes_instead_of_reopening_path)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_data')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 133, in test_dataset_decodes_same_hashed_bytes_instead_of_reopening_path
+    dataset = api().make_dataset(self.root, [row])
+              ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 21, in api
+    raise AssertionError('AID data interface must be implemented') from exc
+AssertionError: AID data interface must be implemented
+
+======================================================================
+FAIL: test_dataset_uses_verified_rgb600_bytes_and_fixed_normalization (tests.test_hgtnet_aid_data.AidDataTests.test_dataset_uses_verified_rgb600_bytes_and_fixed_normalization)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_data')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 116, in test_dataset_uses_verified_rgb600_bytes_and_fixed_normalization
+    dataset = api().make_dataset(self.root, records)
+              ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 21, in api
+    raise AssertionError('AID data interface must be implemented') from exc
+AssertionError: AID data interface must be implemented
+
+======================================================================
+FAIL: test_new_modules_import_with_ml_forbidden (tests.test_hgtnet_aid_data.AidDataTests.test_new_modules_import_with_ml_forbidden)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 156, in test_new_modules_import_with_ml_forbidden
+    self.assertEqual(run.returncode, 0, run.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+ImportError: cannot import name 'aid_data' from 'external_baselines.hgtnet' (/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/__init__.py)
+
+
+======================================================================
+FAIL: test_non_rgb_or_wrong_original_size_cannot_enter_dataset (tests.test_hgtnet_aid_data.AidDataTests.test_non_rgb_or_wrong_original_size_cannot_enter_dataset) (kwargs={'mode': 'L'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_data')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 148, in test_non_rgb_or_wrong_original_size_cannot_enter_dataset
+    dataset = api().make_dataset(self.root, [row])
+              ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 21, in api
+    raise AssertionError('AID data interface must be implemented') from exc
+AssertionError: AID data interface must be implemented
+
+======================================================================
+FAIL: test_non_rgb_or_wrong_original_size_cannot_enter_dataset (tests.test_hgtnet_aid_data.AidDataTests.test_non_rgb_or_wrong_original_size_cannot_enter_dataset) (kwargs={'size': (224, 224)})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_data')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 148, in test_non_rgb_or_wrong_original_size_cannot_enter_dataset
+    dataset = api().make_dataset(self.root, [row])
+              ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 21, in api
+    raise AssertionError('AID data interface must be implemented') from exc
+AssertionError: AID data interface must be implemented
+
+======================================================================
+FAIL: test_selection_preserves_unequal_classes_and_industrial_duplicate_group (tests.test_hgtnet_aid_data.AidDataTests.test_selection_preserves_unequal_classes_and_industrial_duplicate_group)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_data')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 56, in test_selection_preserves_unequal_classes_and_industrial_duplicate_group
+    prepared = self.prepare(value)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 35, in prepare
+    return api().prepare_inputs(path, expected_sha256=digest)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 21, in api
+    raise AssertionError('AID data interface must be implemented') from exc
+AssertionError: AID data interface must be implemented
+
+======================================================================
+FAIL: test_validation_reads_only_supplied_train_val_rows_and_rejects_test_before_open (tests.test_hgtnet_aid_data.AidDataTests.test_validation_reads_only_supplied_train_val_rows_and_rejects_test_before_open)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_data')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 88, in test_validation_reads_only_supplied_train_val_rows_and_rejects_test_before_open
+    result = api().validate_selected(self.root, [row])
+             ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_data.py", line 21, in api
+    raise AssertionError('AID data interface must be implemented') from exc
+AssertionError: AID data interface must be implemented
+
+======================================================================
+FAIL: test_actual_update_all_five_groups_full_validation_and_independent_reload (tests.test_hgtnet_aid_engine.AidEngineTests.test_actual_update_all_five_groups_full_validation_and_independent_reload)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 74, in test_actual_update_all_five_groups_full_validation_and_independent_reload
+    record = self.run_smoke(Path(tmp), model=model, callback=events.append)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) (change={'schema': 'hgtnet-nwpu-smoke-binding-v1'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 107, in test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda
+    self.run_smoke(Path(tmp), binding=binding)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) (change={'input_scope': 'real_nwpu'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 107, in test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda
+    self.run_smoke(Path(tmp), binding=binding)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) (change={'input_scope': 'real_aid'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 107, in test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda
+    self.run_smoke(Path(tmp), binding=binding)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) (change={'counts': {'train': 4, 'val': 2, 'test': 1}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 107, in test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda
+    self.run_smoke(Path(tmp), binding=binding)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) (change={'runtime': {'device': 'cuda:0'}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 107, in test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda
+    self.run_smoke(Path(tmp), binding=binding)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) (change={'val_labels': [True, 1]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 107, in test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda
+    self.run_smoke(Path(tmp), binding=binding)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda) (change={'val_paths': ['a.png', 'a.png']})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 107, in test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda
+    self.run_smoke(Path(tmp), binding=binding)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda (tests.test_hgtnet_aid_engine.AidEngineTests.test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 112, in test_binding_rejects_old_dataset_45classes_test_usage_and_fake_cuda
+    self.run_smoke(Path(tmp), binding=binding)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_checkpoint_wrong_sha_binding_schema_keys_dtype_shape_or_values_never_copy (tests.test_hgtnet_aid_engine.AidEngineTests.test_checkpoint_wrong_sha_binding_schema_keys_dtype_shape_or_values_never_copy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 179, in test_checkpoint_wrong_sha_binding_schema_keys_dtype_shape_or_values_never_copy
+    saved = api().save_smoke_checkpoint(model, path, binding=binding)
+            ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_existing_artifacts_cannot_be_overwritten (tests.test_hgtnet_aid_engine.AidEngineTests.test_existing_artifacts_cannot_be_overwritten) (name='first_step.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 173, in test_existing_artifacts_cannot_be_overwritten
+    self.run_smoke(Path(tmp))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_existing_artifacts_cannot_be_overwritten (tests.test_hgtnet_aid_engine.AidEngineTests.test_existing_artifacts_cannot_be_overwritten) (name='smoke_epoch1.pt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 173, in test_existing_artifacts_cannot_be_overwritten
+    self.run_smoke(Path(tmp))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_existing_artifacts_cannot_be_overwritten (tests.test_hgtnet_aid_engine.AidEngineTests.test_existing_artifacts_cannot_be_overwritten) (name='history.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 173, in test_existing_artifacts_cannot_be_overwritten
+    self.run_smoke(Path(tmp))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_existing_artifacts_cannot_be_overwritten (tests.test_hgtnet_aid_engine.AidEngineTests.test_existing_artifacts_cannot_be_overwritten) (name='val_predictions.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 173, in test_existing_artifacts_cannot_be_overwritten
+    self.run_smoke(Path(tmp))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_existing_artifacts_cannot_be_overwritten (tests.test_hgtnet_aid_engine.AidEngineTests.test_existing_artifacts_cannot_be_overwritten) (name='optimizer_progress.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 173, in test_existing_artifacts_cannot_be_overwritten
+    self.run_smoke(Path(tmp))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_failure_after_update_retains_actual_progress_and_first_step (tests.test_hgtnet_aid_engine.AidEngineTests.test_failure_after_update_retains_actual_progress_and_first_step)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 148, in test_failure_after_update_retains_actual_progress_and_first_step
+    self.run_smoke(Path(tmp), binding=binding)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_full_240_60_fixture_performs_120_updates_without_claiming_real_input (tests.test_hgtnet_aid_engine.AidEngineTests.test_full_240_60_fixture_performs_120_updates_without_claiming_real_input)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 94, in test_full_240_60_fixture_performs_120_updates_without_claiming_real_input
+    record = self.run_smoke(Path(tmp), binding=self.binding(240, 60), loaders=self.loaders(240, 60))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_missing_architectural_gradient_group_fails_before_update (tests.test_hgtnet_aid_engine.AidEngineTests.test_missing_architectural_gradient_group_fails_before_update)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 137, in test_missing_architectural_gradient_group_fails_before_update
+    self.run_smoke(Path(tmp), model=model)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_nonfinite_first_input_or_gradient_does_not_claim_training_started (tests.test_hgtnet_aid_engine.AidEngineTests.test_nonfinite_first_input_or_gradient_does_not_claim_training_started) (bad_input=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 130, in test_nonfinite_first_input_or_gradient_does_not_claim_training_started
+    self.run_smoke(Path(tmp), model=model, loaders=self.loaders(bad_index=0) if bad_input else None)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_nonfinite_first_input_or_gradient_does_not_claim_training_started (tests.test_hgtnet_aid_engine.AidEngineTests.test_nonfinite_first_input_or_gradient_does_not_claim_training_started) (bad_input=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 130, in test_nonfinite_first_input_or_gradient_does_not_claim_training_started
+    self.run_smoke(Path(tmp), model=model, loaders=self.loaders(bad_index=0) if bad_input else None)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_nonfinite_parameter_after_actual_step_is_recorded_as_started (tests.test_hgtnet_aid_engine.AidEngineTests.test_nonfinite_parameter_after_actual_step_is_recorded_as_started)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 163, in test_nonfinite_parameter_after_actual_step_is_recorded_as_started
+    self.run_smoke(Path(tmp))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+======================================================================
+FAIL: test_sampler_seed_order_and_dropped_records_are_rejected (tests.test_hgtnet_aid_engine.AidEngineTests.test_sampler_seed_order_and_dropped_records_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 21, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_engine')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_engine'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 117, in test_sampler_seed_order_and_dropped_records_are_rejected
+    self.run_smoke(Path(tmp), loaders=loaders)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 66, in run_smoke
+    return api().run_epoch_smoke(MiniHGT() if model is None else model,
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 23, in api
+    raise AssertionError('AID engine interface must be implemented') from exc
+AssertionError: AID engine interface must be implemented
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.103s
+
+FAILED (failures=36)

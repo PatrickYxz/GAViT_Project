@@ -1,0 +1,35 @@
+{
+  "additional_seeds": [
+    43,
+    44,
+    45
+  ],
+  "legacy_full_suite": {
+    "errors": 14,
+    "failures": 1,
+    "reason": "local .venv lacks torch; no packages installed",
+    "run": 89
+  },
+  "limitations": [
+    "Actual selected GPU/software/liblinear/data availability must pass remote inspect and first-batch audit.",
+    "No epoch resume; failed output and scratch preserved; use a new output and scratch path for a later authorized restart.",
+    "Cache reuse accepts only fully sealed exact frozen identities; incomplete cache is preserved and refused.",
+    "GPU hardware differs from seed42; do not combine heterogeneous-device speed/memory into a same-device efficiency claim."
+  ],
+  "native_binaries_included": false,
+  "native_policy": "explicit pinned source build-linear or verified existing Linux binaries; local copies are Mach-O arm64",
+  "new_metrics_obtained": false,
+  "new_stdlib_tests": 13,
+  "package_bytes": 162345,
+  "package_members": 31,
+  "package_sha256": "c09b024cf03eb0becd6358abc156c8802c824b38509d34db7fc322758e68c28b",
+  "package_source_bytes_match": true,
+  "recipe_base_sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+  "recipe_semantic_difference": "seed only; exact v1 source and pretrained/split retained",
+  "remote_gpu_smoke_completed": false,
+  "schema": "dfagcn-campaign-prepare-audit-v1",
+  "seed_selection": "consecutive extension frozen before additional test",
+  "source_parity_17_files": true,
+  "test_evaluated": false,
+  "training_started": false
+}

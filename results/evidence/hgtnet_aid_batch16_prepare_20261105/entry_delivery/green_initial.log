@@ -1,0 +1,49 @@
+FEE........
+======================================================================
+ERROR: test_defaults_and_unique_idle3060_and_lock_prevent_unsafe_start (tests.test_hgtnet_aid_batch_probe_entry.EntryTests.test_defaults_and_unique_idle3060_and_lock_prevent_unsafe_start)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_batch_probe_entry.py", line 54, in test_defaults_and_unique_idle3060_and_lock_prevent_unsafe_start
+    with api()._run_lock(output):
+         ~~~~~~~~~~~~~~~^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_entry.py", line 106, in _run_lock
+    output=_new_output(output)
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_entry.py", line 93, in _new_output
+    if current.is_symlink():raise ValueError('output contains symbolic link: '+str(current))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: output contains symbolic link: /var
+
+======================================================================
+ERROR: test_failure_after_actual_update_keeps_durable_steps (tests.test_hgtnet_aid_batch_probe_entry.EntryTests.test_failure_after_actual_update_keeps_durable_steps)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_batch_probe_entry.py", line 82, in test_failure_after_actual_update_keeps_durable_steps
+    self.assertEqual(api().run_probe(args),1)
+                     ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_batch_probe.py", line 207, in run_probe
+    with _run_lock(args.output):
+         ~~~~~~~~~^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_entry.py", line 106, in _run_lock
+    output=_new_output(output)
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_entry.py", line 93, in _new_output
+    if current.is_symlink():raise ValueError('output contains symbolic link: '+str(current))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: output contains symbolic link: /var
+
+======================================================================
+FAIL: test_complete_fixture_passes_but_skeletal_and_individual_tampering_fail (tests.test_hgtnet_aid_batch_probe_entry.EntryTests.test_complete_fixture_passes_but_skeletal_and_individual_tampering_fail)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_batch_probe_entry.py", line 65, in test_complete_fixture_passes_but_skeletal_and_individual_tampering_fail
+    self.assertTrue(api().status(output)['completed'])
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.496s
+
+FAILED (failures=1, errors=2)

@@ -1,0 +1,673 @@
+{
+  "status": "user_confirmed_AID_corrections_recorded_arithmetic_pass_original_artifacts_pending",
+  "source": "/Users/patrick/Projects/GAViT_Project/results/multiseed_test_results.csv",
+  "source_sha256": "639a9b45b07625d63c1254a32969637c984a996997248622a647f261d43c0988",
+  "original_reported_source": "/Users/patrick/Projects/GAViT_Project/results/evidence/seed46_seed47_reported_20261012/reported_results.csv",
+  "original_reported_sha256": "907592fb63b954fe9cbae87bde100b0f57efaef44302d751985765ca3f360c9b",
+  "seeds": [
+    46,
+    47
+  ],
+  "hardware": {
+    "model_user_declared": "NVIDIA GeForce RTX4090",
+    "provenance": "direct user message in this chat",
+    "raw_hardware_record_seen": false,
+    "gpu_uuid": null,
+    "physical_gpu_pairing_verified": false,
+    "gpu_uuid_different_from_previous_user_declared": true
+  },
+  "user_clarification": {
+    "source": "direct user message in this chat",
+    "test_counts_and_config_unchanged_user_confirmed": true,
+    "test_samples": {
+      "AID": 5000,
+      "NWPU-RESISC45": 25200,
+      "BigEarthNet-19": 119825
+    },
+    "gpu_model": "NVIDIA GeForce RTX4090",
+    "gpu_uuid_different_from_previous_runs_user_confirmed": true,
+    "gpu_uuid_value_not_provided": true,
+    "AID_scores_ending_in3_transcription_error_user_confirmed": true,
+    "exact_AID_corrections_user_confirmed": true,
+    "confirmation_text": "应该是97.12以及95.72。你重新记录，然后我们可以开始整理内容汇报给导师了。",
+    "NWPU_seed46_seed47_rounding": {
+      "user_confirmed": true,
+      "decimal_places": 2,
+      "original_full_precision_not_returned": true,
+      "source": "direct user message 2026-10-12"
+    }
+  },
+  "spreadsheet_read_only": false,
+  "source_corrected_on_explicit_user_instruction": true,
+  "corrections": [
+    {
+      "seed": 46,
+      "model": "GAViT (fixed grouping)",
+      "before_percent": 97.13,
+      "confirmed_percent": 97.12
+    },
+    {
+      "seed": 47,
+      "model": "Swin-T Baseline",
+      "before_percent": 95.73,
+      "confirmed_percent": 95.72
+    }
+  ],
+  "arithmetic_checks": [
+    {
+      "dataset": "AID",
+      "model": "Swin-T Baseline",
+      "field": "Mean",
+      "reported": 96.14,
+      "recomputed": 96.14,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "AID",
+      "model": "Swin-T Baseline",
+      "field": "Std_sample_n-1",
+      "reported": 0.594,
+      "recomputed": 0.5939696961967024,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "AID",
+      "model": "Swin-T Baseline",
+      "field": "Delta_vs_Swin_mean",
+      "reported": 0,
+      "recomputed": 0,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "AID",
+      "model": "GAViT (fixed grouping)",
+      "field": "Mean",
+      "reported": 96.6,
+      "recomputed": 96.6,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "AID",
+      "model": "GAViT (fixed grouping)",
+      "field": "Std_sample_n-1",
+      "reported": 0.735,
+      "recomputed": 0.7353910524340138,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "AID",
+      "model": "GAViT (fixed grouping)",
+      "field": "Delta_vs_Swin_mean",
+      "reported": 0.46,
+      "recomputed": 0.46000000000000085,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "model": "Swin-T Baseline",
+      "field": "Mean",
+      "reported": 93.72,
+      "recomputed": 93.72,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "model": "Swin-T Baseline",
+      "field": "Std_sample_n-1",
+      "reported": 0.057,
+      "recomputed": 0.056568542494922595,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "model": "Swin-T Baseline",
+      "field": "Delta_vs_Swin_mean",
+      "reported": 0,
+      "recomputed": 0,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "model": "GAViT (fixed grouping)",
+      "field": "Mean",
+      "reported": 94.075,
+      "recomputed": 94.07499999999999,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "model": "GAViT (fixed grouping)",
+      "field": "Std_sample_n-1",
+      "reported": 0.163,
+      "recomputed": 0.16263455967290874,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "model": "GAViT (fixed grouping)",
+      "field": "Delta_vs_Swin_mean",
+      "reported": 0.355,
+      "recomputed": 0.35499999999998977,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "model": "GAViT soft_prototype",
+      "field": "Mean",
+      "reported": 93.545,
+      "recomputed": 93.545,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "model": "GAViT soft_prototype",
+      "field": "Std_sample_n-1",
+      "reported": 0.007,
+      "recomputed": 0.007071067811859044,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "model": "GAViT soft_prototype",
+      "field": "Delta_vs_Swin_mean",
+      "reported": -0.175,
+      "recomputed": -0.17500000000000426,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "model": "Swin-T Baseline",
+      "field": "Mean",
+      "reported": 70.8,
+      "recomputed": 70.8,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "model": "Swin-T Baseline",
+      "field": "Std_sample_n-1",
+      "reported": 0.283,
+      "recomputed": 0.28284271247462306,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "model": "Swin-T Baseline",
+      "field": "Delta_vs_Swin_mean",
+      "reported": 0,
+      "recomputed": 0,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "model": "GAViT (fixed grouping)",
+      "field": "Mean",
+      "reported": 71.45,
+      "recomputed": 71.44999999999999,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "model": "GAViT (fixed grouping)",
+      "field": "Std_sample_n-1",
+      "reported": 0.495,
+      "recomputed": 0.4949747468305853,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "model": "GAViT (fixed grouping)",
+      "field": "Delta_vs_Swin_mean",
+      "reported": 0.65,
+      "recomputed": 0.6499999999999986,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "model": "GAViT soft_prototype",
+      "field": "Mean",
+      "reported": 70.85,
+      "recomputed": 70.85,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "model": "GAViT soft_prototype",
+      "field": "Std_sample_n-1",
+      "reported": 0.778,
+      "recomputed": 0.7778174593052083,
+      "agrees_with_print_precision": true
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "model": "GAViT soft_prototype",
+      "field": "Delta_vs_Swin_mean",
+      "reported": 0.05,
+      "recomputed": 0.05000000000000426,
+      "agrees_with_print_precision": true
+    }
+  ],
+  "rows": [
+    {
+      "Dataset": "AID",
+      "Metric": "Test_Acc(%)",
+      "Model": "Swin-T Baseline",
+      "Test_seed46": "96.56",
+      "Test_seed47": "95.72",
+      "Mean": "96.140",
+      "Std_sample_n-1": "0.594",
+      "Delta_vs_Swin_mean": "0.000",
+      "Source": "user-confirmed correction 2026-10-12",
+      "Notes": "Swin47 corrected 95.73 to 95.72 on explicit user confirmation; original artifacts and secondary metrics pending",
+      "values": [
+        96.56,
+        95.72
+      ],
+      "status": "user_confirmed_corrected_scores_original_artifacts_pending",
+      "recomputed": {
+        "mean": 96.14,
+        "sample_sd": 0.5939696961967024,
+        "mean_delta_vs_swin_pp": 0
+      },
+      "deltas_vs_swin_pp": [
+        0,
+        0
+      ],
+      "sample_sd_of_deltas_pp": 0,
+      "mean_delta_rounding_interval_pp": [
+        0,
+        0
+      ]
+    },
+    {
+      "Dataset": "AID",
+      "Metric": "Test_Acc(%)",
+      "Model": "GAViT (fixed grouping)",
+      "Test_seed46": "97.12",
+      "Test_seed47": "96.08",
+      "Mean": "96.600",
+      "Std_sample_n-1": "0.735",
+      "Delta_vs_Swin_mean": "+0.460",
+      "Source": "user-confirmed correction 2026-10-12",
+      "Notes": "Fixed46 corrected 97.13 to 97.12 on explicit user confirmation; per-seed delta vs Swin +0.56/+0.36; original configuration artifacts pending",
+      "values": [
+        97.12,
+        96.08
+      ],
+      "status": "user_confirmed_corrected_scores_original_artifacts_pending",
+      "recomputed": {
+        "mean": 96.6,
+        "sample_sd": 0.7353910524340138,
+        "mean_delta_vs_swin_pp": 0.46000000000000085
+      },
+      "deltas_vs_swin_pp": [
+        0.5600000000000023,
+        0.35999999999999943
+      ],
+      "sample_sd_of_deltas_pp": 0.14142135623731153,
+      "mean_delta_rounding_interval_pp": [
+        0.45000000000000084,
+        0.47000000000000086
+      ]
+    },
+    {
+      "Dataset": "AID",
+      "Metric": "Test_Acc(%)",
+      "Model": "GAViT soft_prototype",
+      "Test_seed46": "",
+      "Test_seed47": "",
+      "Mean": "",
+      "Std_sample_n-1": "",
+      "Delta_vs_Swin_mean": "",
+      "Source": "user-reported 2026-10-12",
+      "Notes": "Not run on AID per user",
+      "values": [
+        null,
+        null
+      ],
+      "status": "not_run_user_reported"
+    },
+    {
+      "Dataset": "NWPU-RESISC45",
+      "Metric": "Test_Acc(%)",
+      "Model": "Swin-T Baseline",
+      "Test_seed46": "93.76",
+      "Test_seed47": "93.68",
+      "Mean": "93.720",
+      "Std_sample_n-1": "0.057",
+      "Delta_vs_Swin_mean": "0.000",
+      "Source": "user-reported 2026-10-12",
+      "Notes": "Reference; expected manifest nwpu_protocol_20260927_02 (5040/1260/25200) pending confirmation",
+      "values": [
+        93.76,
+        93.68
+      ],
+      "status": "user_reported_artifact_audit_pending",
+      "recomputed": {
+        "mean": 93.72,
+        "sample_sd": 0.056568542494922595,
+        "mean_delta_vs_swin_pp": 0
+      },
+      "deltas_vs_swin_pp": [
+        0,
+        0
+      ],
+      "sample_sd_of_deltas_pp": 0,
+      "mean_delta_rounding_interval_pp": [
+        0,
+        0
+      ],
+      "source_precision": {
+        "kind": "rounded_user_reported",
+        "decimal_places": 2,
+        "confirmed_by_user": true
+      }
+    },
+    {
+      "Dataset": "NWPU-RESISC45",
+      "Metric": "Test_Acc(%)",
+      "Model": "GAViT (fixed grouping)",
+      "Test_seed46": "93.96",
+      "Test_seed47": "94.19",
+      "Mean": "94.075",
+      "Std_sample_n-1": "0.163",
+      "Delta_vs_Swin_mean": "+0.355",
+      "Source": "user-reported 2026-10-12",
+      "Notes": "Per-seed delta vs Swin +0.20/+0.51; config pending run.json audit",
+      "values": [
+        93.96,
+        94.19
+      ],
+      "status": "user_reported_artifact_audit_pending",
+      "recomputed": {
+        "mean": 94.07499999999999,
+        "sample_sd": 0.16263455967290874,
+        "mean_delta_vs_swin_pp": 0.35499999999998977
+      },
+      "deltas_vs_swin_pp": [
+        0.19999999999998863,
+        0.5099999999999909
+      ],
+      "sample_sd_of_deltas_pp": 0.21920310216783134,
+      "mean_delta_rounding_interval_pp": [
+        0.34499999999998976,
+        0.3649999999999898
+      ],
+      "source_precision": {
+        "kind": "rounded_user_reported",
+        "decimal_places": 2,
+        "confirmed_by_user": true
+      }
+    },
+    {
+      "Dataset": "NWPU-RESISC45",
+      "Metric": "Test_Acc(%)",
+      "Model": "GAViT soft_prototype",
+      "Test_seed46": "93.54",
+      "Test_seed47": "93.55",
+      "Mean": "93.545",
+      "Std_sample_n-1": "0.007",
+      "Delta_vs_Swin_mean": "-0.175",
+      "Source": "user-reported 2026-10-12",
+      "Notes": "Per-seed delta vs Swin -0.22/-0.13; negative result vs both Swin and fixed GAViT",
+      "values": [
+        93.54,
+        93.55
+      ],
+      "status": "user_reported_artifact_audit_pending",
+      "recomputed": {
+        "mean": 93.545,
+        "sample_sd": 0.007071067811859044,
+        "mean_delta_vs_swin_pp": -0.17500000000000426
+      },
+      "deltas_vs_swin_pp": [
+        -0.21999999999999886,
+        -0.13000000000000966
+      ],
+      "sample_sd_of_deltas_pp": 0.06363961030678164,
+      "mean_delta_rounding_interval_pp": [
+        -0.18500000000000427,
+        -0.16500000000000425
+      ],
+      "source_precision": {
+        "kind": "rounded_user_reported",
+        "decimal_places": 2,
+        "confirmed_by_user": true
+      }
+    },
+    {
+      "Dataset": "BigEarthNet-19",
+      "Metric": "Test_mAP(%)",
+      "Model": "Swin-T Baseline",
+      "Test_seed46": "71.0",
+      "Test_seed47": "70.6",
+      "Mean": "70.800",
+      "Std_sample_n-1": "0.283",
+      "Delta_vs_Swin_mean": "0.000",
+      "Source": "user-reported 2026-10-12",
+      "Notes": "Reference; range consistent with formal seeds 42-44 (70.9/71.1)",
+      "values": [
+        71,
+        70.6
+      ],
+      "status": "user_reported_artifact_audit_pending",
+      "recomputed": {
+        "mean": 70.8,
+        "sample_sd": 0.28284271247462306,
+        "mean_delta_vs_swin_pp": 0
+      },
+      "deltas_vs_swin_pp": [
+        0,
+        0
+      ],
+      "sample_sd_of_deltas_pp": 0,
+      "mean_delta_rounding_interval_pp": [
+        0,
+        0
+      ]
+    },
+    {
+      "Dataset": "BigEarthNet-19",
+      "Metric": "Test_mAP(%)",
+      "Model": "GAViT (fixed grouping)",
+      "Test_seed46": "71.8",
+      "Test_seed47": "71.1",
+      "Mean": "71.450",
+      "Std_sample_n-1": "0.495",
+      "Delta_vs_Swin_mean": "+0.650",
+      "Source": "user-reported 2026-10-12",
+      "Notes": "Per-seed delta vs Swin +0.8/+0.5; range consistent with formal sparse-hybrid seeds 42-44 (72.0/71.7/70.2); variant identity pending audit",
+      "values": [
+        71.8,
+        71.1
+      ],
+      "status": "user_reported_artifact_audit_pending",
+      "recomputed": {
+        "mean": 71.44999999999999,
+        "sample_sd": 0.4949747468305853,
+        "mean_delta_vs_swin_pp": 0.6499999999999986
+      },
+      "deltas_vs_swin_pp": [
+        0.7999999999999972,
+        0.5
+      ],
+      "sample_sd_of_deltas_pp": 0.21213203435596223,
+      "mean_delta_rounding_interval_pp": [
+        0.5499999999999986,
+        0.7499999999999986
+      ]
+    },
+    {
+      "Dataset": "BigEarthNet-19",
+      "Metric": "Test_mAP(%)",
+      "Model": "GAViT soft_prototype",
+      "Test_seed46": "71.4",
+      "Test_seed47": "70.3",
+      "Mean": "70.850",
+      "Std_sample_n-1": "0.778",
+      "Delta_vs_Swin_mean": "+0.050",
+      "Source": "user-reported 2026-10-12",
+      "Notes": "Per-seed delta vs Swin +0.4/-0.3; negative result vs fixed GAViT (mean -0.60)",
+      "values": [
+        71.4,
+        70.3
+      ],
+      "status": "user_reported_artifact_audit_pending",
+      "recomputed": {
+        "mean": 70.85,
+        "sample_sd": 0.7778174593052083,
+        "mean_delta_vs_swin_pp": 0.05000000000000426
+      },
+      "deltas_vs_swin_pp": [
+        0.4000000000000057,
+        -0.29999999999999716
+      ],
+      "sample_sd_of_deltas_pp": 0.4949747468305853,
+      "mean_delta_rounding_interval_pp": [
+        -0.04999999999999574,
+        0.15000000000000427
+      ]
+    }
+  ],
+  "per_seed_comparisons": [
+    {
+      "dataset": "AID",
+      "seed": 46,
+      "metric": "Test_Acc(%)",
+      "swin": 96.56,
+      "fixed": 97.12,
+      "soft": null,
+      "fixed_minus_swin_pp": 0.5600000000000023,
+      "soft_minus_swin_pp": null,
+      "soft_minus_fixed_pp": null,
+      "score_correction_pending": false
+    },
+    {
+      "dataset": "AID",
+      "seed": 47,
+      "metric": "Test_Acc(%)",
+      "swin": 95.72,
+      "fixed": 96.08,
+      "soft": null,
+      "fixed_minus_swin_pp": 0.35999999999999943,
+      "soft_minus_swin_pp": null,
+      "soft_minus_fixed_pp": null,
+      "score_correction_pending": false
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "seed": 46,
+      "metric": "Test_Acc(%)",
+      "swin": 93.76,
+      "fixed": 93.96,
+      "soft": 93.54,
+      "fixed_minus_swin_pp": 0.19999999999998863,
+      "soft_minus_swin_pp": -0.21999999999999886,
+      "soft_minus_fixed_pp": -0.4199999999999875,
+      "score_correction_pending": false
+    },
+    {
+      "dataset": "NWPU-RESISC45",
+      "seed": 47,
+      "metric": "Test_Acc(%)",
+      "swin": 93.68,
+      "fixed": 94.19,
+      "soft": 93.55,
+      "fixed_minus_swin_pp": 0.5099999999999909,
+      "soft_minus_swin_pp": -0.13000000000000966,
+      "soft_minus_fixed_pp": -0.6400000000000006,
+      "score_correction_pending": false
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "seed": 46,
+      "metric": "Test_mAP(%)",
+      "swin": 71,
+      "fixed": 71.8,
+      "soft": 71.4,
+      "fixed_minus_swin_pp": 0.7999999999999972,
+      "soft_minus_swin_pp": 0.4000000000000057,
+      "soft_minus_fixed_pp": -0.3999999999999915,
+      "score_correction_pending": false
+    },
+    {
+      "dataset": "BigEarthNet-19",
+      "seed": 47,
+      "metric": "Test_mAP(%)",
+      "swin": 70.6,
+      "fixed": 71.1,
+      "soft": 70.3,
+      "fixed_minus_swin_pp": 0.5,
+      "soft_minus_swin_pp": -0.29999999999999716,
+      "soft_minus_fixed_pp": -0.7999999999999972,
+      "score_correction_pending": false
+    }
+  ],
+  "aid_count_compatibility_checks": [
+    {
+      "seed": 46,
+      "model": "Swin-T Baseline",
+      "reported_percent": 96.56,
+      "test_samples_user_confirmed": 5000,
+      "derived_integer_correct": 4828,
+      "consistent_with_single_pass_oa": true,
+      "count_is_derived_not_independently_returned": true
+    },
+    {
+      "seed": 47,
+      "model": "Swin-T Baseline",
+      "reported_percent": 95.72,
+      "test_samples_user_confirmed": 5000,
+      "derived_integer_correct": 4786,
+      "consistent_with_single_pass_oa": true,
+      "count_is_derived_not_independently_returned": true
+    },
+    {
+      "seed": 46,
+      "model": "GAViT (fixed grouping)",
+      "reported_percent": 97.12,
+      "test_samples_user_confirmed": 5000,
+      "derived_integer_correct": 4856,
+      "consistent_with_single_pass_oa": true,
+      "count_is_derived_not_independently_returned": true
+    },
+    {
+      "seed": 47,
+      "model": "GAViT (fixed grouping)",
+      "reported_percent": 96.08,
+      "test_samples_user_confirmed": 5000,
+      "derived_integer_correct": 4804,
+      "consistent_with_single_pass_oa": true,
+      "count_is_derived_not_independently_returned": true
+    }
+  ],
+  "old_aid_test_scope_source": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/aid_seed42_test_summary.json",
+  "formal_artifact_verification_complete": false,
+  "evidence_before_correction": {
+    "json": "evidence/seed46_seed47_reported_20261012/audit_before_exact_AID_correction.json",
+    "markdown": "evidence/seed46_seed47_reported_20261012/audit_before_exact_AID_correction.md"
+  },
+  "pending": [
+    "original test logs/run.json or summary.json/run.exit to verify full test completion and exact metrics",
+    "code commit, architecture, training/selection configuration",
+    "split/pretrained/checkpoint SHA and train/test checkpoint match",
+    "per-stage GPU UUID/software/precision and physical-card pairing",
+    "macro-F1/micro-F1/per-class metrics and resources"
+  ],
+  "interpretation_limits": [
+    "exact AID values are user-confirmed, not uniquely inferred from accuracy granularity",
+    "arithmetic checks validate reported values, not GPU training or test completion",
+    "correct counts are OA-derived compatibility checks, not returned predictions",
+    "two new seeds do not establish general stability; historical positive and negative results retained",
+    "BEN mean soft-minus-Swin +.05pp has a conservative rounding interval[-.05,+.15]pp",
+    "pooled history has hardware/code/epoch and evidence differences; descriptive means do not establish significance or pure seed variance"
+  ],
+  "presentation_policy": {
+    "display_decimal_places": 2,
+    "rounding": "ROUND_HALF_UP",
+    "statistics_use_original_available_precision": true,
+    "do_not_round_seeds_before_statistics": true,
+    "NWPU_seed46_seed47_source_precision_user_confirmed": "rounded to two decimal places",
+    "BEN_one_decimal_inputs_keep_original_precision": true
+  }
+}

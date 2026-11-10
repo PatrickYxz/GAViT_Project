@@ -1,0 +1,25 @@
+{
+  "received_date": "2026-10-17",
+  "source": "Direct user message",
+  "user_report": "实例被退还了，应该是跑完了，我如何检查结果",
+  "instance_return_reported": true,
+  "completion_verified": false,
+  "formal_test_metrics": null,
+  "result_directory": "/home/featurize/work/bigearth_soft42_20261013_01",
+  "authoritative_files": [
+    "run.exit",
+    "gavit_train/run.exit",
+    "gavit_test/run.exit",
+    "summary.json",
+    "run.log"
+  ],
+  "compute_scope": "Read persisted text/JSON only; no CUDA/data loading, training, extraction or preflight needed",
+  "checks_for_complete": [
+    "All three exit markers0",
+    "Summary status complete and seed42",
+    "Training final_epoch30",
+    "Test samples119825 and19class APs",
+    "Queue log includes BIGEARTH SOFT42 COMPLETE"
+  ],
+  "local_check": "Both read commands pass Bash/zsh syntax; no server files read this turn"
+}

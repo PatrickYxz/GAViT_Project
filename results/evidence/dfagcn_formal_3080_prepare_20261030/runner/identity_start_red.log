@@ -1,0 +1,51 @@
+test_actual_float32_cache_slices_preserve_pool_order_without_vgg (test_dfagcn_formal_runner.FormalRunnerTests.test_actual_float32_cache_slices_preserve_pool_order_without_vgg) ... ok
+test_actual_test_zip_recovery_counts_and_refuses_overwrite (test_dfagcn_formal_runner.FormalRunnerTests.test_actual_test_zip_recovery_counts_and_refuses_overwrite) ... ok
+test_compact_status_excludes_predictions_and_confusion_matrix (test_dfagcn_formal_runner.FormalRunnerTests.test_compact_status_excludes_predictions_and_confusion_matrix) ... ok
+test_failure_before_first_calibration_batch_keeps_start_unknown (test_dfagcn_formal_runner.FormalRunnerTests.test_failure_before_first_calibration_batch_keeps_start_unknown) ... FAIL
+test_failure_saves_log_exit_and_cannot_overwrite_or_restart (test_dfagcn_formal_runner.FormalRunnerTests.test_failure_saves_log_exit_and_cannot_overwrite_or_restart) ... ok
+test_formal_stage_order_and_receipts_with_only_cuda_boundary_substituted (test_dfagcn_formal_runner.FormalRunnerTests.test_formal_stage_order_and_receipts_with_only_cuda_boundary_substituted) ... FAIL
+test_full_pool_protocol_and_fixed_recipe (test_dfagcn_formal_runner.FormalRunnerTests.test_full_pool_protocol_and_fixed_recipe) ... ok
+test_inspect_is_stdlib_only_and_prints_exclusive_background_command (test_dfagcn_formal_runner.FormalRunnerTests.test_inspect_is_stdlib_only_and_prints_exclusive_background_command) ... ok
+test_inspect_rejects_low_disk_busy_gpu_versions_and_existing_output (test_dfagcn_formal_runner.FormalRunnerTests.test_inspect_rejects_low_disk_busy_gpu_versions_and_existing_output) ... ok
+test_later_failure_preserves_observed_training_start (test_dfagcn_formal_runner.FormalRunnerTests.test_later_failure_preserves_observed_training_start) ... FAIL
+test_malformed_batch_marker_cannot_establish_training_start (test_dfagcn_formal_runner.FormalRunnerTests.test_malformed_batch_marker_cannot_establish_training_start) ... FAIL
+test_run_requires_explicit_uuid_and_status_is_read_only (test_dfagcn_formal_runner.FormalRunnerTests.test_run_requires_explicit_uuid_and_status_is_read_only) ... ok
+test_runtime_rejects_cpu_or_changed_cuda_software_recipe (test_dfagcn_formal_runner.FormalRunnerTests.test_runtime_rejects_cpu_or_changed_cuda_software_recipe) ... ok
+test_test_recovery_rejects_traversal_wrong_sha_and_mixed_split (test_dfagcn_formal_runner.FormalRunnerTests.test_test_recovery_rejects_traversal_wrong_sha_and_mixed_split) ... ok
+
+======================================================================
+FAIL: test_failure_before_first_calibration_batch_keeps_start_unknown (test_dfagcn_formal_runner.FormalRunnerTests.test_failure_before_first_calibration_batch_keeps_start_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 296, in test_failure_before_first_calibration_batch_keeps_start_unknown
+    self.assertIsNone(json.loads((args.output/'failure.json').read_text())['formal_training_started'])
+AssertionError: False is not None
+
+======================================================================
+FAIL: test_formal_stage_order_and_receipts_with_only_cuda_boundary_substituted (test_dfagcn_formal_runner.FormalRunnerTests.test_formal_stage_order_and_receipts_with_only_cuda_boundary_substituted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 255, in test_formal_stage_order_and_receipts_with_only_cuda_boundary_substituted
+    self.assertIn('source_identity_sha256',receipt.get('identity',{}),
+AssertionError: 'source_identity_sha256' not found in {} : Each stage needs a binding to the saved run identity
+
+======================================================================
+FAIL: test_later_failure_preserves_observed_training_start (test_dfagcn_formal_runner.FormalRunnerTests.test_later_failure_preserves_observed_training_start)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 286, in test_later_failure_preserves_observed_training_start
+    self.assertIs(failure['formal_training_started'],True,
+AssertionError: False is not True : A later failure must not erase evidence of actual training
+
+======================================================================
+FAIL: test_malformed_batch_marker_cannot_establish_training_start (test_dfagcn_formal_runner.FormalRunnerTests.test_malformed_batch_marker_cannot_establish_training_start)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 194, in test_malformed_batch_marker_cannot_establish_training_start
+    self.assertIsNone(json.loads((args.output/'failure.json').read_text())['formal_training_started'])
+AssertionError: False is not None
+
+----------------------------------------------------------------------
+Ran 14 tests in 2.467s
+
+FAILED (failures=4)

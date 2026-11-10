@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-29",
+  "status": "CHAPTERS_1_TO_4_COMPILED_SOURCE_REVIEWED_VISUAL_QA_PENDING",
+  "scope": [
+    "English Chapter1: introduction",
+    "English Chapter2: literature review",
+    "Existing English Chapter3: method",
+    "Existing English Chapter4: experimental setup"
+  ],
+  "word_count_estimate": {
+    "01-introduction.tex": 1132,
+    "02-literature-review.tex": 3872,
+    "03-method.tex": 1893,
+    "04-experimental-setup.tex": 1916
+  },
+  "word_count_method": "Regex estimate over LaTeX source including some command/label words; not an exact rendered word count.",
+  "bibliography_entries": 50,
+  "actually_cited_references": 50,
+  "minimum_reference_count_met": true,
+  "equations": 22,
+  "static_checks": {
+    "unresolved_citations": [],
+    "unused_entries": [],
+    "unresolved_labels": [],
+    "duplicate_labels": [],
+    "duplicate_keys": [],
+    "missing_inputs": []
+  },
+  "final_source_sha256": {
+    "main.tex": "5fb459d82db6540af380f47a08fec29953531459ed01694375a1bed4431774d8",
+    "chapters/01-introduction.tex": "8617239b73028ed0ef8ee1657285514e6d418ec1e5af38272ea5557a96762132",
+    "chapters/02-literature-review.tex": "77d5073aa7dfd07b4f4c7e286af76838c5eb6d269ec5e722999b25d4b572072b",
+    "chapters/03-method.tex": "e036fa93a09be0ff86facb4ca0c2f84c74d243c23318eda2f436fb125d44115f",
+    "chapters/04-experimental-setup.tex": "f38ff2213118e028f3039faff9028048992cd72a508d36626e4639e339637629",
+    "references.bib": "fadee6936a8d4b91043a0c6fa9c2794aee595bb072e4861990d70246a4a9997f"
+  },
+  "previous_method_setup_source_unchanged": true,
+  "independent_review_evidence": "provenance/final-review-20261029.json",
+  "native_compilation": {
+    "result": "success",
+    "date": "2026-10-29",
+    "evidence": "provenance/compile-final-20261029.json"
+  },
+  "compiled_pdf_confirmed": true,
+  "pdf_exported_to_workspace": false,
+  "visual_qa_complete": false,
+  "pagination_measured": false,
+  "page_budget": {
+    "total_target": 56,
+    "includes_front_matter_and_references": true,
+    "introduction_target": 4,
+    "literature_review_target": 13,
+    "is_measured_pagination": false
+  },
+  "no_new_training_or_evaluation": true,
+  "initial_compile_history": "provenance/before-intro-review-20261028/validation.json",
+  "source_audit_files": [
+    "provenance/literature-direct-methods-20261028.json",
+    "provenance/literature-foundations-20261028.json",
+    "provenance/literature-graph-grouping-20261028.json",
+    "provenance/literature-intro-20261028.json",
+    "provenance/literature-remote-20261028.json"
+  ],
+  "visual_qa_limitation": "Native compilation confirms a build without exporting its PDF. The current sources have not received a page-by-page visual inspection, and target page counts are not claimed as measured.",
+  "independent_review_result": "passed_no_important_remaining_issues_reported"
+}

@@ -1,0 +1,69 @@
+{
+  "cache_content_sha256": "3eebd2f7e58b2a0f77d47adf9a60a84f51a5852f343f189135d3311e17bc4c4a",
+  "cached_pipeline_elapsed_seconds": 0.0207784166559577,
+  "completed": true,
+  "manifest_sha256": "08226704765cbd3f4ecf2af437ed87b4222ad9f96c70cbfd69c2252c391facb8",
+  "metrics": {
+    "confusion_matrix": [
+      [
+        5,
+        0
+      ],
+      [
+        1,
+        4
+      ]
+    ],
+    "confusion_orientation": "rows=true, columns=predicted",
+    "macro_f1_percent": 89.8989898989899,
+    "oa_percent": 90.0,
+    "per_class": [
+      {
+        "accuracy_percent": 100.0,
+        "class_index": 0,
+        "class_name": "class_a",
+        "f1_percent": 90.9090909090909,
+        "support": 5
+      },
+      {
+        "accuracy_percent": 80.0,
+        "class_index": 1,
+        "class_name": "class_b",
+        "f1_percent": 88.88888888888889,
+        "support": 5
+      }
+    ],
+    "samples": 10,
+    "zero_division": 0
+  },
+  "mode": "engineering",
+  "phase": "test",
+  "predictions": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1
+  ],
+  "record_sha256": "3e908efcdb7ccd9007894c24e21e0ee9da25ebefc18e0b3c3d4ebea2836ea36c",
+  "refit_record_sha256": "db4ccdd215fbedd5f09bab580a2352e6f9ad339362d34735e77ca98f28648ec8",
+  "sample_paths": [
+    "class_a/00.png",
+    "class_a/01.png",
+    "class_a/04.png",
+    "class_a/06.png",
+    "class_a/09.png",
+    "class_b/00.png",
+    "class_b/02.png",
+    "class_b/03.png",
+    "class_b/04.png",
+    "class_b/07.png"
+  ],
+  "schema": "dfagcn-independent-pipeline-v1",
+  "timing_scope": "pooled frozen-cache read, graph/fusion and linear prediction; excludes VGG extraction"
+}

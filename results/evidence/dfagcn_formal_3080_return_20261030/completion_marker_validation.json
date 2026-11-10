@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-30",
+  "status": "SERVER_REPORTED_FORMAL_COMPLETE_MARKER_METRICS_PENDING",
+  "evidence_source": "direct user pasted COMPLETE line; no direct remote artifact read",
+  "marker_received": true,
+  "reported_summary_path": "/home/featurize/work/dfagcn_nwpu_formal_3080_20261030_fix1/runs/nwpu_seed42_01/summary.json",
+  "delivered_bundle_sha256": "79398dc4b6d703be65cd32a968d49daa6640fe6c4bbab6a33e930b312954a6c4",
+  "local_runner_matches_delivered_bytes": true,
+  "runner_sha256": "24e6386c16d8022df8cb2b708dc5c456e6872be553418914d3982c6c5a7ec563",
+  "marker_code_conditions": [
+    "full formal pool/calibration/refit/test and required artifact checks passed",
+    "source, manifest, recipe, weights and native binary identities rechecked",
+    "summary.json completed=true written",
+    "run.exit exit_code0 written",
+    "progress.json phase/state complete written"
+  ],
+  "numeric_test_metrics_received": false,
+  "runtime_and_resource_fields_received": false,
+  "remote_files_independently_read": false,
+  "formal_metric_table_updated": false,
+  "new_training_or_rerun_started": false,
+  "next_step": "read existing run.exit and compact summary.json using read_summary_command.txt"
+}

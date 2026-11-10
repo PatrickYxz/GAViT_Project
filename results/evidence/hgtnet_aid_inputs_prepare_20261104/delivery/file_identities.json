@@ -1,0 +1,112 @@
+[
+  {
+    "path": "tools/inspect_hgtnet_aid_inputs.py",
+    "sha256": "4e3b66b91f115d99d01e39fe168e8cf5dd18503ec8593e45c39dbccfcd0eb7b4",
+    "size_bytes": 18930
+  },
+  {
+    "path": "output/hgtnet_aid_inputs_20261104.pyz",
+    "sha256": "1cd2ab967cdbc386b294b397c6804bf06c5796c01332c709e44646f98d03f036",
+    "size_bytes": 6520
+  },
+  {
+    "path": "tests/test_hgtnet_aid_inputs.py",
+    "sha256": "17a39d63e2ca6d8ca8eb1bb72595ad7af515f604ad2cc61320b0204ad7f13e5c",
+    "size_bytes": 15580
+  },
+  {
+    "path": "output/hgtnet_aid_inputs_README_20261104.md",
+    "sha256": "37ca6bda0e376531cdaf06985a9ba7dff66c34f608c11d458105fd03aa5b2d94",
+    "size_bytes": 3723
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/build_bundle.py",
+    "sha256": "108689e8530d66c5eb1369a7622f59f337feb1395fe9f4fb09a50687db3c9b87",
+    "size_bytes": 1605
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/build_receipt.json",
+    "sha256": "a6a88b0057653d886bdddf98b97911e4727352f3ba9b5b4369be1a7767996586",
+    "size_bytes": 737
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/guarded_bundle_attempt_01_stderr.log",
+    "sha256": "1b6904485cd77e4acd2977a75b9574c5eef7b792b39509a1175548615c458289",
+    "size_bytes": 1235
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/guarded_bundle_attempt_01_stdout.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/guarded_bundle_inventory.json",
+    "sha256": "de9df17d8c6af1cb895faa4e33eabf8556551eff8a78239700aae16853a0c733",
+    "size_bytes": 6414
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/guarded_bundle_stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/local_default_inventory.json",
+    "sha256": "d40df7a3b73171a88552c0365400af45e3d0f3447bc373223e66b357aaed9b63",
+    "size_bytes": 3598
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/local_default_stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/refuse_overwrite_stderr.log",
+    "sha256": "bde5e82ddce08f6b846037b007969f2ccf5e652aec871dc177b78c66f4035099",
+    "size_bytes": 682
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/refuse_overwrite_stdout.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size_bytes": 0
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/validation.json",
+    "sha256": "2a085c0dbbf0be45d94664e39d72ce35a8a87383fe4435aac7af9389b4f872f6",
+    "size_bytes": 2407
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/verify_readonly_bundle.py",
+    "sha256": "4202a08edc404941b6a5b824afb68ac1a802c13247b7929cd773f0daa1ecf6d3",
+    "size_bytes": 3673
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/implementation/green_11_tests.log",
+    "sha256": "31fec0fdb299bb3a7b8f529b0b23a85ef30e41da8139d0ee5e38430e21fbf1c8",
+    "size_bytes": 1882
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/implementation/green_13_tests_01.log",
+    "sha256": "e35818355e284c93b2d864cd68d40ec908d64f8c6381ba0b9bc0c82964edd396",
+    "size_bytes": 2226
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/implementation/green_13_tests_final.log",
+    "sha256": "0f190782887210d0b30ab66c9c21202f531259fccb9d63d2c33f46050cb0c0f7",
+    "size_bytes": 2226
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/implementation/green_attempt_01.log",
+    "sha256": "5ae4b09632ad56a0b9db180cf52fb14062a49c488abfbc3a04fd2272faa4cacc",
+    "size_bytes": 7367
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/implementation/red_unittest.log",
+    "sha256": "65cc690939655f323312ecedbd4f8a83db80165d39933dac360b134f31c22e9e",
+    "size_bytes": 9546
+  },
+  {
+    "path": "results/evidence/hgtnet_aid_inputs_prepare_20261104/implementation/validation.json",
+    "sha256": "0994f8084b73ca50004e2ecc30504c28d198c1d3dc65a83df46ca70f928eabad",
+    "size_bytes": 1013
+  }
+]

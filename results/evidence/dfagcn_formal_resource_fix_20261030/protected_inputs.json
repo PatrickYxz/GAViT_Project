@@ -1,0 +1,23 @@
+{
+  "external_baselines/dfagcn/config.py": "2d71ed07fca78bb6e1d8ba6bca2a537cf2e9eaeb134f6c7b8f91b08459111e60",
+  "external_baselines/dfagcn/linear.py": "8644f8b3b311e73a6082555cc27399926c1dac1e8e440adc27cd35a2557fa941",
+  "external_baselines/dfagcn/graph.py": "dcae20bd209b84a6b6dd2a43bc11081b43707073276e94287f9c5d1659a71b27",
+  "external_baselines/dfagcn/cache.py": "abe24274c615b303eef7000a533c3902e56a2fc9ee904fda795a0248197d6a80",
+  "external_baselines/dfagcn/__init__.py": "b35023697642f9d2de385bfaf26ef7d40d1e028de629a5088d1c4275e1583f89",
+  "external_baselines/dfagcn/features.py": "2bdf43f7ff78504b9ee5823e00e48092bde890f460ab64c7337fafd94b9553f1",
+  "external_baselines/dfagcn/model.py": "f638c4a606ca392348cf6714856cbd01ddc1b81ef2cc63cb4275b6d5e4d681ff",
+  "external_baselines/dfagcn/cli.py": "89a4e4c340d70ae5b070e74b56618d2f657b62a2146c5c10e7fe142f0be850c3",
+  "external_baselines/dfagcn/extraction.py": "819d69decc9853c32df70bca71ee34603420bdae5d04ddd8c65c941b13607178",
+  "external_baselines/dfagcn/pipeline.py": "a7971e4314b25574dfd54f006eed569454cc4b67feab8aea6f831c846926a61a",
+  "external_baselines/dfagcn/fusion.py": "22524aa98322256d01980ea5c5d6a87cbe05a782244bed11575e7a34d8df9329",
+  "external_baselines/dfagcn/identity.py": "1c8feda534668f4161349a8bae21539c8c41ce9c117cad7dd9f879f5989e75a8",
+  "external_baselines/dfagcn/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+  "external_baselines/dfagcn/smoke.py": "198a09ae8a12de96f7a801624a5cda940b81a4340e632b652c473fddc81be927",
+  "configs/dfagcn_independent_v1.json": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+  "tools/probe_dfagcn_gpu.py": "1eae9207ebeedafcd5ed901ab302238169c97bd5b4e50398bed4a60e21e15791",
+  "tools/run_dfagcn_nwpu_smoke.py": "ff3311966cf80ca4e15fb2a865c3dff1ca67e42dbcd0a944de8b6cddcbc5203d",
+  "tools/package_dfagcn_nwpu_smoke.py": "b5f6a52144bdbb8e8e93d8f31eab198c2942f544e1313c89e2c147d530023de7",
+  "output/dfagcn_nwpu_formal_3080_20261030.pyz": "66cbb46bc8bc0fb8a79e7e95794534e6efb430ee1630be2258c91df16c98861b",
+  "output/dfagcn_gpu_probe_3080_20261030.pyz": "0d8ff18b2ecc9cd4903eb6c4833d3757b7c4e27605e0ac18d936b9158a7eac21",
+  "output/dfagcn_nwpu_smoke_20261029.pyz": "f7ff678be35517aca7edc3a181862a56d739cc0be1a7496a5c63dac4b269daca"
+}

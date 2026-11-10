@@ -1,0 +1,46 @@
+{
+  "boundaries": [
+    "first line truncated; no complete epoch-wall reconstructed",
+    "last refit trainaccuracy100% is not testaccuracy",
+    "no finaltestOA/F1, overallwall or peak-memory value in this excerpt",
+    "normal delivered source establishes completion requirements; remote source/runtime/checkpoint/predictions/exit bytes not directly retrieved"
+  ],
+  "checks": {
+    "100calibration_frozen": true,
+    "68930_updates_consistent": true,
+    "actual_v1_sha": true,
+    "engine_current": true,
+    "entry_current": true,
+    "equal_fresh_init_required": true,
+    "final_source_recipe_input_recheck": true,
+    "formal3090_manifest": true,
+    "fragment_train_rate_arithmetic": true,
+    "full_test25200_frozen": true,
+    "full_test_file_before_engine_complete": true,
+    "refit_before_reload_before_test": true,
+    "reload_state_and_numeric_required": true,
+    "reported_complete_event": true,
+    "reported_complete_path": true,
+    "reported_numeric_reload0": true,
+    "reported_refit_complete": true,
+    "returned_model_sha_format": true,
+    "returned_state_sha_format": true,
+    "summary_exit_marker_progress_COMPLETE_order": true,
+    "test_before_wrapper_final_input_recheck": true,
+    "test_order_count_gate": true
+  },
+  "checks_count": 22,
+  "derived": {
+    "calibration_updates": 31500,
+    "last_refit_train_images_per_second": 56.15871844822517,
+    "refit_updates": 37430,
+    "total_updates": 68930
+  },
+  "disposition": "server-reported normal-program completion accepted; no repeat training or test required",
+  "passed": true,
+  "raw_original_if_available": {
+    "path": "results/evidence/hgtnet_formal_complete_return_20261103/reported_output.txt",
+    "sha256": "df8f0e828c97e98406ae7fdcdfe9ad3d1b8aae81d9e84fa53cfb0e3947e7f13c"
+  },
+  "schema": "hgtnet-formal-completion-marker-independent-review-v1"
+}

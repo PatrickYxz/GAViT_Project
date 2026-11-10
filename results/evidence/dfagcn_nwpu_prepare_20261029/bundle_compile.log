@@ -1,0 +1,36 @@
+{
+  "binaries": {
+    "predict": {
+      "path": "/Users/patrick/Projects/GAViT_Project/output/dfagcn_nwpu_smoke_20261029/liblinear/bin/predict",
+      "sha256": "b88d0f01ef91f74977675aa97f2d7c0c87c6c011c1c40106573272b3af00e55f"
+    },
+    "train": {
+      "path": "/Users/patrick/Projects/GAViT_Project/output/dfagcn_nwpu_smoke_20261029/liblinear/bin/train",
+      "sha256": "d5bcace7c4eef55275effa5483aced737903650382fc8546305c96f8372def64"
+    }
+  },
+  "command": [
+    "/usr/bin/make",
+    "-C",
+    "/Users/patrick/Projects/GAViT_Project/output/dfagcn_nwpu_smoke_20261029/liblinear/source",
+    "CXX=/usr/bin/g++",
+    "CC=/usr/bin/gcc",
+    "train",
+    "predict"
+  ],
+  "compiler_version": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.5.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin",
+  "completed": true,
+  "elapsed_seconds": 0.6916155419312418,
+  "license": "BSD-3-Clause",
+  "operation": "build-linear",
+  "platform": {
+    "machine": "arm64",
+    "system": "Darwin"
+  },
+  "return_code": 0,
+  "reused": false,
+  "schema": "dfagcn-nwpu-delivery-v1",
+  "source_archive_sha256": "730d847e5129ac474c80970f2cd5d69b4610620f4465724777d72b657a43142b",
+  "source_git_commit": "491c9f1188b97ba70847c70a68be363d186ddf9d",
+  "source_tag": "v250"
+}

@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-27",
+  "status": "SOURCE_REVIEWED_AND_NATIVE_COMPILE_SUCCEEDED_VISUAL_QA_PENDING",
+  "scope": [
+    "English Chapter 3: methods",
+    "English Chapter 4: experimental setup"
+  ],
+  "word_count_estimate": {
+    "03-method.tex": 1893,
+    "04-experimental-setup.tex": 1916
+  },
+  "equations": 22,
+  "labels": 25,
+  "bibliography_entries": 8,
+  "static_checks": {
+    "unresolved_labels": [],
+    "duplicate_labels": [],
+    "unresolved_citations": [],
+    "duplicate_bibkeys": [],
+    "missing_inputs": []
+  },
+  "independent_review": {
+    "material_factual_errors_found": 0,
+    "method_sources_checked": true,
+    "protocol_sources_checked": true,
+    "minor_fixes_applied": [
+      "Cosine schedule uses annealing horizon T_max=30, not full period",
+      "Explicit BigEarthNet v2 metadata version and original record citation",
+      "Standard numeric chapter counters with Chapter prefix only in displayed heading/contents; remove unused template dependencies"
+    ]
+  },
+  "compilation_attempts": [
+    {
+      "attempt": 1,
+      "result": "timeout_during_initial_Tectonic_format_download",
+      "source_compilation_reached": false
+    },
+    {
+      "attempt": 2,
+      "result": "timeout_during_template_dependency_download",
+      "latex_format_initialised": true,
+      "last_download": "pgfcorelayers.code.tex"
+    },
+    {
+      "attempt": 3,
+      "result": "source_error_XeTeX_does_not_support_microtype_expansion",
+      "repair": "expansion=false"
+    },
+    {
+      "attempt": 4,
+      "result": "timeout_while_downloading_PDF_font_dependencies",
+      "intermediate_xdv_pages": 16
+    },
+    {
+      "attempt": 5,
+      "result": "success",
+      "evidence": "provenance/compile-final.json"
+    }
+  ],
+  "compiled_pdf_confirmed": true,
+  "visual_qa_complete": false,
+  "no_new_training_or_evaluation": true,
+  "pdf_exported_to_workspace": false,
+  "visual_qa_limitation": "Native compilation confirms success but does not export the PDF; Codex computer-use access is unavailable. No page-by-page visual certification is claimed.",
+  "final_source_sha256": {
+    "main.tex": "5a75086fab25641e6c38a602475efc426ed647e6911e4e0ec176c20d59d7b63c",
+    "chapters/03-method.tex": "e036fa93a09be0ff86facb4ca0c2f84c74d243c23318eda2f436fb125d44115f",
+    "chapters/04-experimental-setup.tex": "f38ff2213118e028f3039faff9028048992cd72a508d36626e4639e339637629",
+    "references.bib": "3c87ad8d1730604c8e3be0118ff3fe29c7ceb8f11037cda577df0fb03509b685"
+  }
+}

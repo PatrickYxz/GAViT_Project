@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "seed42_fixed_classes_verified": 19,
+  "seed42_large_changes": 7,
+  "seed43_rows_preserved": 38,
+  "BEN_soft42_formal_missing_explicit": true,
+  "no_scores_imputed": true,
+  "two_decimal_format_and_links_pass": true,
+  "original_score_CSV_unchanged": true
+}

@@ -1,0 +1,84 @@
+{
+  "client_date": "2026-11-10",
+  "authorisation": "User approved schedule, will provide a new instance and delegated SSH operation and execution. No external messaging authorised.",
+  "gpu_policy": "one active GPU job, sequential",
+  "aid_seeds": [
+    42,
+    43,
+    44,
+    45
+  ],
+  "aid_jobs": [
+    {
+      "variant": "soft",
+      "seed": 42
+    },
+    {
+      "variant": "soft",
+      "seed": 43
+    },
+    {
+      "variant": "soft",
+      "seed": 44
+    },
+    {
+      "variant": "soft",
+      "seed": 45
+    },
+    {
+      "variant": "swin",
+      "seed": 45
+    },
+    {
+      "variant": "fixed",
+      "seed": 45
+    }
+  ],
+  "dfagcn_total_seeds": [
+    42,
+    43,
+    44,
+    45
+  ],
+  "dfagcn_new_seeds": [
+    43,
+    44,
+    45
+  ],
+  "reused_dfagcn_seed42_source": "results/dfagcn_nwpu_seed42_20261030.json",
+  "reuse_condition": "exact existing model/recipe/manifest/weights/selection; changed wrapper or physicalGPU recorded separately, no mix of author code",
+  "selection_policy": "AID original42/43/44 retained including negative44; fourth45 is consecutive extension frozen before any new test, not based on desired outcomes. DF extra43/44/45 frozen before tests. Existing46/47 remain reported-history, not overwritten.",
+  "new_formal_runs": 9,
+  "recipe_constraints": {
+    "aid_manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+    "nwpu_manifest_sha256": "ce0cfef201c6aee507bc978a9d319e42b5d7d4ba3d461d61ffb74f7c2259840e",
+    "aid_calibration_epochs": 30,
+    "aid_batch_size": 32,
+    "aid_workers": 2,
+    "aid_precision": "FP32 no AMP/TF32",
+    "aid_selection": "earliest strict best validationOA;fresh same-init refit;CosineTmax30;test once",
+    "cpu_threads": 8,
+    "no_new_gaussian_ffn_or_hyperparameter_search": true
+  },
+  "baseline_source_commit": "058f1d8b79d0be538ec358eb742d2cd3992921d4",
+  "state": "LOCAL_PREPARATION_REMOTE_LOGIN_BEING_VERIFIED",
+  "planned_order": [
+    "AID soft smoke",
+    "AID soft42",
+    "DFAGCN43",
+    "DFAGCN44",
+    "DFAGCN45",
+    "AID soft43",
+    "AID soft44",
+    "AID soft45",
+    "AID Swin45",
+    "AID fixed45"
+  ],
+  "stop_conditions": [
+    "nonfinite loss/gradient or wrong topology",
+    "changed input/recipe/checkpoint identity",
+    "resource or data gate failure",
+    "failed completion audit"
+  ],
+  "previous_deliverables_preserved": true
+}

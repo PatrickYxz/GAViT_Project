@@ -1,0 +1,24 @@
+{
+  "source": "Selected fields transcribed from the user's inspect JSON message on 2026-11-05; not a complete raw stdout copy.",
+  "action": "inspect",
+  "ready": false,
+  "blockers": ["inputs", "target_gpu"],
+  "input_error": "[Errno 2] No such file or directory: 'data'",
+  "gpu_error": "exactly one selected idle RTX3060 12288MiB is required",
+  "requested_gpu_uuid": "GPU-7acce72a-93cd-e56f-35d8-5d33ecf6655e",
+  "data_root": "/home/featurize/data/AID/AID",
+  "manifest": "/home/featurize/work/aid_protocol_20260920_03.json",
+  "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+  "selected_pool_count": 300,
+  "counts": {"train": 240, "val": 60, "test": 0},
+  "weights_sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893",
+  "weights_bytes": 351654207,
+  "nvidia": {
+    "error": null,
+    "gpus": [{"name": "NVIDIA GeForce RTX 3060", "uuid": "GPU-df386e6c-dbb3-0952-8190-3265a7bd8ae8", "driver_version": "610.57.04", "memory_total_mib": 12288, "memory_free_mib": 11909}],
+    "processes": []
+  },
+  "work_free_bytes": 9766436864,
+  "training_started": false,
+  "formal_training_started": false
+}

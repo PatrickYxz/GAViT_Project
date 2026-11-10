@@ -1,0 +1,151 @@
+{
+  "official_path": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+  "original_official_sha256": "a2a8bae980b904f824015d00f19a7f5c8185640d66b0ead6fec7ab32932049ff",
+  "official_headers": [
+    "Model",
+    "Variant",
+    "Dataset",
+    "Seed",
+    "Best_Val_mAP(%)",
+    "Best_Epoch",
+    "Final_Val_mAP(%)",
+    "Test_mAP(%)",
+    "Test_Macro_F1(%)",
+    "Test_Micro_F1(%)",
+    "Params(M)",
+    "Epochs",
+    "Batch_Size",
+    "LR",
+    "Weight_Decay",
+    "Optimizer",
+    "Scheduler",
+    "Threshold",
+    "Git_Commit",
+    "GPU",
+    "Peak_GPU_Memory(GiB)",
+    "Train_Wall_Time(h)",
+    "Test_Time",
+    "Notes"
+  ],
+  "official_new_row": [
+    "GAViT soft",
+    "sparse-hybrid K16 soft_prototype 4n top2 token_feedback local_prototype_cosine_v1",
+    "BigEarthNet-19",
+    42,
+    78.75,
+    10,
+    75.70723466069043,
+    70.1745705651681,
+    64.04828509185678,
+    76.7999586513447,
+    31.466766,
+    30,
+    32,
+    0.0003,
+    0.0001,
+    "AdamW",
+    "CosineAnnealingLR",
+    0.5,
+    "ed480e6",
+    "NVIDIA GeForce RTX 4090",
+    3.6626949310302734,
+    5.727578159408055,
+    "155.16684642899781 s (whole measured stage)",
+    "Formal soft42 full30 and119825 test complete; queue/train/test exit0; best10/val78.7500; exact19AP and checkpoint SHA chain agree: 23314ea561f753b1aad73025148d7b9788bbdddc4f38f49afeca59a6aec91c35. Final30 val75.70723466069043. GPU UUID44825cf0-bd98-bfdc-efbc-0100238a6789; repaired workerSHA 09722f10542bed449d2e80df0041387e113cab58db403b3979e07f192194f767. Original scheduler failures preserved; no smoke retraining. Queue20808.021594s, runtime at historical1.67yuan/h about9.65yuan; bill/setup/idle unknown. Throughput includes validation/IO and probes, not pure model speed. Legacy42 control provenance and code/hardware differences retained. Evidence: ../../results/evidence/bigearth_soft42_complete_20261017/summary.json"
+  ],
+  "new_path": "/Users/patrick/Projects/GAViT_Project/results/ben_four_seed_three_model_20261017.csv",
+  "new_headers": [
+    "Seed",
+    "Swin_mAP_percent",
+    "Fixed_mAP_percent",
+    "Soft_mAP_percent",
+    "Fixed_minus_Swin_pp",
+    "Soft_minus_Swin_pp",
+    "Soft_minus_Fixed_pp",
+    "Soft_evidence"
+  ],
+  "new_rows": [
+    [
+      42,
+      70.9,
+      72,
+      70.1745705651681,
+      1.1,
+      -0.7254294348319,
+      -1.8254294348319,
+      "formal_archived"
+    ],
+    [
+      43,
+      71.1,
+      71.7,
+      72.86757085064232,
+      0.6,
+      1.76757085064232,
+      1.16757085064232,
+      "formal_archived"
+    ],
+    [
+      46,
+      71,
+      71.8,
+      71.4,
+      0.8,
+      0.4,
+      -0.4,
+      "user_reported_original_artifacts_pending"
+    ],
+    [
+      47,
+      70.6,
+      71.1,
+      70.3,
+      0.5,
+      -0.3,
+      -0.8,
+      "user_reported_original_artifacts_pending"
+    ]
+  ],
+  "display_rows": [
+    [
+      "42",
+      "70.90",
+      "72.00",
+      "70.17",
+      "1.10",
+      "-0.73",
+      "-1.83",
+      "formal_archived"
+    ],
+    [
+      "43",
+      "71.10",
+      "71.70",
+      "72.87",
+      "0.60",
+      "1.77",
+      "1.17",
+      "formal_archived"
+    ],
+    [
+      "46",
+      "71.00",
+      "71.80",
+      "71.40",
+      "0.80",
+      "0.40",
+      "-0.40",
+      "user_reported_original_artifacts_pending"
+    ],
+    [
+      "47",
+      "70.60",
+      "71.10",
+      "70.30",
+      "0.50",
+      "-0.30",
+      "-0.80",
+      "user_reported_original_artifacts_pending"
+    ]
+  ]
+}

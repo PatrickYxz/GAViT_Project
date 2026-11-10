@@ -1,0 +1,157 @@
+\chapter{Introduction}
+\label{chap:introduction}
+
+\section{Background}
+
+Remote sensing scene classification assigns semantic categories to aerial or
+satellite image patches. It provides a means of organising image archives and
+describing land use and land cover at the scene level. These descriptions can
+support applications such as urban analysis and environmental monitoring,
+although an image-level prediction does not locate every object or delineate
+every land-cover boundary. Surveys by Zhu et al.~\cite{zhu2017deeprs} and
+Cheng et al.~\cite{cheng2020scene} place scene classification within the wider
+development of learned representations for remote sensing.
+
+The target description depends on the task. A single-label benchmark assigns
+one scene category to each image, even when several visual elements coexist.
+NWPU-RESISC45 and the Aerial Image Dataset (AID) provide examples of this
+setting~\cite{cheng2017nwpu,xia2017aid}. A multi-label task instead allows an
+image to carry several land-cover labels, as in
+BigEarthNet~\cite{sumbul2019bigearthnet,sumbul2021bigearthnetmm}. This
+distinction changes the prediction objective and evaluation: choosing one
+class differs from ranking and thresholding multiple label probabilities.
+It also motivates examining regional representations in both settings,
+without assuming that a useful representation for one will transfer
+unchanged to the other.
+
+Scene appearance presents a further challenge. Images within one category
+may differ in scale, orientation, texture and composition, while different
+categories can share visually similar components~\cite{cheng2017nwpu}.
+Consequently, recognising local elements and combining their contextual
+information are closely connected problems. An image representation must
+retain useful evidence while reducing the many spatial features to the
+compact vector required by a classifier.
+
+Transfer learning offers a practical starting point. ImageNet established a
+large natural-image resource~\cite{deng2009imagenet}, and Nogueira
+et al.~\cite{nogueira2017exploiting} examined how pretrained convolutional
+networks can be used for remote sensing scene classification. Domain-specific
+pretraining provides another route: Seasonal Contrast uses temporal imagery
+for self-supervised representation learning~\cite{manas2021seco}, while
+SatMAE adapts masked pretraining to temporal and multispectral satellite
+data~\cite{cong2022satmae}. These approaches illustrate that pretraining and
+downstream architecture are separate design choices. This thesis holds the
+recorded pretrained backbone source common within its internal comparison
+and concentrates on the structure added after feature extraction.
+
+\section{Motivation}
+
+The shared backbone is Swin-Tiny (Swin-T), a hierarchical vision Transformer whose
+shifted-window design enables interaction across neighbouring
+windows~\cite{liu2021swin}. Its final tokens already contain contextual
+information. The motivation for adding a graph is therefore to investigate
+an additional regional inductive bias, rather than to remedy an assumed
+absence of spatial relationships in the backbone. Whether that bias is
+useful is an empirical question: an extra module can introduce helpful
+structure, redundant computation or additional sensitivity to training.
+
+Regional aggregation offers an intermediate representation between dense
+feature tokens and a single global vector. Grouping tokens into a smaller
+set of nodes makes their interactions explicit. Graph attention can then
+aggregate neighbouring node features using learned
+weights~\cite{velickovic2018gat}. However, this description leaves important
+choices unresolved. Region membership, pooling weights, edge selection and
+the return of graph features to the classifier each determine what
+information is preserved and exchanged. An apparent improvement from a
+complete architecture cannot automatically identify which choice caused it.
+
+This thesis examines two grouping strategies within a Graph-Augmented Vision
+Transformer (GAViT). The fixed strategy uses a deterministic spatial partition and
+learns the relative importance of tokens within each region. The soft
+strategy constructs image-dependent prototypes and permits contributions to
+nearby anchors. Both retain a common anchor layout and explicit edge budget.
+The comparison asks whether adaptive membership improves on a simple spatial
+prior when the backbone and subsequent graph machinery are shared. It does
+not equate attention-weighted pooling with learned segmentation, or assume
+that soft assignment necessarily yields more meaningful regions.
+
+The value of this structure also depends on its cost and consistency.
+Parameter count, latency and memory describe different aspects of the added
+computation. Repeated training can reveal sensitivity that a single favourable
+score conceals. Visual inspection can show actual assignments, connections
+and prediction changes, but cannot alone establish semantic correctness or
+causal benefit. These considerations motivate evaluating the complete
+accuracy--cost trade-off alongside diagnostic evidence.
+
+\section{Research questions}
+
+Three research questions organise the investigation:
+\begin{enumerate}
+ \item \textbf{RQ1: Regional graph reasoning.} Does fixed-partition GAViT
+ improve classification relative to the shared Swin-T baseline, and how
+ consistent is the observed difference across eligible training repetitions?
+ \item \textbf{RQ2: Adaptive membership.} Does local prototype soft assignment
+ improve on fixed grouping under the same task protocol, and what changes
+ can be observed in regional aggregation, graph connectivity and predictions?
+ \item \textbf{RQ3: Practical value and interpretation.} How do classification
+ differences relate to additional computational cost, and what do successes,
+ failures and visual diagnostics support about the role of the regional
+ representation?
+\end{enumerate}
+These questions permit conditional and negative findings. A more flexible
+grouping mechanism is not treated as preferable merely because it contains
+additional learnable parameters.
+
+\section{Contributions and scope}
+
+The work makes three contributions. First, it implements a
+Graph-Augmented Vision Transformer that combines attentive regional
+aggregation, a sparse spatial-and-feature graph, graph attention and
+region-to-token feedback. The architectural description distinguishes fixed
+membership from learned pooling and distinguishes feature-based edge
+selection from graph-attention weights. This makes the computational roles
+of the components explicit.
+
+Second, it formulates an image-dependent local prototype grouping mechanism
+within the same architecture. Distinct normalisations define token membership
+and regional pooling, while feedback uses the membership weights. This allows
+the comparison to address adaptive aggregation without replacing the shared
+backbone. The soft-versus-fixed
+comparison concerns the resulting grouping pathway as a whole; it does not
+separately identify every effect of the added projection and feedback map.
+
+Third, it establishes an evaluation framework combining single-label and
+multi-label classification, explicit model-selection rules, training
+repetitions, computational measurements and qualitative diagnostics.
+Calibration and final fitting are distinguished, and repeated training on
+a frozen partition is distinguished from repeated random data splitting.
+The contribution is the implemented design and its evidence-based
+examination; consistent superiority over the baseline is a proposition to
+be tested rather than an assumed outcome.
+
+The empirical scope comprises red, green and blue (RGB) scene classification on NWPU-RESISC45,
+AID and BigEarthNet-19. BigEarthNet is restricted to three optical bands in
+this study, so the work does not evaluate full multispectral, radar or
+multitemporal fusion. It also does not perform object detection or semantic
+segmentation. Regional visualisations describe internal feature aggregation,
+not independently validated object masks. Independent implementations of
+HGTNet and DFAGCN form a complementary comparison track.
+Chapter~\ref{chap:external-comparisons} reports the completed single-seed
+HGTNet measurements on NWPU-RESISC45 and AID, and DFAGCN on NWPU-RESISC45.
+They share the frozen data partitions and information-isolation rules with
+the internal models, while retaining separately disclosed training recipes.
+These supplementary results do not fulfil the remaining requirement for
+external comparisons under a unified protocol with multiple training seeds.
+
+\section{Organisation of the thesis}
+
+Following this introduction,
+Chapter~\ref{chap:related-work} reviews remote sensing Transformers, image graph networks and
+regional grouping. Chapter~\ref{chap:method} presents GAViT and its fixed and
+soft grouping variants. Chapter~\ref{chap:setup} specifies datasets,
+preprocessing, model selection and evaluation. The present partial draft
+adds Chapter~\ref{chap:external-comparisons} as a supplementary comparison
+of the completed external-method runs. The complete internal classification
+results and component studies, integrated discussion of cost and qualitative
+evidence, and conclusions remain to be incorporated into the final thesis
+structure.

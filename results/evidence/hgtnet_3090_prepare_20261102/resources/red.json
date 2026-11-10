@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_hgtnet_3090_resources.py",
+    "-v"
+  ],
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "KMP_INIT_AT_FORK": "FALSE"
+  },
+  "exit_code": 1
+}

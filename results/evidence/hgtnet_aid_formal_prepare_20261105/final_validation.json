@@ -1,0 +1,37 @@
+{
+  "actual_final_package_stdlib_importguard": true,
+  "actual_formal_gpu_started": false,
+  "actual_formal_metrics": null,
+  "batch16_capacity_real_user_return": "results/hgtnet_aid_batch16_probe_3060_20261105.json",
+  "bundle": "/Users/patrick/Projects/GAViT_Project/output/hgtnet_aid_formal_3060_20261105_v1.pyz",
+  "bundle_id": "31e712e70be7495ea8f64cdd14fe6d0e1c2ba158a30babd0918f918ee8ad0d1f",
+  "bytes": 85287,
+  "formal_result_values": {
+    "formal_peak_allocated_bytes": null,
+    "formal_wall_seconds": null,
+    "selected_epoch": null,
+    "test_accuracy_percent": null,
+    "test_macro_f1_percent": null
+  },
+  "git_base": {
+    "git_base_commit": "058f1d8b79d0be538ec358eb742d2cd3992921d4",
+    "source_state": "uncommitted_source_snapshot"
+  },
+  "independent_review": "PASS_TWO_P2_CLOSED",
+  "independent_review_report": "review/independent_review.md",
+  "known_operational_limit": "SIGKILL/reboot can leave an exclusive lock; manual read-only ownership/PID/snapshot audit before stale-lock handling; no automatic removal.",
+  "local_inspect_ready": false,
+  "local_status": "not_started",
+  "payload_files": 23,
+  "protected_hashes_unchanged": true,
+  "protected_old_files": 43,
+  "python311_syntax": true,
+  "recipe_sha256": "b4b007a30f3e96c68e777b1ce7115779c80fa21f104c65cd74009260a115584d",
+  "scoped_new_formal_tests": 64,
+  "scoped_test_exit": 0,
+  "scoped_test_log": "scoped_final_tests.log",
+  "sha256": "ef2bc84e0df446b7d2bdb5ac2097b21456e66a97c381d8cf5d16e87a3bac5c4b",
+  "source_files": 22,
+  "state": "LOCAL_AID_FORMAL_BUNDLE_VALIDATED_SERVER_PREFLIGHT_AND_START_PENDING",
+  "zip_members": 25
+}

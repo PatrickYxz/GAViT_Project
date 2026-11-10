@@ -1,0 +1,19 @@
+Using Python 3.12.13 environment at: /private/tmp/gavit-hgtnet-probe-cpu-20261102
+WARN Retry attempt #0. Sleeping 1.522241444s before the next attempt
+WARN Retry attempt #0. Sleeping 1.454715601s before the next attempt
+WARN Retry attempt #0. Sleeping 1.737044742s before the next attempt
+WARN Retry attempt #0. Sleeping 1.36185784s before the next attempt
+WARN Retry attempt #1. Sleeping 2.830473627s before the next attempt
+WARN Retry attempt #1. Sleeping 1.323941707s before the next attempt
+WARN Retry attempt #1. Sleeping 2.610030137s before the next attempt
+WARN Retry attempt #1. Sleeping 2.099544063s before the next attempt
+WARN Retry attempt #2. Sleeping 6.328231552s before the next attempt
+WARN Retry attempt #2. Sleeping 3.349826458s before the next attempt
+WARN Retry attempt #2. Sleeping 3.395613242s before the next attempt
+WARN Retry attempt #2. Sleeping 6.987495381s before the next attempt
+error: Request failed after 3 retries in 7.2s
+  Caused by: Failed to fetch: `https://pypi.org/simple/pillow/`
+  Caused by: error sending request for url (https://pypi.org/simple/pillow/)
+  Caused by: client error (Connect)
+  Caused by: dns error
+  Caused by: failed to lookup address information: nodename nor servname provided, or not known

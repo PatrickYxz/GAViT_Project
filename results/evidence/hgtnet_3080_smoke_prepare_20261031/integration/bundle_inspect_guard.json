@@ -1,0 +1,78 @@
+{
+  "scope": "actual source pyz stdlib-only inspection; missing target resources expected",
+  "exit_code": 0,
+  "ml_modules_loaded": [],
+  "inspect": {
+    "action": "inspect",
+    "blockers": [
+      "manifest",
+      "weights",
+      "version:python",
+      "target_gpu"
+    ],
+    "config_sha256": "af6ef410125e9d47c87acd0acec1a6db6e0119656793124ceafcb2379eedac25",
+    "dependencies": {
+      "Pillow": {
+        "import_tested": false,
+        "located": true,
+        "version": "10.3.0"
+      },
+      "numpy": {
+        "import_tested": false,
+        "located": true,
+        "version": "1.26.4"
+      },
+      "python": {
+        "import_tested": false,
+        "located": true,
+        "version": "3.12.13"
+      },
+      "torch": {
+        "import_tested": false,
+        "located": true,
+        "version": "2.2.2"
+      },
+      "torchvision": {
+        "import_tested": false,
+        "located": true,
+        "version": "0.17.2"
+      }
+    },
+    "disk": {
+      "blockers": [],
+      "output": {
+        "ancestor": "/Users/patrick/Projects/GAViT_Project/output/hgtnet_nwpu_smoke_3080_20261031",
+        "device": 16777234,
+        "free_bytes": 275739676672,
+        "path": "/Users/patrick/Projects/GAViT_Project/output/hgtnet_nwpu_smoke_3080_20261031/runs/nwpu_smoke_seed42_01",
+        "required_bytes": 2147483648
+      },
+      "ready": true,
+      "same_volume": true,
+      "scratch": {
+        "ancestor": "/private/tmp",
+        "device": 16777234,
+        "free_bytes": 275739676672,
+        "path": "/tmp/hgtnet_nwpu_smoke_3080_20261031_seed42_01",
+        "required_bytes": 1073741824
+      }
+    },
+    "formal_training_started": false,
+    "gpu_error": "working NVIDIA GPU and process queries are required",
+    "input_error": "[Errno 2] No such file or directory: '/home/featurize/work/nwpu_protocol_20260927_02.json'",
+    "manifest": "/home/featurize/work/nwpu_protocol_20260927_02.json",
+    "nvidia": {
+      "error": "[Errno 2] No such file or directory: 'nvidia-smi'",
+      "gpus": [],
+      "processes": []
+    },
+    "output": "/Users/patrick/Projects/GAViT_Project/output/hgtnet_nwpu_smoke_3080_20261031/runs/nwpu_smoke_seed42_01",
+    "readiness_scope": "stdlib preflight only; run verifies real imports/CUDA and staged ZIP/image bytes",
+    "ready": false,
+    "requested_gpu_uuid": null,
+    "schema": "hgtnet-nwpu-3080-smoke-v1",
+    "scratch_root": "/tmp/hgtnet_nwpu_smoke_3080_20261031_seed42_01",
+    "weights": "/Users/patrick/Projects/GAViT_Project/output/swin_b-68c6b09e.pth",
+    "weights_error": "[Errno 2] No such file or directory: '/Users/patrick/Projects/GAViT_Project/output/swin_b-68c6b09e.pth'"
+  }
+}

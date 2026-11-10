@@ -1,0 +1,24 @@
+{
+  "artifacts": 12,
+  "metrics": {
+    "samples": 25200,
+    "correct": 23718,
+    "errors": 1482,
+    "classes": 45,
+    "support_per_class": 560,
+    "recomputed_oa_percent": 94.11904761904762,
+    "recomputed_macro_f1_percent": 94.10529172930384,
+    "confusion_all_cells_match": true,
+    "all_class_scores_match": true,
+    "all100_calibration_and95_refit_epochs_retained": true,
+    "selected95_final100_retained": true,
+    "normalized_row_sum_max_error": 1.4210854715202004e-14
+  },
+  "top_pair": {
+    "first": "church",
+    "second": "palace",
+    "first_to_second": 41,
+    "second_to_first": 62,
+    "total": 103
+  }
+}

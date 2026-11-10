@@ -1,0 +1,601 @@
+{
+  "schema": "hgtnet-historical-artifact-preservation-audit-v1",
+  "checked_at_utc": "2026-10-31T13:43:28.667568+00:00",
+  "scope": "read-only stream hashing of explicitly listed paths; no data or whole-repository scan",
+  "root": "/Users/patrick/Projects/GAViT_Project",
+  "groups": {
+    "historical_metrics": {
+      "reference": "results/evidence/external_baselines_20261027/baseline_state.json",
+      "reference_sha256": "dea42013b8ad34b4d45f1cf8aa3d92eb0b64df8548bf8fe3156f367e4e8cffa1",
+      "count": 19,
+      "matches": 19,
+      "missing": 0,
+      "mismatches": 0,
+      "records": [
+        {
+          "path": "results/comparison_table.csv",
+          "expected_sha256": "54efc5572b6271e9019bd5546951ae84f9f06bf23fc7ff58021036b419de562f",
+          "actual_sha256": "54efc5572b6271e9019bd5546951ae84f9f06bf23fc7ff58021036b419de562f",
+          "exists": true,
+          "bytes": 619,
+          "matches": true
+        },
+        {
+          "path": "results/ablation_study.csv",
+          "expected_sha256": "33182d7a7802e11c0580e66b7736c1d679af45ba4399b47369b582d8e9bd2011",
+          "actual_sha256": "33182d7a7802e11c0580e66b7736c1d679af45ba4399b47369b582d8e9bd2011",
+          "exists": true,
+          "bytes": 882,
+          "matches": true
+        },
+        {
+          "path": "results/multiseed_test_results.csv",
+          "expected_sha256": "639a9b45b07625d63c1254a32969637c984a996997248622a647f261d43c0988",
+          "actual_sha256": "639a9b45b07625d63c1254a32969637c984a996997248622a647f261d43c0988",
+          "exists": true,
+          "bytes": 1783,
+          "matches": true
+        },
+        {
+          "path": "results/supervisor_progress_data_20261012.json",
+          "expected_sha256": "7a825fdc1a26de05d1e181ec5d0767b3c2101859fbdb8cc968058cab9c842bc2",
+          "actual_sha256": "7a825fdc1a26de05d1e181ec5d0767b3c2101859fbdb8cc968058cab9c842bc2",
+          "exists": true,
+          "bytes": 27088,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/ablation_study.csv",
+          "expected_sha256": "33182d7a7802e11c0580e66b7736c1d679af45ba4399b47369b582d8e9bd2011",
+          "actual_sha256": "33182d7a7802e11c0580e66b7736c1d679af45ba4399b47369b582d8e9bd2011",
+          "exists": true,
+          "bytes": 882,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+          "expected_sha256": "184d3d8894216e1b5ec092ff8326929a1c6dc2d4fede662886758a95001e90cf",
+          "actual_sha256": "184d3d8894216e1b5ec092ff8326929a1c6dc2d4fede662886758a95001e90cf",
+          "exists": true,
+          "bytes": 9489,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_four_seed_per_class_comparison.csv",
+          "expected_sha256": "2651da9ad54329ddc46172733e53cf15fefe0978d7230f6d4cc5a0e40c4af0b4",
+          "actual_sha256": "2651da9ad54329ddc46172733e53cf15fefe0978d7230f6d4cc5a0e40c4af0b4",
+          "exists": true,
+          "bytes": 3622,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_multiseed_summary.csv",
+          "expected_sha256": "4eed7d761f53197d4325a9aa932e6d3db098d2508550f8b255ef7345367bbf98",
+          "actual_sha256": "4eed7d761f53197d4325a9aa932e6d3db098d2508550f8b255ef7345367bbf98",
+          "exists": true,
+          "bytes": 1406,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed42_seed44_class_stability.csv",
+          "expected_sha256": "e5ace37a5f1f1cc23ac44a072844a5d6f55d3a8ac615677c706e347552054e44",
+          "actual_sha256": "e5ace37a5f1f1cc23ac44a072844a5d6f55d3a8ac615677c706e347552054e44",
+          "exists": true,
+          "bytes": 1220,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed43_per_class_comparison.csv",
+          "expected_sha256": "d6b1e47a356f5195e9e080a1036a905e8007d78fdbc503ae48d63324c727fa48",
+          "actual_sha256": "d6b1e47a356f5195e9e080a1036a905e8007d78fdbc503ae48d63324c727fa48",
+          "exists": true,
+          "bytes": 1415,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed43_three_model_per_class.csv",
+          "expected_sha256": "f9e507a954c865202cbc5c42d8a1fc14f7cc43802a2ae7f9cd77b9de0c636e15",
+          "actual_sha256": "f9e507a954c865202cbc5c42d8a1fc14f7cc43802a2ae7f9cd77b9de0c636e15",
+          "exists": true,
+          "bytes": 3809,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed44_per_class_comparison.csv",
+          "expected_sha256": "0d8347e78634cc15d0361f0882c6840fefe29a529f4411fd31901fbda08dec58",
+          "actual_sha256": "0d8347e78634cc15d0361f0882c6840fefe29a529f4411fd31901fbda08dec58",
+          "exists": true,
+          "bytes": 2310,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed45_per_class_comparison.csv",
+          "expected_sha256": "b117b152f1a67e61b3787329d99c3114e5f4e6be50bddd081a40948b4d0d002d",
+          "actual_sha256": "b117b152f1a67e61b3787329d99c3114e5f4e6be50bddd081a40948b4d0d002d",
+          "exists": true,
+          "bytes": 2015,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_swin_seed44_per_class_ap.csv",
+          "expected_sha256": "9ac81219c7bb4f42760ae01bdde0baaef9cf9b00156baf8a0e79dfea80a59603",
+          "actual_sha256": "9ac81219c7bb4f42760ae01bdde0baaef9cf9b00156baf8a0e79dfea80a59603",
+          "exists": true,
+          "bytes": 583,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_three_model_two_seed_comparison.csv",
+          "expected_sha256": "3ec0de5a1243a725ce9252deb4b43bb6bed85d00b185e7c02596f7072204ea02",
+          "actual_sha256": "3ec0de5a1243a725ce9252deb4b43bb6bed85d00b185e7c02596f7072204ea02",
+          "exists": true,
+          "bytes": 628,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/comparison_table.csv",
+          "expected_sha256": "54efc5572b6271e9019bd5546951ae84f9f06bf23fc7ff58021036b419de562f",
+          "actual_sha256": "54efc5572b6271e9019bd5546951ae84f9f06bf23fc7ff58021036b419de562f",
+          "exists": true,
+          "bytes": 619,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/nwpu_two_seed_comparison.csv",
+          "expected_sha256": "054bba00e2a05c88bffa74631fd2a5470f3fc5491010476986cc42108c4779f8",
+          "actual_sha256": "054bba00e2a05c88bffa74631fd2a5470f3fc5491010476986cc42108c4779f8",
+          "exists": true,
+          "bytes": 1197,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/per_class_accuracy.csv",
+          "expected_sha256": "234adc384d9cf6b297dd6f87234204c230fb26cacd952a1995c62de53e2c8eab",
+          "actual_sha256": "234adc384d9cf6b297dd6f87234204c230fb26cacd952a1995c62de53e2c8eab",
+          "exists": true,
+          "bytes": 1219,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/results/per_class_accuracy_fusion.csv",
+          "expected_sha256": "32c82d51ffeab325859a7f0fbdb2922fce02aa31d2902fb69c0d06ea00c17791",
+          "actual_sha256": "32c82d51ffeab325859a7f0fbdb2922fce02aa31d2902fb69c0d06ea00c17791",
+          "exists": true,
+          "bytes": 1220,
+          "matches": true
+        }
+      ]
+    },
+    "legacy_root_and_research_sources": {
+      "reference": "results/evidence/external_baselines_20261027/entrypoint_comparison.json",
+      "reference_sha256": "bf6656e8d34645d3a5b3081cec634a00346e520e0bf6539859dbb73e3010803c",
+      "count": 12,
+      "matches": 12,
+      "missing": 0,
+      "mismatches": 0,
+      "records": [
+        {
+          "path": "run_scene.py",
+          "expected_sha256": "618d5cfc798db0a94d6ad74d513c7fb08a8bdf904f33f8e6e524d0be8cc64f03",
+          "actual_sha256": "618d5cfc798db0a94d6ad74d513c7fb08a8bdf904f33f8e6e524d0be8cc64f03",
+          "exists": true,
+          "bytes": 3564,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/run_scene.py",
+          "expected_sha256": "fccba60f6533e4e208b7bc5c975c943e365cc5e0dffc43a9ed8cc0cb6e8c98f9",
+          "actual_sha256": "fccba60f6533e4e208b7bc5c975c943e365cc5e0dffc43a9ed8cc0cb6e8c98f9",
+          "exists": true,
+          "bytes": 3744,
+          "matches": true
+        },
+        {
+          "path": "scene_classification/data.py",
+          "expected_sha256": "ebcf0dd7585a060465df45bdf4e44ec7f47edd95f1fa8a12cbdd5723b948fa69",
+          "actual_sha256": "ebcf0dd7585a060465df45bdf4e44ec7f47edd95f1fa8a12cbdd5723b948fa69",
+          "exists": true,
+          "bytes": 12467,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/scene_classification/data.py",
+          "expected_sha256": "ebcf0dd7585a060465df45bdf4e44ec7f47edd95f1fa8a12cbdd5723b948fa69",
+          "actual_sha256": "ebcf0dd7585a060465df45bdf4e44ec7f47edd95f1fa8a12cbdd5723b948fa69",
+          "exists": true,
+          "bytes": 12467,
+          "matches": true
+        },
+        {
+          "path": "scene_classification/metrics.py",
+          "expected_sha256": "6ef64ee533d0ca5c2dadae066a6254dcd4d107a24709b77009910067f37320b3",
+          "actual_sha256": "6ef64ee533d0ca5c2dadae066a6254dcd4d107a24709b77009910067f37320b3",
+          "exists": true,
+          "bytes": 1506,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/scene_classification/metrics.py",
+          "expected_sha256": "6ef64ee533d0ca5c2dadae066a6254dcd4d107a24709b77009910067f37320b3",
+          "actual_sha256": "6ef64ee533d0ca5c2dadae066a6254dcd4d107a24709b77009910067f37320b3",
+          "exists": true,
+          "bytes": 1506,
+          "matches": true
+        },
+        {
+          "path": "scene_classification/modeling.py",
+          "expected_sha256": "8a2beed6bcb35ba5f4695ec81a899d7cf7394ccbd858a6beb372b1bd3f1ca575",
+          "actual_sha256": "8a2beed6bcb35ba5f4695ec81a899d7cf7394ccbd858a6beb372b1bd3f1ca575",
+          "exists": true,
+          "bytes": 5345,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/scene_classification/modeling.py",
+          "expected_sha256": "a198202b58b4b2b6b06dd97e1e74bcbe05c8a91319bb4546a87308306929c3b9",
+          "actual_sha256": "a198202b58b4b2b6b06dd97e1e74bcbe05c8a91319bb4546a87308306929c3b9",
+          "exists": true,
+          "bytes": 5746,
+          "matches": true
+        },
+        {
+          "path": "scene_classification/runner.py",
+          "expected_sha256": "5d124ddfd03cb7340b8f65af8a56756d42ad1b2d1638b790373f192ead721f93",
+          "actual_sha256": "5d124ddfd03cb7340b8f65af8a56756d42ad1b2d1638b790373f192ead721f93",
+          "exists": true,
+          "bytes": 27503,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py",
+          "expected_sha256": "4023f3f9ea34d48a4041cdff33040ba5e13f802d744f35a43f3a3827a2969188",
+          "actual_sha256": "4023f3f9ea34d48a4041cdff33040ba5e13f802d744f35a43f3a3827a2969188",
+          "exists": true,
+          "bytes": 29052,
+          "matches": true
+        },
+        {
+          "path": "scene_classification/refinement_audit.py",
+          "expected_sha256": "08fdff7df2306c2a03313201ba566cd67f3acfeef2b16ed86d9fac8b085d929c",
+          "actual_sha256": "08fdff7df2306c2a03313201ba566cd67f3acfeef2b16ed86d9fac8b085d929c",
+          "exists": true,
+          "bytes": 2402,
+          "matches": true
+        },
+        {
+          "path": ".worktrees/sparse-hybrid-4n-top2/scene_classification/refinement_audit.py",
+          "expected_sha256": "08fdff7df2306c2a03313201ba566cd67f3acfeef2b16ed86d9fac8b085d929c",
+          "actual_sha256": "08fdff7df2306c2a03313201ba566cd67f3acfeef2b16ed86d9fac8b085d929c",
+          "exists": true,
+          "bytes": 2402,
+          "matches": true
+        }
+      ]
+    },
+    "dfagcn_sources_recipes_and_old_bundles": {
+      "reference": "results/evidence/dfagcn_formal_resource_fix_20261030/protected_inputs.json",
+      "reference_sha256": "7fe04cee3a521eab8cef3bce5c679428d75dff4e495e5a530d8d094bb5da2332",
+      "count": 21,
+      "matches": 21,
+      "missing": 0,
+      "mismatches": 0,
+      "records": [
+        {
+          "path": "external_baselines/dfagcn/config.py",
+          "expected_sha256": "2d71ed07fca78bb6e1d8ba6bca2a537cf2e9eaeb134f6c7b8f91b08459111e60",
+          "actual_sha256": "2d71ed07fca78bb6e1d8ba6bca2a537cf2e9eaeb134f6c7b8f91b08459111e60",
+          "exists": true,
+          "bytes": 4841,
+          "matches": true
+        },
+        {
+          "path": "external_baselines/dfagcn/linear.py",
+          "expected_sha256": "8644f8b3b311e73a6082555cc27399926c1dac1e8e440adc27cd35a2557fa941",
+          "actual_sha256": "8644f8b3b311e73a6082555cc27399926c1dac1e8e440adc27cd35a2557fa941",
+          "exists": true,
+          "bytes": 9412,
+          "matches": true
+        },
+        {
+          "path": "external_baselines/dfagcn/graph.py",
+          "expected_sha256": "dcae20bd209b84a6b6dd2a43bc11081b43707073276e94287f9c5d1659a71b27",
+          "actual_sha256": "dcae20bd209b84a6b6dd2a43bc11081b43707073276e94287f9c5d1659a71b27",
+          "exists": true,
+          "bytes": 6854,
+          "matches": true
+        },
+        {
+          "path": "external_baselines/dfagcn/cache.py",
+          "expected_sha256": "abe24274c615b303eef7000a533c3902e56a2fc9ee904fda795a0248197d6a80",
+          "actual_sha256": "abe24274c615b303eef7000a533c3902e56a2fc9ee904fda795a0248197d6a80",
+          "exists": true,
+          "bytes": 7566,
+          "matches": true
+        },
+        {
+          "path": "external_baselines/dfagcn/__init__.py",
+          "expected_sha256": "b35023697642f9d2de385bfaf26ef7d40d1e028de629a5088d1c4275e1583f89",
+          "actual_sha256": "b35023697642f9d2de385bfaf26ef7d40d1e028de629a5088d1c4275e1583f89",
+          "exists": true,
+          "bytes": 155,
+          "matches": true
+        },
+        {
+          "path": "external_baselines/dfagcn/features.py",
+          "expected_sha256": "2bdf43f7ff78504b9ee5823e00e48092bde890f460ab64c7337fafd94b9553f1",
+          "actual_sha256": "2bdf43f7ff78504b9ee5823e00e48092bde890f460ab64c7337fafd94b9553f1",
+          "exists": true,
+          "bytes": 7550,
+          "matches": true
+        },
+        {
+          "path": "external_baselines/dfagcn/model.py",
+          "expected_sha256": "f638c4a606ca392348cf6714856cbd01ddc1b81ef2cc63cb4275b6d5e4d681ff",
+          "actual_sha256": "f638c4a606ca392348cf6714856cbd01ddc1b81ef2cc63cb4275b6d5e4d681ff",
+          "exists": true,
+          "bytes": 5168,
+          "matches": true
+        },
+        {
+          "path": "external_baselines/dfagcn/cli.py",
+          "expected_sha256": "89a4e4c340d70ae5b070e74b56618d2f657b62a2146c5c10e7fe142f0be850c3",
+          "actual_sha256": "89a4e4c340d70ae5b070e74b56618d2f657b62a2146c5c10e7fe142f0be850c3",
+          "exists": true,
+          "bytes": 5861,
+          "matches": true
+        },
+        {
+          "path": "external_baselines/dfagcn/extraction.py",
+          "expected_sha256": "819d69decc9853c32df70bca71ee34603420bdae5d04ddd8c65c941b13607178",
+          "actual_sha256": "819d69decc9853c32df70bca71ee34603420bdae5d04ddd8c65c941b13607178",
+          "exists": true,
+          "bytes": 7020,
+          "matches": true
+        },
+        {
+          "path": "external_baselines/dfagcn/pipeline.py",
+          "expected_sha256": "a7971e4314b25574dfd54f006eed569454cc4b67feab8aea6f831c846926a61a",
+          "actual_sha256": "a7971e4314b25574dfd54f006eed569454cc4b67feab8aea6f831c846926a61a",
+          "exists": true,
+          "bytes": 21032,
+          "matches": true
+        },
+        {
+          "path": "external_baselines/dfagcn/fusion.py",
+          "expected_sha256": "22524aa98322256d01980ea5c5d6a87cbe05a782244bed11575e7a34d8df9329",
+          "actual_sha256": "22524aa98322256d01980ea5c5d6a87cbe05a782244bed11575e7a34d8df9329",
+          "exists": true,
+          "bytes": 2379,
+          "matches": true
+        },
+        {
+          "path": "external_baselines/dfagcn/identity.py",
+          "expected_sha256": "1c8feda534668f4161349a8bae21539c8c41ce9c117cad7dd9f879f5989e75a8",
+          "actual_sha256": "1c8feda534668f4161349a8bae21539c8c41ce9c117cad7dd9f879f5989e75a8",
+          "exists": true,
+          "bytes": 5630,
+          "matches": true
+        },
+        {
+          "path": "external_baselines/dfagcn/__main__.py",
+          "expected_sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+          "actual_sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+          "exists": true,
+          "bytes": 48,
+          "matches": true
+        },
+        {
+          "path": "external_baselines/dfagcn/smoke.py",
+          "expected_sha256": "198a09ae8a12de96f7a801624a5cda940b81a4340e632b652c473fddc81be927",
+          "actual_sha256": "198a09ae8a12de96f7a801624a5cda940b81a4340e632b652c473fddc81be927",
+          "exists": true,
+          "bytes": 5154,
+          "matches": true
+        },
+        {
+          "path": "configs/dfagcn_independent_v1.json",
+          "expected_sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+          "actual_sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+          "exists": true,
+          "bytes": 2085,
+          "matches": true
+        },
+        {
+          "path": "tools/probe_dfagcn_gpu.py",
+          "expected_sha256": "1eae9207ebeedafcd5ed901ab302238169c97bd5b4e50398bed4a60e21e15791",
+          "actual_sha256": "1eae9207ebeedafcd5ed901ab302238169c97bd5b4e50398bed4a60e21e15791",
+          "exists": true,
+          "bytes": 23072,
+          "matches": true
+        },
+        {
+          "path": "tools/run_dfagcn_nwpu_smoke.py",
+          "expected_sha256": "ff3311966cf80ca4e15fb2a865c3dff1ca67e42dbcd0a944de8b6cddcbc5203d",
+          "actual_sha256": "ff3311966cf80ca4e15fb2a865c3dff1ca67e42dbcd0a944de8b6cddcbc5203d",
+          "exists": true,
+          "bytes": 27284,
+          "matches": true
+        },
+        {
+          "path": "tools/package_dfagcn_nwpu_smoke.py",
+          "expected_sha256": "b5f6a52144bdbb8e8e93d8f31eab198c2942f544e1313c89e2c147d530023de7",
+          "actual_sha256": "b5f6a52144bdbb8e8e93d8f31eab198c2942f544e1313c89e2c147d530023de7",
+          "exists": true,
+          "bytes": 15667,
+          "matches": true
+        },
+        {
+          "path": "output/dfagcn_nwpu_formal_3080_20261030.pyz",
+          "expected_sha256": "66cbb46bc8bc0fb8a79e7e95794534e6efb430ee1630be2258c91df16c98861b",
+          "actual_sha256": "66cbb46bc8bc0fb8a79e7e95794534e6efb430ee1630be2258c91df16c98861b",
+          "exists": true,
+          "bytes": 150901,
+          "matches": true
+        },
+        {
+          "path": "output/dfagcn_gpu_probe_3080_20261030.pyz",
+          "expected_sha256": "0d8ff18b2ecc9cd4903eb6c4833d3757b7c4e27605e0ac18d936b9158a7eac21",
+          "actual_sha256": "0d8ff18b2ecc9cd4903eb6c4833d3757b7c4e27605e0ac18d936b9158a7eac21",
+          "exists": true,
+          "bytes": 133564,
+          "matches": true
+        },
+        {
+          "path": "output/dfagcn_nwpu_smoke_20261029.pyz",
+          "expected_sha256": "f7ff678be35517aca7edc3a181862a56d739cc0be1a7496a5c63dac4b269daca",
+          "actual_sha256": "f7ff678be35517aca7edc3a181862a56d739cc0be1a7496a5c63dac4b269daca",
+          "exists": true,
+          "bytes": 134156,
+          "matches": true
+        }
+      ]
+    }
+  },
+  "total_historical_paths": 52,
+  "total_matches": 52,
+  "total_mismatches": 0,
+  "total_missing": 0,
+  "all_historical_hashes_match": true,
+  "current_snapshot_only": {
+    "note": "No pre-HGTNet-turn snapshot was available for these newer DFAGCN analyses/advisor drafts/fix1 bundle. These are current hashes, not proof of preservation since turn start.",
+    "count": 17,
+    "records": [
+      {
+        "path": "results/dfagcn_nwpu_seed42_20261030.json",
+        "sha256": "2a47d159294f8e8bc1bae69d9f57e7d6e716b3e1c0c7bd8aa8a43c0d80f92b8a",
+        "exists": true,
+        "bytes": 7337,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "results/dfagcn_nwpu_seed42_20261030.md",
+        "sha256": "cd3fc4f3f72bb91c166bb3a41c90a2bd7cfa95031273a49dad59e4d45227fb17",
+        "exists": true,
+        "bytes": 6078,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "results/dfagcn_nwpu_seed42_analysis_20261031.json",
+        "sha256": "06c6679073bce8476550b5a0363267fe2e042cda4f634c86ac8c99b18c5ba51d",
+        "exists": true,
+        "bytes": 49419,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "results/dfagcn_nwpu_seed42_confusion_matrix_20261031.csv",
+        "sha256": "7ef9135e79a86ca22c43e8072e519f40792bfd3af57fbdd84c437269dc3eeafb",
+        "exists": true,
+        "bytes": 5302,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "results/dfagcn_nwpu_seed42_confusion_pairs_20261031.csv",
+        "sha256": "9cf95523d0b287823203302b4711c72b13490744ea9cc00ab10f4fc46fc6112e",
+        "exists": true,
+        "bytes": 24836,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "results/dfagcn_nwpu_seed42_confusions_20261031.csv",
+        "sha256": "99c3c3e62d0d594849e4bd00b0e6f828b12a5aa3de321214fb9fb3261585bcf6",
+        "exists": true,
+        "bytes": 48342,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "results/dfagcn_nwpu_seed42_error_analysis_20261031.md",
+        "sha256": "af898982b8fe68767ab6fc9dd3b65a19f7a379a33a9f6efc14dee7b54189fae7",
+        "exists": true,
+        "bytes": 6346,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "results/dfagcn_nwpu_seed42_error_analysis_20261031.txt",
+        "sha256": "05f2d2d532876125c11dd9351a51bac3a4427be24e38f0b2965cd16e24afb9fe",
+        "exists": true,
+        "bytes": 6351,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "results/dfagcn_nwpu_seed42_errors_20261031.csv",
+        "sha256": "d431bd3d2992b007e99c32158c03a67516ffa0320c20c341abd03fcd0d70a741",
+        "exists": true,
+        "bytes": 227833,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "results/dfagcn_nwpu_seed42_per_class_20261031.csv",
+        "sha256": "5fbea414eb747597aa763135d29e8f662195fbcdb8137a93117a046dfef5c480",
+        "exists": true,
+        "bytes": 4840,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "results/dfagcn_nwpu_seed42_predictions_20261031.csv",
+        "sha256": "76a662b3b584826ecd06800cbe0c23c091547ae9e509086d660926f17147565e",
+        "exists": true,
+        "bytes": 1621049,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "results/external_baselines_nwpu_seed42_20261030.csv",
+        "sha256": "464e2eeddb54156cf3258e8778f4b0c822e398c9067b5405cff028f737209610",
+        "exists": true,
+        "bytes": 1763,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "docs/supervisor_email_draft_20261012.md",
+        "sha256": "aa10f273b044c445bd40aedd4352a6fa59bf6a1edd636a2b833f87a141255aaa",
+        "exists": true,
+        "bytes": 4427,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "docs/supervisor_email_draft_20261012_plaintext.txt",
+        "sha256": "6cc14bbbc8daa8119b9b5d9b2aace5ccd20ef0fb1d64fc2dd05db5a080500c58",
+        "exists": true,
+        "bytes": 4113,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "docs/supervisor_progress_report_20261012.md",
+        "sha256": "73abb0e8d3b28dc558ef36c78cca35ff27241feab786f1283c55ba4900533fab",
+        "exists": true,
+        "bytes": 25154,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "docs/supervisor_progress_report_20261012_plaintext.txt",
+        "sha256": "7484277c326bf1dfa31beaeeb7faa3383b38d690e1e82936f813c154ebab194e",
+        "exists": true,
+        "bytes": 25136,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      },
+      {
+        "path": "output/dfagcn_nwpu_formal_3080_20261030_fix1.pyz",
+        "sha256": "79398dc4b6d703be65cd32a968d49daa6640fe6c4bbab6a33e930b312954a6c4",
+        "exists": true,
+        "bytes": 151769,
+        "historical_expected_sha256": null,
+        "historical_preservation_verified": false
+      }
+    ]
+  }
+}

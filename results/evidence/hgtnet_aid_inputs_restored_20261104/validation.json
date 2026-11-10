@@ -1,0 +1,25 @@
+{
+  "attachment_sha256": "deea789f93e2207b9b4dfb7006e22f1a556b85183ffa8853392f6b208643fc9d",
+  "checks": {
+    "all300_hashes_reported_verified": true,
+    "archive_OK_reported": true,
+    "data_root_restored": true,
+    "input_assets_verified": true,
+    "manifest_identity": true,
+    "metadata_only": true,
+    "no_test_image_reads": true,
+    "no_training": true,
+    "original_counts": true,
+    "original_duplicate_groups_retained": true,
+    "same3060": true,
+    "same_selection_as_missing_inventory": true,
+    "selected_counts": true,
+    "selection:train": true,
+    "selection:val": true,
+    "thirty_classes": true,
+    "weights_identity": true
+  },
+  "count": 17,
+  "passed": true,
+  "scope": "User-returned archive OK and inventory, not direct target access or local image bytes."
+}

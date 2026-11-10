@@ -1,0 +1,14 @@
+{
+  "source_sha256": "dbd1a61a4088fae6066e8b02f94204335febcdbc277a39b534f1bbcf8cfaee47",
+  "original_3080_package_sha256": "e798372589f83359f6d33d3c78d48ea1a82a760310b23f26aa0d6e689835ce78",
+  "original_resource_sha256": "5a4000e7fbf6b3f8b563d8f6f5b6a952d2246efded1e4458e909f28247d9889b",
+  "changed_existing_functions": [
+    "select_gpu",
+    "check_runtime"
+  ],
+  "added_functions": [
+    "_target_memory"
+  ],
+  "all_other_resource_functions_ast_unchanged": true,
+  "gpu_live_execution": false
+}

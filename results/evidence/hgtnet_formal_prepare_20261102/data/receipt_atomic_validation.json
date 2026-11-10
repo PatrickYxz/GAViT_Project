@@ -1,0 +1,13 @@
+{
+  "errors": 0,
+  "failures": 0,
+  "fix": "unique temporary receipt, JSON flush+fsync then os.replace, finally cleanup only own temporary file; recovered images retained",
+  "green": "receipt_atomic_green.log:13tests/pass/exit0",
+  "red": "receipt_atomic_red.log:13tests/1failure, partial finalreceipt was present",
+  "schema": "hgtnet-formal-data-atomic-receipt-v1",
+  "skipped": 0,
+  "source_sha256": "53e318d7b26cfaa43fda98f32d876b3f74abfcfa8efd89b9fbe7efd054101769",
+  "successful": true,
+  "test_sha256": "0b5f6a1fc75046e7169d48e2814e7e17b5d95bdfac49f56f8ecfce3786248fb2",
+  "tests_run": 13
+}

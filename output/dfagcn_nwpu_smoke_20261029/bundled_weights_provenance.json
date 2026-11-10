@@ -1,0 +1,15 @@
+{
+  "bytes": 553433881,
+  "complete_file_and_range_copy_sha_match": true,
+  "download_url": "https://download-r2.pytorch.org/models/vgg16-397923af.pth",
+  "filename": "vgg16-397923af.pth",
+  "local_path": "/Users/patrick/Projects/GAViT_Project/checkpoints/dfagcn_pretrained_20261029/vgg16-397923af.pth",
+  "not_matconvnet": true,
+  "official_sha256_prefix": "397923af",
+  "range_chunks": 66,
+  "schema": "dfagcn-official-vgg16-file-v1",
+  "sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0",
+  "source_evidence": "installed torchvision.models.vgg.VGG16_Weights.IMAGENET1K_V1 URL",
+  "source_url": "https://download.pytorch.org/models/vgg16-397923af.pth",
+  "tls_verification_disabled": false
+}

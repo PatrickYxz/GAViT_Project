@@ -1,0 +1,145 @@
+{
+  "audited_at_utc": "2026-11-08T06:22:19.435422+00:00",
+  "checks": [
+    {
+      "evidence": "Physicalpage2 has a separated Contents title, Pages header and first chapter entry; Contents self-entry removed. Continuations3–4 clean.",
+      "name": "TOC_overlap_closed",
+      "passed": true
+    },
+    {
+      "evidence": "Physicalpage37: axis labels, tick labels, legends and best96/final100 callout are legible in fullpage120dpi render and fit within page margins.",
+      "name": "history_figure_readable_at_A4",
+      "passed": true
+    },
+    {
+      "evidence": "Physicalpage39: all30 row/column class labels, colourbar and nonzero labels are readable and not clipped. Diagonal100 and adjacent<1 labels remain distinguishable.",
+      "name": "confusion_matrix_readable_and_complete",
+      "passed": true
+    },
+    {
+      "evidence": "Caption explicitly says colour uses unrounded row percentages, nonzero labels use whole percentages, below1% uses<1, and exact counts remain in records.",
+      "name": "confusion_rounding_disclosed",
+      "passed": true
+    },
+    {
+      "evidence": "Renderedphysical33–47 screened via contactsheets. No observed text/table overlap, margin clipping, missing plots or unreadable reference glyphs.",
+      "name": "changed_chapter_tables_body_references",
+      "passed": true
+    },
+    {
+      "evidence": "Cover retains8November2026 and partialdraft scope; TOC chapter/reference page numbers and roman/Arabic footers visible.",
+      "name": "cover_date_scope_pagination",
+      "passed": true
+    },
+    {
+      "evidence": "FinalPDF SHA unchanged between first read and receipt generation.",
+      "name": "frozen_pdf_during_review",
+      "passed": true
+    }
+  ],
+  "compile_log_path": "/Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108/compile_final.log",
+  "compile_log_scan": {
+    "missing_character_count": 0,
+    "overfull_hbox_count": 0,
+    "undefined_reference_or_citation_count": 0,
+    "underfull_hbox_count": 27
+  },
+  "notes": [
+    "Physicalpage40 contains the final short closing paragraph before References. This is sparse pagination, with no truncation or stranded heading, and is not treated as a substantive defect for this working draft.",
+    "This receipt closes the two initial visual findings without altering or replacing the initial-export evidence.",
+    "No thesis source edits, network, recompilation, model execution or PDF marker rerun performed in this final QA task."
+  ],
+  "pdf": {
+    "bytes": 805093,
+    "pages": 47,
+    "path": "/Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108/main.pdf",
+    "sha256": "0802b80887af025dc059ff49604100096c584b82a89374c5cc14c493ea89b0e2"
+  },
+  "remaining_substantive_findings": [],
+  "rendering": {
+    "contact_sheets": [
+      "/Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108/final_renders/contact_0.png",
+      "/Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108/final_renders/contact_1.png",
+      "/Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108/final_renders/contact_2.png",
+      "/Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108/final_renders/contact_3.png"
+    ],
+    "dpi": 120,
+    "page_png_sha256": {
+      "1": "0687e450a74c272fc82ca3cc978dfcb7946201750f0623e740beb34fbd9893df",
+      "2": "307b4a28ac4438a3ee2fc7a438451eb382733f79f3a94208da32b9919e480c11",
+      "3": "6af6869638a3d4a5b6ca34ec1c7a1a128471c64e062c25fe006435502445063f",
+      "33": "aec2a2f87c7c2affe2efc08a2afafc62d7b04f45812b9573e38c58296ce0d5bc",
+      "34": "fdd52593dbe48eace7e81dc03bccc0031c1072a38f4ee796515a79bf6482775f",
+      "35": "63e969310816394dff75ae4128c52ee10511296a3ce3947bd509685a08295b1d",
+      "36": "04cea68053d815aa1416bcf1d102a8999bdb0e73c1d813208517ad4fb559cfd2",
+      "37": "04c488d8b8ce0495537ee9ce27cbc2fed267fbb5ca14440c2d70e61030df3ef3",
+      "38": "63d503bb4b63ef9cc0575060891f2a219dc2423aea8f8a9f6eb66132d24e90b9",
+      "39": "cdb925a348176605a8e3562fa4d5bf5abf1544597ec8d6a7ef824bdf8da0783f",
+      "4": "ea5292881f954d2c2598aec4b2bbf5f8893c97967fdd5308fb5885eb201e65dd",
+      "40": "06c029368f11045aff3596e2ee63e151c6badbcc4d061e32dbcbc6a2864fefd7",
+      "41": "0a25fa2aabba71b0337aa6e6b21762e93c4d43ef75cc107cb8fc57ca31ab7c1c",
+      "42": "f40b9185b79737bac05312fb5cf86a9294a1ebc3cc1389509fa7c3fc6090874e",
+      "43": "44becc5d4825fbea24f5e9d1eddefc6a61c053482260d2cb0a7b885f8bb967ab",
+      "44": "9fdae40e5e56bb8e38534a41320af67fa2a85d025d775c4002f49c469cbbafb0",
+      "45": "c5813f2167667b6392a2aab7ad1f8c74f485c23e052957bb5ffd8a157c826077",
+      "46": "aba08e7f6711fee7f556504b7ddf7c76e38e2d271ac9869eea6a3cf4e9cd9e68",
+      "47": "12920619b59402e13de9dba62c45caddf07ff784bc8dccf8475e732f37968af2"
+    },
+    "pages": [
+      1,
+      2,
+      3,
+      4,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47
+    ],
+    "render_directory": "/Users/patrick/Projects/GAViT_Project/tmp/pdfs/ntu_gavit_external_20261108/final_renders",
+    "single_page_close_inspection": [
+      2,
+      37,
+      39
+    ],
+    "tool": "bundled Poppler pdftoppm"
+  },
+  "result": "PASS",
+  "schema": "gavit-final-scoped-pdf-visual-qa-v1",
+  "scope": "Independent rendered visual review of cover/TOC, all Chapter5 pages and all reference pages; root separately checks physical pages5–32.",
+  "source_identity": {
+    "chapters/01-introduction.tex": "ac56873d1cb2526bebaa2503ca1c5c5ed67962760d21be7b1ea29fdcf211ae5b",
+    "chapters/02-literature-review.tex": "77d5073aa7dfd07b4f4c7e286af76838c5eb6d269ec5e722999b25d4b572072b",
+    "chapters/03-method.tex": "e036fa93a09be0ff86facb4ca0c2f84c74d243c23318eda2f436fb125d44115f",
+    "chapters/04-experimental-setup.tex": "5d470a8c91b6b194b51577d1a7be2232d82f0bbe201aa4c161f3f36dd88d5cd3",
+    "chapters/05-external-comparisons.tex": "fae9b0131890a76bb20b62fdf58ae7d492971871db88519abe7c2da15db2f17c",
+    "images/external_aid_20261106/hgtnet_aid_seed42_confusion_matrix.png": "add9a13f7420172b893faab40b4e423ac4d12827b84bfd1a2be7adf45ddc4c52",
+    "images/external_aid_20261106/hgtnet_aid_seed42_training_history.png": "53d066d0effd6e9cd4a4ce96379adc5bd5c132c1b85131a08a75808da097909b",
+    "images/external_aid_20261108/hgtnet_aid_seed42_confusion_matrix.png": "9ac1a44b8910e585290c31e5ef7eb18bd95679b92668f22ac10c2b0fc859cbcf",
+    "images/external_aid_20261108/hgtnet_aid_seed42_training_history.png": "e5c45979ed0a77ea5f4ee4a1b17bd598629af32b5d1823fdd8705885a5920d3c",
+    "main.tex": "77919dece03d946d197b8ced1e10a106fbcecb6efe919c6d6b7d348eeda35d36",
+    "provenance/before-external-results-20261106/chapters/01-introduction.tex": "8617239b73028ed0ef8ee1657285514e6d418ec1e5af38272ea5557a96762132",
+    "provenance/before-external-results-20261106/chapters/04-experimental-setup.tex": "f38ff2213118e028f3039faff9028048992cd72a508d36626e4639e339637629",
+    "provenance/before-external-results-20261106/main.tex": "5fb459d82db6540af380f47a08fec29953531459ed01694375a1bed4431774d8",
+    "provenance/before-intro-review-20261028/main.tex": "5a75086fab25641e6c38a602475efc426ed647e6911e4e0ec176c20d59d7b63c",
+    "provenance/before-intro-review-20261028/references.bib": "3c87ad8d1730604c8e3be0118ff3fe29c7ceb8f11037cda577df0fb03509b685",
+    "provenance/before-layout-fixes-20261108/chapters/05-external-comparisons.tex": "bc0d55fe2c1e018959d2cb83d3d038e2f4c3121c3fe79696451177a2c71d81fd",
+    "provenance/before-layout-fixes-20261108/main.tex": "48ff011995f6b4c477fa64fb7c2b364300920f8a2e5e32900315ce7a38f83dbb",
+    "provenance/foundation-candidates.bib": "6e8262e05531dec798e131c5f0495ef77386af0c7f640e29627b14c08e38b642",
+    "provenance/graph-grouping-candidates.bib": "27288eea4abe92741b584d121d107224c65020e34a309fcabc389d834200fea0",
+    "provenance/intro-candidates.bib": "ab2310668a2dfea50ae029fd7971dc33f5e41cd45c5248ca9ba273500d872131",
+    "provenance/remote-candidates.bib": "51a3f1125d6403d80a8a69f2206e984593ea55d15e1db2e1c692a9980c7ecf90",
+    "provenance/upstream-main.tex": "bcfab10440fa4a9151abc4908ffe9fc3b67af20b5e42374d81a9af6ebed76ae3",
+    "references.bib": "fadee6936a8d4b91043a0c6fa9c2794aee595bb072e4861990d70246a4a9997f"
+  }
+}

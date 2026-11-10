@@ -1,0 +1,258 @@
+{
+  "date": "2026-10-17",
+  "status": "audit_complete_target_visualization_incomplete",
+  "priority": "Fixed3x3_vs_fixed4x4_region_analysis_first; other_visualizations_follow",
+  "scope": "Local source, rendered artifacts and archived metadata; no server access, model execution or training",
+  "advisor_source": ".worktrees/sparse-hybrid-4n-top2/docs/supervisor_latest_email_received_20260924.md:13",
+  "local_inputs": {
+    "records": 90,
+    "classes": 45,
+    "per_class": 2,
+    "size": [
+      224,
+      224
+    ],
+    "png_sha256_checks": 90,
+    "all_inventory_hashes_match": true,
+    "inventory_sha256": "b9e7163a80a8ad8262231a8a5fba0718a6424573afb0b4e73582d6da0bfa76c5"
+  },
+  "legacy_diagnostic_png_count": 12,
+  "local_model_weight_files": [],
+  "local_k9_vs_k16_paired_figures_found": false,
+  "server_k9_artifact_status": "not_inspected",
+  "geometry": {
+    "3": {
+      "K": 9,
+      "assignment_7_by_7": [
+        [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2
+        ],
+        [
+          3,
+          3,
+          3,
+          4,
+          4,
+          5,
+          5
+        ],
+        [
+          3,
+          3,
+          3,
+          4,
+          4,
+          5,
+          5
+        ],
+        [
+          6,
+          6,
+          6,
+          7,
+          7,
+          8,
+          8
+        ],
+        [
+          6,
+          6,
+          6,
+          7,
+          7,
+          8,
+          8
+        ]
+      ],
+      "axis_token_counts": [
+        3,
+        2,
+        2
+      ],
+      "tokens_per_region": [
+        9,
+        6,
+        6,
+        6,
+        4,
+        4,
+        6,
+        4,
+        4
+      ],
+      "occupancy_histogram": {
+        "9": 1,
+        "6": 4,
+        "4": 4
+      },
+      "display_boundary_pixels": [
+        96,
+        160
+      ]
+    },
+    "4": {
+      "K": 16,
+      "assignment_7_by_7": [
+        [
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          4,
+          4,
+          5,
+          5,
+          6,
+          6,
+          7
+        ],
+        [
+          4,
+          4,
+          5,
+          5,
+          6,
+          6,
+          7
+        ],
+        [
+          8,
+          8,
+          9,
+          9,
+          10,
+          10,
+          11
+        ],
+        [
+          8,
+          8,
+          9,
+          9,
+          10,
+          10,
+          11
+        ],
+        [
+          12,
+          12,
+          13,
+          13,
+          14,
+          14,
+          15
+        ]
+      ],
+      "axis_token_counts": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "tokens_per_region": [
+        4,
+        4,
+        4,
+        2,
+        4,
+        4,
+        4,
+        2,
+        4,
+        4,
+        4,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "occupancy_histogram": {
+        "4": 9,
+        "2": 6,
+        "1": 1
+      },
+      "display_boundary_pixels": [
+        64,
+        128,
+        192
+      ]
+    }
+  },
+  "geometry_verification": "Independently reproduced from position formula shared by current source and frozen ed480e6; no learned boundaries or model predictions inferred",
+  "current_visualization_pair": "fixed_K16_vs_soft_K16",
+  "capture_script_supports_K9": false,
+  "sparse_hybrid_model_supports_K9": false,
+  "missing": [
+    "Same-input3x3/4x4 region overlays and case interpretation",
+    "Verified oldK9 model/code identity and captured graph edges",
+    "Corresponding spatial-structure and edge-semantic observations"
+  ],
+  "cost_boundary": "Geometry-only overlays can reuse90 saved224px inputs without weights or GPU; actual feature edges require authentic model artifacts/forward evidence; full retraining is not automatically required by the email",
+  "confounds": [
+    "Old/new versions also change pooling, graph construction and integration",
+    "Fixed4x4 is finer but not a nested subdivision of3x3 on the7x7 grid",
+    "Smaller regions do not establish improved semantic coherence",
+    "Constructed feature edges/GAT attention do not directly measure human semantic relations"
+  ],
+  "historical_k9_search_names": [
+    "best_gavit_K9_spatial.pth",
+    "best_gavit_K9_spatial_knn_fusion.pth"
+  ],
+  "source_code_sha256": {
+    ".worktrees/sparse-hybrid-4n-top2/models/region_grouping.py": "89cb8bb8a7e2ca76633a5a101285283e3275c95b1d77c442837c2e4159ecaca7",
+    ".worktrees/sparse-hybrid-4n-top2/models/gavit.py": "39b2fd72be3afca0bb450ff5b700966c75c8aa277b2cf303b6c3faf129faba3e",
+    ".worktrees/sparse-hybrid-4n-top2/models/graph_construction.py": "a0c36ceaf7a2f73b857c0eaac50df4abfb9c5617a4952f333a0dc514900dd8cc",
+    ".worktrees/sparse-hybrid-4n-top2/tools/visualize_nwpu_regions.py": "35ed63ce1ceda120fe9b5e78b157032c5e89d6b351f0caf67e05eef19d4080ba",
+    "visualize_region_diagnosis.py": "aa1a1140737a969af630a21cce450fdbf856a2ff575d7231ea418924df4f520c",
+    "visualize_graph.py": "5dfb79e3ad5f937db52d526f56cb0c258bc541551ffd86cd47a139b737445350"
+  },
+  "additional_email_consistency_findings_not_edited": [
+    "Email main seed labels say42/43/44/45, while the authoritative requested/reporting data cohort is42/43/46/47; user edits were not overwritten during this visualization audit.",
+    "Email BEN soft positive-seed labels say43/44; the archived selected-cohort scores imply43/46 positive and42/47 negative. Out-of-scope prose left untouched and recorded for later reconciliation."
+  ],
+  "formal_K9_comparison_metrics": null,
+  "new_3x3_4x4_gallery_generated": false,
+  "actual_visual_reviews": [
+    "results/figures/region_diagnosis/region_diag_church_04.png",
+    "results/figures/region_diagnosis/region_diag_airport_00.png"
+  ]
+}

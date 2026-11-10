@@ -1,0 +1,100 @@
+{
+  "exit_code": 0,
+  "ml_modules_loaded": [],
+  "reports": {
+    "inspect": {
+      "action": "inspect",
+      "batch_size": 16,
+      "blockers": [
+        "manifest",
+        "weights",
+        "version:python",
+        "target_gpu"
+      ],
+      "config_sha256": "af6ef410125e9d47c87acd0acec1a6db6e0119656793124ceafcb2379eedac25",
+      "counts": {
+        "test": 0,
+        "train": 16,
+        "val": 0
+      },
+      "dependencies": {
+        "Pillow": {
+          "import_tested": false,
+          "located": true,
+          "version": "10.3.0"
+        },
+        "numpy": {
+          "import_tested": false,
+          "located": true,
+          "version": "1.26.4"
+        },
+        "python": {
+          "import_tested": false,
+          "located": true,
+          "version": "3.12.13"
+        },
+        "torch": {
+          "import_tested": false,
+          "located": true,
+          "version": "2.2.2"
+        },
+        "torchvision": {
+          "import_tested": false,
+          "located": true,
+          "version": "0.17.2"
+        }
+      },
+      "disk": {
+        "blockers": [],
+        "output": {
+          "ancestor": "/Users/patrick/Projects/GAViT_Project/output/hgtnet_batch16_probe_3090_20261102",
+          "device": 16777234,
+          "free_bytes": 274625236992,
+          "path": "/Users/patrick/Projects/GAViT_Project/output/hgtnet_batch16_probe_3090_20261102/runs/batch16_seed42_01",
+          "required_bytes": 2147483648
+        },
+        "ready": true,
+        "same_volume": true,
+        "scratch": {
+          "ancestor": "/private/tmp",
+          "device": 16777234,
+          "free_bytes": 274625236992,
+          "path": "/tmp/hgtnet_batch16_probe_3090_20261102_rtx3090_seed42_01",
+          "required_bytes": 1073741824
+        }
+      },
+      "expected_optimizer_steps": 4,
+      "expected_processed_images": 64,
+      "expected_unique_images": 16,
+      "formal_training_started": false,
+      "gpu_error": "working NVIDIA GPU and process queries are required",
+      "manifest": "/home/featurize/work/nwpu_protocol_20260927_02.json",
+      "manifest_error": "[Errno 2] No such file or directory: '/home/featurize/work/nwpu_protocol_20260927_02.json'",
+      "measured_steps": 3,
+      "nvidia": {
+        "error": "[Errno 2] No such file or directory: 'nvidia-smi'",
+        "gpus": [],
+        "processes": []
+      },
+      "output": "/Users/patrick/Projects/GAViT_Project/output/hgtnet_batch16_probe_3090_20261102/runs/batch16_seed42_01",
+      "probe_scope": "16 unique frozen train images reused for one warmup and three measured disposable optimizer updates; shape/capacity/compute only; no validation, test, checkpoint, accuracy, epoch, formal training or full-data loader ETA",
+      "readiness_scope": "stdlib gates; run verifies actual imports/CUDA and full ZIP hash if recovery needed",
+      "ready": false,
+      "requested_gpu_uuid": null,
+      "schema": "hgtnet-batch16-capacity-probe-v1",
+      "scratch_root": "/tmp/hgtnet_batch16_probe_3090_20261102_rtx3090_seed42_01",
+      "target_gpu": "3090",
+      "warmup_steps": 1,
+      "weights": "/Users/patrick/Projects/GAViT_Project/output/swin_b-68c6b09e.pth",
+      "weights_error": "[Errno 2] No such file or directory: '/Users/patrick/Projects/GAViT_Project/output/swin_b-68c6b09e.pth'"
+    },
+    "status": {
+      "completed": false,
+      "exit_code": null,
+      "output": "/Users/patrick/Projects/GAViT_Project/output/hgtnet_batch16_probe_3090_20261102/runs/batch16_seed42_01",
+      "schema": "hgtnet-batch16-capacity-probe-v1",
+      "state": "not_started"
+    }
+  },
+  "scope": "actual production pyz stdlib inspect/status; target resources absent locally"
+}

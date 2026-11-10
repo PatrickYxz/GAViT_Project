@@ -1,0 +1,34 @@
+{
+  "scope": "local stdlib delivery validation only",
+  "local_cuda_tested": false,
+  "formal_training_started": false,
+  "tests": 12,
+  "status": "passed",
+  "source_sha256": {
+    "tools/run_aid_campaign.py": "55ac86e120c02910b62abbf2402ce7c6f8b2e21c864bcba9ae65d7cfb261e67b",
+    "tools/package_aid_campaign.py": "2bd2789303070fd04a7a7f950d32ab0f1dae06856bf19d8ae6fdbf48393ed6fb",
+    "tests/test_aid_campaign_delivery.py": "883bd6decbebdd521d951cf75956d1f4b7add1ecd5ab51893f6744c8b1e730b6"
+  },
+  "aids_weights_receipts_verified": [
+    ".worktrees/sparse-hybrid-4n-top2/results/evidence/aid_swin_calibrate42_20260920_01/run.json",
+    ".worktrees/sparse-hybrid-4n-top2/results/evidence/aid_gavit_calibrate42_20260920_01/run.json"
+  ],
+  "bundle": {
+    "path": "/Users/patrick/Projects/GAViT_Project/output/aid_campaign_20261110_v1.pyz",
+    "sha256": "ea5e7775874c4bf4cd93c4e17a7ea200227d9e8ebb18700227baef6fda864291",
+    "bytes": 922132,
+    "bundle_id": "cc0d42fc854b3b9e929dd00476b5eb041e2098ec996fd13633f0a9f96492eb77"
+  },
+  "full_suite": {
+    "tests": 421,
+    "failures": 1,
+    "errors": 56,
+    "status": "blocked_missing_local_ml_dependencies",
+    "log": "full_suite.log"
+  },
+  "campaign_suite": {
+    "tests": 26,
+    "status": "passed",
+    "log": "campaign_suite.log"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "first_guard_passed": false,
+  "error": "MetaPathFinder rejected importlib.util.find_spec(torch) used by stdlib dependency inventory; it was a spec lookup, not an ML import.",
+  "adjustment": "Block actual __import__ of ML roots and assert none loaded in sys.modules; allow spec lookup.",
+  "production_sources_changed": false
+}

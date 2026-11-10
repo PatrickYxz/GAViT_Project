@@ -1,0 +1,96 @@
+{
+  "bundle_sha256": "0d8ff18b2ecc9cd4903eb6c4833d3757b7c4e27605e0ac18d936b9158a7eac21",
+  "checks": {
+    "actual_disposable_parameter_update": true,
+    "bundle_entrypoint": true,
+    "complete_marker": true,
+    "complete_output_identity": true,
+    "deterministic_runtime": true,
+    "exactly_one_optimizer_step": true,
+    "finite_gradients_and_parameters": true,
+    "finite_positive_loss": true,
+    "graph_batch100": true,
+    "graph_classes45": true,
+    "graph_cuda": true,
+    "local_source_matches_delivered_bundle": true,
+    "memory_free_within_capacity": true,
+    "memory_peaks_consistent": true,
+    "no_formal_training": true,
+    "positive_elapsed": true,
+    "precision": true,
+    "seed_cpu_threads": true,
+    "selected_capacity": true,
+    "selected_gpu_name": true,
+    "selected_uuid": true,
+    "vgg_batch1": true,
+    "vgg_contract_shapes": true,
+    "vgg_finite": true
+  },
+  "complete_marker_semantics": [
+    "run_probe has already accepted the explicit UUID, selected device type/capacity, fixed manifest and weights identity, and cache header before initializing CUDA.",
+    "FeatureCache verifies the ordered 450-sample identity, current extraction source identity, all actual array SHA256 values, float32 shapes and finite contents before the reported VGG forward.",
+    "The real verified VGG16 file is loaded and numerical CUDA batch1 forward passes exact shape/finite checks.",
+    "A freshly initialized full-recipe graph model performs exactly one batch100 summed three-branch cross-entropy backward and Adam update, with finite gradients/parameters and a real parameter change.",
+    "Source and recipe hashes are checked again after the graph step.",
+    "summary.json is written with completed=true; run.exit is written with exit_code0; only then is the COMPLETE marker printed."
+  ],
+  "evidence_type": "User/server-reported actual target execution, supported by current local delivered-source semantics; reviewer performed no remote operation, CUDA execution, new model run, source edit or diary edit.",
+  "findings": [],
+  "memory_derived": {
+    "graph": {
+      "allocated_gib": 0.14481353759765625,
+      "allocated_mib": 148.2890625,
+      "reserved_gib": 0.177734375,
+      "reserved_mib": 182.0
+    },
+    "vgg": {
+      "allocated_gib": 0.5472912788391113,
+      "allocated_mib": 560.42626953125,
+      "reserved_gib": 0.6015625,
+      "reserved_mib": 616.0
+    }
+  },
+  "passed": 24,
+  "practical_limits": [
+    "The run establishes the current10GiB RTX3080 CUDA, verified VGG batch1 and full-recipe graph batch100 compatibility; it does not estimate formal OA, stable gains or paper-method numerical equivalence.",
+    "VGG inputs are normalized zero tensors; graph inputs reuse the prior450-sample frozen features solely for this disposable check. The complete real-image3080 formal pool extraction is a separate next stage.",
+    "Memory values are PyTorch allocated/reserved peaks for two separately measured stages, not total process/GPU resident memory. They should not be summed as simultaneous usage or presented as formal training peak.",
+    "VGG elapsed includes verified weight loading and forward; graph elapsed starts after model/features/device preparation. Neither figure alone measures formal epoch duration or end-to-end throughput.",
+    "The pasted return did not include the full summary/preflight/source_identity/cache digest records as independently copied JSON. The marker proves their successful write and relevant gates under this delivered runner, but exact remote identity hashes are not independently archived by this review. This limits provenance detail, not compatibility acceptance; no rerun or checkpoint download is necessary."
+  ],
+  "source_checks": {
+    "configs/dfagcn_independent_v1.json": {
+      "bundled": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+      "local": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+      "manifest_declared": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+      "match": true
+    },
+    "external_baselines/dfagcn/cache.py": {
+      "bundled": "abe24274c615b303eef7000a533c3902e56a2fc9ee904fda795a0248197d6a80",
+      "local": "abe24274c615b303eef7000a533c3902e56a2fc9ee904fda795a0248197d6a80",
+      "manifest_declared": "abe24274c615b303eef7000a533c3902e56a2fc9ee904fda795a0248197d6a80",
+      "match": true
+    },
+    "external_baselines/dfagcn/extraction.py": {
+      "bundled": "819d69decc9853c32df70bca71ee34603420bdae5d04ddd8c65c941b13607178",
+      "local": "819d69decc9853c32df70bca71ee34603420bdae5d04ddd8c65c941b13607178",
+      "manifest_declared": "819d69decc9853c32df70bca71ee34603420bdae5d04ddd8c65c941b13607178",
+      "match": true
+    },
+    "external_baselines/dfagcn/model.py": {
+      "bundled": "f638c4a606ca392348cf6714856cbd01ddc1b81ef2cc63cb4275b6d5e4d681ff",
+      "local": "f638c4a606ca392348cf6714856cbd01ddc1b81ef2cc63cb4275b6d5e4d681ff",
+      "manifest_declared": "f638c4a606ca392348cf6714856cbd01ddc1b81ef2cc63cb4275b6d5e4d681ff",
+      "match": true
+    },
+    "tools/probe_dfagcn_gpu.py": {
+      "bundled": "1eae9207ebeedafcd5ed901ab302238169c97bd5b4e50398bed4a60e21e15791",
+      "local": "1eae9207ebeedafcd5ed901ab302238169c97bd5b4e50398bed4a60e21e15791",
+      "manifest_declared": "1eae9207ebeedafcd5ed901ab302238169c97bd5b4e50398bed4a60e21e15791",
+      "match": true
+    }
+  },
+  "status": "SERVER_REPORTED_3080_BOUNDED_PROBE_PASS",
+  "total": 24,
+  "verdict": "Accept the real target GPU compatibility gate from the pasted server return and matching current delivered source; no need to rerun the probe or retrieve any checkpoint."
+}

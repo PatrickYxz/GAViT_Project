@@ -1,0 +1,221 @@
+test_disk_report_uses_existing_destination_ancestor_and_its_device (__main__.FormalResourceTests.test_disk_report_uses_existing_destination_ancestor_and_its_device) ... usage: test_dfagcn_formal_resources.py [-h] {inspect,run,status} ...
+test_dfagcn_formal_resources.py: error: unrecognized arguments: --scratch-root /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmp9rd9oloj/scratch
+ERROR
+test_existing_scratch_is_rejected_and_its_files_remain_unchanged (__main__.FormalResourceTests.test_existing_scratch_is_rejected_and_its_files_remain_unchanged) ... usage: test_dfagcn_formal_resources.py [-h] {inspect,run,status} ...
+test_dfagcn_formal_resources.py: error: unrecognized arguments: --scratch-root /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmp1ejnu6iv/scratch
+ERROR
+test_other_cuda_builds_and_base_versions_are_rejected (__main__.FormalResourceTests.test_other_cuda_builds_and_base_versions_are_rejected) ... usage: test_dfagcn_formal_resources.py [-h] {inspect,run,status} ...
+test_dfagcn_formal_resources.py: error: unrecognized arguments: --scratch-root /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmp1t92nay8/scratch
+ERROR
+test_reported_base_versions_and_distinct_filesystems_pass_without_importing_ml (__main__.FormalResourceTests.test_reported_base_versions_and_distinct_filesystems_pass_without_importing_ml) ... usage: test_dfagcn_formal_resources.py [-h] {inspect,run,status} ...
+test_dfagcn_formal_resources.py: error: unrecognized arguments: --scratch-root /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpgvgx92xa/scratch
+ERROR
+test_runtime_accepts_base_metadata_but_keeps_cuda_and_physical_binding_strict (__main__.FormalResourceTests.test_runtime_accepts_base_metadata_but_keeps_cuda_and_physical_binding_strict) ... usage: test_dfagcn_formal_resources.py [-h] {inspect,run,status} ...
+test_dfagcn_formal_resources.py: error: unrecognized arguments: --scratch-root /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpl21_ipft/scratch
+ERROR
+test_same_filesystem_requires_the_sum_of_both_budgets (__main__.FormalResourceTests.test_same_filesystem_requires_the_sum_of_both_budgets) ... usage: test_dfagcn_formal_resources.py [-h] {inspect,run,status} ...
+test_dfagcn_formal_resources.py: error: unrecognized arguments: --scratch-root /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpnkdd1e8p/scratch
+ERROR
+test_two_eligible_gpus_require_an_explicit_choice (__main__.FormalResourceTests.test_two_eligible_gpus_require_an_explicit_choice) ... usage: test_dfagcn_formal_resources.py [-h] {inspect,run,status} ...
+test_dfagcn_formal_resources.py: error: unrecognized arguments: --scratch-root /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpwer1w4o8/scratch
+ERROR
+test_unique_current_gpu_is_bound_explicitly_in_generated_command (__main__.FormalResourceTests.test_unique_current_gpu_is_bound_explicitly_in_generated_command) ... usage: test_dfagcn_formal_resources.py [-h] {inspect,run,status} ...
+test_dfagcn_formal_resources.py: error: unrecognized arguments: --scratch-root /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmphlf0inxk/scratch
+ERROR
+
+======================================================================
+ERROR: test_disk_report_uses_existing_destination_ancestor_and_its_device (__main__.FormalResourceTests.test_disk_report_uses_existing_destination_ancestor_and_its_device)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_resources.py", line 31, in setUp
+    self.args = original.FormalRunnerTests.resources(self, self.module)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 57, in resources
+    args=module.parser().parse_args(['run','--gpu-uuid',module.GPU.TARGET_UUID,
+        '--manifest',str(manifest),'--data-root',str(self.root/'missing-data'),'--archive',str(archive),
+    ...<2 lines>...
+        '--scratch-root',str(self.root/'scratch'),
+        '--output',str(self.root/'formal-run'),'--background-log',str(self.root/'background.log')])
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2009, in parse_args
+    self.error(msg)
+    ~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2782, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2769, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+ERROR: test_existing_scratch_is_rejected_and_its_files_remain_unchanged (__main__.FormalResourceTests.test_existing_scratch_is_rejected_and_its_files_remain_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_resources.py", line 31, in setUp
+    self.args = original.FormalRunnerTests.resources(self, self.module)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 57, in resources
+    args=module.parser().parse_args(['run','--gpu-uuid',module.GPU.TARGET_UUID,
+        '--manifest',str(manifest),'--data-root',str(self.root/'missing-data'),'--archive',str(archive),
+    ...<2 lines>...
+        '--scratch-root',str(self.root/'scratch'),
+        '--output',str(self.root/'formal-run'),'--background-log',str(self.root/'background.log')])
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2009, in parse_args
+    self.error(msg)
+    ~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2782, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2769, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+ERROR: test_other_cuda_builds_and_base_versions_are_rejected (__main__.FormalResourceTests.test_other_cuda_builds_and_base_versions_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_resources.py", line 31, in setUp
+    self.args = original.FormalRunnerTests.resources(self, self.module)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 57, in resources
+    args=module.parser().parse_args(['run','--gpu-uuid',module.GPU.TARGET_UUID,
+        '--manifest',str(manifest),'--data-root',str(self.root/'missing-data'),'--archive',str(archive),
+    ...<2 lines>...
+        '--scratch-root',str(self.root/'scratch'),
+        '--output',str(self.root/'formal-run'),'--background-log',str(self.root/'background.log')])
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2009, in parse_args
+    self.error(msg)
+    ~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2782, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2769, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+ERROR: test_reported_base_versions_and_distinct_filesystems_pass_without_importing_ml (__main__.FormalResourceTests.test_reported_base_versions_and_distinct_filesystems_pass_without_importing_ml)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_resources.py", line 31, in setUp
+    self.args = original.FormalRunnerTests.resources(self, self.module)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 57, in resources
+    args=module.parser().parse_args(['run','--gpu-uuid',module.GPU.TARGET_UUID,
+        '--manifest',str(manifest),'--data-root',str(self.root/'missing-data'),'--archive',str(archive),
+    ...<2 lines>...
+        '--scratch-root',str(self.root/'scratch'),
+        '--output',str(self.root/'formal-run'),'--background-log',str(self.root/'background.log')])
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2009, in parse_args
+    self.error(msg)
+    ~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2782, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2769, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+ERROR: test_runtime_accepts_base_metadata_but_keeps_cuda_and_physical_binding_strict (__main__.FormalResourceTests.test_runtime_accepts_base_metadata_but_keeps_cuda_and_physical_binding_strict)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_resources.py", line 31, in setUp
+    self.args = original.FormalRunnerTests.resources(self, self.module)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 57, in resources
+    args=module.parser().parse_args(['run','--gpu-uuid',module.GPU.TARGET_UUID,
+        '--manifest',str(manifest),'--data-root',str(self.root/'missing-data'),'--archive',str(archive),
+    ...<2 lines>...
+        '--scratch-root',str(self.root/'scratch'),
+        '--output',str(self.root/'formal-run'),'--background-log',str(self.root/'background.log')])
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2009, in parse_args
+    self.error(msg)
+    ~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2782, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2769, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+ERROR: test_same_filesystem_requires_the_sum_of_both_budgets (__main__.FormalResourceTests.test_same_filesystem_requires_the_sum_of_both_budgets)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_resources.py", line 31, in setUp
+    self.args = original.FormalRunnerTests.resources(self, self.module)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 57, in resources
+    args=module.parser().parse_args(['run','--gpu-uuid',module.GPU.TARGET_UUID,
+        '--manifest',str(manifest),'--data-root',str(self.root/'missing-data'),'--archive',str(archive),
+    ...<2 lines>...
+        '--scratch-root',str(self.root/'scratch'),
+        '--output',str(self.root/'formal-run'),'--background-log',str(self.root/'background.log')])
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2009, in parse_args
+    self.error(msg)
+    ~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2782, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2769, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+ERROR: test_two_eligible_gpus_require_an_explicit_choice (__main__.FormalResourceTests.test_two_eligible_gpus_require_an_explicit_choice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_resources.py", line 31, in setUp
+    self.args = original.FormalRunnerTests.resources(self, self.module)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 57, in resources
+    args=module.parser().parse_args(['run','--gpu-uuid',module.GPU.TARGET_UUID,
+        '--manifest',str(manifest),'--data-root',str(self.root/'missing-data'),'--archive',str(archive),
+    ...<2 lines>...
+        '--scratch-root',str(self.root/'scratch'),
+        '--output',str(self.root/'formal-run'),'--background-log',str(self.root/'background.log')])
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2009, in parse_args
+    self.error(msg)
+    ~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2782, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2769, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+ERROR: test_unique_current_gpu_is_bound_explicitly_in_generated_command (__main__.FormalResourceTests.test_unique_current_gpu_is_bound_explicitly_in_generated_command)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_resources.py", line 31, in setUp
+    self.args = original.FormalRunnerTests.resources(self, self.module)
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 57, in resources
+    args=module.parser().parse_args(['run','--gpu-uuid',module.GPU.TARGET_UUID,
+        '--manifest',str(manifest),'--data-root',str(self.root/'missing-data'),'--archive',str(archive),
+    ...<2 lines>...
+        '--scratch-root',str(self.root/'scratch'),
+        '--output',str(self.root/'formal-run'),'--background-log',str(self.root/'background.log')])
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2009, in parse_args
+    self.error(msg)
+    ~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2782, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/argparse.py", line 2769, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.165s
+
+FAILED (errors=8)

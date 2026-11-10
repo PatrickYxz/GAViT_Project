@@ -1,0 +1,18 @@
+test_changed_image_and_symlinks_are_rejected (test_hgtnet_aid_inputs.AidInputsTests.test_changed_image_and_symlinks_are_rejected) ... ok
+test_cli_is_stdout_json_with_inventory_even_when_assets_missing (test_hgtnet_aid_inputs.AidInputsTests.test_cli_is_stdout_json_with_inventory_even_when_assets_missing) ... ok
+test_cli_rejects_fixture_sha_and_has_no_override_flag (test_hgtnet_aid_inputs.AidInputsTests.test_cli_rejects_fixture_sha_and_has_no_override_flag) ... ok
+test_gpu_inventory_is_bounded_and_preserves_actual_uuid (test_hgtnet_aid_inputs.AidInputsTests.test_gpu_inventory_is_bounded_and_preserves_actual_uuid) ... ok
+test_import_and_main_are_stdlib_only_and_do_not_write (test_hgtnet_aid_inputs.AidInputsTests.test_import_and_main_are_stdlib_only_and_do_not_write) ... ok
+test_invalid_metadata_paths_labels_hashes_counts_and_pixel_groups (test_hgtnet_aid_inputs.AidInputsTests.test_invalid_metadata_paths_labels_hashes_counts_and_pixel_groups) ... ok
+test_malformed_json_and_non_regular_manifest_return_inventory_errors (test_hgtnet_aid_inputs.AidInputsTests.test_malformed_json_and_non_regular_manifest_return_inventory_errors) ... ok
+test_manifest_and_weights_symlinks_are_not_followed (test_hgtnet_aid_inputs.AidInputsTests.test_manifest_and_weights_symlinks_are_not_followed) ... ok
+test_missing_images_are_reported_without_claiming_verification (test_hgtnet_aid_inputs.AidInputsTests.test_missing_images_are_reported_without_claiming_verification) ... ok
+test_missing_manifest_and_bad_sha_do_not_read_images (test_hgtnet_aid_inputs.AidInputsTests.test_missing_manifest_and_bad_sha_do_not_read_images) ... ok
+test_same_class_same_split_duplicate_group_is_preserved (test_hgtnet_aid_inputs.AidInputsTests.test_same_class_same_split_duplicate_group_is_preserved) ... ok
+test_selects_240_60_from_unequal_classes_and_reads_no_test_bytes (test_hgtnet_aid_inputs.AidInputsTests.test_selects_240_60_from_unequal_classes_and_reads_no_test_bytes) ... ok
+test_weights_stream_full_hash_and_report_missing_or_mismatch (test_hgtnet_aid_inputs.AidInputsTests.test_weights_stream_full_hash_and_report_missing_or_mismatch) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 2.207s
+
+OK

@@ -1,0 +1,241 @@
+test_3080_default_capacity_policy_remains_bounded (test_hgtnet_cuda_device.CudaDeviceTests.test_3080_default_capacity_policy_remains_bounded) ... FAIL
+test_actual_runtime_adapter_accepts_reported_visible_capacity (test_hgtnet_cuda_device.CudaDeviceTests.test_actual_runtime_adapter_accepts_reported_visible_capacity) ... FAIL
+test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) ... 
+  test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value=0) ... FAIL
+  test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value=-1) ... FAIL
+  test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value=True) ... FAIL
+  test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value=None) ... FAIL
+  test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value=24123.5) ... FAIL
+  test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value='24123') ... FAIL
+  test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value=24696061951) ... FAIL
+  test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value=25769803777) ... FAIL
+test_exact_and_1gib_boundary_are_accepted (test_hgtnet_cuda_device.CudaDeviceTests.test_exact_and_1gib_boundary_are_accepted) ... 
+  test_exact_and_1gib_boundary_are_accepted (test_hgtnet_cuda_device.CudaDeviceTests.test_exact_and_1gib_boundary_are_accepted) (mib=24576) ... FAIL
+  test_exact_and_1gib_boundary_are_accepted (test_hgtnet_cuda_device.CudaDeviceTests.test_exact_and_1gib_boundary_are_accepted) (mib=24123) ... FAIL
+  test_exact_and_1gib_boundary_are_accepted (test_hgtnet_cuda_device.CudaDeviceTests.test_exact_and_1gib_boundary_are_accepted) (mib=23552) ... FAIL
+test_user_reported_453_mib_gap_keeps_both_observations (test_hgtnet_cuda_device.CudaDeviceTests.test_user_reported_453_mib_gap_keeps_both_observations) ... FAIL
+test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) ... 
+  test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) (field='available', value=False) ... FAIL
+  test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) (field='available', value=1) ... FAIL
+  test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) (field='device_count', value=0) ... FAIL
+  test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) (field='device_count', value=2) ... FAIL
+  test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) (field='device_count', value=True) ... FAIL
+  test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) (field='name', value='NVIDIA GeForce RTX 3080') ... FAIL
+
+======================================================================
+FAIL: test_3080_default_capacity_policy_remains_bounded (test_hgtnet_cuda_device.CudaDeviceTests.test_3080_default_capacity_policy_remains_bounded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 54, in test_3080_default_capacity_policy_remains_bounded
+    self.check(self.probe(name=gpu['name'],total_memory_bytes=9874*1024**2),gpu)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_actual_runtime_adapter_accepts_reported_visible_capacity (test_hgtnet_cuda_device.CudaDeviceTests.test_actual_runtime_adapter_accepts_reported_visible_capacity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 73, in test_actual_runtime_adapter_accepts_reported_visible_capacity
+    try:actual,runtime=module._runtime_and_torch(args,gpu)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tools/run_hgtnet_nwpu_smoke.py", line 121, in _runtime_and_torch
+    raise ValueError('Actual CUDA-visible device differs from selected RTX'+args.target_gpu)
+ValueError: Actual CUDA-visible device differs from selected RTX3090
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 74, in test_actual_runtime_adapter_accepts_reported_visible_capacity
+    except ValueError as exc:self.fail('reported healthy CUDA device was rejected: '+str(exc))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: reported healthy CUDA device was rejected: Actual CUDA-visible device differs from selected RTX3090
+
+======================================================================
+FAIL: test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 44, in test_bad_capacities_do_not_pass_identity_or_memory_gate
+    self.check(self.probe(total_memory_bytes=value))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 44, in test_bad_capacities_do_not_pass_identity_or_memory_gate
+    self.check(self.probe(total_memory_bytes=value))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 44, in test_bad_capacities_do_not_pass_identity_or_memory_gate
+    self.check(self.probe(total_memory_bytes=value))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 44, in test_bad_capacities_do_not_pass_identity_or_memory_gate
+    self.check(self.probe(total_memory_bytes=value))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value=24123.5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 44, in test_bad_capacities_do_not_pass_identity_or_memory_gate
+    self.check(self.probe(total_memory_bytes=value))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value='24123')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 44, in test_bad_capacities_do_not_pass_identity_or_memory_gate
+    self.check(self.probe(total_memory_bytes=value))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value=24696061951)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 44, in test_bad_capacities_do_not_pass_identity_or_memory_gate
+    self.check(self.probe(total_memory_bytes=value))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) (value=25769803777)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 44, in test_bad_capacities_do_not_pass_identity_or_memory_gate
+    self.check(self.probe(total_memory_bytes=value))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_exact_and_1gib_boundary_are_accepted (test_hgtnet_cuda_device.CudaDeviceTests.test_exact_and_1gib_boundary_are_accepted) (mib=24576)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 39, in test_exact_and_1gib_boundary_are_accepted
+    with self.subTest(mib=mib):self.check(self.probe(total_memory_bytes=mib*1024**2))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_exact_and_1gib_boundary_are_accepted (test_hgtnet_cuda_device.CudaDeviceTests.test_exact_and_1gib_boundary_are_accepted) (mib=24123)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 39, in test_exact_and_1gib_boundary_are_accepted
+    with self.subTest(mib=mib):self.check(self.probe(total_memory_bytes=mib*1024**2))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_exact_and_1gib_boundary_are_accepted (test_hgtnet_cuda_device.CudaDeviceTests.test_exact_and_1gib_boundary_are_accepted) (mib=23552)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 39, in test_exact_and_1gib_boundary_are_accepted
+    with self.subTest(mib=mib):self.check(self.probe(total_memory_bytes=mib*1024**2))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_user_reported_453_mib_gap_keeps_both_observations (test_hgtnet_cuda_device.CudaDeviceTests.test_user_reported_453_mib_gap_keeps_both_observations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 31, in test_user_reported_453_mib_gap_keeps_both_observations
+    gpu=self.gpu();report=self.check(self.probe(),gpu)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) (field='available', value=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 50, in test_wrong_name_count_and_unavailable_still_fail
+    self.check(self.probe(**{field:value}))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) (field='available', value=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 50, in test_wrong_name_count_and_unavailable_still_fail
+    self.check(self.probe(**{field:value}))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) (field='device_count', value=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 50, in test_wrong_name_count_and_unavailable_still_fail
+    self.check(self.probe(**{field:value}))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) (field='device_count', value=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 50, in test_wrong_name_count_and_unavailable_still_fail
+    self.check(self.probe(**{field:value}))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) (field='device_count', value=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 50, in test_wrong_name_count_and_unavailable_still_fail
+    self.check(self.probe(**{field:value}))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+======================================================================
+FAIL: test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) (field='name', value='NVIDIA GeForce RTX 3080')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 50, in test_wrong_name_count_and_unavailable_still_fail
+    self.check(self.probe(**{field:value}))
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_cuda_device.py", line 27, in check
+    self.assertTrue(hasattr(module,'_check_cuda_device'),'separate CUDA capacity check is missing')
+AssertionError: False is not true : separate CUDA capacity check is missing
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.026s
+
+FAILED (failures=20)

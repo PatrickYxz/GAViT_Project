@@ -1,0 +1,104 @@
+test_calibration_refit_and_test_complete_with_actual_linear_binaries (test_dfagcn_pipeline.PipelineTests.test_calibration_refit_and_test_complete_with_actual_linear_binaries) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+FAIL
+test_stage_rejects_wrong_split_random_formal_and_calibration_as_final (test_dfagcn_pipeline.PipelineTests.test_stage_rejects_wrong_split_random_formal_and_calibration_as_final) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+FAIL
+test_tampered_selection_recipe_and_refit_checkpoint_are_rejected (test_dfagcn_pipeline.PipelineTests.test_tampered_selection_recipe_and_refit_checkpoint_are_rejected) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+FAIL
+
+======================================================================
+FAIL: test_calibration_refit_and_test_complete_with_actual_linear_binaries (test_dfagcn_pipeline.PipelineTests.test_calibration_refit_and_test_complete_with_actual_linear_binaries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_pipeline.py", line 17, in api
+    return importlib.import_module('external_baselines.dfagcn.pipeline')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.pipeline'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_pipeline.py", line 69, in test_calibration_refit_and_test_complete_with_actual_linear_binaries
+    recipe,caches=self.fixtures()
+                  ^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_pipeline.py", line 41, in fixtures
+    module = api()
+             ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_pipeline.py", line 19, in api
+    raise AssertionError('DFAGCN stage pipeline is not implemented') from exc
+AssertionError: DFAGCN stage pipeline is not implemented
+
+======================================================================
+FAIL: test_stage_rejects_wrong_split_random_formal_and_calibration_as_final (test_dfagcn_pipeline.PipelineTests.test_stage_rejects_wrong_split_random_formal_and_calibration_as_final)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_pipeline.py", line 17, in api
+    return importlib.import_module('external_baselines.dfagcn.pipeline')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.pipeline'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_pipeline.py", line 89, in test_stage_rejects_wrong_split_random_formal_and_calibration_as_final
+    recipe,caches=self.fixtures()
+                  ^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_pipeline.py", line 41, in fixtures
+    module = api()
+             ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_pipeline.py", line 19, in api
+    raise AssertionError('DFAGCN stage pipeline is not implemented') from exc
+AssertionError: DFAGCN stage pipeline is not implemented
+
+======================================================================
+FAIL: test_tampered_selection_recipe_and_refit_checkpoint_are_rejected (test_dfagcn_pipeline.PipelineTests.test_tampered_selection_recipe_and_refit_checkpoint_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_pipeline.py", line 17, in api
+    return importlib.import_module('external_baselines.dfagcn.pipeline')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.dfagcn.pipeline'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_pipeline.py", line 103, in test_tampered_selection_recipe_and_refit_checkpoint_are_rejected
+    recipe,caches=self.fixtures()
+                  ^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_pipeline.py", line 41, in fixtures
+    module = api()
+             ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_pipeline.py", line 19, in api
+    raise AssertionError('DFAGCN stage pipeline is not implemented') from exc
+AssertionError: DFAGCN stage pipeline is not implemented
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.048s
+
+FAILED (failures=3)

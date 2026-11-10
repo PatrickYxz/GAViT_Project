@@ -1,0 +1,10 @@
+{
+  "output/dfagcn_gpu_probe_3080_20261030.pyz": {
+    "bytes": 133564,
+    "sha256": "0d8ff18b2ecc9cd4903eb6c4833d3757b7c4e27605e0ac18d936b9158a7eac21"
+  },
+  "output/dfagcn_nwpu_smoke_20261029.pyz": {
+    "bytes": 134156,
+    "sha256": "f7ff678be35517aca7edc3a181862a56d739cc0be1a7496a5c63dac4b269daca"
+  }
+}

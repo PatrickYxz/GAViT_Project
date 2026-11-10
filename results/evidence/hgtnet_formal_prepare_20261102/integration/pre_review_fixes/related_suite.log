@@ -1,0 +1,610 @@
+test_changed_file_and_record_order_rejected_before_output (test_dfagcn_cache_extract.ExtractionContractTests.test_changed_file_and_record_order_rejected_before_output) ... ok
+test_pool_and_preprocessing_mismatch_rejected (test_dfagcn_cache_extract.ExtractionContractTests.test_pool_and_preprocessing_mismatch_rejected) ... ok
+test_real_vgg_cpu_fc6_and_pooled_convolutions_are_cached (test_dfagcn_cache_extract.ExtractionContractTests.test_real_vgg_cpu_fc6_and_pooled_convolutions_are_cached) ... ok
+test_supplied_real_vgg_weight_file_roundtrip_preserves_cpu_fc6 (test_dfagcn_cache_extract.ExtractionContractTests.test_supplied_real_vgg_weight_file_roundtrip_preserves_cpu_fc6) ... ok
+test_weight_loader_rejects_wrong_sha_before_deserializing (test_dfagcn_cache_extract.ExtractionContractTests.test_weight_loader_rejects_wrong_sha_before_deserializing) ... ok
+test_cache_rejects_forged_array_metadata_even_with_intact_data (test_dfagcn_cache_extract.FeatureCacheTests.test_cache_rejects_forged_array_metadata_even_with_intact_data) ... ok
+test_cache_rejects_identity_order_mismatch_and_altered_file (test_dfagcn_cache_extract.FeatureCacheTests.test_cache_rejects_identity_order_mismatch_and_altered_file) ... ok
+test_exact_sample_count_and_pooling_contract_are_enforced (test_dfagcn_cache_extract.FeatureCacheTests.test_exact_sample_count_and_pooling_contract_are_enforced) ... ok
+test_incomplete_bad_batch_keeps_directory_without_complete_index (test_dfagcn_cache_extract.FeatureCacheTests.test_incomplete_bad_batch_keeps_directory_without_complete_index) ... ok
+test_streamed_batches_reload_as_independent_tensor_rows (test_dfagcn_cache_extract.FeatureCacheTests.test_streamed_batches_reload_as_independent_tensor_rows) ... ok
+test_help_exposes_all_workflow_commands (test_dfagcn_cli.CLITests.test_help_exposes_all_workflow_commands) ... ok
+test_three_graph_branches_fuse_with_fc_and_backpropagate_independently (test_dfagcn_component_chain.ComponentChainTests.test_three_graph_branches_fuse_with_fc_and_backpropagate_independently) ... ok
+test_bundle_excludes_weights_and_binaries_and_pins_source_bytes (test_dfagcn_delivery.DeliveryTests.test_bundle_excludes_weights_and_binaries_and_pins_source_bytes) ... ok
+test_cli_extra_members_are_appended_to_a_custom_bundle (test_dfagcn_delivery.DeliveryTests.test_cli_extra_members_are_appended_to_a_custom_bundle) ... ok
+test_current_reader_accepts_immutable_legacy_bundle_without_runner_field (test_dfagcn_delivery.DeliveryTests.test_current_reader_accepts_immutable_legacy_bundle_without_runner_field) ... ok
+test_custom_runner_member_is_dispatched_from_manifest (test_dfagcn_delivery.DeliveryTests.test_custom_runner_member_is_dispatched_from_manifest) ... ok
+test_custom_runner_status_is_forwarded_without_starting_a_run (test_dfagcn_delivery.DeliveryTests.test_custom_runner_status_is_forwarded_without_starting_a_run) ... ok
+test_extra_helpers_are_importable_from_real_custom_entrypoint (test_dfagcn_delivery.DeliveryTests.test_extra_helpers_are_importable_from_real_custom_entrypoint) ... ok
+test_extra_member_directories_missing_files_and_symlinks_are_rejected (test_dfagcn_delivery.DeliveryTests.test_extra_member_directories_missing_files_and_symlinks_are_rejected) ... ok
+test_extra_member_paths_duplicates_and_payload_overrides_are_rejected (test_dfagcn_delivery.DeliveryTests.test_extra_member_paths_duplicates_and_payload_overrides_are_rejected) ... ok
+test_invalid_runner_member_is_rejected_before_output_creation (test_dfagcn_delivery.DeliveryTests.test_invalid_runner_member_is_rejected_before_output_creation) ... ok
+test_invalid_weights_metadata_fails_before_artifact_creation (test_dfagcn_delivery.DeliveryTests.test_invalid_weights_metadata_fails_before_artifact_creation) ... ok
+test_optional_weights_metadata_is_validated_and_shipped (test_dfagcn_delivery.DeliveryTests.test_optional_weights_metadata_is_validated_and_shipped) ... ok
+test_path_traversal_and_duplicate_archive_members_are_rejected (test_dfagcn_delivery.DeliveryTests.test_path_traversal_and_duplicate_archive_members_are_rejected) ... ok
+test_preexisting_or_partial_workspace_is_never_overwritten (test_dfagcn_delivery.DeliveryTests.test_preexisting_or_partial_workspace_is_never_overwritten) ... ok
+test_real_official_source_build_produces_verified_local_binaries (test_dfagcn_delivery.DeliveryTests.test_real_official_source_build_produces_verified_local_binaries) ... ok
+test_real_zipapp_inspect_delegates_and_reuse_checks_immutable_files (test_dfagcn_delivery.DeliveryTests.test_real_zipapp_inspect_delegates_and_reuse_checks_immutable_files) ... ok
+test_branch_rejects_input_device_different_from_parameters (test_dfagcn_features.FeatureAdapterTests.test_branch_rejects_input_device_different_from_parameters) ... ok
+test_complete_torchvision_vgg16_meta_forward_has_paper_layer_shapes (test_dfagcn_features.FeatureAdapterTests.test_complete_torchvision_vgg16_meta_forward_has_paper_layer_shapes) ... ok
+test_cpu_convolution_input_rejects_nonfinite_pixels (test_dfagcn_features.FeatureAdapterTests.test_cpu_convolution_input_rejects_nonfinite_pixels) ... ok
+test_cpu_convolution_state_roundtrip_preserves_real_outputs (test_dfagcn_features.FeatureAdapterTests.test_cpu_convolution_state_roundtrip_preserves_real_outputs) ... ok
+test_fc_method_independently_runs_complete_meta_path_in_eval (test_dfagcn_features.FeatureAdapterTests.test_fc_method_independently_runs_complete_meta_path_in_eval) ... ok
+test_features_stay_in_eval_after_parent_or_backbone_train (test_dfagcn_features.FeatureAdapterTests.test_features_stay_in_eval_after_parent_or_backbone_train) ... ok
+test_forward_rejects_different_batch_sizes (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_batch_sizes) ... ok
+test_forward_rejects_different_input_devices (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_input_devices) ... ok
+test_forward_rejects_different_input_dtypes (test_dfagcn_features.FeatureAdapterTests.test_forward_rejects_different_input_dtypes) ... ok
+test_input_contract_rejects_invalid_branch_tensors (test_dfagcn_features.FeatureAdapterTests.test_input_contract_rejects_invalid_branch_tensors) ... ok
+test_preserves_callers_parameter_gradient_flags (test_dfagcn_features.FeatureAdapterTests.test_preserves_callers_parameter_gradient_flags) ... ok
+test_real_cpu_convolutions_preserve_negative_pre_relu_values (test_dfagcn_features.FeatureAdapterTests.test_real_cpu_convolutions_preserve_negative_pre_relu_values) ... ok
+test_rejects_incompatible_backbone_layout_or_parameters (test_dfagcn_features.FeatureAdapterTests.test_rejects_incompatible_backbone_layout_or_parameters) ... ok
+test_disk_report_uses_existing_destination_ancestor_and_its_device (test_dfagcn_formal_resources.FormalResourceTests.test_disk_report_uses_existing_destination_ancestor_and_its_device) ... ok
+test_existing_scratch_is_rejected_and_its_files_remain_unchanged (test_dfagcn_formal_resources.FormalResourceTests.test_existing_scratch_is_rejected_and_its_files_remain_unchanged) ... ok
+test_other_cuda_builds_and_base_versions_are_rejected (test_dfagcn_formal_resources.FormalResourceTests.test_other_cuda_builds_and_base_versions_are_rejected) ... ok
+test_reported_base_versions_and_distinct_filesystems_pass_without_importing_ml (test_dfagcn_formal_resources.FormalResourceTests.test_reported_base_versions_and_distinct_filesystems_pass_without_importing_ml) ... ok
+test_runtime_accepts_base_metadata_but_keeps_cuda_and_physical_binding_strict (test_dfagcn_formal_resources.FormalResourceTests.test_runtime_accepts_base_metadata_but_keeps_cuda_and_physical_binding_strict) ... ok
+test_same_filesystem_requires_the_sum_of_both_budgets (test_dfagcn_formal_resources.FormalResourceTests.test_same_filesystem_requires_the_sum_of_both_budgets) ... ok
+test_two_eligible_gpus_require_an_explicit_choice (test_dfagcn_formal_resources.FormalResourceTests.test_two_eligible_gpus_require_an_explicit_choice) ... ok
+test_unique_current_gpu_is_bound_explicitly_in_generated_command (test_dfagcn_formal_resources.FormalResourceTests.test_unique_current_gpu_is_bound_explicitly_in_generated_command) ... ok
+test_actual_float32_cache_slices_preserve_pool_order_without_vgg (test_dfagcn_formal_runner.FormalRunnerTests.test_actual_float32_cache_slices_preserve_pool_order_without_vgg) ... ok
+test_actual_test_zip_recovery_counts_and_refuses_overwrite (test_dfagcn_formal_runner.FormalRunnerTests.test_actual_test_zip_recovery_counts_and_refuses_overwrite) ... ok
+test_compact_status_excludes_predictions_and_confusion_matrix (test_dfagcn_formal_runner.FormalRunnerTests.test_compact_status_excludes_predictions_and_confusion_matrix) ... ok
+test_failure_before_first_calibration_batch_keeps_start_unknown (test_dfagcn_formal_runner.FormalRunnerTests.test_failure_before_first_calibration_batch_keeps_start_unknown) ... ok
+test_failure_saves_log_exit_and_cannot_overwrite_or_restart (test_dfagcn_formal_runner.FormalRunnerTests.test_failure_saves_log_exit_and_cannot_overwrite_or_restart) ... ok
+test_formal_stage_order_and_receipts_with_only_cuda_boundary_substituted (test_dfagcn_formal_runner.FormalRunnerTests.test_formal_stage_order_and_receipts_with_only_cuda_boundary_substituted) ... ok
+test_full_pool_protocol_and_fixed_recipe (test_dfagcn_formal_runner.FormalRunnerTests.test_full_pool_protocol_and_fixed_recipe) ... ok
+test_generated_nohup_command_runs_and_cannot_replace_existing_log (test_dfagcn_formal_runner.FormalRunnerTests.test_generated_nohup_command_runs_and_cannot_replace_existing_log) ... ok
+test_inspect_is_stdlib_only_and_prints_exclusive_background_command (test_dfagcn_formal_runner.FormalRunnerTests.test_inspect_is_stdlib_only_and_prints_exclusive_background_command) ... ok
+test_inspect_rejects_low_disk_busy_gpu_versions_and_existing_output (test_dfagcn_formal_runner.FormalRunnerTests.test_inspect_rejects_low_disk_busy_gpu_versions_and_existing_output) ... ok
+test_later_failure_preserves_observed_training_start (test_dfagcn_formal_runner.FormalRunnerTests.test_later_failure_preserves_observed_training_start) ... ok
+test_malformed_batch_marker_cannot_establish_training_start (test_dfagcn_formal_runner.FormalRunnerTests.test_malformed_batch_marker_cannot_establish_training_start) ... ok
+test_new_bundle_reuses_complete_previous_native_build_only (test_dfagcn_formal_runner.FormalRunnerTests.test_new_bundle_reuses_complete_previous_native_build_only) ... ok
+test_run_requires_explicit_uuid_and_status_is_read_only (test_dfagcn_formal_runner.FormalRunnerTests.test_run_requires_explicit_uuid_and_status_is_read_only) ... ok
+test_runtime_rejects_cpu_or_changed_cuda_software_recipe (test_dfagcn_formal_runner.FormalRunnerTests.test_runtime_rejects_cpu_or_changed_cuda_software_recipe) ... ok
+test_test_recovery_rejects_traversal_wrong_sha_and_mixed_split (test_dfagcn_formal_runner.FormalRunnerTests.test_test_recovery_rejects_traversal_wrong_sha_and_mixed_split) ... ok
+test_order_dimensions_and_gradient_match_equation (test_dfagcn_fusion.FusionTests.test_order_dimensions_and_gradient_match_equation) ... ok
+test_paper_coefficients_explicit_by_dataset (test_dfagcn_fusion.FusionTests.test_paper_coefficients_explicit_by_dataset) ... ok
+test_rejects_finite_inputs_whose_weighted_output_overflows (test_dfagcn_fusion.FusionTests.test_rejects_finite_inputs_whose_weighted_output_overflows) ... ok
+test_rejects_invalid_coefficients (test_dfagcn_fusion.FusionTests.test_rejects_invalid_coefficients) ... ok
+test_rejects_invalid_or_mismatched_branch (test_dfagcn_fusion.FusionTests.test_rejects_invalid_or_mismatched_branch) ... ok
+test_rejects_mixed_dtype_and_device (test_dfagcn_fusion.FusionTests.test_rejects_mixed_dtype_and_device) ... ok
+test_zero_weights_keep_slots_without_normalization (test_dfagcn_fusion.FusionTests.test_zero_weights_keep_slots_without_normalization) ... ok
+test_exact_3080_uuid_capacity_and_idle_gate (test_dfagcn_gpu_probe.GPUProbeTests.test_exact_3080_uuid_capacity_and_idle_gate) ... ok
+test_expected_cache_header_rejects_changed_order_and_declared_shapes (test_dfagcn_gpu_probe.GPUProbeTests.test_expected_cache_header_rejects_changed_order_and_declared_shapes) ... ok
+test_fresh_cuda_required_before_environment_mutation (test_dfagcn_gpu_probe.GPUProbeTests.test_fresh_cuda_required_before_environment_mutation) ... ok
+test_frozen_manifest_and_pool_only_select_450_train_validation_images (test_dfagcn_gpu_probe.GPUProbeTests.test_frozen_manifest_and_pool_only_select_450_train_validation_images) ... ok
+test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels) ... ok
+test_inventory_parses_driver_and_free_memory_at_external_io_boundary (test_dfagcn_gpu_probe.GPUProbeTests.test_inventory_parses_driver_and_free_memory_at_external_io_boundary) ... ok
+test_inventory_rejects_malformed_nonempty_process_rows (test_dfagcn_gpu_probe.GPUProbeTests.test_inventory_rejects_malformed_nonempty_process_rows) ... ok
+test_missing_resource_inspect_is_read_only_and_does_not_train (test_dfagcn_gpu_probe.GPUProbeTests.test_missing_resource_inspect_is_read_only_and_does_not_train) ... ok
+test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu (test_dfagcn_gpu_probe.GPUProbeTests.test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu) ... ok
+test_run_requires_explicit_uuid (test_dfagcn_gpu_probe.GPUProbeTests.test_run_requires_explicit_uuid) ... ok
+test_weight_metadata_conflicts_and_incomplete_digest_are_rejected (test_dfagcn_gpu_probe.GPUProbeTests.test_weight_metadata_conflicts_and_incomplete_digest_are_rejected) ... ok
+test_cosine_knn_rejects_overflowed_norms_of_finite_features (test_dfagcn_graph.DFAGCNGraphTests.test_cosine_knn_rejects_overflowed_norms_of_finite_features) ... ok
+test_cosine_knn_rejects_zero_norm_nodes (test_dfagcn_graph.DFAGCNGraphTests.test_cosine_knn_rejects_zero_norm_nodes) ... ok
+test_default_k_ten_rejects_undersized_graphs (test_dfagcn_graph.DFAGCNGraphTests.test_default_k_ten_rejects_undersized_graphs) ... ok
+test_default_k_ten_requires_more_than_ten_nodes (test_dfagcn_graph.DFAGCNGraphTests.test_default_k_ten_requires_more_than_ten_nodes) ... ok
+test_duplicate_features_break_neighbor_ties_by_node_index (test_dfagcn_graph.DFAGCNGraphTests.test_duplicate_features_break_neighbor_ties_by_node_index) ... ok
+test_explicit_neighbor_metrics_can_produce_different_topologies (test_dfagcn_graph.DFAGCNGraphTests.test_explicit_neighbor_metrics_can_produce_different_topologies) ... ok
+test_gcn_is_node_permutation_equivariant_and_mean_readout_is_invariant (test_dfagcn_graph.DFAGCNGraphTests.test_gcn_is_node_permutation_equivariant_and_mean_readout_is_invariant) ... ok
+test_gcn_propagation_matches_hand_computed_path_without_implicit_activation (test_dfagcn_graph.DFAGCNGraphTests.test_gcn_propagation_matches_hand_computed_path_without_implicit_activation) ... ok
+test_gcn_rejects_incompatible_or_invalid_inputs (test_dfagcn_graph.DFAGCNGraphTests.test_gcn_rejects_incompatible_or_invalid_inputs) ... ok
+test_gcn_rejects_invalid_feature_dimensions (test_dfagcn_graph.DFAGCNGraphTests.test_gcn_rejects_invalid_feature_dimensions) ... ok
+test_knn_accepts_real_floating_feature_dtypes (test_dfagcn_graph.DFAGCNGraphTests.test_knn_accepts_real_floating_feature_dtypes) ... ok
+test_knn_keeps_samples_independent_and_returns_detached_topology (test_dfagcn_graph.DFAGCNGraphTests.test_knn_keeps_samples_independent_and_returns_detached_topology) ... ok
+test_knn_rejects_invalid_k (test_dfagcn_graph.DFAGCNGraphTests.test_knn_rejects_invalid_k) ... ok
+test_knn_rejects_invalid_node_features (test_dfagcn_graph.DFAGCNGraphTests.test_knn_rejects_invalid_node_features) ... ok
+test_knn_requires_explicit_supported_metric (test_dfagcn_graph.DFAGCNGraphTests.test_knn_requires_explicit_supported_metric) ... ok
+test_knn_uses_symmetric_binary_union_without_self_edges (test_dfagcn_graph.DFAGCNGraphTests.test_knn_uses_symmetric_binary_union_without_self_edges) ... ok
+test_mean_readout_and_gcn_keep_real_node_weight_and_bias_gradients (test_dfagcn_graph.DFAGCNGraphTests.test_mean_readout_and_gcn_keep_real_node_weight_and_bias_gradients) ... ok
+test_mean_readout_averages_each_samples_nodes_independently (test_dfagcn_graph.DFAGCNGraphTests.test_mean_readout_averages_each_samples_nodes_independently) ... ok
+test_mean_readout_rejects_empty_malformed_or_nonfinite_features (test_dfagcn_graph.DFAGCNGraphTests.test_mean_readout_rejects_empty_malformed_or_nonfinite_features) ... ok
+test_normalization_adds_each_self_loop_exactly_once (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_adds_each_self_loop_exactly_once) ... ok
+test_normalization_dtype_contract (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_dtype_contract) ... ok
+test_normalization_handles_independent_graphs_and_isolated_nodes (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_handles_independent_graphs_and_isolated_nodes) ... ok
+test_normalization_matches_hand_computed_three_node_path (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_matches_hand_computed_three_node_path) ... ok
+test_normalization_rejects_invalid_adjacency (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_rejects_invalid_adjacency) ... ok
+test_normalization_rejects_non_real_floating_output_dtype (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_rejects_non_real_floating_output_dtype) ... ok
+test_optional_bias_is_added_after_graph_propagation (test_dfagcn_graph.DFAGCNGraphTests.test_optional_bias_is_added_after_graph_propagation) ... ok
+test_canonical_key_is_order_independent_for_mapping_fields (test_dfagcn_identity.CacheIdentityTests.test_canonical_key_is_order_independent_for_mapping_fields) ... ok
+test_every_provenance_field_and_sample_order_changes_key (test_dfagcn_identity.CacheIdentityTests.test_every_provenance_field_and_sample_order_changes_key) ... ok
+test_exclusive_json_roundtrip_rejects_wrong_identity_and_tampering (test_dfagcn_identity.CacheIdentityTests.test_exclusive_json_roundtrip_rejects_wrong_identity_and_tampering) ... ok
+test_learned_stages_require_fit_identity_and_cannot_alias (test_dfagcn_identity.CacheIdentityTests.test_learned_stages_require_fit_identity_and_cannot_alias) ... ok
+test_rejects_incomplete_or_ambiguous_inputs (test_dfagcn_identity.CacheIdentityTests.test_rejects_incomplete_or_ambiguous_inputs) ... ok
+test_returned_identity_is_detached_from_caller_containers (test_dfagcn_identity.CacheIdentityTests.test_returned_identity_is_detached_from_caller_containers) ... ok
+test_actual_multiclass_cli_preserves_labels_and_trailing_zero_width (test_dfagcn_linear.LiblinearBoundaryTests.test_actual_multiclass_cli_preserves_labels_and_trailing_zero_width) ... ok
+test_fit_and_predict_output_directories_are_exclusive (test_dfagcn_linear.LiblinearBoundaryTests.test_fit_and_predict_output_directories_are_exclusive) ... ok
+test_fit_rejects_invalid_labels_and_hyperparameters (test_dfagcn_linear.LiblinearBoundaryTests.test_fit_rejects_invalid_labels_and_hyperparameters) ... ok
+test_fit_rejects_nonfinite_empty_or_nonfloating_features (test_dfagcn_linear.LiblinearBoundaryTests.test_fit_rejects_nonfinite_empty_or_nonfloating_features) ... ok
+test_missing_binary_and_failed_cli_do_not_create_success_metadata (test_dfagcn_linear.LiblinearBoundaryTests.test_missing_binary_and_failed_cli_do_not_create_success_metadata) ... ok
+test_modified_model_bytes_are_rejected_before_prediction (test_dfagcn_linear.LiblinearBoundaryTests.test_modified_model_bytes_are_rejected_before_prediction) ... ok
+test_prediction_rejects_feature_width_mismatch (test_dfagcn_linear.LiblinearBoundaryTests.test_prediction_rejects_feature_width_mismatch) ... ok
+test_eval_is_deterministic_and_samples_are_independent (test_dfagcn_model_recipe.BranchModelTests.test_eval_is_deterministic_and_samples_are_independent) ... ok
+test_export_is_last_relu_512_and_preserves_fc_then_fuses_published_order (test_dfagcn_model_recipe.BranchModelTests.test_export_is_last_relu_512_and_preserves_fc_then_fuses_published_order) ... ok
+test_forward_accepts_no_fc_but_export_requires_it (test_dfagcn_model_recipe.BranchModelTests.test_forward_accepts_no_fc_but_export_requires_it) ... ok
+test_rejects_incompatible_pooled_inputs (test_dfagcn_model_recipe.BranchModelTests.test_rejects_incompatible_pooled_inputs) ... ok
+test_rejects_invalid_class_counts_and_detaches_recipe (test_dfagcn_model_recipe.BranchModelTests.test_rejects_invalid_class_counts_and_detaches_recipe) ... ok
+test_save_reload_state_preserves_logits_and_fused_features (test_dfagcn_model_recipe.BranchModelTests.test_save_reload_state_preserves_logits_and_fused_features) ... ok
+test_three_raw_logit_heads_have_independent_parameters_and_gradients (test_dfagcn_model_recipe.BranchModelTests.test_three_raw_logit_heads_have_independent_parameters_and_gradients) ... ok
+test_checked_in_recipe_explicitly_records_independent_choices (test_dfagcn_model_recipe.RecipeTests.test_checked_in_recipe_explicitly_records_independent_choices) ... ok
+test_missing_and_unknown_fields_are_not_silently_filled (test_dfagcn_model_recipe.RecipeTests.test_missing_and_unknown_fields_are_not_silently_filled) ... ok
+test_rejects_invalid_architecture_or_optimization_values (test_dfagcn_model_recipe.RecipeTests.test_rejects_invalid_architecture_or_optimization_values) ... ok
+test_valid_recipe_is_detached_and_loadable_from_json (test_dfagcn_model_recipe.RecipeTests.test_valid_recipe_is_detached_and_loadable_from_json) ... ok
+test_actual_training_emits_first_batch_and_epoch_progress (test_dfagcn_pipeline.PipelineTests.test_actual_training_emits_first_batch_and_epoch_progress) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+ok
+test_calibration_refit_and_test_complete_with_actual_linear_binaries (test_dfagcn_pipeline.PipelineTests.test_calibration_refit_and_test_complete_with_actual_linear_binaries) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+DFAGCN_TRAIN_BATCH {"phase": "calibration", "epoch": 1, "batch_samples": 4, "device": "cpu", "loss": 2.033965826034546}
+DFAGCN_EPOCH {"epoch": 1, "train_ce_sum": 1.8277284502983093, "learning_rate": 0.001, "val_ce_sum": 1.2970123291015625, "elapsed_seconds": 0.0042052920907735825, "phase": "calibration"}
+DFAGCN_TRAIN_BATCH {"phase": "refit", "epoch": 1, "batch_samples": 4, "device": "cpu", "loss": 2.033965826034546}
+DFAGCN_EPOCH {"epoch": 1, "train_ce_sum": 1.72158522605896, "learning_rate": 0.001, "elapsed_seconds": 0.0036049578338861465, "phase": "refit"}
+ok
+test_stage_rejects_wrong_split_random_formal_and_calibration_as_final (test_dfagcn_pipeline.PipelineTests.test_stage_rejects_wrong_split_random_formal_and_calibration_as_final) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+DFAGCN_TRAIN_BATCH {"phase": "calibration", "epoch": 1, "batch_samples": 4, "device": "cpu", "loss": 2.033965826034546}
+DFAGCN_EPOCH {"epoch": 1, "train_ce_sum": 1.8277284502983093, "learning_rate": 0.001, "val_ce_sum": 1.2970123291015625, "elapsed_seconds": 0.00400625029578805, "phase": "calibration"}
+ok
+test_subset_smoke_cannot_be_used_as_complete_final_refit (test_dfagcn_pipeline.PipelineTests.test_subset_smoke_cannot_be_used_as_complete_final_refit) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+DFAGCN_TRAIN_BATCH {"phase": "calibration", "epoch": 1, "batch_samples": 2, "device": "cpu", "loss": 2.033966064453125}
+DFAGCN_EPOCH {"epoch": 1, "train_ce_sum": 2.033966064453125, "learning_rate": 0.001, "val_ce_sum": 1.6214909553527832, "elapsed_seconds": 0.0026391251012682915, "phase": "calibration"}
+DFAGCN_TRAIN_BATCH {"phase": "refit", "epoch": 1, "batch_samples": 4, "device": "cpu", "loss": 2.033965826034546}
+DFAGCN_EPOCH {"epoch": 1, "train_ce_sum": 2.033965826034546, "learning_rate": 0.001, "elapsed_seconds": 0.0018850420601665974, "phase": "refit"}
+ok
+test_tampered_selection_recipe_and_refit_checkpoint_are_rejected (test_dfagcn_pipeline.PipelineTests.test_tampered_selection_recipe_and_refit_checkpoint_are_rejected) ... IMAGE SCAN prepare: 0/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 1/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+IMAGE SCAN prepare: 20/20; elapsed=0.0s (CPU decode + file/pixel hashes)
+MANIFEST: checking duplicates and assigning splits
+DFAGCN_TRAIN_BATCH {"phase": "calibration", "epoch": 1, "batch_samples": 4, "device": "cpu", "loss": 2.033965826034546}
+DFAGCN_EPOCH {"epoch": 1, "train_ce_sum": 1.8277284502983093, "learning_rate": 0.001, "val_ce_sum": 1.2970123291015625, "elapsed_seconds": 0.00404629111289978, "phase": "calibration"}
+DFAGCN_TRAIN_BATCH {"phase": "refit", "epoch": 1, "batch_samples": 4, "device": "cpu", "loss": 2.033965826034546}
+DFAGCN_EPOCH {"epoch": 1, "train_ce_sum": 1.72158522605896, "learning_rate": 0.001, "elapsed_seconds": 0.0036269170232117176, "phase": "refit"}
+ok
+test_archive_bad_selected_content_remains_incomplete (test_dfagcn_real_runner.RealRunnerTests.test_archive_bad_selected_content_remains_incomplete) ... ok
+test_archive_restores_only_selected_members_and_checks_image_bytes (test_dfagcn_real_runner.RealRunnerTests.test_archive_restores_only_selected_members_and_checks_image_bytes) ... ok
+test_archive_wrong_global_hash_or_unsafe_or_ambiguous_member_is_rejected (test_dfagcn_real_runner.RealRunnerTests.test_archive_wrong_global_hash_or_unsafe_or_ambiguous_member_is_rejected) ... ok
+test_cli_run_requires_uuid_before_any_resource_mutation (test_dfagcn_real_runner.RealRunnerTests.test_cli_run_requires_uuid_before_any_resource_mutation) ... ok
+test_config_file_changes_after_binding_are_rejected (test_dfagcn_real_runner.RealRunnerTests.test_config_file_changes_after_binding_are_rejected) ... ok
+test_frozen_manifest_selects_exact_360_90_without_test (test_dfagcn_real_runner.RealRunnerTests.test_frozen_manifest_selects_exact_360_90_without_test) ... ok
+test_full_weight_sha_required_and_metadata_conflicts_rejected (test_dfagcn_real_runner.RealRunnerTests.test_full_weight_sha_required_and_metadata_conflicts_rejected) ... ok
+test_gpu_gate_requires_exact_uuid_4090_and_idle_card (test_dfagcn_real_runner.RealRunnerTests.test_gpu_gate_requires_exact_uuid_4090_and_idle_card) ... ok
+test_gpu_selection_requires_fresh_cuda_context_before_environment_change (test_dfagcn_real_runner.RealRunnerTests.test_gpu_selection_requires_fresh_cuda_context_before_environment_change) ... ok
+test_inspect_missing_resources_is_stdlib_read_only_and_never_trains (test_dfagcn_real_runner.RealRunnerTests.test_inspect_missing_resources_is_stdlib_read_only_and_never_trains) ... ok
+test_manifest_bad_counts_or_duplicate_or_classmap_is_rejected (test_dfagcn_real_runner.RealRunnerTests.test_manifest_bad_counts_or_duplicate_or_classmap_is_rejected) ... ok
+test_build_actual_3090_bundle_and_target_reaches_bootstrap (test_hgtnet_3090_delivery.TargetDeliveryTests.test_build_actual_3090_bundle_and_target_reaches_bootstrap) ... ok
+test_direct_source_target_also_controls_scratch_namespace (test_hgtnet_3090_delivery.TargetDeliveryTests.test_direct_source_target_also_controls_scratch_namespace) ... ok
+test_parser_honors_delivery_target_and_command_binds_profile (test_hgtnet_3090_delivery.TargetDeliveryTests.test_parser_honors_delivery_target_and_command_binds_profile) ... ok
+test_runtime_checks_selected_3090_instead_of_fixed_3080 (test_hgtnet_3090_delivery.TargetDeliveryTests.test_runtime_checks_selected_3090_instead_of_fixed_3080) ... HGTNET_CUDA_DEVICE_PROBE {"available": true, "cuda": "12.1", "device_count": 1, "name": "NVIDIA GeForce RTX 3090", "torch": "2.2.2+cu121", "total_memory_bytes": 25769803776}
+ok
+test_unknown_profile_is_rejected_without_creating_files (test_hgtnet_3090_delivery.TargetDeliveryTests.test_unknown_profile_is_rejected_without_creating_files) ... ok
+test_3090_runtime_keeps_software_precision_and_numeric_type_gates (test_hgtnet_3090_resources.TargetResourcesTests.test_3090_runtime_keeps_software_precision_and_numeric_type_gates) ... ok
+test_3090_target_does_not_relax_idle_query_or_free_memory_gates (test_hgtnet_3090_resources.TargetResourcesTests.test_3090_target_does_not_relax_idle_query_or_free_memory_gates) ... ok
+test_default_3080_gate_still_rejects_the_users_3090 (test_hgtnet_3090_resources.TargetResourcesTests.test_default_3080_gate_still_rejects_the_users_3090) ... ok
+test_exact_target_allowlist_and_backward_compatible_keyword_defaults (test_hgtnet_3090_resources.TargetResourcesTests.test_exact_target_allowlist_and_backward_compatible_keyword_defaults) ... ok
+test_exact_target_name_and_memory_prevent_swapped_or_lookalike_cards (test_hgtnet_3090_resources.TargetResourcesTests.test_exact_target_name_and_memory_prevent_swapped_or_lookalike_cards) ... ok
+test_explicit_3090_target_checks_current_uuid_and_ambiguity (test_hgtnet_3090_resources.TargetResourcesTests.test_explicit_3090_target_checks_current_uuid_and_ambiguity) ... ok
+test_target_must_be_allowlisted_before_inventory_or_runtime_checks (test_hgtnet_3090_resources.TargetResourcesTests.test_target_must_be_allowlisted_before_inventory_or_runtime_checks) ... ok
+test_user_3090_runtime_accepts_exact_target_and_current_uuid (test_hgtnet_3090_resources.TargetResourcesTests.test_user_3090_runtime_accepts_exact_target_and_current_uuid) ... ok
+test_user_observed_idle_3090_inventory_selects_current_physical_uuid (test_hgtnet_3090_resources.TargetResourcesTests.test_user_observed_idle_3090_inventory_selects_current_physical_uuid) ... ok
+test_avg_and_max_pool_use_the_same_mlp_before_one_sigmoid (test_hgtnet_attention.DualAttentionTests.test_avg_and_max_pool_use_the_same_mlp_before_one_sigmoid) ... ok
+test_dual_attention_rejects_invalid_configuration (test_hgtnet_attention.DualAttentionTests.test_dual_attention_rejects_invalid_configuration) ... ok
+test_dual_attention_rejects_invalid_inputs (test_hgtnet_attention.DualAttentionTests.test_dual_attention_rejects_invalid_inputs) ... ok
+test_non_square_dual_attention_broadcasts_and_backpropagates (test_hgtnet_attention.DualAttentionTests.test_non_square_dual_attention_broadcasts_and_backpropagates) ... ok
+test_spatial_branch_uses_three_dilated_convolutions_without_intermediate_relu (test_hgtnet_attention.DualAttentionTests.test_spatial_branch_uses_three_dilated_convolutions_without_intermediate_relu) ... ok
+test_zero_gates_give_exact_parallel_identity (test_hgtnet_attention.DualAttentionTests.test_zero_gates_give_exact_parallel_identity) ... ok
+test_non_square_patch_embedding_has_finite_gradients (test_hgtnet_attention.PatchEmbeddingTests.test_non_square_patch_embedding_has_finite_gradients) ... ok
+test_patch_embedding_rejects_invalid_configuration (test_hgtnet_attention.PatchEmbeddingTests.test_patch_embedding_rejects_invalid_configuration) ... ok
+test_patch_embedding_rejects_malformed_inputs_and_implicit_cropping (test_hgtnet_attention.PatchEmbeddingTests.test_patch_embedding_rejects_malformed_inputs_and_implicit_cropping) ... ok
+test_patch_projection_then_channel_layernorm_matches_hand_fixture (test_hgtnet_attention.PatchEmbeddingTests.test_patch_projection_then_channel_layernorm_matches_hand_fixture) ... ok
+test_nine_stbs_run_eighteen_blocks_and_alternate_shift_behavior (test_hgtnet_attention.TransformerStageTests.test_nine_stbs_run_eighteen_blocks_and_alternate_shift_behavior) ... ok
+test_one_stb_runs_two_real_attention_blocks_with_alternating_shifts (test_hgtnet_attention.TransformerStageTests.test_one_stb_runs_two_real_attention_blocks_with_alternating_shifts) ... ok
+test_patch_merge_preserves_candidate_pretraining_parameter_namespace (test_hgtnet_attention.TransformerStageTests.test_patch_merge_preserves_candidate_pretraining_parameter_namespace) ... ok
+test_stage_non_square_finite_gradients_reach_da_attention_and_downsample (test_hgtnet_attention.TransformerStageTests.test_stage_non_square_finite_gradients_reach_da_attention_and_downsample) ... ok
+test_stage_rejects_incompatible_channels_or_invalid_configuration (test_hgtnet_attention.TransformerStageTests.test_stage_rejects_incompatible_channels_or_invalid_configuration) ... ok
+test_stage_rejects_malformed_inputs_instead_of_reinterpreting_layout (test_hgtnet_attention.TransformerStageTests.test_stage_rejects_malformed_inputs_instead_of_reinterpreting_layout) ... ok
+test_stage_shapes_follow_three_stage_candidate (test_hgtnet_attention.TransformerStageTests.test_stage_shapes_follow_three_stage_candidate) ... ok
+test_third_stage_uses_biasless_conv2_stride2_then_channel_layernorm (test_hgtnet_attention.TransformerStageTests.test_third_stage_uses_biasless_conv2_stride2_then_channel_layernorm) ... ok
+test_actual_runtime_failure_records_exit_one_without_training_or_scratch (test_hgtnet_batch_probe_cli.ProbeTests.test_actual_runtime_failure_records_exit_one_without_training_or_scratch) ... Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/batch_probe.py", line 147, in run_probe
+    torch,runtime = COMMON._runtime_and_torch(args,preflight['selected_gpu'])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+ValueError: CUDA mismatch
+ok
+test_command_honors_delivery_entry_and_exact_target_profile (test_hgtnet_batch_probe_cli.ProbeTests.test_command_honors_delivery_entry_and_exact_target_profile) ... usage: run_related_tests.py inspect [-h] [--output OUTPUT]
+                                    [--target-gpu {3090}]
+                                    [--gpu-uuid GPU_UUID]
+                                    [--manifest MANIFEST]
+                                    [--data-root DATA_ROOT]
+                                    [--archive ARCHIVE] [--weights WEIGHTS]
+                                    [--config CONFIG]
+                                    [--scratch-root SCRATCH_ROOT]
+run_related_tests.py inspect: error: argument --target-gpu: invalid choice: '3080' (choose from 3090)
+ok
+test_failure_after_first_optimizer_keeps_evidence_and_never_completes (test_hgtnet_batch_probe_cli.ProbeTests.test_failure_after_first_optimizer_keeps_evidence_and_never_completes) ... HGTNET_BATCH16_PROBE_PROGRESS {"optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 89672, "stage": "optimizer_step"}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/batch_probe.py", line 171, in run_probe
+    result.update(_run_model(torch,cfg,data_root,records,args.weights,args.output,progress))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_batch_probe_cli.py", line 138, in fail
+    raise RuntimeError('later allocation failed')
+RuntimeError: later allocation failed
+ok
+test_final_image_change_rejects_engine_success_and_keeps_four_update_receipt (test_hgtnet_batch_probe_cli.ProbeTests.test_final_image_change_rejects_engine_success_and_keeps_four_update_receipt) ... HGTNET_BATCH16_PROBE_PROGRESS {"optimizer_step_succeeded": true, "optimizer_steps": 4, "pid": 89672, "stage": "optimizer_step"}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/batch_probe.py", line 178, in run_probe
+    DATA.validate_selected(data_root,records)
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/nwpu_data.py", line 94, in validate_selected
+    return _helper().validate_selected(root, _records(records))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tools/run_dfagcn_nwpu_smoke.py", line 119, in validate_selected
+    raise ValueError('selected image SHA256 mismatch: '+row['path'])
+ValueError: selected image SHA256 mismatch: class_00/train_000.jpg
+ok
+test_inspect_imports_no_ml_even_when_all_resources_are_missing (test_hgtnet_batch_probe_cli.ProbeTests.test_inspect_imports_no_ml_even_when_all_resources_are_missing) ... ok
+test_inspect_never_requires_unselected_train_val_or_test_bytes (test_hgtnet_batch_probe_cli.ProbeTests.test_inspect_never_requires_unselected_train_val_or_test_bytes) ... ok
+test_inspect_rejects_changed_manifest_even_if_selected_bytes_still_exist (test_hgtnet_batch_probe_cli.ProbeTests.test_inspect_rejects_changed_manifest_even_if_selected_bytes_still_exist) ... ok
+test_missing_api_red_then_selects_one_sorted_train_image_per_label_0_to_15 (test_hgtnet_batch_probe_cli.ProbeTests.test_missing_api_red_then_selects_one_sorted_train_image_per_label_0_to_15) ... ok
+test_run_requires_uuid_and_new_paths_before_writing_anything (test_hgtnet_batch_probe_cli.ProbeTests.test_run_requires_uuid_and_new_paths_before_writing_anything) ... ok
+test_short_status_exposes_measured_capacity_scope_without_accuracy (test_hgtnet_batch_probe_cli.ProbeTests.test_short_status_exposes_measured_capacity_scope_without_accuracy) ... ok
+test_status_requires_exit_zero_and_completion_marker_and_has_no_ml_import (test_hgtnet_batch_probe_cli.ProbeTests.test_status_requires_exit_zero_and_completion_marker_and_has_no_ml_import) ... ok
+test_valid_restored_cache_wins_and_bad_hash_falls_back_to_data_root (test_hgtnet_batch_probe_cli.ProbeTests.test_valid_restored_cache_wins_and_bad_hash_falls_back_to_data_root) ... ok
+test_zip_recovery_extracts_only_16_train_images_and_reports_verified_receipt (test_hgtnet_batch_probe_cli.ProbeTests.test_zip_recovery_extracts_only_16_train_images_and_reports_verified_receipt) ... HGTNET_BATCH16_PROBE_PROGRESS {"optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 89672, "stage": "optimizer_step"}
+HGTNET_BATCH16_PROBE_PROGRESS {"completed": true, "optimizer_steps": 4, "pid": 89672, "stage": "complete", "training_started": true}
+HGTNET_BATCH16_PROBE_COMPLETE /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpdzmi6qbl/output/summary.json
+ok
+test_cli_probe_inspect_and_status_dispatch_without_ml_or_runs (test_hgtnet_batch_probe_delivery.BatchProbeDeliveryTests.test_cli_probe_inspect_and_status_dispatch_without_ml_or_runs) ... ok
+test_cli_rejects_unregistered_runner_before_creating_bundle (test_hgtnet_batch_probe_delivery.BatchProbeDeliveryTests.test_cli_rejects_unregistered_runner_before_creating_bundle) ... ok
+test_registered_probe_is_selected_once_and_keeps_common_runner (test_hgtnet_batch_probe_delivery.BatchProbeDeliveryTests.test_registered_probe_is_selected_once_and_keeps_common_runner) ... ok
+test_rehashed_manifest_cannot_select_a_registered_but_absent_probe (test_hgtnet_batch_probe_delivery.BatchProbeDeliveryTests.test_rehashed_manifest_cannot_select_a_registered_but_absent_probe) ... ok
+test_rehashed_manifest_cannot_select_an_unregistered_source (test_hgtnet_batch_probe_delivery.BatchProbeDeliveryTests.test_rehashed_manifest_cannot_select_an_unregistered_source) ... ok
+test_reuse_refuses_changed_selected_probe (test_hgtnet_batch_probe_delivery.BatchProbeDeliveryTests.test_reuse_refuses_changed_selected_probe) ... ok
+test_selected_probe_must_exist_before_bundle_creation (test_hgtnet_batch_probe_delivery.BatchProbeDeliveryTests.test_selected_probe_must_exist_before_bundle_creation) ... ok
+test_unregistered_runners_are_rejected_without_files (test_hgtnet_batch_probe_delivery.BatchProbeDeliveryTests.test_unregistered_runners_are_rejected_without_files) ... ok
+test_fixed_small_budget_cannot_be_expanded_through_parameters (test_hgtnet_batch_probe_engine.BatchProbeEngineTests.test_fixed_small_budget_cannot_be_expanded_through_parameters) ... ok
+test_four_real_updates_and_three_measurements_without_input_mutation (test_hgtnet_batch_probe_engine.BatchProbeEngineTests.test_four_real_updates_and_three_measurements_without_input_mutation) ... ok
+test_frozen_or_non_fp32_model_cannot_understate_formal_memory (test_hgtnet_batch_probe_engine.BatchProbeEngineTests.test_frozen_or_non_fp32_model_cannot_understate_formal_memory) ... ok
+test_invalid_batches_rejected_before_parameter_update (test_hgtnet_batch_probe_engine.BatchProbeEngineTests.test_invalid_batches_rejected_before_parameter_update) ... ok
+test_later_failure_retains_only_genuinely_completed_step_events (test_hgtnet_batch_probe_engine.BatchProbeEngineTests.test_later_failure_retains_only_genuinely_completed_step_events) ... ok
+test_nan_loss_does_not_report_a_successful_optimizer_step (test_hgtnet_batch_probe_engine.BatchProbeEngineTests.test_nan_loss_does_not_report_a_successful_optimizer_step) ... ok
+test_post_update_diagnostic_failure_does_not_erase_observed_update (test_hgtnet_batch_probe_engine.BatchProbeEngineTests.test_post_update_diagnostic_failure_does_not_erase_observed_update) ... ok
+test_actual_source_identity_hashes_exact_model_modules (test_hgtnet_checkpoint.CheckpointTests.test_actual_source_identity_hashes_exact_model_modules) ... ok
+test_existing_file_or_symlink_is_never_overwritten (test_hgtnet_checkpoint.CheckpointTests.test_existing_file_or_symlink_is_never_overwritten) ... ok
+test_full_hash_is_required_and_wrong_hash_does_not_load (test_hgtnet_checkpoint.CheckpointTests.test_full_hash_is_required_and_wrong_hash_does_not_load) ... ok
+test_load_uses_safe_weights_only_mode (test_hgtnet_checkpoint.CheckpointTests.test_load_uses_safe_weights_only_mode) ... ok
+test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) ... ok
+test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) ... ok
+test_mutated_model_config_rejected_for_save_and_load (test_hgtnet_checkpoint.CheckpointTests.test_mutated_model_config_rejected_for_save_and_load) ... ok
+test_new_class_count_or_operator_identity_cannot_load (test_hgtnet_checkpoint.CheckpointTests.test_new_class_count_or_operator_identity_cannot_load) ... ok
+test_roundtrip_copies_parameters_buffers_and_json_identity (test_hgtnet_checkpoint.CheckpointTests.test_roundtrip_copies_parameters_buffers_and_json_identity) ... ok
+test_save_rejects_bad_values_or_non_json_provenance_without_file (test_hgtnet_checkpoint.CheckpointTests.test_save_rejects_bad_values_or_non_json_provenance_without_file) ... ok
+test_serialization_error_removes_only_new_partial_file (test_hgtnet_checkpoint.CheckpointTests.test_serialization_error_removes_only_new_partial_file) ... ok
+test_truncated_or_unsafe_files_reject_before_mutation (test_hgtnet_checkpoint.CheckpointTests.test_truncated_or_unsafe_files_reject_before_mutation) ... ok
+test_candidate_provenance_cannot_be_swapped_to_swin_t_or_unrelated_url (test_hgtnet_config.ConfigTests.test_candidate_provenance_cannot_be_swapped_to_swin_t_or_unrelated_url) ... ok
+test_class_count_changes_head_identity_without_changing_body_shape (test_hgtnet_config.ConfigTests.test_class_count_changes_head_identity_without_changing_body_shape) ... ok
+test_full_candidate_preserves_three_downsamples_and_legal_graphs (test_hgtnet_config.ConfigTests.test_full_candidate_preserves_three_downsamples_and_legal_graphs) ... ok
+test_invalid_numeric_and_type_values_fail_before_model_build (test_hgtnet_config.ConfigTests.test_invalid_numeric_and_type_values_fail_before_model_build) ... ok
+test_relative_mean_is_an_explicit_different_identity (test_hgtnet_config.ConfigTests.test_relative_mean_is_an_explicit_different_identity) ... ok
+test_unknown_missing_fields_and_mutable_aliases_are_not_silent (test_hgtnet_config.ConfigTests.test_unknown_missing_fields_and_mutable_aliases_are_not_silent) ... ok
+test_unsupported_or_false_architecture_identity_is_rejected (test_hgtnet_config.ConfigTests.test_unsupported_or_false_architecture_identity_is_rejected) ... ok
+test_3080_default_capacity_policy_remains_bounded (test_hgtnet_cuda_device.CudaDeviceTests.test_3080_default_capacity_policy_remains_bounded) ... ok
+test_actual_runtime_adapter_accepts_reported_visible_capacity (test_hgtnet_cuda_device.CudaDeviceTests.test_actual_runtime_adapter_accepts_reported_visible_capacity) ... HGTNET_CUDA_DEVICE_PROBE {"available": true, "cuda": "12.1", "device_count": 1, "name": "NVIDIA GeForce RTX 3090", "torch": "2.2.2+cu121", "total_memory_bytes": 25294798848}
+ok
+test_bad_capacities_do_not_pass_identity_or_memory_gate (test_hgtnet_cuda_device.CudaDeviceTests.test_bad_capacities_do_not_pass_identity_or_memory_gate) ... ok
+test_exact_and_1gib_boundary_are_accepted (test_hgtnet_cuda_device.CudaDeviceTests.test_exact_and_1gib_boundary_are_accepted) ... ok
+test_user_reported_453_mib_gap_keeps_both_observations (test_hgtnet_cuda_device.CudaDeviceTests.test_user_reported_453_mib_gap_keeps_both_observations) ... ok
+test_wrong_name_count_and_unavailable_still_fail (test_hgtnet_cuda_device.CudaDeviceTests.test_wrong_name_count_and_unavailable_still_fail) ... ok
+test_incompatible_state_or_nan_never_copied (test_hgtnet_formal_checkpoints.FormalCheckpointTests.test_incompatible_state_or_nan_never_copied) ... ok
+test_model_real_tensor_roundtrip_and_bad_sha_binding_rejected (test_hgtnet_formal_checkpoints.FormalCheckpointTests.test_model_real_tensor_roundtrip_and_bad_sha_binding_rejected) ... ok
+test_recipe_and_binding_reject_unfrozen_real_values (test_hgtnet_formal_checkpoints.FormalCheckpointTests.test_recipe_and_binding_reject_unfrozen_real_values) ... ok
+test_recipe_boolean_flags_cannot_be_replaced_by_equal_integer (test_hgtnet_formal_checkpoints.FormalCheckpointTests.test_recipe_boolean_flags_cannot_be_replaced_by_equal_integer) ... ok
+test_restored_adam_moment_shape_must_match_parameter (test_hgtnet_formal_checkpoints.FormalCheckpointTests.test_restored_adam_moment_shape_must_match_parameter) ... ok
+test_snapshot_rejects_out_of_budget_epoch_and_optimizer_policy (test_hgtnet_formal_checkpoints.FormalCheckpointTests.test_snapshot_rejects_out_of_budget_epoch_and_optimizer_policy) ... ok
+test_two_slots_preserve_previous_when_newest_bytes_corrupt (test_hgtnet_formal_checkpoints.FormalCheckpointTests.test_two_slots_preserve_previous_when_newest_bytes_corrupt) ... ok
+test_approved_bytes_are_decoded_even_if_path_changes_after_the_read (test_hgtnet_formal_data.FormalDataTests.test_approved_bytes_are_decoded_even_if_path_changes_after_the_read) ... ok
+test_archive_unsafe_ambiguous_or_image_hash_mismatch_has_no_complete_receipt (test_hgtnet_formal_data.FormalDataTests.test_archive_unsafe_ambiguous_or_image_hash_mismatch_has_no_complete_receipt) ... ok
+test_dataset_owns_snapshot_and_checks_same_read_bytes_before_decode (test_hgtnet_formal_data.FormalDataTests.test_dataset_owns_snapshot_and_checks_same_read_bytes_before_decode) ... ok
+test_eval_exact_bilinear256_center224_imagenet_and_test_order (test_hgtnet_formal_data.FormalDataTests.test_eval_exact_bilinear256_center224_imagenet_and_test_order) ... ok
+test_full_manifest_counts_disjoint_sorted_copies (test_hgtnet_formal_data.FormalDataTests.test_full_manifest_counts_disjoint_sorted_copies) ... ok
+test_manifest_frozen_sha_and_structural_failures (test_hgtnet_formal_data.FormalDataTests.test_manifest_frozen_sha_and_structural_failures) ... ok
+test_only_selected_test_recovery_truthful_receipt_and_explicit_resume (test_hgtnet_formal_data.FormalDataTests.test_only_selected_test_recovery_truthful_receipt_and_explicit_resume) ... ok
+test_preparation_recovery_and_validation_never_import_ml (test_hgtnet_formal_data.FormalDataTests.test_preparation_recovery_and_validation_never_import_ml) ... ok
+test_recovery_resume_rejects_foreign_directory_and_symlink_receipt (test_hgtnet_formal_data.FormalDataTests.test_recovery_resume_rejects_foreign_directory_and_symlink_receipt) ... ok
+test_resume_rejects_foreign_or_changed_selection_receipt (test_hgtnet_formal_data.FormalDataTests.test_resume_rejects_foreign_or_changed_selection_receipt) ... ok
+test_test_rows_allowed_but_duplicate_invalid_label_and_symlink_rejected (test_hgtnet_formal_data.FormalDataTests.test_test_rows_allowed_but_duplicate_invalid_label_and_symlink_rejected) ... ok
+test_training_transform_seeded_random_crop_flip_real_tensor (test_hgtnet_formal_data.FormalDataTests.test_training_transform_seeded_random_crop_flip_real_tensor) ... ok
+test_actual_formal_zipapp_resume_reaches_parser (test_hgtnet_formal_delivery.FormalDeliveryTests.test_actual_formal_zipapp_resume_reaches_parser) ... ok
+test_existing_default_runner_does_not_gain_formal_recipe (test_hgtnet_formal_delivery.FormalDeliveryTests.test_existing_default_runner_does_not_gain_formal_recipe) ... ok
+test_formal_registered_runner_contains_exact_recipe (test_hgtnet_formal_delivery.FormalDeliveryTests.test_formal_registered_runner_contains_exact_recipe) ... ok
+test_formal_runner_wrong_gpu_rejected (test_hgtnet_formal_delivery.FormalDeliveryTests.test_formal_runner_wrong_gpu_rejected) ... ok
+test_bad_numeric_reload_prevents_first_test_loader (test_hgtnet_formal_engine.FormalEngineTests.test_bad_numeric_reload_prevents_first_test_loader) ... ok
+test_completed_epoch_resume_matches_uninterrupted_model_and_selection (test_hgtnet_formal_engine.FormalEngineTests.test_completed_epoch_resume_matches_uninterrupted_model_and_selection) ... ok
+test_earliest_tie_fresh_refit_and_complete_metrics_without_early_test (test_hgtnet_formal_engine.FormalEngineTests.test_earliest_tie_fresh_refit_and_complete_metrics_without_early_test) ... ok
+test_existing_model_file_cannot_be_overwritten_by_direct_engine_call (test_hgtnet_formal_engine.FormalEngineTests.test_existing_model_file_cannot_be_overwritten_by_direct_engine_call) ... ok
+test_existing_training_artifacts_require_explicit_resume (test_hgtnet_formal_engine.FormalEngineTests.test_existing_training_artifacts_require_explicit_resume) ... ok
+test_post_update_failure_retains_successful_update_receipt (test_hgtnet_formal_engine.FormalEngineTests.test_post_update_failure_retains_successful_update_receipt) ... ok
+test_real_binding_cannot_be_executed_as_cpu_fixture (test_hgtnet_formal_engine.FormalEngineTests.test_real_binding_cannot_be_executed_as_cpu_fixture) ... ok
+test_recovery_selection_metadata_cannot_change_validation_winner (test_hgtnet_formal_engine.FormalEngineTests.test_recovery_selection_metadata_cannot_change_validation_winner) ... ok
+test_replacement_sampler_rejected_before_first_update (test_hgtnet_formal_engine.FormalEngineTests.test_replacement_sampler_rejected_before_first_update) ... ok
+test_resume_at_phase_transition_restarts_refit_from_equal_initial_state (test_hgtnet_formal_engine.FormalEngineTests.test_resume_at_phase_transition_restarts_refit_from_equal_initial_state) ... ok
+test_unequal_initialization_rejects_refit_before_pool_or_test (test_hgtnet_formal_engine.FormalEngineTests.test_unequal_initialization_rejects_refit_before_pool_or_test) ... ok
+test_validation_order_failure_prevents_refit_and_test (test_hgtnet_formal_engine.FormalEngineTests.test_validation_order_failure_prevents_refit_and_test) ... ok
+test_before_test_input_mutation_is_rejected_and_first_step_retained (test_hgtnet_formal_entry.FormalEntryTests.test_before_test_input_mutation_is_rejected_and_first_step_retained) ... HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 89672, "stage": "first_optimizer_step", "training_started": true}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 238, in run_formal_entry
+    result.update(_run_model(args,torch,runtime,inputs,binding,progress,args.resume))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 113, in mutate
+    p(dict(stage='before_test',optimizer_steps=1));reached.append('test')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 233, in progress
+    if value.get('stage')=='before_test':_assert_unchanged(args,inputs,binding);args._test_authorized=True
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 149, in _assert_unchanged
+    raise ValueError('Formal source/config/recipe/manifest/initial weights changed')
+ValueError: Formal source/config/recipe/manifest/initial weights changed
+ok
+test_command_honors_delivery_entry_and_resume_action (test_hgtnet_formal_entry.FormalEntryTests.test_command_honors_delivery_entry_and_resume_action) ... ok
+test_failure_after_update_preserves_training_and_never_completes (test_hgtnet_formal_entry.FormalEntryTests.test_failure_after_update_preserves_training_and_never_completes) ... HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 89672, "stage": "first_optimizer_step", "training_started": true}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 238, in run_formal_entry
+    result.update(_run_model(args,torch,runtime,inputs,binding,progress,args.resume))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 74, in fail
+    def fail(a,t,r,i,b,p,resume):self.first(p);raise RuntimeError('fixture later failure')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: fixture later failure
+ok
+test_formal_entry_api_and_fullcounts_readiness (test_hgtnet_formal_entry.FormalEntryTests.test_formal_entry_api_and_fullcounts_readiness) ... ok
+test_inspect_and_status_never_import_ml (test_hgtnet_formal_entry.FormalEntryTests.test_inspect_and_status_never_import_ml) ... ok
+test_resume_preserves_prior_attempt_and_changes_only_owned_results (test_hgtnet_formal_entry.FormalEntryTests.test_resume_preserves_prior_attempt_and_changes_only_owned_results) ... HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 89672, "stage": "first_optimizer_step", "training_started": true}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 238, in run_formal_entry
+    result.update(_run_model(args,torch,runtime,inputs,binding,progress,args.resume))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 74, in fail
+    def fail(a,t,r,i,b,p,resume):self.first(p);raise RuntimeError('fixture later failure')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: fixture later failure
+HGTNET_FORMAL_PROGRESS {"attempt": 2, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 89672, "stage": "first_optimizer_step", "training_started": true}
+HGTNET_FORMAL_PROGRESS {"attempt": 2, "formal_training_started": true, "optimizer_steps": 2, "pid": 89672, "stage": "before_test", "training_started": true}
+HGTNET_FORMAL_PROGRESS {"attempt": 2, "completed": true, "formal_training_started": true, "optimizer_steps": 2, "pid": 89672, "stage": "complete", "training_started": true}
+HGTNET_NWPU_FORMAL_COMPLETE /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmp37ca1qej/output/summary.json
+ok
+test_resume_rejects_changed_scratch_ownership (test_hgtnet_formal_entry.FormalEntryTests.test_resume_rejects_changed_scratch_ownership) ... HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 89672, "stage": "first_optimizer_step", "training_started": true}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 238, in run_formal_entry
+    result.update(_run_model(args,torch,runtime,inputs,binding,progress,args.resume))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 74, in fail
+    def fail(a,t,r,i,b,p,resume):self.first(p);raise RuntimeError('fixture later failure')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: fixture later failure
+ok
+test_resume_requires_owned_matching_binding_and_valid_snapshot_sha (test_hgtnet_formal_entry.FormalEntryTests.test_resume_requires_owned_matching_binding_and_valid_snapshot_sha) ... HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 89672, "stage": "first_optimizer_step", "training_started": true}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 238, in run_formal_entry
+    result.update(_run_model(args,torch,runtime,inputs,binding,progress,args.resume))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 74, in fail
+    def fail(a,t,r,i,b,p,resume):self.first(p);raise RuntimeError('fixture later failure')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: fixture later failure
+ok
+test_run_requires_uuid_and_independent_new_paths (test_hgtnet_formal_entry.FormalEntryTests.test_run_requires_uuid_and_independent_new_paths) ... ok
+test_runtime_failure_records_no_training_and_no_scratch (test_hgtnet_formal_entry.FormalEntryTests.test_runtime_failure_records_no_training_and_no_scratch) ... Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 218, in run_formal_entry
+    torch,runtime=COMMON._runtime_and_torch(args,preflight['selected_gpu']);_write(args._attempt/'runtime.json',runtime)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+ValueError: CUDA mismatch
+ok
+test_short_status_keeps_metrics_without_large_prediction_or_confusion_arrays (test_hgtnet_formal_entry.FormalEntryTests.test_short_status_keeps_metrics_without_large_prediction_or_confusion_arrays) ... ok
+test_status_requires_exact_completion_marker_and_exit_zero (test_hgtnet_formal_entry.FormalEntryTests.test_status_requires_exact_completion_marker_and_exit_zero) ... ok
+test_success_requires_engine_and_final_inputs_then_marker (test_hgtnet_formal_entry.FormalEntryTests.test_success_requires_engine_and_final_inputs_then_marker) ... HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 89672, "stage": "first_optimizer_step", "training_started": true}
+HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_steps": 2, "pid": 89672, "stage": "before_test", "training_started": true}
+HGTNET_FORMAL_PROGRESS {"attempt": 1, "completed": true, "formal_training_started": true, "optimizer_steps": 2, "pid": 89672, "stage": "complete", "training_started": true}
+HGTNET_NWPU_FORMAL_COMPLETE /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmp4s5675t5/output/summary.json
+ok
+test_depthwise_projection_matches_hand_spatial_and_channel_result (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_matches_hand_spatial_and_channel_result) ... ok
+test_depthwise_projection_rejects_invalid_constructor_and_inputs (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_rejects_invalid_constructor_and_inputs) ... ok
+test_depthwise_projection_supports_stride_and_preserves_padding_shape (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_supports_stride_and_preserves_padding_shape) ... ok
+test_depthwise_projection_transitions_noncontiguous_map_and_backpropagates (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_transitions_noncontiguous_map_and_backpropagates) ... ok
+test_graphblock_builds_actual_graph_from_current_projected_features (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_builds_actual_graph_from_current_projected_features) ... ok
+test_graphblock_default_returns_tensor_and_two_residuals_preserve_identity (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_default_returns_tensor_and_two_residuals_preserve_identity) ... ok
+test_graphblock_has_real_finite_gradients_and_optimizer_update (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_has_real_finite_gradients_and_optimizer_update) ... ok
+test_graphblock_is_permutation_equivariant_without_distance_ties (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_is_permutation_equivariant_without_distance_ties) ... ok
+test_graphblock_mean_probe_and_explicit_self_policy (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_mean_probe_and_explicit_self_policy) ... ok
+test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) ... ok
+test_knn_accepts_real_float_dtypes (test_hgtnet_graph.HGTNetKNNTests.test_knn_accepts_real_float_dtypes) ... ok
+test_knn_breaks_equal_distance_ties_by_original_index (test_hgtnet_graph.HGTNetKNNTests.test_knn_breaks_equal_distance_ties_by_original_index) ... ok
+test_knn_handles_finite_float32_distances_that_overflow_float32 (test_hgtnet_graph.HGTNetKNNTests.test_knn_handles_finite_float32_distances_that_overflow_float32) ... ok
+test_knn_keeps_samples_independent (test_hgtnet_graph.HGTNetKNNTests.test_knn_keeps_samples_independent) ... ok
+test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) ... ok
+test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) ... ok
+test_knn_rejects_small_graph_instead_of_clipping_k (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_small_graph_instead_of_clipping_k) ... ok
+test_knn_returns_ordered_euclidean_indices_without_self (test_hgtnet_graph.HGTNetKNNTests.test_knn_returns_ordered_euclidean_indices_without_self) ... ok
+test_knn_self_policy_is_explicit_even_for_duplicate_nodes (test_hgtnet_graph.HGTNetKNNTests.test_knn_self_policy_is_explicit_even_for_duplicate_nodes) ... ok
+test_mrconv_concatenates_center_before_relative_message (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_concatenates_center_before_relative_message) ... ok
+test_mrconv_mean_and_gradients_reach_projection_and_nodes (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_mean_and_gradients_reach_projection_and_nodes) ... ok
+test_mrconv_rejects_wrong_channels_dtype_and_constructor (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_rejects_wrong_channels_dtype_and_constructor) ... ok
+test_relative_aggregate_has_correct_message_gradients (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_has_correct_message_gradients) ... ok
+test_relative_aggregate_keeps_batches_separate_and_neighbour_order_irrelevant (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_keeps_batches_separate_and_neighbour_order_irrelevant) ... ok
+test_relative_aggregate_preserves_node_permutation (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_preserves_node_permutation) ... ok
+test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) ... ok
+test_relative_max_and_mean_use_neighbour_minus_query (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_max_and_mean_use_neighbour_minus_query) ... ok
+test_bad_inputs_fail_before_attention_even_on_meta_model (test_hgtnet_model.ModelTests.test_bad_inputs_fail_before_attention_even_on_meta_model) ... ok
+test_class30_changes_only_head_shape (test_hgtnet_model.ModelTests.test_class30_changes_only_head_shape) ... ok
+test_model_owns_config_without_caller_alias (test_hgtnet_model.ModelTests.test_model_owns_config_without_caller_alias) ... ok
+test_no_implicit_online_or_pretrained_loading (test_hgtnet_model.ModelTests.test_no_implicit_online_or_pretrained_loading) ... ok
+test_parameter_groups_account_for_every_parameter_once (test_hgtnet_model.ModelTests.test_parameter_groups_account_for_every_parameter_once) ... ok
+test_real_full_architecture_not_a_swin_t_or_tiny_surrogate (test_hgtnet_model.ModelTests.test_real_full_architecture_not_a_swin_t_or_tiny_surrogate) ... ok
+test_trace_uses_real_computation_shapes_and_graph_indices (test_hgtnet_model.ModelTests.test_trace_uses_real_computation_shapes_and_graph_indices) ... ok
+test_complete_manifest_selects_fixed_disjoint_360_90_in_path_order (test_hgtnet_nwpu_data.NwpuPreparationTests.test_complete_manifest_selects_fixed_disjoint_360_90_in_path_order) ... ok
+test_manifest_default_digest_rejects_fixture_and_changed_bytes (test_hgtnet_nwpu_data.NwpuPreparationTests.test_manifest_default_digest_rejects_fixture_and_changed_bytes) ... ok
+test_manifest_rejects_invalid_counts_path_label_classmap_or_duplicate (test_hgtnet_nwpu_data.NwpuPreparationTests.test_manifest_rejects_invalid_counts_path_label_classmap_or_duplicate) ... ok
+test_preparation_and_validation_import_no_machine_learning_libraries (test_hgtnet_nwpu_data.NwpuPreparationTests.test_preparation_and_validation_import_no_machine_learning_libraries) ... ok
+test_recovery_reads_only_train_val_and_never_overwrites (test_hgtnet_nwpu_data.NwpuPreparationTests.test_recovery_reads_only_train_val_and_never_overwrites) ... ok
+test_recovery_rejects_bad_zip_hash_unsafe_members_or_image_hash (test_hgtnet_nwpu_data.NwpuPreparationTests.test_recovery_rejects_bad_zip_hash_unsafe_members_or_image_hash) ... ok
+test_selected_validation_rejects_test_duplicate_bad_label_and_parent_symlink (test_hgtnet_nwpu_data.NwpuPreparationTests.test_selected_validation_rejects_test_duplicate_bad_label_and_parent_symlink) ... ok
+test_dataset_checks_hash_before_use_and_owns_record_snapshot (test_hgtnet_nwpu_data.RealImageDatasetTests.test_dataset_checks_hash_before_use_and_owns_record_snapshot) ... ok
+test_dataset_rejects_test_rows_and_inconsistent_class_labels (test_hgtnet_nwpu_data.RealImageDatasetTests.test_dataset_rejects_test_rows_and_inconsistent_class_labels) ... ok
+test_image_resize_uses_bilinear_and_preserves_record_order (test_hgtnet_nwpu_data.RealImageDatasetTests.test_image_resize_uses_bilinear_and_preserves_record_order) ... ok
+test_real_rgb_and_grayscale_jpeg_are_deterministic_imagenet_tensors (test_hgtnet_nwpu_data.RealImageDatasetTests.test_real_rgb_and_grayscale_jpeg_are_deterministic_imagenet_tensors) ... ok
+test_archive_tampering_duplicate_traversal_collision_and_symlink_are_rejected (test_hgtnet_nwpu_delivery.DeliveryTests.test_archive_tampering_duplicate_traversal_collision_and_symlink_are_rejected) ... ok
+test_build_pins_exact_scoped_sources_and_full_candidate_metadata (test_hgtnet_nwpu_delivery.DeliveryTests.test_build_pins_exact_scoped_sources_and_full_candidate_metadata) ... ok
+test_build_rejects_linked_source_and_sidecar_collision_without_overwrite (test_hgtnet_nwpu_delivery.DeliveryTests.test_build_rejects_linked_source_and_sidecar_collision_without_overwrite) ... ok
+test_cli_builds_a_new_offline_bundle_then_status_runs_without_ml_packages (test_hgtnet_nwpu_delivery.DeliveryTests.test_cli_builds_a_new_offline_bundle_then_status_runs_without_ml_packages) ... ok
+test_foreign_or_partial_workspace_is_preserved (test_hgtnet_nwpu_delivery.DeliveryTests.test_foreign_or_partial_workspace_is_preserved) ... ok
+test_real_zipapp_forwards_inspect_status_and_run_with_stdlib_only (test_hgtnet_nwpu_delivery.DeliveryTests.test_real_zipapp_forwards_inspect_status_and_run_with_stdlib_only) ... ok
+test_reuse_refuses_added_importable_sources_in_workspace (test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_added_importable_sources_in_workspace) ... ok
+test_reuse_refuses_source_receipt_and_manifest_changes (test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_source_receipt_and_manifest_changes) ... ok
+test_unrecognized_actions_do_not_install_or_start_runner (test_hgtnet_nwpu_delivery.DeliveryTests.test_unrecognized_actions_do_not_install_or_start_runner) ... ok
+test_workspace_and_tracked_file_symlinks_are_rejected (test_hgtnet_nwpu_delivery.DeliveryTests.test_workspace_and_tracked_file_symlinks_are_rejected) ... ok
+test_bad_input_cannot_leave_a_successful_first_step (test_hgtnet_nwpu_engine.EngineTests.test_bad_input_cannot_leave_a_successful_first_step) ... ok
+test_existing_artifacts_are_preserved (test_hgtnet_nwpu_engine.EngineTests.test_existing_artifacts_are_preserved) ... ok
+test_fixture_cannot_claim_real_gpu_scope_or_test_usage (test_hgtnet_nwpu_engine.EngineTests.test_fixture_cannot_claim_real_gpu_scope_or_test_usage) ... ok
+test_real_cpu_step_val_and_independent_reload (test_hgtnet_nwpu_engine.EngineTests.test_real_cpu_step_val_and_independent_reload) ... ok
+test_safe_checkpoint_requires_exact_sha_metadata_and_all_shapes_before_copy (test_hgtnet_nwpu_engine.EngineTests.test_safe_checkpoint_requires_exact_sha_metadata_and_all_shapes_before_copy) ... ok
+test_val_order_or_counts_do_not_silently_change_metrics (test_hgtnet_nwpu_engine.EngineTests.test_val_order_or_counts_do_not_silently_change_metrics) ... ok
+test_completed_zip_recovery_receipt_replaces_pending_inspect_state (test_hgtnet_nwpu_runner.RunnerTests.test_completed_zip_recovery_receipt_replaces_pending_inspect_state)
+Drive the wrapper through real CPU JPEG training, validation and reload. ... HGTNET_SMOKE_DEVICE {"device": "cpu"}
+HGTNET_SMOKE_PROGRESS {"device": "cpu", "elapsed_seconds": 0.001909666694700718, "gradients": {"groups": {"head": {"l2": 1.233827334003772, "tensors": 2}}, "missing": [], "nonfinite": [], "passed": true}, "loss": 3.9071264266967773, "optimizer_step_succeeded": true, "optimizer_steps": 1, "samples_seen": 2, "stage": "first_optimizer_step", "training_started": true, "updated_groups": {"head": true}}
+HGTNET_SMOKE_PROGRESS {"completed": true, "stage": "complete", "training_started": true}
+HGTNET_NWPU_SMOKE_COMPLETE /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmp6_kvxo6v/output/summary.json
+ok
+test_generated_command_binds_current_uuid_not_historical_one (test_hgtnet_nwpu_runner.RunnerTests.test_generated_command_binds_current_uuid_not_historical_one) ... ok
+test_inspect_missing_resources_has_specific_blockers_and_no_training (test_hgtnet_nwpu_runner.RunnerTests.test_inspect_missing_resources_has_specific_blockers_and_no_training) ... ok
+test_present_zip_is_pending_full_hash_not_rejected_by_unverified_size (test_hgtnet_nwpu_runner.RunnerTests.test_present_zip_is_pending_full_hash_not_rejected_by_unverified_size) ... ok
+test_run_without_uuid_is_rejected_before_creating_output (test_hgtnet_nwpu_runner.RunnerTests.test_run_without_uuid_is_rejected_before_creating_output) ... ok
+test_runtime_failure_is_not_success_and_has_exit_one (test_hgtnet_nwpu_runner.RunnerTests.test_runtime_failure_is_not_success_and_has_exit_one) ... Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tools/run_hgtnet_nwpu_smoke.py", line 192, in run_smoke
+    torch,runtime=_runtime_and_torch(args,preflight['selected_gpu'])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+ValueError: actual CUDA mismatch
+ok
+test_status_missing_is_read_only_and_never_complete (test_hgtnet_nwpu_runner.RunnerTests.test_status_missing_is_read_only_and_never_complete) ... ok
+test_status_requires_both_summary_complete_and_exit_zero (test_hgtnet_nwpu_runner.RunnerTests.test_status_requires_both_summary_complete_and_exit_zero) ... ok
+test_apply_copies_real_tensors_and_preserves_all_new_modules (test_hgtnet_pretrained.PretrainedMappingTests.test_apply_copies_real_tensors_and_preserves_all_new_modules) ... ok
+test_audit_is_read_only_and_reports_exact_mapping_and_new_parameters (test_hgtnet_pretrained.PretrainedMappingTests.test_audit_is_read_only_and_reports_exact_mapping_and_new_parameters) ... ok
+test_file_loader_requires_complete_official_hash_and_checks_bytes_before_load (test_hgtnet_pretrained.PretrainedMappingTests.test_file_loader_requires_complete_official_hash_and_checks_bytes_before_load) ... ok
+test_missing_pretrained_target_is_reported_and_blocks_all_mutation (test_hgtnet_pretrained.PretrainedMappingTests.test_missing_pretrained_target_is_reported_and_blocks_all_mutation) ... ok
+test_nonfinite_loaded_or_intentionally_skipped_values_block_loading (test_hgtnet_pretrained.PretrainedMappingTests.test_nonfinite_loaded_or_intentionally_skipped_values_block_loading) ... ok
+test_schema_only_and_meta_are_never_reported_as_successful_loading (test_hgtnet_pretrained.PretrainedMappingTests.test_schema_only_and_meta_are_never_reported_as_successful_loading) ... ok
+test_shape_and_dtype_mismatch_prevent_partial_loading (test_hgtnet_pretrained.PretrainedMappingTests.test_shape_and_dtype_mismatch_prevent_partial_loading) ... ok
+test_sparse_and_non_tensor_state_are_rejected_before_mutation (test_hgtnet_pretrained.PretrainedMappingTests.test_sparse_and_non_tensor_state_are_rejected_before_mutation) ... ok
+test_typo_in_skipped_source_namespace_is_still_unexpected (test_hgtnet_pretrained.PretrainedMappingTests.test_typo_in_skipped_source_namespace_is_still_unexpected) ... ok
+test_unexpected_source_blocks_all_mutation (test_hgtnet_pretrained.PretrainedMappingTests.test_unexpected_source_blocks_all_mutation) ... ok
+test_unknown_target_is_not_mislabeled_as_intentionally_initialized (test_hgtnet_pretrained.PretrainedMappingTests.test_unknown_target_is_not_mislabeled_as_intentionally_initialized) ... ok
+test_actual_runtime_is_verified_independently_from_distribution_metadata (test_hgtnet_resources.ResourcesTests.test_actual_runtime_is_verified_independently_from_distribution_metadata) ... ok
+test_busy_wrong_card_and_unknown_uuid_are_rejected (test_hgtnet_resources.ResourcesTests.test_busy_wrong_card_and_unknown_uuid_are_rejected) ... ok
+test_dependency_metadata_is_explicitly_unimported (test_hgtnet_resources.ResourcesTests.test_dependency_metadata_is_explicitly_unimported) ... ok
+test_explicit_uuid_can_select_one_of_two_idle_cards (test_hgtnet_resources.ResourcesTests.test_explicit_uuid_can_select_one_of_two_idle_cards) ... ok
+test_invalid_free_memory_and_unparseable_processes_are_rejected (test_hgtnet_resources.ResourcesTests.test_invalid_free_memory_and_unparseable_processes_are_rejected) ... ok
+test_metadata_accepts_base_or_cu121_but_rejects_cpu_or_wrong_versions (test_hgtnet_resources.ResourcesTests.test_metadata_accepts_base_or_cu121_but_rejects_cpu_or_wrong_versions) ... ok
+test_new_paths_are_checked_by_real_path_without_creating_them (test_hgtnet_resources.ResourcesTests.test_new_paths_are_checked_by_real_path_without_creating_them) ... ok
+test_no_compute_process_lines_are_valid_but_blank_inventory_is_not_ready (test_hgtnet_resources.ResourcesTests.test_no_compute_process_lines_are_valid_but_blank_inventory_is_not_ready) ... ok
+test_nvidia_csv_is_parsed_into_numeric_inventory (test_hgtnet_resources.ResourcesTests.test_nvidia_csv_is_parsed_into_numeric_inventory) ... ok
+test_query_failures_and_malformed_csv_never_become_idle_gpu (test_hgtnet_resources.ResourcesTests.test_query_failures_and_malformed_csv_never_become_idle_gpu) ... ok
+test_resource_module_and_inventory_work_with_ml_imports_forbidden (test_hgtnet_resources.ResourcesTests.test_resource_module_and_inventory_work_with_ml_imports_forbidden) ... ok
+test_runtime_missing_fields_and_boolean_numeric_aliases_are_rejected (test_hgtnet_resources.ResourcesTests.test_runtime_missing_fields_and_boolean_numeric_aliases_are_rejected) ... ok
+test_same_volume_budget_is_combined_and_nearest_existing_ancestor_reported (test_hgtnet_resources.ResourcesTests.test_same_volume_budget_is_combined_and_nearest_existing_ancestor_reported) ... ok
+test_separate_volume_budgets_and_disk_errors_are_blockers (test_hgtnet_resources.ResourcesTests.test_separate_volume_budgets_and_disk_errors_are_blockers) ... ok
+test_unique_idle_current_gpu_is_selected_without_prior_uuid (test_hgtnet_resources.ResourcesTests.test_unique_idle_current_gpu_is_selected_without_prior_uuid) ... ok
+test_bad_cli_never_claims_complete (test_hgtnet_smoke.SmokeTests.test_bad_cli_never_claims_complete) ... usage: run_related_tests.py [-h] {smoke,verify-reload} ...
+run_related_tests.py: error: --weights and --weights-sha256 must be supplied together
+ok
+test_existing_output_cannot_be_overwritten_or_reused (test_hgtnet_smoke.SmokeTests.test_existing_output_cannot_be_overwritten_or_reused) ... ok
+test_finite_zero_gradient_cannot_pass_as_learning (test_hgtnet_smoke.SmokeTests.test_finite_zero_gradient_cannot_pass_as_learning) ... ok
+test_gradients_report_rejects_missing_and_nonfinite (test_hgtnet_smoke.SmokeTests.test_gradients_report_rejects_missing_and_nonfinite) ... ok
+test_new_output_does_not_allow_path_through_symlink (test_hgtnet_smoke.SmokeTests.test_new_output_does_not_allow_path_through_symlink) ... ok
+
+----------------------------------------------------------------------
+Ran 381 tests in 43.334s
+
+OK

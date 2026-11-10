@@ -1,0 +1,1018 @@
+{
+  "date": "2026-11-08",
+  "state": "PASS_WITH_DISCLOSED_EVIDENCE_LIMITS",
+  "scope": "AID internal-results, efficiency and component evidence; read-only except these two new audit files",
+  "protocol": {
+    "dataset": "AID",
+    "class_count": 30,
+    "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+    "split_seed": 42,
+    "val_split_seed": 4242,
+    "train": 4000,
+    "val": 1000,
+    "refit_pool": 5000,
+    "test": 5000,
+    "calibration_cap": 30,
+    "selection": "earliest strict maximum validationOA",
+    "refit": "fresh initialization from same pretrained state; selectedepochs;CosineT_max remains30",
+    "code": "deb2b45;17source hashes43/44 match recovered42 metadata",
+    "training": "Swin-T;AdamW3e-4/WD1e-4;batch32/workers2;CE;FP32/noAMP/noTF32;shared RGB224 augmentations",
+    "scope": "Applies to the original matched42/43/44 cohort. For46/47, configuration continuity was user-confirmed but original run/config identities remain unavailable."
+  },
+  "per_seed": [
+    {
+      "seed": 42,
+      "swin_oa": 96.34,
+      "fixed_oa": 96.94,
+      "swin_macro_f1": 96.22088514124282,
+      "fixed_macro_f1": 96.7811271561119,
+      "paired_correctness": {
+        "samples": 5000,
+        "both_correct": 4754,
+        "gavit_corrects": 93,
+        "gavit_breaks": 63,
+        "both_wrong": 90,
+        "net_correct": 30
+      },
+      "selected_refit_epochs": [
+        21,
+        20
+      ],
+      "calibration_epochs": 30,
+      "six_stages_reported_complete_exit0": true,
+      "negative_result_retained": false,
+      "gpu": "RTX2080Ti",
+      "local_original_predictions": true,
+      "local_full_confusion": true,
+      "evidence_type": "recovered original evaluation files, locally recomputed",
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/aid_seed42_comparison.md"
+    },
+    {
+      "seed": 43,
+      "swin_oa": 96.86,
+      "fixed_oa": 97.16,
+      "swin_macro_f1": 96.68420610630325,
+      "fixed_macro_f1": 96.95587595593263,
+      "paired_correctness": {
+        "samples": 5000,
+        "both_correct": 4796,
+        "gavit_corrects": 62,
+        "gavit_breaks": 47,
+        "both_wrong": 95,
+        "net_correct": 15
+      },
+      "selected_refit_epochs": [
+        25,
+        29
+      ],
+      "calibration_epochs": 30,
+      "six_stages_reported_complete_exit0": true,
+      "negative_result_retained": false,
+      "gpu": "RTX2080Ti",
+      "local_original_predictions": false,
+      "local_full_confusion": false,
+      "evidence_type": "user-returned collector summary; original full evaluation bytes absent",
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/aid_seed43_comparison.md"
+    },
+    {
+      "seed": 44,
+      "swin_oa": 96.84,
+      "fixed_oa": 96.08,
+      "swin_macro_f1": 96.66111935641514,
+      "fixed_macro_f1": 95.87462595609628,
+      "paired_correctness": {
+        "samples": 5000,
+        "both_correct": 4744,
+        "gavit_corrects": 60,
+        "gavit_breaks": 98,
+        "both_wrong": 98,
+        "net_correct": -38
+      },
+      "selected_refit_epochs": [
+        25,
+        21
+      ],
+      "calibration_epochs": 30,
+      "six_stages_reported_complete_exit0": true,
+      "negative_result_retained": true,
+      "gpu": "RTX2080Ti",
+      "local_original_predictions": false,
+      "local_full_confusion": false,
+      "evidence_type": "user-returned collector summary; original full evaluation bytes absent",
+      "source": ".worktrees/sparse-hybrid-4n-top2/results/aid_seed44_comparison.md"
+    },
+    {
+      "seed": 46,
+      "swin_oa": 96.56,
+      "fixed_oa": 97.12,
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "local_original_predictions": false,
+      "local_full_confusion": false,
+      "evidence_type": "user-confirmed historical OA only",
+      "gpu": "RTX4090 user-confirmed, UUID unavailable",
+      "six_stages_reported_complete_exit0": null,
+      "selected_refit_epochs": null,
+      "source": "results/seed46_seed47_reconstruction_20261104.json",
+      "missing": [
+        "macro-F1",
+        "predictions/per-class/full confusion",
+        "original run files/logs",
+        "commit/software/physical GPU UUID",
+        "checkpoint identity and bytes",
+        "best/final epoch",
+        "resource timing/memory/fees"
+      ]
+    },
+    {
+      "seed": 47,
+      "swin_oa": 95.72,
+      "fixed_oa": 96.08,
+      "swin_macro_f1": null,
+      "fixed_macro_f1": null,
+      "local_original_predictions": false,
+      "local_full_confusion": false,
+      "evidence_type": "user-confirmed historical OA only",
+      "gpu": "RTX4090 user-confirmed, UUID unavailable",
+      "six_stages_reported_complete_exit0": null,
+      "selected_refit_epochs": null,
+      "source": "results/seed46_seed47_reconstruction_20261104.json",
+      "missing": [
+        "macro-F1",
+        "predictions/per-class/full confusion",
+        "original run files/logs",
+        "commit/software/physical GPU UUID",
+        "checkpoint identity and bytes",
+        "best/final epoch",
+        "resource timing/memory/fees"
+      ]
+    }
+  ],
+  "statistics": {
+    "original_prespecified_three_seed_OA": {
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "metric": "oa",
+      "swin": {
+        "n": 3,
+        "values_decimal": [
+          "96.34",
+          "96.86",
+          "96.84"
+        ],
+        "mean": 96.68,
+        "mean_decimal": "96.68",
+        "sample_sd_ddof1": 0.2946183972531247,
+        "sample_sd_decimal": "0.2946183972531247071715074918070010810402"
+      },
+      "fixed": {
+        "n": 3,
+        "values_decimal": [
+          "96.94",
+          "97.16",
+          "96.08"
+        ],
+        "mean": 96.72666666666667,
+        "mean_decimal": "96.72666666666666666666666666666666666667",
+        "sample_sd_ddof1": 0.5707305260219865,
+        "sample_sd_decimal": "0.5707305260219864333424929947432051721484"
+      },
+      "paired_fixed_minus_swin_pp": {
+        "n": 3,
+        "values_decimal": [
+          "0.60",
+          "0.30",
+          "-0.76"
+        ],
+        "mean": 0.04666666666666667,
+        "mean_decimal": "0.04666666666666666666666666666666666666667",
+        "sample_sd_ddof1": 0.7145161533046914,
+        "sample_sd_decimal": "0.7145161533046914491802233994630130320153"
+      },
+      "positive_seeds": [
+        42,
+        43
+      ],
+      "negative_seeds": [
+        44
+      ]
+    },
+    "original_prespecified_three_seed_F1": {
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "metric": "macro_f1",
+      "swin": {
+        "n": 3,
+        "values_decimal": [
+          "96.22088514124282",
+          "96.68420610630325",
+          "96.66111935641514"
+        ],
+        "mean": 96.5220702013204,
+        "mean_decimal": "96.52207020132040333333333333333333333333",
+        "sample_sd_ddof1": 0.26108921811432995,
+        "sample_sd_decimal": "0.2610892181143299301683972455366248458337"
+      },
+      "fixed": {
+        "n": 3,
+        "values_decimal": [
+          "96.7811271561119",
+          "96.95587595593263",
+          "95.87462595609628"
+        ],
+        "mean": 96.53720968938028,
+        "mean_decimal": "96.53720968938027",
+        "sample_sd_ddof1": 0.5804284524979014,
+        "sample_sd_decimal": "0.5804284524979014066186932567763982379295"
+      },
+      "paired_fixed_minus_swin_pp": {
+        "n": 3,
+        "values_decimal": [
+          "0.56024201486908",
+          "0.27166984962938",
+          "-0.78649340031886"
+        ],
+        "mean": 0.015139488059866667,
+        "mean_decimal": "0.01513948805986666666666666666666666666667",
+        "sample_sd_ddof1": 0.7090697704990654,
+        "sample_sd_decimal": "0.7090697704990653567434155373962006003497"
+      },
+      "positive_seeds": [
+        42,
+        43
+      ],
+      "negative_seeds": [
+        44
+      ]
+    },
+    "user_requested_post_result_four_seed_OA": {
+      "seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "metric": "oa",
+      "swin": {
+        "n": 4,
+        "values_decimal": [
+          "96.34",
+          "96.86",
+          "96.56",
+          "95.72"
+        ],
+        "mean": 96.37,
+        "mean_decimal": "96.37",
+        "sample_sd_ddof1": 0.48290785870598546,
+        "sample_sd_decimal": "0.4829078587059854423631935962111076817089"
+      },
+      "fixed": {
+        "n": 4,
+        "values_decimal": [
+          "96.94",
+          "97.16",
+          "97.12",
+          "96.08"
+        ],
+        "mean": 96.825,
+        "mean_decimal": "96.825",
+        "sample_sd_ddof1": 0.505799696849784,
+        "sample_sd_decimal": "0.5057996968497839395806997374747720206429"
+      },
+      "paired_fixed_minus_swin_pp": {
+        "n": 4,
+        "values_decimal": [
+          "0.60",
+          "0.30",
+          "0.56",
+          "0.36"
+        ],
+        "mean": 0.455,
+        "mean_decimal": "0.455",
+        "sample_sd_ddof1": 0.14730919862656236,
+        "sample_sd_decimal": "0.1473091986265623535857537459035005405201"
+      },
+      "positive_seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "negative_seeds": []
+    },
+    "requested_subset_F1_available_two_seed_only": {
+      "seeds": [
+        42,
+        43
+      ],
+      "metric": "macro_f1",
+      "swin": {
+        "n": 2,
+        "values_decimal": [
+          "96.22088514124282",
+          "96.68420610630325"
+        ],
+        "mean": 96.45254562377303,
+        "mean_decimal": "96.452545623773035",
+        "sample_sd_ddof1": 0.3276173962601255,
+        "sample_sd_decimal": "0.3276173962601255068108633235647711128628"
+      },
+      "fixed": {
+        "n": 2,
+        "values_decimal": [
+          "96.7811271561119",
+          "96.95587595593263"
+        ],
+        "mean": 96.86850155602227,
+        "mean_decimal": "96.868501556022265",
+        "sample_sd_ddof1": 0.12356606135744873,
+        "sample_sd_decimal": "0.1235660613574487233687058965652484750016"
+      },
+      "paired_fixed_minus_swin_pp": {
+        "n": 2,
+        "values_decimal": [
+          "0.56024201486908",
+          "0.27166984962938"
+        ],
+        "mean": 0.41595593224923,
+        "mean_decimal": "0.41595593224923",
+        "sample_sd_ddof1": 0.2040513349026768,
+        "sample_sd_decimal": "0.2040513349026767834421574269995226378611"
+      },
+      "positive_seeds": [
+        42,
+        43
+      ],
+      "negative_seeds": []
+    },
+    "all_available_five_seed_OA_mixed_evidence": {
+      "seeds": [
+        42,
+        43,
+        44,
+        46,
+        47
+      ],
+      "metric": "oa",
+      "swin": {
+        "n": 5,
+        "values_decimal": [
+          "96.34",
+          "96.86",
+          "96.84",
+          "96.56",
+          "95.72"
+        ],
+        "mean": 96.464,
+        "mean_decimal": "96.464",
+        "sample_sd_ddof1": 0.4680598252360482,
+        "sample_sd_decimal": "0.4680598252360482177083679836404490723614"
+      },
+      "fixed": {
+        "n": 5,
+        "values_decimal": [
+          "96.94",
+          "97.16",
+          "96.08",
+          "97.12",
+          "96.08"
+        ],
+        "mean": 96.676,
+        "mean_decimal": "96.676",
+        "sample_sd_ddof1": 0.5503453461236862,
+        "sample_sd_decimal": "0.5503453461236862317217648607884020226463"
+      },
+      "paired_fixed_minus_swin_pp": {
+        "n": 5,
+        "values_decimal": [
+          "0.60",
+          "0.30",
+          "-0.76",
+          "0.56",
+          "0.36"
+        ],
+        "mean": 0.212,
+        "mean_decimal": "0.212",
+        "sample_sd_ddof1": 0.558139767441812,
+        "sample_sd_decimal": "0.5581397674418120155240632969793073822255"
+      },
+      "positive_seeds": [
+        42,
+        43,
+        46,
+        47
+      ],
+      "negative_seeds": [
+        44
+      ]
+    },
+    "historical46_47_OA_only": {
+      "seeds": [
+        46,
+        47
+      ],
+      "metric": "oa",
+      "swin": {
+        "n": 2,
+        "values_decimal": [
+          "96.56",
+          "95.72"
+        ],
+        "mean": 96.14,
+        "mean_decimal": "96.14",
+        "sample_sd_ddof1": 0.5939696961966999,
+        "sample_sd_decimal": "0.5939696961966999204967092641680731929993"
+      },
+      "fixed": {
+        "n": 2,
+        "values_decimal": [
+          "97.12",
+          "96.08"
+        ],
+        "mean": 96.6,
+        "mean_decimal": "96.60",
+        "sample_sd_ddof1": 0.7353910524340094,
+        "sample_sd_decimal": "0.7353910524340094253768781365890430008562"
+      },
+      "paired_fixed_minus_swin_pp": {
+        "n": 2,
+        "values_decimal": [
+          "0.56",
+          "0.36"
+        ],
+        "mean": 0.46,
+        "mean_decimal": "0.46",
+        "sample_sd_ddof1": 0.1414213562373095,
+        "sample_sd_decimal": "0.1414213562373095048801688724209698078570"
+      },
+      "positive_seeds": [
+        46,
+        47
+      ],
+      "negative_seeds": []
+    }
+  },
+  "group_scope": {
+    "primary_prespecified_matched": [
+      42,
+      43,
+      44
+    ],
+    "user_requested_report_subset": [
+      42,
+      43,
+      46,
+      47
+    ],
+    "selection_after_results": true,
+    "F1_common_available": [
+      42,
+      43,
+      44
+    ],
+    "all_OA_history": [
+      42,
+      43,
+      44,
+      46,
+      47
+    ],
+    "mixed_history_not_main_controlled_table": true,
+    "negative44_must_not_be_deleted": true,
+    "same5000_test_images_reused": true,
+    "new46_47_originals_and_F1_unavailable": true,
+    "statistics_policy": "Decimal arithmetic from source decimal values;ddof1;pair withinseed before aggregation;round only for final display;no inferred pvalues/CI/equivalence"
+  },
+  "seed42_original_verification": {
+    "swin": {
+      "samples": 5000,
+      "unique_paths": 5000,
+      "correct": 4817,
+      "oa_percent": 96.34,
+      "macro_f1_percent_recomputed": 96.22088514124282,
+      "all900_confusion_cells_match": true,
+      "phase": "refit",
+      "fit_scope": "train_plus_val",
+      "checkpoint_sha256": "fc04ddd58e233bc7291b6a5e54a2c3e9efc45c0584a709aa28a0eba496178018",
+      "git": {
+        "commit": "deb2b45",
+        "dirty": false
+      },
+      "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22"
+    },
+    "gavit": {
+      "samples": 5000,
+      "unique_paths": 5000,
+      "correct": 4847,
+      "oa_percent": 96.94,
+      "macro_f1_percent_recomputed": 96.78112715611192,
+      "all900_confusion_cells_match": true,
+      "phase": "refit",
+      "fit_scope": "train_plus_val",
+      "checkpoint_sha256": "a023563e7c4566436660a2d9bc778a9adb3e9b5a64f39f821ce81e909c913c7a",
+      "git": {
+        "commit": "deb2b45",
+        "dirty": false
+      },
+      "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22"
+    },
+    "paired": {
+      "both_correct": 4754,
+      "fixed_corrects": 93,
+      "fixed_breaks": 63,
+      "both_wrong": 90,
+      "net_correct": 30,
+      "same_order_paths_labels": true,
+      "new_model_execution": false
+    }
+  },
+  "efficiency": {
+    "source": ".worktrees/sparse-hybrid-4n-top2/results/aid_efficiency_summary.json",
+    "evidence_type": "user-returned terminal collector summary; not original stage-byte files",
+    "protocol": {
+      "name": "aid-e06-model-only-v1",
+      "input_seed": 20260922,
+      "shape_without_batch": [
+        3,
+        224,
+        224
+      ],
+      "dtype": "float32",
+      "input": "fixed synthetic RGB uniform[0,1], then ImageNet normalization",
+      "input_location_during_timing": "cuda:0",
+      "amp": false,
+      "tf32": false,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "torch_threads": 8,
+      "warmup_forwards": 20,
+      "repeats": 5,
+      "steps_per_repeat": 50,
+      "timer": "perf_counter, each forward followed by CUDA synchronize",
+      "scope": "full model including Python graph construction and device execution",
+      "excludes": [
+        "file IO",
+        "decode",
+        "resize",
+        "normalization",
+        "host-to-device transfer",
+        "model loading",
+        "warmup",
+        "argmax",
+        "metrics",
+        "instrumentation hooks"
+      ],
+      "memory_scope": "steady-state model + input + forward output/temporaries; after warmup"
+    },
+    "rows": [
+      {
+        "model": "swin",
+        "batch_size": 1,
+        "parameters": 27543960,
+        "timing": {
+          "batch_ms_mean": 14.891225999999733,
+          "batch_ms_median": 14.058089000002383,
+          "batch_ms_p95": 19.16217300004064,
+          "amortized_ms_per_image": 14.891225999999733,
+          "images_per_second": 67.15363798790092,
+          "repeat_batch_ms_means": [
+            15.919274800010044,
+            14.908994459985934,
+            14.587555920004434,
+            14.511621279998508,
+            14.528683539999747
+          ],
+          "repeat_mean_sample_sd_ms": 0.5968568399556384,
+          "repeat_mean_min_ms": 14.511621279998508,
+          "repeat_mean_max_ms": 15.919274800010044
+        },
+        "peak_allocated_bytes": 139741184,
+        "peak_reserved_bytes": 165675008,
+        "peak_allocated_mib": 133.267578125,
+        "peak_reserved_mib": 158.0
+      },
+      {
+        "model": "gavit",
+        "batch_size": 1,
+        "parameters": 31375385,
+        "timing": {
+          "batch_ms_mean": 20.01568305599767,
+          "batch_ms_median": 19.51388850005742,
+          "batch_ms_p95": 20.573871000010513,
+          "amortized_ms_per_image": 20.01568305599767,
+          "images_per_second": 49.96082308069679,
+          "repeat_batch_ms_means": [
+            20.13421962000166,
+            20.156643039999835,
+            19.99754973998961,
+            20.052222679996703,
+            19.737780200000543
+          ],
+          "repeat_mean_sample_sd_ms": 0.16793941819787367,
+          "repeat_mean_min_ms": 19.737780200000543,
+          "repeat_mean_max_ms": 20.156643039999835
+        },
+        "peak_allocated_bytes": 154932736,
+        "peak_reserved_bytes": 188743680,
+        "peak_allocated_mib": 147.75537109375,
+        "peak_reserved_mib": 180.0
+      },
+      {
+        "model": "gavit",
+        "batch_size": 32,
+        "parameters": 31375385,
+        "timing": {
+          "batch_ms_mean": 66.88498899999877,
+          "batch_ms_median": 66.82697950003558,
+          "batch_ms_p95": 68.67793599997185,
+          "amortized_ms_per_image": 2.0901559062499615,
+          "images_per_second": 478.4332101781552,
+          "repeat_batch_ms_means": [
+            66.26292585999863,
+            66.16275936000648,
+            67.15365843999962,
+            67.53431995999563,
+            67.31128137999349
+          ],
+          "repeat_mean_sample_sd_ms": 0.6293086206053041,
+          "repeat_mean_min_ms": 66.16275936000648,
+          "repeat_mean_max_ms": 67.53431995999563
+        },
+        "peak_allocated_bytes": 638952960,
+        "peak_reserved_bytes": 1008730112,
+        "peak_allocated_mib": 609.35302734375,
+        "peak_reserved_mib": 962.0
+      },
+      {
+        "model": "swin",
+        "batch_size": 32,
+        "parameters": 27543960,
+        "timing": {
+          "batch_ms_mean": 56.648041895999995,
+          "batch_ms_median": 56.76797249998344,
+          "batch_ms_p95": 58.70709300006638,
+          "amortized_ms_per_image": 1.7702513092499998,
+          "images_per_second": 564.8915466266025,
+          "repeat_batch_ms_means": [
+            56.32659569999532,
+            56.5614350199985,
+            56.53948607999837,
+            56.811223540009905,
+            57.00146913999788
+          ],
+          "repeat_mean_sample_sd_ms": 0.26179755481388145,
+          "repeat_mean_min_ms": 56.32659569999532,
+          "repeat_mean_max_ms": 57.00146913999788
+        },
+        "peak_allocated_bytes": 623360000,
+        "peak_reserved_bytes": 987758592,
+        "peak_allocated_mib": 594.482421875,
+        "peak_reserved_mib": 942.0
+      }
+    ],
+    "hardware": {
+      "device": "cuda:0",
+      "device_name": "NVIDIA GeForce RTX 2080 Ti",
+      "cuda_runtime": "12.1",
+      "cudnn": 8902,
+      "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+      "torch_num_threads": 8,
+      "packages": {
+        "torch": "2.2.2",
+        "torchvision": "0.17.2",
+        "timm": "1.0.27",
+        "torch-geometric": "2.8.0",
+        "numpy": "1.26.4",
+        "pillow": "10.3.0"
+      }
+    },
+    "gpu_uuid": "GPU-0fa5e2ad-0028-881c-749b-3b88c01de00b",
+    "driver_reported": "610.57.04",
+    "checkpoint_sha256": {
+      "swin": "fc04ddd58e233bc7291b6a5e54a2c3e9efc45c0584a709aa28a0eba496178018",
+      "gavit": "a023563e7c4566436660a2d9bc778a9adb3e9b5a64f39f821ce81e909c913c7a"
+    },
+    "parameters_increase_percent": 13.91021842901312,
+    "extra_parameters": 3831425,
+    "relative_changes": {
+      "1": {
+        "mean_batch_latency_increase_ms": 5.1244570559979365,
+        "mean_batch_latency_change_percent": 34.412593402303,
+        "throughput_change_percent": -25.602209235934115,
+        "allocated_memory_increase_mib": 14.48779296875,
+        "allocated_memory_change_percent": 10.871206014684986,
+        "reserved_memory_increase_mib": 22.0,
+        "reserved_memory_change_percent": 13.924050632911399
+      },
+      "32": {
+        "mean_batch_latency_increase_ms": 10.236947103998773,
+        "mean_batch_latency_change_percent": 18.071140257226826,
+        "throughput_change_percent": -15.305298329344064,
+        "allocated_memory_increase_mib": 14.87060546875,
+        "allocated_memory_change_percent": 2.50143737166324,
+        "reserved_memory_increase_mib": 20.0,
+        "reserved_memory_change_percent": 2.123142250530785
+      }
+    },
+    "elapsed_wall_seconds": 88.26085498400005,
+    "forward_seconds_derived": 39.60998498799904,
+    "order": [
+      "swin_b1",
+      "gavit_b1",
+      "gavit_b32",
+      "swin_b32"
+    ],
+    "arithmetic_checks": [
+      {
+        "model": "swin",
+        "batch": 1,
+        "group_mean_and_SD_throughput_memory_units": "PASS"
+      },
+      {
+        "model": "gavit",
+        "batch": 1,
+        "group_mean_and_SD_throughput_memory_units": "PASS"
+      },
+      {
+        "model": "gavit",
+        "batch": 32,
+        "group_mean_and_SD_throughput_memory_units": "PASS"
+      },
+      {
+        "model": "swin",
+        "batch": 32,
+        "group_mean_and_SD_throughput_memory_units": "PASS"
+      }
+    ],
+    "limits": [
+      "5group-mean sampleSD is not250individual latencySD,trainingseedSD orCI",
+      "Original250latencies and temperature/clock/power telemetry absent;median/P95 reported only",
+      "Fixed order;firstSwinb1 slower group retained;thermal/order effects not independently ruledout",
+      "Synthetic GPU-resident model-only throughput;no reading/processing/H2D/argmax/metrics",
+      "Python graph construction included;no grouping/GAT/feedback time decomposition",
+      "One checkpointseed42;timinggroups not accuracyseeds",
+      "Allocated and reserved not additive;afterwarmup model/input/output/temporaries;notNVML wholecard",
+      "Memory one peak perconfiguration;no errorbars;excludesloading/preflightpeak",
+      "Training walltimes differ in selectedepochs and cannot establish inference advantage orfees"
+    ]
+  },
+  "ablation_evidence": [
+    {
+      "item": "AID full fixed4x4 graph vs Swin",
+      "status": "completed",
+      "scope": "Main42/43/44 OA/F1;46/47 OA-only supplement. Tests full added pathway, not individual module contributions."
+    },
+    {
+      "item": "AID soft assignment",
+      "status": "not_run",
+      "scope": "No42/43/44/46/47 soft outcome; do not create a third row."
+    },
+    {
+      "item": "AID region-only/no-GNN",
+      "status": "no_current_formal_evidence",
+      "scope": "Historical NWPU region-only validation does not fill this AID cell."
+    },
+    {
+      "item": "AID edge recipe/GAT type/depth",
+      "status": "no_current_formal_evidence",
+      "scope": "80-edge forward checks are architecture identity, not a trained edge ablation."
+    },
+    {
+      "item": "AID K4/K9/K16",
+      "status": "no_current_formal_evidence",
+      "scope": "No current AID trained K4/K9 result; early K9/K16 changed grouping and integration simultaneously."
+    },
+    {
+      "item": "AID feedback scaling/removal",
+      "status": "no_current_formal_evidence",
+      "scope": "Do not transfer NWPU val or BEN selected-case interventions."
+    },
+    {
+      "item": "Legacy NWPU region-only/graph chain",
+      "status": "historical_validation_report",
+      "scope": "2026-03-22 diary: approximately96.0 baseline,96.2 K9 region-only,96.5 spatial+GAT,96.0 kmeans+GAT. Old70/15/15/architecture; not modern20%pool test nor AID. Logs/checkpoints not freshly audited."
+    },
+    {
+      "item": "Legacy NWPU edges",
+      "status": "historical_validation_report",
+      "scope": "2026-03-26 diary: spatial96.2,cosineKNN96.1,hybrid96.0;3x3/8-neighbour historical recipe, not current4n+top2 component result."
+    },
+    {
+      "item": "Root ablation_study.csv",
+      "status": "mostly_empty_old_plan",
+      "scope": "Nonbaseline metric fields are blank. Root comparison_table.csv has old NWPU validation values, not an AID formal ablation."
+    },
+    {
+      "item": "NWPU feedback alpha",
+      "status": "completed_reported_diagnostic",
+      "scope": "1260 calibration-val;fixed/soft alpha0,.25,.5,.75,1;alpha<1 all lowerOA/F1,alpha0 net-9 each. Jointly trained weights; not independently trained no-GNN/Swin and not AID/test."
+    },
+    {
+      "item": "BEN K9/K16",
+      "status": "completed_cross_batch_reference",
+      "scope": "119825test seed42;K9mAP71.08 vs historicalK16~72.00 and4same-image captures. Historical hardware/software/rounding differences; not AID or a clean multiseed K-only ablation."
+    }
+  ],
+  "supported": [
+    "Original42/43/44 two positive and one negative run;nearzero paired mean;stable overall benefit not demonstrated.",
+    "Observed fixedGAViT sampleSD exceeds Swin for these3runs;not a universal variance claim.",
+    "Corrections and introduced errors coexist;seed42 raw93/63,43reported62/47,44reported60/98.",
+    "Same-device measured additional computation with limited allocated-memory increase;currentaccuracy evidence does not establish stable benefit sufficient to justify cost."
+  ],
+  "unsupported": [
+    "Stable superiority based on post-result42/43/46/47 subset",
+    "4seedF1 or invented46/47 original artifacts/auxiliary metrics",
+    "All5 samehardware/code/complete provenance or pure seedvariance",
+    "43/44 original predictions locallyrecomputed",
+    "Negative44 causally attributed to graph feedback/overfitting/incorrectLR",
+    "Specific graphedge/grouping/GAT/feedback isolated contribution from full-model comparison",
+    "Zero-feedback equals separately trained no-GNN/Swin",
+    "AID noGNN/soft/K/edge ablation filled from blankCSV or otherdatasets",
+    "Statistical significance/equivalence or universal graph-method failure",
+    "Full input pipeline throughput,crossGPU speed/fees,component timebreakdown"
+  ],
+  "source_artifacts": [
+    {
+      "path": "research_diary.md",
+      "bytes": 278628,
+      "sha256": "f442faf0f791a3bd1c03c6addc0d8baabccf78eefc1da0b2454652797f5856c5"
+    },
+    {
+      "path": "docs/supervisor_progress_report_20261012.md",
+      "bytes": 29771,
+      "sha256": "335ada4d942a8e84be8f85aebe3f1b511cad9eff34fb84eb7c266bcc22153c7a"
+    },
+    {
+      "path": "thesis/ntu_gavit/README.md",
+      "bytes": 7035,
+      "sha256": "f1f75da89efc8816f85369e5ce54993603fb267e098c91b334be5f5a39474cdf"
+    },
+    {
+      "path": "results/seed46_seed47_reconstruction_20261104.json",
+      "bytes": 16070,
+      "sha256": "6bec50cec48c6f69e22100bf7cac441728645bcb0694d6213c548c83ce3ea12d"
+    },
+    {
+      "path": "results/supervisor_progress_data_20261012.json",
+      "bytes": 27088,
+      "sha256": "7a825fdc1a26de05d1e181ec5d0767b3c2101859fbdb8cc968058cab9c842bc2"
+    },
+    {
+      "path": "results/aid_seed42_three_model_paired_analysis_20261106.json",
+      "bytes": 2426,
+      "sha256": "486f2da4412b03c97e8ffe332929299f2a8d6d0ea646c499fa8e3fc3b5f47877"
+    },
+    {
+      "path": "results/comparison_table.csv",
+      "bytes": 619,
+      "sha256": "54efc5572b6271e9019bd5546951ae84f9f06bf23fc7ff58021036b419de562f"
+    },
+    {
+      "path": "results/ablation_study.csv",
+      "bytes": 882,
+      "sha256": "33182d7a7802e11c0580e66b7736c1d679af45ba4399b47369b582d8e9bd2011"
+    },
+    {
+      "path": "docs/ben_grid3_grid4_seed42_20261020.md",
+      "bytes": 5412,
+      "sha256": "c2ea90cc294be1528497f0eb24e1460d63872e68b0cc09433382f9352767033c"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/aid_multiseed_summary.json",
+      "bytes": 6439,
+      "sha256": "2418d5841daa98e3e77f51afe37e295969d22bd8f2f950e2746ee5e32510623a"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/aid_multiseed_summary.md",
+      "bytes": 4139,
+      "sha256": "2eb6bce94e5d11cdf76ad303c98f2ad6117a419ca378dec20d0d5f1febc1ae43"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/aid_seed42_comparison.md",
+      "bytes": 12117,
+      "sha256": "7c1a8bd54c5f2acffad5c364b02d85b8d3eceb6bb3f1631e16fcbcb4a8ed6ae1"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/aid_seed43_comparison.md",
+      "bytes": 7769,
+      "sha256": "27b32ab56e1f0eff3427ee0de5ad319993063c7f635e874573b63e46ba9f7d93"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/aid_seed44_comparison.md",
+      "bytes": 7376,
+      "sha256": "8e74bb5cc8158bde2e86216834323aacaef9e6c836ed206ba244ff014ee29b69"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/aid_seed44_curve_confusion_analysis.md",
+      "bytes": 6330,
+      "sha256": "b122f7380e0a2638e6bfd88ae2cfad47b0e09a00b799eee3951f3b00acb618d1"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/aid_multiseed_class_stability.md",
+      "bytes": 2228,
+      "sha256": "d1dad560744c8005f2ccd7963f333dda819a1da4eb377d128c6614f70f1fa216"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/aid_efficiency_summary.json",
+      "bytes": 5709,
+      "sha256": "c600f8776b37716aa83f4aa49a11c7775cb373c166ece06f069c556e33a057c2"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/aid_efficiency_summary.md",
+      "bytes": 5773,
+      "sha256": "e81a2bd3645878e1f9dcb2b27bdd1807e9b350f2559d04209d9024c528205b6d"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/nwpu_feedback_sensitivity_seed42.md",
+      "bytes": 5090,
+      "sha256": "540ceafa5adfd6270c440816c1a596e8f73b16e7ed0236adfc6a369d8e5741b0"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/evidence/aid_efficiency_20260922_01/summary.json",
+      "bytes": 7426,
+      "sha256": "66adec56144c9b6899a0e925988dbbeaa212fc02cc9f621ffe7599f0ff6de42a"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/evidence/aid_efficiency_20260922_01/provenance.json",
+      "bytes": 740,
+      "sha256": "b49ffb2377cbd3f47151ba99af5b41c20ce31160f63d8ceb8b576ea1448b7791"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/evidence/aid_seed43_batch_20260921/summary.json",
+      "bytes": 21682,
+      "sha256": "7052e1c9be066691ebee48617899a15c69068edb33ffd0149385227c7dbe1716"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/evidence/aid_seed43_batch_20260921/provenance.json",
+      "bytes": 971,
+      "sha256": "68be5f5ae7afb88309db0662330ed73221cf100a9ee4cee3d35472ae3e112f2e"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/evidence/aid_seed44_batch_20260922/summary.json",
+      "bytes": 22972,
+      "sha256": "6197932e8d3a8152b582b3566f7e6689b0eb3461c2581f3bed5b0085a02b6e0f"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/evidence/aid_seed44_batch_20260922/provenance.json",
+      "bytes": 934,
+      "sha256": "c7056da884de9b79c2887c126bb7758f1951a9f68621022c7574aced08b49935"
+    },
+    {
+      "path": "results/evidence/external_results_integration_20261106/aid_core_raw/swin/predictions.csv",
+      "bytes": 3495383,
+      "sha256": "54ba93da7cc0a3e4b4a5591df359b596224cf64957670e53f20e6da80e2b6fd3"
+    },
+    {
+      "path": "results/evidence/external_results_integration_20261106/aid_core_raw/swin/per_class.csv",
+      "bytes": 1565,
+      "sha256": "f3639baf424a944171025f060d2e667c7da217df85c4ab9dc185e1bf1b6a07e7"
+    },
+    {
+      "path": "results/evidence/external_results_integration_20261106/aid_core_raw/swin/metrics.json",
+      "bytes": 17719,
+      "sha256": "67267884cc7a22db850ac77432781410c5a6fd43f2c2bfa193e183413b8fe309"
+    },
+    {
+      "path": "results/evidence/external_results_integration_20261106/aid_core_raw/swin/run.json",
+      "bytes": 3182,
+      "sha256": "6a25d3f18979731de6711f8ebb2f4287228b215c7d3e1789c23b9556acf006a2"
+    },
+    {
+      "path": "results/evidence/external_results_integration_20261106/aid_core_raw/swin/run.exit",
+      "bytes": 12,
+      "sha256": "bde294368bfed77c2cddf8cec271d398aee9cdbab3b26e1059281bd33adb0120"
+    },
+    {
+      "path": "results/evidence/external_results_integration_20261106/aid_core_raw/gavit/predictions.csv",
+      "bytes": 3496193,
+      "sha256": "2923a519ffe76a88f6a24b574bba23f5e4a58a6435aabf23195a24a140ee0fe0"
+    },
+    {
+      "path": "results/evidence/external_results_integration_20261106/aid_core_raw/gavit/per_class.csv",
+      "bytes": 1520,
+      "sha256": "5f28f5e0e4f1a45542ca6e73640c427acb54fb5cd6ae5b3283b7990ef5c726cc"
+    },
+    {
+      "path": "results/evidence/external_results_integration_20261106/aid_core_raw/gavit/metrics.json",
+      "bytes": 17676,
+      "sha256": "26144e735387ca95a31c06847987b0bc8b05a81a99c3cd6c5129d91f0541449a"
+    },
+    {
+      "path": "results/evidence/external_results_integration_20261106/aid_core_raw/gavit/run.json",
+      "bytes": 3184,
+      "sha256": "614f6beacf735954934e0ab5de149a21769a58ef077285d8c80a53697c206ccd"
+    },
+    {
+      "path": "results/evidence/external_results_integration_20261106/aid_core_raw/gavit/run.exit",
+      "bytes": 12,
+      "sha256": "bde294368bfed77c2cddf8cec271d398aee9cdbab3b26e1059281bd33adb0120"
+    }
+  ],
+  "audit_check_correction": "Collector runs contains6stage receipts; tests contains2metric summaries. Completion check uses6runs, not an assumed4training-only list; no source data was changed."
+}

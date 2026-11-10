@@ -1,0 +1,11 @@
+ARTIFACT_GATE_PASS: completed30 / exact two weights / frozen source / 4 original PNGs / val labels
+DEVICE {"device": "cpu", "gpu_identity": null, "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]", "packages": {"torch": "2.2.2", "torchvision": "0.17.2", "timm": "1.0.27", "torch-geometric": "2.8.0", "numpy": "1.26.4", "Pillow": "10.3.0"}}; 4 inputs x 2 trained models; inference only
+CAPTURE_PASS row=97389 K=9; 24 spatial + 18 feature; gates={'capture': 0.0, 'restoration': 0.0, 'pooling': 0.0, 'feedback': 0.0}
+CAPTURE_PASS row=14680 K=9; 24 spatial + 18 feature; gates={'capture': 0.0, 'restoration': 0.0, 'pooling': 0.0, 'feedback': 0.0}
+CAPTURE_PASS row=28450 K=9; 24 spatial + 18 feature; gates={'capture': 0.0, 'restoration': 0.0, 'pooling': 0.0, 'feedback': 0.0}
+CAPTURE_PASS row=4439 K=9; 24 spatial + 18 feature; gates={'capture': 0.0, 'restoration': 0.0, 'pooling': 0.0, 'feedback': 0.0}
+CAPTURE_PASS row=97389 K=16; 48 spatial + 32 feature; gates={'capture': 0.0, 'restoration': 0.0, 'pooling': 0.0, 'feedback': 0.0}
+CAPTURE_PASS row=14680 K=16; 48 spatial + 32 feature; gates={'capture': 0.0, 'restoration': 0.0, 'pooling': 0.0, 'feedback': 0.0}
+CAPTURE_PASS row=28450 K=16; 48 spatial + 32 feature; gates={'capture': 0.0, 'restoration': 0.0, 'pooling': 0.0, 'feedback': 0.0}
+CAPTURE_PASS row=4439 K=16; 48 spatial + 32 feature; gates={'capture': 0.0, 'restoration': 0.0, 'pooling': 0.0, 'feedback': 0.0}
+BEN_GRID_PAIR_VISUAL_COMPLETE /home/featurize/work/ben_gridpair42_visual_20261020_01

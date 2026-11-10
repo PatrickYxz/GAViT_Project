@@ -1,0 +1,126 @@
+{
+  "arrays": {
+    "conv3": {
+      "dtype": "float32",
+      "file": "conv3.npy",
+      "sha256": "13fc133c7a3a7c32e34074ecc19222bcc55c5800804c8be2cc52987a573afbff",
+      "shape": [
+        10,
+        12,
+        256
+      ]
+    },
+    "conv4": {
+      "dtype": "float32",
+      "file": "conv4.npy",
+      "sha256": "89e9d8f56bf6056e6ef6e30e101b31043008d1cd2605e9d3d3263e15b1df3d3c",
+      "shape": [
+        10,
+        12,
+        512
+      ]
+    },
+    "conv5": {
+      "dtype": "float32",
+      "file": "conv5.npy",
+      "sha256": "31b0fd0065c7ac8ca7c37591ab93db0627a8f7c0e8a1c1f98c293966d735af4f",
+      "shape": [
+        10,
+        12,
+        512
+      ]
+    },
+    "fc": {
+      "dtype": "float32",
+      "file": "fc.npy",
+      "sha256": "e619bfb1f11e51d37247410c67b7554bdce2383c2c84fc78d1307016da5c0b49",
+      "shape": [
+        10,
+        4096
+      ]
+    }
+  },
+  "identity": {
+    "class_names": [
+      "class_a",
+      "class_b"
+    ],
+    "feature_spec": {
+      "conv_activation": "pre_relu",
+      "fc_activation": "post_relu",
+      "pooling_hw": [
+        3,
+        4
+      ]
+    },
+    "fitted_on_sha256": null,
+    "manifest_sha256": "08226704765cbd3f4ecf2af437ed87b4222ad9f96c70cbfd69c2252c391facb8",
+    "preprocessing": {
+      "augmentation": false,
+      "channels": "RGB",
+      "conv_hw": 448,
+      "fc_hw": 224,
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "resize_mode": "bilinear_stretch",
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "weights_kind": "random_smoke"
+    },
+    "samples": [
+      {
+        "path": "class_a/00.png",
+        "sha256": "f3ac6e9ef2c560f2db17ae959b8a95f18d4eab94232b8cb2a2293787baaa6986"
+      },
+      {
+        "path": "class_a/01.png",
+        "sha256": "a046b6ffa2b1cbed3e638200bfefebd3f552d69d16dc806bf4c5832253ded6e5"
+      },
+      {
+        "path": "class_a/04.png",
+        "sha256": "ce76acefade140cf3c462a5411ad18aa83f98a13fccbf6465a780b475d81f1ac"
+      },
+      {
+        "path": "class_a/06.png",
+        "sha256": "b13e261993a16b295f9f140c5f8ab9950248b6f7758eed08255df779c77391e4"
+      },
+      {
+        "path": "class_a/09.png",
+        "sha256": "5ed5b21c40f9c43e2c5f71185c590c0c2185a71455c74207391a79d470508e90"
+      },
+      {
+        "path": "class_b/00.png",
+        "sha256": "8b18083101d2d00277b71d6252e63cdd5c14e08cfb5a4dad5fec780993933b34"
+      },
+      {
+        "path": "class_b/02.png",
+        "sha256": "19b303a381692e352e26207f20935b1b89df40dea8c34ccb51fa3ccad5940a89"
+      },
+      {
+        "path": "class_b/03.png",
+        "sha256": "04c4c12370b660204356edcb522dd50de0871701a5add67542c96f3cb2e1adc0"
+      },
+      {
+        "path": "class_b/04.png",
+        "sha256": "03284602069f791496221cd1333bd2cb3670ad7df6b7e23a63ddd673baab1af5"
+      },
+      {
+        "path": "class_b/07.png",
+        "sha256": "7b4c39e16257a5d424fef352db630cd972c519be7d7a3f831551bd87138fc274"
+      }
+    ],
+    "schema": "dfagcn-feature-cache-v1",
+    "source_sha256": "6bf25f4accd133bd3e0df663605e50b2f1b07f17470710c4b8e9a896c6a509e6",
+    "stage": "frozen_pretrained",
+    "training_config": null,
+    "weights_sha256": "e53c8bac71bbe650b4cd08338c593b071e3c5106cffd3c1f81b7b456a05217fe"
+  },
+  "key": "6a238c60369af94cbcf79a92023f84f6b015256e5b7ed33fd4947e3eecfbb3bc",
+  "schema": "dfagcn-pooled-cache-v1"
+}

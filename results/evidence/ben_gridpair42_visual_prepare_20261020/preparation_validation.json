@@ -1,0 +1,77 @@
+{
+  "status": "LOCAL_PREPARATION_CHECKS_PASS",
+  "command_bytes": 19182,
+  "bash_and_zsh_syntax_pass": true,
+  "real_installer_fixture_pass": true,
+  "duplicate_install_rejected": true,
+  "dispatch_stubbed": true,
+  "fixture_original_pngs": 4,
+  "fixture_rendered_input_placements": 12,
+  "fixture_edges_verified": 488,
+  "fixture_probabilities_are_synthetic": true,
+  "fixture_path": "/Users/patrick/Projects/GAViT_Project/results/evidence/ben_gridpair42_visual_prepare_20261020/layout_fixture/layout_fixture_not_results.html",
+  "server_capture_executed": false,
+  "tensor_inference_executed": false,
+  "source_and_payload_hashes": {
+    "ben_grid_pair_visual.py": "34bbaefe4590616f820d6bdafb0cf4262ec5d08b994df1fedd82bb3f5ae9f5ac",
+    "config.json": "9eb4c4647b8010a5b82ba0d97301fad9502aec9ec7c856a76bdd0051b8c7b50e"
+  },
+  "targeted_tests": {
+    "run": 20,
+    "new": 9,
+    "existing_K9": 11,
+    "exit_code": 0
+  },
+  "full_unittest": {
+    "run": 199,
+    "exit_code": 1,
+    "errors": 21,
+    "missing_torch": 8,
+    "missing_pytest": 13,
+    "error_names": [
+      "test_worker_records_exact_metrics_without_changing_save_return (test_bigearth_seed45.Seed45Tests.test_worker_records_exact_metrics_without_changing_save_return)",
+      "test_actual_assignment_and_graph_snapshots_and_corruptions (test_bigearth_soft45.Soft45Tests.test_actual_assignment_and_graph_snapshots_and_corruptions)",
+      "test_recording_preserves_save_return_and_training_rng (test_bigearth_soft45.Soft45Tests.test_recording_preserves_save_return_and_training_rng)",
+      "test_checkpoint_roundtrip (unittest.loader._FailedTest.test_checkpoint_roundtrip)",
+      "test_graph_construction (unittest.loader._FailedTest.test_graph_construction)",
+      "test_metadata_resolution_preserves_new_identity_and_rejects_fallback (test_grouping_identity.GroupingIdentityTests.test_metadata_resolution_preserves_new_identity_and_rejects_fallback)",
+      "test_nwpu_assignment_cache (unittest.loader._FailedTest.test_nwpu_assignment_cache)",
+      "test_nwpu_feedback_sensitivity (unittest.loader._FailedTest.test_nwpu_feedback_sensitivity)",
+      "test_nwpu_neighbors (unittest.loader._FailedTest.test_nwpu_neighbors)",
+      "test_nwpu_pooling_probe (unittest.loader._FailedTest.test_nwpu_pooling_probe)",
+      "test_nwpu_region_visualization (unittest.loader._FailedTest.test_nwpu_region_visualization)",
+      "test_scene_runtime (unittest.loader._FailedTest.test_scene_runtime)",
+      "test_soft_assignment_diagnostics (unittest.loader._FailedTest.test_soft_assignment_diagnostics)",
+      "test_soft_entrypoints (unittest.loader._FailedTest.test_soft_entrypoints)",
+      "test_soft_gavit (unittest.loader._FailedTest.test_soft_gavit)",
+      "test_soft_region_grouping (unittest.loader._FailedTest.test_soft_region_grouping)",
+      "test_sparse_hybrid_model (unittest.loader._FailedTest.test_sparse_hybrid_model)",
+      "test_spatial_prior_grouping (unittest.loader._FailedTest.test_spatial_prior_grouping)",
+      "test_spatial_prior_runtime (unittest.loader._FailedTest.test_spatial_prior_runtime)",
+      "test_token_refinement (unittest.loader._FailedTest.test_token_refinement)",
+      "test_token_refinement_runtime (unittest.loader._FailedTest.test_token_refinement_runtime)"
+    ]
+  },
+  "independent_review": {
+    "critical": 0,
+    "important": 0,
+    "minor_stale_plan_status_fixed": true,
+    "record": "review.md"
+  },
+  "static_svg_visual_qa": {
+    "rows_inspected": [
+      97389,
+      14680,
+      28450,
+      4439
+    ],
+    "renderer": "bundled sharp static SVG rasterizer",
+    "fixture_only": true,
+    "result": "titles, images, graph nodes, arrows and fixture captions visible without overlap"
+  },
+  "html_interaction_qa": {
+    "executed": false,
+    "reason": "Browser tool rejected file protocol; no browser workaround used"
+  },
+  "recorded_metrics_and_four_seed_csv_preserved": true
+}

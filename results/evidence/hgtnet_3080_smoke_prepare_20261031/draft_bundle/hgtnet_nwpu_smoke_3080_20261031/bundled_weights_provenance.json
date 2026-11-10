@@ -1,0 +1,8 @@
+{
+  "bytes": 351654207,
+  "filename": "swin_b-68c6b09e.pth",
+  "is_original_hgtnet_weights": false,
+  "kind": "torchvision.Swin_B_Weights.IMAGENET1K_V1",
+  "sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893",
+  "source_url": "https://download.pytorch.org/models/swin_b-68c6b09e.pth"
+}

@@ -1,0 +1,39 @@
+{
+  "actual_adam_steps": 2,
+  "all_completed_steps_observable": false,
+  "engine_sha256": "82dd0081f294f132f9943a308172a7f0e7ad3cbd2d89e3942526962661376adf",
+  "error": "Evaluation order/labels differ from bound records: val",
+  "events": [
+    {
+      "completed": false,
+      "device": "cpu",
+      "epoch": 1,
+      "formal_training_started": false,
+      "gradients": {
+        "groups": {
+          "head": {
+            "l2": 0.7029988382246136,
+            "tensors": 2
+          }
+        },
+        "missing": [],
+        "nonfinite": [],
+        "passed": true
+      },
+      "loss": 4.187190055847168,
+      "optimizer_step_completed": true,
+      "optimizer_step_succeeded": true,
+      "optimizer_steps": 1,
+      "phase": "calibration",
+      "post_update_checks_passed": true,
+      "samples_seen": 2,
+      "stage": "first_optimizer_step",
+      "training_started": true,
+      "updated_groups": {
+        "head": true
+      }
+    }
+  ],
+  "last_observed_optimizer_steps": 1,
+  "scope": "small CPU injected validation failure; no GPU/NWPU result"
+}

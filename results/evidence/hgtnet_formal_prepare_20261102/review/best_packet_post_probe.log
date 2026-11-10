@@ -1,0 +1,10 @@
+{
+  "best_packet_matches_selected_model_metrics": true,
+  "engine_sha256": "42eb8bc8461c91fde053863c5dfd93a1fb89faded1e5c5d719105fff99cbdbc5",
+  "final_file_correct": 0,
+  "schema": "hgtnet-best-packet-replay-review-v1",
+  "scope": "actual small CPU training with controlled replay-validation variation, not observed GPU nondeterminism; no NWPU claim",
+  "selected_best_correct": 0,
+  "selected_epoch": 1,
+  "uncommitted_best_correct": 2
+}

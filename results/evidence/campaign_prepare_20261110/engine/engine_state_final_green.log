@@ -1,0 +1,19 @@
+test_changed_completion_receipt_is_rejected (tests.test_aid_campaign_engine.CampaignEngineTests.test_changed_completion_receipt_is_rejected) ... ok
+test_completed_job_is_verified_without_training (tests.test_aid_campaign_engine.CampaignEngineTests.test_completed_job_is_verified_without_training) ... ok
+test_cuda_uuid_fallback_requires_independent_runtime_measurement (tests.test_aid_campaign_engine.CampaignEngineTests.test_cuda_uuid_fallback_requires_independent_runtime_measurement) ... ok
+test_first_update_requires_every_core_group_and_records_zero_delta_tensors (tests.test_aid_campaign_engine.CampaignEngineTests.test_first_update_requires_every_core_group_and_records_zero_delta_tensors) ... ok
+test_formal_refuses_changed_recipe (tests.test_aid_campaign_engine.CampaignEngineTests.test_formal_refuses_changed_recipe) ... ok
+test_formal_refuses_cpu_before_importing_training_dependencies (tests.test_aid_campaign_engine.CampaignEngineTests.test_formal_refuses_cpu_before_importing_training_dependencies) ... ok
+test_formal_refuses_historical_fixed_swin_seeds (tests.test_aid_campaign_engine.CampaignEngineTests.test_formal_refuses_historical_fixed_swin_seeds) ... ok
+test_manifest_hash_and_actual_counts_are_both_required (tests.test_aid_campaign_engine.CampaignEngineTests.test_manifest_hash_and_actual_counts_are_both_required) ... ok
+test_weight_decay_alone_does_not_count_as_a_live_core_group (tests.test_aid_campaign_engine.CampaignEngineTests.test_weight_decay_alone_does_not_count_as_a_live_core_group) ... ok
+test_corrupted_committed_artifact_is_never_resumed (tests.test_aid_campaign_state.CampaignStateTests.test_corrupted_committed_artifact_is_never_resumed) ... ok
+test_existing_output_requires_explicit_resume_and_exact_identity (tests.test_aid_campaign_state.CampaignStateTests.test_existing_output_requires_explicit_resume_and_exact_identity) ... ok
+test_interrupted_write_retains_prior_full_epoch (tests.test_aid_campaign_state.CampaignStateTests.test_interrupted_write_retains_prior_full_epoch) ... ok
+test_only_latest_two_accepted_full_states_remain (tests.test_aid_campaign_state.CampaignStateTests.test_only_latest_two_accepted_full_states_remain) ... ok
+test_receipt_path_cannot_escape_phase (tests.test_aid_campaign_state.CampaignStateTests.test_receipt_path_cannot_escape_phase) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.008s
+
+OK

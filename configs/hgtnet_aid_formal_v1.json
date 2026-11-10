@@ -1,0 +1,44 @@
+{
+  "amp": false,
+  "batch_size": 16,
+  "betas": [
+    0.9,
+    0.999
+  ],
+  "disclosure": "independent nonofficial implementation; paper confirms epochs/batch/Adam/lr/WD/CE and crop/flip only; precise augmentation, defaults, LR schedule, selection and preprocessing are explicit engineering choices",
+  "drop_last": false,
+  "epoch_seed": "42+epoch",
+  "eps": 1e-08,
+  "eval_batch_size": 16,
+  "eval_transform": [
+    "RGB",
+    "Resize256x256_bilinear",
+    "CenterCrop224",
+    "ToTensor",
+    "ImageNet_normalize"
+  ],
+  "gradient_clipping": false,
+  "label_smoothing": 0.0,
+  "loss": "CrossEntropyLoss",
+  "lr": 1e-05,
+  "max_epochs": 100,
+  "num_workers": 0,
+  "optimizer": "Adam",
+  "pin_memory": false,
+  "refit": "fresh_equal_initial_state_pool_selected_epoch",
+  "scheduler": null,
+  "schema": "hgtnet-aid-independent-formal-recipe-v1",
+  "seed": 42,
+  "selection": "validation_correct_count_strict_greater_tie_earliest",
+  "tf32": false,
+  "train_transform": [
+    "RGB",
+    "Resize256x256_bilinear",
+    "RandomCrop224",
+    "RandomHorizontalFlip_p0.5",
+    "ToTensor",
+    "ImageNet_normalize"
+  ],
+  "warmup_epochs": 0,
+  "weight_decay": 5e-05
+}

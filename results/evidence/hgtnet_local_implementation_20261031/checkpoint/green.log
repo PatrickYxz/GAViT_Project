@@ -1,0 +1,17 @@
+test_actual_source_identity_hashes_exact_model_modules (test_hgtnet_checkpoint.CheckpointTests.test_actual_source_identity_hashes_exact_model_modules) ... ok
+test_existing_file_or_symlink_is_never_overwritten (test_hgtnet_checkpoint.CheckpointTests.test_existing_file_or_symlink_is_never_overwritten) ... ok
+test_full_hash_is_required_and_wrong_hash_does_not_load (test_hgtnet_checkpoint.CheckpointTests.test_full_hash_is_required_and_wrong_hash_does_not_load) ... ok
+test_load_uses_safe_weights_only_mode (test_hgtnet_checkpoint.CheckpointTests.test_load_uses_safe_weights_only_mode) ... ok
+test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) ... ok
+test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) ... ok
+test_mutated_model_config_rejected_for_save_and_load (test_hgtnet_checkpoint.CheckpointTests.test_mutated_model_config_rejected_for_save_and_load) ... ok
+test_new_class_count_or_operator_identity_cannot_load (test_hgtnet_checkpoint.CheckpointTests.test_new_class_count_or_operator_identity_cannot_load) ... ok
+test_roundtrip_copies_parameters_buffers_and_json_identity (test_hgtnet_checkpoint.CheckpointTests.test_roundtrip_copies_parameters_buffers_and_json_identity) ... ok
+test_save_rejects_bad_values_or_non_json_provenance_without_file (test_hgtnet_checkpoint.CheckpointTests.test_save_rejects_bad_values_or_non_json_provenance_without_file) ... ok
+test_serialization_error_removes_only_new_partial_file (test_hgtnet_checkpoint.CheckpointTests.test_serialization_error_removes_only_new_partial_file) ... ok
+test_truncated_or_unsafe_files_reject_before_mutation (test_hgtnet_checkpoint.CheckpointTests.test_truncated_or_unsafe_files_reject_before_mutation) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.081s
+
+OK

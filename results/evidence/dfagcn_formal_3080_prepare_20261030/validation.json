@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-30",
+  "status": "OFFLINE_FORMAL_3080_DELIVERY_READY_TARGET_RUN_NOT_STARTED",
+  "bundle": {
+    "path": "/Users/patrick/Projects/GAViT_Project/output/dfagcn_nwpu_formal_3080_20261030.pyz",
+    "bytes": 150901,
+    "sha256": "66cbb46bc8bc0fb8a79e7e95794534e6efb430ee1630be2258c91df16c98861b",
+    "payload_files": 29,
+    "runner": "tools/run_dfagcn_nwpu_formal.py"
+  },
+  "package_test_methods": 139,
+  "package_tests_passed": true,
+  "test_command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 KMP_INIT_AT_FORK=FALSE /private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest discover -s tests -p test_dfagcn_*.py -v",
+  "test_seconds": 9.784,
+  "formal_target_training_started": false,
+  "actual_3080_probe_pass_evidence": "../dfagcn_gpu_3080_return_20261030/validation.json",
+  "local_pyz_status": "not_started",
+  "local_pyz_inspect_expected_missing_resources": true,
+  "local_pyz_weights_sha_verified": true,
+  "local_runs_directory_created": false,
+  "existing_inputs_unchanged": 20,
+  "protected_metric_files_unchanged": 19,
+  "protected_legacy_source_files_unchanged": 12,
+  "source_snapshot_sha256": {
+    "tools/run_dfagcn_nwpu_formal.py": "049bcf3ea559eeb098442bb06041d9d873c8277203228a629e0292e4204caf68",
+    "tools/package_dfagcn_nwpu_smoke.py": "b5f6a52144bdbb8e8e93d8f31eab198c2942f544e1313c89e2c147d530023de7",
+    "tests/test_dfagcn_formal_runner.py": "d388c82783bdd7ba477fb55032816750a042623c41d97755aed872c44cd4436f",
+    "tests/test_dfagcn_delivery.py": "cae56d5aab2b109beec3595d18ca210c2e564888c8ff405b189b4ed5b7a0e0b7",
+    "tools/probe_dfagcn_gpu.py": "1eae9207ebeedafcd5ed901ab302238169c97bd5b4e50398bed4a60e21e15791",
+    "tools/run_dfagcn_nwpu_smoke.py": "ff3311966cf80ca4e15fb2a865c3dff1ca67e42dbcd0a944de8b6cddcbc5203d",
+    "configs/dfagcn_independent_v1.json": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92"
+  },
+  "base_git_commit": "058f1d8b79d0be538ec358eb742d2cd3992921d4",
+  "source_state": "uncommitted independent implementation; exact shipped bytes identified by bundle/source SHA",
+  "git_commit_or_push": false,
+  "formal_independent_final_review_completed": false,
+  "review_scope": "root manual review and full relevant suite; independent final-review agent hit usage limit before returning a review",
+  "environment_failures_preserved": [
+    "suite_initial_omp_abort.log",
+    "suite_139_omp_fork_errors.log"
+  ],
+  "native_failure_test_names": [
+    "test_subset_smoke_cannot_be_used_as_complete_final_refit",
+    "test_tampered_selection_recipe_and_refit_checkpoint_are_rejected"
+  ],
+  "environment_workaround_scope": "KMP_INIT_AT_FORK=FALSE for local macOS tests only; symbol present in local libomp.dylib; not applied to packaged runner or server recipe",
+  "whole_legacy_repository_green_claim": false
+}

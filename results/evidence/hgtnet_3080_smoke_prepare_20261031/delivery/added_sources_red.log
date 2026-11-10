@@ -1,0 +1,56 @@
+test_reuse_refuses_added_importable_sources_in_workspace (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_added_importable_sources_in_workspace) ... 
+  test_reuse_refuses_added_importable_sources_in_workspace (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_added_importable_sources_in_workspace) (name='tools/__init__.py') ... FAIL
+  test_reuse_refuses_added_importable_sources_in_workspace (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_added_importable_sources_in_workspace) (name='external_baselines/hgtnet/injected.py') ... FAIL
+  test_reuse_refuses_added_importable_sources_in_workspace (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_added_importable_sources_in_workspace) (name='configs/extra.json') ... FAIL
+  test_reuse_refuses_added_importable_sources_in_workspace (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_added_importable_sources_in_workspace) (name='torch.py') ... FAIL
+  test_reuse_refuses_added_importable_sources_in_workspace (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_added_importable_sources_in_workspace) (name='injected/__init__.py') ... FAIL
+
+======================================================================
+FAIL: test_reuse_refuses_added_importable_sources_in_workspace (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_added_importable_sources_in_workspace) (name='tools/__init__.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 226, in test_reuse_refuses_added_importable_sources_in_workspace
+    with self.assertRaisesRegex(ValueError, 'unexpected|immutable'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_reuse_refuses_added_importable_sources_in_workspace (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_added_importable_sources_in_workspace) (name='external_baselines/hgtnet/injected.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 226, in test_reuse_refuses_added_importable_sources_in_workspace
+    with self.assertRaisesRegex(ValueError, 'unexpected|immutable'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_reuse_refuses_added_importable_sources_in_workspace (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_added_importable_sources_in_workspace) (name='configs/extra.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 226, in test_reuse_refuses_added_importable_sources_in_workspace
+    with self.assertRaisesRegex(ValueError, 'unexpected|immutable'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_reuse_refuses_added_importable_sources_in_workspace (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_added_importable_sources_in_workspace) (name='torch.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 226, in test_reuse_refuses_added_importable_sources_in_workspace
+    with self.assertRaisesRegex(ValueError, 'unexpected|immutable'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_reuse_refuses_added_importable_sources_in_workspace (tests.test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_added_importable_sources_in_workspace) (name='injected/__init__.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_delivery.py", line 226, in test_reuse_refuses_added_importable_sources_in_workspace
+    with self.assertRaisesRegex(ValueError, 'unexpected|immutable'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.010s
+
+FAILED (failures=5)

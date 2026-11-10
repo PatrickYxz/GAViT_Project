@@ -1,0 +1,321 @@
+{
+  "date": "2026-10-20",
+  "source_type": "copy_of_user_pasted_stdout",
+  "direct_server_access": false,
+  "reported_queue_exit_code": 0,
+  "reported_test_samples": 119825,
+  "class_count": 19,
+  "mAP_recomputed_percent": 71.07533208222323,
+  "mAP_absolute_error": 1.4210854715202004e-14,
+  "checkpoint_sha256": "c4b77953d6dd2908d7a61ebe7a34f4004e8c219a0843de6ab05aaf207460feff",
+  "f1_recomputation_possible": false,
+  "notes": [
+    "mAP and delta arithmetic checked locally; F1 requires original probabilities/labels for independent recomputation.",
+    "A parent exit0 implies prior gates under the prepared program, but actual summary and per-stage reports were not independently read.",
+    "No new inference, training, result selection or outcome-driven rerun."
+  ],
+  "summary_received": false,
+  "full_artifact_audit_complete": false,
+  "remaining_fields": [
+    "best_epoch",
+    "final_epoch",
+    "actual_GPU_UUID",
+    "hardware/precision/software",
+    "actual_graph_and_reload_checks",
+    "stage/wall_timing",
+    "checkpoint_binding_to_train_and_test_reports"
+  ],
+  "user_return_sha256": "25bfa34308f5b14183944bace57cb0db8b23b3d5d7716b9213982d2f81bc8d86",
+  "checks": [
+    {
+      "check": "sample_count",
+      "passed": true
+    },
+    {
+      "check": "19_classes",
+      "passed": true
+    },
+    {
+      "check": "mean_ap_matches",
+      "passed": true
+    },
+    {
+      "check": "state_result_is_exact_return",
+      "passed": true
+    },
+    {
+      "check": "comparison_result_is_exact_return",
+      "passed": true
+    },
+    {
+      "check": "summary_still_pending",
+      "passed": true
+    },
+    {
+      "check": "reported_exit0",
+      "passed": true
+    },
+    {
+      "check": "no_formal_source_fabricated",
+      "passed": true
+    },
+    {
+      "check": "old_AP_mean_consistent_with_old_print_precision",
+      "passed": true
+    },
+    {
+      "check": "aggregate_delta:mAP_percent",
+      "passed": true
+    },
+    {
+      "check": "aggregate_delta:macro_f1_percent",
+      "passed": true
+    },
+    {
+      "check": "aggregate_delta:micro_f1_percent",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Urban fabric",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Industrial or commercial units",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Arable land",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Permanent crops",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Pastures",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Complex cultivation patterns",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Land principally occupied by agriculture, with significant areas of natural vegetation",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Agro-forestry areas",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Broad-leaved forest",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Coniferous forest",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Mixed forest",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Natural grassland and sparsely vegetated areas",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Moors, heathland and sclerophyllous vegetation",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Transitional woodland, shrub",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Beaches, dunes, sands",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Inland wetlands",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Coastal wetlands",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Inland waters",
+      "passed": true
+    },
+    {
+      "check": "class_delta:Marine waters",
+      "passed": true
+    },
+    {
+      "check": "source_hash:results/evidence/ben_grid3_seed42_metrics_20261020/user_return.txt",
+      "passed": true
+    },
+    {
+      "check": "source_hash:results/ben_seed42_seed43_vs_swin_20261013.json",
+      "passed": true
+    },
+    {
+      "check": "source_hash:results/ben_four_seed_three_model_20261017.json",
+      "passed": true
+    },
+    {
+      "check": "protected_source_unchanged:results/comparison_table.csv",
+      "passed": true
+    },
+    {
+      "check": "protected_source_unchanged:results/ablation_study.csv",
+      "passed": true
+    },
+    {
+      "check": "protected_source_unchanged:results/bigearth_comparison.csv",
+      "passed": true
+    },
+    {
+      "check": "protected_source_unchanged:.worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "passed": true
+    },
+    {
+      "check": "protected_source_unchanged:results/multiseed_test_results.csv",
+      "passed": true
+    },
+    {
+      "check": "protected_source_unchanged:results/evidence/bigearth_soft42_preflight_20261016/server_return.json",
+      "passed": true
+    },
+    {
+      "check": "protected_source_unchanged:.worktrees/sparse-hybrid-4n-top2/models/gavit.py",
+      "passed": true
+    },
+    {
+      "check": "protected_source_unchanged:.worktrees/sparse-hybrid-4n-top2/models/graph_construction.py",
+      "passed": true
+    },
+    {
+      "check": "no_trailing_whitespace:docs/ben_grid3_grid4_seed42_20261020.md",
+      "passed": true
+    },
+    {
+      "check": "link:../results/ben_grid3_grid4_seed42_20261020.json",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/ben_grid3_seed42_metrics_20261020/read_summary_command.txt",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/ben_grid3_seed42_metrics_20261020/user_return.txt",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/ben_grid3_seed42_metrics_20261020/metrics.json",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/ben_grid3_seed42_metrics_20261020/validation.json",
+      "passed": true
+    },
+    {
+      "check": "link:ben_four_seed_three_model_20261017.md",
+      "passed": true
+    },
+    {
+      "check": "link:ben_seed42_seed43_vs_swin_20261013.md",
+      "passed": true
+    },
+    {
+      "check": "link:../results/ben_grid3_seed42_status_20261018.json",
+      "passed": true
+    },
+    {
+      "check": "link:run_ben_grid3_seed42_20261018.md",
+      "passed": true
+    },
+    {
+      "check": "no_trailing_whitespace:docs/run_ben_grid3_seed42_20261018.md",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/ben_grid3_seed42_metrics_20261020/user_return.txt",
+      "passed": true
+    },
+    {
+      "check": "link:ben_grid3_grid4_seed42_20261020.md",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/ben_grid3_seed42_prepare_20261018/install_and_launch_command.txt",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/ben_grid3_seed42_prepare_20261018/preparation_validation.json",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/ben_grid3_seed42_prepare_20261018/full_unittest.log",
+      "passed": true
+    },
+    {
+      "check": "no_trailing_whitespace:docs/ben_k9_k16_comparability_audit_20261017.md",
+      "passed": true
+    },
+    {
+      "check": "link:ben_grid3_grid4_seed42_20261020.md",
+      "passed": true
+    },
+    {
+      "check": "link:../results/comparison_table.csv",
+      "passed": true
+    },
+    {
+      "check": "link:../results/ablation_study.csv",
+      "passed": true
+    },
+    {
+      "check": "link:../.worktrees/sparse-hybrid-4n-top2/research_diary.md",
+      "passed": true
+    },
+    {
+      "check": "link:../.worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/bigearth_soft42_preflight_20261016/server_return.json",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/ben_k9_comparability_20261017/server_inventory_return_20261017/server_return.txt",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/ben_k9_comparability_20261017/server_inventory_return_20261017/parsed_inventory.json",
+      "passed": true
+    },
+    {
+      "check": "link:../results/evidence/ben_k9_comparability_20261017/server_inventory_commands.txt",
+      "passed": true
+    },
+    {
+      "check": "link:run_ben_grid3_seed42_20261018.md",
+      "passed": true
+    },
+    {
+      "check": "link:../results/ben_k9_k16_comparability_audit_20261017.json",
+      "passed": true
+    },
+    {
+      "check": "bash_summary_command_syntax",
+      "passed": true
+    },
+    {
+      "check": "zsh_summary_command_syntax",
+      "passed": true
+    }
+  ],
+  "passed": 72,
+  "historical_printed_AP_mean_percent": 72.0
+}

@@ -1,0 +1,27 @@
+{
+  "status": "launch_dispatched_first_batch_unverified",
+  "received_date": "2026-10-16",
+  "seed": 42,
+  "queue_pid": 5807,
+  "source_attachment": "/Users/patrick/.codex/attachments/49ff05cc-ea86-49b9-a9af-ac543158d66d/已粘贴的文本.txt",
+  "source_sha256": "3d839afc55850624edf30dbf1cf926c3ada3257964c8cd73dc94fcc6ba41fa59",
+  "normalization": "Add the omitted opening brace to the first JSON object; decode preflight and launch as separate objects; preserve all original bytes.",
+  "checks": [
+    "Same frozen preflight identity except additional completed engineering artifacts",
+    "No existing formal/partial soft42 found during new preflight",
+    "Same4090 UUID/software/precision and control/split digests",
+    "Positive queue PID and expected output",
+    "training_start_verified explicitly false"
+  ],
+  "first_training_batch_received": false,
+  "gpu_runtime_received": false,
+  "formal_test_metrics": null,
+  "scheduler_repair_confirmation": "Repair success marker/source hashes not included in pasted output; queue preflight/train logs still needed.",
+  "evidence_scope": "User-returned queue dispatch receipt, not direct server inspection or first-batch confirmation.",
+  "authoritative_stage_logs": "/home/featurize/work/bigearth_soft42_20261013_01/gavit_train/run.log",
+  "authoritative_stage_exits": [
+    "gavit_train/run.exit",
+    "gavit_test/run.exit"
+  ],
+  "known_status_cli_limitation": "Installed helper reads stage.process.exit, but frozen run_jobs writes stage/run.exit; use raw exits/summary for completion. No running code changed."
+}

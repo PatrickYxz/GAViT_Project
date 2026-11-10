@@ -1,0 +1,50 @@
+{
+  "action": "inspect",
+  "blockers": [
+    "manifest",
+    "frozen_cache",
+    "target_gpu"
+  ],
+  "cache": "/home/featurize/work/dfagcn_nwpu_smoke_20261029/runs/nwpu_smoke_01/pool_cache",
+  "cache_error": "manifest/weight identity required before cache check",
+  "dependencies": {
+    "PIL": {
+      "import_tested": false,
+      "installed_version": "10.3.0",
+      "located": true
+    },
+    "numpy": {
+      "import_tested": false,
+      "installed_version": "1.26.4",
+      "located": true
+    },
+    "torch": {
+      "import_tested": false,
+      "installed_version": "2.2.2",
+      "located": true
+    },
+    "torchvision": {
+      "import_tested": false,
+      "installed_version": "0.17.2",
+      "located": true
+    }
+  },
+  "formal_training_started": false,
+  "gpu_error": "working NVIDIA query and explicit physical UUID required",
+  "graph_batch_samples": 100,
+  "manifest": "/home/featurize/work/nwpu_protocol_20260927_02.json",
+  "manifest_error": "[Errno 2] No such file or directory: '/home/featurize/work/nwpu_protocol_20260927_02.json'",
+  "nvidia": {
+    "error": "[Errno 2] No such file or directory: 'nvidia-smi'",
+    "gpus": [],
+    "processes": []
+  },
+  "output": "/Users/patrick/Projects/GAViT_Project/output/dfagcn_gpu_probe_3080_20261030/runs/gpu_probe_01",
+  "readiness_scope": "inventory only; actual imports/VGG/Adam batch checked by run",
+  "ready": false,
+  "recipe_sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+  "requested_gpu_uuid": "GPU-70be4364-0641-e89d-828e-78727c6001ec",
+  "schema": "dfagcn-3080-one-batch-probe-v1",
+  "weights": "/Users/patrick/Projects/GAViT_Project/checkpoints/dfagcn_pretrained_20261029/vgg16-397923af.pth",
+  "weights_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0"
+}

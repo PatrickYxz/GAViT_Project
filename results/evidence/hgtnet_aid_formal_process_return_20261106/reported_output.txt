@@ -1,0 +1,38 @@
+➜ ~ nvidia-smi
+Fri Nov  6 01:17:56 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.57.04              KMD Version: 610.57.04     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3060        Off |   00000000:09:00.0 Off |                  N/A |
+| 30%   30C    P8             10W /  170W |       1MiB /  12288MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+(base) ➜ ~ tail -n 15 /home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01/attempts/0001/run.log
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 75, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48282, "phase": "refit", "pid": 9450, "samples_seen": 1920, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 75, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48312, "phase": "refit", "pid": 9450, "samples_seen": 2400, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 75, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48342, "phase": "refit", "pid": 9450, "samples_seen": 2880, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 75, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48372, "phase": "refit", "pid": 9450, "samples_seen": 3360, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 75, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48402, "phase": "refit", "pid": 9450, "samples_seen": 3840, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 75, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48432, "phase": "refit", "pid": 9450, "samples_seen": 4320, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 75, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48462, "phase": "refit", "pid": 9450, "samples_seen": 4800, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 75, "epoch_optimizer_steps": 313, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48475, "phase": "refit", "pid": 9450, "post_update_checks_passed": true, "samples_seen": 5000, "stage": "training_epoch_complete", "train_seconds": 217.40705579000496, "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 75, "epoch_wall_seconds": 235.59755375399982, "estimate_scope": "running completed-epoch mean for current phase only; recovered last commit may use precommit time excluding snapshot IO; excludes other phases/startup/final test/billing; not guaranteed", "estimated_remaining_phase_seconds": 4943.031641734195, "formal_training_started": true, "observed_epoch_wall_mean_seconds": 235.38245913019975, "optimizer_steps": 48475, "phase": "refit", "pid": 9450, "selected_epoch": 96, "stage": "epoch_complete", "train_accuracy_percent": 99.9, "train_images_per_second": 22.998333618157893, "train_loss": 0.004576402392424643, "train_seconds": 217.40705579000496, "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48505, "phase": "refit", "pid": 9450, "samples_seen": 480, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48535, "phase": "refit", "pid": 9450, "samples_seen": 960, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48565, "phase": "refit", "pid": 9450, "samples_seen": 1440, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48595, "phase": "refit", "pid": 9450, "samples_seen": 1920, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48625, "phase": "refit", "pid": 9450, "samples_seen": 2400, "stage": "training", "training_started": true}
+HGTNET_AID_FORMAL_PROGRESS {"attempt": 1, "completed": false, "epoch": 76, "formal_training_started": true, "optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 48655, "phase": "refit", "pid": 9450, "samples_seen": 2880, "stage": "training", "training_started": true}
+(base) ➜ ~ 

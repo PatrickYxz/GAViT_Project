@@ -1,0 +1,1 @@
+tail -n 40 /home/featurize/work/bigearth_soft42_20261013_01/run.log

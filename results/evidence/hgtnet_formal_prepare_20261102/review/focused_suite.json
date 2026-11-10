@@ -1,0 +1,16 @@
+{
+  "errors": 0,
+  "failures": 0,
+  "passed": true,
+  "scope": "independent formal-module focused CPU/stdlib suite; no GPU or real NWPU claim",
+  "skipped": 0,
+  "source_hashes": {
+    "external_baselines/hgtnet/formal_checkpoints.py": "dd504dcdcbf1a2e3683b4434e89c84cab30b7c37df57ead1f68e2395a27f95d2",
+    "external_baselines/hgtnet/formal_data.py": "d8edc4893c60c171dbeafaafc92209bcec5137966fd15b1f31957e24f570f56a",
+    "external_baselines/hgtnet/formal_engine.py": "bd63adcaf43a46fbcfafdbf2da5385b6f1cf60caaff0b51ec771f8bdb9586704",
+    "external_baselines/hgtnet/formal_entry.py": "dd29907ae37d9c01393797ed9e7eed18eebaf7697a8a8b40c60c6b90261da0d0",
+    "external_baselines/hgtnet/formal_protocol.py": "90a1ff5ba73961e772c80417cf29a31200d8ab6a465214e1cb71283b962e27f8"
+  },
+  "source_unchanged_during_run": true,
+  "tests": 50
+}

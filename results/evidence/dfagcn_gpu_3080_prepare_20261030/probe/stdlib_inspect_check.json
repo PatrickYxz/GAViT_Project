@@ -1,0 +1,9 @@
+{
+  "expected_cache_sample_count": 450,
+  "forbidden_import_attempts": [],
+  "inspect_called": true,
+  "inspect_ready": false,
+  "numerical_modules_imported": [],
+  "output_created": false,
+  "scope": "Real stdlib-only execution of valid manifest identity construction and missing-resource inspection; external GPU inventory fixture only; no hardware or numerical compute executed."
+}

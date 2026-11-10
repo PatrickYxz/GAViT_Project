@@ -1,0 +1,40 @@
+{
+  "errors": 0,
+  "failures": 0,
+  "fixture": {
+    "class_names": 30,
+    "class_sizes": [
+      200,
+      300,
+      500
+    ],
+    "counts": {
+      "pool": 5000,
+      "test": 5000,
+      "train": 4000,
+      "val": 1000
+    },
+    "dataset": "synthetic_AID_shape_not_real_AID_bytes",
+    "records": 10000,
+    "smoke_selected": {
+      "test": 0,
+      "train": 240,
+      "val": 60
+    }
+  },
+  "focused_unittest_command": "python3 -B -m unittest discover -s tests -p test_hgtnet_aid_inputs.py -v",
+  "initial_RED": {
+    "failures": 11,
+    "log": "red_unittest.log",
+    "reason": "Standalone inspector did not exist",
+    "tests": 11
+  },
+  "limitations": [
+    "Only standard-library inventory tests were run; previous ML engineering suite was not repeated.",
+    "The frozen original manifest and real AID image bytes are unavailable locally.",
+    "GPU inventory uses nvidia-smi only; no model import, training or CUDA kernel was invoked."
+  ],
+  "skips": 0,
+  "status": "PASS",
+  "tests_run": 13
+}

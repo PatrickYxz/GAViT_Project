@@ -1,0 +1,1094 @@
+{
+  "classes": [
+    "Urban fabric",
+    "Industrial or commercial units",
+    "Arable land",
+    "Permanent crops",
+    "Pastures",
+    "Complex cultivation patterns",
+    "Land principally occupied by agriculture, with significant areas of natural vegetation",
+    "Agro-forestry areas",
+    "Broad-leaved forest",
+    "Coniferous forest",
+    "Mixed forest",
+    "Natural grassland and sparsely vegetated areas",
+    "Moors, heathland and sclerophyllous vegetation",
+    "Transitional woodland, shrub",
+    "Beaches, dunes, sands",
+    "Inland wetlands",
+    "Coastal wetlands",
+    "Inland waters",
+    "Marine waters"
+  ],
+  "cases": [
+    {
+      "row_index": 97389,
+      "labels": [
+        "Pastures",
+        "Coniferous forest"
+      ],
+      "all_class_rows": [
+        {
+          "class_index": 0,
+          "name": "Urban fabric",
+          "label": 0,
+          "p9": 0.004751723725348711,
+          "p16": 0.01860850863158703,
+          "delta_probability": 0.013856784906238317,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 1,
+          "name": "Industrial or commercial units",
+          "label": 0,
+          "p9": 0.0020313302520662546,
+          "p16": 0.003750938456505537,
+          "delta_probability": 0.0017196082044392824,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 2,
+          "name": "Arable land",
+          "label": 0,
+          "p9": 0.004957531578838825,
+          "p16": 0.0028194915503263474,
+          "delta_probability": -0.002138040028512478,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 3,
+          "name": "Permanent crops",
+          "label": 0,
+          "p9": 0.0002243592607555911,
+          "p16": 0.0004505277029238641,
+          "delta_probability": 0.00022616844216827303,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 4,
+          "name": "Pastures",
+          "label": 1,
+          "p9": 0.29892101883888245,
+          "p16": 0.46361371874809265,
+          "delta_probability": 0.1646926999092102,
+          "outcome": "both_wrong"
+        },
+        {
+          "class_index": 5,
+          "name": "Complex cultivation patterns",
+          "label": 0,
+          "p9": 0.006574072875082493,
+          "p16": 0.015753427520394325,
+          "delta_probability": 0.009179354645311832,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 6,
+          "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+          "label": 0,
+          "p9": 0.02630280703306198,
+          "p16": 0.015536440536379814,
+          "delta_probability": -0.010766366496682167,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 7,
+          "name": "Agro-forestry areas",
+          "label": 0,
+          "p9": 0.00015460996655747294,
+          "p16": 0.00014580055722035468,
+          "delta_probability": -8.809409337118268e-06,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 8,
+          "name": "Broad-leaved forest",
+          "label": 0,
+          "p9": 0.010612177662551403,
+          "p16": 0.008356908336281776,
+          "delta_probability": -0.0022552693262696266,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 9,
+          "name": "Coniferous forest",
+          "label": 1,
+          "p9": 0.9994950294494629,
+          "p16": 0.9979775547981262,
+          "delta_probability": -0.00151747465133667,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 10,
+          "name": "Mixed forest",
+          "label": 0,
+          "p9": 0.14310717582702637,
+          "p16": 0.2773544192314148,
+          "delta_probability": 0.13424724340438843,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 11,
+          "name": "Natural grassland and sparsely vegetated areas",
+          "label": 0,
+          "p9": 0.3716222941875458,
+          "p16": 0.37408003211021423,
+          "delta_probability": 0.002457737922668457,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 12,
+          "name": "Moors, heathland and sclerophyllous vegetation",
+          "label": 0,
+          "p9": 0.015079467557370663,
+          "p16": 0.032056283205747604,
+          "delta_probability": 0.01697681564837694,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 13,
+          "name": "Transitional woodland, shrub",
+          "label": 0,
+          "p9": 0.13412407040596008,
+          "p16": 0.08927828818559647,
+          "delta_probability": -0.04484578222036362,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 14,
+          "name": "Beaches, dunes, sands",
+          "label": 0,
+          "p9": 6.9374218583107e-05,
+          "p16": 0.00012007794430246577,
+          "delta_probability": 5.070372571935877e-05,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 15,
+          "name": "Inland wetlands",
+          "label": 0,
+          "p9": 0.0014118117978796363,
+          "p16": 0.001373763894662261,
+          "delta_probability": -3.804790321737528e-05,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 16,
+          "name": "Coastal wetlands",
+          "label": 0,
+          "p9": 3.950631798943505e-05,
+          "p16": 3.45413718605414e-05,
+          "delta_probability": -4.964946128893644e-06,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 17,
+          "name": "Inland waters",
+          "label": 0,
+          "p9": 0.0034088401589542627,
+          "p16": 0.002936847275123,
+          "delta_probability": -0.0004719928838312626,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 18,
+          "name": "Marine waters",
+          "label": 0,
+          "p9": 0.00019172084284946322,
+          "p16": 0.0005269035464152694,
+          "delta_probability": 0.00033518270356580615,
+          "outcome": "both_correct"
+        }
+      ],
+      "counts": {
+        "both_correct": 18,
+        "both_wrong": 1
+      },
+      "threshold_flips": [],
+      "pooling_concentration": {
+        "9": {
+          "region_max_mass": [
+            0.9999904632568359,
+            0.9999998807907104,
+            0.8752174973487854,
+            0.7307484745979309,
+            0.8400312066078186,
+            0.9804919958114624,
+            0.9284679889678955,
+            0.9998080134391785,
+            0.9277466535568237
+          ],
+          "non_singleton_regions": 9,
+          "non_singleton_max_ge_0_9": 6,
+          "region_winner_tokens": [
+            9,
+            3,
+            5,
+            23,
+            32,
+            33,
+            44,
+            46,
+            40
+          ]
+        },
+        "16": {
+          "region_max_mass": [
+            1.0,
+            0.9901019334793091,
+            0.9996993541717529,
+            1.0,
+            0.9997037053108215,
+            0.9470033645629883,
+            0.8926222920417786,
+            0.8894752264022827,
+            1.0,
+            0.9409920573234558,
+            0.9989548921585083,
+            1.0,
+            1.0,
+            0.9991845488548279,
+            0.6323572993278503,
+            1.0
+          ],
+          "non_singleton_regions": 15,
+          "non_singleton_max_ge_0_9": 12,
+          "region_winner_tokens": [
+            8,
+            9,
+            5,
+            6,
+            15,
+            16,
+            19,
+            20,
+            36,
+            38,
+            32,
+            41,
+            43,
+            44,
+            47,
+            48
+          ]
+        }
+      }
+    },
+    {
+      "row_index": 14680,
+      "labels": [
+        "Broad-leaved forest",
+        "Coniferous forest",
+        "Mixed forest",
+        "Natural grassland and sparsely vegetated areas",
+        "Moors, heathland and sclerophyllous vegetation"
+      ],
+      "all_class_rows": [
+        {
+          "class_index": 0,
+          "name": "Urban fabric",
+          "label": 0,
+          "p9": 0.0024847290478646755,
+          "p16": 0.0054091159254312515,
+          "delta_probability": 0.002924386877566576,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 1,
+          "name": "Industrial or commercial units",
+          "label": 0,
+          "p9": 0.001205440959893167,
+          "p16": 0.0012085215421393514,
+          "delta_probability": 3.080582246184349e-06,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 2,
+          "name": "Arable land",
+          "label": 0,
+          "p9": 0.013879635371267796,
+          "p16": 0.01658879779279232,
+          "delta_probability": 0.0027091624215245247,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 3,
+          "name": "Permanent crops",
+          "label": 0,
+          "p9": 0.00616442458704114,
+          "p16": 0.007990681566298008,
+          "delta_probability": 0.0018262569792568684,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 4,
+          "name": "Pastures",
+          "label": 0,
+          "p9": 0.6438011527061462,
+          "p16": 0.6997383832931519,
+          "delta_probability": 0.055937230587005615,
+          "outcome": "both_wrong"
+        },
+        {
+          "class_index": 5,
+          "name": "Complex cultivation patterns",
+          "label": 0,
+          "p9": 0.06289965659379959,
+          "p16": 0.1804524064064026,
+          "delta_probability": 0.117552749812603,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 6,
+          "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+          "label": 0,
+          "p9": 0.03780083358287811,
+          "p16": 0.08778096735477448,
+          "delta_probability": 0.04998013377189636,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 7,
+          "name": "Agro-forestry areas",
+          "label": 0,
+          "p9": 0.0007157428190112114,
+          "p16": 0.00025045237271115184,
+          "delta_probability": -0.00046529044630005956,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 8,
+          "name": "Broad-leaved forest",
+          "label": 1,
+          "p9": 0.2383970320224762,
+          "p16": 0.21043594181537628,
+          "delta_probability": -0.027961090207099915,
+          "outcome": "both_wrong"
+        },
+        {
+          "class_index": 9,
+          "name": "Coniferous forest",
+          "label": 1,
+          "p9": 0.8339380025863647,
+          "p16": 0.7375237941741943,
+          "delta_probability": -0.09641420841217041,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 10,
+          "name": "Mixed forest",
+          "label": 1,
+          "p9": 0.8375108242034912,
+          "p16": 0.8485152125358582,
+          "delta_probability": 0.011004388332366943,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 11,
+          "name": "Natural grassland and sparsely vegetated areas",
+          "label": 1,
+          "p9": 0.4285281300544739,
+          "p16": 0.5159445405006409,
+          "delta_probability": 0.08741641044616699,
+          "outcome": "k16_only_correct"
+        },
+        {
+          "class_index": 12,
+          "name": "Moors, heathland and sclerophyllous vegetation",
+          "label": 1,
+          "p9": 0.021783530712127686,
+          "p16": 0.011870468966662884,
+          "delta_probability": -0.009913061745464802,
+          "outcome": "both_wrong"
+        },
+        {
+          "class_index": 13,
+          "name": "Transitional woodland, shrub",
+          "label": 0,
+          "p9": 0.238642618060112,
+          "p16": 0.3764543831348419,
+          "delta_probability": 0.13781176507472992,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 14,
+          "name": "Beaches, dunes, sands",
+          "label": 0,
+          "p9": 7.490027201129124e-05,
+          "p16": 1.8692737285164185e-05,
+          "delta_probability": -5.620753472612705e-05,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 15,
+          "name": "Inland wetlands",
+          "label": 0,
+          "p9": 0.0013442609924823046,
+          "p16": 0.0004692531074397266,
+          "delta_probability": -0.000875007885042578,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 16,
+          "name": "Coastal wetlands",
+          "label": 0,
+          "p9": 1.2762997357640415e-05,
+          "p16": 1.1076433111156803e-05,
+          "delta_probability": -1.6865642464836128e-06,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 17,
+          "name": "Inland waters",
+          "label": 0,
+          "p9": 0.016504699364304543,
+          "p16": 0.0027577877044677734,
+          "delta_probability": -0.013746911659836769,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 18,
+          "name": "Marine waters",
+          "label": 0,
+          "p9": 2.498204594303388e-05,
+          "p16": 7.779643055982888e-06,
+          "delta_probability": -1.7202402887050994e-05,
+          "outcome": "both_correct"
+        }
+      ],
+      "counts": {
+        "both_correct": 15,
+        "both_wrong": 3,
+        "k16_only_correct": 1
+      },
+      "threshold_flips": [
+        {
+          "class_index": 11,
+          "name": "Natural grassland and sparsely vegetated areas",
+          "label": 1,
+          "p9": 0.4285281300544739,
+          "p16": 0.5159445405006409,
+          "delta_probability": 0.08741641044616699,
+          "outcome": "k16_only_correct"
+        }
+      ],
+      "pooling_concentration": {
+        "9": {
+          "region_max_mass": [
+            1.0,
+            1.0,
+            0.48053598403930664,
+            1.0,
+            1.0,
+            0.9358443021774292,
+            0.6803198456764221,
+            0.9613196849822998,
+            0.9998489618301392
+          ],
+          "non_singleton_regions": 9,
+          "non_singleton_max_ge_0_9": 7,
+          "region_winner_tokens": [
+            2,
+            3,
+            19,
+            23,
+            24,
+            34,
+            37,
+            39,
+            41
+          ]
+        },
+        "16": {
+          "region_max_mass": [
+            0.9999991655349731,
+            1.0,
+            0.9999996423721313,
+            1.0,
+            1.0,
+            0.9347988367080688,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.989468514919281,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "non_singleton_regions": 15,
+          "non_singleton_max_ge_0_9": 15,
+          "region_winner_tokens": [
+            7,
+            10,
+            11,
+            13,
+            14,
+            23,
+            18,
+            27,
+            36,
+            31,
+            33,
+            41,
+            43,
+            44,
+            46,
+            48
+          ]
+        }
+      }
+    },
+    {
+      "row_index": 28450,
+      "labels": [
+        "Arable land",
+        "Land principally occupied by agriculture, with significant areas of natural vegetation",
+        "Coniferous forest",
+        "Moors, heathland and sclerophyllous vegetation",
+        "Transitional woodland, shrub",
+        "Marine waters"
+      ],
+      "all_class_rows": [
+        {
+          "class_index": 0,
+          "name": "Urban fabric",
+          "label": 0,
+          "p9": 0.1349800080060959,
+          "p16": 0.0011373048182576895,
+          "delta_probability": -0.1338427031878382,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 1,
+          "name": "Industrial or commercial units",
+          "label": 0,
+          "p9": 0.0196011234074831,
+          "p16": 0.014201028272509575,
+          "delta_probability": -0.005400095134973526,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 2,
+          "name": "Arable land",
+          "label": 1,
+          "p9": 0.9408214688301086,
+          "p16": 0.8426670432090759,
+          "delta_probability": -0.09815442562103271,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 3,
+          "name": "Permanent crops",
+          "label": 0,
+          "p9": 0.026839835569262505,
+          "p16": 0.034305769950151443,
+          "delta_probability": 0.007465934380888939,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 4,
+          "name": "Pastures",
+          "label": 0,
+          "p9": 0.11062252521514893,
+          "p16": 0.02722748927772045,
+          "delta_probability": -0.08339503593742847,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 5,
+          "name": "Complex cultivation patterns",
+          "label": 0,
+          "p9": 0.24590204656124115,
+          "p16": 0.03407202661037445,
+          "delta_probability": -0.2118300199508667,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 6,
+          "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+          "label": 1,
+          "p9": 0.13013823330402374,
+          "p16": 0.026614444330334663,
+          "delta_probability": -0.10352378897368908,
+          "outcome": "both_wrong"
+        },
+        {
+          "class_index": 7,
+          "name": "Agro-forestry areas",
+          "label": 0,
+          "p9": 0.017392827197909355,
+          "p16": 0.011507194489240646,
+          "delta_probability": -0.005885632708668709,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 8,
+          "name": "Broad-leaved forest",
+          "label": 0,
+          "p9": 0.5014030933380127,
+          "p16": 0.7295568585395813,
+          "delta_probability": 0.2281537652015686,
+          "outcome": "both_wrong"
+        },
+        {
+          "class_index": 9,
+          "name": "Coniferous forest",
+          "label": 1,
+          "p9": 0.30816781520843506,
+          "p16": 0.010203770361840725,
+          "delta_probability": -0.29796404484659433,
+          "outcome": "both_wrong"
+        },
+        {
+          "class_index": 10,
+          "name": "Mixed forest",
+          "label": 0,
+          "p9": 0.04313362389802933,
+          "p16": 0.04407191276550293,
+          "delta_probability": 0.0009382888674736023,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 11,
+          "name": "Natural grassland and sparsely vegetated areas",
+          "label": 0,
+          "p9": 0.03855251893401146,
+          "p16": 0.03878716751933098,
+          "delta_probability": 0.00023464858531951904,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 12,
+          "name": "Moors, heathland and sclerophyllous vegetation",
+          "label": 1,
+          "p9": 0.6947742700576782,
+          "p16": 0.8986185789108276,
+          "delta_probability": 0.20384430885314941,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 13,
+          "name": "Transitional woodland, shrub",
+          "label": 1,
+          "p9": 0.4473821520805359,
+          "p16": 0.9182242751121521,
+          "delta_probability": 0.4708421230316162,
+          "outcome": "k16_only_correct"
+        },
+        {
+          "class_index": 14,
+          "name": "Beaches, dunes, sands",
+          "label": 0,
+          "p9": 0.723244309425354,
+          "p16": 0.901608407497406,
+          "delta_probability": 0.178364098072052,
+          "outcome": "both_wrong"
+        },
+        {
+          "class_index": 15,
+          "name": "Inland wetlands",
+          "label": 0,
+          "p9": 0.0034172951709479094,
+          "p16": 0.000203199393581599,
+          "delta_probability": -0.0032140957773663104,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 16,
+          "name": "Coastal wetlands",
+          "label": 0,
+          "p9": 0.0037036531139165163,
+          "p16": 0.0020079470705240965,
+          "delta_probability": -0.0016957060433924198,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 17,
+          "name": "Inland waters",
+          "label": 0,
+          "p9": 0.003113810671493411,
+          "p16": 0.039525143802165985,
+          "delta_probability": 0.036411333130672574,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 18,
+          "name": "Marine waters",
+          "label": 1,
+          "p9": 0.6495552659034729,
+          "p16": 0.05840447172522545,
+          "delta_probability": -0.5911507941782475,
+          "outcome": "k9_only_correct"
+        }
+      ],
+      "counts": {
+        "both_correct": 13,
+        "both_wrong": 4,
+        "k16_only_correct": 1,
+        "k9_only_correct": 1
+      },
+      "threshold_flips": [
+        {
+          "class_index": 13,
+          "name": "Transitional woodland, shrub",
+          "label": 1,
+          "p9": 0.4473821520805359,
+          "p16": 0.9182242751121521,
+          "delta_probability": 0.4708421230316162,
+          "outcome": "k16_only_correct"
+        },
+        {
+          "class_index": 18,
+          "name": "Marine waters",
+          "label": 1,
+          "p9": 0.6495552659034729,
+          "p16": 0.05840447172522545,
+          "delta_probability": -0.5911507941782475,
+          "outcome": "k9_only_correct"
+        }
+      ],
+      "pooling_concentration": {
+        "9": {
+          "region_max_mass": [
+            0.9993036985397339,
+            0.9999769926071167,
+            0.854786217212677,
+            0.9999523162841797,
+            0.9372472167015076,
+            1.0,
+            0.9999926090240479,
+            0.9999935626983643,
+            0.9997954964637756
+          ],
+          "non_singleton_regions": 9,
+          "non_singleton_max_ge_0_9": 8,
+          "region_winner_tokens": [
+            9,
+            17,
+            12,
+            23,
+            31,
+            27,
+            42,
+            38,
+            47
+          ]
+        },
+        "16": {
+          "region_max_mass": [
+            1.0,
+            0.6560594439506531,
+            1.0,
+            1.0,
+            1.0,
+            0.9998791217803955,
+            1.0,
+            0.9721831679344177,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.9855799674987793,
+            1.0,
+            1.0
+          ],
+          "non_singleton_regions": 15,
+          "non_singleton_max_ge_0_9": 14,
+          "region_winner_tokens": [
+            8,
+            2,
+            11,
+            6,
+            15,
+            16,
+            19,
+            27,
+            35,
+            31,
+            32,
+            34,
+            43,
+            45,
+            46,
+            48
+          ]
+        }
+      }
+    },
+    {
+      "row_index": 4439,
+      "labels": [
+        "Urban fabric",
+        "Beaches, dunes, sands",
+        "Marine waters"
+      ],
+      "all_class_rows": [
+        {
+          "class_index": 0,
+          "name": "Urban fabric",
+          "label": 1,
+          "p9": 0.41380465030670166,
+          "p16": 0.7656821012496948,
+          "delta_probability": 0.35187745094299316,
+          "outcome": "k16_only_correct"
+        },
+        {
+          "class_index": 1,
+          "name": "Industrial or commercial units",
+          "label": 0,
+          "p9": 0.002641055965796113,
+          "p16": 0.0025985194370150566,
+          "delta_probability": -4.2536528781056404e-05,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 2,
+          "name": "Arable land",
+          "label": 0,
+          "p9": 0.006847875192761421,
+          "p16": 0.023920178413391113,
+          "delta_probability": 0.017072303220629692,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 3,
+          "name": "Permanent crops",
+          "label": 0,
+          "p9": 0.008226455189287663,
+          "p16": 0.0033896109089255333,
+          "delta_probability": -0.004836844280362129,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 4,
+          "name": "Pastures",
+          "label": 0,
+          "p9": 0.10164342075586319,
+          "p16": 0.20724746584892273,
+          "delta_probability": 0.10560404509305954,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 5,
+          "name": "Complex cultivation patterns",
+          "label": 0,
+          "p9": 0.036613576114177704,
+          "p16": 0.08866297453641891,
+          "delta_probability": 0.05204939842224121,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 6,
+          "name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+          "label": 0,
+          "p9": 0.205552339553833,
+          "p16": 0.17604665458202362,
+          "delta_probability": -0.029505684971809387,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 7,
+          "name": "Agro-forestry areas",
+          "label": 0,
+          "p9": 0.0001818098098738119,
+          "p16": 2.531803875172045e-05,
+          "delta_probability": -0.00015649177112209145,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 8,
+          "name": "Broad-leaved forest",
+          "label": 0,
+          "p9": 0.01636323519051075,
+          "p16": 0.002145367441698909,
+          "delta_probability": -0.014217867748811841,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 9,
+          "name": "Coniferous forest",
+          "label": 0,
+          "p9": 0.01776784472167492,
+          "p16": 0.0017175963148474693,
+          "delta_probability": -0.01605024840682745,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 10,
+          "name": "Mixed forest",
+          "label": 0,
+          "p9": 0.008676847442984581,
+          "p16": 0.0015742913819849491,
+          "delta_probability": -0.007102556060999632,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 11,
+          "name": "Natural grassland and sparsely vegetated areas",
+          "label": 0,
+          "p9": 0.009051909670233727,
+          "p16": 0.007318838965147734,
+          "delta_probability": -0.0017330707050859928,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 12,
+          "name": "Moors, heathland and sclerophyllous vegetation",
+          "label": 0,
+          "p9": 0.006198897957801819,
+          "p16": 0.09794127196073532,
+          "delta_probability": 0.0917423740029335,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 13,
+          "name": "Transitional woodland, shrub",
+          "label": 0,
+          "p9": 0.005893141031265259,
+          "p16": 0.0012788677122443914,
+          "delta_probability": -0.004614273319020867,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 14,
+          "name": "Beaches, dunes, sands",
+          "label": 1,
+          "p9": 0.1766829788684845,
+          "p16": 0.4932444393634796,
+          "delta_probability": 0.3165614604949951,
+          "outcome": "both_wrong"
+        },
+        {
+          "class_index": 15,
+          "name": "Inland wetlands",
+          "label": 0,
+          "p9": 0.001498310244642198,
+          "p16": 0.025912677869200706,
+          "delta_probability": 0.02441436762455851,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 16,
+          "name": "Coastal wetlands",
+          "label": 0,
+          "p9": 0.0017963696736842394,
+          "p16": 0.0008061658591032028,
+          "delta_probability": -0.0009902038145810366,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 17,
+          "name": "Inland waters",
+          "label": 0,
+          "p9": 0.0018762194085866213,
+          "p16": 0.002828062977641821,
+          "delta_probability": 0.0009518435690551996,
+          "outcome": "both_correct"
+        },
+        {
+          "class_index": 18,
+          "name": "Marine waters",
+          "label": 1,
+          "p9": 0.9996597766876221,
+          "p16": 0.9997062087059021,
+          "delta_probability": 4.64320182800293e-05,
+          "outcome": "both_correct"
+        }
+      ],
+      "counts": {
+        "k16_only_correct": 1,
+        "both_correct": 17,
+        "both_wrong": 1
+      },
+      "threshold_flips": [
+        {
+          "class_index": 0,
+          "name": "Urban fabric",
+          "label": 1,
+          "p9": 0.41380465030670166,
+          "p16": 0.7656821012496948,
+          "delta_probability": 0.35187745094299316,
+          "outcome": "k16_only_correct"
+        }
+      ],
+      "pooling_concentration": {
+        "9": {
+          "region_max_mass": [
+            1.0,
+            0.8462638258934021,
+            0.5126377940177917,
+            0.9999626874923706,
+            0.5347182750701904,
+            0.8060302734375,
+            1.0,
+            0.927800178527832,
+            0.45044004917144775
+          ],
+          "non_singleton_regions": 9,
+          "non_singleton_max_ge_0_9": 4,
+          "region_winner_tokens": [
+            14,
+            4,
+            20,
+            28,
+            32,
+            34,
+            35,
+            46,
+            41
+          ]
+        },
+        "16": {
+          "region_max_mass": [
+            0.9710426330566406,
+            0.676569402217865,
+            0.8981649279594421,
+            0.675764799118042,
+            1.0,
+            0.9222527146339417,
+            0.5431930422782898,
+            0.8843288421630859,
+            0.9999996423721313,
+            0.9371641874313354,
+            0.42513659596443176,
+            0.5020675659179688,
+            1.0,
+            0.999991774559021,
+            0.7568843960762024,
+            1.0
+          ],
+          "non_singleton_regions": 15,
+          "non_singleton_max_ge_0_9": 7,
+          "region_winner_tokens": [
+            7,
+            3,
+            5,
+            6,
+            21,
+            17,
+            19,
+            20,
+            28,
+            38,
+            39,
+            41,
+            43,
+            45,
+            47,
+            48
+          ]
+        }
+      }
+    }
+  ],
+  "counts": {
+    "both_correct": 63,
+    "both_wrong": 9,
+    "k16_only_correct": 3,
+    "k9_only_correct": 1
+  }
+}

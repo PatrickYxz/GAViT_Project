@@ -1,0 +1,15 @@
+{
+  "bundle": "/Users/patrick/Projects/GAViT_Project/output/hgtnet_aid_inputs_20261104.pyz",
+  "bundle_sha256": "1cd2ab967cdbc386b294b397c6804bf06c5796c01332c709e44646f98d03f036",
+  "bundle_size_bytes": 6520,
+  "source_identity": {
+    "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+    "purpose": "read_only_AID_input_inventory",
+    "schema": "hgtnet-aid-inputs-source-identity-v1",
+    "source_path": "tools/inspect_hgtnet_aid_inputs.py",
+    "source_sha256": "4e3b66b91f115d99d01e39fe168e8cf5dd18503ec8593e45c39dbccfcd0eb7b4",
+    "source_size_bytes": 18930,
+    "training_entry_available": false,
+    "weights_sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893"
+  }
+}

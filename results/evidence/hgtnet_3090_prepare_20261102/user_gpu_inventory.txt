@@ -1,0 +1,2 @@
+nvidia-smi --query-gpu=name,uuid,memory.total,memory.free,driver_version --format=csv,noheader
+NVIDIA GeForce RTX 3090, GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1, 24576 MiB, 24123 MiB, 610.57.04

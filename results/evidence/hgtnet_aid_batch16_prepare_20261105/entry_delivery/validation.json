@@ -1,0 +1,12 @@
+{
+  "new_entry_delivery_tests": 14,
+  "result": "passed",
+  "command": "python3 -m unittest tests/test_hgtnet_aid_batch_probe_entry.py tests/test_hgtnet_aid_batch_probe_delivery.py",
+  "source_count": 18,
+  "expected_zip_members": 21,
+  "source_closure_matches": true,
+  "real_gpu_executed": false,
+  "real_data_read": false,
+  "full_model_numerical_training": false,
+  "final_named_bundle_built": false
+}

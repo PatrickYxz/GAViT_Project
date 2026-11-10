@@ -1,0 +1,50 @@
+{
+  "checked_at": "2026-11-08T14:09:41.394785+08:00",
+  "state": "PASS",
+  "method": "Fresh standard-library computation from original test JSON and original core prediction CSVs; no model evaluation",
+  "ordered_paths_and_labels_equal": true,
+  "classes": 30,
+  "metrics": {
+    "hgtnet": {
+      "samples": 5000,
+      "correct": 4846,
+      "accuracy_percent": 96.92,
+      "macro_f1_percent": 96.7728681493198
+    },
+    "swin": {
+      "samples": 5000,
+      "correct": 4817,
+      "accuracy_percent": 96.34,
+      "macro_f1_percent": 96.22088514124282
+    },
+    "gavit": {
+      "samples": 5000,
+      "correct": 4847,
+      "accuracy_percent": 96.94,
+      "macro_f1_percent": 96.78112715611192
+    }
+  },
+  "pairwise": {
+    "swin_to_gavit": {
+      "both_correct": 4754,
+      "candidate_corrects": 93,
+      "candidate_breaks": 63,
+      "both_wrong": 90,
+      "net_correct": 30
+    },
+    "swin_to_hgtnet": {
+      "both_correct": 4738,
+      "candidate_corrects": 108,
+      "candidate_breaks": 79,
+      "both_wrong": 75,
+      "net_correct": 29
+    },
+    "gavit_to_hgtnet": {
+      "both_correct": 4771,
+      "candidate_corrects": 75,
+      "candidate_breaks": 76,
+      "both_wrong": 78,
+      "net_correct": -1
+    }
+  }
+}

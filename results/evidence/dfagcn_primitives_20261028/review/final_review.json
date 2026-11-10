@@ -1,0 +1,248 @@
+{
+  "date": "2026-10-28",
+  "role": "independent component code reviewer",
+  "scope": "New independent DFAGCN primitives and tests, against implementation_plan_20261028.md and audited method_spec.json; no commits or implementation edits made by reviewer",
+  "reviewed_files": [
+    {
+      "path": "external_baselines/__init__.py",
+      "sha256": "3e758420ecf381f2b3f83df1761bcfcbc7c3276e82254d979a24883592536a7f"
+    },
+    {
+      "path": "external_baselines/dfagcn/__init__.py",
+      "sha256": "b35023697642f9d2de385bfaf26ef7d40d1e028de629a5088d1c4275e1583f89"
+    },
+    {
+      "path": "external_baselines/dfagcn/features.py",
+      "sha256": "2bdf43f7ff78504b9ee5823e00e48092bde890f460ab64c7337fafd94b9553f1"
+    },
+    {
+      "path": "external_baselines/dfagcn/fusion.py",
+      "sha256": "22524aa98322256d01980ea5c5d6a87cbe05a782244bed11575e7a34d8df9329"
+    },
+    {
+      "path": "external_baselines/dfagcn/graph.py",
+      "sha256": "dcae20bd209b84a6b6dd2a43bc11081b43707073276e94287f9c5d1659a71b27"
+    },
+    {
+      "path": "external_baselines/dfagcn/identity.py",
+      "sha256": "1c8feda534668f4161349a8bae21539c8c41ce9c117cad7dd9f879f5989e75a8"
+    },
+    {
+      "path": "tests/test_dfagcn_component_chain.py",
+      "sha256": "9765d4ce033b751614199d52aaf85a3310e8f0d9606bc79b3f1600499efb7f44"
+    },
+    {
+      "path": "tests/test_dfagcn_features.py",
+      "sha256": "4b3f89f4519413c5124cb231c167e1c92bc9574677540dff4444a611d89fddcb"
+    },
+    {
+      "path": "tests/test_dfagcn_fusion.py",
+      "sha256": "a6533c5378e5a6c00d9a2b7d2bd457155f0b6b759cefe0dd0892f4e38a4d1c32"
+    },
+    {
+      "path": "tests/test_dfagcn_graph.py",
+      "sha256": "a96bb57851ace4556d1ae6f1160a691c6f0d845ca86f58b78ea04c6978d92be7"
+    },
+    {
+      "path": "tests/test_dfagcn_identity.py",
+      "sha256": "864330ab5a6f5a5837bf8bf9e104691e7d38fa4bbeb199a4e9ef296aa175ffb4"
+    }
+  ],
+  "strengths": [
+    "Graph is per-sample detached binary OR union with explicit metric, stable ties and no self-neighbors; matches independent scalar Euclidean/cosine reference at 27 nodes.",
+    "Normalization adds loops once without modifying input; GCN hand-computed propagation, post-propagation bias and gradients are checked.",
+    "VGG16-D validation and named pre-ReLU clone captures match actual torchvision layout; CPU signed values and convolution reload are tested; meta FC shape is clearly separated from numerical parity.",
+    "Fusion has correct 5632-dimensional ordered concatenation, explicit published coefficients, dtype/device/finite checks and gradient coverage.",
+    "Cache key binds declared ordered samples and provenance, learned stages cannot alias, and interface makes no unverified real-artifact or leakage claim.",
+    "The added three-branch graph/readout/fusion fixture propagates real gradients while explicitly declaring its 12-node/4-channel choice as a unit fixture rather than the unresolved paper architecture."
+  ],
+  "tests": {
+    "command": "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest discover -s tests -p test_dfagcn_*.py -v",
+    "methods": 53,
+    "exit_code": 0,
+    "log": "full_package_tests.log",
+    "independent_probes": "numeric_probes.json"
+  },
+  "critical_findings": [],
+  "important_findings": [],
+  "minor_findings": [],
+  "declined_to_judge": [
+    {
+      "behavior": "Exact MatConvNet pretrained numerical parity and CPU FC6 numerical results",
+      "reason": "The approved primitives scope injects weights/preprocessed inputs, explicitly labels full FC path as meta shape evidence, and supplies no official weights. No parity claim was made."
+    },
+    {
+      "behavior": "Full pooled graph-branch architecture, LIBLINEAR solver/trainer and formal dataset comparison",
+      "reason": "The approved scope deliberately leaves paper-ambiguous pooling, hidden depth and stopping/solver choices unresolved; no complete-model default or formal run was added."
+    },
+    {
+      "behavior": "Actual tensor-cache byte integrity and training/test data isolation enforcement",
+      "reason": "identity.py expressly handles declared JSON provenance only. Real file digest verification, tensor persistence and train/refit execution are later integration work; metadata key equality is not represented as proof."
+    },
+    {
+      "behavior": "A green complete existing-project suite or target-GPU behavior",
+      "reason": "New CPU component tests passed. Project-wide checks are explicitly blocked by absent pytest/timm/torch_geometric and the package introduces no GPU execution or completed formal experiment claim."
+    }
+  ],
+  "protected_metrics": [
+    {
+      "path": "results/comparison_table.csv",
+      "sha256": "54efc5572b6271e9019bd5546951ae84f9f06bf23fc7ff58021036b419de562f",
+      "matches": true
+    },
+    {
+      "path": "results/ablation_study.csv",
+      "sha256": "33182d7a7802e11c0580e66b7736c1d679af45ba4399b47369b582d8e9bd2011",
+      "matches": true
+    },
+    {
+      "path": "results/multiseed_test_results.csv",
+      "sha256": "639a9b45b07625d63c1254a32969637c984a996997248622a647f261d43c0988",
+      "matches": true
+    },
+    {
+      "path": "results/supervisor_progress_data_20261012.json",
+      "sha256": "7a825fdc1a26de05d1e181ec5d0767b3c2101859fbdb8cc968058cab9c842bc2",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/ablation_study.csv",
+      "sha256": "33182d7a7802e11c0580e66b7736c1d679af45ba4399b47369b582d8e9bd2011",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "sha256": "184d3d8894216e1b5ec092ff8326929a1c6dc2d4fede662886758a95001e90cf",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_four_seed_per_class_comparison.csv",
+      "sha256": "2651da9ad54329ddc46172733e53cf15fefe0978d7230f6d4cc5a0e40c4af0b4",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_multiseed_summary.csv",
+      "sha256": "4eed7d761f53197d4325a9aa932e6d3db098d2508550f8b255ef7345367bbf98",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed42_seed44_class_stability.csv",
+      "sha256": "e5ace37a5f1f1cc23ac44a072844a5d6f55d3a8ac615677c706e347552054e44",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed43_per_class_comparison.csv",
+      "sha256": "d6b1e47a356f5195e9e080a1036a905e8007d78fdbc503ae48d63324c727fa48",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed43_three_model_per_class.csv",
+      "sha256": "f9e507a954c865202cbc5c42d8a1fc14f7cc43802a2ae7f9cd77b9de0c636e15",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed44_per_class_comparison.csv",
+      "sha256": "0d8347e78634cc15d0361f0882c6840fefe29a529f4411fd31901fbda08dec58",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed45_per_class_comparison.csv",
+      "sha256": "b117b152f1a67e61b3787329d99c3114e5f4e6be50bddd081a40948b4d0d002d",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_swin_seed44_per_class_ap.csv",
+      "sha256": "9ac81219c7bb4f42760ae01bdde0baaef9cf9b00156baf8a0e79dfea80a59603",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_three_model_two_seed_comparison.csv",
+      "sha256": "3ec0de5a1243a725ce9252deb4b43bb6bed85d00b185e7c02596f7072204ea02",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/comparison_table.csv",
+      "sha256": "54efc5572b6271e9019bd5546951ae84f9f06bf23fc7ff58021036b419de562f",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/nwpu_two_seed_comparison.csv",
+      "sha256": "054bba00e2a05c88bffa74631fd2a5470f3fc5491010476986cc42108c4779f8",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/per_class_accuracy.csv",
+      "sha256": "234adc384d9cf6b297dd6f87234204c230fb26cacd952a1995c62de53e2c8eab",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/per_class_accuracy_fusion.csv",
+      "sha256": "32c82d51ffeab325859a7f0fbdb2922fce02aa31d2902fb69c0d06ea00c17791",
+      "matches": true
+    }
+  ],
+  "protected_entrypoint_sources": [
+    {
+      "path": "run_scene.py",
+      "sha256": "618d5cfc798db0a94d6ad74d513c7fb08a8bdf904f33f8e6e524d0be8cc64f03",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/run_scene.py",
+      "sha256": "fccba60f6533e4e208b7bc5c975c943e365cc5e0dffc43a9ed8cc0cb6e8c98f9",
+      "matches": true
+    },
+    {
+      "path": "scene_classification/data.py",
+      "sha256": "ebcf0dd7585a060465df45bdf4e44ec7f47edd95f1fa8a12cbdd5723b948fa69",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/scene_classification/data.py",
+      "sha256": "ebcf0dd7585a060465df45bdf4e44ec7f47edd95f1fa8a12cbdd5723b948fa69",
+      "matches": true
+    },
+    {
+      "path": "scene_classification/metrics.py",
+      "sha256": "6ef64ee533d0ca5c2dadae066a6254dcd4d107a24709b77009910067f37320b3",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/scene_classification/metrics.py",
+      "sha256": "6ef64ee533d0ca5c2dadae066a6254dcd4d107a24709b77009910067f37320b3",
+      "matches": true
+    },
+    {
+      "path": "scene_classification/modeling.py",
+      "sha256": "8a2beed6bcb35ba5f4695ec81a899d7cf7394ccbd858a6beb372b1bd3f1ca575",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/scene_classification/modeling.py",
+      "sha256": "a198202b58b4b2b6b06dd97e1e74bcbe05c8a91319bb4546a87308306929c3b9",
+      "matches": true
+    },
+    {
+      "path": "scene_classification/runner.py",
+      "sha256": "5d124ddfd03cb7340b8f65af8a56756d42ad1b2d1638b790373f192ead721f93",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py",
+      "sha256": "4023f3f9ea34d48a4041cdff33040ba5e13f802d744f35a43f3a3827a2969188",
+      "matches": true
+    },
+    {
+      "path": "scene_classification/refinement_audit.py",
+      "sha256": "08fdff7df2306c2a03313201ba566cd67f3acfeef2b16ed86d9fac8b085d929c",
+      "matches": true
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/scene_classification/refinement_audit.py",
+      "sha256": "08fdff7df2306c2a03313201ba566cd67f3acfeef2b16ed86d9fac8b085d929c",
+      "matches": true
+    }
+  ],
+  "assessment": "Suitable as tested independent primitives within declared scope; no full-method or whole-project verification claim",
+  "all_protected_hashes_match": true
+}

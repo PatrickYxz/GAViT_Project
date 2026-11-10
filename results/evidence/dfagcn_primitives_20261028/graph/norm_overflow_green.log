@@ -1,0 +1,31 @@
+test_cosine_knn_rejects_overflowed_norms_of_finite_features (test_dfagcn_graph.DFAGCNGraphTests.test_cosine_knn_rejects_overflowed_norms_of_finite_features) ... ok
+test_cosine_knn_rejects_zero_norm_nodes (test_dfagcn_graph.DFAGCNGraphTests.test_cosine_knn_rejects_zero_norm_nodes) ... ok
+test_default_k_ten_rejects_undersized_graphs (test_dfagcn_graph.DFAGCNGraphTests.test_default_k_ten_rejects_undersized_graphs) ... ok
+test_default_k_ten_requires_more_than_ten_nodes (test_dfagcn_graph.DFAGCNGraphTests.test_default_k_ten_requires_more_than_ten_nodes) ... ok
+test_duplicate_features_break_neighbor_ties_by_node_index (test_dfagcn_graph.DFAGCNGraphTests.test_duplicate_features_break_neighbor_ties_by_node_index) ... ok
+test_explicit_neighbor_metrics_can_produce_different_topologies (test_dfagcn_graph.DFAGCNGraphTests.test_explicit_neighbor_metrics_can_produce_different_topologies) ... ok
+test_gcn_is_node_permutation_equivariant_and_mean_readout_is_invariant (test_dfagcn_graph.DFAGCNGraphTests.test_gcn_is_node_permutation_equivariant_and_mean_readout_is_invariant) ... ok
+test_gcn_propagation_matches_hand_computed_path_without_implicit_activation (test_dfagcn_graph.DFAGCNGraphTests.test_gcn_propagation_matches_hand_computed_path_without_implicit_activation) ... ok
+test_gcn_rejects_incompatible_or_invalid_inputs (test_dfagcn_graph.DFAGCNGraphTests.test_gcn_rejects_incompatible_or_invalid_inputs) ... ok
+test_gcn_rejects_invalid_feature_dimensions (test_dfagcn_graph.DFAGCNGraphTests.test_gcn_rejects_invalid_feature_dimensions) ... ok
+test_knn_accepts_real_floating_feature_dtypes (test_dfagcn_graph.DFAGCNGraphTests.test_knn_accepts_real_floating_feature_dtypes) ... ok
+test_knn_keeps_samples_independent_and_returns_detached_topology (test_dfagcn_graph.DFAGCNGraphTests.test_knn_keeps_samples_independent_and_returns_detached_topology) ... ok
+test_knn_rejects_invalid_k (test_dfagcn_graph.DFAGCNGraphTests.test_knn_rejects_invalid_k) ... ok
+test_knn_rejects_invalid_node_features (test_dfagcn_graph.DFAGCNGraphTests.test_knn_rejects_invalid_node_features) ... ok
+test_knn_requires_explicit_supported_metric (test_dfagcn_graph.DFAGCNGraphTests.test_knn_requires_explicit_supported_metric) ... ok
+test_knn_uses_symmetric_binary_union_without_self_edges (test_dfagcn_graph.DFAGCNGraphTests.test_knn_uses_symmetric_binary_union_without_self_edges) ... ok
+test_mean_readout_and_gcn_keep_real_node_weight_and_bias_gradients (test_dfagcn_graph.DFAGCNGraphTests.test_mean_readout_and_gcn_keep_real_node_weight_and_bias_gradients) ... ok
+test_mean_readout_averages_each_samples_nodes_independently (test_dfagcn_graph.DFAGCNGraphTests.test_mean_readout_averages_each_samples_nodes_independently) ... ok
+test_mean_readout_rejects_empty_malformed_or_nonfinite_features (test_dfagcn_graph.DFAGCNGraphTests.test_mean_readout_rejects_empty_malformed_or_nonfinite_features) ... ok
+test_normalization_adds_each_self_loop_exactly_once (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_adds_each_self_loop_exactly_once) ... ok
+test_normalization_dtype_contract (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_dtype_contract) ... ok
+test_normalization_handles_independent_graphs_and_isolated_nodes (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_handles_independent_graphs_and_isolated_nodes) ... ok
+test_normalization_matches_hand_computed_three_node_path (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_matches_hand_computed_three_node_path) ... ok
+test_normalization_rejects_invalid_adjacency (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_rejects_invalid_adjacency) ... ok
+test_normalization_rejects_non_real_floating_output_dtype (test_dfagcn_graph.DFAGCNGraphTests.test_normalization_rejects_non_real_floating_output_dtype) ... ok
+test_optional_bias_is_added_after_graph_propagation (test_dfagcn_graph.DFAGCNGraphTests.test_optional_bias_is_added_after_graph_propagation) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.011s
+
+OK

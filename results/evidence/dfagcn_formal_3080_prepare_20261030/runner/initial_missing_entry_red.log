@@ -1,0 +1,135 @@
+test_actual_float32_cache_slices_preserve_pool_order_without_vgg (test_dfagcn_formal_runner.FormalRunnerTests.test_actual_float32_cache_slices_preserve_pool_order_without_vgg) ... FAIL
+test_actual_test_zip_recovery_counts_and_refuses_overwrite (test_dfagcn_formal_runner.FormalRunnerTests.test_actual_test_zip_recovery_counts_and_refuses_overwrite) ... FAIL
+test_compact_status_excludes_predictions_and_confusion_matrix (test_dfagcn_formal_runner.FormalRunnerTests.test_compact_status_excludes_predictions_and_confusion_matrix) ... FAIL
+test_failure_saves_log_exit_and_cannot_overwrite_or_restart (test_dfagcn_formal_runner.FormalRunnerTests.test_failure_saves_log_exit_and_cannot_overwrite_or_restart) ... FAIL
+test_full_pool_protocol_and_fixed_recipe (test_dfagcn_formal_runner.FormalRunnerTests.test_full_pool_protocol_and_fixed_recipe) ... FAIL
+test_inspect_is_stdlib_only_and_prints_exclusive_background_command (test_dfagcn_formal_runner.FormalRunnerTests.test_inspect_is_stdlib_only_and_prints_exclusive_background_command) ... FAIL
+test_inspect_rejects_low_disk_busy_gpu_versions_and_existing_output (test_dfagcn_formal_runner.FormalRunnerTests.test_inspect_rejects_low_disk_busy_gpu_versions_and_existing_output) ... FAIL
+test_run_requires_explicit_uuid_and_status_is_read_only (test_dfagcn_formal_runner.FormalRunnerTests.test_run_requires_explicit_uuid_and_status_is_read_only) ... FAIL
+test_runtime_rejects_cpu_or_changed_cuda_software_recipe (test_dfagcn_formal_runner.FormalRunnerTests.test_runtime_rejects_cpu_or_changed_cuda_software_recipe) ... FAIL
+test_test_recovery_rejects_traversal_wrong_sha_and_mixed_split (test_dfagcn_formal_runner.FormalRunnerTests.test_test_recovery_rejects_traversal_wrong_sha_and_mixed_split) ... FAIL
+
+======================================================================
+FAIL: test_actual_float32_cache_slices_preserve_pool_order_without_vgg (test_dfagcn_formal_runner.FormalRunnerTests.test_actual_float32_cache_slices_preserve_pool_order_without_vgg)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 124, in test_actual_float32_cache_slices_preserve_pool_order_without_vgg
+    module=api()
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 23, in api
+    if not path.exists():raise AssertionError('formal DFAGCN wrapper is not implemented')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: formal DFAGCN wrapper is not implemented
+
+======================================================================
+FAIL: test_actual_test_zip_recovery_counts_and_refuses_overwrite (test_dfagcn_formal_runner.FormalRunnerTests.test_actual_test_zip_recovery_counts_and_refuses_overwrite)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 148, in test_actual_test_zip_recovery_counts_and_refuses_overwrite
+    module=api();archive=self.root/'images.zip';records=[]
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 23, in api
+    if not path.exists():raise AssertionError('formal DFAGCN wrapper is not implemented')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: formal DFAGCN wrapper is not implemented
+
+======================================================================
+FAIL: test_compact_status_excludes_predictions_and_confusion_matrix (test_dfagcn_formal_runner.FormalRunnerTests.test_compact_status_excludes_predictions_and_confusion_matrix)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 188, in test_compact_status_excludes_predictions_and_confusion_matrix
+    module=api();output=self.root/'run';output.mkdir()
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 23, in api
+    if not path.exists():raise AssertionError('formal DFAGCN wrapper is not implemented')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: formal DFAGCN wrapper is not implemented
+
+======================================================================
+FAIL: test_failure_saves_log_exit_and_cannot_overwrite_or_restart (test_dfagcn_formal_runner.FormalRunnerTests.test_failure_saves_log_exit_and_cannot_overwrite_or_restart)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 173, in test_failure_saves_log_exit_and_cannot_overwrite_or_restart
+    module=api();args=self.resources(module)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 23, in api
+    if not path.exists():raise AssertionError('formal DFAGCN wrapper is not implemented')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: formal DFAGCN wrapper is not implemented
+
+======================================================================
+FAIL: test_full_pool_protocol_and_fixed_recipe (test_dfagcn_formal_runner.FormalRunnerTests.test_full_pool_protocol_and_fixed_recipe)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 73, in test_full_pool_protocol_and_fixed_recipe
+    module=api();selected=module.select_full(manifest_fixture())
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 23, in api
+    if not path.exists():raise AssertionError('formal DFAGCN wrapper is not implemented')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: formal DFAGCN wrapper is not implemented
+
+======================================================================
+FAIL: test_inspect_is_stdlib_only_and_prints_exclusive_background_command (test_dfagcn_formal_runner.FormalRunnerTests.test_inspect_is_stdlib_only_and_prints_exclusive_background_command)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 83, in test_inspect_is_stdlib_only_and_prints_exclusive_background_command
+    module=api();args=self.resources(module)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 23, in api
+    if not path.exists():raise AssertionError('formal DFAGCN wrapper is not implemented')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: formal DFAGCN wrapper is not implemented
+
+======================================================================
+FAIL: test_inspect_rejects_low_disk_busy_gpu_versions_and_existing_output (test_dfagcn_formal_runner.FormalRunnerTests.test_inspect_rejects_low_disk_busy_gpu_versions_and_existing_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 103, in test_inspect_rejects_low_disk_busy_gpu_versions_and_existing_output
+    module=api();args=self.resources(module)
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 23, in api
+    if not path.exists():raise AssertionError('formal DFAGCN wrapper is not implemented')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: formal DFAGCN wrapper is not implemented
+
+======================================================================
+FAIL: test_run_requires_explicit_uuid_and_status_is_read_only (test_dfagcn_formal_runner.FormalRunnerTests.test_run_requires_explicit_uuid_and_status_is_read_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 117, in test_run_requires_explicit_uuid_and_status_is_read_only
+    module=api()
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 23, in api
+    if not path.exists():raise AssertionError('formal DFAGCN wrapper is not implemented')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: formal DFAGCN wrapper is not implemented
+
+======================================================================
+FAIL: test_runtime_rejects_cpu_or_changed_cuda_software_recipe (test_dfagcn_formal_runner.FormalRunnerTests.test_runtime_rejects_cpu_or_changed_cuda_software_recipe)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 199, in test_runtime_rejects_cpu_or_changed_cuda_software_recipe
+    module=api()
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 23, in api
+    if not path.exists():raise AssertionError('formal DFAGCN wrapper is not implemented')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: formal DFAGCN wrapper is not implemented
+
+======================================================================
+FAIL: test_test_recovery_rejects_traversal_wrong_sha_and_mixed_split (test_dfagcn_formal_runner.FormalRunnerTests.test_test_recovery_rejects_traversal_wrong_sha_and_mixed_split)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 163, in test_test_recovery_rejects_traversal_wrong_sha_and_mixed_split
+    module=api();archive=self.root/'unsafe.zip'
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 23, in api
+    if not path.exists():raise AssertionError('formal DFAGCN wrapper is not implemented')
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: formal DFAGCN wrapper is not implemented
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.002s
+
+FAILED (failures=10)

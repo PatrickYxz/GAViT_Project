@@ -1,0 +1,41 @@
+{
+  "amp": false,
+  "cpu_threads": 8,
+  "cuda": "12.1",
+  "cuda_device": {
+    "available": true,
+    "cuda": "12.1",
+    "cuda_total_mib": 24123,
+    "device_count": 1,
+    "interface_gap_bytes": 474480640,
+    "interface_gap_mib": 452.5,
+    "max_interface_gap_mib": 1024,
+    "name": "NVIDIA GeForce RTX 3090",
+    "nvml_total_mib": 24576,
+    "torch": "2.2.2+cu121",
+    "total_memory_bytes": 25295323136
+  },
+  "cuda_visible_devices": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1",
+  "cudnn": 8902,
+  "cudnn_benchmark": false,
+  "cudnn_deterministic": true,
+  "cudnn_tf32": false,
+  "device": "cuda:0",
+  "dtype": "float32",
+  "gpu": {
+    "driver_version": "610.57.04",
+    "memory_free_mib": 24123,
+    "memory_total_mib": 24576,
+    "name": "NVIDIA GeForce RTX 3090",
+    "uuid": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1"
+  },
+  "matmul_tf32": false,
+  "numpy": "1.26.4",
+  "physical_gpu_uuid": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1",
+  "pid": 2661,
+  "pillow": "10.3.0",
+  "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+  "seed": 42,
+  "torch": "2.2.2+cu121",
+  "torchvision": "0.17.2+cu121"
+}

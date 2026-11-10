@@ -1,0 +1,21 @@
+{
+  "scope": "External nvidia-smi text parsing only; no CUDA execution",
+  "source_sha256": "71b564fb3c38505f5f941a47ac110aceed99f3e7cf1ca3fd7fd3b7a4a6663df3",
+  "malformed_compute_process_row": "123, GPU-70be4364-0641-e89d-828e-78727c6001ec, truncated",
+  "inventory": {
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 3080",
+        "uuid": "GPU-70be4364-0641-e89d-828e-78727c6001ec",
+        "memory_total_mib": 10240,
+        "memory_free_mib": 9874,
+        "driver_version": "610.57.04"
+      }
+    ],
+    "processes": [],
+    "error": null
+  },
+  "accepted_as_idle": true,
+  "severity": "P3",
+  "suggestion": "Reject malformed nonempty compute-app CSV rows, matching GPU inventory strict parsing."
+}

@@ -1,0 +1,84 @@
+{
+  "scope": "paper-reported results and independent-reimplementation preparation only; no training or benchmark scores generated",
+  "root_head": "058f1d8b79d0be538ec358eb742d2cd3992921d4",
+  "research_worktree_head": "8f2ed07671ed50387998a46a2d2167a7a4dfc2ed",
+  "root_status_before": " M research_diary.md\n?? .workbuddy/\n?? .zcodeignore\n?? docs/ben_four_seed_three_model_20261017.md\n?? docs/ben_grid3_grid4_analysis_20261017.md\n?? docs/ben_grid3_grid4_seed42_20261020.md\n?? docs/ben_gridpair42_visual_analysis_20261020.md\n?? docs/ben_k9_k16_comparability_audit_20261017.md\n?? docs/ben_seed42_seed43_vs_swin_20261013.md\n?? docs/ben_seed43_vs_swin_20261013.md\n?? docs/nwpu_grid3_grid4_visualization_audit_20261017.md\n?? docs/per_class_findings_20261013.md\n?? docs/run_ben_grid3_seed42_20261018.md\n?? docs/run_ben_gridpair42_visual_20261020.md\n?? docs/run_ben_soft42_20261013.md\n?? docs/superpowers/plans/2026-10-27-gavit-method-setup-draft.md\n?? docs/supervisor_email_draft_20261012.md\n?? docs/supervisor_email_draft_20261012_plaintext.txt\n?? docs/supervisor_progress_report_20261012.md\n?? docs/supervisor_progress_report_20261012_plaintext.txt\n?? output/\n?? results/ben_four_seed_three_model_20261017.csv\n?? results/ben_four_seed_three_model_20261017.json\n?? results/ben_grid3_grid4_analysis_20261017.json\n?? results/ben_grid3_grid4_seed42_20261020.json\n?? results/ben_grid3_seed42_status_20261018.json\n?? results/ben_k9_k16_comparability_audit_20261017.json\n?? results/ben_seed42_seed43_vs_swin_20261013.json\n?? results/ben_seed43_vs_swin_20261013.json\n?? results/bigearth_soft42_status_20261013.json\n?? results/evidence/ben_grid3_seed42_launch_20261019/\n?? results/evidence/ben_grid3_seed42_metrics_20261020/\n?? results/evidence/ben_grid3_seed42_prepare_20261018/\n?? results/evidence/ben_gridpair42_visual_prepare_20261020/\n?? results/evidence/ben_gridpair42_visual_return_20261020/\n?? results/evidence/ben_gridpair42_visual_run_20261020/\n?? results/evidence/ben_k9_comparability_20261017/\n?? results/evidence/bigearth_soft42_complete_20261017/\n?? results/evidence/bigearth_soft42_launch_20261016/\n?? results/evidence/bigearth_soft42_preflight_20261016/\n?? results/evidence/bigearth_soft42_result_check_20261017/\n?? results/evidence/bigearth_soft42_smoke4090_20261016/\n?? results/evidence/seed46_seed47_reported_20261012/\n?? results/evidence/supervisor_copyable_20261020/\n?? results/multiseed_test_results.csv\n?? results/nwpu_grid3_grid4_visualization_audit_20261017.json\n?? results/per_class_findings_20261013.json\n?? results/seed46_seed47_audit_20261012.json\n?? results/seed46_seed47_audit_20261012.md\n?? results/supervisor_progress_data_20261012.json\n?? thesis/\n?? tmp/\n",
+  "protected_artifacts": [
+    {
+      "path": "results/comparison_table.csv",
+      "sha256": "54efc5572b6271e9019bd5546951ae84f9f06bf23fc7ff58021036b419de562f"
+    },
+    {
+      "path": "results/ablation_study.csv",
+      "sha256": "33182d7a7802e11c0580e66b7736c1d679af45ba4399b47369b582d8e9bd2011"
+    },
+    {
+      "path": "results/multiseed_test_results.csv",
+      "sha256": "639a9b45b07625d63c1254a32969637c984a996997248622a647f261d43c0988"
+    },
+    {
+      "path": "results/supervisor_progress_data_20261012.json",
+      "sha256": "7a825fdc1a26de05d1e181ec5d0767b3c2101859fbdb8cc968058cab9c842bc2"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/ablation_study.csv",
+      "sha256": "33182d7a7802e11c0580e66b7736c1d679af45ba4399b47369b582d8e9bd2011"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "sha256": "184d3d8894216e1b5ec092ff8326929a1c6dc2d4fede662886758a95001e90cf"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_four_seed_per_class_comparison.csv",
+      "sha256": "2651da9ad54329ddc46172733e53cf15fefe0978d7230f6d4cc5a0e40c4af0b4"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_multiseed_summary.csv",
+      "sha256": "4eed7d761f53197d4325a9aa932e6d3db098d2508550f8b255ef7345367bbf98"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed42_seed44_class_stability.csv",
+      "sha256": "e5ace37a5f1f1cc23ac44a072844a5d6f55d3a8ac615677c706e347552054e44"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed43_per_class_comparison.csv",
+      "sha256": "d6b1e47a356f5195e9e080a1036a905e8007d78fdbc503ae48d63324c727fa48"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed43_three_model_per_class.csv",
+      "sha256": "f9e507a954c865202cbc5c42d8a1fc14f7cc43802a2ae7f9cd77b9de0c636e15"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed44_per_class_comparison.csv",
+      "sha256": "0d8347e78634cc15d0361f0882c6840fefe29a529f4411fd31901fbda08dec58"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed45_per_class_comparison.csv",
+      "sha256": "b117b152f1a67e61b3787329d99c3114e5f4e6be50bddd081a40948b4d0d002d"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_swin_seed44_per_class_ap.csv",
+      "sha256": "9ac81219c7bb4f42760ae01bdde0baaef9cf9b00156baf8a0e79dfea80a59603"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/bigearth_three_model_two_seed_comparison.csv",
+      "sha256": "3ec0de5a1243a725ce9252deb4b43bb6bed85d00b185e7c02596f7072204ea02"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/comparison_table.csv",
+      "sha256": "54efc5572b6271e9019bd5546951ae84f9f06bf23fc7ff58021036b419de562f"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/nwpu_two_seed_comparison.csv",
+      "sha256": "054bba00e2a05c88bffa74631fd2a5470f3fc5491010476986cc42108c4779f8"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/per_class_accuracy.csv",
+      "sha256": "234adc384d9cf6b297dd6f87234204c230fb26cacd952a1995c62de53e2c8eab"
+    },
+    {
+      "path": ".worktrees/sparse-hybrid-4n-top2/results/per_class_accuracy_fusion.csv",
+      "sha256": "32c82d51ffeab325859a7f0fbdb2922fce02aa31d2902fb69c0d06ea00c17791"
+    }
+  ]
+}

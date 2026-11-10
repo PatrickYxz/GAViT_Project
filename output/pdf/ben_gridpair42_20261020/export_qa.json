@@ -1,0 +1,28 @@
+{
+  "status": "EXPORT_CHECKS_PASS",
+  "pdf_pages": 2,
+  "original_pixels_preserved": true,
+  "base_image_placements": 24,
+  "actual_feature_edges_page1": 200,
+  "pooling_tokens_page2": 392,
+  "all_four_cases_and_all_threshold_changes_retained": true,
+  "all_text_within_page": true,
+  "checked_characters": 2034,
+  "output_png_sizes": {
+    "graphs_predictions_300dpi.png": [
+      2126,
+      3459
+    ],
+    "pooling_300dpi.png": [
+      2126,
+      3459
+    ]
+  },
+  "html_byte_identical_to_returned": true,
+  "visual_review_pages": [
+    1,
+    2
+  ],
+  "visual_review_result": "headings, all panels, labels, probabilities and footnotes inspected; no clipping or overlap",
+  "html_browser_interaction_tested": false
+}

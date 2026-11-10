@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 3.9557015420868993
+}

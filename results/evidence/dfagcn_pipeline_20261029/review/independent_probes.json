@@ -1,0 +1,13 @@
+{
+  "engineering_run": "results/evidence/dfagcn_pipeline_20261029/smoke_run_02",
+  "current_source_sha256": "104f0a4b42b4f1c3ecec45c26de0cf736054f5118b31d0fb93af76223085de92",
+  "scope": "retained synthetic engineering artifacts and pure guard checks, no NWPU evaluation",
+  "refit_parameter_tensors_changed_from_seeded_initialization": {
+    "conv3": 5,
+    "conv4": 5,
+    "conv5": 5
+  },
+  "selected_C_matches_best_OA_then_smallest_C": true,
+  "pool_cache_rejected_as_test_cache": true,
+  "formal_weight_guard_rejects_actual_random_cache_with_known_formal_manifest_argument": true
+}

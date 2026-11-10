@@ -1,0 +1,2069 @@
+test_depthwise_projection_matches_hand_spatial_and_channel_result (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_matches_hand_spatial_and_channel_result) ... FAIL
+test_depthwise_projection_rejects_invalid_constructor_and_inputs (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_rejects_invalid_constructor_and_inputs) ... 
+  test_depthwise_projection_rejects_invalid_constructor_and_inputs (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_rejects_invalid_constructor_and_inputs) (arguments={'in_channels': 0, 'out_channels': 2}) ... FAIL
+  test_depthwise_projection_rejects_invalid_constructor_and_inputs (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_rejects_invalid_constructor_and_inputs) (arguments={'in_channels': 2, 'out_channels': True}) ... FAIL
+  test_depthwise_projection_rejects_invalid_constructor_and_inputs (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_rejects_invalid_constructor_and_inputs) (arguments={'in_channels': 2, 'out_channels': 3, 'stride': 0}) ... FAIL
+  test_depthwise_projection_rejects_invalid_constructor_and_inputs (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_rejects_invalid_constructor_and_inputs) (arguments={'in_channels': 2, 'out_channels': 3, 'padding': -1}) ... FAIL
+  test_depthwise_projection_rejects_invalid_constructor_and_inputs (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_rejects_invalid_constructor_and_inputs) (arguments={'in_channels': 2, 'out_channels': 3, 'norm_eps': inf}) ... FAIL
+test_depthwise_projection_rejects_invalid_constructor_and_inputs (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_rejects_invalid_constructor_and_inputs) ... FAIL
+test_depthwise_projection_supports_stride_and_preserves_padding_shape (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_supports_stride_and_preserves_padding_shape) ... FAIL
+test_depthwise_projection_transitions_noncontiguous_map_and_backpropagates (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_transitions_noncontiguous_map_and_backpropagates) ... FAIL
+test_graphblock_builds_actual_graph_from_current_projected_features (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_builds_actual_graph_from_current_projected_features) ... FAIL
+test_graphblock_default_returns_tensor_and_two_residuals_preserve_identity (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_default_returns_tensor_and_two_residuals_preserve_identity) ... FAIL
+test_graphblock_has_real_finite_gradients_and_optimizer_update (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_has_real_finite_gradients_and_optimizer_update) ... FAIL
+test_graphblock_is_permutation_equivariant_without_distance_ties (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_is_permutation_equivariant_without_distance_ties) ... FAIL
+test_graphblock_mean_probe_and_explicit_self_policy (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_mean_probe_and_explicit_self_policy) ... FAIL
+test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) ... 
+  test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 0, 'k': 1}) ... FAIL
+  test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': 0}) ... FAIL
+  test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': True}) ... FAIL
+  test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': 1, 'operator': 'gcn'}) ... FAIL
+  test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': 1, 'ffn_ratio': 0}) ... FAIL
+  test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': 1, 'ffn_ratio': 1.5}) ... FAIL
+  test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': 1, 'norm_eps': 0.0}) ... FAIL
+  test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': 1, 'norm_eps': nan}) ... FAIL
+  test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': 1, 'exclude_self': 1}) ... FAIL
+test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) ... FAIL
+test_knn_accepts_real_float_dtypes (test_hgtnet_graph.HGTNetKNNTests.test_knn_accepts_real_float_dtypes) ... 
+  test_knn_accepts_real_float_dtypes (test_hgtnet_graph.HGTNetKNNTests.test_knn_accepts_real_float_dtypes) (dtype=torch.float16) ... FAIL
+  test_knn_accepts_real_float_dtypes (test_hgtnet_graph.HGTNetKNNTests.test_knn_accepts_real_float_dtypes) (dtype=torch.bfloat16) ... FAIL
+  test_knn_accepts_real_float_dtypes (test_hgtnet_graph.HGTNetKNNTests.test_knn_accepts_real_float_dtypes) (dtype=torch.float32) ... FAIL
+  test_knn_accepts_real_float_dtypes (test_hgtnet_graph.HGTNetKNNTests.test_knn_accepts_real_float_dtypes) (dtype=torch.float64) ... FAIL
+test_knn_breaks_equal_distance_ties_by_original_index (test_hgtnet_graph.HGTNetKNNTests.test_knn_breaks_equal_distance_ties_by_original_index) ... FAIL
+test_knn_handles_finite_float32_distances_that_overflow_float32 (test_hgtnet_graph.HGTNetKNNTests.test_knn_handles_finite_float32_distances_that_overflow_float32) ... FAIL
+test_knn_keeps_samples_independent (test_hgtnet_graph.HGTNetKNNTests.test_knn_keeps_samples_independent) ... FAIL
+test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) ... 
+  test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (k=0) ... FAIL
+  test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (k=-1) ... FAIL
+  test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (k=True) ... FAIL
+  test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (k=1.5) ... FAIL
+  test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (k='2') ... FAIL
+  test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (policy=0) ... FAIL
+  test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (policy=1) ... FAIL
+  test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (policy='true') ... FAIL
+  test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (policy=None) ... FAIL
+test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) ... 
+  test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=0) ... FAIL
+  test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=1) ... FAIL
+  test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=2) ... FAIL
+  test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=3) ... FAIL
+  test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=4) ... FAIL
+  test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=5) ... FAIL
+  test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=6) ... FAIL
+  test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=7) ... FAIL
+  test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=8) ... FAIL
+  test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=9) ... FAIL
+  test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=10) ... FAIL
+test_knn_rejects_small_graph_instead_of_clipping_k (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_small_graph_instead_of_clipping_k) ... 
+  test_knn_rejects_small_graph_instead_of_clipping_k (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_small_graph_instead_of_clipping_k) (count=16, k=20) ... FAIL
+  test_knn_rejects_small_graph_instead_of_clipping_k (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_small_graph_instead_of_clipping_k) (count=20, k=20) ... FAIL
+  test_knn_rejects_small_graph_instead_of_clipping_k (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_small_graph_instead_of_clipping_k) (count=1, k=1) ... FAIL
+test_knn_returns_ordered_euclidean_indices_without_self (test_hgtnet_graph.HGTNetKNNTests.test_knn_returns_ordered_euclidean_indices_without_self) ... FAIL
+test_knn_self_policy_is_explicit_even_for_duplicate_nodes (test_hgtnet_graph.HGTNetKNNTests.test_knn_self_policy_is_explicit_even_for_duplicate_nodes) ... FAIL
+test_mrconv_concatenates_center_before_relative_message (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_concatenates_center_before_relative_message) ... FAIL
+test_mrconv_mean_and_gradients_reach_projection_and_nodes (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_mean_and_gradients_reach_projection_and_nodes) ... FAIL
+test_mrconv_rejects_wrong_channels_dtype_and_constructor (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_rejects_wrong_channels_dtype_and_constructor) ... 
+  test_mrconv_rejects_wrong_channels_dtype_and_constructor (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_rejects_wrong_channels_dtype_and_constructor) (arguments=(0, 2)) ... FAIL
+  test_mrconv_rejects_wrong_channels_dtype_and_constructor (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_rejects_wrong_channels_dtype_and_constructor) (arguments=(2, 0)) ... FAIL
+  test_mrconv_rejects_wrong_channels_dtype_and_constructor (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_rejects_wrong_channels_dtype_and_constructor) (arguments=(True, 2)) ... FAIL
+  test_mrconv_rejects_wrong_channels_dtype_and_constructor (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_rejects_wrong_channels_dtype_and_constructor) (arguments=(2, 1.5)) ... FAIL
+test_mrconv_rejects_wrong_channels_dtype_and_constructor (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_rejects_wrong_channels_dtype_and_constructor) ... FAIL
+test_relative_aggregate_has_correct_message_gradients (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_has_correct_message_gradients) ... FAIL
+test_relative_aggregate_keeps_batches_separate_and_neighbour_order_irrelevant (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_keeps_batches_separate_and_neighbour_order_irrelevant) ... 
+  test_relative_aggregate_keeps_batches_separate_and_neighbour_order_irrelevant (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_keeps_batches_separate_and_neighbour_order_irrelevant) (reduction='max') ... FAIL
+  test_relative_aggregate_keeps_batches_separate_and_neighbour_order_irrelevant (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_keeps_batches_separate_and_neighbour_order_irrelevant) (reduction='mean') ... FAIL
+test_relative_aggregate_preserves_node_permutation (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_preserves_node_permutation) ... 
+  test_relative_aggregate_preserves_node_permutation (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_preserves_node_permutation) (reduction='max') ... FAIL
+  test_relative_aggregate_preserves_node_permutation (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_preserves_node_permutation) (reduction='mean') ... FAIL
+test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) ... 
+  test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=0) ... FAIL
+  test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=1) ... FAIL
+  test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=2) ... FAIL
+  test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=3) ... FAIL
+  test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=4) ... FAIL
+  test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=5) ... FAIL
+  test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=6) ... FAIL
+  test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=7) ... FAIL
+  test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=8) ... FAIL
+test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) ... FAIL
+test_relative_max_and_mean_use_neighbour_minus_query (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_max_and_mean_use_neighbour_minus_query) ... FAIL
+
+======================================================================
+FAIL: test_depthwise_projection_matches_hand_spatial_and_channel_result (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_matches_hand_spatial_and_channel_result)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 277, in test_depthwise_projection_matches_hand_spatial_and_channel_result
+    layer = _graph().DepthwiseProjection(2, 2, padding=0)
+            ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_depthwise_projection_rejects_invalid_constructor_and_inputs (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_rejects_invalid_constructor_and_inputs) (arguments={'in_channels': 0, 'out_channels': 2})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 319, in test_depthwise_projection_rejects_invalid_constructor_and_inputs
+    _graph().DepthwiseProjection(**arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_depthwise_projection_rejects_invalid_constructor_and_inputs (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_rejects_invalid_constructor_and_inputs) (arguments={'in_channels': 2, 'out_channels': True})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 319, in test_depthwise_projection_rejects_invalid_constructor_and_inputs
+    _graph().DepthwiseProjection(**arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_depthwise_projection_rejects_invalid_constructor_and_inputs (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_rejects_invalid_constructor_and_inputs) (arguments={'in_channels': 2, 'out_channels': 3, 'stride': 0})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 319, in test_depthwise_projection_rejects_invalid_constructor_and_inputs
+    _graph().DepthwiseProjection(**arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_depthwise_projection_rejects_invalid_constructor_and_inputs (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_rejects_invalid_constructor_and_inputs) (arguments={'in_channels': 2, 'out_channels': 3, 'padding': -1})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 319, in test_depthwise_projection_rejects_invalid_constructor_and_inputs
+    _graph().DepthwiseProjection(**arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_depthwise_projection_rejects_invalid_constructor_and_inputs (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_rejects_invalid_constructor_and_inputs) (arguments={'in_channels': 2, 'out_channels': 3, 'norm_eps': inf})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 319, in test_depthwise_projection_rejects_invalid_constructor_and_inputs
+    _graph().DepthwiseProjection(**arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_depthwise_projection_rejects_invalid_constructor_and_inputs (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_rejects_invalid_constructor_and_inputs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 320, in test_depthwise_projection_rejects_invalid_constructor_and_inputs
+    layer = _graph().DepthwiseProjection(2, 3, padding=0)
+            ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_depthwise_projection_supports_stride_and_preserves_padding_shape (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_supports_stride_and_preserves_padding_shape)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 306, in test_depthwise_projection_supports_stride_and_preserves_padding_shape
+    self.assertEqual(tuple(_graph().DepthwiseProjection(4, 6)(torch.randn(1, 4, 7, 7)).shape), (1, 6, 7, 7))
+                           ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_depthwise_projection_transitions_noncontiguous_map_and_backpropagates (test_hgtnet_graph.HGTDepthwiseProjectionTests.test_depthwise_projection_transitions_noncontiguous_map_and_backpropagates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 290, in test_depthwise_projection_transitions_noncontiguous_map_and_backpropagates
+    layer = _graph().DepthwiseProjection(4, 8, padding=0)
+            ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_builds_actual_graph_from_current_projected_features (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_builds_actual_graph_from_current_projected_features)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 196, in test_graphblock_builds_actual_graph_from_current_projected_features
+    block = _graph().GraphBlock(2, 1)
+            ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_default_returns_tensor_and_two_residuals_preserve_identity (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_default_returns_tensor_and_two_residuals_preserve_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 211, in test_graphblock_default_returns_tensor_and_two_residuals_preserve_identity
+    block = _graph().GraphBlock(4, 2)
+            ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_has_real_finite_gradients_and_optimizer_update (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_has_real_finite_gradients_and_optimizer_update)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 231, in test_graphblock_has_real_finite_gradients_and_optimizer_update
+    block = _graph().GraphBlock(4, 2)
+            ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_is_permutation_equivariant_without_distance_ties (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_is_permutation_equivariant_without_distance_ties)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 224, in test_graphblock_is_permutation_equivariant_without_distance_ties
+    block = _graph().GraphBlock(4, 2).eval()
+            ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_mean_probe_and_explicit_self_policy (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_mean_probe_and_explicit_self_policy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 246, in test_graphblock_mean_probe_and_explicit_self_policy
+    block = _graph().GraphBlock(3, 4, operator="relative_mean", exclude_self=False)
+            ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 0, 'k': 1})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 265, in test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph
+    _graph().GraphBlock(**arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': 0})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 265, in test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph
+    _graph().GraphBlock(**arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': True})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 265, in test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph
+    _graph().GraphBlock(**arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': 1, 'operator': 'gcn'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 265, in test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph
+    _graph().GraphBlock(**arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': 1, 'ffn_ratio': 0})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 265, in test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph
+    _graph().GraphBlock(**arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': 1, 'ffn_ratio': 1.5})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 265, in test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph
+    _graph().GraphBlock(**arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': 1, 'norm_eps': 0.0})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 265, in test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph
+    _graph().GraphBlock(**arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': 1, 'norm_eps': nan})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 265, in test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph
+    _graph().GraphBlock(**arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph) (arguments={'channels': 3, 'k': 1, 'exclude_self': 1})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 265, in test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph
+    _graph().GraphBlock(**arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph (test_hgtnet_graph.HGTGraphBlockTests.test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 267, in test_graphblock_rejects_invalid_arguments_inputs_and_small_k20_graph
+    _graph().GraphBlock(3, 20)(torch.ones(1, 16, 3))
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_accepts_real_float_dtypes (test_hgtnet_graph.HGTNetKNNTests.test_knn_accepts_real_float_dtypes) (dtype=torch.float16)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 64, in test_knn_accepts_real_float_dtypes
+    _graph().knn_indices(nodes, 1), torch.tensor([[[1], [0], [1]]])
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_accepts_real_float_dtypes (test_hgtnet_graph.HGTNetKNNTests.test_knn_accepts_real_float_dtypes) (dtype=torch.bfloat16)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 64, in test_knn_accepts_real_float_dtypes
+    _graph().knn_indices(nodes, 1), torch.tensor([[[1], [0], [1]]])
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_accepts_real_float_dtypes (test_hgtnet_graph.HGTNetKNNTests.test_knn_accepts_real_float_dtypes) (dtype=torch.float32)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 64, in test_knn_accepts_real_float_dtypes
+    _graph().knn_indices(nodes, 1), torch.tensor([[[1], [0], [1]]])
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_accepts_real_float_dtypes (test_hgtnet_graph.HGTNetKNNTests.test_knn_accepts_real_float_dtypes) (dtype=torch.float64)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 64, in test_knn_accepts_real_float_dtypes
+    _graph().knn_indices(nodes, 1), torch.tensor([[[1], [0], [1]]])
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_breaks_equal_distance_ties_by_original_index (test_hgtnet_graph.HGTNetKNNTests.test_knn_breaks_equal_distance_ties_by_original_index)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 32, in test_knn_breaks_equal_distance_ties_by_original_index
+    actual = _graph().knn_indices(nodes, 3)
+             ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_handles_finite_float32_distances_that_overflow_float32 (test_hgtnet_graph.HGTNetKNNTests.test_knn_handles_finite_float32_distances_that_overflow_float32)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 56, in test_knn_handles_finite_float32_distances_that_overflow_float32
+    _graph().knn_indices(nodes, 1), torch.tensor([[[1], [0], [0], [1]]])
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_keeps_samples_independent (test_hgtnet_graph.HGTNetKNNTests.test_knn_keeps_samples_independent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 49, in test_knn_keeps_samples_independent
+    _graph().knn_indices(nodes, 1), torch.tensor([[[1], [0], [1]], [[2], [2], [0]]])
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (k=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 75, in test_knn_rejects_invalid_k_and_self_policy
+    _graph().knn_indices(torch.zeros(1, 4, 2), k)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (k=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 75, in test_knn_rejects_invalid_k_and_self_policy
+    _graph().knn_indices(torch.zeros(1, 4, 2), k)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (k=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 75, in test_knn_rejects_invalid_k_and_self_policy
+    _graph().knn_indices(torch.zeros(1, 4, 2), k)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (k=1.5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 75, in test_knn_rejects_invalid_k_and_self_policy
+    _graph().knn_indices(torch.zeros(1, 4, 2), k)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (k='2')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 75, in test_knn_rejects_invalid_k_and_self_policy
+    _graph().knn_indices(torch.zeros(1, 4, 2), k)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (policy=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 78, in test_knn_rejects_invalid_k_and_self_policy
+    _graph().knn_indices(torch.zeros(1, 4, 2), 1, exclude_self=policy)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (policy=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 78, in test_knn_rejects_invalid_k_and_self_policy
+    _graph().knn_indices(torch.zeros(1, 4, 2), 1, exclude_self=policy)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (policy='true')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 78, in test_knn_rejects_invalid_k_and_self_policy
+    _graph().knn_indices(torch.zeros(1, 4, 2), 1, exclude_self=policy)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_k_and_self_policy (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_k_and_self_policy) (policy=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 78, in test_knn_rejects_invalid_k_and_self_policy
+    _graph().knn_indices(torch.zeros(1, 4, 2), 1, exclude_self=policy)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 91, in test_knn_rejects_invalid_nodes_and_nonfinite_features
+    _graph().knn_indices(nodes, 1)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 91, in test_knn_rejects_invalid_nodes_and_nonfinite_features
+    _graph().knn_indices(nodes, 1)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 91, in test_knn_rejects_invalid_nodes_and_nonfinite_features
+    _graph().knn_indices(nodes, 1)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 91, in test_knn_rejects_invalid_nodes_and_nonfinite_features
+    _graph().knn_indices(nodes, 1)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=4)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 91, in test_knn_rejects_invalid_nodes_and_nonfinite_features
+    _graph().knn_indices(nodes, 1)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 91, in test_knn_rejects_invalid_nodes_and_nonfinite_features
+    _graph().knn_indices(nodes, 1)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=6)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 91, in test_knn_rejects_invalid_nodes_and_nonfinite_features
+    _graph().knn_indices(nodes, 1)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=7)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 91, in test_knn_rejects_invalid_nodes_and_nonfinite_features
+    _graph().knn_indices(nodes, 1)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=8)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 91, in test_knn_rejects_invalid_nodes_and_nonfinite_features
+    _graph().knn_indices(nodes, 1)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=9)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 91, in test_knn_rejects_invalid_nodes_and_nonfinite_features
+    _graph().knn_indices(nodes, 1)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_invalid_nodes_and_nonfinite_features (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_invalid_nodes_and_nonfinite_features) (index=10)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 91, in test_knn_rejects_invalid_nodes_and_nonfinite_features
+    _graph().knn_indices(nodes, 1)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_small_graph_instead_of_clipping_k (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_small_graph_instead_of_clipping_k) (count=16, k=20)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 70, in test_knn_rejects_small_graph_instead_of_clipping_k
+    _graph().knn_indices(torch.zeros(1, count, 2), k)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_small_graph_instead_of_clipping_k (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_small_graph_instead_of_clipping_k) (count=20, k=20)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 70, in test_knn_rejects_small_graph_instead_of_clipping_k
+    _graph().knn_indices(torch.zeros(1, count, 2), k)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_rejects_small_graph_instead_of_clipping_k (test_hgtnet_graph.HGTNetKNNTests.test_knn_rejects_small_graph_instead_of_clipping_k) (count=1, k=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 70, in test_knn_rejects_small_graph_instead_of_clipping_k
+    _graph().knn_indices(torch.zeros(1, count, 2), k)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_returns_ordered_euclidean_indices_without_self (test_hgtnet_graph.HGTNetKNNTests.test_knn_returns_ordered_euclidean_indices_without_self)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 22, in test_knn_returns_ordered_euclidean_indices_without_self
+    neighbours = _graph().knn_indices(nodes, 2)
+                 ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_knn_self_policy_is_explicit_even_for_duplicate_nodes (test_hgtnet_graph.HGTNetKNNTests.test_knn_self_policy_is_explicit_even_for_duplicate_nodes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 39, in test_knn_self_policy_is_explicit_even_for_duplicate_nodes
+    _graph().knn_indices(nodes, 2), torch.tensor([[[1, 2], [0, 2], [0, 1]]])
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_mrconv_concatenates_center_before_relative_message (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_concatenates_center_before_relative_message)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 159, in test_mrconv_concatenates_center_before_relative_message
+    layer = _graph().MRConv(1, 1)
+            ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_mrconv_mean_and_gradients_reach_projection_and_nodes (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_mean_and_gradients_reach_projection_and_nodes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 170, in test_mrconv_mean_and_gradients_reach_projection_and_nodes
+    layer = _graph().MRConv(2, 3, reduction="mean")
+            ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_mrconv_rejects_wrong_channels_dtype_and_constructor (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_rejects_wrong_channels_dtype_and_constructor) (arguments=(0, 2))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 184, in test_mrconv_rejects_wrong_channels_dtype_and_constructor
+    _graph().MRConv(*arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_mrconv_rejects_wrong_channels_dtype_and_constructor (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_rejects_wrong_channels_dtype_and_constructor) (arguments=(2, 0))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 184, in test_mrconv_rejects_wrong_channels_dtype_and_constructor
+    _graph().MRConv(*arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_mrconv_rejects_wrong_channels_dtype_and_constructor (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_rejects_wrong_channels_dtype_and_constructor) (arguments=(True, 2))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 184, in test_mrconv_rejects_wrong_channels_dtype_and_constructor
+    _graph().MRConv(*arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_mrconv_rejects_wrong_channels_dtype_and_constructor (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_rejects_wrong_channels_dtype_and_constructor) (arguments=(2, 1.5))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 184, in test_mrconv_rejects_wrong_channels_dtype_and_constructor
+    _graph().MRConv(*arguments)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_mrconv_rejects_wrong_channels_dtype_and_constructor (test_hgtnet_graph.HGTRelativeMessageTests.test_mrconv_rejects_wrong_channels_dtype_and_constructor)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 186, in test_mrconv_rejects_wrong_channels_dtype_and_constructor
+    _graph().MRConv(2, 3, reduction="sum")
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_has_correct_message_gradients (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_has_correct_message_gradients)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 134, in test_relative_aggregate_has_correct_message_gradients
+    _graph().relative_aggregate(nodes, neighbours, "mean")[0, 0].sum().backward()
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_keeps_batches_separate_and_neighbour_order_irrelevant (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_keeps_batches_separate_and_neighbour_order_irrelevant) (reduction='max')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 113, in test_relative_aggregate_keeps_batches_separate_and_neighbour_order_irrelevant
+    actual = _graph().relative_aggregate(nodes, neighbours, reduction)
+             ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_keeps_batches_separate_and_neighbour_order_irrelevant (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_keeps_batches_separate_and_neighbour_order_irrelevant) (reduction='mean')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 113, in test_relative_aggregate_keeps_batches_separate_and_neighbour_order_irrelevant
+    actual = _graph().relative_aggregate(nodes, neighbours, reduction)
+             ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_preserves_node_permutation (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_preserves_node_permutation) (reduction='max')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 127, in test_relative_aggregate_preserves_node_permutation
+    original = _graph().relative_aggregate(nodes, neighbours, reduction)
+               ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_preserves_node_permutation (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_preserves_node_permutation) (reduction='mean')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 127, in test_relative_aggregate_preserves_node_permutation
+    original = _graph().relative_aggregate(nodes, neighbours, reduction)
+               ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 152, in test_relative_aggregate_rejects_invalid_indices_and_reduction
+    _graph().relative_aggregate(nodes, neighbours)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 152, in test_relative_aggregate_rejects_invalid_indices_and_reduction
+    _graph().relative_aggregate(nodes, neighbours)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 152, in test_relative_aggregate_rejects_invalid_indices_and_reduction
+    _graph().relative_aggregate(nodes, neighbours)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 152, in test_relative_aggregate_rejects_invalid_indices_and_reduction
+    _graph().relative_aggregate(nodes, neighbours)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=4)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 152, in test_relative_aggregate_rejects_invalid_indices_and_reduction
+    _graph().relative_aggregate(nodes, neighbours)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 152, in test_relative_aggregate_rejects_invalid_indices_and_reduction
+    _graph().relative_aggregate(nodes, neighbours)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=6)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 152, in test_relative_aggregate_rejects_invalid_indices_and_reduction
+    _graph().relative_aggregate(nodes, neighbours)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=7)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 152, in test_relative_aggregate_rejects_invalid_indices_and_reduction
+    _graph().relative_aggregate(nodes, neighbours)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction) (index=8)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 152, in test_relative_aggregate_rejects_invalid_indices_and_reduction
+    _graph().relative_aggregate(nodes, neighbours)
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_aggregate_rejects_invalid_indices_and_reduction (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_aggregate_rejects_invalid_indices_and_reduction)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 154, in test_relative_aggregate_rejects_invalid_indices_and_reduction
+    _graph().relative_aggregate(nodes, torch.zeros(2, 3, 1, dtype=torch.long), "sum")
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+======================================================================
+FAIL: test_relative_max_and_mean_use_neighbour_minus_query (test_hgtnet_graph.HGTRelativeMessageTests.test_relative_max_and_mean_use_neighbour_minus_query)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 12, in _graph
+    return importlib.import_module("external_baselines.hgtnet.graph")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.graph'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 99, in test_relative_max_and_mean_use_neighbour_minus_query
+    _graph().relative_aggregate(nodes, neighbours), torch.tensor([[[3.0], [2.0], [-12.0], [-2.0]]])
+    ^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 15, in _graph
+    raise AssertionError("HGTNet graph primitives are not implemented") from error
+AssertionError: HGTNet graph primitives are not implemented
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.014s
+
+FAILED (failures=79)

@@ -1,0 +1,15 @@
+test_changed_file_and_record_order_rejected_before_output (test_dfagcn_cache_extract.ExtractionContractTests.test_changed_file_and_record_order_rejected_before_output) ... ok
+test_pool_and_preprocessing_mismatch_rejected (test_dfagcn_cache_extract.ExtractionContractTests.test_pool_and_preprocessing_mismatch_rejected) ... ok
+test_real_vgg_cpu_fc6_and_pooled_convolutions_are_cached (test_dfagcn_cache_extract.ExtractionContractTests.test_real_vgg_cpu_fc6_and_pooled_convolutions_are_cached) ... ok
+test_supplied_real_vgg_weight_file_roundtrip_preserves_cpu_fc6 (test_dfagcn_cache_extract.ExtractionContractTests.test_supplied_real_vgg_weight_file_roundtrip_preserves_cpu_fc6) ... ok
+test_weight_loader_rejects_wrong_sha_before_deserializing (test_dfagcn_cache_extract.ExtractionContractTests.test_weight_loader_rejects_wrong_sha_before_deserializing) ... ok
+test_cache_rejects_forged_array_metadata_even_with_intact_data (test_dfagcn_cache_extract.FeatureCacheTests.test_cache_rejects_forged_array_metadata_even_with_intact_data) ... ok
+test_cache_rejects_identity_order_mismatch_and_altered_file (test_dfagcn_cache_extract.FeatureCacheTests.test_cache_rejects_identity_order_mismatch_and_altered_file) ... ok
+test_exact_sample_count_and_pooling_contract_are_enforced (test_dfagcn_cache_extract.FeatureCacheTests.test_exact_sample_count_and_pooling_contract_are_enforced) ... ok
+test_incomplete_bad_batch_keeps_directory_without_complete_index (test_dfagcn_cache_extract.FeatureCacheTests.test_incomplete_bad_batch_keeps_directory_without_complete_index) ... ok
+test_streamed_batches_reload_as_independent_tensor_rows (test_dfagcn_cache_extract.FeatureCacheTests.test_streamed_batches_reload_as_independent_tensor_rows) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 4.158s
+
+OK

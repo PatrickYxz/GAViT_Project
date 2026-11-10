@@ -1,0 +1,95 @@
+test_apply_copies_real_tensors_and_preserves_all_new_modules (test_hgtnet_pretrained.PretrainedMappingTests.test_apply_copies_real_tensors_and_preserves_all_new_modules) ... FAIL
+test_audit_is_read_only_and_reports_exact_mapping_and_new_parameters (test_hgtnet_pretrained.PretrainedMappingTests.test_audit_is_read_only_and_reports_exact_mapping_and_new_parameters) ... FAIL
+test_file_loader_requires_complete_official_hash_and_checks_bytes_before_load (test_hgtnet_pretrained.PretrainedMappingTests.test_file_loader_requires_complete_official_hash_and_checks_bytes_before_load) ... FAIL
+test_missing_pretrained_target_is_reported_and_blocks_all_mutation (test_hgtnet_pretrained.PretrainedMappingTests.test_missing_pretrained_target_is_reported_and_blocks_all_mutation) ... FAIL
+test_nonfinite_loaded_or_intentionally_skipped_values_block_loading (test_hgtnet_pretrained.PretrainedMappingTests.test_nonfinite_loaded_or_intentionally_skipped_values_block_loading) ... FAIL
+test_schema_only_and_meta_are_never_reported_as_successful_loading (test_hgtnet_pretrained.PretrainedMappingTests.test_schema_only_and_meta_are_never_reported_as_successful_loading) ... FAIL
+test_shape_and_dtype_mismatch_prevent_partial_loading (test_hgtnet_pretrained.PretrainedMappingTests.test_shape_and_dtype_mismatch_prevent_partial_loading) ... FAIL
+test_sparse_and_non_tensor_state_are_rejected_before_mutation (test_hgtnet_pretrained.PretrainedMappingTests.test_sparse_and_non_tensor_state_are_rejected_before_mutation) ... FAIL
+test_unexpected_source_blocks_all_mutation (test_hgtnet_pretrained.PretrainedMappingTests.test_unexpected_source_blocks_all_mutation) ... FAIL
+test_unknown_target_is_not_mislabeled_as_intentionally_initialized (test_hgtnet_pretrained.PretrainedMappingTests.test_unknown_target_is_not_mislabeled_as_intentionally_initialized) ... FAIL
+
+======================================================================
+FAIL: test_apply_copies_real_tensors_and_preserves_all_new_modules (test_hgtnet_pretrained.PretrainedMappingTests.test_apply_copies_real_tensors_and_preserves_all_new_modules)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_pretrained.py", line 78, in setUp
+    self.assertTrue(callable(audit_pretrained_state), "pretrained audit API must be implemented")
+AssertionError: False is not true : pretrained audit API must be implemented
+
+======================================================================
+FAIL: test_audit_is_read_only_and_reports_exact_mapping_and_new_parameters (test_hgtnet_pretrained.PretrainedMappingTests.test_audit_is_read_only_and_reports_exact_mapping_and_new_parameters)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_pretrained.py", line 78, in setUp
+    self.assertTrue(callable(audit_pretrained_state), "pretrained audit API must be implemented")
+AssertionError: False is not true : pretrained audit API must be implemented
+
+======================================================================
+FAIL: test_file_loader_requires_complete_official_hash_and_checks_bytes_before_load (test_hgtnet_pretrained.PretrainedMappingTests.test_file_loader_requires_complete_official_hash_and_checks_bytes_before_load)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_pretrained.py", line 78, in setUp
+    self.assertTrue(callable(audit_pretrained_state), "pretrained audit API must be implemented")
+AssertionError: False is not true : pretrained audit API must be implemented
+
+======================================================================
+FAIL: test_missing_pretrained_target_is_reported_and_blocks_all_mutation (test_hgtnet_pretrained.PretrainedMappingTests.test_missing_pretrained_target_is_reported_and_blocks_all_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_pretrained.py", line 78, in setUp
+    self.assertTrue(callable(audit_pretrained_state), "pretrained audit API must be implemented")
+AssertionError: False is not true : pretrained audit API must be implemented
+
+======================================================================
+FAIL: test_nonfinite_loaded_or_intentionally_skipped_values_block_loading (test_hgtnet_pretrained.PretrainedMappingTests.test_nonfinite_loaded_or_intentionally_skipped_values_block_loading)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_pretrained.py", line 78, in setUp
+    self.assertTrue(callable(audit_pretrained_state), "pretrained audit API must be implemented")
+AssertionError: False is not true : pretrained audit API must be implemented
+
+======================================================================
+FAIL: test_schema_only_and_meta_are_never_reported_as_successful_loading (test_hgtnet_pretrained.PretrainedMappingTests.test_schema_only_and_meta_are_never_reported_as_successful_loading)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_pretrained.py", line 78, in setUp
+    self.assertTrue(callable(audit_pretrained_state), "pretrained audit API must be implemented")
+AssertionError: False is not true : pretrained audit API must be implemented
+
+======================================================================
+FAIL: test_shape_and_dtype_mismatch_prevent_partial_loading (test_hgtnet_pretrained.PretrainedMappingTests.test_shape_and_dtype_mismatch_prevent_partial_loading)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_pretrained.py", line 78, in setUp
+    self.assertTrue(callable(audit_pretrained_state), "pretrained audit API must be implemented")
+AssertionError: False is not true : pretrained audit API must be implemented
+
+======================================================================
+FAIL: test_sparse_and_non_tensor_state_are_rejected_before_mutation (test_hgtnet_pretrained.PretrainedMappingTests.test_sparse_and_non_tensor_state_are_rejected_before_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_pretrained.py", line 78, in setUp
+    self.assertTrue(callable(audit_pretrained_state), "pretrained audit API must be implemented")
+AssertionError: False is not true : pretrained audit API must be implemented
+
+======================================================================
+FAIL: test_unexpected_source_blocks_all_mutation (test_hgtnet_pretrained.PretrainedMappingTests.test_unexpected_source_blocks_all_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_pretrained.py", line 78, in setUp
+    self.assertTrue(callable(audit_pretrained_state), "pretrained audit API must be implemented")
+AssertionError: False is not true : pretrained audit API must be implemented
+
+======================================================================
+FAIL: test_unknown_target_is_not_mislabeled_as_intentionally_initialized (test_hgtnet_pretrained.PretrainedMappingTests.test_unknown_target_is_not_mislabeled_as_intentionally_initialized)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_pretrained.py", line 78, in setUp
+    self.assertTrue(callable(audit_pretrained_state), "pretrained audit API must be implemented")
+AssertionError: False is not true : pretrained audit API must be implemented
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.000s
+
+FAILED (failures=10)

@@ -1,0 +1,113 @@
+{
+  "root_cause": "expired temporary environment resolves base Python without torch/numpy; model sources are present and unchanged",
+  "failures_by_name": [
+    {
+      "kind": "ERROR",
+      "test": "test_dfagcn_cache_extract (unittest.loader._FailedTest.test_dfagcn_cache_extract)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_dfagcn_component_chain (unittest.loader._FailedTest.test_dfagcn_component_chain)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_dfagcn_features (unittest.loader._FailedTest.test_dfagcn_features)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_actual_float32_cache_slices_preserve_pool_order_without_vgg (test_dfagcn_formal_runner.FormalRunnerTests.test_actual_float32_cache_slices_preserve_pool_order_without_vgg)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_formal_stage_order_and_receipts_with_only_cuda_boundary_substituted (test_dfagcn_formal_runner.FormalRunnerTests.test_formal_stage_order_and_receipts_with_only_cuda_boundary_substituted)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_dfagcn_fusion (unittest.loader._FailedTest.test_dfagcn_fusion)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels) (count=1)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels) (count=100)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels) (count=100)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu (test_dfagcn_gpu_probe.GPUProbeTests.test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_dfagcn_graph (unittest.loader._FailedTest.test_dfagcn_graph)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_dfagcn_linear (unittest.loader._FailedTest.test_dfagcn_linear)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_dfagcn_model_recipe (unittest.loader._FailedTest.test_dfagcn_model_recipe)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_dfagcn_pipeline (unittest.loader._FailedTest.test_dfagcn_pipeline)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_hgtnet_attention (unittest.loader._FailedTest.test_hgtnet_attention)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_hgtnet_checkpoint (unittest.loader._FailedTest.test_hgtnet_checkpoint)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_hgtnet_graph (unittest.loader._FailedTest.test_hgtnet_graph)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_hgtnet_model (unittest.loader._FailedTest.test_hgtnet_model)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_dataset_checks_hash_before_use_and_owns_record_snapshot (test_hgtnet_nwpu_data.RealImageDatasetTests.test_dataset_checks_hash_before_use_and_owns_record_snapshot)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_dataset_rejects_test_rows_and_inconsistent_class_labels (test_hgtnet_nwpu_data.RealImageDatasetTests.test_dataset_rejects_test_rows_and_inconsistent_class_labels)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_image_resize_uses_bilinear_and_preserves_record_order (test_hgtnet_nwpu_data.RealImageDatasetTests.test_image_resize_uses_bilinear_and_preserves_record_order)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_real_rgb_and_grayscale_jpeg_are_deterministic_imagenet_tensors (test_hgtnet_nwpu_data.RealImageDatasetTests.test_real_rgb_and_grayscale_jpeg_are_deterministic_imagenet_tensors)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_hgtnet_nwpu_engine (unittest.loader._FailedTest.test_hgtnet_nwpu_engine)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_completed_zip_recovery_receipt_replaces_pending_inspect_state (test_hgtnet_nwpu_runner.RunnerTests.test_completed_zip_recovery_receipt_replaces_pending_inspect_state)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_hgtnet_pretrained (unittest.loader._FailedTest.test_hgtnet_pretrained)"
+    },
+    {
+      "kind": "ERROR",
+      "test": "test_hgtnet_smoke (unittest.loader._FailedTest.test_hgtnet_smoke)"
+    },
+    {
+      "kind": "FAIL",
+      "test": "test_help_exposes_all_workflow_commands (test_dfagcn_cli.CLITests.test_help_exposes_all_workflow_commands)"
+    }
+  ]
+}

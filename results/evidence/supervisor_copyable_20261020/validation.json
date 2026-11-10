@@ -1,0 +1,20 @@
+[
+  {
+    "file": "supervisor_email_draft_20261012.md",
+    "original_table_blocks": 2,
+    "numeric_tokens_unchanged": true,
+    "all_table_cells_preserved": true,
+    "non_table_wording_preserved_except_table_reference": true,
+    "no_table_rows_or_tabs": true,
+    "plain_text_ready": true
+  },
+  {
+    "file": "supervisor_progress_report_20261012.md",
+    "original_table_blocks": 10,
+    "numeric_tokens_unchanged": true,
+    "all_table_cells_preserved": true,
+    "non_table_wording_preserved_except_table_reference": true,
+    "no_table_rows_or_tabs": true,
+    "plain_text_ready": true
+  }
+]

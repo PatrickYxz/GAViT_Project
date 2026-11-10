@@ -1,0 +1,9 @@
+{
+  "binding_sha256": "1bdfc087b3010383d99adacb106be416b3d1ab1b5e2517e41f075c50b59e5e28",
+  "bytes": 896426152,
+  "epoch": 2,
+  "generation": 2,
+  "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_formal_prepare_20261102/full_model_cpu_fixture_02/run/recovery/slot0.pt",
+  "phase": "calibration",
+  "sha256": "dab4c2bc650916ea10b9ced38d4ac673993fb1fefc769c48131de47f84e6a848"
+}

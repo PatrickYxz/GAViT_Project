@@ -1,0 +1,15 @@
+test_checkpoint_reload_checks_destination_config_identity_before_copy (tests.test_hgtnet_aid_engine.AidEngineTests.test_checkpoint_reload_checks_destination_config_identity_before_copy) ... FAIL
+
+======================================================================
+FAIL: test_checkpoint_reload_checks_destination_config_identity_before_copy (tests.test_hgtnet_aid_engine.AidEngineTests.test_checkpoint_reload_checks_destination_config_identity_before_copy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_engine.py", line 227, in test_checkpoint_reload_checks_destination_config_identity_before_copy
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+FAILED (failures=1)

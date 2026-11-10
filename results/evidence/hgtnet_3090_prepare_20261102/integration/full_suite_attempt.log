@@ -1,0 +1,523 @@
+test_dfagcn_cache_extract (unittest.loader._FailedTest.test_dfagcn_cache_extract) ... ERROR
+test_help_exposes_all_workflow_commands (test_dfagcn_cli.CLITests.test_help_exposes_all_workflow_commands) ... FAIL
+test_dfagcn_component_chain (unittest.loader._FailedTest.test_dfagcn_component_chain) ... ERROR
+test_bundle_excludes_weights_and_binaries_and_pins_source_bytes (test_dfagcn_delivery.DeliveryTests.test_bundle_excludes_weights_and_binaries_and_pins_source_bytes) ... ok
+test_cli_extra_members_are_appended_to_a_custom_bundle (test_dfagcn_delivery.DeliveryTests.test_cli_extra_members_are_appended_to_a_custom_bundle) ... ok
+test_current_reader_accepts_immutable_legacy_bundle_without_runner_field (test_dfagcn_delivery.DeliveryTests.test_current_reader_accepts_immutable_legacy_bundle_without_runner_field) ... ok
+test_custom_runner_member_is_dispatched_from_manifest (test_dfagcn_delivery.DeliveryTests.test_custom_runner_member_is_dispatched_from_manifest) ... ok
+test_custom_runner_status_is_forwarded_without_starting_a_run (test_dfagcn_delivery.DeliveryTests.test_custom_runner_status_is_forwarded_without_starting_a_run) ... ok
+test_extra_helpers_are_importable_from_real_custom_entrypoint (test_dfagcn_delivery.DeliveryTests.test_extra_helpers_are_importable_from_real_custom_entrypoint) ... ok
+test_extra_member_directories_missing_files_and_symlinks_are_rejected (test_dfagcn_delivery.DeliveryTests.test_extra_member_directories_missing_files_and_symlinks_are_rejected) ... ok
+test_extra_member_paths_duplicates_and_payload_overrides_are_rejected (test_dfagcn_delivery.DeliveryTests.test_extra_member_paths_duplicates_and_payload_overrides_are_rejected) ... ok
+test_invalid_runner_member_is_rejected_before_output_creation (test_dfagcn_delivery.DeliveryTests.test_invalid_runner_member_is_rejected_before_output_creation) ... ok
+test_invalid_weights_metadata_fails_before_artifact_creation (test_dfagcn_delivery.DeliveryTests.test_invalid_weights_metadata_fails_before_artifact_creation) ... ok
+test_optional_weights_metadata_is_validated_and_shipped (test_dfagcn_delivery.DeliveryTests.test_optional_weights_metadata_is_validated_and_shipped) ... ok
+test_path_traversal_and_duplicate_archive_members_are_rejected (test_dfagcn_delivery.DeliveryTests.test_path_traversal_and_duplicate_archive_members_are_rejected) ... ok
+test_preexisting_or_partial_workspace_is_never_overwritten (test_dfagcn_delivery.DeliveryTests.test_preexisting_or_partial_workspace_is_never_overwritten) ... ok
+test_real_official_source_build_produces_verified_local_binaries (test_dfagcn_delivery.DeliveryTests.test_real_official_source_build_produces_verified_local_binaries) ... ok
+test_real_zipapp_inspect_delegates_and_reuse_checks_immutable_files (test_dfagcn_delivery.DeliveryTests.test_real_zipapp_inspect_delegates_and_reuse_checks_immutable_files) ... ok
+test_dfagcn_features (unittest.loader._FailedTest.test_dfagcn_features) ... ERROR
+test_disk_report_uses_existing_destination_ancestor_and_its_device (test_dfagcn_formal_resources.FormalResourceTests.test_disk_report_uses_existing_destination_ancestor_and_its_device) ... ok
+test_existing_scratch_is_rejected_and_its_files_remain_unchanged (test_dfagcn_formal_resources.FormalResourceTests.test_existing_scratch_is_rejected_and_its_files_remain_unchanged) ... ok
+test_other_cuda_builds_and_base_versions_are_rejected (test_dfagcn_formal_resources.FormalResourceTests.test_other_cuda_builds_and_base_versions_are_rejected) ... ok
+test_reported_base_versions_and_distinct_filesystems_pass_without_importing_ml (test_dfagcn_formal_resources.FormalResourceTests.test_reported_base_versions_and_distinct_filesystems_pass_without_importing_ml) ... ok
+test_runtime_accepts_base_metadata_but_keeps_cuda_and_physical_binding_strict (test_dfagcn_formal_resources.FormalResourceTests.test_runtime_accepts_base_metadata_but_keeps_cuda_and_physical_binding_strict) ... ok
+test_same_filesystem_requires_the_sum_of_both_budgets (test_dfagcn_formal_resources.FormalResourceTests.test_same_filesystem_requires_the_sum_of_both_budgets) ... ok
+test_two_eligible_gpus_require_an_explicit_choice (test_dfagcn_formal_resources.FormalResourceTests.test_two_eligible_gpus_require_an_explicit_choice) ... ok
+test_unique_current_gpu_is_bound_explicitly_in_generated_command (test_dfagcn_formal_resources.FormalResourceTests.test_unique_current_gpu_is_bound_explicitly_in_generated_command) ... ok
+test_actual_float32_cache_slices_preserve_pool_order_without_vgg (test_dfagcn_formal_runner.FormalRunnerTests.test_actual_float32_cache_slices_preserve_pool_order_without_vgg) ... ERROR
+test_actual_test_zip_recovery_counts_and_refuses_overwrite (test_dfagcn_formal_runner.FormalRunnerTests.test_actual_test_zip_recovery_counts_and_refuses_overwrite) ... ok
+test_compact_status_excludes_predictions_and_confusion_matrix (test_dfagcn_formal_runner.FormalRunnerTests.test_compact_status_excludes_predictions_and_confusion_matrix) ... ok
+test_failure_before_first_calibration_batch_keeps_start_unknown (test_dfagcn_formal_runner.FormalRunnerTests.test_failure_before_first_calibration_batch_keeps_start_unknown) ... ok
+test_failure_saves_log_exit_and_cannot_overwrite_or_restart (test_dfagcn_formal_runner.FormalRunnerTests.test_failure_saves_log_exit_and_cannot_overwrite_or_restart) ... ok
+test_formal_stage_order_and_receipts_with_only_cuda_boundary_substituted (test_dfagcn_formal_runner.FormalRunnerTests.test_formal_stage_order_and_receipts_with_only_cuda_boundary_substituted) ... ERROR
+test_full_pool_protocol_and_fixed_recipe (test_dfagcn_formal_runner.FormalRunnerTests.test_full_pool_protocol_and_fixed_recipe) ... ok
+test_generated_nohup_command_runs_and_cannot_replace_existing_log (test_dfagcn_formal_runner.FormalRunnerTests.test_generated_nohup_command_runs_and_cannot_replace_existing_log) ... ok
+test_inspect_is_stdlib_only_and_prints_exclusive_background_command (test_dfagcn_formal_runner.FormalRunnerTests.test_inspect_is_stdlib_only_and_prints_exclusive_background_command) ... ok
+test_inspect_rejects_low_disk_busy_gpu_versions_and_existing_output (test_dfagcn_formal_runner.FormalRunnerTests.test_inspect_rejects_low_disk_busy_gpu_versions_and_existing_output) ... ok
+test_later_failure_preserves_observed_training_start (test_dfagcn_formal_runner.FormalRunnerTests.test_later_failure_preserves_observed_training_start) ... ok
+test_malformed_batch_marker_cannot_establish_training_start (test_dfagcn_formal_runner.FormalRunnerTests.test_malformed_batch_marker_cannot_establish_training_start) ... ok
+test_new_bundle_reuses_complete_previous_native_build_only (test_dfagcn_formal_runner.FormalRunnerTests.test_new_bundle_reuses_complete_previous_native_build_only) ... ok
+test_run_requires_explicit_uuid_and_status_is_read_only (test_dfagcn_formal_runner.FormalRunnerTests.test_run_requires_explicit_uuid_and_status_is_read_only) ... ok
+test_runtime_rejects_cpu_or_changed_cuda_software_recipe (test_dfagcn_formal_runner.FormalRunnerTests.test_runtime_rejects_cpu_or_changed_cuda_software_recipe) ... ok
+test_test_recovery_rejects_traversal_wrong_sha_and_mixed_split (test_dfagcn_formal_runner.FormalRunnerTests.test_test_recovery_rejects_traversal_wrong_sha_and_mixed_split) ... ok
+test_dfagcn_fusion (unittest.loader._FailedTest.test_dfagcn_fusion) ... ERROR
+test_exact_3080_uuid_capacity_and_idle_gate (test_dfagcn_gpu_probe.GPUProbeTests.test_exact_3080_uuid_capacity_and_idle_gate) ... ok
+test_expected_cache_header_rejects_changed_order_and_declared_shapes (test_dfagcn_gpu_probe.GPUProbeTests.test_expected_cache_header_rejects_changed_order_and_declared_shapes) ... ok
+test_fresh_cuda_required_before_environment_mutation (test_dfagcn_gpu_probe.GPUProbeTests.test_fresh_cuda_required_before_environment_mutation) ... ok
+test_frozen_manifest_and_pool_only_select_450_train_validation_images (test_dfagcn_gpu_probe.GPUProbeTests.test_frozen_manifest_and_pool_only_select_450_train_validation_images) ... ok
+test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels) ... 
+  test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels) (count=1) ... ERROR
+  test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels) (count=100) ... ERROR
+  test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels) (count=100) ... ERROR
+test_inventory_parses_driver_and_free_memory_at_external_io_boundary (test_dfagcn_gpu_probe.GPUProbeTests.test_inventory_parses_driver_and_free_memory_at_external_io_boundary) ... ok
+test_inventory_rejects_malformed_nonempty_process_rows (test_dfagcn_gpu_probe.GPUProbeTests.test_inventory_rejects_malformed_nonempty_process_rows) ... ok
+test_missing_resource_inspect_is_read_only_and_does_not_train (test_dfagcn_gpu_probe.GPUProbeTests.test_missing_resource_inspect_is_read_only_and_does_not_train) ... ok
+test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu (test_dfagcn_gpu_probe.GPUProbeTests.test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu) ... ERROR
+test_run_requires_explicit_uuid (test_dfagcn_gpu_probe.GPUProbeTests.test_run_requires_explicit_uuid) ... ok
+test_weight_metadata_conflicts_and_incomplete_digest_are_rejected (test_dfagcn_gpu_probe.GPUProbeTests.test_weight_metadata_conflicts_and_incomplete_digest_are_rejected) ... ok
+test_dfagcn_graph (unittest.loader._FailedTest.test_dfagcn_graph) ... ERROR
+test_canonical_key_is_order_independent_for_mapping_fields (test_dfagcn_identity.CacheIdentityTests.test_canonical_key_is_order_independent_for_mapping_fields) ... ok
+test_every_provenance_field_and_sample_order_changes_key (test_dfagcn_identity.CacheIdentityTests.test_every_provenance_field_and_sample_order_changes_key) ... ok
+test_exclusive_json_roundtrip_rejects_wrong_identity_and_tampering (test_dfagcn_identity.CacheIdentityTests.test_exclusive_json_roundtrip_rejects_wrong_identity_and_tampering) ... ok
+test_learned_stages_require_fit_identity_and_cannot_alias (test_dfagcn_identity.CacheIdentityTests.test_learned_stages_require_fit_identity_and_cannot_alias) ... ok
+test_rejects_incomplete_or_ambiguous_inputs (test_dfagcn_identity.CacheIdentityTests.test_rejects_incomplete_or_ambiguous_inputs) ... ok
+test_returned_identity_is_detached_from_caller_containers (test_dfagcn_identity.CacheIdentityTests.test_returned_identity_is_detached_from_caller_containers) ... ok
+test_dfagcn_linear (unittest.loader._FailedTest.test_dfagcn_linear) ... ERROR
+test_dfagcn_model_recipe (unittest.loader._FailedTest.test_dfagcn_model_recipe) ... ERROR
+test_dfagcn_pipeline (unittest.loader._FailedTest.test_dfagcn_pipeline) ... ERROR
+test_archive_bad_selected_content_remains_incomplete (test_dfagcn_real_runner.RealRunnerTests.test_archive_bad_selected_content_remains_incomplete) ... ok
+test_archive_restores_only_selected_members_and_checks_image_bytes (test_dfagcn_real_runner.RealRunnerTests.test_archive_restores_only_selected_members_and_checks_image_bytes) ... ok
+test_archive_wrong_global_hash_or_unsafe_or_ambiguous_member_is_rejected (test_dfagcn_real_runner.RealRunnerTests.test_archive_wrong_global_hash_or_unsafe_or_ambiguous_member_is_rejected) ... ok
+test_cli_run_requires_uuid_before_any_resource_mutation (test_dfagcn_real_runner.RealRunnerTests.test_cli_run_requires_uuid_before_any_resource_mutation) ... ok
+test_config_file_changes_after_binding_are_rejected (test_dfagcn_real_runner.RealRunnerTests.test_config_file_changes_after_binding_are_rejected) ... ok
+test_frozen_manifest_selects_exact_360_90_without_test (test_dfagcn_real_runner.RealRunnerTests.test_frozen_manifest_selects_exact_360_90_without_test) ... ok
+test_full_weight_sha_required_and_metadata_conflicts_rejected (test_dfagcn_real_runner.RealRunnerTests.test_full_weight_sha_required_and_metadata_conflicts_rejected) ... ok
+test_gpu_gate_requires_exact_uuid_4090_and_idle_card (test_dfagcn_real_runner.RealRunnerTests.test_gpu_gate_requires_exact_uuid_4090_and_idle_card) ... ok
+test_gpu_selection_requires_fresh_cuda_context_before_environment_change (test_dfagcn_real_runner.RealRunnerTests.test_gpu_selection_requires_fresh_cuda_context_before_environment_change) ... ok
+test_inspect_missing_resources_is_stdlib_read_only_and_never_trains (test_dfagcn_real_runner.RealRunnerTests.test_inspect_missing_resources_is_stdlib_read_only_and_never_trains) ... ok
+test_manifest_bad_counts_or_duplicate_or_classmap_is_rejected (test_dfagcn_real_runner.RealRunnerTests.test_manifest_bad_counts_or_duplicate_or_classmap_is_rejected) ... ok
+test_build_actual_3090_bundle_and_target_reaches_bootstrap (test_hgtnet_3090_delivery.TargetDeliveryTests.test_build_actual_3090_bundle_and_target_reaches_bootstrap) ... ok
+test_direct_source_target_also_controls_scratch_namespace (test_hgtnet_3090_delivery.TargetDeliveryTests.test_direct_source_target_also_controls_scratch_namespace) ... ok
+test_parser_honors_delivery_target_and_command_binds_profile (test_hgtnet_3090_delivery.TargetDeliveryTests.test_parser_honors_delivery_target_and_command_binds_profile) ... ok
+test_runtime_checks_selected_3090_instead_of_fixed_3080 (test_hgtnet_3090_delivery.TargetDeliveryTests.test_runtime_checks_selected_3090_instead_of_fixed_3080) ... ok
+test_unknown_profile_is_rejected_without_creating_files (test_hgtnet_3090_delivery.TargetDeliveryTests.test_unknown_profile_is_rejected_without_creating_files) ... ok
+test_3090_runtime_keeps_software_precision_and_numeric_type_gates (test_hgtnet_3090_resources.TargetResourcesTests.test_3090_runtime_keeps_software_precision_and_numeric_type_gates) ... ok
+test_3090_target_does_not_relax_idle_query_or_free_memory_gates (test_hgtnet_3090_resources.TargetResourcesTests.test_3090_target_does_not_relax_idle_query_or_free_memory_gates) ... ok
+test_default_3080_gate_still_rejects_the_users_3090 (test_hgtnet_3090_resources.TargetResourcesTests.test_default_3080_gate_still_rejects_the_users_3090) ... ok
+test_exact_target_allowlist_and_backward_compatible_keyword_defaults (test_hgtnet_3090_resources.TargetResourcesTests.test_exact_target_allowlist_and_backward_compatible_keyword_defaults) ... ok
+test_exact_target_name_and_memory_prevent_swapped_or_lookalike_cards (test_hgtnet_3090_resources.TargetResourcesTests.test_exact_target_name_and_memory_prevent_swapped_or_lookalike_cards) ... ok
+test_explicit_3090_target_checks_current_uuid_and_ambiguity (test_hgtnet_3090_resources.TargetResourcesTests.test_explicit_3090_target_checks_current_uuid_and_ambiguity) ... ok
+test_target_must_be_allowlisted_before_inventory_or_runtime_checks (test_hgtnet_3090_resources.TargetResourcesTests.test_target_must_be_allowlisted_before_inventory_or_runtime_checks) ... ok
+test_user_3090_runtime_accepts_exact_target_and_current_uuid (test_hgtnet_3090_resources.TargetResourcesTests.test_user_3090_runtime_accepts_exact_target_and_current_uuid) ... ok
+test_user_observed_idle_3090_inventory_selects_current_physical_uuid (test_hgtnet_3090_resources.TargetResourcesTests.test_user_observed_idle_3090_inventory_selects_current_physical_uuid) ... ok
+test_hgtnet_attention (unittest.loader._FailedTest.test_hgtnet_attention) ... ERROR
+test_hgtnet_checkpoint (unittest.loader._FailedTest.test_hgtnet_checkpoint) ... ERROR
+test_candidate_provenance_cannot_be_swapped_to_swin_t_or_unrelated_url (test_hgtnet_config.ConfigTests.test_candidate_provenance_cannot_be_swapped_to_swin_t_or_unrelated_url) ... ok
+test_class_count_changes_head_identity_without_changing_body_shape (test_hgtnet_config.ConfigTests.test_class_count_changes_head_identity_without_changing_body_shape) ... ok
+test_full_candidate_preserves_three_downsamples_and_legal_graphs (test_hgtnet_config.ConfigTests.test_full_candidate_preserves_three_downsamples_and_legal_graphs) ... ok
+test_invalid_numeric_and_type_values_fail_before_model_build (test_hgtnet_config.ConfigTests.test_invalid_numeric_and_type_values_fail_before_model_build) ... ok
+test_relative_mean_is_an_explicit_different_identity (test_hgtnet_config.ConfigTests.test_relative_mean_is_an_explicit_different_identity) ... ok
+test_unknown_missing_fields_and_mutable_aliases_are_not_silent (test_hgtnet_config.ConfigTests.test_unknown_missing_fields_and_mutable_aliases_are_not_silent) ... ok
+test_unsupported_or_false_architecture_identity_is_rejected (test_hgtnet_config.ConfigTests.test_unsupported_or_false_architecture_identity_is_rejected) ... ok
+test_hgtnet_graph (unittest.loader._FailedTest.test_hgtnet_graph) ... ERROR
+test_hgtnet_model (unittest.loader._FailedTest.test_hgtnet_model) ... ERROR
+test_complete_manifest_selects_fixed_disjoint_360_90_in_path_order (test_hgtnet_nwpu_data.NwpuPreparationTests.test_complete_manifest_selects_fixed_disjoint_360_90_in_path_order) ... ok
+test_manifest_default_digest_rejects_fixture_and_changed_bytes (test_hgtnet_nwpu_data.NwpuPreparationTests.test_manifest_default_digest_rejects_fixture_and_changed_bytes) ... ok
+test_manifest_rejects_invalid_counts_path_label_classmap_or_duplicate (test_hgtnet_nwpu_data.NwpuPreparationTests.test_manifest_rejects_invalid_counts_path_label_classmap_or_duplicate) ... ok
+test_preparation_and_validation_import_no_machine_learning_libraries (test_hgtnet_nwpu_data.NwpuPreparationTests.test_preparation_and_validation_import_no_machine_learning_libraries) ... ok
+test_recovery_reads_only_train_val_and_never_overwrites (test_hgtnet_nwpu_data.NwpuPreparationTests.test_recovery_reads_only_train_val_and_never_overwrites) ... ok
+test_recovery_rejects_bad_zip_hash_unsafe_members_or_image_hash (test_hgtnet_nwpu_data.NwpuPreparationTests.test_recovery_rejects_bad_zip_hash_unsafe_members_or_image_hash) ... ok
+test_selected_validation_rejects_test_duplicate_bad_label_and_parent_symlink (test_hgtnet_nwpu_data.NwpuPreparationTests.test_selected_validation_rejects_test_duplicate_bad_label_and_parent_symlink) ... ok
+test_dataset_checks_hash_before_use_and_owns_record_snapshot (test_hgtnet_nwpu_data.RealImageDatasetTests.test_dataset_checks_hash_before_use_and_owns_record_snapshot) ... ERROR
+test_dataset_rejects_test_rows_and_inconsistent_class_labels (test_hgtnet_nwpu_data.RealImageDatasetTests.test_dataset_rejects_test_rows_and_inconsistent_class_labels) ... ERROR
+test_image_resize_uses_bilinear_and_preserves_record_order (test_hgtnet_nwpu_data.RealImageDatasetTests.test_image_resize_uses_bilinear_and_preserves_record_order) ... ERROR
+test_real_rgb_and_grayscale_jpeg_are_deterministic_imagenet_tensors (test_hgtnet_nwpu_data.RealImageDatasetTests.test_real_rgb_and_grayscale_jpeg_are_deterministic_imagenet_tensors) ... ERROR
+test_archive_tampering_duplicate_traversal_collision_and_symlink_are_rejected (test_hgtnet_nwpu_delivery.DeliveryTests.test_archive_tampering_duplicate_traversal_collision_and_symlink_are_rejected) ... ok
+test_build_pins_exact_scoped_sources_and_full_candidate_metadata (test_hgtnet_nwpu_delivery.DeliveryTests.test_build_pins_exact_scoped_sources_and_full_candidate_metadata) ... ok
+test_build_rejects_linked_source_and_sidecar_collision_without_overwrite (test_hgtnet_nwpu_delivery.DeliveryTests.test_build_rejects_linked_source_and_sidecar_collision_without_overwrite) ... ok
+test_cli_builds_a_new_offline_bundle_then_status_runs_without_ml_packages (test_hgtnet_nwpu_delivery.DeliveryTests.test_cli_builds_a_new_offline_bundle_then_status_runs_without_ml_packages) ... ok
+test_foreign_or_partial_workspace_is_preserved (test_hgtnet_nwpu_delivery.DeliveryTests.test_foreign_or_partial_workspace_is_preserved) ... ok
+test_real_zipapp_forwards_inspect_status_and_run_with_stdlib_only (test_hgtnet_nwpu_delivery.DeliveryTests.test_real_zipapp_forwards_inspect_status_and_run_with_stdlib_only) ... ok
+test_reuse_refuses_added_importable_sources_in_workspace (test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_added_importable_sources_in_workspace) ... ok
+test_reuse_refuses_source_receipt_and_manifest_changes (test_hgtnet_nwpu_delivery.DeliveryTests.test_reuse_refuses_source_receipt_and_manifest_changes) ... ok
+test_unrecognized_actions_do_not_install_or_start_runner (test_hgtnet_nwpu_delivery.DeliveryTests.test_unrecognized_actions_do_not_install_or_start_runner) ... ok
+test_workspace_and_tracked_file_symlinks_are_rejected (test_hgtnet_nwpu_delivery.DeliveryTests.test_workspace_and_tracked_file_symlinks_are_rejected) ... ok
+test_hgtnet_nwpu_engine (unittest.loader._FailedTest.test_hgtnet_nwpu_engine) ... ERROR
+test_completed_zip_recovery_receipt_replaces_pending_inspect_state (test_hgtnet_nwpu_runner.RunnerTests.test_completed_zip_recovery_receipt_replaces_pending_inspect_state)
+Drive the wrapper through real CPU JPEG training, validation and reload. ... ERROR
+test_generated_command_binds_current_uuid_not_historical_one (test_hgtnet_nwpu_runner.RunnerTests.test_generated_command_binds_current_uuid_not_historical_one) ... ok
+test_inspect_missing_resources_has_specific_blockers_and_no_training (test_hgtnet_nwpu_runner.RunnerTests.test_inspect_missing_resources_has_specific_blockers_and_no_training) ... ok
+test_present_zip_is_pending_full_hash_not_rejected_by_unverified_size (test_hgtnet_nwpu_runner.RunnerTests.test_present_zip_is_pending_full_hash_not_rejected_by_unverified_size) ... ok
+test_run_without_uuid_is_rejected_before_creating_output (test_hgtnet_nwpu_runner.RunnerTests.test_run_without_uuid_is_rejected_before_creating_output) ... ok
+test_runtime_failure_is_not_success_and_has_exit_one (test_hgtnet_nwpu_runner.RunnerTests.test_runtime_failure_is_not_success_and_has_exit_one) ... Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tools/run_hgtnet_nwpu_smoke.py", line 163, in run_smoke
+    torch,runtime=_runtime_and_torch(args,preflight['selected_gpu'])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+ValueError: actual CUDA mismatch
+ok
+test_status_missing_is_read_only_and_never_complete (test_hgtnet_nwpu_runner.RunnerTests.test_status_missing_is_read_only_and_never_complete) ... ok
+test_status_requires_both_summary_complete_and_exit_zero (test_hgtnet_nwpu_runner.RunnerTests.test_status_requires_both_summary_complete_and_exit_zero) ... ok
+test_hgtnet_pretrained (unittest.loader._FailedTest.test_hgtnet_pretrained) ... ERROR
+test_actual_runtime_is_verified_independently_from_distribution_metadata (test_hgtnet_resources.ResourcesTests.test_actual_runtime_is_verified_independently_from_distribution_metadata) ... ok
+test_busy_wrong_card_and_unknown_uuid_are_rejected (test_hgtnet_resources.ResourcesTests.test_busy_wrong_card_and_unknown_uuid_are_rejected) ... ok
+test_dependency_metadata_is_explicitly_unimported (test_hgtnet_resources.ResourcesTests.test_dependency_metadata_is_explicitly_unimported) ... ok
+test_explicit_uuid_can_select_one_of_two_idle_cards (test_hgtnet_resources.ResourcesTests.test_explicit_uuid_can_select_one_of_two_idle_cards) ... ok
+test_invalid_free_memory_and_unparseable_processes_are_rejected (test_hgtnet_resources.ResourcesTests.test_invalid_free_memory_and_unparseable_processes_are_rejected) ... ok
+test_metadata_accepts_base_or_cu121_but_rejects_cpu_or_wrong_versions (test_hgtnet_resources.ResourcesTests.test_metadata_accepts_base_or_cu121_but_rejects_cpu_or_wrong_versions) ... ok
+test_new_paths_are_checked_by_real_path_without_creating_them (test_hgtnet_resources.ResourcesTests.test_new_paths_are_checked_by_real_path_without_creating_them) ... ok
+test_no_compute_process_lines_are_valid_but_blank_inventory_is_not_ready (test_hgtnet_resources.ResourcesTests.test_no_compute_process_lines_are_valid_but_blank_inventory_is_not_ready) ... ok
+test_nvidia_csv_is_parsed_into_numeric_inventory (test_hgtnet_resources.ResourcesTests.test_nvidia_csv_is_parsed_into_numeric_inventory) ... ok
+test_query_failures_and_malformed_csv_never_become_idle_gpu (test_hgtnet_resources.ResourcesTests.test_query_failures_and_malformed_csv_never_become_idle_gpu) ... ok
+test_resource_module_and_inventory_work_with_ml_imports_forbidden (test_hgtnet_resources.ResourcesTests.test_resource_module_and_inventory_work_with_ml_imports_forbidden) ... ok
+test_runtime_missing_fields_and_boolean_numeric_aliases_are_rejected (test_hgtnet_resources.ResourcesTests.test_runtime_missing_fields_and_boolean_numeric_aliases_are_rejected) ... ok
+test_same_volume_budget_is_combined_and_nearest_existing_ancestor_reported (test_hgtnet_resources.ResourcesTests.test_same_volume_budget_is_combined_and_nearest_existing_ancestor_reported) ... ok
+test_separate_volume_budgets_and_disk_errors_are_blockers (test_hgtnet_resources.ResourcesTests.test_separate_volume_budgets_and_disk_errors_are_blockers) ... ok
+test_unique_idle_current_gpu_is_selected_without_prior_uuid (test_hgtnet_resources.ResourcesTests.test_unique_idle_current_gpu_is_selected_without_prior_uuid) ... ok
+test_hgtnet_smoke (unittest.loader._FailedTest.test_hgtnet_smoke) ... ERROR
+
+======================================================================
+ERROR: test_dfagcn_cache_extract (unittest.loader._FailedTest.test_dfagcn_cache_extract)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_dfagcn_cache_extract
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cache_extract.py", line 11, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_dfagcn_component_chain (unittest.loader._FailedTest.test_dfagcn_component_chain)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_dfagcn_component_chain
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_component_chain.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_dfagcn_features (unittest.loader._FailedTest.test_dfagcn_features)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_dfagcn_features
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_features.py", line 12, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_actual_float32_cache_slices_preserve_pool_order_without_vgg (test_dfagcn_formal_runner.FormalRunnerTests.test_actual_float32_cache_slices_preserve_pool_order_without_vgg)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 161, in test_actual_float32_cache_slices_preserve_pool_order_without_vgg
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+======================================================================
+ERROR: test_formal_stage_order_and_receipts_with_only_cuda_boundary_substituted (test_dfagcn_formal_runner.FormalRunnerTests.test_formal_stage_order_and_receipts_with_only_cuda_boundary_substituted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_formal_runner.py", line 234, in test_formal_stage_order_and_receipts_with_only_cuda_boundary_substituted
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+======================================================================
+ERROR: test_dfagcn_fusion (unittest.loader._FailedTest.test_dfagcn_fusion)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_dfagcn_fusion
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_fusion.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels) (count=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 179, in test_graph_probe_rejects_insufficient_cache_or_bad_labels
+    module.check_graph_batch(cache,labels,recipe,'cpu')
+  File "/Users/patrick/Projects/GAViT_Project/tools/probe_dfagcn_gpu.py", line 250, in check_graph_batch
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+======================================================================
+ERROR: test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels) (count=100)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 179, in test_graph_probe_rejects_insufficient_cache_or_bad_labels
+    module.check_graph_batch(cache,labels,recipe,'cpu')
+  File "/Users/patrick/Projects/GAViT_Project/tools/probe_dfagcn_gpu.py", line 250, in check_graph_batch
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+======================================================================
+ERROR: test_graph_probe_rejects_insufficient_cache_or_bad_labels (test_dfagcn_gpu_probe.GPUProbeTests.test_graph_probe_rejects_insufficient_cache_or_bad_labels) (count=100)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 179, in test_graph_probe_rejects_insufficient_cache_or_bad_labels
+    module.check_graph_batch(cache,labels,recipe,'cpu')
+  File "/Users/patrick/Projects/GAViT_Project/tools/probe_dfagcn_gpu.py", line 250, in check_graph_batch
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+======================================================================
+ERROR: test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu (test_dfagcn_gpu_probe.GPUProbeTests.test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 153, in test_real_full_recipe_batch100_updates_only_disposable_graph_model_on_cpu
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+======================================================================
+ERROR: test_dfagcn_graph (unittest.loader._FailedTest.test_dfagcn_graph)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_dfagcn_graph
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_graph.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_dfagcn_linear (unittest.loader._FailedTest.test_dfagcn_linear)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_dfagcn_linear
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_linear.py", line 9, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_dfagcn_model_recipe (unittest.loader._FailedTest.test_dfagcn_model_recipe)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_dfagcn_model_recipe
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_model_recipe.py", line 10, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_dfagcn_pipeline (unittest.loader._FailedTest.test_dfagcn_pipeline)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_dfagcn_pipeline
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_pipeline.py", line 13, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_hgtnet_attention (unittest.loader._FailedTest.test_hgtnet_attention)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_hgtnet_attention
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_attention.py", line 6, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_hgtnet_checkpoint (unittest.loader._FailedTest.test_hgtnet_checkpoint)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_hgtnet_checkpoint
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 10, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_hgtnet_graph (unittest.loader._FailedTest.test_hgtnet_graph)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_hgtnet_graph
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_graph.py", line 6, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_hgtnet_model (unittest.loader._FailedTest.test_hgtnet_model)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_hgtnet_model
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_model.py", line 5, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_dataset_checks_hash_before_use_and_owns_record_snapshot (test_hgtnet_nwpu_data.RealImageDatasetTests.test_dataset_checks_hash_before_use_and_owns_record_snapshot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_data.py", line 264, in test_dataset_checks_hash_before_use_and_owns_record_snapshot
+    row = self.jpeg('class_00/a.jpg', 'RGB', (64, 128, 192))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_data.py", line 212, in jpeg
+    from PIL import Image
+ModuleNotFoundError: No module named 'PIL'
+
+======================================================================
+ERROR: test_dataset_rejects_test_rows_and_inconsistent_class_labels (test_hgtnet_nwpu_data.RealImageDatasetTests.test_dataset_rejects_test_rows_and_inconsistent_class_labels)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_data.py", line 279, in test_dataset_rejects_test_rows_and_inconsistent_class_labels
+    row = self.jpeg('class_00/a.jpg', 'L', 128)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_data.py", line 212, in jpeg
+    from PIL import Image
+ModuleNotFoundError: No module named 'PIL'
+
+======================================================================
+ERROR: test_image_resize_uses_bilinear_and_preserves_record_order (test_hgtnet_nwpu_data.RealImageDatasetTests.test_image_resize_uses_bilinear_and_preserves_record_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_data.py", line 243, in test_image_resize_uses_bilinear_and_preserves_record_order
+    from PIL import Image
+ModuleNotFoundError: No module named 'PIL'
+
+======================================================================
+ERROR: test_real_rgb_and_grayscale_jpeg_are_deterministic_imagenet_tensors (test_hgtnet_nwpu_data.RealImageDatasetTests.test_real_rgb_and_grayscale_jpeg_are_deterministic_imagenet_tensors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_data.py", line 220, in test_real_rgb_and_grayscale_jpeg_are_deterministic_imagenet_tensors
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+======================================================================
+ERROR: test_hgtnet_nwpu_engine (unittest.loader._FailedTest.test_hgtnet_nwpu_engine)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_hgtnet_nwpu_engine
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_engine.py", line 8, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_completed_zip_recovery_receipt_replaces_pending_inspect_state (test_hgtnet_nwpu_runner.RunnerTests.test_completed_zip_recovery_receipt_replaces_pending_inspect_state)
+Drive the wrapper through real CPU JPEG training, validation and reload.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_nwpu_runner.py", line 97, in test_completed_zip_recovery_receipt_replaces_pending_inspect_state
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+======================================================================
+ERROR: test_hgtnet_pretrained (unittest.loader._FailedTest.test_hgtnet_pretrained)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_hgtnet_pretrained
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_pretrained.py", line 10, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+ERROR: test_hgtnet_smoke (unittest.loader._FailedTest.test_hgtnet_smoke)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_hgtnet_smoke
+Traceback (most recent call last):
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_smoke.py", line 7, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+
+======================================================================
+FAIL: test_help_exposes_all_workflow_commands (test_dfagcn_cli.CLITests.test_help_exposes_all_workflow_commands)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cli.py", line 11, in test_help_exposes_all_workflow_commands
+    cli=importlib.import_module('external_baselines.dfagcn.cli')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/dfagcn/cli.py", line 7, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_cli.py", line 13, in test_help_exposes_all_workflow_commands
+    raise AssertionError('DFAGCN CLI is not implemented') from exc
+AssertionError: DFAGCN CLI is not implemented
+
+----------------------------------------------------------------------
+Ran 148 tests in 5.472s
+
+FAILED (failures=1, errors=26)

@@ -1,0 +1,15 @@
+{
+  "state": "PASS",
+  "accuracy_percent": 96.92,
+  "macro_f1_percent": 96.7728681493198,
+  "test_rows": 5000,
+  "error_rows": 154,
+  "history_rows": 196,
+  "selected_epoch": 96,
+  "json": "/Users/patrick/Projects/GAViT_Project/results/hgtnet_aid_seed42_analysis_20261106.json",
+  "report": "/Users/patrick/Projects/GAViT_Project/results/hgtnet_aid_seed42_analysis_20261106.md",
+  "figures": 8
+}
+
+STDERR:
+Matplotlib is building the font cache; this may take a moment.

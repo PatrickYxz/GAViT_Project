@@ -1,0 +1,76 @@
+{
+  "schema": "hgtnet-aid-data-engine-local-validation-v1",
+  "scope": "explicit_synthetic_cpu_fixtures_only",
+  "real_AID_images_read": false,
+  "GPU_used": false,
+  "formal_training_started": false,
+  "tests": {
+    "command": "/private/tmp/gavit-hgtnet-probe-cpu-20261102/bin/python -m unittest tests.test_hgtnet_aid_data tests.test_hgtnet_aid_engine -v",
+    "count": 21,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.928,
+    "torch_version_verified": "2.2.2",
+    "green_log": "green.log"
+  },
+  "red_evidence": [
+    "red.log",
+    "red_checkpoint_independence.log",
+    "red_destination_identity.log"
+  ],
+  "full_count_fixture": {
+    "input_scope": "cpu_fixture",
+    "train": 240,
+    "val": 60,
+    "test": 0,
+    "actual_optimizer_steps": 120,
+    "class_count": 30,
+    "independent_reload_max_abs_error": 0.0
+  },
+  "source_files": {
+    "external_baselines/hgtnet/aid_data.py": {
+      "sha256": "5fdc086cb0512086f93189955f8bda274fd6a9332a2c54afbda911881147d0f8",
+      "bytes": 7254
+    },
+    "external_baselines/hgtnet/aid_engine.py": {
+      "sha256": "bedf4f592fcd3b968ea6641a0ae82353292172a09dbd5f3bff713cace17cc848",
+      "bytes": 19720
+    },
+    "tests/test_hgtnet_aid_data.py": {
+      "sha256": "719842585b945afd215d910249f1d5d71caca3959b34c2c752eb7ac5a100fd10",
+      "bytes": 8061
+    },
+    "tests/test_hgtnet_aid_engine.py": {
+      "sha256": "b40a1f3c29e6cb13c556c1b8c503baca3c807bb068026980d1e086c09089cc55",
+      "bytes": 15447
+    }
+  },
+  "spec_review": {
+    "original_manifest_byte_identity_and_strict_JSON": true,
+    "reuse_existing_metadata_validator": true,
+    "no_test_image_reads_or_resplitting": true,
+    "unequal_class_counts_and_Industrial_duplicate_preserved": true,
+    "selected_records_deepcopied_and_ordered": true,
+    "safe_nofollow_open_and_same_hashed_bytes_decoded": true,
+    "RGB600_to_bilinear224_float32_ImageNet": true,
+    "lazy_ML_imports_and_unrelated_tools_shadowing_safe": true,
+    "AID_only_binding_and_checkpoint_identity": true,
+    "seed42_shuffle_and_sequential_validation": true,
+    "five_finite_nonzero_gradient_groups_and_actual_first_updates": true,
+    "full_epoch_counts_validation_predictions_metrics_history": true,
+    "failure_after_update_preserves_disk_progress_and_exception_counts": true,
+    "strict_weights_only_checkpoint_validation_before_copy": true,
+    "fresh_model_no_shared_storage_and_reload_tolerance": true,
+    "existing_artifacts_preserved": true
+  },
+  "quality_review": {
+    "owned_source_files_only": true,
+    "no_old_shared_source_changes": true,
+    "no_installs_network_GPU_training_Git_mutations": true,
+    "no_unrelated_suite_repeated": true,
+    "AST_parse_all_owned_sources": true,
+    "remaining_boundary": "Target RTX3060 real AID run remains unexecuted; root handles entry/builder integration and optional full-model tensor check."
+  },
+  "environment_note": "OpenMP import fails with Error179 SHM inside sandbox; identical existing CPU interpreter succeeds with require_escalated auto-review approval. No environment modification."
+}

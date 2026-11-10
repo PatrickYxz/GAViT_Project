@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "name": "complete_exit0_source_evidence",
+      "passed": true
+    },
+    {
+      "name": "exact30class_data_config_initial_identity",
+      "passed": true
+    },
+    {
+      "name": "capacity_only_counts",
+      "passed": true
+    },
+    {
+      "name": "same_actual3060_uuid",
+      "passed": true
+    },
+    {
+      "name": "all4_actual_steps_finite_and_postchecked",
+      "passed": true
+    },
+    {
+      "name": "five451_finite_positive_group_norms_and_updates",
+      "passed": true
+    },
+    {
+      "name": "warmup1_measured3_exact",
+      "passed": true
+    },
+    {
+      "name": "median_and_compute_rate_rederive",
+      "passed": true
+    },
+    {
+      "name": "positive_peaks_wall",
+      "passed": true
+    },
+    {
+      "name": "full_bundle_unchanged",
+      "passed": true
+    }
+  ],
+  "checks_passed": 10,
+  "passed": true,
+  "source": "Direct user terminal return, locally transcribed; status JSON formatting normalized in transcription, content preserved. No downloaded server artifacts or live GPU query.",
+  "raw_transcription_sha256": "7883fb4d238eb92575ccc86c6081eb6c8ff02a10ebcb837befb4e40e2a5e99d0",
+  "capacity_scope": "16 unique fixed train images reused4times; no epoch, validation, test, checkpoint or formaltraining; compute timing is not full-loader throughput/ETA."
+}

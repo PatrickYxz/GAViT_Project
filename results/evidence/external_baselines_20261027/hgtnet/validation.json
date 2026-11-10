@@ -1,0 +1,51 @@
+{
+  "status": "PASS_STATIC_ARTIFACT_CHECKS_ONLY",
+  "checked_date": "2026-10-27",
+  "json_parse_count_including_this_manifest": 5,
+  "reported_records": 4,
+  "all_sd_null": true,
+  "all_records_reported_not_rerun": true,
+  "repetitions_all_five": true,
+  "all_mean_records_have_direct_primary_excerpt": true,
+  "source_quotation_word_count": 23,
+  "document_has_no_markdown_tables": true,
+  "local_markdown_links_validated": 9,
+  "pdf_not_obtained_and_hash_null": true,
+  "spec_candidates_separated_from_confirmed": true,
+  "model_forward_executed": false,
+  "model_training_executed": false,
+  "dependencies_installed": false,
+  "historical_files_edited_by_this_subtask": false,
+  "precheck_note": "Initial link check reached not-yet-written validation.json; final check writes this manifest before verifying all local links.",
+  "limitations": [
+    "Static JSON/document/path checks only; no model, pretrained mapping, real-data or GPU verification.",
+    "Original table cells/SD, figure pixels and PDF bytes were not obtained."
+  ],
+  "artifacts": [
+    {
+      "path": "docs/external_baselines_20261027/hgtnet_audit.md",
+      "bytes": 20554,
+      "sha256": "3b91650200966ae5f7cf8a7287ec1f09f687fecf8e283ff241cbea988a81089b"
+    },
+    {
+      "path": "results/evidence/external_baselines_20261027/hgtnet/module_spec.json",
+      "bytes": 5195,
+      "sha256": "e2925850c436f31c04557d44828ed90bebfbf350f34f66a490cccbe1ed61021e"
+    },
+    {
+      "path": "results/evidence/external_baselines_20261027/hgtnet/reported_results.json",
+      "bytes": 5662,
+      "sha256": "75eab3879d659411c2d0f479a518ffd7b1e60f779afa22d158c953f8687d33d5"
+    },
+    {
+      "path": "results/evidence/external_baselines_20261027/hgtnet/source_excerpts.json",
+      "bytes": 5498,
+      "sha256": "c9cf47dc06abfa72603e491b3e671c46322f838eb092384116bd280b4fa7ea9e"
+    },
+    {
+      "path": "results/evidence/external_baselines_20261027/hgtnet/source_provenance.json",
+      "bytes": 5613,
+      "sha256": "e19dc9201eaa0084a3c0c52fe749f6f937e8a62079c4a21a0407b0da8a149abe"
+    }
+  ]
+}

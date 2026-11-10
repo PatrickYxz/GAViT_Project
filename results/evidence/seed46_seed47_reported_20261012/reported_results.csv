@@ -1,0 +1,10 @@
+Dataset,Metric,Model,Test_seed46,Test_seed47,Mean,Std_sample_n-1,Delta_vs_Swin_mean,Source,Notes
+AID,Test_Acc(%),Swin-T Baseline,96.56,95.73,96.145,0.587,0.000,user-reported 2026-10-12,Reference; secondary metrics pending
+AID,Test_Acc(%),GAViT (fixed grouping),97.13,96.08,96.605,0.742,+0.460,user-reported 2026-10-12,Grouping/edge config pending run.json audit; per-seed delta vs Swin +0.57/+0.35
+AID,Test_Acc(%),GAViT soft_prototype,,,,,,user-reported 2026-10-12,Not run on AID per user
+NWPU-RESISC45,Test_Acc(%),Swin-T Baseline,93.76,93.68,93.720,0.057,0.000,user-reported 2026-10-12,Reference; expected manifest nwpu_protocol_20260927_02 (5040/1260/25200) pending confirmation
+NWPU-RESISC45,Test_Acc(%),GAViT (fixed grouping),93.96,94.19,94.075,0.163,+0.355,user-reported 2026-10-12,Per-seed delta vs Swin +0.20/+0.51; config pending run.json audit
+NWPU-RESISC45,Test_Acc(%),GAViT soft_prototype,93.54,93.55,93.545,0.007,-0.175,user-reported 2026-10-12,Per-seed delta vs Swin -0.22/-0.13; negative result vs both Swin and fixed GAViT
+BigEarthNet-19,Test_mAP(%),Swin-T Baseline,71.0,70.6,70.800,0.283,0.000,user-reported 2026-10-12,Reference; range consistent with formal seeds 42-44 (70.9/71.1)
+BigEarthNet-19,Test_mAP(%),GAViT (fixed grouping),71.8,71.1,71.450,0.495,+0.650,user-reported 2026-10-12,Per-seed delta vs Swin +0.8/+0.5; range consistent with formal sparse-hybrid seeds 42-44 (72.0/71.7/70.2); variant identity pending audit
+BigEarthNet-19,Test_mAP(%),GAViT soft_prototype,71.4,70.3,70.850,0.778,+0.050,user-reported 2026-10-12,Per-seed delta vs Swin +0.4/-0.3; negative result vs fixed GAViT (mean -0.60)

@@ -1,0 +1,16 @@
+test_archive_bad_selected_content_remains_incomplete (test_dfagcn_real_runner.RealRunnerTests.test_archive_bad_selected_content_remains_incomplete) ... ok
+test_archive_restores_only_selected_members_and_checks_image_bytes (test_dfagcn_real_runner.RealRunnerTests.test_archive_restores_only_selected_members_and_checks_image_bytes) ... ok
+test_archive_wrong_global_hash_or_unsafe_or_ambiguous_member_is_rejected (test_dfagcn_real_runner.RealRunnerTests.test_archive_wrong_global_hash_or_unsafe_or_ambiguous_member_is_rejected) ... ok
+test_cli_run_requires_uuid_before_any_resource_mutation (test_dfagcn_real_runner.RealRunnerTests.test_cli_run_requires_uuid_before_any_resource_mutation) ... ok
+test_config_file_changes_after_binding_are_rejected (test_dfagcn_real_runner.RealRunnerTests.test_config_file_changes_after_binding_are_rejected) ... ok
+test_frozen_manifest_selects_exact_360_90_without_test (test_dfagcn_real_runner.RealRunnerTests.test_frozen_manifest_selects_exact_360_90_without_test) ... ok
+test_full_weight_sha_required_and_metadata_conflicts_rejected (test_dfagcn_real_runner.RealRunnerTests.test_full_weight_sha_required_and_metadata_conflicts_rejected) ... ok
+test_gpu_gate_requires_exact_uuid_4090_and_idle_card (test_dfagcn_real_runner.RealRunnerTests.test_gpu_gate_requires_exact_uuid_4090_and_idle_card) ... ok
+test_gpu_selection_requires_fresh_cuda_context_before_environment_change (test_dfagcn_real_runner.RealRunnerTests.test_gpu_selection_requires_fresh_cuda_context_before_environment_change) ... ok
+test_inspect_missing_resources_is_stdlib_read_only_and_never_trains (test_dfagcn_real_runner.RealRunnerTests.test_inspect_missing_resources_is_stdlib_read_only_and_never_trains) ... ok
+test_manifest_bad_counts_or_duplicate_or_classmap_is_rejected (test_dfagcn_real_runner.RealRunnerTests.test_manifest_bad_counts_or_duplicate_or_classmap_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.193s
+
+OK

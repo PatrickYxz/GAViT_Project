@@ -1,0 +1,17 @@
+{
+  "errors": 0,
+  "failures": 0,
+  "protected_old_source_edited": false,
+  "protected_sources_equal_delivered_bundle": {
+    "external_baselines/hgtnet/nwpu_data.py": true,
+    "tools/run_dfagcn_nwpu_smoke.py": true
+  },
+  "resume_api": "recover_selected(...,resume=True); default existing destination rejects",
+  "schema": "hgtnet-formal-data-local-tests-v1",
+  "scope": "stdlib full31500 manifest identities + tiny real JPEG CPU tensor fixtures; not real NWPU/GPU/formal accuracy",
+  "skipped": 0,
+  "source_sha256": "d8edc4893c60c171dbeafaafc92209bcec5137966fd15b1f31957e24f570f56a",
+  "successful": true,
+  "test_sha256": "6e68d6f608c0302d93acaf4d27b3f84f61932de51095e975cbf4de8a5106d223",
+  "tests_run": 12
+}

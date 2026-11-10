@@ -1,0 +1,24 @@
+.....E......F........
+======================================================================
+ERROR: test_end_check_receipt_requires_actual_end_identity_selected_images_and_checkpoint (tests.test_hgtnet_aid_entry.EntryTests.test_end_check_receipt_requires_actual_end_identity_selected_images_and_checkpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 212, in test_end_check_receipt_requires_actual_end_identity_selected_images_and_checkpoint
+    checks=api()._end_checks(args,sources,inputs,summary)
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_entry.py", line 398, in _end_checks
+    raise ValueError('inputs or implementation changed during smoke')
+ValueError: inputs or implementation changed during smoke
+
+======================================================================
+FAIL: test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) (filename='summary.json', change={'counts': {'train': 240, 'val': 60, 'test': False}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 187, in test_skeletal_or_tampered_completion_receipts_stay_incomplete
+    self.assertFalse(report['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.645s
+
+FAILED (failures=1, errors=1)

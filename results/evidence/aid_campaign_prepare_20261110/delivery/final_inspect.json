@@ -1,0 +1,87 @@
+{
+  "blockers": [
+    "Missing runtime dependency metadata: torch",
+    "Missing runtime dependency metadata: torchvision",
+    "Missing runtime dependency metadata: timm",
+    "Missing runtime dependency metadata: torch-geometric",
+    "Missing runtime dependency metadata: safetensors",
+    "Missing runtime dependency metadata: numpy",
+    "Missing runtime dependency metadata: scikit-learn",
+    "dataset missing and archive missing: /home/featurize/work/AID_visionflan_20260920.zip",
+    "dataset missing; explicit new --scratch-root required",
+    "weights: [Errno 2] No such file or directory: '/home/featurize/work/GAViT_Project/bigearth_files/model.safetensors'",
+    "GPU inventory: [Errno 2] No such file or directory: 'nvidia-smi'"
+  ],
+  "command": "inspect",
+  "counts": {
+    "pool": 5000,
+    "test": 5000,
+    "train": 4000,
+    "val": 1000
+  },
+  "data_stage_required": true,
+  "dependencies": {
+    "import_tested": false,
+    "packages": {
+      "Pillow": "12.3.0",
+      "numpy": null,
+      "safetensors": null,
+      "scikit-learn": null,
+      "timm": null,
+      "torch": null,
+      "torch-geometric": null,
+      "torchvision": null
+    },
+    "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]"
+  },
+  "expected_manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+  "expected_weights_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+  "import_tested": false,
+  "manifest": {
+    "path": "/Users/patrick/Projects/GAViT_Project/output/aid_campaign_20261110_v1/provenance/aid_protocol_20260920_03.json",
+    "sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+    "verified": true
+  },
+  "output": "/home/featurize/work/aid_campaign_20261110/soft_seed42_formal_v1",
+  "ready_for_runtime_gate": false,
+  "seed": 42,
+  "source_identity": {
+    "base_commit": "058f1d8b79d0be538ec358eb742d2cd3992921d4",
+    "bundle_id": "cc0d42fc854b3b9e929dd00476b5eb041e2098ec996fd13633f0a9f96492eb77",
+    "delivery": "verified_source_only_bundle",
+    "dirty": true,
+    "files_sha256": {
+      "configs/aid_campaign_20261110_v1.json": "e400a496d04513b694549856635752687610f8f0d36e0001f55a9c77c2588d4c",
+      "experiment_identity.py": "0e9530454ae7d2f159329710a430acc7a75c586739844c22c673f9ff899d5d9b",
+      "grouping_identity.py": "651d4365a837a990c06d5a7bfadc4e4a6709c18f96f26eb36b0478a58fe613d5",
+      "models/__init__.py": "8815c8fde7ff63701a246e4a198d690e9777be18ac061672b5c3619ccb792436",
+      "models/bigearth_dataset.py": "1cb83ffc299f3927318f5bcef1694cdd33683a8d1ba5b1a87721d02fc67e281a",
+      "models/gavit.py": "39b2fd72be3afca0bb450ff5b700966c75c8aa277b2cf303b6c3faf129faba3e",
+      "models/graph_construction.py": "a0c36ceaf7a2f73b857c0eaac50df4abfb9c5617a4952f333a0dc514900dd8cc",
+      "models/graph_reasoning.py": "895825a417f627594fda8407cf1e980f8bcef398201c233e1c20d900ec9046da",
+      "models/region_grouping.py": "89cb8bb8a7e2ca76633a5a101285283e3275c95b1d77c442837c2e4159ecaca7",
+      "models/soft_region_grouping.py": "374aa3c0cfec3861d1d92e651f5330a4bb08381111d4a88d6ae02f1f3e32b15a",
+      "models/swin_backbone.py": "5046f36ab76556f8426fd096cae270b7dab0d24fa6e2c432839a3eb9f3cb1479",
+      "models/swin_features.py": "a4fa88cdf6ff811a2b6b51b512a99a01f6f53df3d57514458c4b0e7e25b9b06f",
+      "models/swin_region_only.py": "68d0c7ee95fa4a88c5a5b929e1e573195a7a9b1fe40a32480d64165c24c2d0c6",
+      "models/token_refinement.py": "b6da924ec782169df58c7c9fbc0e208e5d2aa25cad790d8376ab3f7624038072",
+      "provenance/aid_protocol_20260920_03.json": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+      "provenance/weights_receipts.json": "91c4e7469a3847fc312da31f5bfb45f616112050a3181175a78acf2e28ee5c3a",
+      "scene_classification/__init__.py": "5d0cbbf6a7d6bac715d1592e07170da14b04b281577b631804486247a841a968",
+      "scene_classification/aid_campaign_engine.py": "7f53a78311cda1d60cdb23fa24685fa4d46cda9d458a3f9f94ec37c9fa527bc7",
+      "scene_classification/aid_campaign_state.py": "200d32d312cfa2518a9780ad9797bd41e2f95ac256946b77f523cc16939df7ae",
+      "scene_classification/data.py": "ebcf0dd7585a060465df45bdf4e44ec7f47edd95f1fa8a12cbdd5723b948fa69",
+      "scene_classification/metrics.py": "6ef64ee533d0ca5c2dadae066a6254dcd4d107a24709b77009910067f37320b3",
+      "scene_classification/modeling.py": "8a2beed6bcb35ba5f4695ec81a899d7cf7394ccbd858a6beb372b1bd3f1ca575",
+      "scene_classification/refinement_audit.py": "08fdff7df2306c2a03313201ba566cd67f3acfeef2b16ed86d9fac8b085d929c",
+      "scene_classification/runner.py": "5d124ddfd03cb7340b8f65af8a56756d42ad1b2d1638b790373f192ead721f93",
+      "soft_assignment_diagnostics.py": "6c819fabb4e6bb28456d88b3f0e9f6843962028273abc66061d76e9724e72675",
+      "tools/package_aid_campaign.py": "2bd2789303070fd04a7a7f950d32ab0f1dae06856bf19d8ae6fdbf48393ed6fb",
+      "tools/run_aid_campaign.py": "55ac86e120c02910b62abbf2402ce7c6f8b2e21c864bcba9ae65d7cfb261e67b",
+      "utils.py": "618f22cd80a6051dadc0730b7e67d5c19d5d66e3378ef461117ebe8aabd4ea08"
+    },
+    "source_state": "uncommitted_source_snapshot"
+  },
+  "training_started": false,
+  "variant": "soft"
+}

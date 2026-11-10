@@ -1,0 +1,14 @@
+{
+  "scope": [
+    "test_dfagcn_*.py",
+    "test_hgtnet_*.py"
+  ],
+  "tests_run": 384,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "successful": true,
+  "seconds": 49.42485904181376,
+  "python": "3.12.13 (main, Jun 11 2026, 03:55:21) [Clang 22.1.3 ]",
+  "not_claimed": "unrelated legacy dependency suite, targetGPU, realNWPU or formal metrics"
+}

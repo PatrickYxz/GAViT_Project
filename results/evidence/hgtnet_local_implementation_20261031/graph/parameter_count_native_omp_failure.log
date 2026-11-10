@@ -1,0 +1,6 @@
+Parameter-count/summary helper process: exit 134.
+Invocation used OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 KMP_INIT_AT_FORK=FALSE and /private/tmp/gavit-dfagcn-cpu-20261027/bin/python with a stdin script.
+Native runtime output retained from the tool call:
+OMP: Error #179: Function Can't open SHM failed:
+OMP: System error #0: Undefined error: 0
+This was not a functional test failure; graph RED and GREEN logs are separate.

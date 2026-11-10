@@ -1,0 +1,31 @@
+test_apply_copies_real_tensors_and_preserves_all_new_modules (test_hgtnet_pretrained.PretrainedMappingTests.test_apply_copies_real_tensors_and_preserves_all_new_modules) ... ok
+test_audit_is_read_only_and_reports_exact_mapping_and_new_parameters (test_hgtnet_pretrained.PretrainedMappingTests.test_audit_is_read_only_and_reports_exact_mapping_and_new_parameters) ... ok
+test_file_loader_requires_complete_official_hash_and_checks_bytes_before_load (test_hgtnet_pretrained.PretrainedMappingTests.test_file_loader_requires_complete_official_hash_and_checks_bytes_before_load) ... ok
+test_missing_pretrained_target_is_reported_and_blocks_all_mutation (test_hgtnet_pretrained.PretrainedMappingTests.test_missing_pretrained_target_is_reported_and_blocks_all_mutation) ... ok
+test_nonfinite_loaded_or_intentionally_skipped_values_block_loading (test_hgtnet_pretrained.PretrainedMappingTests.test_nonfinite_loaded_or_intentionally_skipped_values_block_loading) ... ok
+test_schema_only_and_meta_are_never_reported_as_successful_loading (test_hgtnet_pretrained.PretrainedMappingTests.test_schema_only_and_meta_are_never_reported_as_successful_loading) ... ok
+test_shape_and_dtype_mismatch_prevent_partial_loading (test_hgtnet_pretrained.PretrainedMappingTests.test_shape_and_dtype_mismatch_prevent_partial_loading) ... ok
+test_sparse_and_non_tensor_state_are_rejected_before_mutation (test_hgtnet_pretrained.PretrainedMappingTests.test_sparse_and_non_tensor_state_are_rejected_before_mutation) ... ok
+test_typo_in_skipped_source_namespace_is_still_unexpected (test_hgtnet_pretrained.PretrainedMappingTests.test_typo_in_skipped_source_namespace_is_still_unexpected) ... FAIL
+test_unexpected_source_blocks_all_mutation (test_hgtnet_pretrained.PretrainedMappingTests.test_unexpected_source_blocks_all_mutation) ... ok
+test_unknown_target_is_not_mislabeled_as_intentionally_initialized (test_hgtnet_pretrained.PretrainedMappingTests.test_unknown_target_is_not_mislabeled_as_intentionally_initialized) ... ok
+
+======================================================================
+FAIL: test_typo_in_skipped_source_namespace_is_still_unexpected (test_hgtnet_pretrained.PretrainedMappingTests.test_typo_in_skipped_source_namespace_is_still_unexpected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_pretrained.py", line 134, in test_typo_in_skipped_source_namespace_is_still_unexpected
+    self.assertEqual(report["unexpected"], ["features.6.not_a_real_parameter"])
+AssertionError: Lists differ: [] != ['features.6.not_a_real_parameter']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'features.6.not_a_real_parameter'
+
+- []
++ ['features.6.not_a_real_parameter']
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.180s
+
+FAILED (failures=1)

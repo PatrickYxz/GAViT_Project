@@ -1,0 +1,1 @@
+cat /home/featurize/work/bigearth_soft42_20261013_01/run.exit /home/featurize/work/bigearth_soft42_20261013_01/gavit_train/run.exit /home/featurize/work/bigearth_soft42_20261013_01/gavit_test/run.exit /home/featurize/work/bigearth_soft42_20261013_01/summary.json

@@ -1,0 +1,55 @@
+{
+  "source": "results/dfagcn_nwpu_seed42_analysis_20261031.json",
+  "source_sha256": "06c6679073bce8476550b5a0363267fe2e042cda4f634c86ac8c99b18c5ba51d",
+  "script": "results/figures/dfagcn_nwpu_seed42_20261031/plot_diagnostics.py",
+  "script_sha256": "db55b74a585254e227cda801ff0bd611e6e7e0e81a8fb39177fc26ca5f6a1af8",
+  "python": "3.12.13",
+  "matplotlib": "3.11.2",
+  "numpy": "2.5.4",
+  "checks": {
+    "matrix_shape": [
+      45,
+      45
+    ],
+    "samples": 25200,
+    "correct": 21806,
+    "errors": 3394,
+    "support_min": 560,
+    "support_max": 560,
+    "row_sum_percent_max_abs_error": 2.842170943040401e-14,
+    "top10_annotations_checked_against_matrix": true
+  },
+  "artifacts": [
+    {
+      "path": "results/figures/dfagcn_nwpu_seed42_20261031/dfagcn_nwpu_seed42_error_summary.png",
+      "bytes": 220014,
+      "sha256": "751858f0708a48a394155ddaeaceffcf9f1b60e87237c0f2a34f646376c26d3a"
+    },
+    {
+      "path": "results/figures/dfagcn_nwpu_seed42_20261031/dfagcn_nwpu_seed42_error_summary.pdf",
+      "bytes": 30073,
+      "sha256": "a6b89380ee02a50a08e3595d0715ee65447a6bd9c859b100d912dbde2094d94b"
+    },
+    {
+      "path": "results/figures/dfagcn_nwpu_seed42_20261031/dfagcn_nwpu_seed42_error_summary.svg",
+      "bytes": 26641,
+      "sha256": "f90121cc3283ffa3cae0d39f34dcede11fa99d20c80c8bf453cb36a477786490"
+    },
+    {
+      "path": "results/figures/dfagcn_nwpu_seed42_20261031/dfagcn_nwpu_seed42_confusion_matrix_row_normalized.png",
+      "bytes": 563294,
+      "sha256": "dbf0183cfab178fe31122dfc59b46aa8bb14cc979c12899c3481233183280467"
+    },
+    {
+      "path": "results/figures/dfagcn_nwpu_seed42_20261031/dfagcn_nwpu_seed42_confusion_matrix_row_normalized.pdf",
+      "bytes": 70300,
+      "sha256": "71d12f2babcfdbe5c088dc98c22b9b1e66dde063d739591a4d53b36e04c7f581"
+    },
+    {
+      "path": "results/figures/dfagcn_nwpu_seed42_20261031/dfagcn_nwpu_seed42_confusion_matrix_row_normalized.svg",
+      "bytes": 532677,
+      "sha256": "9d34a752c59e33f7438d220a223dc863c9151e6e6dd1042205340b98de805bdb"
+    }
+  ],
+  "interpretation_limits": "Single model, single seed, descriptive prediction analysis only; no causal attribution to model modules."
+}

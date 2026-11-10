@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-05",
+  "status": "USER_REPORTED_PREFLIGHT_BLOCKED_DETAILS_PENDING",
+  "source_type": "direct_user_terminal_output",
+  "reported_blockers": [
+    "inputs",
+    "target_gpu"
+  ],
+  "requested_gpu_uuid": "GPU-7acce72a-93cd-e56f-35d8-5d33ecf6655e",
+  "current_gpu_inventory": null,
+  "input_error": null,
+  "gpu_error": null,
+  "instance_change_confirmed": false,
+  "current_image_availability_verified": false,
+  "training_started_in_this_attempt": false,
+  "training_started_basis": "In the delivered source, preflight rejection precedes the output lock, Torch import and optimizer/model construction.",
+  "previous_verified_inventory": "results/evidence/hgtnet_aid_inputs_restored_20261104/inventory_reported.json",
+  "evidence": "results/evidence/hgtnet_aid_smoke_preflight_return_20261105/reported_output.txt",
+  "next_read_only_command": "/environment/miniconda3/bin/python /home/featurize/work/hgtnet_aid_smoke_3060_20261104.pyz inspect --gpu-uuid GPU-7acce72a-93cd-e56f-35d8-5d33ecf6655e",
+  "interpretation": "The short blocker list does not identify missing paths, corrupt bytes, UUID/type/capacity changes, GPU occupancy or NVIDIA-query failure. Obtain detailed inspect JSON before a fix; no rerun or code change yet."
+}

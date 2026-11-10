@@ -1,0 +1,58 @@
+{
+  "bundle": "/home/featurize/work/hgtnet_aid_batch16_probe_3060_20261105.pyz",
+  "bundle_sha256": "fd54b4c1a21db1731d1addb0808c49104c11113b610883b79b2c6af456fc80f5",
+  "command": [
+    "/environment/miniconda3/bin/python",
+    "/home/featurize/work/hgtnet_aid_batch16_probe_3060_20261105.pyz",
+    "status",
+    "--output",
+    "/home/featurize/work/hgtnet_aid_batch16_probe_3060_20261105/runs/batch16_seed42_gpu91a8cd0f_01"
+  ],
+  "output": "/home/featurize/work/hgtnet_aid_batch16_probe_3060_20261105/runs/batch16_seed42_gpu91a8cd0f_01",
+  "status": {
+    "action": "status",
+    "batch_size": 16,
+    "completed": true,
+    "completion_evidence_valid": true,
+    "compute_images_per_second": 34.27133498825062,
+    "config_sha256": "f313abb893b29d674ace281d8d2905670ee65db131f4240640079123e783589b",
+    "counts": {
+      "test": 0,
+      "train": 16,
+      "val": 0
+    },
+    "cuda_peak_allocated_bytes": 4731960320,
+    "cuda_peak_reserved_bytes": 5213519872,
+    "exit_code": 0,
+    "formal_training_started": false,
+    "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+    "measured_steps": 3,
+    "median_step_seconds": 0.4668624670000554,
+    "optimizer_steps": 4,
+    "output": "/home/featurize/work/hgtnet_aid_batch16_probe_3060_20261105/runs/batch16_seed42_gpu91a8cd0f_01",
+    "physical_gpu_uuid": "GPU-91a8cd0f-e755-4d15-863a-8a5bdd741ed4",
+    "processed_images": 64,
+    "progress": {
+      "completed": true,
+      "formal_training_started": false,
+      "optimizer_steps": 4,
+      "samples_seen": 64,
+      "stage": "complete",
+      "training_started": true
+    },
+    "schema": "hgtnet-aid-batch16-capacity-probe-v1",
+    "source_identity_matches": true,
+    "state": "complete",
+    "step_seconds": [
+      0.4734250939998219,
+      0.4665460549999807,
+      0.4668624670000554
+    ],
+    "target_gpu": "3060",
+    "training_started": true,
+    "unique_images": 16,
+    "wall_seconds": 41.21215410600007,
+    "warmup_steps": 1,
+    "weights_sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893"
+  }
+}

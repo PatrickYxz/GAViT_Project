@@ -1,0 +1,1 @@
+cat /home/featurize/work/ben_grid3_seed42_20261018_01/summary.json

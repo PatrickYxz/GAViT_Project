@@ -1,0 +1,83 @@
+{
+  "status": "smoke_artifacts_reconciled_two_scheduler_bugs_fixed_locally",
+  "received_date": "2026-10-16",
+  "checks": [
+    "Smoke completion identity",
+    "Exact engineering scope",
+    "CUDA4090 device identity",
+    "Same GPU UUID/software/precision as preflight",
+    "CUDA checkpoint reload tolerance",
+    "Actual forward80-edge graph",
+    "Eight-image initial/best/final probe receipt",
+    "S/W assignment normalization",
+    "Probe48+32 graph identity",
+    "Frozen soft architecture and seed42 smoke recipe",
+    "Dataset/model/code receipt",
+    "Independent smoke identity",
+    "Expected parameter count",
+    "Summary/metadata checkpoint hash agreement; actual bytes checked by server launcher",
+    "Best epoch/value receipt",
+    "Finite engineering metrics",
+    "Fixed validation probe scope",
+    "Finite resource receipt",
+    "Frozen graph topology metadata",
+    "v2 fresh-install payload roundtrip and shell syntax",
+    "Resume command remains original installed v1 launch"
+  ],
+  "source_identity": {
+    "source_attachment": "/Users/patrick/.codex/attachments/d99f83b1-7028-4679-aa04-c74acb4346c8/已粘贴的文本.txt",
+    "source_sha256": "7b99b996506b9380c713b69d914c91da1712ce4035dcd37b7037d1b2f05e8561",
+    "delivered_v1_controller_sha256": "2c7d7365c4722b6fd25973e6d54b385535db7a64b78011bfc5f40d4409b749b8",
+    "stdout_and_cat_summary_equal": true,
+    "inner_run_exit_marker": "exit_code=0",
+    "outer_command_exit_code": null,
+    "outer_command_traceback_observed": true,
+    "root_cause": "Controller reads run.exit before interpreter shutdown runs the registered atexit writer."
+  },
+  "root_cause_reproduced_in_real_subprocess": true,
+  "local_fix": "Return from smoke() before atexit; queue uses its own hash-validated load_base().save for preflight reports",
+  "targeted_tests": {
+    "soft42_including_two_regressions": 10,
+    "existing_seed43": 11,
+    "total": 21,
+    "results": [
+      {
+        "pattern": "test_bigearth_soft42.py",
+        "exit_code": 0
+      },
+      {
+        "pattern": "test_seed43_launch.py",
+        "exit_code": 0
+      }
+    ]
+  },
+  "full_suite": {
+    "exit_code": 1,
+    "ran": false,
+    "reason": "/opt/homebrew/opt/python@3.14/bin/python3.14: No module named pytest"
+  },
+  "server_current_controller": "Original v1 on server; repair command backs up and patches only the two external scheduler files plus their manifest before launch.",
+  "current_smoke_retrain_required": false,
+  "server_formal_start_received": false,
+  "formal_test_metrics": null,
+  "evidence_scope": "User-returned summaries and exit marker, no direct server or checkpoint download; launcher verifies real file bytes before training.",
+  "fresh_install_v2_controller_sha256": "f85e1f27587ebed92c056fb4c7c106d771134bbc506499ec08743d825c533041",
+  "fresh_install_v2_bootstrap_sha256": "72c62a491c4fc9fbb973761fdeaee01f186a933b6178284706ac2a39c1d08b40",
+  "root_causes": [
+    "Controller reads run.exit before registered atexit writer runs",
+    "Queue uses ns[b] but42 preflight keeps b local"
+  ],
+  "server_original_requires_scheduler_patch_before_launch": true,
+  "resume_command": "repair_and_launch_command.txt",
+  "repair_script_sha256": "afca5616ad8a5d7a0a9f359065531bb039a1eae570b3006f87903178c00f1d9a",
+  "repair_command_characters": 2873,
+  "repair_fixture_checks": [
+    "Exact source replacement and manifest hashes",
+    "Old sources backed up",
+    "Smoke weights/metadata/summary/exit marker byte-identical",
+    "Duplicate repair rejected without mutation",
+    "Existing formal output rejected without mutation"
+  ],
+  "repair_fixture_limits": "Final launch intercepted; no model or CUDA run",
+  "fresh_install_v2_worker_sha256": "09722f10542bed449d2e80df0041387e113cab58db403b3979e07f192194f767"
+}

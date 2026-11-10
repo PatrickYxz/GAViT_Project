@@ -1,0 +1,40 @@
+{
+  "checks": {
+    "allocator_peaks_valid": true,
+    "batch_size": true,
+    "completed": true,
+    "config_sha256": true,
+    "counts": true,
+    "exit_code": true,
+    "expected_processed_images": true,
+    "expected_unique_images": true,
+    "formal_training_started": true,
+    "manifest_sha256": true,
+    "measured_steps": true,
+    "median_recomputed": true,
+    "optimizer_steps": true,
+    "physical_gpu_uuid": true,
+    "processed_images": true,
+    "progress_matches": true,
+    "rate_recomputed": true,
+    "schema": true,
+    "state": true,
+    "target_gpu": true,
+    "timings_match_progress": true,
+    "training_started": true,
+    "unique_images": true,
+    "wall_valid": true,
+    "warmup_steps": true,
+    "weights_sha256": true
+  },
+  "checks_count": 26,
+  "derived": {
+    "allocated_bytes_gib": 4.407068729400635,
+    "memory_scope": "one-model four-step allocator including Adam/gradients/activations/diagnostics; not total GPU/process memory or a formal epoch",
+    "reserved_bytes_gib": 4.857421875,
+    "wall_seconds": 10.059117196000443
+  },
+  "passed": true,
+  "source": "user-returned read-only status; original remote summary/files not directly retrieved",
+  "status_sha256": "f91779132364e7345884a5791e32f391ec135fb606b5e50870772bcd3e057b3d"
+}

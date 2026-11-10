@@ -1,0 +1,753 @@
+test_existing_file_or_symlink_is_never_overwritten (test_hgtnet_checkpoint.CheckpointTests.test_existing_file_or_symlink_is_never_overwritten) ... FAIL
+test_full_hash_is_required_and_wrong_hash_does_not_load (test_hgtnet_checkpoint.CheckpointTests.test_full_hash_is_required_and_wrong_hash_does_not_load) ... FAIL
+test_load_uses_safe_weights_only_mode (test_hgtnet_checkpoint.CheckpointTests.test_load_uses_safe_weights_only_mode) ... FAIL
+test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) ... 
+  test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=0) ... FAIL
+  test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=1) ... FAIL
+  test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=2) ... FAIL
+  test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=3) ... FAIL
+  test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=4) ... FAIL
+  test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=5) ... FAIL
+  test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=6) ... FAIL
+  test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=7) ... FAIL
+  test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=8) ... FAIL
+test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) ... 
+  test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) (index=0) ... FAIL
+  test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) (index=1) ... FAIL
+  test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) (index=2) ... FAIL
+  test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) (index=3) ... FAIL
+  test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) (index=4) ... FAIL
+  test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) (index=5) ... FAIL
+test_mutated_model_config_rejected_for_save_and_load (test_hgtnet_checkpoint.CheckpointTests.test_mutated_model_config_rejected_for_save_and_load) ... FAIL
+test_new_class_count_or_operator_identity_cannot_load (test_hgtnet_checkpoint.CheckpointTests.test_new_class_count_or_operator_identity_cannot_load) ... FAIL
+test_roundtrip_copies_parameters_buffers_and_json_identity (test_hgtnet_checkpoint.CheckpointTests.test_roundtrip_copies_parameters_buffers_and_json_identity) ... FAIL
+test_save_rejects_bad_values_or_non_json_provenance_without_file (test_hgtnet_checkpoint.CheckpointTests.test_save_rejects_bad_values_or_non_json_provenance_without_file) ... FAIL
+
+======================================================================
+FAIL: test_existing_file_or_symlink_is_never_overwritten (test_hgtnet_checkpoint.CheckpointTests.test_existing_file_or_symlink_is_never_overwritten)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 91, in test_existing_file_or_symlink_is_never_overwritten
+    _, saved = self.saved()
+               ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_full_hash_is_required_and_wrong_hash_does_not_load (test_hgtnet_checkpoint.CheckpointTests.test_full_hash_is_required_and_wrong_hash_does_not_load)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 103, in test_full_hash_is_required_and_wrong_hash_does_not_load
+    _, saved = self.saved()
+               ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_load_uses_safe_weights_only_mode (test_hgtnet_checkpoint.CheckpointTests.test_load_uses_safe_weights_only_mode)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 174, in test_load_uses_safe_weights_only_mode
+    _, saved = self.saved()
+               ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 123, in test_metadata_source_and_config_changes_fail_before_copy
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 123, in test_metadata_source_and_config_changes_fail_before_copy
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 123, in test_metadata_source_and_config_changes_fail_before_copy
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 123, in test_metadata_source_and_config_changes_fail_before_copy
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=4)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 123, in test_metadata_source_and_config_changes_fail_before_copy
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 123, in test_metadata_source_and_config_changes_fail_before_copy
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=6)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 123, in test_metadata_source_and_config_changes_fail_before_copy
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=7)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 123, in test_metadata_source_and_config_changes_fail_before_copy
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_metadata_source_and_config_changes_fail_before_copy (test_hgtnet_checkpoint.CheckpointTests.test_metadata_source_and_config_changes_fail_before_copy) (index=8)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 123, in test_metadata_source_and_config_changes_fail_before_copy
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) (index=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 141, in test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) (index=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 141, in test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) (index=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 141, in test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) (index=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 141, in test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) (index=4)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 141, in test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically (test_hgtnet_checkpoint.CheckpointTests.test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically) (index=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 141, in test_missing_unknown_shape_dtype_sparse_and_nonfinite_reject_atomically
+    self.assert_load_fails_without_mutation(self.altered(change))
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 56, in altered
+    _, report = self.saved()
+                ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_mutated_model_config_rejected_for_save_and_load (test_hgtnet_checkpoint.CheckpointTests.test_mutated_model_config_rejected_for_save_and_load)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 144, in test_mutated_model_config_rejected_for_save_and_load
+    model, saved = self.saved()
+                   ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_new_class_count_or_operator_identity_cannot_load (test_hgtnet_checkpoint.CheckpointTests.test_new_class_count_or_operator_identity_cannot_load)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 153, in test_new_class_count_or_operator_identity_cannot_load
+    _, saved = self.saved()
+               ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_roundtrip_copies_parameters_buffers_and_json_identity (test_hgtnet_checkpoint.CheckpointTests.test_roundtrip_copies_parameters_buffers_and_json_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 71, in test_roundtrip_copies_parameters_buffers_and_json_identity
+    original, saved = self.saved()
+                      ^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 50, in saved
+    with self.sources():
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+======================================================================
+FAIL: test_save_rejects_bad_values_or_non_json_provenance_without_file (test_hgtnet_checkpoint.CheckpointTests.test_save_rejects_bad_values_or_non_json_provenance_without_file)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 19, in api
+    return importlib.import_module('external_baselines.hgtnet.checkpoint')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.checkpoint'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 165, in test_save_rejects_bad_values_or_non_json_provenance_without_file
+    with self.sources(), self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 47, in sources
+    return patch.object(api(), 'source_identity', return_value=self.identity())
+                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_checkpoint.py", line 21, in api
+    raise AssertionError('HGTNet checkpoint API is missing') from exc
+AssertionError: HGTNet checkpoint API is missing
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.011s
+
+FAILED (failures=22)

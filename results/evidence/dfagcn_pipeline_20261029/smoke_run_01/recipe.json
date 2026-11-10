@@ -1,0 +1,47 @@
+{
+  "C_grid": [
+    0.1,
+    1.0
+  ],
+  "batch_size": 4,
+  "choices": {
+    "architecture": "Two 256-wide GCN layers, ReLU/dropout after each, mean readout, FC1024/ReLU/dropout then FC512/ReLU are independent choices because complete Table I remains unavailable.",
+    "classifier": "LIBLINEAR solver2 with bias1 is an independent explicit solver choice; the paper confirms LIBLINEAR but does not resolve this solver/bias pair.",
+    "engineering_fixture": "Synthetic/random weights,12 nodes,GCN8,FC512,1 epoch; not the production recipe or a dataset score.",
+    "fusion": "Fixed NWPU alpha0.7 beta0.3 gamma0.4 and the printed C grid are paper-reported values, not fitted to this project's test.",
+    "graph": "k=10 binary undirected nearest-neighbor union is paper-grounded; Euclidean distance, self exclusion and index ties are explicit engineering choices.",
+    "implementation_scope": "Independent project recipe; not official code or a verified Table I transcription.",
+    "optimization": "Adam lr0.001, weight_decay0 and a 100-epoch calibration cap are independent choices; batch100 and factor0.1 every50 epochs follow the readable paper body. Three disjoint branch CE losses are summed.",
+    "pooling": "Adaptive average pooling to 7x7 is an independent bounded-cost choice, not a confirmed paper value or inherited GAViT setting.",
+    "preprocessing": "Frozen torchvision VGG16 ImageNet weights and RGB stretch-resize224/448 with ImageNet mean/std are an independent alternative; no MatConvNet numerical-equivalence claim. Random weights are engineering-smoke only.",
+    "selection": "Validation-only epoch and C selection; selected epoch count is frozen before fresh train+val refit. Test is excluded from selection."
+  },
+  "dropout": 0.0,
+  "epochs": 1,
+  "fc_dims": [
+    512
+  ],
+  "fusion": {
+    "alpha": 0.7,
+    "beta": 0.3,
+    "gamma": 0.4
+  },
+  "gcn_dims": [
+    8
+  ],
+  "implementation": "dfagcn_independent_v1",
+  "knn_k": 2,
+  "learning_rate": 0.001,
+  "liblinear_bias": 1.0,
+  "liblinear_solver": 2,
+  "lr_gamma": 0.1,
+  "lr_step": 50,
+  "metric": "euclidean",
+  "pooling_hw": [
+    3,
+    4
+  ],
+  "schema": "dfagcn-independent-recipe-v1",
+  "seed": 42,
+  "weight_decay": 0.0
+}

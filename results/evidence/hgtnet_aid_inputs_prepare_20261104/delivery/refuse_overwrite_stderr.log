@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_aid_inputs_prepare_20261104/delivery/build_bundle.py", line 19, in <module>
+    with zipfile.ZipFile(BUNDLE, 'x', compression=zipfile.ZIP_DEFLATED) as archive:
+         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/zipfile/__init__.py", line 1462, in __init__
+    self.fp = io.open(file, filemode)
+              ~~~~~~~^^^^^^^^^^^^^^^^
+FileExistsError: [Errno 17] File exists: '/Users/patrick/Projects/GAViT_Project/output/hgtnet_aid_inputs_20261104.pyz'

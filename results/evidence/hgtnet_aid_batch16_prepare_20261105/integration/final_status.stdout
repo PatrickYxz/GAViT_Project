@@ -1,0 +1,13 @@
+{
+  "action": "status",
+  "completed": false,
+  "counts": {
+    "test": 0,
+    "train": 16,
+    "val": 0
+  },
+  "formal_training_started": false,
+  "output": "/Users/patrick/Projects/GAViT_Project/output/hgtnet_aid_batch16_probe_3060_20261105/runs/batch16_seed42_01",
+  "schema": "hgtnet-aid-batch16-capacity-probe-v1",
+  "state": "not_started"
+}

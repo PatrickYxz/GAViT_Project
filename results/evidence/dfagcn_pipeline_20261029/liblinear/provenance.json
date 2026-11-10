@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-29",
+  "official_project": "https://www.csie.ntu.edu.tw/~cjlin/liblinear/",
+  "official_repository": "https://github.com/cjlin1/liblinear",
+  "source_tag": "v250",
+  "version": "2.50",
+  "source_git_commit": "491c9f1188b97ba70847c70a68be363d186ddf9d",
+  "source_tag_object": "0ce1759d64082ab79905cf89ccc7b4443f43d117",
+  "source_archive_sha256": "730d847e5129ac474c80970f2cd5d69b4610620f4465724777d72b657a43142b",
+  "license": "BSD-3-Clause",
+  "copyright_sha256": "684e76f565a31ab057790c612bdacc2ee542f8a90b69f922377a92334771488c",
+  "download_command": [
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "--branch",
+    "v250",
+    "https://github.com/cjlin1/liblinear.git",
+    "/private/tmp/gavit-liblinear-v250-20261029"
+  ],
+  "build_command": [
+    "make",
+    "train",
+    "predict"
+  ],
+  "build_exit_code": 0,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.5.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "source_files_sha256": {
+    "blas/blas.h": "57a2637c207675bf69e99a58c2729c491535e101d3aafe2fddc697cc57a94542",
+    "blas/blasp.h": "f781f643938137736f1c2a5b026c0aa1f99f8c2e7822f2786c9fe4e9d740c493",
+    "blas/daxpy.c": "d9594a126f423e0112ff1093ccf4d3a63c01adfeca0ed029dae3b081e31a1ea1",
+    "blas/ddot.c": "1600dee968017f0106726fd0d7575ba1f1b22ac358e8c29047543fa04e69e275",
+    "blas/dnrm2.c": "07071fddc23a704d09da79e7b3ac9807ce932f55260e91a82cd6964d1863d1b9",
+    "blas/dscal.c": "09b386c6aa01c81db8b44db164f7bbb66f6326e992a65a53d8cd8a2e4735259e",
+    "linear.cpp": "92002bd308c4b658bffcb472d69575f5f48175978e4391e84df31afc9e2dd9f8",
+    "linear.h": "2f5450c2a26d3e73e12c468041e7eb3d3afc821c37b269138d94e8b72af3e526",
+    "matlab/libsvmread.c": "c7d2ddc36758b95fdfc00c8116e69bcc18ed458b20037f9a49db1ac535ac9cfd",
+    "matlab/libsvmwrite.c": "c08fa41b19d6c3ea1a2e181523c3ec44ec218ff82eaab793a9e25d219da11499",
+    "matlab/linear_model_matlab.c": "8cfb1a4ac19efd45ef950579956eaff90d37e5148887f5dd774c417d8ec1f526",
+    "matlab/linear_model_matlab.h": "fe5b55ee97274b592147eb5dfb0d87a5cecbc02a8703655bad0447f06e9f7bcb",
+    "matlab/predict.c": "b14555e84b4c62d6a30a8c7dc0dddd07e18f0f3dd55dd711b2d662ca3db9c6b5",
+    "matlab/train.c": "a1b93d2f9f3cbfd91d22d096bc0c532d2cb282d6933aa323320d852baad72a2a",
+    "newton.cpp": "cd3880508fd6c36f6ffb0e6c0b2600a5fab4f10530519cf139cea926e8716d0c",
+    "newton.h": "d5b2f3bf30131879b1e8b386fdac1a8dd7ec1ce27c877ea10651dfc9d89db91d",
+    "predict.c": "a04b80fe9f7e26263fdb5177081164d007bc75583774a8fe7a8916f0af6c4813",
+    "svm-scale.c": "60fb80c83834fb5ba9dba872062d31063654a88aa3afdf0081890c94df9c4c65",
+    "train.c": "12333c2049cb0688905825a67b3334756a947b6b14653dc86eaea741294c0b3c"
+  },
+  "binaries": {
+    "train": {
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/dfagcn_pipeline_20261029/liblinear/bin/train",
+      "sha256": "d5bcace7c4eef55275effa5483aced737903650382fc8546305c96f8372def64"
+    },
+    "predict": {
+      "path": "/Users/patrick/Projects/GAViT_Project/results/evidence/dfagcn_pipeline_20261029/liblinear/bin/predict",
+      "sha256": "b88d0f01ef91f74977675aa97f2d7c0c87c6c011c1c40106573272b3af00e55f"
+    }
+  },
+  "scope": "CPU actual CLI for engineering validation; solver/bias are independent recipe choices, not original DFAGCN numerical parity"
+}

@@ -1,0 +1,2 @@
+HGTNET_LOCAL_MODEL {"total": 74619858, "trainable": 74619858, "groups": {"dual_attention": 44077, "graph": 14066432, "head": 23085, "patch_embed": 6528, "transformer": 60479736}}
+HGTNET_LOCAL_CHECKPOINT_SAVED /Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_local_implementation_20261031/full_cpu_01/training_summary.json

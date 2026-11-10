@@ -1,0 +1,42 @@
+{
+  "checks": 498,
+  "passed": true,
+  "history": {
+    "calibration_epochs": 100,
+    "refit_epochs": 95,
+    "optimizer_steps": 68930,
+    "best_epochs": [
+      95
+    ],
+    "best_epoch": 95,
+    "best_val_oa_percent": 93.0952380952381,
+    "best_val_macro_f1_percent": 93.03452094979133,
+    "best_val_loss": 0.3547356234537253,
+    "final_epoch": 100,
+    "final_val_oa_percent": 92.46031746031746,
+    "final_val_macro_f1_percent": 92.42454111106593,
+    "final_val_loss": 0.3699770267728055,
+    "best_minus_final_oa_pp": 0.6349206349206469,
+    "best_minus_final_macro_f1_pp": 0.6099798387253941,
+    "best_minus_final_correct": 8,
+    "refit_final_online_train_accuracy_percent": 100.0,
+    "validation_matrix_epochs_recomputed": 100,
+    "all195_wall_present": true,
+    "max_val_metric_abs_error": 5.684341886080802e-14
+  },
+  "timing": {
+    "calibration_train_seconds": 8674.566730195998,
+    "calibration_validation_seconds": 897.9828609959956,
+    "calibration_epoch_wall_seconds": 11778.342573140999,
+    "refit_train_seconds": 10066.053316565998,
+    "refit_epoch_wall_seconds": 11862.193852846998,
+    "test_seconds": 180.76208843700078,
+    "epoch_wall_plus_test_seconds": 23821.298514424998,
+    "engine_other_seconds": 78.6275196280003,
+    "wrapper_other_seconds": 132.69133737500306,
+    "calibration_training_weighted_images_per_second": 58.10088453704388,
+    "refit_training_weighted_images_per_second": 59.45726504498352,
+    "calibration_epoch_wall_mean_seconds": 117.78342573140999,
+    "refit_epoch_wall_mean_seconds": 124.86519845102103
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "date": "2026-11-06",
+  "state": "RESUMED_TRAINING_CONFIRMED_REFIT76_COMPLETE",
+  "source": "Exact user-pasted terminal attachment; parsed and cross-checked locally. Not direct access to server or downloaded new snapshots.",
+  "raw_file": "results/evidence/hgtnet_aid_formal_resume_started_return_20261106/reported_output.txt",
+  "raw_bytes": 7903,
+  "raw_sha256": "e48ee8d0d201adb98f7e37548c5c59e8a1afcea2a6d911fa1afcdd02ae808d57",
+  "reported_cpu_pid": 3136,
+  "reported_gpu_compute_pid": 3136,
+  "reported_nvidia_time": "Fri Nov 6 01:42:01 2026",
+  "reported_nvidia_timezone": null,
+  "reported_gpu_name": "NVIDIA GeForce RTX 3060",
+  "reported_gpu_utilization_percent": 99,
+  "reported_gpu_total_used_mib": 5111,
+  "reported_compute_process_memory_mib": 5102,
+  "current_memory_is_not_whole_run_peak": true,
+  "resume_snapshot_matches_previous_receipt": true,
+  "reported_recovery": {
+    "binding_sha256": "662ceee356d72644ff513e7e5fc9f9fdef1cb20110e911b32253ccdad2f49599",
+    "bytes": 897033192,
+    "epoch": 75,
+    "generation": 175,
+    "path": "/home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01/recovery/slot1.pt",
+    "phase": "refit",
+    "sha256": "bb7c8bb4f2115bd1b384f9a86f47688cf96fada39b3e3ad3ad27ad347be5cefc"
+  },
+  "reported_model_optimizer_payload_restore_accepted": true,
+  "first_resumed_optimizer_step": {
+    "attempt": 2,
+    "completed": false,
+    "device": "cuda:0",
+    "epoch": 76,
+    "formal_training_started": true,
+    "gradients": {
+      "groups": {
+        "dual_attention": {
+          "l2": 0.0017943220280474145,
+          "tensors": 30
+        },
+        "graph": {
+          "l2": 0.005331040528388744,
+          "tensors": 120
+        },
+        "head": {
+          "l2": 0.00525007663984747,
+          "tensors": 2
+        },
+        "patch_embed": {
+          "l2": 0.010954155674357991,
+          "tensors": 4
+        },
+        "transformer": {
+          "l2": 0.01705115060604033,
+          "tensors": 295
+        }
+      },
+      "missing": [],
+      "nonfinite": [],
+      "passed": true
+    },
+    "loss": 0.00025091355200856924,
+    "optimizer_step_completed": true,
+    "optimizer_step_succeeded": true,
+    "optimizer_steps": 48476,
+    "phase": "refit",
+    "pid": 3136,
+    "post_update_checks_passed": true,
+    "samples_seen": 16,
+    "stage": "first_optimizer_step",
+    "training_started": true,
+    "updated_groups": {
+      "dual_attention": true,
+      "graph": true,
+      "head": true,
+      "patch_embed": true,
+      "transformer": true
+    }
+  },
+  "last_reported_progress": {
+    "attempt": 2,
+    "completed": false,
+    "epoch": 76,
+    "epoch_wall_seconds": 213.00507161199994,
+    "estimate_scope": "running completed-epoch mean for current phase only; recovered last commit may use precommit time excluding snapshot IO; excludes other phases/startup/final test/billing; not guaranteed",
+    "estimated_remaining_phase_seconds": 4696.991812070257,
+    "formal_training_started": true,
+    "observed_epoch_wall_mean_seconds": 234.84959060351287,
+    "optimizer_steps": 48788,
+    "phase": "refit",
+    "pid": 3136,
+    "selected_epoch": 96,
+    "stage": "epoch_complete",
+    "train_accuracy_percent": 99.92,
+    "train_images_per_second": 26.170554871720416,
+    "train_loss": 0.003590045938978437,
+    "train_seconds": 191.05441304200008,
+    "training_started": true
+  },
+  "accepted_optimizer_steps": 48788,
+  "calibration_epochs_completed": 100,
+  "refit_epochs_completed": 76,
+  "selected_refit_epochs": 96,
+  "remaining_refit_epochs": 20,
+  "remaining_refit_epoch_range": [
+    77,
+    96
+  ],
+  "remaining_refit_optimizer_steps": 6260,
+  "expected_final_optimizer_steps": 55048,
+  "prior_discarded_partial_optimizer_steps": 180,
+  "first_replay_optimizer_step": 48476,
+  "reported_phase_eta_seconds": 4696.991812070257,
+  "reported_phase_eta_minutes": 78.28319686783762,
+  "eta_scope": "Running completed-epoch mean for refit only; includes old-instance history; excludes startup, final reload, test and billing; not guaranteed.",
+  "newest_snapshot_downloaded_and_independently_hashed": false,
+  "formal_completed": false,
+  "final_test_metrics": null,
+  "formal_total_wall_seconds": null,
+  "formal_peak_memory": null,
+  "next_read_only_command": "/environment/miniconda3/bin/python /home/featurize/work/hgtnet_aid_formal_3060_20261105_v1.pyz status",
+  "action": "Keep current instance running; no new run/resume/probe, no lock manipulation, no source/recipe change."
+}

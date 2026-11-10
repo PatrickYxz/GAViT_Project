@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "dataset": "BEN",
+  "seed": 43,
+  "both_references": "Swin-T",
+  "full_comparisons_verified": 38,
+  "large_changes_fixed": 6,
+  "large_changes_soft": 8,
+  "numerical_not_statistical_significance_explicit": true,
+  "class_metric_inputs_unchanged": true,
+  "source_CSV_unchanged": true,
+  "links_and_two_decimal_tables_valid": true
+}

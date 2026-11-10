@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-06",
+  "state": "BACKGROUND_RESUME_REQUESTED_STARTUP_UNCONFIRMED",
+  "source": "Exact user attachment bytes; no direct remote process or file query.",
+  "raw_sha256": "31197bd2b669c41c24feff395dd1ff219ab371b247bde2fd6c64d6c4f65c869b",
+  "raw_bytes": 5333,
+  "archive_sha_check_reported_ok": true,
+  "restore_and_new_probe_command_completed": true,
+  "probe_completion_summary": "/home/featurize/work/hgtnet_aid_batch16_probe_3060_20261105/runs/batch16_seed42_gpu91a8cd0f_01/summary.json",
+  "probe_optimizer_steps": 4,
+  "probe_unique_images": 16,
+  "probe_processed_images": 64,
+  "probe_pid": 3075,
+  "probe_gradients": {
+    "groups": {
+      "dual_attention": {
+        "l2": 0.6999427478754701,
+        "tensors": 30
+      },
+      "graph": {
+        "l2": 9.95032140527238,
+        "tensors": 120
+      },
+      "head": {
+        "l2": 8.562041181596843,
+        "tensors": 2
+      },
+      "patch_embed": {
+        "l2": 15.620753203490345,
+        "tensors": 4
+      },
+      "transformer": {
+        "l2": 15.809429643015076,
+        "tensors": 295
+      }
+    },
+    "missing": [],
+    "nonfinite": [],
+    "passed": true
+  },
+  "probe_step_seconds": [
+    0.4734250939998219,
+    0.4665460549999807,
+    0.4668624670000554
+  ],
+  "probe_median_step_seconds": 0.4668624670000554,
+  "probe_gpu_allocator_peaks": null,
+  "background_launch_command_seen": true,
+  "lock_rename_command_seen": true,
+  "actual_lock_archive_bytes_verified": false,
+  "reported_launch_log_tail_empty": true,
+  "nvidia_reported_time": "Fri Nov 6 01:37:11 2026",
+  "nvidia_timezone": null,
+  "nvidia_compute_processes_reported": [],
+  "actual_formal_resumed_callback_seen": false,
+  "actual_formal_new_optimizer_step_seen": false,
+  "formal_resume_liveness": null,
+  "formal_resume_error": null,
+  "formal_resume_selected_epoch": 96,
+  "expected_resume_from_epoch": 75,
+  "final_test_metrics": null,
+  "next_read_only_commands": [
+    "pgrep -af hgtnet_aid_formal_3060_20261105_v1",
+    "tail -n 30 /home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01/resume_launch_20261106.log",
+    "nvidia-smi"
+  ],
+  "interpretation": "Resume performs pool5000 hashing/weights/pinned capacity receipt/snapshot SHA before Torch import; no loggedGPU immediately afterlaunch can be preflight. Need currentCPUprocess/log/GPU and resumed+firststep proof; do notlaunchagainorclaimsuccess.",
+  "actual_formal_resume_started": null,
+  "actual_formal_resume_started_basis": "Unknown pending current process/resumed/newfirststep evidence; no success/failure claim from immediate empty log."
+}

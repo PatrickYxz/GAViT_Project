@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-08",
+  "state": "PASS",
+  "scope": "Offline external-results analysis/report/thesis integration, not completion of all thesis research requirements",
+  "original_download_files_verified": 56,
+  "protected_core_table_hashes_unchanged": {
+    "results/comparison_table.csv": "54efc5572b6271e9019bd5546951ae84f9f06bf23fc7ff58021036b419de562f",
+    "results/ablation_study.csv": "33182d7a7802e11c0580e66b7736c1d679af45ba4399b47369b582d8e9bd2011"
+  },
+  "fresh_analysis_tests": {
+    "passed": 4,
+    "failed": 0
+  },
+  "independent_scientific_checks": {
+    "passed": 35,
+    "failed": 0
+  },
+  "aid_fresh_recomputation": "fresh_aid_recompute_20261108.json",
+  "latext_static_checks": {
+    "unresolved_references": [],
+    "unresolved_citations": [],
+    "duplicate_labels": [],
+    "duplicate_bibliography_keys": [],
+    "missing_images": []
+  },
+  "pdf": {
+    "path": "output/pdf/ntu_gavit_external_results_20261108.pdf",
+    "pages": 47,
+    "bytes": 805093,
+    "sha256": "0802b80887af025dc059ff49604100096c584b82a89374c5cc14c493ea89b0e2"
+  },
+  "all47_pdf_pages_visually_covered": true,
+  "zip": {
+    "path": "thesis/ntu_gavit_overleaf_20261108.zip",
+    "bytes": 625519,
+    "sha256": "4f64a93a71eb96264ee2830c9fa344c24ba3ee21c1a08a9f151bdcdbbb1bd56c",
+    "entries": 14,
+    "all_entries_match_current_source": true,
+    "stable_alias_same_sha256": true,
+    "previous_20261029_archive_preserved": true
+  },
+  "deliverables": [
+    "output/pdf/ntu_gavit_external_results_20261108.pdf",
+    "thesis/ntu_gavit_overleaf_20261108.zip",
+    "docs/supervisor_external_results_update_20261108.txt",
+    "docs/supervisor_progress_report_20261012_plaintext.txt",
+    "docs/supervisor_email_draft_20261012_plaintext.txt"
+  ],
+  "no_remote_connection_training_or_model_evaluation": true,
+  "returned_instance_ssh_profile_retired": true,
+  "email_draft_only_not_sent": true,
+  "open_requirements": [
+    "complete internal results and ablations",
+    "integrated discussion and conclusions",
+    "formal front matter",
+    "unified-protocol/multiseed external comparison and comparable efficiency"
+  ],
+  "recorded_at": "2026-11-08T14:26:52.278450+08:00",
+  "final_delivery_checks": {
+    "copy_safe_md_txt_pairs": 3,
+    "all_deliverable_paths_exist": true,
+    "current_source_and_zip_hashes_match": true,
+    "diary_updated": "research_diary.md",
+    "plan_all_integration_tasks_checked": true
+  }
+}

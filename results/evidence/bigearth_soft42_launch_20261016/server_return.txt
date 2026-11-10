@@ -1,0 +1,174 @@
+
+  "status": "BIGEARTH_SOFT42_PREFLIGHT_PASS",
+  "seed": 42,
+  "controls": {
+    "swin": {
+      "checkpoint": "/home/featurize/work/GAViT_Project/checkpoints/best_bigearth_swin.pth",
+      "checkpoint_sha256": "bc05c6d3e674f339802de58a7d941f41275315a56caabbc43a35bbf6050610dd",
+      "test_log": "/home/featurize/work/GAViT_Project/logs/bigearth_swin_test_retry.log",
+      "test_log_sha256": "e24a702e7d2760fde7fe2f81ba0f38898a4ddef0e37e87d871a3e1058bb0be40",
+      "metrics_printed": [
+        "70.9%",
+        "64.2%",
+        "76.6%"
+      ],
+      "metadata_status": "legacy baseline has no sidecar; historical protocol and rounded log only"
+    },
+    "gavit": {
+      "checkpoint": "/home/featurize/work/GAViT_Project/checkpoints/best_bigearth_gavit_sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654.pth",
+      "checkpoint_sha256": "9b9acb76d93fa8799e979a227ce1d2496573da937b9329ab0ce3ca1c3f29859e",
+      "test_log": "/home/featurize/work/GAViT_Project/logs/sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654_test_rtx3060_20260817_114017.log",
+      "test_log_sha256": "e2105d38c87720b344d3da92c84ac67e73734e717367c99d703dd800d0e48184",
+      "metrics_printed": [
+        "72.0%",
+        "66.0%",
+        "76.7%"
+      ],
+      "metadata": {
+        "model": "gavit",
+        "dataset": "BigEarthNet-19",
+        "architecture": {
+          "num_classes": 19,
+          "num_regions": 16,
+          "knn_k": 5,
+          "gat_hidden": 256,
+          "gat_heads": 4,
+          "gat_layers": 2,
+          "dropout": 0.1,
+          "grouping": "attentive_spatial",
+          "edge_type": "sparse_hybrid",
+          "integration": "token_feedback"
+        },
+        "graph_topology": {
+          "name": "sparse_hybrid_4n_top2",
+          "spatial_connectivity": 4,
+          "feature_k": 2,
+          "spatial_directed_edges": 48,
+          "feature_directed_edges": 32,
+          "total_directed_edges": 80,
+          "message_direction": "neighbor_to_query",
+          "cosine_role": "topology_only"
+        },
+        "training": {
+          "seed": 42,
+          "epochs": 30,
+          "batch_size": 32,
+          "lr": 0.0003,
+          "weight_decay": 0.0001,
+          "optimizer": "AdamW",
+          "scheduler": "CosineAnnealingLR",
+          "loss": "BCEWithLogitsLoss",
+          "f1_threshold": 0.5
+        },
+        "execution": {
+          "run_stage": "formal",
+          "run_tag": "sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654"
+        },
+        "best": {
+          "metric": "val_mAP",
+          "value": 79.2087,
+          "epoch": 13
+        },
+        "checkpoint_sha256": "9b9acb76d93fa8799e979a227ce1d2496573da937b9329ab0ce3ca1c3f29859e",
+        "git": {
+          "commit": "cd39be9",
+          "dirty": false
+        },
+        "checkpoint_path": "checkpoints/best_bigearth_gavit_sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654.pth",
+        "saved_at": "2026-08-14T16:41:40+00:00"
+      },
+      "metadata_sha256": "04917aa76f78e8c88e3b2fce3ead935d782800c8dfc6f3ebe11f89c6cc0265dd",
+      "final_epoch": 30
+    }
+  },
+  "inventory": {
+    "formal_or_partial": [],
+    "engineering_smoke": [
+      {
+        "path": "/home/featurize/work/bigearth_soft_smoke42_20260928_01/gavit.meta.json",
+        "status": null,
+        "stage": "smoke",
+        "checkpoint": null,
+        "best": {
+          "metric": "val_mAP",
+          "value": 37.0547,
+          "epoch": 1
+        }
+      },
+      {
+        "path": "/home/featurize/work/gpucheck_bigearth_soft42_4090_20261013_01/gavit.meta.json",
+        "status": null,
+        "stage": "smoke",
+        "checkpoint": null,
+        "best": {
+          "metric": "val_mAP",
+          "value": 37.5025,
+          "epoch": 1
+        }
+      },
+      {
+        "path": "/home/featurize/work/gpucheck_bigearth_soft42_4090_20261013_01/summary.json",
+        "status": null,
+        "stage": "smoke",
+        "checkpoint": null,
+        "best": {
+          "metric": "val_mAP",
+          "value": 37.5025,
+          "epoch": 1
+        }
+      }
+    ],
+    "unreadable": []
+  },
+  "splits": {
+    "train": {
+      "count": 237871,
+      "sha256": "25734fd9e8dc7fd78fb259e768ae91fe11b297e1caa50a2d57b74b0296413d8f"
+    },
+    "val": {
+      "count": 122342,
+      "sha256": "1c6627cb48e33588538c4e411e4f1b94560827f27d59fb7aeb0ea2b5d30c2a45"
+    },
+    "test": {
+      "count": 119825,
+      "sha256": "cea165a6443fc5ee44de0a3c55f53ce70505c4e25aba9ca8b52d76634df77204"
+    }
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "threads": 8,
+    "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+    "packages": {
+      "torch": "2.2.2",
+      "torchvision": "0.17.2",
+      "timm": "1.0.27",
+      "torch-geometric": "2.8.0",
+      "numpy": "1.26.4",
+      "scikit-learn": "1.9.0",
+      "pillow": "10.3.0"
+    },
+    "gpu_identity": "GPU-44825cf0-bd98-bfdc-efbc-0100238a6789, NVIDIA GeForce RTX 4090, 610.57.04"
+  },
+  "precision": {
+    "dtype": "torch.float32",
+    "matmul_tf32": false,
+    "cudnn_tf32": true,
+    "amp": false
+  },
+  "soft_commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "reference_gpu_identity": "GPU-cede40c0-f93d-7c8e-1006-cf6183e53592, NVIDIA GeForce RTX 4090, 610.57.04",
+  "reference_gpu_model": "NVIDIA GeForce RTX 4090",
+  "physical_gpu_identity_changed": true,
+  "gpu_model_changed": false,
+  "new_training_started": false,
+  "comparison_limitations": "Reuse legacy Swin42 and cd39be9 fixed42 controls; soft42 uses frozen ed480e6 on current4090. Historical code/GPU and baseline provenance limitations remain; same seed does not erase them."
+}
+{
+  "status": "BIGEARTH_SOFT42_LAUNCH_DISPATCHED",
+  "pid": 5807,
+  "output": "/home/featurize/work/bigearth_soft42_20261013_01",
+  "training_start_verified": false,
+  "next_action": "Check GPU and gavit_train.process.log for first training batch"
+}

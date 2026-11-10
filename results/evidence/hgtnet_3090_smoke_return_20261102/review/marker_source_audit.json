@@ -1,0 +1,178 @@
+{
+  "scope": "static delivered-source audit; user-pasted server markers accepted as user-reported evidence, no remote files read",
+  "package": {
+    "path": "/Users/patrick/Projects/GAViT_Project/output/hgtnet_nwpu_smoke_3090_20261102_fix1.pyz",
+    "sha256": "90c60dabcd185ffd0a1b575f8544e7363a469c4e3616528955cb3645c2ae7c42",
+    "expected_sha256": "90c60dabcd185ffd0a1b575f8544e7363a469c4e3616528955cb3645c2ae7c42",
+    "bytes": 53324,
+    "bundle_id": "96d3451f4119c8a42f8507e819f534cca42e2b7235b21006984144d488158019"
+  },
+  "payload_checks": [
+    {
+      "file": "bundled_weights_provenance.json",
+      "archive_sha256": "d139fa9f3171d86f193b607d8a601019a695e7fe1ff3b92b6a736e761b7e4305",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": null
+    },
+    {
+      "file": "configs/hgtnet_independent_v0.json",
+      "archive_sha256": "352f5f9475940a1864737153e6facb7e250cb7b4fa3bd2a21de8770ddc23a87e",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "external_baselines/__init__.py",
+      "archive_sha256": "3e758420ecf381f2b3f83df1761bcfcbc7c3276e82254d979a24883592536a7f",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "external_baselines/hgtnet/__init__.py",
+      "archive_sha256": "fe58f2557e28226d7b063d647693c93aa5686edd970db854f3319bc99bd34046",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "external_baselines/hgtnet/__main__.py",
+      "archive_sha256": "bbd0f570801f3352495f3f2d273738c1b8a0d87b8e7ecca4cc49ed685377c3cd",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "external_baselines/hgtnet/attention.py",
+      "archive_sha256": "de24aa15ef75428d0298622550b09abafb3d95735ca7e8592833a0d662dd6092",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "external_baselines/hgtnet/checkpoint.py",
+      "archive_sha256": "bb8ecf96ae990be9930c8456b3655f250f5be09bc1e4207c390b3675b943129a",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "external_baselines/hgtnet/config.py",
+      "archive_sha256": "ec15d152c82622100bcf94bbe252a61f572090364c2859c9dd967acdb0f0af32",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "external_baselines/hgtnet/graph.py",
+      "archive_sha256": "2fb54633aa8dc9401a493cef6f20bd3f41d52bc4009548ef43fa368df31bb564",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "external_baselines/hgtnet/model.py",
+      "archive_sha256": "c64a231a32d4e5c7fa57fc6110c9c9d54819e85ba85b8e6b2293684ab6798df6",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "external_baselines/hgtnet/nwpu_data.py",
+      "archive_sha256": "9c9b8ad586d4d903f562be7d499436f4ec1779a2e197aa6bc146c125bbccee4e",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "external_baselines/hgtnet/nwpu_engine.py",
+      "archive_sha256": "5cfbb03e08d935323bc0f18c7b957515dad5a8d637d0d71f6ebc6e996b5368f3",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "external_baselines/hgtnet/pretrained.py",
+      "archive_sha256": "75d3018ee44b7faef68a7a689203a66d29d601fe7fa542fb5738f8b1dbbae47e",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "external_baselines/hgtnet/resources.py",
+      "archive_sha256": "dbd1a61a4088fae6066e8b02f94204335febcdbc277a39b534f1bbcf8cfaee47",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "external_baselines/hgtnet/smoke.py",
+      "archive_sha256": "f38664e87e6eff82e5a3047fc6102d34cbe126cb9e8e07052385823ca8129e5f",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "tools/run_dfagcn_nwpu_smoke.py",
+      "archive_sha256": "ff3311966cf80ca4e15fb2a865c3dff1ca67e42dbcd0a944de8b6cddcbc5203d",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    },
+    {
+      "file": "tools/run_hgtnet_nwpu_smoke.py",
+      "archive_sha256": "45df030a5c8a1fe37197db51653e6b97795d84fd29dbcfc64fd656c995c4275b",
+      "manifest_sha256_matches": true,
+      "archive_bytes_match": true,
+      "current_source_matches": true
+    }
+  ],
+  "all_manifest_checks_pass": true,
+  "all_existing_current_source_matches": true,
+  "marker_inference": {
+    "accepted_state": "SERVER_REPORTED_SMOKE_COMPLETE_MARKER_METRICS_PENDING",
+    "progress_steps": [
+      30,
+      60,
+      90,
+      120,
+      150,
+      180
+    ],
+    "progress_samples": [
+      60,
+      120,
+      180,
+      240,
+      300,
+      360
+    ],
+    "completion_summary_path": "/home/featurize/work/hgtnet_nwpu_smoke_3090_20261102_fix1/runs/nwpu_smoke_seed42_01/summary.json",
+    "qualification": "Normal completion path has passed checks below; this is user-reported marker evidence rather than independently returned status or downloaded artifact bytes. First prefix GTNET is a pasted truncation and is not repaired into a raw logfile."
+  },
+  "normal_complete_prerequisites": [
+    "preflight ready and explicit selected GPU UUID; runtime physical target3090 and visible CUDA validation",
+    "fixed actual NWPU train360/val90/test0, one epoch batch2 seed42, 180 optimizer steps",
+    "finite batch/logits/loss/gradients, first-step gradients passed and parameter update in every gradient group, finite updated/final parameters",
+    "all360 train records consumed; all90 validation labels/order match bound manifest",
+    "finite dense checkpoint saved with SHA; fresh model strict reload identity/tensors and numeric logit error finite and <=1e-6",
+    "history.json and val_predictions.json written",
+    "final source, manifest, pretrained weight and config identities unchanged; selected image pool revalidated",
+    "summary.json written completed=true, then run.exit0, then complete progress write/print, then HGTNET_NWPU_SMOKE_COMPLETE print"
+  ],
+  "not_asserted_without_returned_status_or_raw_files": [
+    "actual status exit_code0 and current persisted complete state independently inspected",
+    "smoke validation accuracy/macro-F1 values",
+    "checkpoint SHA and precise reload error value",
+    "exact runtime software versions, physical UUID and CUDA capacity bytes",
+    "wall time and CUDA allocator peak allocated/reserved bytes",
+    "local byte-level checkpoint/summary/prediction verification",
+    "formal training, full test performance or paper benchmark comparability"
+  ],
+  "status_command": "/environment/miniconda3/bin/python /home/featurize/work/hgtnet_nwpu_smoke_3090_20261102_fix1.pyz status",
+  "code_references": {
+    "runner": "tools/run_hgtnet_nwpu_smoke.py:180-275",
+    "engine": "external_baselines/hgtnet/nwpu_engine.py:35-58,151-239"
+  }
+}

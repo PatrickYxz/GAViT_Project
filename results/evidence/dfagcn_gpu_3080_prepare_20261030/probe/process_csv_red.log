@@ -1,0 +1,14 @@
+test_inventory_rejects_malformed_nonempty_process_rows (test_dfagcn_gpu_probe.GPUProbeTests.test_inventory_rejects_malformed_nonempty_process_rows) ... FAIL
+
+======================================================================
+FAIL: test_inventory_rejects_malformed_nonempty_process_rows (test_dfagcn_gpu_probe.GPUProbeTests.test_inventory_rejects_malformed_nonempty_process_rows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_gpu_probe.py", line 76, in test_inventory_rejects_malformed_nonempty_process_rows
+    self.assertIsNotNone(inventory['error'])
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 1 test in 0.006s
+
+FAILED (failures=1)

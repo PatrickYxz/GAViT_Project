@@ -1,0 +1,17 @@
+# Formal NWPU data module local evidence
+
+Owned files: external_baselines/hgtnet/formal_data.py and tests/test_hgtnet_formal_data.py. Old nwpu_data.py and frozen DF helper untouched.
+
+RED: [red.log](red.log),10 tests collected/14 missing-adapter assertions including subtests, before new implementation. GREEN: [green.log](green.log),12 tests passed/exit0,0 errors/skips. Exact pinned CPU runtime is /private/tmp/gavit-hgtnet-probe-cpu-20261102/bin/python with OMP_NUM_THREADS=1/MKL_NUM_THREADS=1/KMP_INIT_AT_FORK=FALSE. [Source/test hashes](validation.json).
+
+Coverage: entire31500-record fixture manifest verified by old helper,45classes/per-class112train/28val/560test, full5040/1260/6300/25200 sorted disjoint identities; independent returned split snapshots; fixedmanifest hash and structural corruption rejection; stdlib selection/recovery/validation with ML imports forbidden in a fresh subprocess; strict label/split/path/symlink checks; selected ZIP recovery only, truthful test_images_extracted and ordered selectionSHA; badarchive/member/imagebytes reject without complete receipt; explicit resume only with complete exactreceipt/fullarchiveSHA/all imagehashes, rejecting foreign destinations and symlink receipts.
+
+Real tiny JPEG CPU fixtures verify fixed RGB bilinearResize256→CenterCrop224→ImageNet normalization and deterministic evaluation; trainResize256→RandomCrop224→HorizontalFlip.5 with seededTorch reproducibility and test-row training rejection; float32RGB224/longlabels, input snapshot ownership, each-access bytehash. An actual path-change-after-read fixture confirms approved bytes are decoded from BytesIO, never a later changed file. Its first test-only mock compared /tmp aliases literally and failed; [fixture_path_failure.log](fixture_path_failure.log) retained, fixed by resolving aliases without changing production code.
+
+API: prepare_inputs(manifest_path,expected_sha256=MANIFEST_SHA), validate_selected(root,records), recover_selected(archive,records,destination,expected_sha256=ARCHIVE_SHA,resume=False), make_dataset(root,records,training=False). Existing recovery destination rejects by default; caller must pass resume=True for verified read-only reuse. Datasets expose immutable .paths/.labels tuples and a deep-copy .records property for evaluation order checks. No torch/PIL/vision imports until make_dataset.
+
+Only images explicitly supplied to recovery/dataset are touched; formal entry/engine must defer test recovery and dataset creation until completed refit/checkpoint reload. Selecting test identities alone does not read test imagebytes. No GPU operation, actual fullNWPU images, formal accuracy, Git commit or protected source modification in this subtask.
+
+## Review repair: atomic recovery receipt
+
+Fresh review identified a partial finalrecovery.json on interrupted json.dump. [receipt_atomic_red.log](receipt_atomic_red.log):13tests collected,1new failure reproducing the partial finalreceipt. Repaired receipt publication to a unique recovery.json.UUID.tmp, JSON flush/fsync, then os.replace to final; finally removes only this invocation's temporary file, preserving recovered images. [receipt_atomic_green.log](receipt_atomic_green.log):13tests passed/exit0. Mock writes a partial JSON fragment then raises and verifies retained imagebytes, absent finalreceipt and no owned leftover temporary. [Current source/test identity](receipt_atomic_validation.json); earlier12testGREEN and identity records retained as history.

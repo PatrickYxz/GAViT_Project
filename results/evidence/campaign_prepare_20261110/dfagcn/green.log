@@ -1,0 +1,18 @@
+test_cache_identity_is_seed_independent_but_all_input_identities_matter (test_dfagcn_campaign.CampaignTests.test_cache_identity_is_seed_independent_but_all_input_identities_matter) ... ok
+test_completion_cannot_be_inferred_from_summary_exit_alone (test_dfagcn_campaign.CampaignTests.test_completion_cannot_be_inferred_from_summary_exit_alone) ... ok
+test_consecutive_seeds_and_frozen_recipe_only_change_seed (test_dfagcn_campaign.CampaignTests.test_consecutive_seeds_and_frozen_recipe_only_change_seed) ... ok
+test_source_parity_is_explicit_and_byte_verified (test_dfagcn_campaign.CampaignTests.test_source_parity_is_explicit_and_byte_verified) ... ok
+test_status_has_no_ml_imports (test_dfagcn_campaign.CampaignTests.test_status_has_no_ml_imports) ... ok
+test_svm_io_relocation_keeps_original_features_model_receipts_and_failure (test_dfagcn_campaign.CampaignTests.test_svm_io_relocation_keeps_original_features_model_receipts_and_failure) ... ok
+test_uuid_selected_gpu_any_model_and_1gib_memory_gap (test_dfagcn_campaign.CampaignTests.test_uuid_selected_gpu_any_model_and_1gib_memory_gap) ... ok
+test_cache_identity_rejects_post_fit_and_unsealed_cache (test_dfagcn_campaign.ResourceAndDeliveryTests.test_cache_identity_rejects_post_fit_and_unsealed_cache) ... ok
+test_complete_requires_seals_full_test_reload_and_immutable_artifacts (test_dfagcn_campaign.ResourceAndDeliveryTests.test_complete_requires_seals_full_test_reload_and_immutable_artifacts) ... ok
+test_delivery_extract_reuse_tamper_and_mac_binary_rejection (test_dfagcn_campaign.ResourceAndDeliveryTests.test_delivery_extract_reuse_tamper_and_mac_binary_rejection) ... ok
+test_inspect_is_stdlib_and_preserves_outputs_with_actual_storage_gates (test_dfagcn_campaign.ResourceAndDeliveryTests.test_inspect_is_stdlib_and_preserves_outputs_with_actual_storage_gates) ... ok
+test_original_native_failure_is_retained_and_rethrows (test_dfagcn_campaign.ResourceAndDeliveryTests.test_original_native_failure_is_retained_and_rethrows) ... ok
+test_scratch_rejects_persistent_work (test_dfagcn_campaign.ResourceAndDeliveryTests.test_scratch_rejects_persistent_work) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.242s
+
+OK

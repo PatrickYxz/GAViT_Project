@@ -1,0 +1,21 @@
+test_order_dimensions_and_gradient_match_equation (test_dfagcn_fusion.FusionTests.test_order_dimensions_and_gradient_match_equation) ... ok
+test_paper_coefficients_explicit_by_dataset (test_dfagcn_fusion.FusionTests.test_paper_coefficients_explicit_by_dataset) ... ok
+test_rejects_finite_inputs_whose_weighted_output_overflows (test_dfagcn_fusion.FusionTests.test_rejects_finite_inputs_whose_weighted_output_overflows) ... FAIL
+test_rejects_invalid_coefficients (test_dfagcn_fusion.FusionTests.test_rejects_invalid_coefficients) ... ok
+test_rejects_invalid_or_mismatched_branch (test_dfagcn_fusion.FusionTests.test_rejects_invalid_or_mismatched_branch) ... ok
+test_rejects_mixed_dtype_and_device (test_dfagcn_fusion.FusionTests.test_rejects_mixed_dtype_and_device) ... ok
+test_zero_weights_keep_slots_without_normalization (test_dfagcn_fusion.FusionTests.test_zero_weights_keep_slots_without_normalization) ... ok
+
+======================================================================
+FAIL: test_rejects_finite_inputs_whose_weighted_output_overflows (test_dfagcn_fusion.FusionTests.test_rejects_finite_inputs_whose_weighted_output_overflows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_fusion.py", line 73, in test_rejects_finite_inputs_whose_weighted_output_overflows
+    with self.assertRaisesRegex(ValueError, 'overflow'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.010s
+
+FAILED (failures=1)

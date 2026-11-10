@@ -1,0 +1,6 @@
+{
+  "local_checked_at": "2026-11-06T10:42:57.560813+08:00",
+  "ssh_exit_code": 255,
+  "ssh_stderr": "Connection to UNKNOWN port 65535 timed out\n",
+  "ssh_stdout": ""
+}

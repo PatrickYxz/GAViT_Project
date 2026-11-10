@@ -1,0 +1,16 @@
+test_eval_is_deterministic_and_samples_are_independent (test_dfagcn_model_recipe.BranchModelTests.test_eval_is_deterministic_and_samples_are_independent) ... ok
+test_export_is_last_relu_512_and_preserves_fc_then_fuses_published_order (test_dfagcn_model_recipe.BranchModelTests.test_export_is_last_relu_512_and_preserves_fc_then_fuses_published_order) ... ok
+test_forward_accepts_no_fc_but_export_requires_it (test_dfagcn_model_recipe.BranchModelTests.test_forward_accepts_no_fc_but_export_requires_it) ... ok
+test_rejects_incompatible_pooled_inputs (test_dfagcn_model_recipe.BranchModelTests.test_rejects_incompatible_pooled_inputs) ... ok
+test_rejects_invalid_class_counts_and_detaches_recipe (test_dfagcn_model_recipe.BranchModelTests.test_rejects_invalid_class_counts_and_detaches_recipe) ... ok
+test_save_reload_state_preserves_logits_and_fused_features (test_dfagcn_model_recipe.BranchModelTests.test_save_reload_state_preserves_logits_and_fused_features) ... ok
+test_three_raw_logit_heads_have_independent_parameters_and_gradients (test_dfagcn_model_recipe.BranchModelTests.test_three_raw_logit_heads_have_independent_parameters_and_gradients) ... ok
+test_checked_in_recipe_explicitly_records_independent_choices (test_dfagcn_model_recipe.RecipeTests.test_checked_in_recipe_explicitly_records_independent_choices) ... ok
+test_missing_and_unknown_fields_are_not_silently_filled (test_dfagcn_model_recipe.RecipeTests.test_missing_and_unknown_fields_are_not_silently_filled) ... ok
+test_rejects_invalid_architecture_or_optimization_values (test_dfagcn_model_recipe.RecipeTests.test_rejects_invalid_architecture_or_optimization_values) ... ok
+test_valid_recipe_is_detached_and_loadable_from_json (test_dfagcn_model_recipe.RecipeTests.test_valid_recipe_is_detached_and_loadable_from_json) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.028s
+
+OK

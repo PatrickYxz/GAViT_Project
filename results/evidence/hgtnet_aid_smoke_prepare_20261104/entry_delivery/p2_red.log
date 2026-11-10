@@ -1,0 +1,185 @@
+..........FFFFFFFFFFFFFFFFFFFF........
+======================================================================
+FAIL: test_missing_or_malformed_required_completion_artifacts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_missing_or_malformed_required_completion_artifacts_stay_incomplete) (name='binding.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 195, in test_missing_or_malformed_required_completion_artifacts_stay_incomplete
+    self.assertFalse(api().status(output)['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_missing_or_malformed_required_completion_artifacts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_missing_or_malformed_required_completion_artifacts_stay_incomplete) (name='runtime.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 195, in test_missing_or_malformed_required_completion_artifacts_stay_incomplete
+    self.assertFalse(api().status(output)['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_missing_or_malformed_required_completion_artifacts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_missing_or_malformed_required_completion_artifacts_stay_incomplete) (name='source_identity.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 195, in test_missing_or_malformed_required_completion_artifacts_stay_incomplete
+    self.assertFalse(api().status(output)['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_missing_or_malformed_required_completion_artifacts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_missing_or_malformed_required_completion_artifacts_stay_incomplete) (name='history.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 195, in test_missing_or_malformed_required_completion_artifacts_stay_incomplete
+    self.assertFalse(api().status(output)['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_missing_or_malformed_required_completion_artifacts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_missing_or_malformed_required_completion_artifacts_stay_incomplete) (name='val_predictions.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 195, in test_missing_or_malformed_required_completion_artifacts_stay_incomplete
+    self.assertFalse(api().status(output)['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_missing_or_malformed_required_completion_artifacts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_missing_or_malformed_required_completion_artifacts_stay_incomplete) (name='first_step.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 195, in test_missing_or_malformed_required_completion_artifacts_stay_incomplete
+    self.assertFalse(api().status(output)['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_missing_or_malformed_required_completion_artifacts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_missing_or_malformed_required_completion_artifacts_stay_incomplete) (name='optimizer_progress.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 195, in test_missing_or_malformed_required_completion_artifacts_stay_incomplete
+    self.assertFalse(api().status(output)['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) (filename='skeletal', change=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 186, in test_skeletal_or_tampered_completion_receipts_stay_incomplete
+    self.assertFalse(report['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) (filename='summary.json', change={'input_scope': 'cpu_fixture'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 186, in test_skeletal_or_tampered_completion_receipts_stay_incomplete
+    self.assertFalse(report['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) (filename='summary.json', change={'manifest_sha256': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 186, in test_skeletal_or_tampered_completion_receipts_stay_incomplete
+    self.assertFalse(report['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) (filename='summary.json', change={'weights_sha256': 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 186, in test_skeletal_or_tampered_completion_receipts_stay_incomplete
+    self.assertFalse(report['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) (filename='summary.json', change={'completion_checks': {}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 186, in test_skeletal_or_tampered_completion_receipts_stay_incomplete
+    self.assertFalse(report['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) (filename='summary.json', change={'runtime': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 186, in test_skeletal_or_tampered_completion_receipts_stay_incomplete
+    self.assertFalse(report['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) (filename='binding.json', change={'weights_sha256': 'cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 186, in test_skeletal_or_tampered_completion_receipts_stay_incomplete
+    self.assertFalse(report['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) (filename='runtime.json', change={'device': 'cpu'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 186, in test_skeletal_or_tampered_completion_receipts_stay_incomplete
+    self.assertFalse(report['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) (filename='first_step.json', change={'diagnostic_passed': False})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 186, in test_skeletal_or_tampered_completion_receipts_stay_incomplete
+    self.assertFalse(report['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) (filename='optimizer_progress.json', change={'optimizer_steps': 119})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 186, in test_skeletal_or_tampered_completion_receipts_stay_incomplete
+    self.assertFalse(report['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) (filename='history.json', change=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 186, in test_skeletal_or_tampered_completion_receipts_stay_incomplete
+    self.assertFalse(report['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) (filename='val_predictions.json', change={'labels': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 186, in test_skeletal_or_tampered_completion_receipts_stay_incomplete
+    self.assertFalse(report['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_skeletal_or_tampered_completion_receipts_stay_incomplete (tests.test_hgtnet_aid_entry.EntryTests.test_skeletal_or_tampered_completion_receipts_stay_incomplete) (filename='val_predictions.json', change={'predictions': [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 186, in test_skeletal_or_tampered_completion_receipts_stay_incomplete
+    self.assertFalse(report['completed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.512s
+
+FAILED (failures=20)

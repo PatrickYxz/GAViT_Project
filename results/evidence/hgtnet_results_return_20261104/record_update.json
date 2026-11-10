@@ -1,0 +1,9 @@
+{
+  "csv_new_sha256": "4e57cd424e5adf075fcd33911537807e3cc9d16c8f759ea9497bc3cc2c19c0ce",
+  "csv_old_sha256": "9f7299b8ae87f87272fbc7d81e4f5638046260ec497044b67a6205f3e1e2e0d2",
+  "new_correct_basis": "locally_recomputed_from_returned_test_predictions",
+  "non_hgt_lines_unchanged": true,
+  "old_and_new_metric_values_unchanged": true,
+  "original_archive_preserved": true,
+  "result_state": "DOWNLOADED_RESULTS_METRICS_HISTORY_LOCALLY_RECOMPUTED"
+}

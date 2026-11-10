@@ -1,0 +1,501 @@
+c++ -Wall -Wconversion -O3 -fPIC -c -o newton.o newton.cpp
+newton.cpp:42:29: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+   42 |         double *w_new = new double[n];
+      |                         ~~~        ^
+newton.cpp:66:35: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+   66 |                 memcpy(w, w_new, sizeof(double)*n);
+      |                                                ~^
+newton.cpp:77:2: warning: 'vsprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use vsnprintf(3) instead. [-Wdeprecated-declarations]
+   77 |         vsprintf(buf,fmt,ap);
+      |         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_stdio.h:298:1: note: 'vsprintf' has been explicitly marked deprecated here
+  298 | __deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use vsnprintf(3) instead.")
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:227:48: note: expanded from macro '__deprecated_msg'
+  227 |         #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+      |                                                       ^
+newton.cpp:103:25: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  103 |         double *s = new double[n];
+      |                     ~~~        ^
+newton.cpp:104:25: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  104 |         double *r = new double[n];
+      |                     ~~~        ^
+newton.cpp:105:25: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  105 |         double *g = new double[n];
+      |                     ~~~        ^
+newton.cpp:108:25: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  108 |         double *M = new double[n];
+      |                     ~~~        ^
+newton.cpp:111:26: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  111 |         double *w0 = new double[n];
+      |                      ~~~        ^
+newton.cpp:179:25: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  179 |         double *d = new double[n];
+      |                     ~~~        ^
+newton.cpp:180:26: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  180 |         double *Hd = new double[n];
+      |                      ~~~        ^
+newton.cpp:182:25: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  182 |         double *z = new double[n];
+      |                     ~~~        ^
+11 warnings generated.
+c++ -Wall -Wconversion -O3 -fPIC -c -o linear.o linear.cpp
+linear.cpp:41:2: warning: 'vsprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use vsnprintf(3) instead. [-Wdeprecated-declarations]
+   41 |         vsprintf(buf,fmt,ap);
+      |         ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_stdio.h:298:1: note: 'vsprintf' has been explicitly marked deprecated here
+  298 | __deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use vsnprintf(3) instead.")
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:227:48: note: expanded from macro '__deprecated_msg'
+  227 |         #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+      |                                                       ^
+linear.cpp:137:18: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  137 |         wx = new double[l];
+      |              ~~~        ^
+linear.cpp:138:19: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  138 |         tmp = new double[l];
+      |               ~~~        ^
+linear.cpp:279:17: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  279 |         D = new double[l];
+      |             ~~~        ^
+linear.cpp:388:20: warning: implicit conversion changes signedness: 'const int' to 'unsigned long' [-Wsign-conversion]
+  388 |         I = new int[prob->l];
+      |             ~~~     ~~~~~~^
+linear.cpp:602:23: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  602 |         this->B = new double[nr_class];
+      |                   ~~~        ^~~~~~~~
+linear.cpp:603:23: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  603 |         this->G = new double[nr_class];
+      |                   ~~~        ^~~~~~~~
+linear.cpp:630:11: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+  630 |         qsort(D, active_i, sizeof(double), compare_double);
+      |         ~~~~~    ^~~~~~~~
+linear.cpp:661:30: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  661 |         double *alpha = new double[l*nr_class];
+      |                         ~~~        ~^~~~~~~~~
+linear.cpp:662:33: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  662 |         double *alpha_new = new double[nr_class];
+      |                             ~~~        ^~~~~~~~
+linear.cpp:663:23: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  663 |         int *index = new int[l];
+      |                      ~~~     ^
+linear.cpp:664:26: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  664 |         double *QD = new double[l];
+      |                      ~~~        ^
+linear.cpp:665:23: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  665 |         int *d_ind = new int[nr_class];
+      |                      ~~~     ^~~~~~~~
+linear.cpp:666:29: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  666 |         double *d_val = new double[nr_class];
+      |                         ~~~        ^~~~~~~~
+linear.cpp:667:37: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  667 |         int *alpha_index = new int[nr_class*l];
+      |                            ~~~     ~~~~~~~~^~
+linear.cpp:668:25: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  668 |         int *y_index = new int[l];
+      |                        ~~~     ^
+linear.cpp:670:31: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  670 |         int *active_size_i = new int[l];
+      |                              ~~~     ^
+linear.cpp:909:26: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  909 |         double *QD = new double[l];
+      |                      ~~~        ^
+linear.cpp:910:23: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  910 |         int *index = new int[l];
+      |                      ~~~     ^
+linear.cpp:911:29: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  911 |         double *alpha = new double[l];
+      |                         ~~~        ^
+linear.cpp:912:23: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  912 |         schar *y = new schar[l];
+      |                    ~~~       ^
+linear.cpp:1131:23: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1131 |         int *index = new int[l];
+      |                      ~~~     ^
+linear.cpp:1137:28: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1137 |         double *beta = new double[l];
+      |                        ~~~        ^
+linear.cpp:1138:26: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1138 |         double *QD = new double[l];
+      |                      ~~~        ^
+linear.cpp:1335:27: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1335 |         double *xTx = new double[l];
+      |                       ~~~        ^
+linear.cpp:1336:23: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1336 |         int *index = new int[l];
+      |                      ~~~     ^
+linear.cpp:1337:30: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1337 |         double *alpha = new double[2*l]; // store alpha and C - alpha
+      |                         ~~~        ~^~
+linear.cpp:1338:23: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1338 |         schar *y = new schar[l];
+      |                    ~~~       ^
+linear.cpp:1511:23: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1511 |         int *index = new int[w_size];
+      |                      ~~~     ^~~~~~
+linear.cpp:1512:23: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1512 |         schar *y = new schar[l];
+      |                    ~~~       ^
+linear.cpp:1513:25: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1513 |         double *b = new double[l]; // b = 1-ywTx
+      |                     ~~~        ^
+linear.cpp:1514:29: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1514 |         double *xj_sq = new double[w_size];
+      |                         ~~~        ^~~~~~
+linear.cpp:1820:23: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1820 |         int *index = new int[w_size];
+      |                      ~~~     ^~~~~~
+linear.cpp:1821:23: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1821 |         schar *y = new schar[l];
+      |                    ~~~       ^
+linear.cpp:1822:29: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1822 |         double *Hdiag = new double[w_size];
+      |                         ~~~        ^~~~~~
+linear.cpp:1823:28: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1823 |         double *Grad = new double[w_size];
+      |                        ~~~        ^~~~~~
+linear.cpp:1824:27: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1824 |         double *wpd = new double[w_size];
+      |                       ~~~        ^~~~~~
+linear.cpp:1825:33: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1825 |         double *xjneg_sum = new double[w_size];
+      |                             ~~~        ^~~~~~
+linear.cpp:1826:27: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1826 |         double *xTd = new double[l];
+      |                       ~~~        ^
+linear.cpp:1827:31: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1827 |         double *exp_wTx = new double[l];
+      |                           ~~~        ^
+linear.cpp:1828:35: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1828 |         double *exp_wTx_new = new double[l];
+      |                               ~~~        ^
+linear.cpp:1829:27: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1829 |         double *tau = new double[l];
+      |                       ~~~        ^
+linear.cpp:1830:25: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 1830 |         double *D = new double[l];
+      |                     ~~~        ^
+linear.cpp:2259:26: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2259 |         double *QD = new double[l];
+      |                      ~~~        ^
+linear.cpp:2260:25: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2260 |         double *G = new double[l];
+      |                     ~~~        ^
+linear.cpp:2261:23: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2261 |         int *index = new int[l];
+      |                      ~~~     ^
+linear.cpp:2262:29: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2262 |         double *alpha = new double[l];
+      |                         ~~~        ^
+linear.cpp:2270:51: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2270 |         feature_node *max_negG_of_Iup = new feature_node[l];
+      |                                         ~~~              ^
+linear.cpp:2271:52: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2271 |         feature_node *min_negG_of_Ilow = new feature_node[l];
+      |                                          ~~~              ^
+linear.cpp:2357:53: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+ 2357 |                 qsort(&(max_negG_of_Iup[len_Iup-max_inner_iter]), max_inner_iter, sizeof(struct feature_node), compare_feature_node);
+      |                 ~~~~~                                             ^~~~~~~~~~~~~~
+linear.cpp:2360:27: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+ 2360 |                 qsort(min_negG_of_Ilow, max_inner_iter, sizeof(struct feature_node), compare_feature_node);
+      |                 ~~~~~                   ^~~~~~~~~~~~~~
+linear.cpp:2492:33: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2492 |         size_t *col_ptr = new size_t [n+1];
+      |                           ~~~         ~^~
+linear.cpp:2496:27: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2496 |         prob_col->y = new double[l];
+      |                       ~~~        ^
+linear.cpp:2497:34: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2497 |         prob_col->x = new feature_node*[n];
+      |                       ~~~               ^
+linear.cpp:2517:33: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+ 2517 |         x_space = new feature_node[nnz+n];
+      |                                       ~^
+linear.cpp:2548:26: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2548 |         int *label = Malloc(int,max_nr_class);
+      |                      ~~~~~~~~~~~^~~~~~~~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:2549:26: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2549 |         int *count = Malloc(int,max_nr_class);
+      |                      ~~~~~~~~~~~^~~~~~~~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:2550:31: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2550 |         int *data_label = Malloc(int,l);
+      |                           ~~~~~~~~~~~^~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:2571:34: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2571 |                                 label = (int *)realloc(label,max_nr_class*sizeof(int));
+      |                                                              ^~~~~~~~~~~~~
+linear.cpp:2572:34: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2572 |                                 count = (int *)realloc(count,max_nr_class*sizeof(int));
+      |                                                              ^~~~~~~~~~~~~
+linear.cpp:2598:26: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2598 |         int *start = Malloc(int,nr_class);
+      |                      ~~~~~~~~~~~^~~~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:2629:31: warning: implicit conversion changes signedness: 'const int' to 'unsigned long' [-Wsign-conversion]
+ 2629 |         double *C = new double[prob->l];
+      |                     ~~~        ~~~~~~^
+linear.cpp:2828:40: warning: implicit conversion changes signedness: 'const int' to 'unsigned long' [-Wsign-conversion]
+ 2828 |         double *target = Malloc(double, prob->l);
+      |                          ~~~~~~~~~~~~~~~~~~~~~^~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:2832:36: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2832 |         double **prev_w = Malloc(double*, nr_fold);
+      |                           ~~~~~~~~~~~~~~~~^~~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:2867:32: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2867 |                                 prev_w[i] = Malloc(double, total_w_size);
+      |                                             ~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:2966:30: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2966 |                 model_->w = Malloc(double, w_size);
+      |                             ~~~~~~~~~~~~~~~^~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:2981:30: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2981 |                 model_->w = Malloc(double, w_size);
+      |                             ~~~~~~~~~~~~~~~^~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:2992:26: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2992 |                 int *perm = Malloc(int,l);
+      |                             ~~~~~~~~~~~^~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:2998:30: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2998 |                 model_->label = Malloc(int,nr_class);
+      |                                 ~~~~~~~~~~~^~~~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3003:39: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3003 |                 double *weighted_C = Malloc(double, nr_class);
+      |                                      ~~~~~~~~~~~~~~~^~~~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3018:44: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3018 |                 feature_node **x = Malloc(feature_node *,l);
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~^~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3026:47: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3026 |                 sub_prob.x = Malloc(feature_node *,sub_prob.l);
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3027:39: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3027 |                 sub_prob.y = Malloc(double,sub_prob.l);
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~^~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3035:30: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3035 |                         model_->w=Malloc(double, n*nr_class);
+      |                                   ~~~~~~~~~~~~~~~~^~~~~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3046:30: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3046 |                                 model_->w=Malloc(double, w_size);
+      |                                           ~~~~~~~~~~~~~~~^~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3066:36: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3066 |                                 model_->w=Malloc(double, w_size*nr_class);
+      |                                           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3067:30: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3067 |                                 double *w=Malloc(double, w_size);
+      |                                           ~~~~~~~~~~~~~~~^~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3115:25: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3115 |         int *perm = Malloc(int,l);
+      |                     ~~~~~~~~~~~^~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3121:33: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3121 |         fold_start = Malloc(int,nr_fold+1);
+      |                      ~~~~~~~~~~~~~~~~~~^~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3141:51: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3141 |                 subprob.x = Malloc(struct feature_node*,subprob.l);
+      |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3142:37: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3142 |                 subprob.y = Malloc(double,subprob.l);
+      |                             ~~~~~~~~~~~~~~~~~~~~~~^~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3176:26: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3176 |         int *perm = Malloc(int, l);
+      |                     ~~~~~~~~~~~~^~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3177:43: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3177 |         struct problem *subprob = Malloc(problem,nr_fold);
+      |                                   ~~~~~~~~~~~~~~~^~~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3184:33: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3184 |         fold_start = Malloc(int,nr_fold+1);
+      |                      ~~~~~~~~~~~~~~~~~~^~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3203:57: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3203 |                 subprob[i].x = Malloc(struct feature_node*,subprob[i].l);
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3204:43: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3204 |                 subprob[i].y = Malloc(double,subprob[i].l);
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~^~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3331:46: warning: implicit conversion changes signedness: 'const int' to 'unsigned long' [-Wsign-conversion]
+ 3331 |         double *dec_values = Malloc(double, model_->nr_class);
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3544:31: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3544 |                         model_->label = Malloc(int,nr_class);
+      |                                         ~~~~~~~~~~~^~~~~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:3567:33: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 3567 |         model_->w=Malloc(double, w_size*nr_w);
+      |                   ~~~~~~~~~~~~~~~~~~~~~^~~~~~
+linear.cpp:24:40: note: expanded from macro 'Malloc'
+   24 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+linear.cpp:20:14: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+   20 |         dst = new T[n];
+      |               ~~~   ^
+linear.cpp:627:2: note: in instantiation of function template specialization 'clone<double, double>' requested here
+  627 |         clone(D, B, active_i);
+      |         ^
+linear.cpp:21:43: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+   21 |         memcpy((void *)dst,(void *)src,sizeof(T)*n);
+      |                                                 ~^
+91 warnings generated.
+make -C blas OPTFLAGS='-Wall -Wconversion -O3 -fPIC' CC='cc';
+cc -Wall -Wconversion -O3 -fPIC -c dnrm2.c
+cc -Wall -Wconversion -O3 -fPIC -c daxpy.c
+cc -Wall -Wconversion -O3 -fPIC -c ddot.c
+cc -Wall -Wconversion -O3 -fPIC -c dscal.c
+ar rcv blas.a dnrm2.o daxpy.o ddot.o dscal.o
+a - dnrm2.o
+a - daxpy.o
+a - ddot.o
+a - dscal.o
+ranlib blas.a
+c++ -Wall -Wconversion -O3 -fPIC -o train train.c newton.o linear.o blas/blas.a
+clang++: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+train.c:82:32: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+   82 |                 line = (char *) realloc(line,max_line_len);
+      |                                 ~~~~~~~      ^~~~~~~~~~~~
+train.c:176:39: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  176 |         double *target = Malloc(double, prob.l);
+      |                          ~~~~~~~~~~~~~~~~~~~~^~
+train.c:8:40: note: expanded from macro 'Malloc'
+    8 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+train.c:272:79: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  272 |                                 param.weight_label = (int *) realloc(param.weight_label,sizeof(int)*param.nr_weight);
+      |                                                                                                    ~~~~~~~^~~~~~~~~
+train.c:273:73: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  273 |                                 param.weight = (double *) realloc(param.weight,sizeof(double)*param.nr_weight);
+      |                                                                                              ~~~~~~~^~~~~~~~~
+train.c:327:3: warning: 'sprintf' is deprecated: This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead. [-Wdeprecated-declarations]
+  327 |                 sprintf(model_file_name,"%s.model",p);
+      |                 ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_stdio.h:278:1: note: 'sprintf' has been explicitly marked deprecated here
+  278 | __deprecated_msg("This function is provided for compatibility reasons only.  Due to security concerns inherent in the design of sprintf(3), it is highly recommended that you use snprintf(3) instead.")
+      | ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:227:48: note: expanded from macro '__deprecated_msg'
+  227 |         #define __deprecated_msg(_msg) __attribute__((__deprecated__(_msg)))
+      |                                                       ^
+train.c:397:21: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  397 |         line = Malloc(char,max_line_len);
+      |                ~~~~~~~~~~~~^~~~~~~~~~~~~
+train.c:8:40: note: expanded from macro 'Malloc'
+    8 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+train.c:417:30: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  417 |         prob.y = Malloc(double,prob.l);
+      |                  ~~~~~~~~~~~~~~~~~~~^~
+train.c:8:40: note: expanded from macro 'Malloc'
+    8 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+train.c:418:45: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  418 |         prob.x = Malloc(struct feature_node *,prob.l);
+      |                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+train.c:8:40: note: expanded from macro 'Malloc'
+    8 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^ ~
+train.c:419:53: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+  419 |         x_space = Malloc(struct feature_node,elements+prob.l);
+      |                                                      ~~~~~~^
+train.c:8:40: note: expanded from macro 'Malloc'
+    8 | #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
+      |                                        ^
+9 warnings generated.
+c++ -Wall -Wconversion -O3 -fPIC -o predict predict.c newton.o linear.o blas/blas.a
+clang++: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated [-Wdeprecated]
+predict.c:37:32: warning: implicit conversion changes signedness: 'int' to 'size_t' (aka 'unsigned long') [-Wsign-conversion]
+   37 |                 line = (char *) realloc(line,max_line_len);
+      |                                 ~~~~~~~      ^~~~~~~~~~~~
+predict.c:71:25: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+   71 |                 labels=(int *) malloc(nr_class*sizeof(int));
+      |                                       ^~~~~~~~~
+predict.c:73:38: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+   73 |                 prob_estimates = (double *) malloc(nr_class*sizeof(double));
+      |                                                    ^~~~~~~~~
+predict.c:82:24: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+   82 |         line = (char *)malloc(max_line_len*sizeof(char));
+      |                               ^~~~~~~~~~~~~
+predict.c:103:43: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  103 |                                 x = (struct feature_node *) realloc(x,max_nr_attr*sizeof(struct feature_node));
+      |                                                                       ^~~~~~~~~~~~
+predict.c:234:37: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+  234 |         x = (struct feature_node *) malloc(max_nr_attr*sizeof(struct feature_node));
+      |                                            ^~~~~~~~~~~~
+6 warnings generated.

@@ -1,0 +1,36 @@
+{
+  "client_date": "2026-11-10",
+  "source_git_base": "058f1d8b79d0be538ec358eb742d2cd3992921d4",
+  "source_kind": "uncommitted_source_snapshot",
+  "packages": [
+    {
+      "path": "output/aid_campaign_20261110_v1.pyz",
+      "bytes": 922132,
+      "sha256": "ea5e7775874c4bf4cd93c4e17a7ea200227d9e8ebb18700227baef6fda864291"
+    },
+    {
+      "path": "output/dfagcn_campaign_20261110_v1.pyz",
+      "bytes": 162345,
+      "sha256": "c09b024cf03eb0becd6358abc156c8802c824b38509d34db7fc322758e68c28b"
+    }
+  ],
+  "review_agent": "campaign_preflight_review",
+  "reviewed_tests": {
+    "aid_stdlib": {
+      "passed": 26
+    },
+    "dfagcn_stdlib": {
+      "passed": 13
+    }
+  },
+  "gpu_tested": false,
+  "training_started": false,
+  "remote_gpu": null,
+  "active_ssh_port": 27435,
+  "replaced_ssh_port": 18307,
+  "limitations": [
+    "No successful remote command yet",
+    "No torch tensor/runtime tests locally",
+    "Actual GPU, installed dependencies, data, disk and native LIBLINEAR require remote inventory"
+  ]
+}

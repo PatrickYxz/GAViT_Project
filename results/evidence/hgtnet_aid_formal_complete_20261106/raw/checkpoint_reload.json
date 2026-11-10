@@ -1,0 +1,13 @@
+{
+  "loaded": true,
+  "metadata": {
+    "epoch": 96,
+    "initial_state_sha256": "d0f23cc48d95df83f394501382d3b93470750419c8136160c2920b88c1279202",
+    "phase": "refit",
+    "selected_epoch": 96
+  },
+  "reload_max_abs_error": 0.0,
+  "reload_tolerance": 1e-06,
+  "sha256": "4de7bdfbbc6afdf91ee3dc59b0c084b36d0161a07d1457b0c9f56cd6e0504aa2",
+  "state_sha256": "655795e1e9a92466a1f4a06d0b3644914ccf234ba50b0fe7c2cf72377470ef31"
+}

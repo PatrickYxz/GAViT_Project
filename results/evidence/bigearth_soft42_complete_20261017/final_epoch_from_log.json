@@ -1,0 +1,8 @@
+{
+  "epoch": 30,
+  "train_loss": 0.053753454900979866,
+  "val_mAP_percent": 75.70723466069043,
+  "val_macro_f1_percent": 71.11209758942073,
+  "next_epoch_lr": 0.0,
+  "epoch_wall_seconds": 690.9328997129996
+}

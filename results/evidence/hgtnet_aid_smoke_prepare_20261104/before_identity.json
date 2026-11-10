@@ -1,0 +1,32 @@
+{
+  "old_bundle_sha256": "b2bc9077cf37e75c83fbb72e7c4047d2fb9ede04db8fb4e4a56344500ff572e1",
+  "files": {
+    "configs/hgtnet_independent_v0.json": true,
+    "configs/hgtnet_nwpu_formal_v1.json": true,
+    "external_baselines/__init__.py": true,
+    "external_baselines/hgtnet/__init__.py": true,
+    "external_baselines/hgtnet/__main__.py": true,
+    "external_baselines/hgtnet/attention.py": true,
+    "external_baselines/hgtnet/batch_probe.py": true,
+    "external_baselines/hgtnet/batch_probe_engine.py": true,
+    "external_baselines/hgtnet/checkpoint.py": true,
+    "external_baselines/hgtnet/config.py": true,
+    "external_baselines/hgtnet/formal_checkpoints.py": true,
+    "external_baselines/hgtnet/formal_data.py": true,
+    "external_baselines/hgtnet/formal_engine.py": true,
+    "external_baselines/hgtnet/formal_entry.py": true,
+    "external_baselines/hgtnet/formal_protocol.py": true,
+    "external_baselines/hgtnet/graph.py": true,
+    "external_baselines/hgtnet/model.py": true,
+    "external_baselines/hgtnet/nwpu_data.py": true,
+    "external_baselines/hgtnet/nwpu_engine.py": true,
+    "external_baselines/hgtnet/pretrained.py": true,
+    "external_baselines/hgtnet/resources.py": true,
+    "external_baselines/hgtnet/smoke.py": true,
+    "tools/run_dfagcn_nwpu_smoke.py": true,
+    "tools/run_hgtnet_nwpu_smoke.py": true
+  },
+  "metrics_csv_sha256": "639a9b45b07625d63c1254a32969637c984a996997248622a647f261d43c0988",
+  "legacy_comparison_sha256": "54efc5572b6271e9019bd5546951ae84f9f06bf23fc7ff58021036b419de562f",
+  "legacy_ablation_sha256": "33182d7a7802e11c0580e66b7736c1d679af45ba4399b47369b582d8e9bd2011"
+}

@@ -1,0 +1,10 @@
+{
+  "float32_feature_bytes_per_image": 267264,
+  "all_cache_samples_including_train_val_duplication": 37800,
+  "float32_arrays_bytes": 10102579200,
+  "float32_arrays_gib": 9.408760070800781,
+  "text_storage_upper_bound_gib": 14.37485,
+  "free_space_gate_gib": 40,
+  "scope": "analytic storage budget, not observed training memory or measured runtime",
+  "formal_run_started": false
+}

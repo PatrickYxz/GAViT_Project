@@ -1,0 +1,32 @@
+{
+  "scope": "local hardware-only delivery, no remote/CUDA/train action",
+  "runs": [
+    {
+      "action": "build3090",
+      "exit_code": 0,
+      "command": "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python tools/package_hgtnet_nwpu_smoke.py build --target-gpu 3090 --output output/hgtnet_nwpu_smoke_3090_20261102.pyz"
+    },
+    {
+      "action": "actual_pyz_stdlib_inspect",
+      "exit_code": 0,
+      "receipt": "bundle_inspect_guard.json"
+    },
+    {
+      "action": "actual_pyz_status",
+      "exit_code": 0,
+      "receipt": "actual_bundle_status.json"
+    },
+    {
+      "action": "targeted_suite",
+      "exit_code": 0,
+      "receipt": "targeted_suite.json"
+    },
+    {
+      "action": "full_related_attempt",
+      "exit_code": 1,
+      "exec_session": 17232,
+      "receipt": "full_suite_attempt.json",
+      "reason": "temporary interpreter lacks torch/numpy/vision/PIL"
+    }
+  ]
+}

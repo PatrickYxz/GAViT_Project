@@ -1,0 +1,153 @@
+{
+  "accessed_on": "2026-10-27",
+  "doi": "10.1109/TNNLS.2021.3071369",
+  "source_url": "https://www.researchgate.net/publication/350910107_Deep_Feature_Aggregation_Framework_Driven_by_Graph_Convolutional_Network_for_Scene_Classification_in_Remote_Sensing",
+  "source_kind": "author_uploaded_original_fulltext_web_extraction",
+  "upload_attribution": {
+    "uploader": "Hong Huang",
+    "uploaded_on_printed": "Nov 15, 2022",
+    "web_lines": "49-55"
+  },
+  "article_identity": {
+    "title": "Deep Feature Aggregation Framework Driven by Graph Convolutional Network for Scene Classification in Remote Sensing",
+    "authors": [
+      "Kejie Xu",
+      "Hong Huang",
+      "Peifang Deng",
+      "Yuan Li"
+    ],
+    "journal": "IEEE Transactions on Neural Networks and Learning Systems",
+    "volume": "33",
+    "issue": "10",
+    "print_year": "2022",
+    "online_publication_date": "2021-04-15",
+    "printed_pages": "5751-5765"
+  },
+  "access_observations": [
+    {
+      "method": "web.open author-uploaded original page",
+      "outcome": "SUCCESS_FULLTEXT_BODY",
+      "details": "Fresh original-body reading; formulas, configuration paragraphs and result means visible. Raster table cells were absent from the extracted text."
+    },
+    {
+      "method": "web.click Download full-text PDF",
+      "outcome": "INTERNAL_ERROR",
+      "details": "No usable PDF response or local original PDF."
+    },
+    {
+      "method": "standard-library HTTPS request in sandbox",
+      "outcome": "DNS_ERROR",
+      "details": "URLError Errno 8; no downloaded page."
+    },
+    {
+      "method": "authorized read-only HTTPS request with network escalation",
+      "outcome": "HTTP_403",
+      "details": "No downloaded page; not a rejection of action authorization."
+    },
+    {
+      "method": "normal Chrome navigation to the same original URL",
+      "outcome": "DEVICE_CHECK",
+      "details": "DataDome Device Check; no interaction with challenge, no bypass, no screenshot of article tables."
+    }
+  ],
+  "saved_original_pdf": null,
+  "saved_full_html": null,
+  "pdf_render_performed": false,
+  "reason_no_pdf_render": "No original PDF bytes were obtained; pdf skill was read, no package installed.",
+  "direct_excerpts": [
+    {
+      "id": "aid_oa",
+      "printed_page": "5762",
+      "table_context": "Table V",
+      "section": "IV-F",
+      "web_lines": "1542-1553",
+      "text": "OA reaches 94.88% under the training ratio of 50%."
+    },
+    {
+      "id": "nwpu_oa",
+      "printed_page": "5762",
+      "table_context": "Table VII",
+      "section": "IV-F",
+      "web_lines": "1591-1599",
+      "text": "reaches 89.29% under the training ratio of 20%."
+    }
+  ],
+  "primary_locators": [
+    {
+      "topic": "layer names and dimensions",
+      "section": "III-A / IV-B",
+      "printed_pages": [
+        "5755",
+        "5757"
+      ],
+      "web_lines": [
+        "702-717",
+        "1052-1080"
+      ]
+    },
+    {
+      "topic": "average pooling and binary union kNN k=10",
+      "section": "III-B, Eq. (1)",
+      "printed_page": "5755",
+      "web_lines": [
+        "742-786"
+      ]
+    },
+    {
+      "topic": "self loops, normalized GCN, global average pooling, FC/ReLU/dropout",
+      "section": "III-C, Eq. (2)-(5)",
+      "printed_pages": [
+        "5755",
+        "5756"
+      ],
+      "web_lines": [
+        "804-895"
+      ]
+    },
+    {
+      "topic": "weighted concatenation order",
+      "section": "III-D, Eq. (6)-(7)",
+      "printed_page": "5756",
+      "web_lines": [
+        "907-937"
+      ]
+    },
+    {
+      "topic": "optimizer, schedule, no augmentation, C, splits and repetitions",
+      "section": "IV-C",
+      "printed_page": "5757",
+      "web_lines": [
+        "1091-1148"
+      ]
+    },
+    {
+      "topic": "Table I title but missing cells",
+      "section": "Table I",
+      "printed_page": "5758",
+      "web_lines": [
+        "1151-1157"
+      ]
+    },
+    {
+      "topic": "alpha beta gamma grids and selected values",
+      "section": "IV-D",
+      "printed_pages": [
+        "5758",
+        "5759"
+      ],
+      "web_lines": [
+        "1172-1241"
+      ]
+    },
+    {
+      "topic": "Table V and VII headings and directly described means",
+      "section": "IV-F",
+      "printed_page": "5762",
+      "web_lines": [
+        "1510-1563",
+        "1591-1599"
+      ]
+    }
+  ],
+  "archive_scope": "Short direct original-text excerpts and explicit source locators. No secondary numeric source, complete PDF, full HTML, raster table screenshot or independent experiment is claimed."
+}

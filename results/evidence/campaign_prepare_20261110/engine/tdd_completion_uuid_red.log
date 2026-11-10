@@ -1,0 +1,34 @@
+test_changed_completion_receipt_is_rejected (tests.test_aid_campaign_engine.CampaignEngineTests.test_changed_completion_receipt_is_rejected) ... FAIL
+test_completed_job_is_verified_without_training (tests.test_aid_campaign_engine.CampaignEngineTests.test_completed_job_is_verified_without_training) ... ok
+test_cuda_uuid_fallback_requires_independent_runtime_measurement (tests.test_aid_campaign_engine.CampaignEngineTests.test_cuda_uuid_fallback_requires_independent_runtime_measurement) ... ERROR
+test_formal_refuses_changed_recipe (tests.test_aid_campaign_engine.CampaignEngineTests.test_formal_refuses_changed_recipe) ... ok
+test_formal_refuses_cpu_before_importing_training_dependencies (tests.test_aid_campaign_engine.CampaignEngineTests.test_formal_refuses_cpu_before_importing_training_dependencies) ... ok
+test_formal_refuses_historical_fixed_swin_seeds (tests.test_aid_campaign_engine.CampaignEngineTests.test_formal_refuses_historical_fixed_swin_seeds) ... ok
+test_manifest_hash_and_actual_counts_are_both_required (tests.test_aid_campaign_engine.CampaignEngineTests.test_manifest_hash_and_actual_counts_are_both_required) ... ok
+
+======================================================================
+ERROR: test_cuda_uuid_fallback_requires_independent_runtime_measurement (tests.test_aid_campaign_engine.CampaignEngineTests.test_cuda_uuid_fallback_requires_independent_runtime_measurement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_aid_campaign_engine.py", line 63, in test_cuda_uuid_fallback_requires_independent_runtime_measurement
+    self.assertEqual(engine.resolve_gpu_uuid(None, 'GPU-abcd', measured), 'GPU-abcd')
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'scene_classification.aid_campaign_engine' has no attribute 'resolve_gpu_uuid'
+
+======================================================================
+FAIL: test_changed_completion_receipt_is_rejected (tests.test_aid_campaign_engine.CampaignEngineTests.test_changed_completion_receipt_is_rejected)
+----------------------------------------------------------------------
+ValueError: Missing completion artifact hash list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_aid_campaign_engine.py", line 57, in test_changed_completion_receipt_is_rejected
+    with self.assertRaisesRegex(ValueError, 'receipt hash'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "receipt hash" does not match "Missing completion artifact hash list"
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.005s
+
+FAILED (failures=1, errors=1)

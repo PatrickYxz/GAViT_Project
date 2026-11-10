@@ -1,0 +1,105 @@
+{
+  "bundle_sha256": "1cd2ab967cdbc386b294b397c6804bf06c5796c01332c709e44646f98d03f036",
+  "checks": [
+    {
+      "detail": [
+        "__main__.py",
+        "source_identity.json"
+      ],
+      "name": "two_trusted_members_only",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "payload_equals_frozen_source",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "identity_matches_source_bytes",
+      "passed": true
+    },
+    {
+      "detail": [
+        "argparse",
+        "collections",
+        "errno",
+        "hashlib",
+        "importlib",
+        "json",
+        "os",
+        "pathlib",
+        "platform",
+        "re",
+        "shutil",
+        "stat",
+        "subprocess",
+        "sys"
+      ],
+      "name": "all_source_import_roots_stdlib",
+      "passed": true
+    },
+    {
+      "detail": "b2bc9077cf37e75c83fbb72e7c4047d2fb9ede04db8fb4e4a56344500ff572e1",
+      "name": "old_NWPU_package_sha_unchanged",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "bundle_matches_first_creation_receipt",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "source_matches_first_creation_receipt",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "actual_zipapp_stdlib_and_filesystem_guards_pass",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "actual_zipapp_missing_assets_exit0",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "actual_zipapp_no_training_entry_or_start",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "actual_zipapp_guard_stderr_empty",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "exclusive_builder_refuses_overwrite",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "final_13_tests_pass",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "RED_missing_feature_witness_preserved",
+      "passed": true
+    },
+    {
+      "detail": null,
+      "name": "default_zipapp_stdout_valid_inventory",
+      "passed": true
+    }
+  ],
+  "checks_passed": 15,
+  "checks_total": 15,
+  "old_NWPU_bundle_sha256": "b2bc9077cf37e75c83fbb72e7c4047d2fb9ede04db8fb4e4a56344500ff572e1",
+  "source_sha256": "4e3b66b91f115d99d01e39fe168e8cf5dd18503ec8593e45c39dbccfcd0eb7b4",
+  "status": "PASS",
+  "training_entry_available": false,
+  "training_started": false
+}

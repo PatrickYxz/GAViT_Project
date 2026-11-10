@@ -1,0 +1,12 @@
+test_bad_inputs_fail_before_attention_even_on_meta_model (test_hgtnet_model.ModelTests.test_bad_inputs_fail_before_attention_even_on_meta_model) ... ok
+test_class30_changes_only_head_shape (test_hgtnet_model.ModelTests.test_class30_changes_only_head_shape) ... ok
+test_model_owns_config_without_caller_alias (test_hgtnet_model.ModelTests.test_model_owns_config_without_caller_alias) ... ok
+test_no_implicit_online_or_pretrained_loading (test_hgtnet_model.ModelTests.test_no_implicit_online_or_pretrained_loading) ... ok
+test_parameter_groups_account_for_every_parameter_once (test_hgtnet_model.ModelTests.test_parameter_groups_account_for_every_parameter_once) ... ok
+test_real_full_architecture_not_a_swin_t_or_tiny_surrogate (test_hgtnet_model.ModelTests.test_real_full_architecture_not_a_swin_t_or_tiny_surrogate) ... ok
+test_trace_uses_real_computation_shapes_and_graph_indices (test_hgtnet_model.ModelTests.test_trace_uses_real_computation_shapes_and_graph_indices) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.505s
+
+OK

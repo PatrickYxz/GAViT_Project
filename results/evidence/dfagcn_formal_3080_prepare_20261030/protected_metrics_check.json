@@ -1,0 +1,21 @@
+{
+  "results/comparison_table.csv": true,
+  "results/ablation_study.csv": true,
+  "results/multiseed_test_results.csv": true,
+  "results/supervisor_progress_data_20261012.json": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/ablation_study.csv": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/bigearth_four_seed_per_class_comparison.csv": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/bigearth_multiseed_summary.csv": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed42_seed44_class_stability.csv": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed43_per_class_comparison.csv": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed43_three_model_per_class.csv": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed44_per_class_comparison.csv": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/bigearth_seed45_per_class_comparison.csv": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/bigearth_swin_seed44_per_class_ap.csv": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/bigearth_three_model_two_seed_comparison.csv": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/comparison_table.csv": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/nwpu_two_seed_comparison.csv": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/per_class_accuracy.csv": true,
+  ".worktrees/sparse-hybrid-4n-top2/results/per_class_accuracy_fusion.csv": true
+}

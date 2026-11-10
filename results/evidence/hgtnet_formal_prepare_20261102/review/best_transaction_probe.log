@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "final_refit_state_equal": true,
+    "fixture_has_real_later_validation_improvement": true,
+    "injected_precommit_failure": true,
+    "old_best_slot_bytes_preserved": true,
+    "previous_epoch1_still_recoverable": true,
+    "resumed_selection_and_test_equal": true,
+    "selected_later_epoch2": true
+  },
+  "checks_count": 7,
+  "engine_sha256": "42eb8bc8461c91fde053863c5dfd93a1fb89faded1e5c5d719105fff99cbdbc5",
+  "passed": true,
+  "schema": "hgtnet-best-slot-transaction-review-v1",
+  "scope": "actual small CPU optimization/evaluation, two best slots and injected interrupted save; no full HGT/GPU/NWPU claim"
+}

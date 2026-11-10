@@ -1,0 +1,1 @@
+Local draft only, never delivered to user/server. Preserved before fixing completed ZIP recovery receipt. The old sidecar path records the build-time output location; final output uses the same name with new bytes. Do not use this draft for target execution.

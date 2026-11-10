@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-28",
+  "scope": "Original author records and available official metadata; descriptions restricted to verified abstract-level mechanisms. No full-text audit of all papers or exhaustive search is claimed.",
+  "entries": [
+    {
+      "key": "simonyan2015vgg",
+      "primary_url": "https://arxiv.org/abs/1409.1556",
+      "additional_primary_url": "https://www.robots.ox.ac.uk/~vgg/publications/2015/Simonyan15/",
+      "used_for": "Deep small-filter CNN representations; no claim of a regional graph."
+    },
+    {
+      "key": "he2016resnet",
+      "primary_url": "https://arxiv.org/abs/1512.03385",
+      "additional_primary_url": null,
+      "used_for": "Residual learning and optimisation of deep visual representations."
+    },
+    {
+      "key": "vaswani2017attention",
+      "primary_url": "https://arxiv.org/abs/1706.03762",
+      "additional_primary_url": null,
+      "used_for": "Attention-based sequence processing; language-task results are not imported as image results."
+    },
+    {
+      "key": "dosovitskiy2021vit",
+      "primary_url": "https://arxiv.org/abs/2010.11929",
+      "additional_primary_url": null,
+      "used_for": "Patch-sequence visual representation and transfer; input tokenisation differs from semantic grouping."
+    },
+    {
+      "key": "touvron2021deit",
+      "primary_url": "https://arxiv.org/abs/2012.12877",
+      "additional_primary_url": "https://proceedings.mlr.press/v139/touvron21a.html",
+      "used_for": "Training recipe and attention-based distillation as factors distinct from a region graph."
+    },
+    {
+      "key": "wang2021pvt",
+      "primary_url": "https://arxiv.org/abs/2102.12122",
+      "additional_primary_url": null,
+      "used_for": "Pyramid hierarchy and progressive spatial reduction; no claim of an RS scene result."
+    },
+    {
+      "key": "liu2022convnext",
+      "primary_url": "https://arxiv.org/abs/2201.03545",
+      "additional_primary_url": null,
+      "used_for": "Modernised CNN design; avoid categorical claims that all CNNs lack useful context."
+    },
+    {
+      "key": "he2022mae",
+      "primary_url": "https://arxiv.org/abs/2111.06377",
+      "additional_primary_url": null,
+      "used_for": "Asymmetric masked reconstruction as pretraining; not an implemented objective in GAViT."
+    }
+  ],
+  "access_limits": [
+    "Several CVF HTML pages returned403, so author-uploaded arXiv records were opened as the primary fallback.",
+    "An unrelated OpenReview request reached a browser verification challenge; it was not bypassed and supplies no accepted claim.",
+    "The attention-is-not-explanation page was inspected but no entry or attributed claim was added from it."
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "audit_date": "2026-10-28",
+  "scope": "14 candidate primary-source references for remote-sensing scene classification, transfer learning, scale, transformers and domain pretraining; not a systematic review or performance ranking",
+  "candidate_bib": "remote-candidates.bib",
+  "candidate_count": 14,
+  "published_2022_to_2025_count": 7,
+  "existing_files_modified": false,
+  "full_text_access_note": "Web search sometimes returned substantial indexed publisher text while direct open returned HTTP 429/403. Such records are labelled publisher_index_text; they are not represented as successful full-text opens. No third-party summaries supply the accepted bibliographic fields or mechanism claims.",
+  "bibliographic_conventions": [
+    "Every candidate includes the complete displayed author list; initials are retained when the primary source itself displays initials.",
+    "Article identifiers in MDPI entries occupy the pages field for compatibility with the existing bibliography style; they are not page counts.",
+    "Unverified DOI/page fields are omitted, not inferred from secondary indexes.",
+    "SatMAE++ final CVF metadata spells its fourth author Rao Muhammad Anwer; arXiv and PDF spell Anwar. Final CVF BibTeX is used and the discrepancy is retained below.",
+    "Scale-MAE uses final CVF record pages 4088--4099; alternate indexing pagination was not imported."
+  ],
+  "general_boundaries": [
+    "Literature results are not measurements under the GAViT project's frozen protocol.",
+    "Multi-spectral, temporal, text-supervised, zero-shot and large pretraining settings must not be directly ranked against the project's RGB supervised runs.",
+    "Scene-classification references were selected on explicit scene/land-cover classification relevance; segmentation or detection transfer is described only as an additional task where applicable.",
+    "HGTNet bibliographic identity is verified from a coauthor's official homepage; detailed architecture must use an independently accessed original paper, not infer it from the title."
+  ],
+  "entries": [
+    {
+      "key": "penatti2015deepfeatures",
+      "year": 2015,
+      "role": "historical ImageNet-to-remote-sensing transfer",
+      "mechanism": "Evaluates fixed ConvNet descriptors trained on everyday objects on aerial scenes and remote-sensing imagery, including descriptor fusion.",
+      "boundary": "Transfer was not uniformly superior in both studied domains; this does not establish a universal advantage of natural-image features or the project's fine-tuned protocol.",
+      "sources": [
+        {"url": "https://www.cv-foundation.org/openaccess/content_cvpr_workshops_2015/W13/papers/Penatti_Do_Deep_Features_2015_CVPR_paper.pdf", "access": "opened_pdf", "tool_ref": "turn25view1", "location": "page 1 title/authors/abstract; 8-page original PDF"},
+        {"url": "https://www.cv-foundation.org/openaccess/content_cvpr_workshops_2015/W13/html/Penatti_Do_Deep_Features_2015_CVPR_paper.html", "access": "publisher_index_text", "tool_ref": "turn33search1", "location": "complete author list, venue, year, pages 44--51 and official BibTeX"}
+      ]
+    },
+    {
+      "key": "hu2015transferring",
+      "year": 2015,
+      "role": "CNN feature transfer and multi-scale aggregation",
+      "mechanism": "Compares fully connected activations with multi-scale dense convolutional features encoded by conventional feature coding and classified by a linear SVM.",
+      "boundary": "The backbone is used as a fixed pretrained extractor; orderless aggregation and multiple image scales are distinct from learned spatial regions or a region graph.",
+      "sources": [
+        {"url": "https://www.mdpi.com/2072-4292/7/11/14680", "access": "publisher_index_text", "tool_ref": "turn31search0", "location": "title/authors/volume/issue/pages/DOI, abstract and sections 4.1--4.2; direct open returned 429 (turn31view2)"},
+        {"url": "https://www.mdpi.com/2072-4292/7/11", "access": "publisher_index_text", "tool_ref": "turn31search2", "location": "independent issue listing confirms four authors and 14680--14707"}
+      ]
+    },
+    {
+      "key": "nogueira2017exploiting",
+      "year": 2017,
+      "role": "training from scratch versus fine-tuning versus fixed extraction",
+      "mechanism": "Studies three ways to use existing CNNs and finds fine-tuning generally stronger in its tested remote-sensing settings, including fine-tuned features with a linear SVM.",
+      "boundary": "This is empirical evidence on its own datasets and networks, not a guarantee that ImageNet initialization removes domain shift or that all fine-tuning recipes are comparable.",
+      "sources": [
+        {"url": "https://arxiv.org/abs/1602.01517", "access": "opened_author_arxiv", "tool_ref": "turn22view5", "location": "lines 8--23, title/all authors/abstract and related journal DOI"},
+        {"url": "https://www.sciencedirect.com/science/article/abs/pii/S0031320316301509", "access": "publisher_index_text", "tool_ref": "turn6search4", "location": "Pattern Recognition 61, January 2017, 539--556, DOI; direct open returned 403 (turn14view0)"}
+      ]
+    },
+    {
+      "key": "xie2019scalefree",
+      "year": 2019,
+      "role": "resolution/scale handling in CNN scene classification",
+      "mechanism": "Converts fully connected layers to convolutional layers and uses global average pooling to accommodate variable-size images within a pretrained CNN-based classifier.",
+      "boundary": "Scale-free input handling is not equivalent to scale invariance or learned semantic region grouping; the approach does not supply evidence about a GAT branch.",
+      "sources": [
+        {"url": "https://www2.umbc.edu/rssipl/people/aplaza/Papers/Journals/2019.TGRS.Scale.pdf", "access": "opened_author_hosted_original_pdf", "tool_ref": "turn16view3", "location": "page 1 title/four authors/abstract, TGRS57(9), starting page6916 and DOI; 13-page original article"}
+      ]
+    },
+    {
+      "key": "cheng2020scene",
+      "year": 2020,
+      "role": "scene-classification problem taxonomy and deep-learning history",
+      "mechanism": "Surveys scene-classification challenges, datasets and deep-learning approaches including autoencoders, CNNs and GANs.",
+      "boundary": "It precedes the main remote-sensing transformer wave and should be complemented by recent primary studies rather than used as a complete present-day survey.",
+      "sources": [
+        {"url": "https://arxiv.org/abs/2005.01094", "access": "opened_author_arxiv", "tool_ref": "turn11view3", "location": "lines 9--26: complete authors, abstract, accepted JSTARS version, 13:3735--3756 and journal DOI"}
+      ]
+    },
+    {
+      "key": "bazi2021remotevit",
+      "year": 2021,
+      "role": "early remote-sensing scene ViT application",
+      "mechanism": "Uses patch embeddings and multihead transformer encoders for scene classification, studying augmentation and removal of encoder layers.",
+      "boundary": "Section 3.2 uses ViT-Base pretrained on ImageNet-21k then ImageNet-1k, so its published scores are not directly comparable to Swin-T with the project's pretraining and split.",
+      "sources": [
+        {"url": "https://www.mdpi.com/2072-4292/13/3/516", "access": "publisher_index_text", "tool_ref": "turn25search0", "location": "complete title/authors/citation/DOI, abstract, sections2.1 and3.2; direct opens returned429 (turn9view0/turn22view0)"}
+      ]
+    },
+    {
+      "key": "zhang2021trs",
+      "year": 2021,
+      "role": "progressive CNN--attention--transformer hybrid",
+      "mechanism": "TRS transitions from convolutional stages through an MHSA bottleneck to transformer encoders, replacing spatial convolutions with self-attention in the transition blocks.",
+      "boundary": "A local/global hybrid is already present in prior scene-classification work; it is not the same architecture or ablation as adding a small regional GAT after the last Swin stage.",
+      "sources": [
+        {"url": "https://www.mdpi.com/2072-4292/13/20/4143", "access": "publisher_index_text", "tool_ref": "turn7search1", "location": "all three authors/citation/DOI, abstract, architecture description and ablation discussion; direct open returned429 (turn31view1)"}
+      ]
+    },
+    {
+      "key": "cong2022satmae",
+      "year": 2022,
+      "role": "temporal and multi-spectral masked pretraining",
+      "mechanism": "Extends masked-autoencoder pretraining using temporal embeddings with independent masking and spectral band groups with distinct spectral positional encodings.",
+      "boundary": "Its temporal/multi-spectral inputs and large domain pretraining provide a different source of information from the project's single-image RGB ImageNet-transfer setting.",
+      "sources": [
+        {"url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/01c561df365429f33fcd7a7faa44c985-Abstract.html", "access": "opened_official_proceedings", "tool_ref": "turn11view2", "location": "lines0--13 title/nine authors/NeurIPS35(2022)/abstract/DOI"},
+        {"url": "https://arxiv.org/abs/2207.08051", "access": "author_arxiv_index_text", "tool_ref": "turn7academia14", "location": "author preprint abstract and project link"}
+      ],
+      "omitted_fields": ["pages: official BibTeX response used application/x-bibtex unsupported by this web tool"]
+    },
+    {
+      "key": "reed2023scalemae",
+      "year": 2023,
+      "role": "ground-sampling-distance-aware multiscale pretraining",
+      "mechanism": "Conditions positional encoding on physical ground scale and reconstructs low- and high-frequency image components to learn multiscale representations.",
+      "boundary": "The original study includes nonparametric kNN classification and segmentation transfer; those evaluation modes are distinct from the project's supervised/refit scene-classification protocol.",
+      "sources": [
+        {"url": "https://arxiv.org/abs/2212.14532", "access": "opened_author_arxiv", "tool_ref": "turn14view4", "location": "title/authors/abstract and revision history"},
+        {"url": "https://openaccess.thecvf.com/content/ICCV2023/html/Reed_Scale-MAE_A_Scale-Aware_Masked_Autoencoder_for_Multiscale_Geospatial_Representation_Learning_ICCV_2023_paper.html", "access": "publisher_index_text", "tool_ref": "turn28search0", "location": "complete final CVF author list, official BibTeX and pages4088--4099; direct open returned403 (turn11view0)"}
+      ],
+      "omitted_fields": ["DOI: alternate indexing pagination observed; use only verified CVF record fields"]
+    },
+    {
+      "key": "thapa2023review",
+      "year": 2023,
+      "role": "scene-classification literature taxonomy and reporting context",
+      "mechanism": "Reviews CNN-, ViT- and GAN-based scene classification and reports a meta-analysis of 50 selected peer-reviewed journal articles.",
+      "boundary": "The search was conducted on 2 May2023 with dataset keywords and journal-only filtering, so its coverage and aggregate findings should not be portrayed as a complete census of current methods.",
+      "sources": [
+        {"url": "https://www.mdpi.com/2072-4292/15/19/4804", "access": "publisher_index_text", "tool_ref": "turn9search0", "location": "complete four authors/citation/DOI and section3.1 selection protocol; direct open returned429 (turn11view4/turn31view3)"}
+      ]
+    },
+    {
+      "key": "noman2024satmaepp",
+      "year": 2024,
+      "role": "multiscale masked pretraining for optical and multi-spectral data",
+      "mechanism": "SatMAE++ uses multiscale pretraining and convolutional upsampling reconstruction blocks to learn representations from optical and multi-spectral satellite imagery.",
+      "boundary": "It evaluates BigEarthNet multilabel classification, but differences in band inputs, pretraining and downstream protocol prevent importing its mAP into the project's direct comparison table.",
+      "sources": [
+        {"url": "https://arxiv.org/abs/2403.05419", "access": "opened_author_arxiv", "tool_ref": "turn14view3", "location": "all authors, abstract and accepted CVPR2024 comment"},
+        {"url": "https://openaccess.thecvf.com/content/CVPR2024/html/Noman_Rethinking_Transformers_Pre-training_for_Multi-Spectral_Satellite_Imagery_CVPR_2024_paper.html", "access": "publisher_index_text", "tool_ref": "turn25search1", "location": "final official BibTeX, pages27811--27819 and Anwer spelling; direct open returned403 (turn11view1)"}
+      ],
+      "author_name_discrepancy": "Final CVF author metadata: Rao Muhammad Anwer; arXiv/PDF: Rao Muhammad Anwar. Candidate follows final CVF BibTeX.",
+      "omitted_fields": ["DOI not verified from a permitted primary source in this audit"]
+    },
+    {
+      "key": "liu2024remoteclip",
+      "year": 2024,
+      "role": "vision-language domain pretraining and zero-shot scene recognition",
+      "mechanism": "Builds a remote-sensing vision-language model from contrastive image-text learning, including conversion of existing annotation resources into image-text data.",
+      "boundary": "Text supervision and zero-shot/linear-probe evaluation form a distinct setting; they contextualize recent scene recognition but do not establish a fair trained-head comparison with GAViT.",
+      "sources": [
+        {"url": "https://arxiv.org/abs/2306.11029", "access": "opened_author_arxiv", "tool_ref": "turn9view1", "location": "title/all authors/abstract; initial2023 preprint revisedApril2024"},
+        {"url": "https://github.com/ChenDelong1999/RemoteCLIP", "access": "opened_official_project", "tool_ref": "turn31view0", "location": "project identifies itself as official; lines321--337 complete journal BibTeX confirms TGRS62(2024),1--16 and DOI"}
+      ]
+    },
+    {
+      "key": "li2024hgtnet",
+      "year": 2024,
+      "role": "direct graph-enhanced transformer scene-classification comparator",
+      "mechanism": "A published hierarchical graph-enhanced transformer for remote-sensing scene classification is an existing closely related complete-method comparator.",
+      "boundary": "This audit confirms bibliographic identity from a coauthor's official page, not the detailed graph operator or an obtained implementation; consult original full text before making fine architecture claims and retain the absent project reproduction results.",
+      "sources": [
+        {"url": "https://ovoyu.github.io/", "access": "opened_coauthor_official_homepage", "tool_ref": "turn9view2", "location": "lines136--139 complete seven authors/title/JSTARS17(2024),20315--20330 and DOI"},
+        {"url": "https://doi.org/10.1109/JSTARS.2024.3491335", "access": "open_failed", "tool_ref": "turn14view1", "location": "publisher article route inaccessible to this tool; no full-text read claimed"}
+      ],
+      "status": "bibliographic_identity_verified_only"
+    },
+    {
+      "key": "xu2025hetmcl",
+      "year": 2025,
+      "role": "recent CNN/transformer local-frequency and layer-context fusion",
+      "mechanism": "Combines CNN spatial features, adjacent-layer fusion, a high-frequency-enhancing transformer token mixer and multilayer contextual alignment for scene classification.",
+      "boundary": "Its UCM/AID/NWPU scene-classification experiments provide a recent design example; its author-reported scores and frequency-based explanation do not establish superiority under this project's split or explain GAViT's failures causally.",
+      "sources": [
+        {"url": "https://www.mdpi.com/1424-8220/25/12/3769", "access": "publisher_index_text", "tool_ref": "turn16search0", "location": "complete five authors/Sensors25(12),3769/year/DOI"},
+        {"url": "https://www.mdpi.com/1424-8220/25/12/3769/pdf?version=1750144454", "access": "publisher_pdf_index_text", "tool_ref": "turn33search12", "location": "original PDF title/authors/abstract and publication dates; direct open returned cache miss (turn22view4)"}
+      ]
+    }
+  ]
+}

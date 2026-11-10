@@ -1,0 +1,1174 @@
+--- /dev/null
++++ external_baselines/hgtnet/aid_batch_probe_engine.py
+@@ -0,0 +1,141 @@
++"""AID-only four-update FP32 capacity check; no epoch, score or checkpoint."""
++from __future__ import annotations
++
++import math
++import statistics
++import time
++
++import torch
++from torch import nn
++
++from .nwpu_engine import _batch, _logits, _sync
++from .smoke import gradient_report, _group
++
++
++OPTIMIZER = dict(name='Adam', lr=1e-5, weight_decay=5e-5,
++                 betas=[0.9, 0.999], eps=1e-8, amsgrad=False,
++                 foreach=None, fused=None,
++                 scope='paper lr/weight_decay; betas/eps/implementation defaults explicit engineering choices')
++COMPUTE_SCOPE = ('CUDA-synchronized forward, CE, backward, finite-gradient check and Adam update on '
++                 'already decoded/device-resident fixed16 RGB224 inputs; excludes image IO, preprocessing, '
++                 'transfer, initialization, callbacks and first-step diagnostics; no epoch/loader throughput')
++MEMORY_SCOPE = ('CUDA peak reset after model/input device placement and optimizer construction, '
++                'immediately before four updates; includes resident model/inputs, Adam states, gradients, '
++                'activations and parameter/gradient diagnostic temporaries; excludes earlier allocation '
++                'peaks and is not a full model-initialization peak; one model, no checkpoint reload, '
++                'full-dataset loader or augmentation')
++_GROUPS = {'patch_embed', 'transformer', 'dual_attention', 'graph', 'head'}
++
++
++def _finite_parameters(model):
++    return all(torch.isfinite(parameter).all().item() for parameter in model.parameters())
++
++
++def _finite_gradients(model):
++    # Validate without clipping or otherwise changing any gradient.
++    return all(parameter.grad is not None and torch.isfinite(parameter.grad).all().item()
++               for parameter in model.parameters())
++
++
++def run_batch_probe(model, images, labels, *, device, batch_size=16,
++                    warmup_steps=1, measured_steps=3, on_progress=None):
++    """Disposable fixed16/1+3 probe; CPU supports tiny numerical fixtures only."""
++    if (type(batch_size) is not int or batch_size != 16
++            or type(warmup_steps) is not int or warmup_steps != 1
++            or type(measured_steps) is not int or measured_steps != 3):
++        raise ValueError('Capacity probe is fixed to batch16, warmup1, measured3')
++    parameters = list(model.parameters())
++    if not parameters or any(not p.requires_grad or p.dtype != torch.float32 or p.is_meta for p in parameters):
++        raise ValueError('Entire actual model must be trainable float32')
++    images, labels = _batch(images, labels, 30, device)
++    if len(images) != batch_size:
++        raise ValueError('Exactly sixteen input images required')
++    model.to(device)
++    model.train()
++    if not _finite_parameters(model):
++        raise ValueError('Initial model parameters nonfinite')
++    optimizer = torch.optim.Adam(model.parameters(), lr=OPTIMIZER['lr'],
++        weight_decay=OPTIMIZER['weight_decay'], betas=tuple(OPTIMIZER['betas']),
++        eps=OPTIMIZER['eps'], amsgrad=False, foreach=None, fused=None)
++    is_cuda = torch.device(device).type == 'cuda'
++    _sync(device)
++    if is_cuda:
++        torch.cuda.reset_peak_memory_stats(device)
++    measured = []
++    warmup_seconds = first_gradients = updates = None
++    for index in range(warmup_steps + measured_steps):
++        phase = 'warmup' if index < warmup_steps else 'measured'
++        _sync(device)
++        started = time.perf_counter()
++        optimizer.zero_grad(set_to_none=True)
++        logits = _logits(model, images, 30)
++        loss = nn.functional.cross_entropy(logits, labels)
++        if not torch.isfinite(loss).item():
++            raise ValueError('Nonfinite probe loss')
++        loss.backward()
++        if not _finite_gradients(model):
++            raise ValueError('Probe gradients missing or nonfinite')
++        if index == 0:
++            first_gradients = gradient_report(model)
++            if (not first_gradients['passed'] or set(first_gradients['groups']) != _GROUPS
++                    or any(not math.isfinite(group['l2']) or group['l2'] <= 0
++                           for group in first_gradients['groups'].values())):
++                raise ValueError('First probe gradients require exactly five finite nonzero groups')
++            probes = {}
++            for name, parameter in model.named_parameters():
++                group = _group(name)
++                if group not in probes and parameter.grad.count_nonzero().item():
++                    probes[group] = (name, parameter.detach().clone())
++        loss_value = float(loss.detach())
++        optimizer.step()
++        event = dict(stage='first_optimizer_step' if index == 0 else 'measurement',
++            optimizer_step_completed=True, optimizer_step_succeeded=True, optimizer_steps=index + 1,
++            step_index=index + 1, phase=phase, training_started=True, formal_training_started=False,
++            completed=False, batch_size=16, samples_seen=(index + 1) * 16, loss=loss_value)
++        # Adam has returned successfully: every subsequent failure must retain
++        # the observed update instead of letting a caller report zero steps.
++        try:
++            _sync(device)
++            elapsed = time.perf_counter() - started
++            event['elapsed_seconds'] = elapsed
++            if not math.isfinite(elapsed) or elapsed <= 0:
++                raise ValueError('Invalid probe timer')
++            if phase == 'warmup':
++                warmup_seconds = elapsed
++            else:
++                measured.append(elapsed)
++            if index == 0:
++                named = dict(model.named_parameters())
++                updates = {group: not torch.equal(value, named[name])
++                           for group, (name, value) in probes.items()}
++                del probes
++                event.update(gradients=first_gradients, updated_groups=updates)
++                if set(updates) != _GROUPS or not all(updates.values()):
++                    raise ValueError('First probe step did not update every gradient group')
++            if not _finite_parameters(model):
++                raise ValueError('Updated probe parameters nonfinite')
++            event['post_update_checks_passed'] = True
++        except BaseException:
++            event['post_update_checks_passed'] = False
++            if on_progress:
++                on_progress(event)
++            raise
++        if on_progress:
++            on_progress(event)
++    _sync(device)
++    peak_allocated = torch.cuda.max_memory_allocated(device) if is_cuda else None
++    peak_reserved = torch.cuda.max_memory_reserved(device) if is_cuda else None
++    optimizer.zero_grad(set_to_none=True)
++    return dict(schema='hgtnet-aid-batch16-capacity-probe-v1', completed=True, training_started=True,
++        formal_training_started=False, device=str(torch.device(device)),
++        input_scope='caller_provided_tensors', batch_size=16,
++        source_identity_scope='engine does not infer real-data identity from device; wrapper binds verified records',
++        unique_images=16, processed_images=64, optimizer_steps=4, warmup_steps=1, measured_steps=3,
++        warmup_seconds=warmup_seconds, step_seconds=measured,
++        median_step_seconds=statistics.median(measured), mean_step_seconds=statistics.mean(measured),
++        compute_images_per_second=16 / statistics.median(measured), compute_timing_scope=COMPUTE_SCOPE,
++        warmup_timing_scope='includes initial Adam-state allocation and gradient diagnostics; excluded from median',
++        memory_scope=MEMORY_SCOPE, cuda_peak_allocated_bytes=peak_allocated, cuda_peak_reserved_bytes=peak_reserved,
++        first_step_gradients=first_gradients, first_step_updated_groups=updates, parameters_finite_after=True,
++        optimizer=dict(OPTIMIZER), gradient_clipping=False, accuracy_metrics=None, checkpoint_saved=False,
++        protocol_scope='fixed16 train inputs reused; disposable capacity/compute check, no formal epoch')
+--- /dev/null
++++ external_baselines/hgtnet/aid_batch_probe.py
+@@ -0,0 +1,303 @@
++"""AID30 fixed train16, four disposable updates on one idle RTX3060.
++
++inspect/status import only stdlib. Completion verifies recorded artifacts, not
++GPU recomputation. This capacity gate provides no accuracy or formal epoch.
++"""
++from __future__ import annotations
++import argparse
++import contextlib
++import hashlib
++import json
++import math
++import os
++from pathlib import Path
++import shlex
++import statistics
++import sys
++import time
++import traceback
++
++ROOT=Path(__file__).resolve().parents[2]
++if str(ROOT) not in sys.path:sys.path.insert(0,str(ROOT))
++from external_baselines.hgtnet import aid_entry as SAFE
++DATA,RES=SAFE.DATA,SAFE.RES
++SCHEMA='hgtnet-aid-batch16-capacity-probe-v1'
++DELIVERY_SCHEMA='hgtnet-aid-batch16-delivery-v1'
++CONFIG_SHA,WEIGHTS_SHA,WEIGHTS_BYTES=SAFE.CONFIG_SHA,SAFE.WEIGHTS_SHA,SAFE.WEIGHTS_BYTES
++COUNTS={'train':16,'val':0,'test':0}
++SOURCE_FILES=(
++    'external_baselines/__init__.py','external_baselines/hgtnet/__init__.py',
++    *('external_baselines/hgtnet/'+name+'.py' for name in (
++        'aid_data','aid_entry','aid_batch_probe','aid_batch_probe_engine','config','model','attention','graph',
++        'pretrained','smoke','checkpoint','nwpu_engine','resources')),
++    'configs/hgtnet_aid_independent_v0.json','tools/inspect_hgtnet_aid_inputs.py',
++    'tools/package_hgtnet_aid_batch16_probe.py')
++SELECTION_RULE='first path in frozen smoke train per label0..15'
++SCOPE='real AID train16 repeated for warmup1/measured3 disposable updates; capacity/compute only; no validation/test/accuracy/checkpoint/epoch'
++COMPLETION_CHECKS=dict(source_identity=True,config=True,manifest=True,weights=True,selected_images=True,
++                       selected_image_count=16,test_image_bytes_read=0,val_image_bytes_read=0)
++GROUPS={'patch_embed','transformer','dual_attention','graph','head'}
++_sha,_write,_read_json=SAFE._sha,SAFE._write,SAFE._read_json
++_new_output,_run_lock,lock_path=SAFE._new_output,SAFE._run_lock,SAFE.lock_path
++select_gpu,check_runtime,_check_cuda_device=SAFE.select_gpu,SAFE.check_runtime,SAFE._check_cuda_device
++_check_config,_runtime_and_torch=SAFE._check_config,SAFE._runtime_and_torch
++_same_json=SAFE._same_json
++
++def _source_identity():
++    identity={name:_sha(ROOT/name) for name in SOURCE_FILES}
++    metadata=ROOT/'delivery_manifest.json'
++    if metadata.exists() or metadata.is_symlink():
++        manifest=_read_json(metadata)
++        expected={name:manifest['files'][name]['sha256'] for name in SOURCE_FILES}
++        if manifest.get('schema')!=DELIVERY_SCHEMA or identity!=expected:
++            raise ValueError('installed batch16 immutable source identity changed')
++    return identity
++
++def select_probe_records(inputs):
++    rows=DATA._records(inputs['selected']['train'])
++    if any(row['split']!='train' for row in rows):raise ValueError('probe accepts original train records only')
++    first={}
++    for row in sorted(rows,key=lambda item:item['path']):
++        if row['label']<16:first.setdefault(row['label'],row)
++    if set(first)!=set(range(16)):raise ValueError('probe requires training labels0 through15')
++    return [first[label] for label in range(16)]
++
++def run_command(args,uuid):
++    entry=os.environ.get('HGTNET_AID_BATCH16_DELIVERY_ENTRY',str(Path(__file__).resolve()))
++    command=[sys.executable,str(Path(entry).absolute()),'run','--gpu-uuid',uuid]
++    for name in ('manifest','data_root','weights','config','output'):
++        command+=['--'+name.replace('_','-'),str(Path(getattr(args,name)).absolute())]
++    return shlex.join(command)
++
++def _check_weights(path):
++    with DATA.inspector.open_regular_readonly(path) as stream:
++        size=os.fstat(stream.fileno()).st_size;digest=hashlib.file_digest(stream,'sha256').hexdigest()
++    if size!=WEIGHTS_BYTES or digest!=WEIGHTS_SHA:raise ValueError('complete candidate weights size/SHA mismatch')
++    return dict(weights_sha256=digest,weights_bytes=size)
++
++def inspect_resources(args):
++    blockers=[]
++    report=dict(schema=SCHEMA,action='inspect',ready=False,training_started=False,formal_training_started=False,
++        input_scope='real_aid',counts=dict(COUNTS),target_gpu='3060',requested_gpu_uuid=args.gpu_uuid,
++        manifest=str(args.manifest),data_root=str(args.data_root),weights=str(args.weights),output=str(args.output),
++        batch_size=16,warmup_steps=1,measured_steps=3,expected_unique_images=16,expected_processed_images=64,
++        expected_optimizer_steps=4,probe_scope=SCOPE,blockers=blockers,
++        readiness_scope='stdlib full-source/config/manifest/weights/train16 bytes; run verifies actual imports/CUDA')
++    for label,check in [('source',lambda:report.update(source_identity=_source_identity())),
++                        ('config',lambda:_check_config(args.config)),('output',lambda:_new_output(args.output)),
++                        ('weights',lambda:report.update(_check_weights(args.weights)))]:
++        try:check()
++        except (OSError,ValueError,KeyError,RuntimeError) as exc:blockers.append(label);report[label+'_error']=str(exc)
++    try:
++        inputs=DATA.prepare_inputs(args.manifest);records=select_probe_records(inputs)
++        report.update(manifest_sha256=inputs['manifest_sha256'],selected_paths=[row['path'] for row in records],
++                      selected_images=DATA.validate_selected(args.data_root,records))
++    except (OSError,ValueError,KeyError,TypeError) as exc:blockers.append('inputs');report['input_error']=str(exc)
++    report['dependencies']=RES.dependency_inventory();blockers.extend(SAFE._dependency_blockers(report['dependencies']))
++    report['nvidia']=RES.inventory_gpu()
++    try:report['selected_gpu']=select_gpu(args.gpu_uuid,report['nvidia'])
++    except ValueError as exc:blockers.append('target_gpu');report['gpu_error']=str(exc)
++    try:
++        report['disk']=RES._capacity_path(args.output,RES.WORK_BYTES)
++        if report['disk']['free_bytes']<RES.WORK_BYTES:blockers.append('disk_capacity')
++    except (OSError,ValueError) as exc:blockers.append('disk_capacity');report['disk_error']=str(exc)
++    report['ready']=not blockers
++    if report['ready']:report.update(config_sha256=CONFIG_SHA,run_command=run_command(args,report['selected_gpu']['uuid']))
++    return report
++
++def _positive(value):return type(value) in (int,float) and math.isfinite(value) and value>0
++
++def _gradients_ok(value,updated):
++    if (not isinstance(value,dict) or value.get('passed') is not True or value.get('missing')!=[]
++            or value.get('nonfinite')!=[] or set(value.get('groups',{}))!=GROUPS
++            or not _same_json(updated,{name:True for name in GROUPS})):return False
++    groups=value['groups']
++    return (all(type(item.get('tensors')) is int and item['tensors']>0 and _positive(item.get('l2')) for item in groups.values())
++            and sum(item['tensors'] for item in groups.values())==451)
++
++def _completion_evidence_ok(output,summary,*,final_progress=True):
++    try:
++        output=Path(output)
++        fixed=dict(schema=SCHEMA,completed=True,training_started=True,formal_training_started=False,input_scope='real_aid',
++            target_gpu='3060',counts=COUNTS,seed=42,batch_size=16,unique_images=16,processed_images=64,optimizer_steps=4,
++            warmup_steps=1,measured_steps=3,device='cuda:0',config_sha256=CONFIG_SHA,manifest_sha256=DATA.MANIFEST_SHA,
++            weights_sha256=WEIGHTS_SHA,weights_bytes=WEIGHTS_BYTES,completion_checks=COMPLETION_CHECKS,
++            data_source='verified_images',parameters_finite_after=True,gradient_clipping=False,accuracy_metrics=None,checkpoint_saved=False)
++        if any(not _same_json(summary.get(key),value) for key,value in fixed.items()):return False
++        if any(key in summary for key in ('val_metrics','test_metrics','checkpoint','best_epoch','final_epoch')):return False
++        uuid=summary['physical_gpu_uuid'];runtime=summary['runtime']
++        if not RES._uuid(uuid):return False
++        check_runtime(runtime,uuid);_check_cuda_device(runtime['cuda_device'],runtime['gpu'])
++        if not _same_json(_read_json(output/'runtime.json'),runtime):return False
++        sources=_source_identity()
++        if summary['source_identity']!=sources or _read_json(output/'source_identity.json')!=sources:return False
++        if SAFE.config_sha256(_read_json(output/'config.json'))!=CONFIG_SHA:return False
++        selection=_read_json(output/'selection.json');rows=DATA._records(selection['records'])
++        if (len(rows)!=16 or [row['label'] for row in rows]!=list(range(16)) or any(row['split']!='train' for row in rows)
++                or selection.get('unique_images')!=16 or not _same_json(selection.get('counts'),COUNTS)
++                or selection.get('manifest_sha256')!=DATA.MANIFEST_SHA or selection.get('selection_rule')!=SELECTION_RULE
++                or not _same_json(selection,summary['selection'])):return False
++        provenance=_read_json(output/'provenance.json')
++        provenance_keys=('schema','input_scope','counts','source_identity','config_sha256','manifest_sha256','weights_sha256',
++                         'weights_bytes','data_source','data_root_used','selection','runtime')
++        if any(not _same_json(provenance[key],summary[key]) for key in provenance_keys):return False
++        first=_read_json(output/'first_step.json');steps=_read_json(output/'steps.json')
++        if (not isinstance(steps,list) or len(steps)!=4 or not _same_json(first,steps[0])
++                or not _gradients_ok(first['gradients'],first['updated_groups'])
++                or not _same_json(first['gradients'],summary['first_step_gradients'])
++                or not _same_json(first['updated_groups'],summary['first_step_updated_groups'])):return False
++        for index,event in enumerate(steps,1):
++            expected=dict(stage='first_optimizer_step' if index==1 else 'measurement',optimizer_step_completed=True,
++                optimizer_step_succeeded=True,optimizer_steps=index,step_index=index,phase='warmup' if index==1 else 'measured',
++                training_started=True,formal_training_started=False,completed=False,batch_size=16,samples_seen=index*16,
++                post_update_checks_passed=True)
++            if (any(not _same_json(event.get(key),value) for key,value in expected.items())
++                    or not _positive(event.get('elapsed_seconds')) or not _positive(event.get('loss'))
++                    or not _same_json(_read_json(output/f'step_{index:02}.json'),event)):return False
++        if not _same_json(_read_json(output/'optimizer_progress.json'),steps[-1]):return False
++        measured=[event['elapsed_seconds'] for event in steps[1:]]
++        if not _same_json(summary['step_seconds'],measured) or not _same_json(summary['warmup_seconds'],steps[0]['elapsed_seconds']):return False
++        for key,expected in [('median_step_seconds',statistics.median(measured)),('mean_step_seconds',statistics.mean(measured)),
++                             ('compute_images_per_second',16/statistics.median(measured))]:
++            if not _positive(summary[key]) or not math.isclose(summary[key],expected,rel_tol=1e-12):return False
++        if not _positive(summary['wall_seconds']):return False
++        if (type(summary.get('cuda_peak_allocated_bytes')) is not int or summary['cuda_peak_allocated_bytes']<=0
++                or type(summary.get('cuda_peak_reserved_bytes')) is not int
++                or summary['cuda_peak_reserved_bytes']<summary['cuda_peak_allocated_bytes']):return False
++        params=summary['parameters']
++        if any(type(params.get(key)) is not int or params[key]!=74612163 for key in ('total','trainable')):return False
++        optimizer=summary['optimizer']
++        for key,value in dict(name='Adam',lr=1e-5,weight_decay=5e-5,betas=[.9,.999],eps=1e-8,amsgrad=False,foreach=None,fused=None).items():
++            if not _same_json(optimizer.get(key),value):return False
++        if final_progress:
++            progress=_read_json(output/'progress.json')
++            expected=dict(stage='complete',completed=True,training_started=True,formal_training_started=False,optimizer_steps=4,samples_seen=64)
++            if any(not _same_json(progress.get(key),value) for key,value in expected.items()):return False
++        return True
++    except (OSError,ValueError,KeyError,TypeError,AttributeError,OverflowError,ZeroDivisionError):return False
++
++def _run_model(torch,cfg,root,records,weights,output,progress):
++    from external_baselines.hgtnet.model import HGTNet,parameter_counts
++    from external_baselines.hgtnet.pretrained import load_pretrained_file
++    from external_baselines.hgtnet.aid_batch_probe_engine import run_batch_probe
++    dataset=DATA.make_dataset(root,records);samples=[dataset[index] for index in range(16)]
++    images=torch.stack([item[0] for item in samples]);labels=torch.stack([item[1] for item in samples]).to(dtype=torch.long)
++    model=HGTNet(cfg)
++    counts=parameter_counts(model)
++    if counts['total']!=74612163 or counts['trainable']!=74612163 or len(list(model.parameters()))!=451:
++        raise ValueError('actual complete AID model parameter/tensor identity changed')
++    pretraining=load_pretrained_file(model,weights,WEIGHTS_SHA);model.pretraining_loaded=True
++    _write(output/'pretraining.json',pretraining)
++    result=run_batch_probe(model,images,labels,device='cuda:0',batch_size=16,warmup_steps=1,measured_steps=3,on_progress=progress)
++    result.update(parameters=parameter_counts(model),pretraining=pretraining)
++    return result
++
++def _end_checks(args,sources,records):
++    if (_source_identity()!=sources or _sha(args.manifest)!=DATA.MANIFEST_SHA
++            or _check_weights(args.weights)['weights_sha256']!=WEIGHTS_SHA
++            or SAFE.config_sha256(_check_config(args.config))!=CONFIG_SHA):raise ValueError('probe sources/config/input changed')
++    selected=DATA.validate_selected(args.data_root,records)
++    if selected.get('checked_count')!=16 or selected.get('verified_count')!=16 or selected.get('test_image_bytes_read')!=0:
++        raise ValueError('probe ending train16 byte verification incomplete')
++    return dict(COMPLETION_CHECKS)
++
++def run_probe(args):
++    preflight=inspect_resources(args)
++    if not preflight['ready']:raise ValueError('preflight blockers: '+', '.join(preflight['blockers']))
++    selected=preflight['selected_gpu'];args.gpu_uuid=selected['uuid']
++    with _run_lock(args.output):
++        args.output.mkdir(exist_ok=False)
++        _write(args.output/'preflight.json',preflight);_write(args.output/'command.json',dict(argv=list(sys.argv),cwd=os.getcwd(),pid=os.getpid(),command=run_command(args,args.gpu_uuid)))
++        result=dict(schema=SCHEMA,action='run',completed=False,training_started=False,formal_training_started=False,
++                    input_scope='real_aid',target_gpu='3060',counts=dict(COUNTS),seed=42,batch_size=16,optimizer_steps=0)
++        started=time.perf_counter();events=[]
++        with (args.output/'run.log').open('x') as log,contextlib.redirect_stdout(SAFE._Tee(sys.stdout,log)),contextlib.redirect_stderr(SAFE._Tee(sys.stderr,log)):
++            try:
++                sources=_source_identity()
++                if sources!=preflight['source_identity']:raise ValueError('source changed after preflight')
++                _write(args.output/'source_identity.json',sources)
++                torch,runtime=_runtime_and_torch(args,selected);_write(args.output/'runtime.json',runtime)
++                cfg=_check_config(args.config);records=select_probe_records(DATA.prepare_inputs(args.manifest))
++                DATA.validate_selected(args.data_root,records);_write(args.output/'config.json',cfg)
++                selection=dict(records=records,unique_images=16,counts=dict(COUNTS),manifest_sha256=DATA.MANIFEST_SHA,selection_rule=SELECTION_RULE)
++                _write(args.output/'selection.json',selection)
++                provenance=dict(schema=SCHEMA,input_scope='real_aid',counts=dict(COUNTS),source_identity=sources,
++                    config_sha256=CONFIG_SHA,manifest_sha256=DATA.MANIFEST_SHA,weights_sha256=WEIGHTS_SHA,weights_bytes=WEIGHTS_BYTES,
++                    data_source='verified_images',data_root_used=str(args.data_root),selection=selection,runtime=runtime)
++                _write(args.output/'provenance.json',provenance)
++                def progress(value):
++                    value=dict(value,pid=os.getpid())
++                    if value.get('optimizer_step_succeeded') is True or value.get('optimizer_step_completed') is True:
++                        steps=value.get('optimizer_steps')
++                        if type(steps) is not int or steps!=len(events)+1 or not 1<=steps<=4:raise ValueError('nonsequential actual optimizer event')
++                        _write(args.output/f'step_{steps:02}.json',value);events.append(value)
++                        _write(args.output/'steps.json',events,replace=(args.output/'steps.json').exists())
++                        _write(args.output/'optimizer_progress.json',value,replace=True)
++                        if steps==1:_write(args.output/'first_step.json',value)
++                    _write(args.output/'progress.json',value,replace=True)
++                    print('HGTNET_AID_BATCH16_PROBE_PROGRESS '+json.dumps(value,sort_keys=True),flush=True)
++                engine=_run_model(torch,cfg,args.data_root,records,args.weights,args.output,progress)
++                if engine.get('schema')!=SCHEMA or engine.get('completed') is not True or engine.get('optimizer_steps')!=4:raise ValueError('engine did not complete four AID updates')
++                result.update(engine);result.update(provenance)
++                result.update(target_gpu='3060',seed=42,physical_gpu_uuid=selected['uuid'],completion_checks=_end_checks(args,sources,records),
++                    wall_seconds=time.perf_counter()-started,probe_scope=SCOPE,
++                    timing_scope='after stdlib preflight; imports/input decode/initialization and four disposable updates')
++                if not _completion_evidence_ok(args.output,result,final_progress=False):raise ValueError('complete AID batch16 evidence inconsistent')
++                _write(args.output/'summary.json',result)
++                _write(args.output/'progress.json',dict(stage='complete',completed=True,training_started=True,formal_training_started=False,optimizer_steps=4,samples_seen=64),replace=True)
++                with (args.output/'run.exit').open('x') as stream:stream.write('0\n')
++                print('HGTNET_AID_BATCH16_PROBE_COMPLETE '+str(args.output/'summary.json'),flush=True);return 0
++            except BaseException as exc:
++                observed=SAFE._observed_training(args.output);actual=getattr(exc,'optimizer_steps',0)
++                observed['optimizer_steps']=max(observed['optimizer_steps'],len(events),actual if type(actual) is int else 0,result.get('optimizer_steps',0))
++                observed['training_started']=observed['training_started'] or observed['optimizer_steps']>0 or getattr(exc,'training_started',False) is True
++                result.update(observed,completed=False,formal_training_started=False,error=type(exc).__name__+': '+str(exc),wall_seconds=time.perf_counter()-started)
++                traceback.print_exc();_write(args.output/'summary.json',result,replace=(args.output/'summary.json').exists())
++                with (args.output/'run.exit').open('w') as stream:stream.write('1\n')
++                _write(args.output/'progress.json',dict(stage='failed',completed=False,formal_training_started=False,error=result['error'],**observed),replace=True)
++                return 1
++
++def status(output):
++    output=Path(output);report=dict(schema=SCHEMA,action='status',state='not_started',output=str(output),completed=False,formal_training_started=False,counts=dict(COUNTS))
++    if not output.exists() and not output.is_symlink():return report
++    report['state']='incomplete'
++    try:summary=_read_json(output/'summary.json')
++    except (OSError,ValueError):summary={}
++    if not isinstance(summary,dict):summary={}
++    try:report['progress']=_read_json(output/'progress.json')
++    except (OSError,ValueError):pass
++    try:
++        with DATA.inspector.open_regular_readonly(output/'run.exit') as stream:report['exit_code']=int(stream.read().strip())
++    except (OSError,ValueError):report['exit_code']=None
++    for key in ('target_gpu','physical_gpu_uuid','config_sha256','manifest_sha256','weights_sha256','unique_images','processed_images',
++                'batch_size','warmup_steps','measured_steps','step_seconds','median_step_seconds','compute_images_per_second',
++                'cuda_peak_allocated_bytes','cuda_peak_reserved_bytes','wall_seconds','error'):
++        if key in summary:report[key]=summary[key]
++    observed=SAFE._observed_training(output);steps=summary.get('optimizer_steps',0)
++    report['optimizer_steps']=max(observed['optimizer_steps'],steps if type(steps) is int and steps>=0 else 0)
++    report['training_started']=observed['training_started'] or summary.get('training_started') is True
++    try:source_ok=summary.get('source_identity')==_source_identity() if summary else None
++    except (OSError,ValueError,KeyError):source_ok=False
++    report['source_identity_matches']=source_ok;report['completion_evidence_valid']=_completion_evidence_ok(output,summary)
++    if report['completion_evidence_valid'] and report['exit_code']==0 and source_ok:report.update(state='complete',completed=True)
++    if summary and source_ok is False:report['state']='source_changed'
++    if report['exit_code'] not in (None,0):report['state']='failed'
++    return report
++
++def parser():
++    result=argparse.ArgumentParser(description=__doc__);sub=result.add_subparsers(dest='action',required=True)
++    for action in ('inspect','run','status'):
++        command=sub.add_parser(action);command.add_argument('--output',type=Path,default=ROOT/'runs/batch16_seed42_01')
++        if action=='status':continue
++        command.add_argument('--gpu-uuid');command.add_argument('--manifest',type=Path,default=Path(DATA.MANIFEST))
++        command.add_argument('--data-root',type=Path,default=Path(DATA.DATA_ROOT))
++        command.add_argument('--weights',type=Path,default=Path('/home/featurize/work/swin_b-68c6b09e.pth'))
++        command.add_argument('--config',type=Path,default=ROOT/'configs/hgtnet_aid_independent_v0.json')
++    return result
++
++def main(argv=None):
++    args=parser().parse_args(argv)
++    if args.action=='status':print(json.dumps(status(args.output),indent=2,sort_keys=True));return 0
++    if args.action=='inspect':print(json.dumps(inspect_resources(args),indent=2,sort_keys=True));return 0
++    return run_probe(args)
++if __name__=='__main__':raise SystemExit(main())
+--- /dev/null
++++ tools/package_hgtnet_aid_batch16_probe.py
+@@ -0,0 +1,212 @@
++"""Build a pinned source-only AID3060 batch16 capacity probe; no install, download or train default."""
++from __future__ import annotations
++
++import argparse
++import hashlib
++import json
++import os
++from pathlib import Path, PurePosixPath
++import runpy
++import stat
++import sys
++import zipfile
++
++
++ROOT = Path(__file__).resolve().parents[1]
++SCHEMA = 'hgtnet-aid-batch16-delivery-v1'
++MANIFEST = 'delivery_manifest.json'
++RECEIPT = '.delivery_receipt.json'
++RUNNER = 'external_baselines/hgtnet/aid_batch_probe.py'
++SOURCE_FILES = (
++    'external_baselines/__init__.py',
++    'external_baselines/hgtnet/__init__.py',
++    *('external_baselines/hgtnet/'+name+'.py' for name in (
++        'aid_data','aid_entry','aid_batch_probe','aid_batch_probe_engine','config','model','attention','graph',
++        'pretrained','smoke','checkpoint','nwpu_engine','resources')),
++    'configs/hgtnet_aid_independent_v0.json',
++    'tools/inspect_hgtnet_aid_inputs.py',
++    'tools/package_hgtnet_aid_batch16_probe.py',
++)
++WEIGHTS = {
++    'filename':'swin_b-68c6b09e.pth',
++    'sha256':'68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893',
++    'bytes':351654207,
++    'source_url':'https://download.pytorch.org/models/swin_b-68c6b09e.pth',
++    'kind':'torchvision.Swin_B_Weights.IMAGENET1K_V1',
++    'is_original_hgtnet_weights':False,
++}
++
++
++def _sha(raw):
++    return hashlib.sha256(raw).hexdigest()
++
++
++def _canonical(value):
++    return json.dumps(value,sort_keys=True,separators=(',',':'),allow_nan=False).encode()
++
++
++def _json(value):
++    return json.dumps(value,indent=2,sort_keys=True,allow_nan=False).encode()+b'\n'
++
++
++def _relative(name):
++    if (not isinstance(name,str) or not name or '\\' in name
++            or any(ord(char)<32 for char in name)):
++        raise ValueError('unsafe archive path: '+str(name))
++    path=PurePosixPath(name)
++    if (path.is_absolute() or '..' in path.parts or not path.parts
++            or path.as_posix()!=name or ':' in path.parts[0]):
++        raise ValueError('unsafe archive path: '+name)
++    return name
++
++
++def _names(names):
++    if len(names)!=len(set(names)):
++        raise ValueError('duplicate archive members')
++    seen=set(names)
++    for name in names:
++        _relative(name)
++        if any(parent.as_posix() in seen for parent in PurePosixPath(name).parents
++               if parent!=PurePosixPath('.')):
++            raise ValueError('archive file/directory collision: '+name)
++
++
++def _target(root,name):
++    path=root/_relative(name)
++    for current in (path,*path.parents):
++        if current.is_symlink():
++            raise ValueError('symbolic link is not an immutable source: '+str(current))
++    return path
++
++
++def build_bundle(output_path):
++    """Create a new immutable scoped zipapp and sidecar; never overwrite."""
++    output=Path(output_path).absolute()
++    sidecar=output.with_suffix(output.suffix+'.manifest.json')
++    for target in (output,sidecar):
++        _target(target.parent,target.name)
++        if target.exists(): raise FileExistsError(target)
++    files={}
++    for name in SOURCE_FILES:
++        path=_target(ROOT,name)
++        if not path.is_file(): raise ValueError('missing source file: '+name)
++        files[name]=path.read_bytes()
++    files['bundled_weights_provenance.json']=_json(WEIGHTS)
++    bootstrap=Path(__file__).read_bytes()
++    description=dict(schema=SCHEMA,runner=RUNNER,target_gpu='3060',
++                     files={name:dict(sha256=_sha(raw),bytes=len(raw)) for name,raw in sorted(files.items())},
++                     bootstrap_sha256=_sha(bootstrap),weight_file_included=False,
++                     compiled_binaries_included=False)
++    manifest=dict(description,bundle_id=_sha(_canonical(description)))
++    output.parent.mkdir(parents=True,exist_ok=True)
++    with output.open('xb') as stream,zipfile.ZipFile(stream,'w',compression=zipfile.ZIP_DEFLATED,
++                                                   compresslevel=9) as archive:
++        for name,raw in [('__main__.py',bootstrap),(MANIFEST,_json(manifest)),*sorted(files.items())]:
++            item=zipfile.ZipInfo(name,date_time=(2026,11,5,0,0,0))
++            item.compress_type=zipfile.ZIP_DEFLATED
++            item.external_attr=(stat.S_IFREG|0o644)<<16
++            archive.writestr(item,raw)
++    record=dict(path=str(output),sha256=_sha(output.read_bytes()),bytes=output.stat().st_size,
++                bundle_id=manifest['bundle_id'],manifest=manifest)
++    with sidecar.open('xb') as stream:stream.write(_json(record))
++    return record
++
++
++def _read_bundle(path):
++    with zipfile.ZipFile(path) as archive:
++        names=archive.namelist();_names(names)
++        for item in archive.infolist():
++            mode=item.external_attr>>16
++            if item.is_dir() or (stat.S_IFMT(mode) and not stat.S_ISREG(mode)):
++                raise ValueError('archive member must be a regular source file: '+item.filename)
++        raw_manifest=archive.read(MANIFEST)
++        manifest=json.loads(raw_manifest)
++        if (not isinstance(manifest,dict) or manifest.get('schema')!=SCHEMA
++                or manifest.get('target_gpu')!='3060' or manifest.get('runner')!=RUNNER):
++            raise ValueError('unsupported AID3060 delivery identity')
++        description={key:value for key,value in manifest.items() if key!='bundle_id'}
++        if manifest.get('bundle_id')!=_sha(_canonical(description)):
++            raise ValueError('delivery manifest changed')
++        files=manifest.get('files')
++        expected=set(SOURCE_FILES)|{'bundled_weights_provenance.json'}
++        if (not isinstance(files,dict) or set(files)!=expected
++                or set(names)!=expected|{'__main__.py',MANIFEST}):
++            raise ValueError('unexpected or incomplete bundle members')
++        if _sha(archive.read('__main__.py'))!=manifest.get('bootstrap_sha256'):
++            raise ValueError('bootstrap bytes changed')
++        payload={}
++        for name,record in files.items():
++            raw=archive.read(name)
++            if record!={'sha256':_sha(raw),'bytes':len(raw)}:
++                raise ValueError('source bytes changed in archive: '+name)
++            payload[name]=raw
++        if json.loads(payload['bundled_weights_provenance.json'])!=WEIGHTS:
++            raise ValueError('candidate weights provenance changed')
++    return manifest,raw_manifest,payload
++
++
++def install_bundle(path):
++    """Safely install into a new real directory, or verify the exact source set."""
++    path=Path(path).absolute()
++    _target(path.parent,path.name)
++    workspace=path.with_suffix('')
++    _target(workspace.parent,workspace.name)
++    manifest,raw_manifest,payload=_read_bundle(path)
++    if workspace.exists():
++        receipt=_target(workspace,RECEIPT);metadata=_target(workspace,MANIFEST)
++        if not workspace.is_dir() or not receipt.is_file() or not metadata.is_file():
++            raise ValueError('existing workspace is foreign or incomplete; use a new bundle filename')
++        if json.loads(receipt.read_text())!={'schema':SCHEMA,'bundle_id':manifest['bundle_id']}:
++            raise ValueError('workspace receipt changed or belongs to another bundle')
++        if metadata.read_bytes()!=raw_manifest:raise ValueError('workspace delivery manifest changed')
++        for name,record in manifest['files'].items():
++            source=_target(workspace,name)
++            if not source.is_file() or _sha(source.read_bytes())!=record['sha256']:
++                raise ValueError('immutable source changed: '+name)
++        for source in workspace.rglob('*'):
++            name=source.relative_to(workspace)
++            if source.is_symlink():raise ValueError('workspace contains a symbolic link: '+str(name))
++            if (source.is_file() and name.as_posix() not in manifest['files']
++                    and (name.parts[0] in ('external_baselines','tools','configs')
++                         or source.suffix in ('.py','.pyc','.pyd','.so'))):
++                raise ValueError('unexpected immutable workspace source: '+str(name))
++    else:
++        workspace.mkdir(exist_ok=False)
++        for name,raw in payload.items():
++            target=_target(workspace,name);target.parent.mkdir(parents=True,exist_ok=True)
++            with target.open('xb') as stream:stream.write(raw)
++        with (workspace/MANIFEST).open('xb') as stream:stream.write(raw_manifest)
++        with (workspace/RECEIPT).open('xb') as stream:
++            stream.write(_json({'schema':SCHEMA,'bundle_id':manifest['bundle_id']}))
++    return workspace,manifest
++
++
++def _bundle_entry(arguments):
++    if not arguments or arguments[0] not in ('inspect','status','run','--help','-h'):
++        raise ValueError('use explicit inspect, status or run; nothing starts automatically')
++    entry=Path(sys.argv[0]).absolute()
++    workspace,manifest=install_bundle(entry)
++    os.chdir(workspace)
++    sys.path.insert(0,str(workspace));sys.dont_write_bytecode=True
++    os.environ['HGTNET_AID_BATCH16_DELIVERY_ENTRY']=str(entry)
++    script=_target(workspace,manifest['runner'])
++    sys.argv=[str(script),*arguments]
++    runpy.run_path(str(script),run_name='__main__')
++    return 0
++
++
++def main(argv=None):
++    arguments=sys.argv[1:] if argv is None else argv
++    try:
++        if zipfile.is_zipfile(sys.argv[0]):return _bundle_entry(arguments)
++        parser=argparse.ArgumentParser(description=__doc__)
++        parser.add_argument('--output',required=True)
++        args=parser.parse_args(arguments)
++        print(json.dumps(build_bundle(args.output),indent=2,sort_keys=True))
++        return 0
++    except (ValueError,KeyError,OSError,RuntimeError,zipfile.BadZipFile) as exc:
++        print('HGTNet AID delivery failed: '+str(exc),file=sys.stderr)
++        return 2
++
++
++if __name__=='__main__':raise SystemExit(main())
+--- /dev/null
++++ tests/test_hgtnet_aid_batch_probe_engine.py
+@@ -0,0 +1,247 @@
++"""Bounded AID capacity behavior, using only tiny generated CPU tensors."""
++import importlib
++import inspect
++import copy
++import math
++import statistics
++import unittest
++from unittest.mock import patch
++
++import torch
++from torch import nn
++
++
++class TinyFiveGroupModel(nn.Module):
++    """All five semantic groups, without a complete HGTNet backbone."""
++    def __init__(self, classes=30):
++        super().__init__()
++        self.patch_embed = nn.Linear(3, 3)
++        stage = nn.Module()
++        stage.transform = nn.Linear(3, 3)
++        stage.da = nn.Linear(3, 3)
++        self.stages = nn.ModuleList([stage])
++        self.graph_block = nn.Linear(3, 3)
++        self.head = nn.Linear(3, classes)
++
++    def forward(self, images):
++        features = torch.tanh(self.patch_embed(images.mean((2, 3))))
++        features = torch.tanh(self.stages[0].transform(features))
++        features = torch.tanh(self.stages[0].da(features))
++        return self.head(torch.tanh(self.graph_block(features)))
++
++
++def api():
++    try:
++        return importlib.import_module('external_baselines.hgtnet.aid_batch_probe_engine')
++    except ModuleNotFoundError as exc:
++        raise AssertionError('Independent AID batch16 engine is missing') from exc
++
++
++class AidBatchProbeEngineTests(unittest.TestCase):
++    @classmethod
++    def setUpClass(cls):
++        torch.set_num_threads(1)
++
++    def inputs(self):
++        generator = torch.Generator().manual_seed(42)
++        return torch.randn(16, 3, 224, 224, generator=generator), torch.arange(16, dtype=torch.long)
++
++    def assert_rejected_without_update(self, model, images, labels, **kwargs):
++        before = {name: value.detach().clone() for name, value in model.named_parameters()}
++        events = []
++        with self.assertRaises((ValueError, RuntimeError)):
++            api().run_batch_probe(model, images, labels, device='cpu', on_progress=events.append, **kwargs)
++        self.assertEqual(events, [])
++        for name, value in model.named_parameters():
++            self.assertTrue(torch.allclose(value, before[name], equal_nan=True), name)
++
++    def test_independent_entry_accepts_frozen_probe_interface(self):
++        engine = api()
++        self.assertTrue(callable(engine.run_batch_probe))
++        self.assertEqual(str(inspect.signature(engine.run_batch_probe)),
++                         '(model, images, labels, *, device, batch_size=16, '
++                         'warmup_steps=1, measured_steps=3, on_progress=None)')
++
++    def test_thirty_classes_make_four_real_adam_updates_with_five_groups(self):
++        torch.manual_seed(42)
++        model = TinyFiveGroupModel()
++        images, labels = self.inputs()
++        images_before, labels_before = images.clone(), labels.clone()
++        before = {name: value.detach().clone() for name, value in model.named_parameters()}
++        reference = copy.deepcopy(model)
++        reference_optimizer = torch.optim.Adam(reference.parameters(), lr=1e-5, weight_decay=5e-5,
++                                               betas=(0.9, 0.999), eps=1e-8,
++                                               amsgrad=False, foreach=None, fused=None)
++        for _ in range(4):
++            reference_optimizer.zero_grad(set_to_none=True)
++            nn.functional.cross_entropy(reference(images), labels).backward()
++            reference_optimizer.step()
++        events = []
++        record = api().run_batch_probe(model, images, labels, device='cpu', on_progress=events.append)
++        self.assertEqual(record['schema'], 'hgtnet-aid-batch16-capacity-probe-v1')
++        self.assertTrue(record['completed'])
++        self.assertTrue(record['training_started'])
++        self.assertFalse(record['formal_training_started'])
++        self.assertEqual((record['unique_images'], record['processed_images'], record['optimizer_steps']), (16, 64, 4))
++        self.assertEqual((record['warmup_steps'], record['measured_steps']), (1, 3))
++        self.assertEqual([event['optimizer_steps'] for event in events], [1, 2, 3, 4])
++        self.assertEqual([event['phase'] for event in events], ['warmup', 'measured', 'measured', 'measured'])
++        self.assertEqual([event['samples_seen'] for event in events], [16, 32, 48, 64])
++        self.assertTrue(all(event['optimizer_step_completed'] and event['post_update_checks_passed'] for event in events))
++        self.assertEqual(events[0]['gradients'], record['first_step_gradients'])
++        self.assertEqual(record['first_step_updated_groups'],
++                         {'patch_embed': True, 'transformer': True, 'dual_attention': True, 'graph': True, 'head': True})
++        report = record['first_step_gradients']
++        self.assertTrue(report['passed'])
++        self.assertEqual(report['missing'], [])
++        self.assertEqual(report['nonfinite'], [])
++        self.assertEqual(sum(group['tensors'] for group in report['groups'].values()), 10)
++        self.assertTrue(all(math.isfinite(group['l2']) and group['l2'] > 0 for group in report['groups'].values()))
++        for name, value in model.named_parameters():
++            self.assertFalse(torch.equal(value, before[name]), name)
++            self.assertTrue(torch.equal(value, dict(reference.named_parameters())[name]), name)
++            self.assertIsNone(value.grad)
++        self.assertTrue(torch.equal(images, images_before))
++        self.assertTrue(torch.equal(labels, labels_before))
++        self.assertEqual(len(record['step_seconds']), 3)
++        self.assertEqual(record['step_seconds'], [event['elapsed_seconds'] for event in events[1:]])
++        self.assertEqual(record['warmup_seconds'], events[0]['elapsed_seconds'])
++        self.assertTrue(all(math.isfinite(value) and value > 0 for value in record['step_seconds']))
++        self.assertEqual(record['median_step_seconds'], statistics.median(record['step_seconds']))
++        self.assertAlmostEqual(record['compute_images_per_second'], 16 / record['median_step_seconds'])
++        self.assertEqual(record['input_scope'], 'caller_provided_tensors')
++        self.assertIsNone(record['cuda_peak_allocated_bytes'])
++        self.assertIsNone(record['cuda_peak_reserved_bytes'])
++        self.assertIsNone(record['accuracy_metrics'])
++        self.assertFalse(record['checkpoint_saved'])
++        self.assertFalse(record['gradient_clipping'])
++        self.assertEqual({key: record['optimizer'][key] for key in ('name', 'lr', 'weight_decay', 'betas', 'eps')},
++                         {'name': 'Adam', 'lr': 1e-5, 'weight_decay': 5e-5, 'betas': [0.9, 0.999], 'eps': 1e-8})
++
++    def test_old_forty_five_class_head_and_out_of_aid_labels_are_rejected(self):
++        images, labels = self.inputs()
++        self.assert_rejected_without_update(TinyFiveGroupModel(classes=45), images, labels)
++        self.assert_rejected_without_update(TinyFiveGroupModel(), images, labels + 30)
++
++    def test_invalid_batch_shape_dtype_or_budget_cannot_update(self):
++        images, labels = self.inputs()
++        for x, y in [(images[:15], labels[:15]), (images.double(), labels), (images, labels.float()),
++                     (images[:, :, :112, :112], labels), (images * float('nan'), labels)]:
++            with self.subTest(shape=x.shape, dtype=x.dtype):
++                self.assert_rejected_without_update(TinyFiveGroupModel(), x, y)
++        for kwargs in [{'batch_size': 2}, {'batch_size': True}, {'warmup_steps': 0},
++                       {'warmup_steps': 2}, {'measured_steps': 100}, {'measured_steps': True}]:
++            with self.subTest(kwargs=kwargs):
++                self.assert_rejected_without_update(TinyFiveGroupModel(), images, labels, **kwargs)
++
++    def test_all_five_groups_are_required_even_when_remaining_gradients_pass(self):
++        images, labels = self.inputs()
++        model = TinyFiveGroupModel()
++        model.graph_block = nn.Identity()
++        self.assert_rejected_without_update(model, images, labels)
++
++    def test_unclassified_parameter_cannot_hide_in_five_group_model(self):
++        images, labels = self.inputs()
++        model = TinyFiveGroupModel()
++        model.unclassified = nn.Parameter(torch.ones(1))
++        self.assert_rejected_without_update(model, images, labels)
++
++    def test_missing_nonfinite_or_zero_group_gradients_block_first_update(self):
++        images, labels = self.inputs()
++        missing = TinyFiveGroupModel()
++        missing.graph_unused = nn.Linear(3, 3)
++        self.assert_rejected_without_update(missing, images, labels)
++        for bad in (float('nan'), float('inf'), 0.0):
++            model = TinyFiveGroupModel()
++            for value in model.graph_block.parameters():
++                value.register_hook(lambda gradient, bad=bad: gradient * bad)
++            with self.subTest(gradient=bad):
++                self.assert_rejected_without_update(model, images, labels)
++
++    def test_frozen_double_or_initially_nonfinite_model_is_rejected(self):
++        images, labels = self.inputs()
++        for mode in ('frozen', 'double', 'nan'):
++            model = TinyFiveGroupModel()
++            if mode == 'frozen':
++                model.patch_embed.weight.requires_grad_(False)
++            elif mode == 'double':
++                model.double()
++            else:
++                with torch.no_grad():
++                    model.head.weight[0, 0] = float('nan')
++            with self.subTest(mode=mode):
++                self.assert_rejected_without_update(model, images, labels)
++
++    def test_later_forward_failure_keeps_only_observed_first_update(self):
++        class LaterFailure(TinyFiveGroupModel):
++            calls = 0
++            def forward(self, images):
++                self.calls += 1
++                if self.calls == 2:
++                    raise RuntimeError('second forward failed')
++                return super().forward(images)
++        images, labels = self.inputs()
++        events = []
++        with self.assertRaisesRegex(RuntimeError, 'second forward failed'):
++            api().run_batch_probe(LaterFailure(), images, labels, device='cpu', on_progress=events.append)
++        self.assertEqual([event['optimizer_steps'] for event in events], [1])
++        self.assertTrue(events[0]['post_update_checks_passed'])
++
++    def test_later_nonfinite_gradient_cannot_be_counted_as_an_update(self):
++        images, labels = self.inputs()
++        model = TinyFiveGroupModel()
++        calls = []
++        def fail_second_gradient(gradient):
++            calls.append(True)
++            return gradient if len(calls) == 1 else gradient * float('nan')
++        model.graph_block.weight.register_hook(fail_second_gradient)
++        events = []
++        with self.assertRaises((ValueError, RuntimeError)):
++            api().run_batch_probe(model, images, labels, device='cpu', on_progress=events.append)
++        self.assertEqual([event['optimizer_steps'] for event in events], [1])
++
++    def test_real_update_then_nonfinite_parameter_failure_preserves_callback(self):
++        engine = api()
++        model = TinyFiveGroupModel()
++        images, labels = self.inputs()
++        before = model.patch_embed.weight.detach().clone()
++        adam = torch.optim.Adam
++        class CorruptAfterActualUpdate(adam):
++            def step(self, closure=None):
++                result = super().step(closure)
++                with torch.no_grad():
++                    model.head.weight[0, 0] = float('nan')
++                return result
++        events = []
++        with patch.object(engine.torch.optim, 'Adam', CorruptAfterActualUpdate):
++            with self.assertRaisesRegex(ValueError, 'Updated probe parameters nonfinite'):
++                engine.run_batch_probe(model, images, labels, device='cpu', on_progress=events.append)
++        self.assertFalse(torch.equal(model.patch_embed.weight, before))
++        self.assertEqual([event['optimizer_steps'] for event in events], [1])
++        self.assertTrue(events[0]['optimizer_step_completed'])
++        self.assertFalse(events[0]['post_update_checks_passed'])
++
++    def test_zero_actual_group_update_fails_and_preserves_observed_step(self):
++        engine = api()
++        model = TinyFiveGroupModel()
++        images, labels = self.inputs()
++        adam = torch.optim.Adam
++        class RestoreOneGroupAfterUpdate(adam):
++            def step(self, closure=None):
++                originals = [parameter.detach().clone() for parameter in model.graph_block.parameters()]
++                result = super().step(closure)
++                with torch.no_grad():
++                    for parameter, original in zip(model.graph_block.parameters(), originals):
++                        parameter.copy_(original)
++                return result
++        events = []
++        with patch.object(engine.torch.optim, 'Adam', RestoreOneGroupAfterUpdate):
++            with self.assertRaisesRegex(ValueError, 'did not update every gradient group'):
++                engine.run_batch_probe(model, images, labels, device='cpu', on_progress=events.append)
++        self.assertEqual([event['optimizer_steps'] for event in events], [1])
++        self.assertFalse(events[0]['updated_groups']['graph'])
++        self.assertFalse(events[0]['post_update_checks_passed'])
++
++
++if __name__ == '__main__':
++    unittest.main()
+--- /dev/null
++++ tests/test_hgtnet_aid_batch_probe_entry.py
+@@ -0,0 +1,128 @@
++"""Stdlib artifact/entry contract, with no CUDA or original data fixture claims."""
++import copy
++import contextlib
++import io
++import importlib
++import json
++import os
++from pathlib import Path
++import subprocess
++import sys
++import tempfile
++import unittest
++from unittest.mock import patch
++
++ROOT=Path(__file__).resolve().parents[1]
++
++def api():
++    try:return importlib.import_module('external_baselines.hgtnet.aid_batch_probe')
++    except ModuleNotFoundError as exc:raise AssertionError('AID batch16 entry missing') from exc
++
++def records():
++    return [dict(path=f'class{i:02}/train{j}.jpg',label=i,split='train',sha256='a'*64,pixel_sha256=f'{i*8+j:064x}') for i in range(30) for j in range(8)]
++
++def gpu():return dict(uuid='GPU-current',name='NVIDIA GeForce RTX 3060',memory_total_mib=12288,memory_free_mib=12000,driver_version='610.57.04')
++
++def fixture(output):
++    entry=api();output.mkdir()
++    runtime=dict(python='3.11.8',torch='2.2.2+cu121',torchvision='0.17.2+cu121',numpy='1.26.4',pillow='10.3.0',cuda='12.1',cudnn=8902,physical_gpu_uuid='GPU-current',cuda_visible_devices='GPU-current',device='cuda:0',cpu_threads=8,amp=False,dtype='float32',seed=42,matmul_tf32=False,cudnn_tf32=False,cudnn_benchmark=False,cudnn_deterministic=True,gpu=gpu(),cuda_device=dict(available=True,device_count=1,name=gpu()['name'],total_memory_bytes=12487622656))
++    gradients=dict(passed=True,missing=[],nonfinite=[],groups={name:dict(tensors=count,l2=1.0) for name,count in [('patch_embed',4),('transformer',300),('dual_attention',100),('graph',45),('head',2)]})
++    updated={name:True for name in gradients['groups']}
++    steps=[dict(stage='first_optimizer_step' if i==1 else 'measurement',optimizer_step_completed=True,optimizer_step_succeeded=True,optimizer_steps=i,step_index=i,phase='warmup' if i==1 else 'measured',training_started=True,formal_training_started=False,completed=False,batch_size=16,samples_seen=i*16,elapsed_seconds=float(i),loss=1.0,post_update_checks_passed=True) for i in range(1,5)]
++    steps[0].update(gradients=gradients,updated_groups=updated)
++    sources=entry._source_identity();selection=dict(records=[records()[i*8] for i in range(16)],unique_images=16,counts=dict(train=16,val=0,test=0),manifest_sha256=entry.DATA.MANIFEST_SHA,selection_rule=entry.SELECTION_RULE)
++    cfg=json.loads((ROOT/'configs/hgtnet_aid_independent_v0.json').read_text())
++    provenance=dict(schema=entry.SCHEMA,input_scope='real_aid',counts=dict(train=16,val=0,test=0),source_identity=sources,config_sha256=entry.CONFIG_SHA,manifest_sha256=entry.DATA.MANIFEST_SHA,weights_sha256=entry.WEIGHTS_SHA,weights_bytes=351654207,data_source='verified_images',data_root_used='/fixture/original/train',selection=selection,runtime=runtime)
++    summary=dict(schema=entry.SCHEMA,completed=True,training_started=True,formal_training_started=False,input_scope='real_aid',target_gpu='3060',counts=dict(train=16,val=0,test=0),seed=42,batch_size=16,unique_images=16,processed_images=64,optimizer_steps=4,warmup_steps=1,measured_steps=3,device='cuda:0',step_seconds=[2.,3.,4.],warmup_seconds=1.,median_step_seconds=3.,mean_step_seconds=3.,compute_images_per_second=16/3,first_step_gradients=gradients,first_step_updated_groups=updated,parameters_finite_after=True,gradient_clipping=False,accuracy_metrics=None,checkpoint_saved=False,optimizer=dict(name='Adam',lr=1e-5,weight_decay=5e-5,betas=[.9,.999],eps=1e-8,amsgrad=False,foreach=None,fused=None),parameters=dict(total=74612163,trainable=74612163),physical_gpu_uuid='GPU-current',wall_seconds=15.,cuda_peak_allocated_bytes=100,cuda_peak_reserved_bytes=200,completion_checks=dict(source_identity=True,config=True,manifest=True,weights=True,selected_images=True,selected_image_count=16,test_image_bytes_read=0,val_image_bytes_read=0),**{key:value for key,value in provenance.items() if key not in ['schema','input_scope','counts']})
++    artifacts={'summary.json':summary,'runtime.json':runtime,'source_identity.json':sources,'config.json':cfg,'selection.json':selection,'provenance.json':provenance,'first_step.json':steps[0],'steps.json':steps,'optimizer_progress.json':steps[-1],'progress.json':dict(stage='complete',completed=True,training_started=True,formal_training_started=False,optimizer_steps=4,samples_seen=64)}
++    artifacts.update({f'step_{i:02}.json':step for i,step in enumerate(steps,1)})
++    for name,value in artifacts.items():(output/name).write_text(json.dumps(value))
++    (output/'run.exit').write_text('0\n');return summary
++
++class EntryTests(unittest.TestCase):
++    def test_selects_only_first_original_train_path_per_labels0_to15(self):
++        selected=api().select_probe_records({'selected':{'train':list(reversed(records()))}})
++        self.assertEqual([r['label'] for r in selected],list(range(16)))
++        self.assertEqual([r['path'] for r in selected],[f'class{i:02}/train0.jpg' for i in range(16)])
++        bad=records();bad[0]['split']='val'
++        with self.assertRaises(ValueError):api().select_probe_records({'selected':{'train':bad}})
++    def test_defaults_and_unique_idle3060_and_lock_prevent_unsafe_start(self):
++        args=api().parser().parse_args(['inspect'])
++        self.assertEqual(args.output,ROOT/'runs/batch16_seed42_01')
++        self.assertEqual(api().select_gpu(None,dict(error=None,gpus=[gpu()],processes=[])),gpu())
++        with self.assertRaises(ValueError):api().select_gpu(None,dict(error=None,gpus=[gpu(),dict(gpu(),uuid='GPU-other')],processes=[]))
++        with tempfile.TemporaryDirectory() as temp:
++            output=Path(temp).resolve()/'run'
++            with api()._run_lock(output):
++                with self.assertRaises(ValueError):api()._new_output(output)
++            output.mkdir()
++            with self.assertRaises(FileExistsError):api()._new_output(output)
++    def test_readonly_import_inspect_status_never_import_ML(self):
++        script='import builtins\nf=builtins.__import__\ndef guard(name,*a,**kw):\n if name.split(".")[0] in {"torch","torchvision","numpy","PIL"}: raise RuntimeError(name)\n return f(name,*a,**kw)\nbuiltins.__import__=guard\nfrom external_baselines.hgtnet import aid_batch_probe as e\na=e.parser().parse_args(["inspect","--output","/tmp/no_aid_probe_output_fixture"])\nassert not e.inspect_resources(a)["ready"]\nassert not e.status(a.output)["completed"]\n'
++        result=subprocess.run([sys.executable,'-c',script],cwd=ROOT,capture_output=True,text=True)
++        self.assertEqual(result.returncode,0,result.stderr)
++    def test_complete_fixture_passes_but_skeletal_and_individual_tampering_fail(self):
++        with tempfile.TemporaryDirectory() as temp:
++            output=Path(temp).resolve()/'run';fixture(output)
++            self.assertTrue(api().status(output)['completed'])
++            mutations=[('summary.json','optimizer_steps',3),('summary.json','accuracy_metrics',{}),('summary.json','checkpoint_saved',True),('summary.json','step_seconds',[2.,float('nan'),4.]),('summary.json','median_step_seconds',4.),('runtime.json','device','cpu'),('selection.json','unique_images',15),('first_step.json','updated_groups',{}),('optimizer_progress.json','optimizer_steps',3),('progress.json','samples_seen',63),('summary.json','completion_checks',{}),('source_identity.json','invented','a'*64),('step_03.json','samples_seen',16)]
++            for filename,key,value in mutations:
++                path=output/filename;original=path.read_text();item=json.loads(original);item[key]=value;path.write_text(json.dumps(item))
++                with self.subTest(filename=filename,key=key):self.assertFalse(api().status(output)['completed'])
++                path.write_text(original)
++            (output/'first_step.json').unlink();self.assertFalse(api().status(output)['completed'])
++            (output/'summary.json').write_text(json.dumps(dict(schema=api().SCHEMA,completed=True,optimizer_steps=4)))
++            self.assertFalse(api().status(output)['completed'])
++    def test_consistently_forged_incomplete_gradient_receipts_are_rejected(self):
++        with tempfile.TemporaryDirectory() as temp:
++            output=Path(temp).resolve()/'run';fixture(output)
++            for filename in ('summary.json','first_step.json','steps.json','step_01.json'):
++                path=output/filename;value=json.loads(path.read_text())
++                if filename=='summary.json':value['first_step_gradients']['groups']['transformer']['tensors']=299
++                elif filename=='steps.json':value[0]['gradients']['groups']['transformer']['tensors']=299
++                else:value['gradients']['groups']['transformer']['tensors']=299
++                path.write_text(json.dumps(value))
++            self.assertFalse(api().status(output)['completed'])
++    def test_inspect_hashes_only_train16_and_reports_detailed_blockers(self):
++        with tempfile.TemporaryDirectory() as temp:
++            args=api().parser().parse_args(['inspect','--output',str(Path(temp).resolve()/'run')])
++            read_paths=[]
++            def validated(root,rows):
++                read_paths.extend(row['path'] for row in rows)
++                return dict(checked_count=16,verified_count=16,test_image_bytes_read=0)
++            with patch.object(api().DATA,'prepare_inputs',return_value=dict(selected=dict(train=records()),manifest_sha256=api().DATA.MANIFEST_SHA)),patch.object(api().DATA,'validate_selected',side_effect=validated),patch.object(api(),'_check_weights',return_value=dict(weights_sha256=api().WEIGHTS_SHA,weights_bytes=351654207)),patch.object(api().RES,'inventory_gpu',return_value=dict(error=None,gpus=[gpu()],processes=[])),patch.object(api().SAFE,'_dependency_blockers',return_value=[]),patch.object(api().RES,'_capacity_path',return_value=dict(free_bytes=100000000000)):
++                result=api().inspect_resources(args)
++            self.assertTrue(result['ready'],result)
++            self.assertEqual(read_paths,[f'class{i:02}/train0.jpg' for i in range(16)])
++            self.assertEqual(result['counts'],dict(train=16,val=0,test=0))
++            self.assertIn('GPU-current',result['run_command'])
++    def test_wrapper_success_requires_end_checks_and_records_four_durable_events(self):
++        with tempfile.TemporaryDirectory() as temp:
++            base=Path(temp).resolve();saved=base/'fixture';summary=fixture(saved)
++            engine=dict(summary);events=json.loads((saved/'steps.json').read_text());output=base/'run'
++            args=api().parser().parse_args(['run','--output',str(output)])
++            preflight=dict(ready=True,selected_gpu=gpu(),source_identity=api()._source_identity())
++            def numerical(*values):
++                for event in events:values[-1](event)
++                return engine
++            cfg=json.loads((ROOT/'configs/hgtnet_aid_independent_v0.json').read_text())
++            original_sha=api()._sha
++            def sha(path):return api().DATA.MANIFEST_SHA if Path(path)==args.manifest else original_sha(path)
++            with patch.object(api(),'inspect_resources',return_value=preflight),patch.object(api(),'_runtime_and_torch',return_value=(object(),summary['runtime'])),patch.object(api(),'_check_config',return_value=cfg),patch.object(api().DATA,'prepare_inputs',return_value=dict(selected=dict(train=records()))),patch.object(api().DATA,'validate_selected',return_value=dict(checked_count=16,verified_count=16,test_image_bytes_read=0)),patch.object(api(),'_check_weights',return_value=dict(weights_sha256=api().WEIGHTS_SHA,weights_bytes=351654207)),patch.object(api(),'_sha',side_effect=sha),patch.object(api(),'_run_model',side_effect=numerical),contextlib.redirect_stdout(io.StringIO()):
++                self.assertEqual(api().run_probe(args),0)
++            self.assertTrue(api().status(output)['completed'])
++            self.assertEqual(len(json.loads((output/'steps.json').read_text())),4)
++            self.assertFalse((output/'smoke_epoch1.pt').exists())
++            self.assertFalse(api().lock_path(output).exists())
++    def test_failure_after_actual_update_keeps_durable_steps(self):
++        with tempfile.TemporaryDirectory() as temp:
++            output=Path(temp).resolve()/'run';args=api().parser().parse_args(['run','--output',str(output)])
++            preflight=dict(ready=True,selected_gpu=gpu(),source_identity=api()._source_identity())
++            def failed(*args):
++                progress=args[-1];progress(dict(stage='first_optimizer_step',optimizer_step_succeeded=True,optimizer_step_completed=True,optimizer_steps=1,step_index=1,samples_seen=16,training_started=True,post_update_checks_passed=False))
++                raise ValueError('post update diagnostic failed')
++            with patch.object(api(),'inspect_resources',return_value=preflight),patch.object(api(),'_runtime_and_torch',return_value=(object(),{})),patch.object(api(),'_check_config',return_value={}),patch.object(api().DATA,'prepare_inputs',return_value={'selected':{'train':records()}}),patch.object(api().DATA,'validate_selected',return_value={}),patch.object(api(),'_run_model',side_effect=failed),contextlib.redirect_stdout(io.StringIO()),contextlib.redirect_stderr(io.StringIO()):
++                self.assertEqual(api().run_probe(args),1)
++            result=api().status(output);self.assertEqual(result['optimizer_steps'],1);self.assertTrue(result['training_started']);self.assertFalse(result['completed'])
++            self.assertTrue((output/'step_01.json').is_file());self.assertEqual(json.loads((output/'steps.json').read_text())[0]['optimizer_steps'],1)
++if __name__=='__main__':unittest.main()
+--- /dev/null
++++ tests/test_hgtnet_aid_batch_probe_delivery.py
+@@ -0,0 +1,125 @@
++"""Actual archive install and stdlib subprocess checks for AID3060 delivery."""
++import hashlib
++import importlib
++import json
++import os
++from pathlib import Path
++import stat
++import subprocess
++import sys
++import tempfile
++import unittest
++import warnings
++import zipfile
++
++
++def api():
++    try: return importlib.import_module('tools.package_hgtnet_aid_batch16_probe')
++    except ModuleNotFoundError as exc:
++        raise AssertionError('independent AID delivery has not been implemented') from exc
++
++
++class DeliveryTests(unittest.TestCase):
++    def setUp(self):
++        self.temporary=tempfile.TemporaryDirectory()
++        self.addCleanup(self.temporary.cleanup)
++        self.root=Path(self.temporary.name).resolve()
++        self.bundle=self.root/'aid smoke.pyz'
++
++    def rewrite(self,name,transform):
++        path=self.root/name
++        with zipfile.ZipFile(self.bundle) as archive:
++            members=[(item,archive.read(item.filename)) for item in archive.infolist()]
++        with warnings.catch_warnings(),zipfile.ZipFile(path,'w') as archive:
++            warnings.simplefilter('ignore',UserWarning)
++            for item,raw in transform(members):archive.writestr(item,raw)
++        return path
++
++    def test_bundle_is_exact_source_whitelist_with_separate3060_identity(self):
++        record=api().build_bundle(self.bundle)
++        self.assertEqual(record['sha256'],hashlib.sha256(self.bundle.read_bytes()).hexdigest())
++        self.assertEqual(record['bytes'],self.bundle.stat().st_size)
++        self.assertEqual(record['manifest']['schema'],'hgtnet-aid-batch16-delivery-v1')
++        self.assertEqual(record['manifest']['target_gpu'],'3060')
++        self.assertEqual(len(api().SOURCE_FILES),18)
++        with zipfile.ZipFile(self.bundle) as archive:
++            self.assertEqual(set(archive.namelist()),set(api().SOURCE_FILES)|
++                             {'__main__.py',api().MANIFEST,'bundled_weights_provenance.json'})
++            self.assertNotIn('configs/hgtnet_independent_v0.json',archive.namelist())
++            self.assertEqual(len(archive.namelist()),21)
++            self.assertNotIn('external_baselines/hgtnet/aid_engine.py',archive.namelist())
++            for name in api().SOURCE_FILES:
++                self.assertEqual(archive.read(name),(api().ROOT/name).read_bytes())
++        with self.assertRaises(FileExistsError):api().build_bundle(self.bundle)
++
++    def test_real_pyz_inspect_status_use_real_install_directory_without_ML(self):
++        api().build_bundle(self.bundle)
++        guard=self.root/'guard';guard.mkdir()
++        (guard/'sitecustomize.py').write_text(
++            'import builtins\n_original=builtins.__import__\n'
++            'def guarded(name,*args,**kwargs):\n'
++            ' if name.split(".")[0] in {"torch","torchvision","numpy","PIL"}: '
++            'raise RuntimeError("ML imported: "+name)\n'
++            ' return _original(name,*args,**kwargs)\n'
++            'builtins.__import__=guarded\n')
++        env=dict(os.environ,PYTHONPATH=str(guard),PYTHONDONTWRITEBYTECODE='1')
++        for action in ('inspect','status'):
++            result=subprocess.run([sys.executable,str(self.bundle),action],env=env,capture_output=True,text=True)
++            self.assertEqual(result.returncode,0,result.stderr)
++            report=json.loads(result.stdout)
++            self.assertFalse(report.get('ready',report.get('completed',False)))
++            self.assertEqual(report['output'],str(self.bundle.with_suffix('')/'runs/batch16_seed42_01'))
++        installed,manifest=api().install_bundle(self.bundle)
++        self.assertEqual(installed,self.bundle.with_suffix(''))
++        self.assertEqual(manifest['runner'],'external_baselines/hgtnet/aid_batch_probe.py')
++        self.assertFalse((installed/'runs').exists())
++
++    def test_unknown_actions_never_install(self):
++        api().build_bundle(self.bundle)
++        for action in ([],['resume'],['train'],['install-deps'],['build']):
++            result=subprocess.run([sys.executable,str(self.bundle),*action],capture_output=True,text=True)
++            self.assertNotEqual(result.returncode,0)
++            self.assertFalse(self.bundle.with_suffix('').exists())
++
++    def test_install_rejects_foreign_destination_and_altered_or_extra_source(self):
++        api().build_bundle(self.bundle)
++        workspace=self.bundle.with_suffix('');workspace.mkdir()
++        (workspace/'keep').write_text('preserve')
++        with self.assertRaisesRegex(ValueError,'foreign|incomplete'):api().install_bundle(self.bundle)
++        (workspace/'keep').unlink();workspace.rmdir()
++        api().install_bundle(self.bundle)
++        for name in ['external_baselines/hgtnet/model.py',api().RECEIPT,api().MANIFEST]:
++            target=workspace/name;original=target.read_bytes();target.write_bytes(b'{}')
++            with self.assertRaises(ValueError):api().install_bundle(self.bundle)
++            self.assertEqual(target.read_bytes(),b'{}');target.write_bytes(original)
++        target=workspace/'external_baselines/hgtnet/injected.py';target.write_text('pass')
++        with self.assertRaisesRegex(ValueError,'unexpected'):api().install_bundle(self.bundle)
++
++    def test_install_rejects_member_tamper_duplicate_traversal_collision_and_symlink(self):
++        api().build_bundle(self.bundle)
++        symlink=zipfile.ZipInfo('external_baselines/hgtnet/link.py')
++        symlink.external_attr=(stat.S_IFLNK|0o777)<<16
++        variants=[lambda rows:rows+[(rows[0][0],rows[0][1])],
++                  lambda rows:rows+[('../escape.py',b'bad')],
++                  lambda rows:rows+[('external_baselines',b'bad')],
++                  lambda rows:rows+[(symlink,b'target')],
++                  lambda rows:[(item,b'changed' if item.filename.endswith('/model.py') else raw)
++                               for item,raw in rows]]
++        for i,transform in enumerate(variants):
++            changed=self.rewrite('bad'+str(i)+'.pyz',transform)
++            with self.subTest(i=i),self.assertRaises((ValueError,KeyError)):
++                api().install_bundle(changed)
++            self.assertFalse(changed.with_suffix('').exists())
++
++    def test_symlink_install_or_member_are_refused(self):
++        api().build_bundle(self.bundle)
++        workspace=self.bundle.with_suffix('');other=self.root/'other';other.mkdir()
++        workspace.symlink_to(other,target_is_directory=True)
++        with self.assertRaisesRegex(ValueError,'symbolic'):api().install_bundle(self.bundle)
++        workspace.unlink();api().install_bundle(self.bundle)
++        target=workspace/'external_baselines/hgtnet/model.py';original=target.read_bytes()
++        copy=self.root/'copy';copy.write_bytes(original);target.unlink();target.symlink_to(copy)
++        with self.assertRaisesRegex(ValueError,'symbolic'):api().install_bundle(self.bundle)
++
++
++if __name__ == '__main__':unittest.main()

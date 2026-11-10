@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "count": 18,
+  "checks": {
+    "one_copyable_command": true,
+    "sha_gate_before_restore": true,
+    "old_manifest_not_regenerated": true,
+    "bash_syntax": true,
+    "link:output/hgtnet_aid_restore_20261104.md:../results/hgtnet_aid_inputs_20261104.json": true,
+    "link:output/hgtnet_aid_restore_20261104.md:../results/evidence/hgtnet_aid_inputs_return_20261104/validation.json": true,
+    "link:output/hgtnet_aid_restore_20261104.md:../.worktrees/sparse-hybrid-4n-top2/docs/download_aid.md": true,
+    "link:results/evidence/hgtnet_aid_inputs_return_20261104/README.md:../../hgtnet_aid_inputs_20261104.json": true,
+    "link:results/evidence/hgtnet_aid_inputs_return_20261104/README.md:../../../output/hgtnet_aid_restore_20261104.md": true,
+    "link:docs/external_baselines_20261027/hgtnet_aid_preparation_20261104.md:../../output/hgtnet_aid_restore_20261104.md": true,
+    "link:docs/external_baselines_20261027/hgtnet_aid_preparation_20261104.md:../../.worktrees/sparse-hybrid-4n-top2/docs/run_aid_formal_seed42.md": true,
+    "link:docs/external_baselines_20261027/hgtnet_aid_preparation_20261104.md:../../.worktrees/sparse-hybrid-4n-top2/results/aid_multiseed_summary.md": true,
+    "link:docs/external_baselines_20261027/hgtnet_aid_preparation_20261104.md:protocol_and_acceptance.md": true,
+    "link:docs/external_baselines_20261027/hgtnet_aid_preparation_20261104.md:../../results/hgtnet_nwpu_seed42_analysis_20261104.md": true,
+    "attachment_preserved": true,
+    "old_inspector_unchanged": true,
+    "main_scores_unchanged": true,
+    "git_diff_check": true
+  },
+  "restore_executed": false,
+  "model_training_executed": false
+}

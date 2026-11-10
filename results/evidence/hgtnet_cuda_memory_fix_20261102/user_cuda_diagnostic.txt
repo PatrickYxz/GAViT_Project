@@ -1,0 +1,12 @@
+USER-REPORTED DIAGNOSTIC — structured reconstruction from parent-task fields, not a verbatim full transcript.
+
+CUDA_VISIBLE_DEVICES=GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1
+torch.version.cuda: 12.1
+torch.cuda.is_available(): True
+torch.cuda.device_count(): 1
+_CudaDeviceProperties(name='NVIDIA GeForce RTX 3090', major=8, minor=6, total_memory=24123MB, multi_processor_count=82)
+
+NVML / nvidia-smi user-reported inventory:
+NVIDIA GeForce RTX 3090, GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1, 24576 MiB, 24123 MiB, 610.57.04
+
+The user printed torch.version, a module, rather than torch.__version__; no exact PyTorch version is recorded here. The diagnostic confirms exposed availability/name/count only at the user-reported observation. It does not establish training or a cause for the memory discrepancy.

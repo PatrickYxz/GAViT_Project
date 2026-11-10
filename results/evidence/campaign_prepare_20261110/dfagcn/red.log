@@ -1,0 +1,117 @@
+test_cache_identity_is_seed_independent_but_all_input_identities_matter (test_dfagcn_campaign.CampaignTests.test_cache_identity_is_seed_independent_but_all_input_identities_matter) ... ERROR
+test_completion_cannot_be_inferred_from_summary_exit_alone (test_dfagcn_campaign.CampaignTests.test_completion_cannot_be_inferred_from_summary_exit_alone) ... ERROR
+test_consecutive_seeds_and_frozen_recipe_only_change_seed (test_dfagcn_campaign.CampaignTests.test_consecutive_seeds_and_frozen_recipe_only_change_seed) ... ERROR
+test_source_parity_is_explicit_and_byte_verified (test_dfagcn_campaign.CampaignTests.test_source_parity_is_explicit_and_byte_verified) ... ERROR
+test_status_has_no_ml_imports (test_dfagcn_campaign.CampaignTests.test_status_has_no_ml_imports) ... ERROR
+test_svm_io_relocation_keeps_original_features_model_receipts_and_failure (test_dfagcn_campaign.CampaignTests.test_svm_io_relocation_keeps_original_features_model_receipts_and_failure) ... ERROR
+test_uuid_selected_gpu_any_model_and_1gib_memory_gap (test_dfagcn_campaign.CampaignTests.test_uuid_selected_gpu_any_model_and_1gib_memory_gap) ... ERROR
+
+======================================================================
+ERROR: test_cache_identity_is_seed_independent_but_all_input_identities_matter (test_dfagcn_campaign.CampaignTests.test_cache_identity_is_seed_independent_but_all_input_identities_matter)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_campaign.py", line 20, in setUp
+    self.api=api();self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)
+             ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_campaign.py", line 16, in api
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 755, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 892, in get_code
+  File "<frozen importlib._bootstrap_external>", line 950, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/patrick/Projects/GAViT_Project/tools/run_dfagcn_campaign.py'
+
+======================================================================
+ERROR: test_completion_cannot_be_inferred_from_summary_exit_alone (test_dfagcn_campaign.CampaignTests.test_completion_cannot_be_inferred_from_summary_exit_alone)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_campaign.py", line 20, in setUp
+    self.api=api();self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)
+             ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_campaign.py", line 16, in api
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 755, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 892, in get_code
+  File "<frozen importlib._bootstrap_external>", line 950, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/patrick/Projects/GAViT_Project/tools/run_dfagcn_campaign.py'
+
+======================================================================
+ERROR: test_consecutive_seeds_and_frozen_recipe_only_change_seed (test_dfagcn_campaign.CampaignTests.test_consecutive_seeds_and_frozen_recipe_only_change_seed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_campaign.py", line 20, in setUp
+    self.api=api();self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)
+             ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_campaign.py", line 16, in api
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 755, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 892, in get_code
+  File "<frozen importlib._bootstrap_external>", line 950, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/patrick/Projects/GAViT_Project/tools/run_dfagcn_campaign.py'
+
+======================================================================
+ERROR: test_source_parity_is_explicit_and_byte_verified (test_dfagcn_campaign.CampaignTests.test_source_parity_is_explicit_and_byte_verified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_campaign.py", line 20, in setUp
+    self.api=api();self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)
+             ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_campaign.py", line 16, in api
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 755, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 892, in get_code
+  File "<frozen importlib._bootstrap_external>", line 950, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/patrick/Projects/GAViT_Project/tools/run_dfagcn_campaign.py'
+
+======================================================================
+ERROR: test_status_has_no_ml_imports (test_dfagcn_campaign.CampaignTests.test_status_has_no_ml_imports)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_campaign.py", line 20, in setUp
+    self.api=api();self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)
+             ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_campaign.py", line 16, in api
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 755, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 892, in get_code
+  File "<frozen importlib._bootstrap_external>", line 950, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/patrick/Projects/GAViT_Project/tools/run_dfagcn_campaign.py'
+
+======================================================================
+ERROR: test_svm_io_relocation_keeps_original_features_model_receipts_and_failure (test_dfagcn_campaign.CampaignTests.test_svm_io_relocation_keeps_original_features_model_receipts_and_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_campaign.py", line 20, in setUp
+    self.api=api();self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)
+             ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_campaign.py", line 16, in api
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 755, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 892, in get_code
+  File "<frozen importlib._bootstrap_external>", line 950, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/patrick/Projects/GAViT_Project/tools/run_dfagcn_campaign.py'
+
+======================================================================
+ERROR: test_uuid_selected_gpu_any_model_and_1gib_memory_gap (test_dfagcn_campaign.CampaignTests.test_uuid_selected_gpu_any_model_and_1gib_memory_gap)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_campaign.py", line 20, in setUp
+    self.api=api();self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)
+             ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_dfagcn_campaign.py", line 16, in api
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 755, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 892, in get_code
+  File "<frozen importlib._bootstrap_external>", line 950, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/patrick/Projects/GAViT_Project/tools/run_dfagcn_campaign.py'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+FAILED (errors=7)

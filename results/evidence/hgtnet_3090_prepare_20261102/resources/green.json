@@ -1,0 +1,39 @@
+{
+  "runs": [
+    {
+      "command": [
+        "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_hgtnet_resources.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "old_resources_green.log"
+    },
+    {
+      "command": [
+        "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_hgtnet_3090_resources.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "3090_resources_green.log"
+    }
+  ],
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "KMP_INIT_AT_FORK": "FALSE"
+  }
+}

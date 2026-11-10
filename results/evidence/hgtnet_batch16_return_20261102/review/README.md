@@ -1,0 +1,11 @@
+# Independent batch16 return audit
+
+The user-pasted run output was independently parsed against the actual delivered pyz (SHA2569563c9b14bb182bb58104480bedee963efda6c44e48cd63fce5f8522a9426799). [26 checks](validation.json) pass; [stdlib reproducer](independent_audit.py) exits0. Only this review directory was modified.
+
+- Four successful optimizer receipts, batch16,1warmup+3measured steps,64presentations. First-step451 gradient tensors across five groups have positive finite aggregate norms, no missing/nonfinite gradients, and all five representative update flags true. Final complete progress and completion marker match the expected output.
+- Median measured step0.20135352999932365s, mean0.20126396233323854s,16/median79.46222745662192images/s. Compute-only scope uses repeated, already decoded/device-resident16 inputs; image loading/augmentation/transfer/setup/logging are excluded. Loss decrease on repeated inputs is a diagnostic, not validation/generalization evidence.
+- Conditional arithmetic at unchanged measured median:315calibration updates63.42636194978695s per training epoch;394refit updates79.33329081973352s.100calibration+100refit epochs yield70900updates,14275.965276952047s=3.9655459102644577h for this compute-only scaling. This is not an end-to-end ETA or cost; calibration validation, dataset/augmentation IO, initialization, checkpoints, test, and rate drift are excluded. Refit's last batch has12samples, so the394-times-full-batch estimate is explicitly a count-based approximation.
+- Actual CUDA-visible total25295323136B=24123.5MiB=23.55810546875GiB is device capacity, not allocated/reserved peak. Current-round NVML inventory, peak memory, whole wall and original server files have not been supplied.
+- Actual source prints COMPLETE only after exact4steps, final finite parameters, source/manifest/weights/config and selected-image checks, summary creation,run.exit0 andcompletion.marker. This supports accepting server-reported completion under the delivered program's normal path; it does not claim direct retrieval/verification of the server file bytes.
+
+No engineering anomaly found and no rerun justified. Read existing status for remaining fields; keep smoke/capacity diagnostics separate from formal protocol and benchmark accuracy.

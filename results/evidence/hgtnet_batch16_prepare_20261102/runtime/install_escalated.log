@@ -1,0 +1,28 @@
+Using Python 3.12.13 environment at: /private/tmp/gavit-hgtnet-probe-cpu-20261102
+Resolved 12 packages in 4.93s
+Downloading numpy (13.1MiB)
+Downloading torchvision (1.5MiB)
+Downloading networkx (2.0MiB)
+Downloading sympy (6.0MiB)
+Downloading torch (56.9MiB)
+Downloading pillow (3.2MiB)
+ Downloaded torchvision
+ Downloaded networkx
+ Downloaded pillow
+ Downloaded sympy
+ Downloaded numpy
+ Downloaded torch
+Prepared 12 packages in 43.30s
+Installed 12 packages in 150ms
+ + filelock==4.2.6
+ + fsspec==2026.9.0
+ + jinja2==3.1.6
+ + markupsafe==3.0.4
+ + mpmath==1.3.0
+ + networkx==3.7
+ + numpy==1.26.4
+ + pillow==10.3.0
+ + sympy==1.14.0
+ + torch==2.2.2
+ + torchvision==0.17.2
+ + typing-extensions==4.16.0

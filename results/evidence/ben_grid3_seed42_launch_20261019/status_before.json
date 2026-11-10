@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-18",
+  "status": "PREPARED_SERVER_EXECUTION_PENDING",
+  "authorization": "用户：那就补吧，我真的想快点结束掉这个东西了",
+  "formal_authorized": true,
+  "server_training_started": false,
+  "server_training_start_verified": false,
+  "scope": {
+    "new_formal_models": [
+      "fixed_K9_seed42"
+    ],
+    "historical_reference": "fixed_K16_seed42_cd39be9",
+    "new_swin_or_soft_or_k16_training": false
+  },
+  "output": "/home/featurize/work/ben_grid3_seed42_20261018_01",
+  "base_commit": "cd39be91a013bcf98099808c451300f87d3898b7",
+  "snapshot_sha256": "f82d37a9cc1d18920a553fa1e4fd516e9d9ebda9d9abddb6595e12a69a944f58",
+  "architecture": {
+    "num_classes": 19,
+    "num_regions": 9,
+    "knn_k": 5,
+    "gat_hidden": 256,
+    "gat_heads": 4,
+    "gat_layers": 2,
+    "dropout": 0.1,
+    "grouping": "attentive_spatial",
+    "edge_type": "sparse_hybrid",
+    "integration": "token_feedback"
+  },
+  "graph_topology": {
+    "name": "sparse_hybrid_grid3_4n_top2",
+    "spatial_connectivity": 4,
+    "feature_k": 2,
+    "spatial_directed_edges": 24,
+    "feature_directed_edges": 18,
+    "total_directed_edges": 42,
+    "message_direction": "neighbor_to_query",
+    "cosine_role": "topology_only"
+  },
+  "expected_parameters": 31366926,
+  "training": {
+    "seed": 42,
+    "epochs": 30,
+    "batch_size": 32,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "scheduler": "CosineAnnealingLR",
+    "loss": "BCEWithLogitsLoss",
+    "f1_threshold": 0.5
+  },
+  "num_workers": 4,
+  "data_splits": {
+    "train": {
+      "count": 237871,
+      "sha256": "25734fd9e8dc7fd78fb259e768ae91fe11b297e1caa50a2d57b74b0296413d8f"
+    },
+    "val": {
+      "count": 122342,
+      "sha256": "1c6627cb48e33588538c4e411e4f1b94560827f27d59fb7aeb0ea2b5d30c2a45"
+    },
+    "test": {
+      "count": 119825,
+      "sha256": "cea165a6443fc5ee44de0a3c55f53ce70505c4e25aba9ca8b52d76634df77204"
+    }
+  },
+  "pretrained_sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+  "target_hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "uuid": null
+  },
+  "precision": {
+    "dtype": "torch.float32",
+    "matmul_tf32": false,
+    "cudnn_tf32": true,
+    "amp": false
+  },
+  "checkpoint": "/home/featurize/work/ben_grid3_seed42_20261018_01/train/gavit.pth",
+  "final_epoch": null,
+  "best_epoch": null,
+  "formal_test_metrics": null,
+  "delta_vs_historical_k16": null,
+  "estimated_hours": [
+    6,
+    8
+  ],
+  "budget_condition": "Only if the previously reported rate 1.67CNY/hour still applies; platform bill and actual runtime unknown",
+  "actual_cost": null,
+  "install_command": "results/evidence/ben_grid3_seed42_prepare_20261018/install_and_launch_command.txt",
+  "limitations": [
+    "Only one new seed is authorized in this supplement.",
+    "Historical control is not a same-physical-GPU/software-batch pair.",
+    "Real torch/PyG/CUDA and one-epoch smoke have not been run locally; fail-closed server gates precede formal30."
+  ]
+}

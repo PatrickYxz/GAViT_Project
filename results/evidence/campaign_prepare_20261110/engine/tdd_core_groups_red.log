@@ -1,0 +1,32 @@
+test_changed_completion_receipt_is_rejected (tests.test_aid_campaign_engine.CampaignEngineTests.test_changed_completion_receipt_is_rejected) ... ok
+test_completed_job_is_verified_without_training (tests.test_aid_campaign_engine.CampaignEngineTests.test_completed_job_is_verified_without_training) ... ok
+test_cuda_uuid_fallback_requires_independent_runtime_measurement (tests.test_aid_campaign_engine.CampaignEngineTests.test_cuda_uuid_fallback_requires_independent_runtime_measurement) ... ok
+test_first_update_requires_every_core_group_and_records_zero_delta_tensors (tests.test_aid_campaign_engine.CampaignEngineTests.test_first_update_requires_every_core_group_and_records_zero_delta_tensors) ... ERROR
+test_formal_refuses_changed_recipe (tests.test_aid_campaign_engine.CampaignEngineTests.test_formal_refuses_changed_recipe) ... ok
+test_formal_refuses_cpu_before_importing_training_dependencies (tests.test_aid_campaign_engine.CampaignEngineTests.test_formal_refuses_cpu_before_importing_training_dependencies) ... ok
+test_formal_refuses_historical_fixed_swin_seeds (tests.test_aid_campaign_engine.CampaignEngineTests.test_formal_refuses_historical_fixed_swin_seeds) ... ok
+test_manifest_hash_and_actual_counts_are_both_required (tests.test_aid_campaign_engine.CampaignEngineTests.test_manifest_hash_and_actual_counts_are_both_required) ... ok
+test_weight_decay_alone_does_not_count_as_a_live_core_group (tests.test_aid_campaign_engine.CampaignEngineTests.test_weight_decay_alone_does_not_count_as_a_live_core_group) ... ERROR
+
+======================================================================
+ERROR: test_first_update_requires_every_core_group_and_records_zero_delta_tensors (tests.test_aid_campaign_engine.CampaignEngineTests.test_first_update_requires_every_core_group_and_records_zero_delta_tensors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_aid_campaign_engine.py", line 83, in test_first_update_requires_every_core_group_and_records_zero_delta_tensors
+    report = engine.summarize_parameter_updates(rows, ['classifier'])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'scene_classification.aid_campaign_engine' has no attribute 'summarize_parameter_updates'
+
+======================================================================
+ERROR: test_weight_decay_alone_does_not_count_as_a_live_core_group (tests.test_aid_campaign_engine.CampaignEngineTests.test_weight_decay_alone_does_not_count_as_a_live_core_group)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_aid_campaign_engine.py", line 74, in test_weight_decay_alone_does_not_count_as_a_live_core_group
+    engine.summarize_parameter_updates(rows, ['classifier'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'scene_classification.aid_campaign_engine' has no attribute 'summarize_parameter_updates'
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.003s
+
+FAILED (errors=2)

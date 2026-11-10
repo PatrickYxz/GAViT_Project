@@ -1,0 +1,53 @@
+{
+  "checks": {
+    "451_gradient_tensors": true,
+    "actual_local_bundle_sha": true,
+    "all_group_norms_finite_positive": true,
+    "device_actual_cuda0_report": true,
+    "epoch2_not_validation_complete": true,
+    "epoch_complete_after_snapshot_history": true,
+    "first_update_success": true,
+    "five_gradient_groups": true,
+    "five_representative_parameter_updates": true,
+    "local_engine_matches_delivered_source": true,
+    "no_final_completion_marker": true,
+    "no_missing_nonfinite_gradients": true,
+    "online_train_correct2415_arithmetic": true,
+    "only_calibration_phase": true,
+    "only_epoch1_complete": true,
+    "remaining99_epoch_mean_matches": true,
+    "same_pid_attempt": true,
+    "train_rate_matches": true,
+    "training_complete_after_sample_and_finite_checks": true,
+    "training_complete_has_no_validation_or_snapshot": true,
+    "two_training_segments5040each": true,
+    "val_correct974_arithmetic": true
+  },
+  "checks_count": 22,
+  "derived": {
+    "epoch1_other_wall_seconds": 67.47147662099991,
+    "epoch1_train_correct_online_arithmetic": 2415,
+    "epoch1_train_seconds": 250.58360762799998,
+    "epoch1_val_correct_arithmetic": 974,
+    "epoch1_validation_seconds": 8.641767578000099,
+    "epoch1_wall_seconds": 326.696851827,
+    "epoch2_train_images_per_second_arithmetic": 21.32348734604668,
+    "epoch2_training_seconds": 236.35908696399997,
+    "first_epoch_conditional_calibration100_total_hours": 9.07491255075,
+    "reported_remaining_calibration_hours": 8.9841634252425
+  },
+  "disposition": "Program-reported actual CUDA training startup accepted, epoch1 full calibration epoch complete; epoch2 training only. No anomaly in supplied events; continue unchanged.",
+  "metric_scope": "macro-F1 server-reported, no prediction recomputation. Online train accuracy differs from frozen epoch-end validation scope.",
+  "not_confirmed": [
+    "current remote GPU process inventory/peak memory",
+    "remote files, checkpoints or run.exit bytes",
+    "epoch2 validation or complete epoch wall",
+    "final test scores",
+    "population performance or stable model superiority"
+  ],
+  "passed": true,
+  "schema": "hgtnet-formal-start-independent-review-v1",
+  "source": "user-pasted terminal output, not direct remote retrieval",
+  "source_sha256": "3184766b0014b350f5424fe1415d0363f95506613fc65e770749ee6da9c43bef",
+  "time_scope": "First completed epoch-based current calibration phase estimate only; remaining refit/test and other startup/billing excluded. Other-wall subtraction is unsplit checks/serialization/storage/history overhead, not proof of one bottleneck."
+}

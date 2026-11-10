@@ -1,0 +1,14 @@
+{
+  "run_scene.py": true,
+  ".worktrees/sparse-hybrid-4n-top2/run_scene.py": true,
+  "scene_classification/data.py": true,
+  ".worktrees/sparse-hybrid-4n-top2/scene_classification/data.py": true,
+  "scene_classification/metrics.py": true,
+  ".worktrees/sparse-hybrid-4n-top2/scene_classification/metrics.py": true,
+  "scene_classification/modeling.py": true,
+  ".worktrees/sparse-hybrid-4n-top2/scene_classification/modeling.py": true,
+  "scene_classification/runner.py": true,
+  ".worktrees/sparse-hybrid-4n-top2/scene_classification/runner.py": true,
+  "scene_classification/refinement_audit.py": true,
+  ".worktrees/sparse-hybrid-4n-top2/scene_classification/refinement_audit.py": true
+}

@@ -1,0 +1,111 @@
+======================================================================
+FAIL: test_capacity_is_sha_pinned_status_only_same_current_uuid (tests.test_hgtnet_aid_formal_entry.EntryTests.test_capacity_is_sha_pinned_status_only_same_current_uuid)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 40, in test_capacity_is_sha_pinned_status_only_same_current_uuid
+    e=api();args=e.parser().parse_args(['inspect'])
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 16, in api
+    raise AssertionError('Missing formal entry behavior: '+name)
+AssertionError: Missing formal entry behavior: parser
+
+======================================================================
+FAIL: test_exclusive_lock_and_owned_output (tests.test_hgtnet_aid_formal_entry.EntryTests.test_exclusive_lock_and_owned_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 28, in test_exclusive_lock_and_owned_output
+    e=api()
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 16, in api
+    raise AssertionError('Missing formal entry behavior: '+name)
+AssertionError: Missing formal entry behavior: parser
+
+======================================================================
+FAIL: test_explicit_actions_new_sources_and_no_scratch (tests.test_hgtnet_aid_formal_entry.EntryTests.test_explicit_actions_new_sources_and_no_scratch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 21, in test_explicit_actions_new_sources_and_no_scratch
+    e=api();args=e.parser().parse_args(['inspect'])
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 16, in api
+    raise AssertionError('Missing formal entry behavior: '+name)
+AssertionError: Missing formal entry behavior: parser
+
+======================================================================
+FAIL: test_importguard_status_and_inspect (tests.test_hgtnet_aid_formal_entry.EntryTests.test_importguard_status_and_inspect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 68, in test_importguard_status_and_inspect
+    self.assertEqual(p.returncode,0,p.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 8, in <module>
+    a=e.parser().parse_args(["inspect","--output","/tmp/no_aid_formal_fixture"])
+      ^^^^^^^^
+AttributeError: module 'external_baselines.hgtnet.aid_formal_entry' has no attribute 'parser'
+
+
+======================================================================
+FAIL: test_metrics_are_pure_python_and_correct (tests.test_hgtnet_aid_formal_entry.EntryTests.test_metrics_are_pure_python_and_correct)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 55, in test_metrics_are_pure_python_and_correct
+    metric=api()._metrics([0,0,1],[0,1,1],['a','b'])
+           ~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 16, in api
+    raise AssertionError('Missing formal entry behavior: '+name)
+AssertionError: Missing formal entry behavior: parser
+
+======================================================================
+FAIL: test_skeletal_complete_is_rejected (tests.test_hgtnet_aid_formal_entry.EntryTests.test_skeletal_complete_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 60, in test_skeletal_complete_is_rejected
+    e=api()
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 16, in api
+    raise AssertionError('Missing formal entry behavior: '+name)
+AssertionError: Missing formal entry behavior: parser
+
+======================================================================
+FAIL: test_checkpoint_firststep_and_transaction_corruption_rejected (tests.test_hgtnet_aid_formal_status.StatusReceiptTests.test_checkpoint_firststep_and_transaction_corruption_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_status.py", line 111, in test_checkpoint_firststep_and_transaction_corruption_rejected
+    fixture(self.root);path=self.root/'first_refit_step.json';saved=path.read_bytes();path.unlink()
+    ~~~~~~~^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_status.py", line 18, in fixture
+    raise AssertionError('Formal complete-artifact validator missing')
+AssertionError: Formal complete-artifact validator missing
+
+======================================================================
+FAIL: test_complete_consistent_receipts_accept_and_compact_metrics (tests.test_hgtnet_aid_formal_status.StatusReceiptTests.test_complete_consistent_receipts_accept_and_compact_metrics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_status.py", line 97, in test_complete_consistent_receipts_accept_and_compact_metrics
+    fixture(self.root);report=e.status(self.root)
+    ~~~~~~~^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_status.py", line 18, in fixture
+    raise AssertionError('Formal complete-artifact validator missing')
+AssertionError: Formal complete-artifact validator missing
+
+======================================================================
+FAIL: test_earliest_tie_initial_state_and_source_mutations_rejected (tests.test_hgtnet_aid_formal_status.StatusReceiptTests.test_earliest_tie_initial_state_and_source_mutations_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_status.py", line 104, in test_earliest_tie_initial_state_and_source_mutations_rejected
+    original=fixture(self.root)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_status.py", line 18, in fixture
+    raise AssertionError('Formal complete-artifact validator missing')
+AssertionError: Formal complete-artifact validator missing
+
+======================================================================
+FAIL: test_self_consistent_hashes_cannot_hide_invalid_predictions (tests.test_hgtnet_aid_formal_status.StatusReceiptTests.test_self_consistent_hashes_cannot_hide_invalid_predictions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_status.py", line 120, in test_self_consistent_hashes_cannot_hide_invalid_predictions
+    summary=fixture(self.root);test=json.loads((self.root/'test.json').read_text());test['predictions'][0]=30;write(self.root/'test.json',test)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_status.py", line 18, in fixture
+    raise AssertionError('Formal complete-artifact validator missing')
+AssertionError: Formal complete-artifact validator missing
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.047s
+
+FAILED (failures=10)

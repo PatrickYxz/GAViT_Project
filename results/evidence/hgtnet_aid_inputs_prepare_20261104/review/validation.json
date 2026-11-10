@@ -1,0 +1,46 @@
+{
+  "schema": "hgtnet-aid-input-inspector-independent-review-v1",
+  "date": "2026-11-04",
+  "spec_compliance_verdict": "PASS_LOCAL_INSPECTOR_AND_DELIVERY_SCOPE",
+  "code_quality_verdict": "APPROVED",
+  "actionable_findings": [],
+  "source_sha256": "4e3b66b91f115d99d01e39fe168e8cf5dd18503ec8593e45c39dbccfcd0eb7b4",
+  "bundle_sha256": "1cd2ab967cdbc386b294b397c6804bf06c5796c01332c709e44646f98d03f036",
+  "fresh_read_only_checks": {
+    "checks_passed": 11,
+    "checks_total": 11,
+    "failed_checks": [],
+    "coverage": [
+      "frozen_source_sha",
+      "frozen_zipapp_sha",
+      "two_expected_members",
+      "source_equals_actual_zipapp_main",
+      "zipapp_source_identity",
+      "source_receipt_identity",
+      "tests_receipt_identity",
+      "bundle_receipt_identity",
+      "readme_receipt_identity",
+      "tool_import_roots_stdlib",
+      "original_NWPU_zipapp_unchanged"
+    ]
+  },
+  "existing_evidence_reviewed": {
+    "focused_unittests": 13,
+    "delivery_checks": 15,
+    "actual_final_zipapp_guard_execution": true,
+    "same_frozen_source_and_bundle": true
+  },
+  "tests_rerun": false,
+  "reviewed_files_modified": false,
+  "real_manifest_and_images_verified": false,
+  "target_gpu_verified": false,
+  "training_started": false,
+  "training_readiness_claimed": false,
+  "scope_excludes": [
+    "seed46_seed47_reconstruction",
+    "future_AID_trainer",
+    "actual_target_instance_inventory",
+    "GPU_smoke_or_formal_training"
+  ],
+  "report": "verdict.md"
+}

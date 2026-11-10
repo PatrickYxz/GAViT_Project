@@ -1,0 +1,21 @@
+debug1: OpenSSH_10.2p1, LibreSSL 3.3.6
+debug1: Reading configuration data /dev/null
+debug2: resolve_canonicalize: hostname 183.223.25.19 is address
+debug1: Authenticator provider $SSH_SK_PROVIDER did not resolve; disabling
+debug1: Connecting to 183.223.25.19 [183.223.25.19] port 15437.
+debug2: fd 4 setting O_NONBLOCK
+debug1: fd 4 clearing O_NONBLOCK
+debug1: Connection established.
+debug1: loaded pubkey from /Users/patrick/.ssh/featurize_gavit_ed25519: ED25519 SHA256:rUfU3NopTlizBWFgBGms51+twQ++d3NLPGDjj/kXHPk
+debug1: identity file /Users/patrick/.ssh/featurize_gavit_ed25519 type 2
+debug1: no identity pubkey loaded from /Users/patrick/.ssh/featurize_gavit_ed25519
+debug1: Local version string SSH-2.0-OpenSSH_10.2
+debug1: Remote protocol version 2.0, remote software version OpenSSH_8.9p1 Ubuntu-3ubuntu0.6
+debug1: compat_banner: match: OpenSSH_8.9p1 Ubuntu-3ubuntu0.6 pat OpenSSH* compat 0x04000000
+debug2: fd 4 setting O_NONBLOCK
+debug1: Authenticating to 183.223.25.19:15437 as 'featurize'
+debug1: using hostkeyalias: [workspace.featurize.cn]:15437
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: SSH2_MSG_KEXINIT sent
+Connection to 183.223.25.19 port 15437 timed out

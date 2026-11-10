@@ -1,0 +1,126 @@
+{
+  "arrays": {
+    "conv3": {
+      "dtype": "float32",
+      "file": "conv3.npy",
+      "sha256": "cad5605c7bd88d9da317a904f7e4cf8fa8a86e082908798aa0405925aebaf99a",
+      "shape": [
+        10,
+        12,
+        256
+      ]
+    },
+    "conv4": {
+      "dtype": "float32",
+      "file": "conv4.npy",
+      "sha256": "18b0c8e46eb501e3bb5488c6e971ea4778e0275c719565fdd09a89857cc7fe11",
+      "shape": [
+        10,
+        12,
+        512
+      ]
+    },
+    "conv5": {
+      "dtype": "float32",
+      "file": "conv5.npy",
+      "sha256": "da7299bda8e0415dce3433ddcd3955e97a7287d40c0e06cc9970bf95adc67ec5",
+      "shape": [
+        10,
+        12,
+        512
+      ]
+    },
+    "fc": {
+      "dtype": "float32",
+      "file": "fc.npy",
+      "sha256": "2334896281c47c736ef7f2892b069b93ed3417e1132d54c1d16752e0e3a860d6",
+      "shape": [
+        10,
+        4096
+      ]
+    }
+  },
+  "identity": {
+    "class_names": [
+      "class_a",
+      "class_b"
+    ],
+    "feature_spec": {
+      "conv_activation": "pre_relu",
+      "fc_activation": "post_relu",
+      "pooling_hw": [
+        3,
+        4
+      ]
+    },
+    "fitted_on_sha256": null,
+    "manifest_sha256": "08226704765cbd3f4ecf2af437ed87b4222ad9f96c70cbfd69c2252c391facb8",
+    "preprocessing": {
+      "augmentation": false,
+      "channels": "RGB",
+      "conv_hw": 448,
+      "fc_hw": 224,
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "resize_mode": "bilinear_stretch",
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "weights_kind": "random_smoke"
+    },
+    "samples": [
+      {
+        "path": "class_a/02.png",
+        "sha256": "f27dc222e4954781cced6f4a67d7ebdf1e75e7840d287c5af7a7bf00f20ae819"
+      },
+      {
+        "path": "class_a/03.png",
+        "sha256": "c04be5643fd44da7db88e75477e0e0e16e9d4e2aa0cc6df3798db84686002bf2"
+      },
+      {
+        "path": "class_a/05.png",
+        "sha256": "c87f406d86201d6fb1e880559eb2a4aba6cd5659ef2c61201ec9d98dd22ac842"
+      },
+      {
+        "path": "class_a/07.png",
+        "sha256": "a2f46cb3ae04306dc7230e2edbbaf9a22230fb7c0effe8ac9b5b107d7443a6e8"
+      },
+      {
+        "path": "class_a/08.png",
+        "sha256": "49887fc8c38b7469bdb8e5690f10f0f91431290a1eda9e95b798fe635b743116"
+      },
+      {
+        "path": "class_b/01.png",
+        "sha256": "97a90e35caa56cdb629662cc3a37c1b8ee7f0269557bd51700c01a4c74bb45c5"
+      },
+      {
+        "path": "class_b/05.png",
+        "sha256": "0e19109a51a6cea1d0e9dbd03a2265aeaf3cc0e902af8b4252e2d9ce2674a386"
+      },
+      {
+        "path": "class_b/06.png",
+        "sha256": "c6765045889f1d7e42f0dce57c0e681003e2fec1f335e683870c938817909c9c"
+      },
+      {
+        "path": "class_b/08.png",
+        "sha256": "01df689fe1853ad133475a84fbfd2351f2f3f54248d22d99168a0e9809af7a92"
+      },
+      {
+        "path": "class_b/09.png",
+        "sha256": "a9bfe0052ba7796a5da0c32bf2e9fab58fd04436ea0267a7ef646c325483cf1b"
+      }
+    ],
+    "schema": "dfagcn-feature-cache-v1",
+    "source_sha256": "6bf25f4accd133bd3e0df663605e50b2f1b07f17470710c4b8e9a896c6a509e6",
+    "stage": "frozen_pretrained",
+    "training_config": null,
+    "weights_sha256": "e53c8bac71bbe650b4cd08338c593b071e3c5106cffd3c1f81b7b456a05217fe"
+  },
+  "key": "febee511e19211807c710399198f2f6b72c6d0e33e11b4210002d0a3346fc6b3",
+  "schema": "dfagcn-pooled-cache-v1"
+}

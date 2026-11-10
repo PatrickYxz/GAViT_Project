@@ -1,0 +1,62 @@
+{
+  "status": "SERVER_REPORTED_FORMAL_COMPLETE_MARKER_RESULT_FIELDS_PENDING",
+  "user_reported_marker": "DFAGCN_FORMAL_COMPLETE /home/featurize/work/dfagcn_nwpu_formal_3080_20261030_fix1/runs/nwpu_seed42_01/summary.json",
+  "evidence_scope": "user-provided stdout line interpreted against the locally verified delivered code; no direct remote file retrieval",
+  "fix1_pyz_sha256": "79398dc4b6d703be65cd32a968d49daa6640fe6c4bbab6a33e930b312954a6c4",
+  "source_identities": {
+    "tools/run_dfagcn_nwpu_formal.py": {
+      "sha256": "24e6386c16d8022df8cb2b708dc5c456e6872be553418914d3982c6c5a7ec563",
+      "matches_current_source": true
+    },
+    "external_baselines/dfagcn/pipeline.py": {
+      "sha256": "a7971e4314b25574dfd54f006eed569454cc4b67feab8aea6f831c846926a61a",
+      "matches_current_source": true
+    },
+    "configs/dfagcn_independent_v1.json": {
+      "sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+      "matches_current_source": true
+    }
+  },
+  "marker_locations": [
+    "tools/run_dfagcn_nwpu_formal.py"
+  ],
+  "marker_conditions": [
+    "preflight and actual runtime gates passed; full manifest counts train5040/val1260/pool6300/test25200 checked",
+    "6300-image fresh pool extraction and 5040/1260 split caches completed; all four cache manifests persisted",
+    "formal train-only calibration completed with nine C scores and selected checkpoint/epoch/C",
+    "fresh full6300 train-plus-val refit completed before test extraction; fitted reload check passed",
+    "25200-image test extraction and evaluation completed; test.json and required checkpoint/selection/refit/linear artifacts exist",
+    "source/manifest/recipe/pretrained weights/native binaries rechecked unchanged",
+    "summary.json written with completed=true/formal_training_started=true; run.exit written exit_code0; progress.json written complete before marker print"
+  ],
+  "accepted_from_user_log": [
+    "delivered runner reached its successful full formal completion branch",
+    "formal full-data pipeline completion may be recorded as server-reported, not directly downloaded/verified"
+  ],
+  "pending_actual_values": [
+    "OA/test accuracy",
+    "macro-F1",
+    "selected_epoch",
+    "selected_C",
+    "actual runtime/GPU UUID/software",
+    "wall/phase/extraction timing",
+    "allocated/reserved memory peaks",
+    "parameter counts and cache/source/runtime identity fields",
+    "run.exit and summary.json exact returned content",
+    "per-class accuracy/confusion matrix in test/test.json if needed later"
+  ],
+  "no_inference": [
+    "no numeric score inferred",
+    "no stability or three-seed claim",
+    "no official DFAGCN numerical-equivalence claim",
+    "no measured monetary cost inferred"
+  ],
+  "source_references": [
+    "tools/run_dfagcn_nwpu_formal.py:62-67",
+    "tools/run_dfagcn_nwpu_formal.py:249-255",
+    "tools/run_dfagcn_nwpu_formal.py:330-364",
+    "tools/run_dfagcn_nwpu_formal.py:413-420",
+    "external_baselines/dfagcn/pipeline.py:362-401"
+  ],
+  "actions": "read-only local source/archive audit; wrote only these two review files; no tests, GPU, training, or remote actions"
+}

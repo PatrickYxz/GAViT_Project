@@ -1,0 +1,8 @@
+{
+  "binding_sha256": "662ceee356d72644ff513e7e5fc9f9fdef1cb20110e911b32253ccdad2f49599",
+  "refit_checkpoint_sha256": "4de7bdfbbc6afdf91ee3dc59b0c084b36d0161a07d1457b0c9f56cd6e0504aa2",
+  "schema": "hgtnet-aid-formal-test-transaction-v1",
+  "selected_epoch": 96,
+  "state": "complete",
+  "test_sha256": "6d35db2feaef0864c0f3181002164e8e999c84685f01064af3cd83c6306e7a0b"
+}

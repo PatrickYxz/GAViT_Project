@@ -1,0 +1,77 @@
+{
+  "verified_final_preserved": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.pth",
+  "removed_owned_partials": [
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.attempt1.part",
+      "bytes": 37065378
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.attempt2.part",
+      "bytes": 39669377
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range00.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range01.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range02.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range03.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range04.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range05.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range06.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range07.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range08.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range09.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range10.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range11.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range12.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range13.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range14.part",
+      "bytes": 19661802
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/checkpoints/hgtnet_pretrained_20261031/swin_b-68c6b09e.range15.part",
+      "bytes": 19661799
+    }
+  ]
+}

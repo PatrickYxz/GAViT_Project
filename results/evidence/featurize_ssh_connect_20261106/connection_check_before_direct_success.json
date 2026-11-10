@@ -1,0 +1,99 @@
+{
+  "date": "2026-11-06",
+  "state": "SSH_NOT_CONNECTED_LOCAL_TERMINAL_COMPARISON_PENDING",
+  "user_authorized_endpoint": {
+    "host": "workspace.featurize.cn",
+    "port": 15437,
+    "user": "featurize"
+  },
+  "credential_contents_saved": false,
+  "credential_contents_logged": false,
+  "user_confirmed_public_key_saved": true,
+  "dedicated_local_private_key_exists": true,
+  "dedicated_local_public_key_exists": true,
+  "ssh_agent_key_matches": true,
+  "public_key_fingerprint": "SHA256:rUfU3NopTlizBWFgBGms51+twQ++d3NLPGDjj/kXHPk",
+  "default_sandbox_dns_denied": true,
+  "escalated_host_banner": "OpenSSH_8.9p1 Ubuntu-3ubuntu0.6",
+  "local_dns_address": "198.18.0.11",
+  "observed_virtual_route": {
+    "gateway": "198.18.0.1",
+    "interface": "utun0",
+    "mtu": 9000
+  },
+  "independent_https_dns_answers": {
+    "alidns": "183.223.25.19",
+    "google": "183.223.25.19"
+  },
+  "strict_host_key_check_retained": true,
+  "host_key_pin_file": "results/evidence/featurize_ssh_connect_20261106/known_hosts",
+  "diagnostics": [
+    {
+      "file": "ssh_curve25519_debug.log",
+      "bytes": 7939,
+      "sha256": "9206c38b748b1c964f8228131300981705c2cd67504e248b55ae3b54a9312da5",
+      "authenticated": false,
+      "server_accepts_key": false,
+      "public_key_offered": true,
+      "password_prompt_seen": false,
+      "tail": "Connection to 198.18.0.11 port 15437 timed out"
+    },
+    {
+      "file": "ssh_debug.log",
+      "bytes": 4873,
+      "sha256": "86ff70d517783ed2749095a88ea04d054973ef2e529ae3a2dd956bd7b3eb6439",
+      "authenticated": false,
+      "server_accepts_key": false,
+      "public_key_offered": false,
+      "password_prompt_seen": false,
+      "tail": "Connection to 198.18.0.11 port 15437 timed out"
+    },
+    {
+      "file": "ssh_ipqos_none_debug.log",
+      "bytes": 1322,
+      "sha256": "c10102f4d7465915778d3f57cb9599768e44fa54b11d0288f7c470805feb48ed",
+      "authenticated": false,
+      "server_accepts_key": false,
+      "public_key_offered": false,
+      "password_prompt_seen": false,
+      "tail": "Connection to 183.223.25.19 port 15437 timed out"
+    },
+    {
+      "file": "ssh_password_auth_debug.log",
+      "bytes": 1502,
+      "sha256": "783f59691b64ed9cce5286dc25ee67e32bc268916011cdb6f377e519d8d4f7ed",
+      "authenticated": false,
+      "server_accepts_key": false,
+      "public_key_offered": false,
+      "password_prompt_seen": false,
+      "tail": "Connection to 198.18.0.11 port 15437 timed out"
+    },
+    {
+      "file": "ssh_password_long_auth_debug.log",
+      "bytes": 1507,
+      "sha256": "ca365c3fa1d6bad0bb9d33b6d6b4d7640fac23bd3f69a352871d25fe3b612249",
+      "authenticated": false,
+      "server_accepts_key": false,
+      "public_key_offered": false,
+      "password_prompt_seen": false,
+      "tail": "Connection to 183.223.25.19 port 15437 timed out"
+    },
+    {
+      "file": "ssh_public_ip_debug.log",
+      "bytes": 8055,
+      "sha256": "4a9322bb16f88e4af9ff38909ddcf9b82328ed39d226a090bc1e4b72158817b6",
+      "authenticated": false,
+      "server_accepts_key": false,
+      "public_key_offered": true,
+      "password_prompt_seen": false,
+      "tail": "Connection to 183.223.25.19 port 15437 timed out"
+    }
+  ],
+  "remote_gpu_query_executed": false,
+  "remote_training_status_read": false,
+  "remote_mutations_performed": false,
+  "training_state": "No new direct observation; most recent confirmed evidence remains the user-reported refit76 completion.",
+  "cause": "Unresolved. SSH stalls at variable banner/key exchange/publickey reply stages. Tunnel route is observed, not proven causal. No explicit key rejection or authenticated/session evidence.",
+  "requested_user_local_check": "ssh -i /Users/patrick/.ssh/featurize_gavit_ed25519 -p 15437 featurize@workspace.featurize.cn",
+  "next_action": "Compare one user-local terminal login with agent-side connection; do not regenerate keys or change global proxy settings without evidence."
+}

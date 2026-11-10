@@ -1,0 +1,32 @@
+EFF
+======================================================================
+ERROR: test_archive_moves_only_receipts_beyond_committed_progress_exactly (tests.test_hgtnet_aid_formal_resume_entry.ResumeEntryTests.test_archive_moves_only_receipts_beyond_committed_progress_exactly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_resume_entry.py", line 24, in test_archive_moves_only_receipts_beyond_committed_progress_exactly
+    e._archive_discarded_first_steps(root,attempt,25000)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'external_baselines.hgtnet.aid_formal_entry' has no attribute '_archive_discarded_first_steps'
+
+======================================================================
+FAIL: test_partial_real_aid_status_uses_durable_update_despite_initial_false_summary (tests.test_hgtnet_aid_formal_resume_entry.ResumeEntryTests.test_partial_real_aid_status_uses_durable_update_despite_initial_false_summary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_resume_entry.py", line 89, in test_partial_real_aid_status_uses_durable_update_despite_initial_false_summary
+    self.assertTrue(status['formal_training_started'])
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_resume_callback_replaces_discarded_refit_proof_and_preserves_update_history (tests.test_hgtnet_aid_formal_resume_entry.ResumeEntryTests.test_resume_callback_replaces_discarded_refit_proof_and_preserves_update_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_resume_entry.py", line 68, in test_resume_callback_replaces_discarded_refit_proof_and_preserves_update_history
+    self.assertEqual(e.run_formal_entry(args,resume=True),0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.073s
+
+FAILED (failures=2, errors=1)

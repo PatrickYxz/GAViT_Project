@@ -1,0 +1,190 @@
+{
+  "scope": "Independent stdlib fake runtime/CUDA boundary probes. No ML libraries, CUDA, data, training or GPU executed.",
+  "source": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_cuda_memory_fix_20261102/review/before_runner.py",
+  "source_sha256": "55005dd6e173914944010d33fe516517c4c2d298b115df10bceac5d7bffc50d5",
+  "before_fix": true,
+  "cases": [
+    {
+      "case": "exact_memory",
+      "expected_accept": true,
+      "passed": true,
+      "accepted": true,
+      "runtime": {
+        "python": "3.11.8 fixture",
+        "torch": "2.2.2+cu121",
+        "torchvision": "0.17.2+cu121",
+        "numpy": "1.26.4",
+        "pillow": "10.3.0",
+        "cuda": "12.1",
+        "cudnn": 8902,
+        "gpu": {
+          "name": "NVIDIA GeForce RTX 3090",
+          "uuid": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1",
+          "memory_total_mib": 24576,
+          "memory_free_mib": 24123,
+          "driver_version": "610.57.04"
+        },
+        "physical_gpu_uuid": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1",
+        "device": "cuda:0",
+        "cpu_threads": 8,
+        "amp": false,
+        "dtype": "float32",
+        "seed": 42,
+        "matmul_tf32": false,
+        "cudnn_tf32": false,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "pid": 76770,
+        "cuda_visible_devices": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1"
+      }
+    },
+    {
+      "case": "reported_453mib_gap",
+      "expected_accept": false,
+      "passed": true,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "Actual CUDA-visible device differs from selected RTX3090"
+    },
+    {
+      "case": "max_1024mib_gap",
+      "expected_accept": false,
+      "passed": true,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "Actual CUDA-visible device differs from selected RTX3090"
+    },
+    {
+      "case": "max_gap_plus_one_byte",
+      "expected_accept": false,
+      "passed": true,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "Actual CUDA-visible device differs from selected RTX3090"
+    },
+    {
+      "case": "above_nvml_plus_one_byte",
+      "expected_accept": true,
+      "passed": true,
+      "accepted": true,
+      "runtime": {
+        "python": "3.11.8 fixture",
+        "torch": "2.2.2+cu121",
+        "torchvision": "0.17.2+cu121",
+        "numpy": "1.26.4",
+        "pillow": "10.3.0",
+        "cuda": "12.1",
+        "cudnn": 8902,
+        "gpu": {
+          "name": "NVIDIA GeForce RTX 3090",
+          "uuid": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1",
+          "memory_total_mib": 24576,
+          "memory_free_mib": 24123,
+          "driver_version": "610.57.04"
+        },
+        "physical_gpu_uuid": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1",
+        "device": "cuda:0",
+        "cpu_threads": 8,
+        "amp": false,
+        "dtype": "float32",
+        "seed": 42,
+        "matmul_tf32": false,
+        "cudnn_tf32": false,
+        "cudnn_benchmark": false,
+        "cudnn_deterministic": true,
+        "pid": 76770,
+        "cuda_visible_devices": "GPU-4f625a02-7dfa-e0eb-de8d-1dcb4ba3dcb1"
+      }
+    },
+    {
+      "case": "zero_memory",
+      "expected_accept": false,
+      "passed": true,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "Actual CUDA-visible device differs from selected RTX3090"
+    },
+    {
+      "case": "negative_memory",
+      "expected_accept": false,
+      "passed": true,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "Actual CUDA-visible device differs from selected RTX3090"
+    },
+    {
+      "case": "bool_memory",
+      "expected_accept": false,
+      "passed": true,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "Actual CUDA-visible device differs from selected RTX3090"
+    },
+    {
+      "case": "float_memory",
+      "expected_accept": false,
+      "passed": true,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "Actual CUDA-visible device differs from selected RTX3090"
+    },
+    {
+      "case": "wrong_name",
+      "expected_accept": false,
+      "passed": true,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "Actual CUDA-visible device differs from selected RTX3090"
+    },
+    {
+      "case": "wrong_count_zero",
+      "expected_accept": false,
+      "passed": true,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "Actual CUDA-visible device differs from selected RTX3090"
+    },
+    {
+      "case": "wrong_count_two",
+      "expected_accept": false,
+      "passed": true,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "Actual CUDA-visible device differs from selected RTX3090"
+    },
+    {
+      "case": "unavailable",
+      "expected_accept": false,
+      "passed": true,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "Actual CUDA-visible device differs from selected RTX3090"
+    },
+    {
+      "case": "wrong_nvml_physical_memory",
+      "expected_accept": false,
+      "passed": true,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "actual runtime physical GPU identity mismatch"
+    },
+    {
+      "case": "wrong_nvml_uuid",
+      "expected_accept": false,
+      "passed": true,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "actual runtime physical GPU identity mismatch"
+    },
+    {
+      "case": "wrong_torch_version",
+      "expected_accept": false,
+      "passed": true,
+      "accepted": false,
+      "error_type": "ValueError",
+      "error": "actual runtime version mismatch: torch"
+    }
+  ],
+  "observation_checks": {},
+  "successful": true
+}

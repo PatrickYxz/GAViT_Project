@@ -1,0 +1,143 @@
+{
+  "bundle_id": "cc0d42fc854b3b9e929dd00476b5eb041e2098ec996fd13633f0a9f96492eb77",
+  "bytes": 922132,
+  "manifest": {
+    "bootstrap_sha256": "2bd2789303070fd04a7a7f950d32ab0f1dae06856bf19d8ae6fdbf48393ed6fb",
+    "build_provenance": {
+      "clean_git_asserted": false,
+      "git_base_commit": "058f1d8b79d0be538ec358eb742d2cd3992921d4",
+      "source_state": "uncommitted_source_snapshot",
+      "working_tree_dirty": true
+    },
+    "bundle_id": "cc0d42fc854b3b9e929dd00476b5eb041e2098ec996fd13633f0a9f96492eb77",
+    "compiled_binaries_included": false,
+    "dataset_images_included": false,
+    "files": {
+      "configs/aid_campaign_20261110_v1.json": {
+        "bytes": 1174,
+        "sha256": "e400a496d04513b694549856635752687610f8f0d36e0001f55a9c77c2588d4c"
+      },
+      "experiment_identity.py": {
+        "bytes": 6945,
+        "sha256": "0e9530454ae7d2f159329710a430acc7a75c586739844c22c673f9ff899d5d9b"
+      },
+      "grouping_identity.py": {
+        "bytes": 2243,
+        "sha256": "651d4365a837a990c06d5a7bfadc4e4a6709c18f96f26eb36b0478a58fe613d5"
+      },
+      "models/__init__.py": {
+        "bytes": 173,
+        "sha256": "8815c8fde7ff63701a246e4a198d690e9777be18ac061672b5c3619ccb792436"
+      },
+      "models/bigearth_dataset.py": {
+        "bytes": 8480,
+        "sha256": "1cb83ffc299f3927318f5bcef1694cdd33683a8d1ba5b1a87721d02fc67e281a"
+      },
+      "models/gavit.py": {
+        "bytes": 12476,
+        "sha256": "39b2fd72be3afca0bb450ff5b700966c75c8aa277b2cf303b6c3faf129faba3e"
+      },
+      "models/graph_construction.py": {
+        "bytes": 8266,
+        "sha256": "a0c36ceaf7a2f73b857c0eaac50df4abfb9c5617a4952f333a0dc514900dd8cc"
+      },
+      "models/graph_reasoning.py": {
+        "bytes": 2457,
+        "sha256": "895825a417f627594fda8407cf1e980f8bcef398201c233e1c20d900ec9046da"
+      },
+      "models/region_grouping.py": {
+        "bytes": 8370,
+        "sha256": "89cb8bb8a7e2ca76633a5a101285283e3275c95b1d77c442837c2e4159ecaca7"
+      },
+      "models/soft_region_grouping.py": {
+        "bytes": 3953,
+        "sha256": "374aa3c0cfec3861d1d92e651f5330a4bb08381111d4a88d6ae02f1f3e32b15a"
+      },
+      "models/swin_backbone.py": {
+        "bytes": 1507,
+        "sha256": "5046f36ab76556f8426fd096cae270b7dab0d24fa6e2c432839a3eb9f3cb1479"
+      },
+      "models/swin_features.py": {
+        "bytes": 822,
+        "sha256": "a4fa88cdf6ff811a2b6b51b512a99a01f6f53df3d57514458c4b0e7e25b9b06f"
+      },
+      "models/swin_region_only.py": {
+        "bytes": 2675,
+        "sha256": "68d0c7ee95fa4a88c5a5b929e1e573195a7a9b1fe40a32480d64165c24c2d0c6"
+      },
+      "models/token_refinement.py": {
+        "bytes": 1711,
+        "sha256": "b6da924ec782169df58c7c9fbc0e208e5d2aa25cad790d8376ab3f7624038072"
+      },
+      "provenance/aid_protocol_20260920_03.json": {
+        "bytes": 2710270,
+        "sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22"
+      },
+      "provenance/weights_receipts.json": {
+        "bytes": 1047,
+        "sha256": "91c4e7469a3847fc312da31f5bfb45f616112050a3181175a78acf2e28ee5c3a"
+      },
+      "scene_classification/__init__.py": {
+        "bytes": 85,
+        "sha256": "5d0cbbf6a7d6bac715d1592e07170da14b04b281577b631804486247a841a968"
+      },
+      "scene_classification/aid_campaign_engine.py": {
+        "bytes": 38183,
+        "sha256": "7f53a78311cda1d60cdb23fa24685fa4d46cda9d458a3f9f94ec37c9fa527bc7"
+      },
+      "scene_classification/aid_campaign_state.py": {
+        "bytes": 3522,
+        "sha256": "200d32d312cfa2518a9780ad9797bd41e2f95ac256946b77f523cc16939df7ae"
+      },
+      "scene_classification/data.py": {
+        "bytes": 12467,
+        "sha256": "ebcf0dd7585a060465df45bdf4e44ec7f47edd95f1fa8a12cbdd5723b948fa69"
+      },
+      "scene_classification/metrics.py": {
+        "bytes": 1506,
+        "sha256": "6ef64ee533d0ca5c2dadae066a6254dcd4d107a24709b77009910067f37320b3"
+      },
+      "scene_classification/modeling.py": {
+        "bytes": 5345,
+        "sha256": "8a2beed6bcb35ba5f4695ec81a899d7cf7394ccbd858a6beb372b1bd3f1ca575"
+      },
+      "scene_classification/refinement_audit.py": {
+        "bytes": 2402,
+        "sha256": "08fdff7df2306c2a03313201ba566cd67f3acfeef2b16ed86d9fac8b085d929c"
+      },
+      "scene_classification/runner.py": {
+        "bytes": 27503,
+        "sha256": "5d124ddfd03cb7340b8f65af8a56756d42ad1b2d1638b790373f192ead721f93"
+      },
+      "soft_assignment_diagnostics.py": {
+        "bytes": 8531,
+        "sha256": "6c819fabb4e6bb28456d88b3f0e9f6843962028273abc66061d76e9724e72675"
+      },
+      "tools/package_aid_campaign.py": {
+        "bytes": 11764,
+        "sha256": "2bd2789303070fd04a7a7f950d32ab0f1dae06856bf19d8ae6fdbf48393ed6fb"
+      },
+      "tools/run_aid_campaign.py": {
+        "bytes": 22516,
+        "sha256": "55ac86e120c02910b62abbf2402ce7c6f8b2e21c864bcba9ae65d7cfb261e67b"
+      },
+      "utils.py": {
+        "bytes": 8355,
+        "sha256": "618f22cd80a6051dadc0730b7e67d5c19d5d66e3378ef461117ebe8aabd4ea08"
+      }
+    },
+    "gpu_execution_verified": false,
+    "runner": "tools/run_aid_campaign.py",
+    "schema": "aid-campaign-delivery-20261110-v1",
+    "weight_file_included": false,
+    "weights": {
+      "architecture": "swin_tiny_patch4_window7_224",
+      "filename": "model.safetensors",
+      "kind": "timm Swin-Tiny local pretrained state",
+      "sha256": "f7e9953f51dd5e339023b3ec97dea7bc3c6ca61259c2a80031da08c3006a9d36",
+      "weight_file_included": false
+    }
+  },
+  "path": "/Users/patrick/Projects/GAViT_Project/output/aid_campaign_20261110_v1.pyz",
+  "sha256": "ea5e7775874c4bf4cd93c4e17a7ea200227d9e8ebb18700227baef6fda864291"
+}

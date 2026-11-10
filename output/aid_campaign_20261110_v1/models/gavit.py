@@ -1,0 +1,292 @@
+import torch
+import torch.nn as nn
+from torch_geometric.nn import global_mean_pool
+from grouping_identity import complete_grouping_architecture
+
+from models.swin_backbone      import SwinBackbone
+from models.region_grouping    import KMeansGrouping, SpatialGrouping, AttentiveSpatialGrouping
+from models.soft_region_grouping import SoftPrototypeGrouping
+from models.token_refinement import ResidualTokenFFN, validate_refinement
+from models.graph_construction import (
+    build_knn_graph,
+    build_sparse_hybrid_graph,
+    build_spatial_graph,
+)
+from models.graph_reasoning    import GraphReasoning
+
+VALID_GROUPINGS    = ("attentive_spatial", "spatial", "kmeans", "soft_prototype")
+VALID_EDGE_TYPES   = ("knn", "spatial", "hybrid", "sparse_hybrid")
+VALID_INTEGRATIONS = ("token_feedback", "fusion")
+
+
+class GAViT(nn.Module):
+    """
+    Graph-Augmented Vision Transformer (GAViT).
+
+    Supports two integration modes:
+
+    1. "fusion" (legacy): classifier uses concat of backbone global + graph global
+       Image → Swin-T → tokens
+             ├→ Mean Pool → backbone global (768)
+             └→ Region Grouping → GAT → Mean Pool → graph global (1024)
+             → Concat (1792) → FC → logits
+
+    2. "token_feedback" (new, per Prof Wang's guidance):
+       GAT-refined region features are mapped back to token space,
+       updating each token with its region's relational context.
+       Classification is performed on the updated tokens.
+       Image → Swin-T → tokens (B, 49, 768)
+             → Region Grouping → K region nodes
+             → GAT → refined region features (B, K, out_dim)
+             → Project back to 768-dim → map to tokens via assignments
+             → Updated tokens = original tokens + region feedback
+             → Mean Pool → FC → logits
+
+    Args:
+        num_classes:     number of output classes (45 for NWPU-RESISC45)
+        num_regions:     K, number of region nodes
+        knn_k:           k for kNN graph construction
+        gat_hidden:      per-head hidden dim in GAT layers
+        gat_heads:       number of GAT attention heads
+        gat_layers:      number of stacked GAT layers
+        dropout:         dropout rate
+        grouping:        'kmeans', 'spatial', or 'attentive_spatial'
+        edge_type:       'knn', 'spatial', 'hybrid', or 'sparse_hybrid'
+        integration:     'token_feedback' or 'fusion'
+        pretrained:      whether to load ImageNet weights for Swin-T
+        pretrained_path: optional local Swin-T pretrained weight file
+        freeze_backbone: freeze Swin-T weights
+    """
+
+    def __init__(
+        self,
+        num_classes:     int   = 45,
+        num_regions:     int   = 16,
+        knn_k:           int   = 5,
+        gat_hidden:      int   = 256,
+        gat_heads:       int   = 4,
+        gat_layers:      int   = 2,
+        dropout:         float = 0.1,
+        grouping:        str   = "attentive_spatial",
+        edge_type:       str   = "knn",
+        integration:     str   = "token_feedback",
+        pretrained:      bool  = True,
+        pretrained_path: str | None = None,
+        freeze_backbone: bool  = False,
+        soft_assignment: dict | None = None,
+        token_refinement: dict | None = None,
+    ):
+        super().__init__()
+        if token_refinement is not None:
+            validate_refinement(token_refinement)
+            if grouping != 'soft_prototype' or integration != 'token_feedback':
+                raise ValueError('Token refinement trial requires soft_prototype and token_feedback')
+
+        # Reject unknown configs explicitly instead of silently falling back
+        # to a different architecture (see research diary 2026-08-05, P5).
+        if grouping not in VALID_GROUPINGS:
+            raise ValueError(
+                f"Unknown grouping={grouping!r}. Valid: {VALID_GROUPINGS}"
+            )
+        if edge_type not in VALID_EDGE_TYPES:
+            raise ValueError(
+                f"Unknown edge_type={edge_type!r}. Valid: {VALID_EDGE_TYPES}"
+            )
+        if edge_type == "sparse_hybrid" and num_regions != 16:
+            raise ValueError(
+                "edge_type='sparse_hybrid' requires the approved 4x4 grid; "
+                f"observed num_regions={num_regions}"
+            )
+        if integration not in VALID_INTEGRATIONS:
+            raise ValueError(
+                f"Unknown integration={integration!r}. Valid: {VALID_INTEGRATIONS}"
+            )
+        self.integration = integration
+        grouping_config = dict(grouping=grouping, num_regions=num_regions,
+                               edge_type=edge_type, integration=integration)
+        if soft_assignment is not None:
+            grouping_config['soft_assignment'] = soft_assignment
+        grouping_config = complete_grouping_architecture(grouping_config)
+        self.grouping = grouping
+
+        # --- Backbone ---
+        self.backbone = SwinBackbone(
+            pretrained=pretrained,
+            freeze=freeze_backbone,
+            pretrained_path=pretrained_path,
+        )
+        backbone_dim = self.backbone.hidden_dim  # 768
+
+        # --- Region Grouping ---
+        if grouping == "soft_prototype":
+            self.region_grouping = SoftPrototypeGrouping(
+                num_regions=num_regions, feat_dim=backbone_dim,
+                soft_assignment=grouping_config['soft_assignment'])
+        elif grouping == "attentive_spatial":
+            self.region_grouping = AttentiveSpatialGrouping(
+                num_regions=num_regions, feat_dim=backbone_dim
+            )
+        elif grouping == "spatial":
+            self.region_grouping = SpatialGrouping(num_regions=num_regions)
+        else:  # "kmeans" (validated above)
+            self.region_grouping = KMeansGrouping(num_regions=num_regions)
+
+        self.num_regions = num_regions
+        self.knn_k = min(knn_k, num_regions - 1)
+        self.edge_type = edge_type
+
+        # --- Graph Reasoning ---
+        self.graph_reasoning = GraphReasoning(
+            in_dim=backbone_dim,
+            hidden_dim=gat_hidden,
+            num_heads=gat_heads,
+            num_layers=gat_layers,
+            dropout=dropout,
+        )
+
+        graph_out_dim = self.graph_reasoning.out_dim  # gat_hidden * gat_heads = 1024
+
+        # --- Integration-specific layers ---
+        if integration == "token_feedback":
+            # Project GAT output back to backbone dim for token-level residual
+            self.feedback_proj = nn.Sequential(
+                nn.Linear(graph_out_dim, backbone_dim),
+                nn.LayerNorm(backbone_dim),
+            )
+            # Classifier operates on updated token features (backbone_dim)
+            self.classifier = nn.Sequential(
+                nn.LayerNorm(backbone_dim),
+                nn.Dropout(dropout),
+                nn.Linear(backbone_dim, num_classes),
+            )
+        elif integration == "fusion":  # legacy
+            fused_dim = backbone_dim + graph_out_dim  # 768 + 1024 = 1792
+            self.classifier = nn.Sequential(
+                nn.LayerNorm(fused_dim),
+                nn.Dropout(dropout),
+                nn.Linear(fused_dim, num_classes),
+            )
+        else:
+            raise ValueError(f"Unknown integration={integration!r}")
+
+        self.token_refinement = ResidualTokenFFN(token_refinement) if token_refinement is not None else None
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        """
+        Args:
+            x: (B, 3, 224, 224)
+        Returns:
+            logits: (B, num_classes)
+        """
+        B = x.shape[0]
+        K = self.num_regions
+
+        # 1. Swin-T backbone → patch tokens
+        tokens = self.backbone(x)  # (B, 49, 768)
+
+        # 2. Region grouping → K region node features
+        region_features, assignments = self.region_grouping(tokens)  # (B, K, 768), (B, N)
+
+        # 3. Build batched graph
+        if self.edge_type == "spatial":
+            edge_index, edge_weight, batch = build_spatial_graph(K, B, x.device)
+        elif self.edge_type == "hybrid":
+            ei_knn, ew_knn, batch = build_knn_graph(region_features, k=self.knn_k)
+            ei_sp, ew_sp, _      = build_spatial_graph(K, B, x.device)
+            edge_index  = torch.cat([ei_knn, ei_sp], dim=1)
+            edge_weight = torch.cat([ew_knn, ew_sp], dim=0)
+        elif self.edge_type == "sparse_hybrid":
+            edge_index, edge_weight, batch = build_sparse_hybrid_graph(
+                region_features
+            )
+        elif self.edge_type == "knn":
+            edge_index, edge_weight, batch = build_knn_graph(
+                region_features, k=self.knn_k
+            )
+        else:
+            raise ValueError(f"Unknown edge_type={self.edge_type!r}")
+
+        # 4. Flatten nodes for PyG: (B*K, 768)
+        x_nodes = region_features.reshape(B * K, -1)
+
+        # 5. GAT reasoning → refined node features: (B*K, graph_out_dim)
+        x_refined = self.graph_reasoning(x_nodes, edge_index, edge_weight)
+
+        # 6. Integration
+        if self.integration == "token_feedback":
+            # Map refined region features back to token space
+            x_refined_2d = x_refined.reshape(B, K, -1)           # (B, K, graph_out_dim)
+            region_feedback = self.feedback_proj(x_refined_2d)    # (B, K, 768)
+
+            # Each token receives its region's refined feature
+            # assignments: (B, N) with values in [0, K)
+            if self.grouping == 'soft_prototype':
+                if (assignments.shape != (B, tokens.shape[1], K)
+                        or not assignments.is_floating_point()
+                        or not torch.isfinite(assignments).all()
+                        or (assignments < 0).any()
+                        or not torch.allclose(assignments.sum(-1), torch.ones_like(assignments[..., 0]),
+                                              atol=1e-6, rtol=1e-6)
+                        or assignments.masked_select(~self.region_grouping.candidate_mask[None]).any()):
+                    raise ValueError('Invalid soft membership for token feedback')
+                token_feedback = torch.einsum('bnk,bkd->bnd', assignments, region_feedback)
+            else:
+                token_feedback = region_feedback.gather(
+                    1,
+                    assignments.unsqueeze(-1).expand(-1, -1, region_feedback.size(-1))
+                )  # (B, N, 768)
+
+            # Residual update: original tokens + relational context
+            updated_tokens = tokens + token_feedback  # (B, N, 768)
+            if self.token_refinement is not None:
+                updated_tokens = self.token_refinement(updated_tokens)
+
+            # Global pool over updated tokens → classify
+            pooled = updated_tokens.mean(dim=1)       # (B, 768)
+            logits = self.classifier(pooled)           # (B, num_classes)
+
+        elif self.integration == "fusion":  # legacy
+            backbone_global = tokens.mean(dim=1)                      # (B, 768)
+            graph_global = global_mean_pool(x_refined, batch)         # (B, 1024)
+            fused = torch.cat([backbone_global, graph_global], dim=1) # (B, 1792)
+            logits = self.classifier(fused)
+        else:
+            raise ValueError(f"Unknown integration={self.integration!r}")
+
+        return logits
+
+
+# ---------------------------------------------------------------------------
+# Unit test
+# ---------------------------------------------------------------------------
+if __name__ == "__main__":
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    dummy = torch.randn(2, 3, 224, 224, device=device)
+
+    # Test token_feedback mode (new default)
+    print("=== GAViT v2: token_feedback, attentive_spatial K=16 ===")
+    model = GAViT(
+        num_classes=45,
+        num_regions=16,
+        grouping="attentive_spatial",
+        integration="token_feedback",
+        pretrained=False,
+    ).to(device)
+    out = model(dummy)
+    total = sum(p.numel() for p in model.parameters())
+    print(f"  Output shape: {out.shape}")
+    print(f"  Parameters:   {total:,}")
+
+    # Test fusion mode (legacy)
+    print("\n=== GAViT v1: fusion, spatial K=9 ===")
+    model2 = GAViT(
+        num_classes=45,
+        num_regions=9,
+        grouping="spatial",
+        integration="fusion",
+        pretrained=False,
+    ).to(device)
+    out2 = model2(dummy)
+    total2 = sum(p.numel() for p in model2.parameters())
+    print(f"  Output shape: {out2.shape}")
+    print(f"  Parameters:   {total2:,}")

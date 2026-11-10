@@ -1,0 +1,6 @@
+test_inventory_rejects_malformed_nonempty_process_rows (test_dfagcn_gpu_probe.GPUProbeTests.test_inventory_rejects_malformed_nonempty_process_rows) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.008s
+
+OK

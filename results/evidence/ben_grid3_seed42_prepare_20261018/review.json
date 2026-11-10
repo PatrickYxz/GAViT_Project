@@ -1,0 +1,17 @@
+{
+  "skill": "requesting-code-review",
+  "reviewer": "/root/grid42_review",
+  "mode": "read-only independent review",
+  "reviewer_tests_passed_before_fix": 10,
+  "findings": [
+    {
+      "severity": "important",
+      "file": "tools/ben_grid42_tensor_checks.py",
+      "issue": "Exact zero logit difference can reject repeated equivalent CUDA scatter forwards.",
+      "resolution": "Exact CPU graph equality retained; finite <=1e-5 scalar check added and used for CUDA logits.",
+      "regression": "test_cuda_forward_gate_accepts_roundoff_but_rejects_large_or_nonfinite_error"
+    }
+  ],
+  "other_high_or_medium_findings": [],
+  "cuda_evidence": false
+}

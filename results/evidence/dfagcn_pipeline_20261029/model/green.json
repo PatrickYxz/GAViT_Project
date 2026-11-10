@@ -1,0 +1,5 @@
+{
+  "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest discover -s tests -p test_dfagcn_model_recipe.py -v",
+  "exit_code": 0,
+  "test_methods": 11
+}

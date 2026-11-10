@@ -1,0 +1,32 @@
+{
+  "claim_scope": "Engineering image/VGG/graph/train/refit/LIBLINEAR/test chain only; no NWPU score or pretrained-parity claim.",
+  "completed": true,
+  "counts": {
+    "test": 10,
+    "train": 8,
+    "val": 2
+  },
+  "dataset": "synthetic",
+  "images": 20,
+  "mode": "engineering",
+  "pretrained": false,
+  "recipe_sha256": "52540b7a9462eb82d9d646ea916c446a8f1a9de71f24bddce1e1eb9b1268412a",
+  "refit_samples": 10,
+  "reload_max_abs_error": 0.0,
+  "runtime": {
+    "cpu_threads": 1,
+    "device": "cpu",
+    "numpy": "1.26.4",
+    "python": "3.12.13",
+    "torch": "2.2.2",
+    "torchvision": "0.17.2"
+  },
+  "schema": "dfagcn-real-engineering-smoke-v1",
+  "selected_C": 0.1,
+  "selected_epoch": 1,
+  "test_samples": 10,
+  "total_elapsed_seconds": 6.0434092078357935,
+  "vgg_and_frozen_cache_seconds": 5.7535900408402085,
+  "weights_kind": "random_smoke",
+  "weights_tensor_sha256": "e53c8bac71bbe650b4cd08338c593b071e3c5106cffd3c1f81b7b456a05217fe"
+}

@@ -1,0 +1,331 @@
+{
+  "date_received": "2026-10-20",
+  "dataset": "BigEarthNet-19",
+  "seed": 42,
+  "status": "TEST_METRICS_AND_TRAINING_SUMMARY_AUDITED",
+  "evidence_scope": "Returned training/capture files audited; original full-test metrics unchanged. No local neural rerun.",
+  "k9": {
+    "regions": 9,
+    "metrics": {
+      "samples": 119825,
+      "mAP_percent": 71.07533208222321,
+      "macro_f1_percent": 64.48830571218534,
+      "micro_f1_percent": 76.68872316423352,
+      "f1_threshold": 0.5,
+      "checkpoint_sha256": "c4b77953d6dd2908d7a61ebe7a34f4004e8c219a0843de6ab05aaf207460feff",
+      "per_class_ap_percent": {
+        "Urban fabric": 86.51980810149344,
+        "Industrial or commercial units": 51.637123422709905,
+        "Arable land": 93.18679316602953,
+        "Permanent crops": 62.92872871413756,
+        "Pastures": 86.1013262808726,
+        "Complex cultivation patterns": 69.23862820757662,
+        "Land principally occupied by agriculture, with significant areas of natural vegetation": 72.94995402127765,
+        "Agro-forestry areas": 87.15781094239232,
+        "Broad-leaved forest": 85.9398213222218,
+        "Coniferous forest": 93.77272487307027,
+        "Mixed forest": 90.02901953507208,
+        "Natural grassland and sparsely vegetated areas": 46.617564769159294,
+        "Moors, heathland and sclerophyllous vegetation": 61.14810472076743,
+        "Transitional woodland, shrub": 78.13949455867811,
+        "Beaches, dunes, sands": 9.827636452996988,
+        "Inland wetlands": 62.96008158378324,
+        "Coastal wetlands": 21.58357829287427,
+        "Inland waters": 91.13248124495286,
+        "Marine waters": 99.56062935217518
+      }
+    },
+    "checkpoint_sha256": "c4b77953d6dd2908d7a61ebe7a34f4004e8c219a0843de6ab05aaf207460feff",
+    "queue_exit_code_reported": 0,
+    "run_directory": "/home/featurize/work/ben_grid3_seed42_20261018_01",
+    "best_epoch": 10,
+    "final_epoch": 30,
+    "hardware_observed": {
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "cuda": "12.1",
+      "cudnn": 8902,
+      "threads": 8,
+      "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+      "packages": {
+        "torch": "2.2.2",
+        "torchvision": "0.17.2",
+        "timm": "1.0.27",
+        "torch-geometric": "2.8.0",
+        "numpy": "1.26.4",
+        "scikit-learn": "1.9.0",
+        "pillow": "10.3.0"
+      },
+      "gpu_identity": "GPU-8734427f-061f-9fdb-97eb-fe9190a11225, NVIDIA GeForce RTX 4090, 610.57.04"
+    },
+    "best_validation": {
+      "metric": "val_mAP",
+      "value": 79.1052,
+      "epoch": 10
+    },
+    "training_summary_audit": "results/evidence/ben_gridpair42_visual_return_20261020/server_return/source_reports/summary.json"
+  },
+  "historical_k16": {
+    "regions": 16,
+    "metrics": {
+      "mAP_percent": 72.0,
+      "macro_f1_percent": 66.0,
+      "micro_f1_percent": 76.7
+    },
+    "original_printed_decimals": 1,
+    "checkpoint_sha256": "9b9acb76d93fa8799e979a227ce1d2496573da937b9329ab0ce3ca1c3f29859e",
+    "base_commit": "cd39be91a013bcf98099808c451300f87d3898b7"
+  },
+  "delta_k16_minus_k9_pp_approx": {
+    "mAP_percent": 0.9246679177767874,
+    "macro_f1_percent": 1.511694287814663,
+    "micro_f1_percent": 0.01127683576648053
+  },
+  "delta_rounding_uncertainty_pp": 0.05,
+  "per_class": [
+    {
+      "class_name": "Urban fabric",
+      "class_zh": "城市建成区",
+      "k9_ap_percent": 86.51980810149344,
+      "k16_ap_percent_historical_rounded": 86.3,
+      "delta_k16_minus_k9_pp_approx": -0.21980810149344165,
+      "rounding_interval_pp": [
+        -0.26980810149344164,
+        -0.16980810149344167
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Industrial or commercial units",
+      "class_zh": "工业或商业区",
+      "k9_ap_percent": 51.637123422709905,
+      "k16_ap_percent_historical_rounded": 51.1,
+      "delta_k16_minus_k9_pp_approx": -0.5371234227099038,
+      "rounding_interval_pp": [
+        -0.5871234227099038,
+        -0.4871234227099038
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Arable land",
+      "class_zh": "耕地",
+      "k9_ap_percent": 93.18679316602953,
+      "k16_ap_percent_historical_rounded": 93.8,
+      "delta_k16_minus_k9_pp_approx": 0.6132068339704659,
+      "rounding_interval_pp": [
+        0.5632068339704659,
+        0.663206833970466
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Permanent crops",
+      "class_zh": "多年生作物",
+      "k9_ap_percent": 62.92872871413756,
+      "k16_ap_percent_historical_rounded": 61.2,
+      "delta_k16_minus_k9_pp_approx": -1.72872871413756,
+      "rounding_interval_pp": [
+        -1.77872871413756,
+        -1.67872871413756
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Pastures",
+      "class_zh": "牧场",
+      "k9_ap_percent": 86.1013262808726,
+      "k16_ap_percent_historical_rounded": 85.8,
+      "delta_k16_minus_k9_pp_approx": -0.30132628087260116,
+      "rounding_interval_pp": [
+        -0.35132628087260115,
+        -0.25132628087260117
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Complex cultivation patterns",
+      "class_zh": "复杂耕作模式",
+      "k9_ap_percent": 69.23862820757662,
+      "k16_ap_percent_historical_rounded": 70.1,
+      "delta_k16_minus_k9_pp_approx": 0.8613717924233697,
+      "rounding_interval_pp": [
+        0.8113717924233697,
+        0.9113717924233697
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+      "class_zh": "农业与自然植被混合区",
+      "k9_ap_percent": 72.94995402127765,
+      "k16_ap_percent_historical_rounded": 73.7,
+      "delta_k16_minus_k9_pp_approx": 0.7500459787223548,
+      "rounding_interval_pp": [
+        0.7000459787223547,
+        0.8000459787223548
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Agro-forestry areas",
+      "class_zh": "农林复合区",
+      "k9_ap_percent": 87.15781094239232,
+      "k16_ap_percent_historical_rounded": 87.1,
+      "delta_k16_minus_k9_pp_approx": -0.05781094239232232,
+      "rounding_interval_pp": [
+        -0.10781094239232232,
+        -0.007810942392322315
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Broad-leaved forest",
+      "class_zh": "阔叶林",
+      "k9_ap_percent": 85.9398213222218,
+      "k16_ap_percent_historical_rounded": 86.0,
+      "delta_k16_minus_k9_pp_approx": 0.06017867777819674,
+      "rounding_interval_pp": [
+        0.01017867777819674,
+        0.11017867777819675
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Coniferous forest",
+      "class_zh": "针叶林",
+      "k9_ap_percent": 93.77272487307027,
+      "k16_ap_percent_historical_rounded": 93.5,
+      "delta_k16_minus_k9_pp_approx": -0.27272487307027404,
+      "rounding_interval_pp": [
+        -0.32272487307027403,
+        -0.22272487307027405
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Mixed forest",
+      "class_zh": "混交林",
+      "k9_ap_percent": 90.02901953507208,
+      "k16_ap_percent_historical_rounded": 89.8,
+      "delta_k16_minus_k9_pp_approx": -0.2290195350720836,
+      "rounding_interval_pp": [
+        -0.2790195350720836,
+        -0.17901953507208362
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Natural grassland and sparsely vegetated areas",
+      "class_zh": "天然草地/稀疏植被",
+      "k9_ap_percent": 46.617564769159294,
+      "k16_ap_percent_historical_rounded": 42.1,
+      "delta_k16_minus_k9_pp_approx": -4.517564769159293,
+      "rounding_interval_pp": [
+        -4.567564769159293,
+        -4.467564769159293
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Moors, heathland and sclerophyllous vegetation",
+      "class_zh": "荒原/石南灌丛/硬叶植被",
+      "k9_ap_percent": 61.14810472076743,
+      "k16_ap_percent_historical_rounded": 61.8,
+      "delta_k16_minus_k9_pp_approx": 0.6518952792325692,
+      "rounding_interval_pp": [
+        0.6018952792325691,
+        0.7018952792325692
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Transitional woodland, shrub",
+      "class_zh": "过渡林地/灌丛",
+      "k9_ap_percent": 78.13949455867811,
+      "k16_ap_percent_historical_rounded": 78.8,
+      "delta_k16_minus_k9_pp_approx": 0.660505441321888,
+      "rounding_interval_pp": [
+        0.610505441321888,
+        0.7105054413218881
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Beaches, dunes, sands",
+      "class_zh": "沙滩/沙丘/沙地",
+      "k9_ap_percent": 9.827636452996988,
+      "k16_ap_percent_historical_rounded": 16.8,
+      "delta_k16_minus_k9_pp_approx": 6.972363547003013,
+      "rounding_interval_pp": [
+        6.922363547003013,
+        7.022363547003013
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Inland wetlands",
+      "class_zh": "内陆湿地",
+      "k9_ap_percent": 62.96008158378324,
+      "k16_ap_percent_historical_rounded": 64.1,
+      "delta_k16_minus_k9_pp_approx": 1.1399184162167515,
+      "rounding_interval_pp": [
+        1.0899184162167515,
+        1.1899184162167515
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Coastal wetlands",
+      "class_zh": "海岸湿地",
+      "k9_ap_percent": 21.58357829287427,
+      "k16_ap_percent_historical_rounded": 34.7,
+      "delta_k16_minus_k9_pp_approx": 13.116421707125731,
+      "rounding_interval_pp": [
+        13.06642170712573,
+        13.166421707125732
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Inland waters",
+      "class_zh": "内陆水体",
+      "k9_ap_percent": 91.13248124495286,
+      "k16_ap_percent_historical_rounded": 91.7,
+      "delta_k16_minus_k9_pp_approx": 0.5675187550471463,
+      "rounding_interval_pp": [
+        0.5175187550471463,
+        0.6175187550471464
+      ],
+      "statistical_significance_tested": false
+    },
+    {
+      "class_name": "Marine waters",
+      "class_zh": "海洋水域",
+      "k9_ap_percent": 99.56062935217518,
+      "k16_ap_percent_historical_rounded": 99.6,
+      "delta_k16_minus_k9_pp_approx": 0.03937064782481059,
+      "rounding_interval_pp": [
+        -0.010629352175189413,
+        0.08937064782481059
+      ],
+      "statistical_significance_tested": false
+    }
+  ],
+  "class_directions_at_old_precision": {
+    "k16_higher": 10,
+    "k9_higher": 8,
+    "unresolved": 1
+  },
+  "caveats": [
+    "Single seed42; no statistical significance or seed stability test.",
+    "Historical control software/precision/physical GPU batch differ; it is not a same-environment causal experiment.",
+    "K16 aggregate metrics and AP originally printed to one decimal; two-decimal display adds no precision.",
+    "Trained K9/K16 figures are now complete on four historical diagnostic validation inputs; these cases do not estimate population gains or isolate edge causality."
+  ],
+  "source_files": {
+    "results/evidence/ben_grid3_seed42_metrics_20261020/user_return.txt": "25bfa34308f5b14183944bace57cb0db8b23b3d5d7716b9213982d2f81bc8d86",
+    "results/ben_seed42_seed43_vs_swin_20261013.json": "cad1f51d246bc043b9f422fbd4ddd73c71adbfc588392753ccdaf8aa060fd238",
+    "results/ben_four_seed_three_model_20261017.json": "28acccd309868f2505338e3749bb79a88255c64131f619fdbc12e0ea01fdbde1"
+  },
+  "visualization_analysis": "docs/ben_gridpair42_visual_analysis_20261020.md"
+}

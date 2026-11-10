@@ -1,0 +1,16 @@
+{
+  "candidate_path": "/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/gavit-aid-batch16-release-wqbv9ikg/hgtnet_aid_batch16_probe_3060_20261105.pyz",
+  "candidate_sha256": "fd54b4c1a21db1731d1addb0808c49104c11113b610883b79b2c6af456fc80f5",
+  "candidate_bytes": 67224,
+  "source_files": 18,
+  "payload_members": 19,
+  "zip_members": 21,
+  "stdlib_import_guard_actual_bundle_inspect_status": true,
+  "local_inspect_ready": false,
+  "local_status": "not_started",
+  "protected_old_files": 35,
+  "protected_hashes_unchanged": true,
+  "real_gpu_run": false,
+  "real_aid_read": false,
+  "actual3060_batch16_pending": true
+}

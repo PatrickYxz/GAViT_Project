@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "adam_profile_equal": true,
+    "adam_state_nonempty": true,
+    "corrupted_newest_falls_back": true,
+    "fixture_binding_valid": true,
+    "full_model_state_equal": true,
+    "integer_amp_rejected": true
+  },
+  "observations_requiring_engine_semantic_validation": {
+    "storage_accepts_epoch_above_recipe": true,
+    "storage_accepts_finite_changed_adam_lr": true
+  },
+  "passed": true,
+  "schema": "hgtnet-independent-checkpoint-review-v1",
+  "scope": "small actual CPU tensors and storage only; no GPU, NWPU, whole formal trainer or benchmark claim",
+  "source_hashes": {
+    "external_baselines/hgtnet/formal_checkpoints.py": "6b8cd515d9e6ae6ee6eda20d9e3a7eadd1355926edb04f7f721a6ae09696c70e",
+    "external_baselines/hgtnet/formal_data.py": "d8edc4893c60c171dbeafaafc92209bcec5137966fd15b1f31957e24f570f56a",
+    "external_baselines/hgtnet/formal_protocol.py": "90a1ff5ba73961e772c80417cf29a31200d8ab6a465214e1cb71283b962e27f8"
+  }
+}

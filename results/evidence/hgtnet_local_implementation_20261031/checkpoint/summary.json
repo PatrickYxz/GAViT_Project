@@ -1,0 +1,57 @@
+{
+  "schema": "hgtnet-checkpoint-engineering-evidence-v1",
+  "scope": "local_cpu_checkpoint_unit_tests",
+  "official": false,
+  "formal_training_started": false,
+  "dataset_metrics": null,
+  "red": {
+    "exit_code": 1,
+    "tests": 9,
+    "failures_including_subtests": 22,
+    "expected_reason": "HGTNet checkpoint API is missing",
+    "log": "red.log"
+  },
+  "green_initial": {
+    "exit_code": 0,
+    "tests": 9,
+    "seconds": 0.061,
+    "log": "green_initial.log"
+  },
+  "green_final": {
+    "exit_code": 0,
+    "tests": 12,
+    "seconds": 0.081,
+    "log": "green.log",
+    "note": "Three additional source-identity/writer-cleanup/truncated-file regression checks were added after the first GREEN; no claim of individual RED for those additions."
+  },
+  "verified": [
+    "actual CPU parameter and integer buffer save/load equality",
+    "prediction equality after reload",
+    "exclusive creation preserves existing file and symlink target",
+    "complete file SHA256 required and checked",
+    "weights_only=True and map_location=cpu",
+    "independent/local/synthetic metadata bound and unknown fields rejected",
+    "architecture config and current implementation source hashes bound",
+    "missing/extra/shape/dtype/sparse/nonfinite reject before model copy",
+    "mutated model config and class/operator mismatch reject",
+    "pretraining limited JSON report keys, finite values and nonoriginal identity",
+    "writer failure cleans only own new partial file",
+    "truncated files reject before model mutation"
+  ],
+  "not_verified_here": [
+    "full HGTNet CPU checkpoint roundtrip",
+    "fresh-process roundtrip",
+    "GPU execution",
+    "remote-sensing dataset performance"
+  ],
+  "python": "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "KMP_INIT_AT_FORK": "FALSE"
+  },
+  "files": {
+    "external_baselines/hgtnet/checkpoint.py": "bb8ecf96ae990be9930c8456b3655f250f5be09bc1e4207c390b3675b943129a",
+    "tests/test_hgtnet_checkpoint.py": "574036ce6a199fdf95038e47e4b0cf0fd4ad811619afff6e43bc6b9118ab7ce1"
+  }
+}

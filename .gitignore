@@ -10,3 +10,14 @@ logs/
 *.err
 results/figures/*.png
 results/figures/*.jpg
+
+# Local caches and machine-specific authentication configuration
+.DS_Store
+.workbuddy/
+/tmp/
+/output/featurize_gavit_ssh_*.conf
+/results/evidence/external_results_integration_20261106/before_instance_return_ssh.conf
+/results/evidence/featurize_ssh_connect_*/known_hosts
+.env
+.env.*
+!.env.example

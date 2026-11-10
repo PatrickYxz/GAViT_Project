@@ -1,0 +1,71 @@
+{
+  "action": "inspect",
+  "blockers": [
+    "data_manifest",
+    "python_version",
+    "binary:train",
+    "binary:predict",
+    "target_gpu"
+  ],
+  "combined_filesystem_gate_bytes": 59458194284,
+  "dependencies": {
+    "Pillow": {
+      "import_tested": false,
+      "located": true,
+      "version": "10.3.0"
+    },
+    "numpy": {
+      "import_tested": false,
+      "located": true,
+      "version": "1.26.4"
+    },
+    "python": "3.12.13",
+    "torch": {
+      "import_tested": false,
+      "located": true,
+      "version": "2.2.2"
+    },
+    "torchvision": {
+      "import_tested": false,
+      "located": true,
+      "version": "0.17.2"
+    }
+  },
+  "disk": {
+    "checked_path": "/tmp",
+    "device_id": 16777234,
+    "feature_cache_bytes": 10102579200,
+    "free_bytes": 276647309312,
+    "minimum_gate_bytes": 42949672960,
+    "scope": "capacity inventory of the actual destination filesystem; not measured cost"
+  },
+  "formal_training_started": false,
+  "gpu_error": "exactly one idle10GiB RTX3080 is required, or specify --gpu-uuid explicitly",
+  "manifest_error": "[Errno 2] No such file or directory: '/home/featurize/work/nwpu_protocol_20260927_02.json'",
+  "native_binaries": {},
+  "nvidia": {
+    "error": "[Errno 2] No such file or directory: 'nvidia-smi'",
+    "gpus": [],
+    "processes": []
+  },
+  "output": "/Users/patrick/Projects/GAViT_Project/output/dfagcn_nwpu_formal_3080_20261030_fix1/runs/nwpu_seed42_01",
+  "persistent_disk": {
+    "artifact_and_margin_bytes": 1073741824,
+    "checked_path": "/Users/patrick/Projects/GAViT_Project/output/dfagcn_nwpu_formal_3080_20261030_fix1",
+    "device_id": 16777234,
+    "feature_cache_bytes": 10102579200,
+    "free_bytes": 276647309312,
+    "minimum_gate_bytes": 16508521324,
+    "scope": "capacity inventory of the actual destination filesystem; not measured cost",
+    "svm_text_upper_bytes": 15434779500
+  },
+  "readiness_scope": "stdlib inventory; run verifies actual imports, CUDA/software and staged ZIP hashes; no repeated smoke",
+  "ready": false,
+  "recipe_sha256": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+  "requested_gpu_uuid": null,
+  "schema": "dfagcn-nwpu-formal-3080-v1",
+  "scratch_root": "/tmp/dfagcn_nwpu_formal_3080_20261030_fix1_nwpu_seed42_01",
+  "version_scope": "distribution metadata may omit CUDA suffix; run still checks actual imported CUDA12.1/cuDNN8902 runtime",
+  "weights_bytes": 553433881,
+  "weights_sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0"
+}

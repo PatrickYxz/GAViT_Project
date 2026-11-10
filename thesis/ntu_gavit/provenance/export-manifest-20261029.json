@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-29",
+  "versioned_zip": "/Users/patrick/Projects/GAViT_Project/thesis/ntu_gavit_overleaf_20261029.zip",
+  "stable_zip": "/Users/patrick/Projects/GAViT_Project/thesis/ntu_gavit_overleaf.zip",
+  "zip_sha256": "0584615119ee4c3fd7edccf520b05df99b22cf8b60f5ebe63339d0278e09c743",
+  "files": {
+    "main.tex": "5fb459d82db6540af380f47a08fec29953531459ed01694375a1bed4431774d8",
+    "chapters/01-introduction.tex": "8617239b73028ed0ef8ee1657285514e6d418ec1e5af38272ea5557a96762132",
+    "chapters/02-literature-review.tex": "77d5073aa7dfd07b4f4c7e286af76838c5eb6d269ec5e722999b25d4b572072b",
+    "chapters/03-method.tex": "e036fa93a09be0ff86facb4ca0c2f84c74d243c23318eda2f436fb125d44115f",
+    "chapters/04-experimental-setup.tex": "f38ff2213118e028f3039faff9028048992cd72a508d36626e4639e339637629",
+    "references.bib": "fadee6936a8d4b91043a0c6fa9c2794aee595bb072e4861990d70246a4a9997f",
+    "README.md": "84a787d6c511918871aed79b7cf553aeeeec4a71d09339b6d9e77bb5e5e1934a",
+    "EVIDENCE.md": "0f10415f6e627007cdb5b434a8417ed1c64d6b24cc1d623e7792283f70675580",
+    "validation.json": "49c071bdb31097b2b3bfdd12e4bc63046cd4ae3cca6cbb2db6f2cbcf6500534a",
+    "provenance/LICENSE.txt": "598daa58642a721da3cfa24581a37fd984f2ce053a72e78ab8cda47bbbc1a5fb",
+    "provenance/upstream-main.tex": "bcfab10440fa4a9151abc4908ffe9fc3b67af20b5e42374d81a9af6ebed76ae3",
+    "provenance/compile-final-20261029.json": "bae8ef3fa57f0c58f4933520953273a4c10793ac48586cda59abe20646b47e77",
+    "provenance/source-checks-20261029.json": "cd31cd3cacfd80927365b43d4034d6f2a024d14f16ec055cecf6ea9e24cf7912",
+    "provenance/final-review-20261029.json": "a6676a2d9012983e3881fdce70dd91c8813a8bebb24e541f72ea6faa57472359",
+    "provenance/bibliography-merge-20261028.json": "3a18d97d059ad147802959c1570e28ce676c168374d70f40363bb8363735b372",
+    "provenance/literature-direct-methods-20261028.json": "92e93850cbdf84b082eac5c969278219ec491e64a2930d286c870bf1c34b9153",
+    "provenance/literature-foundations-20261028.json": "8226e5bf69e73334ef99d538065520b3769b64bbd4569c575c70defb627de963",
+    "provenance/literature-graph-grouping-20261028.json": "4c994715ce149b5ee1429812aa537351bef4a3a4fe87815485e5ffb30c9ef90e",
+    "provenance/literature-intro-20261028.json": "d95eef3a52fe1271ba9f27abf4d3a93b1d41dc24afd125e14a505f05a71e2663",
+    "provenance/literature-remote-20261028.json": "40d99a8f32f264ddd4003dc0141aa8bc9af4d78646e0ed6612e0c5505b2b1991"
+  },
+  "zip_crc_and_bytes_verified": true,
+  "native_compile_success": true,
+  "independent_review": "completed",
+  "page_level_visual_qa": false,
+  "actual_pagination_measured": false
+}

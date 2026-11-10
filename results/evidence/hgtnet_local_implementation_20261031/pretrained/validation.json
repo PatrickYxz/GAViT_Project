@@ -1,0 +1,17 @@
+{
+  "timestamp_utc": "2026-10-31T13:41:07.961529+00:00",
+  "implementation_sha256": {
+    "external_baselines/hgtnet/pretrained.py": "75d3018ee44b7faef68a7a689203a66d29d601fe7fa542fb5738f8b1dbbae47e",
+    "tests/test_hgtnet_pretrained.py": "8ed8feb240d3c0d5b1a21fab45d93975c295fc56250f394ddb8af91494194991"
+  },
+  "tests": {
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 KMP_INIT_AT_FORK=FALSE /private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest discover -s tests -p test_hgtnet_pretrained.py -v",
+    "log": "results/evidence/hgtnet_local_implementation_20261031/pretrained/green.log",
+    "count": 11,
+    "status": "pass",
+    "elapsed_seconds": 0.309
+  },
+  "actual_source_probe": "results/evidence/hgtnet_local_implementation_20261031/pretrained/actual_source_probe.json",
+  "full_hgtnet_model_meta_audit": "results/evidence/hgtnet_local_implementation_20261031/pretrained/full_model_meta_probe.json",
+  "actual_hgtnet_cpu_load": "root_integration_pending"
+}

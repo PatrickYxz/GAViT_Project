@@ -1,0 +1,18 @@
+{
+  "actual_bundle_stdlib_guard": true,
+  "actual_formal_gpu_started": false,
+  "bundle_id": "31e712e70be7495ea8f64cdd14fe6d0e1c2ba158a30babd0918f918ee8ad0d1f",
+  "bytes": 85287,
+  "git_provenance": {
+    "git_base_commit": "058f1d8b79d0be538ec358eb742d2cd3992921d4",
+    "source_state": "uncommitted_source_snapshot"
+  },
+  "local_inspect_ready": false,
+  "local_status": "not_started",
+  "path": "/private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/gavit-aid-formal-release-wl07suqv/hgtnet_aid_formal_3060_20261105_v1.pyz",
+  "protected_old_files_unchanged": 43,
+  "python311_ast": true,
+  "sha256": "ef2bc84e0df446b7d2bdb5ac2097b21456e66a97c381d8cf5d16e87a3bac5c4b",
+  "source_files": 22,
+  "zip_members": 25
+}

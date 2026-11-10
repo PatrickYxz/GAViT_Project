@@ -1,0 +1,8 @@
+Synthetic fixture only. This is not Featurize evidence.
+/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/gavit_k9_inventory_mco2vqis/ben/best.pth
+/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/gavit_k9_inventory_mco2vqis/ben/weights_K9_spatial.pth
+/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/gavit_k9_inventory_mco2vqis/ben/summary.json:1:{"dataset":"BigEarthNet-19","architecture":{"num_regions":9},"test_mAP":71.23}
+/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/gavit_k9_inventory_mco2vqis/ben/final.out:1:GAViT K=9; test completed
+/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/gavit_k9_inventory_mco2vqis/ben/best.pth.meta.json:1:{"num_regions":9,"checkpoint_path":"best.pth"}
+/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/gavit_k9_inventory_mco2vqis/ben/geometry.err:1:3x3 reference only
+/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/gavit_k9_inventory_mco2vqis/nwpu/train.log:1:MODEL NWPU num_regions=9 Test Acc 95.9%

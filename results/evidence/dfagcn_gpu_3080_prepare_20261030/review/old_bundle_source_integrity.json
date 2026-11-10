@@ -1,0 +1,92 @@
+{
+  "old_bundle_sha256": "f7ff678be35517aca7edc3a181862a56d739cc0be1a7496a5c63dac4b269daca",
+  "old_bundle_expected": "f7ff678be35517aca7edc3a181862a56d739cc0be1a7496a5c63dac4b269daca",
+  "old_code_recipe_checks": {
+    "configs/dfagcn_independent_v1.json": {
+      "expected": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+      "actual": "86faee50060a74119250a538cd96df90e65864bf319ee4befb01dddd6effca92",
+      "match": true
+    },
+    "configs/dfagcn_nwpu_smoke_v1.json": {
+      "expected": "684f5bbe0e09e4cdff9fea194cc029aa5679af438f5ece8ac6125fd85f75689d",
+      "actual": "684f5bbe0e09e4cdff9fea194cc029aa5679af438f5ece8ac6125fd85f75689d",
+      "match": true
+    },
+    "external_baselines/dfagcn/__init__.py": {
+      "expected": "b35023697642f9d2de385bfaf26ef7d40d1e028de629a5088d1c4275e1583f89",
+      "actual": "b35023697642f9d2de385bfaf26ef7d40d1e028de629a5088d1c4275e1583f89",
+      "match": true
+    },
+    "external_baselines/dfagcn/__main__.py": {
+      "expected": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "actual": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "match": true
+    },
+    "external_baselines/dfagcn/cache.py": {
+      "expected": "abe24274c615b303eef7000a533c3902e56a2fc9ee904fda795a0248197d6a80",
+      "actual": "abe24274c615b303eef7000a533c3902e56a2fc9ee904fda795a0248197d6a80",
+      "match": true
+    },
+    "external_baselines/dfagcn/cli.py": {
+      "expected": "89a4e4c340d70ae5b070e74b56618d2f657b62a2146c5c10e7fe142f0be850c3",
+      "actual": "89a4e4c340d70ae5b070e74b56618d2f657b62a2146c5c10e7fe142f0be850c3",
+      "match": true
+    },
+    "external_baselines/dfagcn/config.py": {
+      "expected": "2d71ed07fca78bb6e1d8ba6bca2a537cf2e9eaeb134f6c7b8f91b08459111e60",
+      "actual": "2d71ed07fca78bb6e1d8ba6bca2a537cf2e9eaeb134f6c7b8f91b08459111e60",
+      "match": true
+    },
+    "external_baselines/dfagcn/extraction.py": {
+      "expected": "819d69decc9853c32df70bca71ee34603420bdae5d04ddd8c65c941b13607178",
+      "actual": "819d69decc9853c32df70bca71ee34603420bdae5d04ddd8c65c941b13607178",
+      "match": true
+    },
+    "external_baselines/dfagcn/features.py": {
+      "expected": "2bdf43f7ff78504b9ee5823e00e48092bde890f460ab64c7337fafd94b9553f1",
+      "actual": "2bdf43f7ff78504b9ee5823e00e48092bde890f460ab64c7337fafd94b9553f1",
+      "match": true
+    },
+    "external_baselines/dfagcn/fusion.py": {
+      "expected": "22524aa98322256d01980ea5c5d6a87cbe05a782244bed11575e7a34d8df9329",
+      "actual": "22524aa98322256d01980ea5c5d6a87cbe05a782244bed11575e7a34d8df9329",
+      "match": true
+    },
+    "external_baselines/dfagcn/graph.py": {
+      "expected": "dcae20bd209b84a6b6dd2a43bc11081b43707073276e94287f9c5d1659a71b27",
+      "actual": "dcae20bd209b84a6b6dd2a43bc11081b43707073276e94287f9c5d1659a71b27",
+      "match": true
+    },
+    "external_baselines/dfagcn/identity.py": {
+      "expected": "1c8feda534668f4161349a8bae21539c8c41ce9c117cad7dd9f879f5989e75a8",
+      "actual": "1c8feda534668f4161349a8bae21539c8c41ce9c117cad7dd9f879f5989e75a8",
+      "match": true
+    },
+    "external_baselines/dfagcn/linear.py": {
+      "expected": "8644f8b3b311e73a6082555cc27399926c1dac1e8e440adc27cd35a2557fa941",
+      "actual": "8644f8b3b311e73a6082555cc27399926c1dac1e8e440adc27cd35a2557fa941",
+      "match": true
+    },
+    "external_baselines/dfagcn/model.py": {
+      "expected": "f638c4a606ca392348cf6714856cbd01ddc1b81ef2cc63cb4275b6d5e4d681ff",
+      "actual": "f638c4a606ca392348cf6714856cbd01ddc1b81ef2cc63cb4275b6d5e4d681ff",
+      "match": true
+    },
+    "external_baselines/dfagcn/pipeline.py": {
+      "expected": "a7971e4314b25574dfd54f006eed569454cc4b67feab8aea6f831c846926a61a",
+      "actual": "a7971e4314b25574dfd54f006eed569454cc4b67feab8aea6f831c846926a61a",
+      "match": true
+    },
+    "external_baselines/dfagcn/smoke.py": {
+      "expected": "198a09ae8a12de96f7a801624a5cda940b81a4340e632b652c473fddc81be927",
+      "actual": "198a09ae8a12de96f7a801624a5cda940b81a4340e632b652c473fddc81be927",
+      "match": true
+    },
+    "tools/run_dfagcn_nwpu_smoke.py": {
+      "expected": "ff3311966cf80ca4e15fb2a865c3dff1ca67e42dbcd0a944de8b6cddcbc5203d",
+      "actual": "ff3311966cf80ca4e15fb2a865c3dff1ca67e42dbcd0a944de8b6cddcbc5203d",
+      "match": true
+    }
+  },
+  "all_old_code_recipe_match": true
+}

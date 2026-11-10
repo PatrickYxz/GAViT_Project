@@ -1,0 +1,33 @@
+{
+  "scope": "Independent focused review of the CUDA/NVML memory gate repair; no production edits by reviewer.",
+  "source_sha256": "45df030a5c8a1fe37197db51653e6b97795d84fd29dbcfc64fd656c995c4275b",
+  "runtime_cases": 16,
+  "runtime_cases_passed": 16,
+  "observation_checks": {
+    "physical_nvml_record_preserved": true,
+    "physical_uuid_preserved": true,
+    "cuda_visible_device_uuid_preserved": true,
+    "cuda_total_separate": true,
+    "nvml_total_separate": true,
+    "interface_gap_observed": true,
+    "explicit_engineering_bound": true,
+    "fp32_seed_amp_preserved": true,
+    "tf32_preserved": true
+  },
+  "new_unittest_cases": 6,
+  "new_unittest_exit_code": 0,
+  "actionable_findings": [],
+  "verified": [
+    "Physical NVML name/capacity/UUID checks and actual imported runtime software gates still apply.",
+    "The new CUDA capacity gate has strict byte boundaries and a documented 1 GiB engineering allowance.",
+    "The user-reported capacity mismatch is reproduced by the old source and admitted by the new source using representative stdlib fixtures.",
+    "NVML physical capacity and CUDA exposed capacity are retained separately; no claim about the platform cause is made.",
+    "Model, optimizer, batch, seed, data and precision logic are unchanged in the before/after runner diff."
+  ],
+  "limitations": [
+    "All runtime adapter tests use explicit fake modules and device methods; no Torch numerical/CUDA/model execution.",
+    "The exact user raw byte count and torch.__version__ remain unconfirmed by the supplied diagnostic.",
+    "Package immutability and final bundle identity are assigned to parent integration audit, not claimed here.",
+    "The prior 1 failure plus26 errors from unavailable numerical dependencies are historical preserved limitations, not rerun or described as passing."
+  ]
+}

@@ -1,0 +1,159 @@
+.....EFFFEEEEEE
+======================================================================
+ERROR: test_failed_run_writes_exit_summary_and_releases_lock_without_ML_import (tests.test_hgtnet_aid_entry.EntryTests.test_failed_run_writes_exit_summary_and_releases_lock_without_ML_import)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 134, in test_failed_run_writes_exit_summary_and_releases_lock_without_ML_import
+    self.assertEqual(api().run_smoke(args), 1)
+                     ~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_entry.py", line 292, in run_smoke
+    with _run_lock(args.output):
+         ~~~~~~~~~^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_entry.py", line 97, in _run_lock
+    output=_new_output(output)
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_entry.py", line 84, in _new_output
+    if current.is_symlink():raise ValueError('output contains symbolic link: '+str(current))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: output contains symbolic link: /var
+
+======================================================================
+ERROR: test_bundle_is_exact_source_whitelist_with_separate3060_identity (tests.test_hgtnet_aid_delivery.DeliveryTests.test_bundle_is_exact_source_whitelist_with_separate3060_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_delivery.py", line 39, in test_bundle_is_exact_source_whitelist_with_separate3060_identity
+    record=api().build_bundle(self.bundle)
+  File "/Users/patrick/Projects/GAViT_Project/tools/package_hgtnet_aid_smoke.py", line 87, in build_bundle
+    _target(target.parent,target.name)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tools/package_hgtnet_aid_smoke.py", line 78, in _target
+    raise ValueError('symbolic link is not an immutable source: '+str(current))
+ValueError: symbolic link is not an immutable source: /var
+
+======================================================================
+ERROR: test_install_rejects_foreign_destination_and_altered_or_extra_source (tests.test_hgtnet_aid_delivery.DeliveryTests.test_install_rejects_foreign_destination_and_altered_or_extra_source)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_delivery.py", line 82, in test_install_rejects_foreign_destination_and_altered_or_extra_source
+    api().build_bundle(self.bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tools/package_hgtnet_aid_smoke.py", line 87, in build_bundle
+    _target(target.parent,target.name)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tools/package_hgtnet_aid_smoke.py", line 78, in _target
+    raise ValueError('symbolic link is not an immutable source: '+str(current))
+ValueError: symbolic link is not an immutable source: /var
+
+======================================================================
+ERROR: test_install_rejects_member_tamper_duplicate_traversal_collision_and_symlink (tests.test_hgtnet_aid_delivery.DeliveryTests.test_install_rejects_member_tamper_duplicate_traversal_collision_and_symlink)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_delivery.py", line 96, in test_install_rejects_member_tamper_duplicate_traversal_collision_and_symlink
+    api().build_bundle(self.bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tools/package_hgtnet_aid_smoke.py", line 87, in build_bundle
+    _target(target.parent,target.name)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tools/package_hgtnet_aid_smoke.py", line 78, in _target
+    raise ValueError('symbolic link is not an immutable source: '+str(current))
+ValueError: symbolic link is not an immutable source: /var
+
+======================================================================
+ERROR: test_real_pyz_inspect_status_use_real_install_directory_without_ML (tests.test_hgtnet_aid_delivery.DeliveryTests.test_real_pyz_inspect_status_use_real_install_directory_without_ML)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_delivery.py", line 53, in test_real_pyz_inspect_status_use_real_install_directory_without_ML
+    api().build_bundle(self.bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tools/package_hgtnet_aid_smoke.py", line 87, in build_bundle
+    _target(target.parent,target.name)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tools/package_hgtnet_aid_smoke.py", line 78, in _target
+    raise ValueError('symbolic link is not an immutable source: '+str(current))
+ValueError: symbolic link is not an immutable source: /var
+
+======================================================================
+ERROR: test_symlink_install_or_member_are_refused (tests.test_hgtnet_aid_delivery.DeliveryTests.test_symlink_install_or_member_are_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_delivery.py", line 112, in test_symlink_install_or_member_are_refused
+    api().build_bundle(self.bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tools/package_hgtnet_aid_smoke.py", line 87, in build_bundle
+    _target(target.parent,target.name)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tools/package_hgtnet_aid_smoke.py", line 78, in _target
+    raise ValueError('symbolic link is not an immutable source: '+str(current))
+ValueError: symbolic link is not an immutable source: /var
+
+======================================================================
+ERROR: test_unknown_actions_never_install (tests.test_hgtnet_aid_delivery.DeliveryTests.test_unknown_actions_never_install)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_delivery.py", line 75, in test_unknown_actions_never_install
+    api().build_bundle(self.bundle)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tools/package_hgtnet_aid_smoke.py", line 87, in build_bundle
+    _target(target.parent,target.name)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tools/package_hgtnet_aid_smoke.py", line 78, in _target
+    raise ValueError('symbolic link is not an immutable source: '+str(current))
+ValueError: symbolic link is not an immutable source: /var
+
+======================================================================
+FAIL: test_failure_evidence_keeps_update_before_poststep_diagnostic_failed (tests.test_hgtnet_aid_entry.EntryTests.test_failure_evidence_keeps_update_before_poststep_diagnostic_failed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 125, in test_failure_evidence_keeps_update_before_poststep_diagnostic_failed
+    self.assertEqual(api()._observed_training(output), dict(training_started=True,optimizer_steps=1))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'training_started': False, 'optimizer_steps': 0} != {'training_started': True, 'optimizer_steps': 1}
+- {'optimizer_steps': 0, 'training_started': False}
+?                     ^                      ^^^^
+
++ {'optimizer_steps': 1, 'training_started': True}
+?                     ^                      ^^^
+
+
+======================================================================
+FAIL: test_inspect_status_are_stdlib_only_in_a_fresh_process (tests.test_hgtnet_aid_entry.EntryTests.test_inspect_status_are_stdlib_only_in_a_fresh_process)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 156, in test_inspect_status_are_stdlib_only_in_a_fresh_process
+    self.assertEqual(result.returncode,0,result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+    raise SystemExit(main(['inspect', '--output', '/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpu7wlpv9l/out']))
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_entry.py", line 430, in main
+    if args.action=='inspect':print(json.dumps(inspect_resources(args),indent=2,sort_keys=True));return 0
+                                               ~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_entry.py", line 179, in inspect_resources
+    report['dependencies']=RES.dependency_inventory()
+                           ~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/resources.py", line 136, in dependency_inventory
+    located = importlib.util.find_spec(module) is not None
+              ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<frozen importlib.util>", line 99, in find_spec
+  File "<frozen importlib._bootstrap>", line 1267, in _find_spec
+  File "<string>", line 4, in find_spec
+    if fullname.split(".")[0] in {"torch","torchvision","numpy","PIL"}: raise RuntimeError("ML imported: "+fullname)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: ML imported: torch
+
+
+======================================================================
+FAIL: test_status_needs_exit_progress_summary_checkpoint_and_current_sources (tests.test_hgtnet_aid_entry.EntryTests.test_status_needs_exit_progress_summary_checkpoint_and_current_sources)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_entry.py", line 110, in test_status_needs_exit_progress_summary_checkpoint_and_current_sources
+    self.assertTrue(api().status(output)['completed'])
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.075s
+
+FAILED (failures=3, errors=7)

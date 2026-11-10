@@ -1,0 +1,79 @@
+# 外部方法比较更新：可复制导师汇报
+
+更新日期：2026-11-08；本次整理的是截至11月6日已完成并核验的实验结果与随后回收的原始评估记录。
+
+## 当前完成范围
+
+外部矩阵：HGTNet×NWPU-RESISC45、HGTNet×AID、DFAGCN×NWPU-RESISC45。
+
+训练seed：三项均为42，固定原数据划分，验证集选择后从初始状态重新拟合完整训练池，再测试完整test。
+
+完成状态：三项独立实现的单seed实测及原始预测复算均已完成。这是各自披露配方下的补充比较；统一训练/评估协议和多seed外部比较尚未完成。
+
+## NWPU-RESISC45
+
+数据：5040 train、1260 val、6300 refit pool、25200 test。
+
+HGTNet独立实现：OA94.11904761904762%；macro-F1 94.10529172930384%；23718/25200正确；校准100轮、选定95轮并fresh refit95轮。
+
+DFAGCN独立实现：OA86.53174603174604%；macro-F1 86.45890874660422%；21806/25200正确；选定51轮、LIBLINEAR C=10并完成fresh refit。
+
+固定4×4 GAViT参照：OA94.10317460317461%；macro-F1 94.08993346277097%；23714/25200正确。
+
+比较：HGTNet比固定GAViT高0.01587302pp OA，净多对4张，单seed点估计接近。两者NWPU逐图原件尚未齐，不能由净4张推断纠正/新增错误数。HGTNet相对DFAGCN有原预测配对：纠正2415张、新增503张错误，净多对1912张。
+
+## AID
+
+数据：4000 train、1000 val、5000 refit pool、5000 test。
+
+Swin-T：OA96.34%；macro-F1 96.22088514124282%；4817/5000正确；选定21轮并fresh refit21轮。
+
+固定4×4 GAViT：OA96.94%；macro-F1 96.7811271561119%；4847/5000正确；选定20轮并fresh refit20轮。
+
+HGTNet独立实现：OA96.92%；macro-F1 96.77286814931982%；4846/5000正确；完整校准100轮、选定96轮并fresh refit96轮。
+
+原始记录：本次实际回收Swin/GAViT两模型共10份原始评估文件，逐条验证5000条路径与真值一致并独立复算，与原归档分数一致。没有重新训练或重新执行模型评估。
+
+配对方向：以下均以HGTNet为候选模型。
+
+相对固定GAViT：双方都正确4771张；HGTNet纠正75张；HGTNet新增76张错误；双方都错误78张；净少对1张。固定GAViT比HGTNet高0.02pp OA、0.0082590068pp macro-F1。
+
+相对Swin：双方都正确4738张；HGTNet纠正108张；HGTNet新增79张错误；双方都错误75张；净多对29张，OA高0.58pp。
+
+解释：净差1张不等于仅1张预测发生变化。上述逐图计数是单seed固定测试集上的描述，不证明稳定优势、统计显著或单个图模块因果作用。
+
+训练曲线：HGTNet校准best96为972/1000、OA97.20%、macro-F1 97.074557%；final100为971/1000、OA97.10%、macro-F1 96.990538%。完整100轮校准与96轮refit、全部30类指标、混淆与错误明细均保留，不将refit训练100%当最终test。
+
+## 参数、资源及可比性
+
+AID参数：Swin-T 27,543,960；固定GAViT31,375,385；HGTNet74,612,163。固定版比HGTNet少57.95%，比自己的Swin-T参照增加13.91%；额外复杂度的价值仍需结合核心多seed结果和同条件效率判断。
+
+NWPU参数：固定GAViT31,386,920；HGTNet74,619,858；固定版少57.94%。
+
+主要配方差异：内部Swin/GAViT为Swin-T、224直接resize、AdamW、30轮校准；HGTNet为部分Swin-B初始化、256resize后224crop、Adam、100轮校准；DFAGCN为冻结VGG16、224/448输入、三GCN与LIBLINEAR。共享split和信息隔离不等于统一训练配方。
+
+资源边界：历史核心seed42使用RTX2080Ti，DFAGCN NWPU使用RTX3080，HGTNet NWPU使用RTX3090，AID使用RTX3060并经历两次attempt。AID恢复attempt2墙钟4986.588285893秒，峰值allocated约4.406GiB/reserved约4.820GiB只覆盖该调用；全实验总墙钟、全程峰值和费用未知。不能直接宣称同设备速度/费用优势。checkpoint重载发生在服务器，未称本地加载了模型二进制。
+
+## 剩余工作与统计边界
+
+外部比较：落实统一训练/评估协议和多seed均值/样本SD；三项单seed齐备不能等同导师全部外部要求完成。
+
+论文：继续整合完整内部结果、架构消融和综合讨论；保留补充外部比较与核心多seed统计的区别。
+
+历史内部统计：主表仍为用户指定42/43/46/47，其他历史正负结果保持；本次未重算或改写该范围。46/47缺失的F1、逐图预测和原始运行记录继续空缺，不从AID seed42新回收材料移植。
+
+方法身份：均为独立实现，不称官方实现或原论文数值复现；当前最低矩阵不包含DFAGCN×AID，本轮没有新增该项训练。
+
+## 证据入口
+
+[统一比较JSON](../results/external_methods_comparison_20261106.json)
+
+[AID三模型原预测配对](../results/aid_seed42_three_model_paired_analysis_20261106.json)
+
+[核心10份原始评估记录](../results/evidence/external_results_integration_20261106/aid_core_raw/)
+
+[HGTNet AID离线分析](../results/hgtnet_aid_seed42_analysis_20261106.md)
+
+[跨数据集完成记录](external_baselines_20261027/completed_comparison_20261106.md)
+
+[配套英文邮件草稿](supervisor_email_draft_20261012.md)

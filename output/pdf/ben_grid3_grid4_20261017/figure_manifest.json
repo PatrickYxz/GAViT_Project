@@ -1,0 +1,672 @@
+{
+  "dataset": "BigEarthNet-19",
+  "date": "2026-10-17",
+  "scope": "fixed_partition_geometry_only",
+  "sample_count": 4,
+  "split": "val",
+  "selection": "Reuse all four locally archived historical threshold-flip cases; not a representative sample or a new outcome-selected sample",
+  "original_selection": "All four threshold-flip cases among the previously fixed 24 images",
+  "source_evidence": ".worktrees/sparse-hybrid-4n-top2/results/evidence/pair44_feedback_k_7ehbne/case_sheet_return_20260919/evidence.json",
+  "source_evidence_sha256": "301a3534d7ab0ff4e528238b1938396e2e9ecfdc38537cd32922e96a1442daec",
+  "source_grouping_sha256": "89cb8bb8a7e2ca76633a5a101285283e3275c95b1d77c442837c2e4159ecaca7",
+  "frozen_model_commit": "ed480e60fea03ed786fdba70c144de5e815c34f5",
+  "geometry": {
+    "3": {
+      "side": 3,
+      "K": 9,
+      "assignment": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        3,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5,
+        3,
+        3,
+        3,
+        4,
+        4,
+        5,
+        5,
+        6,
+        6,
+        6,
+        7,
+        7,
+        8,
+        8,
+        6,
+        6,
+        6,
+        7,
+        7,
+        8,
+        8
+      ],
+      "regions": [
+        {
+          "id": 0,
+          "x": 0,
+          "y": 0,
+          "width": 96,
+          "height": 96,
+          "tokens": 9,
+          "color": "#e6194b"
+        },
+        {
+          "id": 1,
+          "x": 96,
+          "y": 0,
+          "width": 64,
+          "height": 96,
+          "tokens": 6,
+          "color": "#3cb44b"
+        },
+        {
+          "id": 2,
+          "x": 160,
+          "y": 0,
+          "width": 64,
+          "height": 96,
+          "tokens": 6,
+          "color": "#ffe119"
+        },
+        {
+          "id": 3,
+          "x": 0,
+          "y": 96,
+          "width": 96,
+          "height": 64,
+          "tokens": 6,
+          "color": "#4363d8"
+        },
+        {
+          "id": 4,
+          "x": 96,
+          "y": 96,
+          "width": 64,
+          "height": 64,
+          "tokens": 4,
+          "color": "#f58231"
+        },
+        {
+          "id": 5,
+          "x": 160,
+          "y": 96,
+          "width": 64,
+          "height": 64,
+          "tokens": 4,
+          "color": "#911eb4"
+        },
+        {
+          "id": 6,
+          "x": 0,
+          "y": 160,
+          "width": 96,
+          "height": 64,
+          "tokens": 6,
+          "color": "#46f0f0"
+        },
+        {
+          "id": 7,
+          "x": 96,
+          "y": 160,
+          "width": 64,
+          "height": 64,
+          "tokens": 4,
+          "color": "#f032e6"
+        },
+        {
+          "id": 8,
+          "x": 160,
+          "y": 160,
+          "width": 64,
+          "height": 64,
+          "tokens": 4,
+          "color": "#bcf60c"
+        }
+      ],
+      "token_counts": [
+        9,
+        6,
+        6,
+        6,
+        4,
+        4,
+        6,
+        4,
+        4
+      ],
+      "display_boundaries": [
+        96,
+        160
+      ]
+    },
+    "4": {
+      "side": 4,
+      "K": 16,
+      "assignment": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        3,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        3,
+        4,
+        4,
+        5,
+        5,
+        6,
+        6,
+        7,
+        4,
+        4,
+        5,
+        5,
+        6,
+        6,
+        7,
+        8,
+        8,
+        9,
+        9,
+        10,
+        10,
+        11,
+        8,
+        8,
+        9,
+        9,
+        10,
+        10,
+        11,
+        12,
+        12,
+        13,
+        13,
+        14,
+        14,
+        15
+      ],
+      "regions": [
+        {
+          "id": 0,
+          "x": 0,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "tokens": 4,
+          "color": "#e6194b"
+        },
+        {
+          "id": 1,
+          "x": 64,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "tokens": 4,
+          "color": "#3cb44b"
+        },
+        {
+          "id": 2,
+          "x": 128,
+          "y": 0,
+          "width": 64,
+          "height": 64,
+          "tokens": 4,
+          "color": "#ffe119"
+        },
+        {
+          "id": 3,
+          "x": 192,
+          "y": 0,
+          "width": 32,
+          "height": 64,
+          "tokens": 2,
+          "color": "#4363d8"
+        },
+        {
+          "id": 4,
+          "x": 0,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "tokens": 4,
+          "color": "#f58231"
+        },
+        {
+          "id": 5,
+          "x": 64,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "tokens": 4,
+          "color": "#911eb4"
+        },
+        {
+          "id": 6,
+          "x": 128,
+          "y": 64,
+          "width": 64,
+          "height": 64,
+          "tokens": 4,
+          "color": "#46f0f0"
+        },
+        {
+          "id": 7,
+          "x": 192,
+          "y": 64,
+          "width": 32,
+          "height": 64,
+          "tokens": 2,
+          "color": "#f032e6"
+        },
+        {
+          "id": 8,
+          "x": 0,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "tokens": 4,
+          "color": "#bcf60c"
+        },
+        {
+          "id": 9,
+          "x": 64,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "tokens": 4,
+          "color": "#fabebe"
+        },
+        {
+          "id": 10,
+          "x": 128,
+          "y": 128,
+          "width": 64,
+          "height": 64,
+          "tokens": 4,
+          "color": "#008080"
+        },
+        {
+          "id": 11,
+          "x": 192,
+          "y": 128,
+          "width": 32,
+          "height": 64,
+          "tokens": 2,
+          "color": "#e6beff"
+        },
+        {
+          "id": 12,
+          "x": 0,
+          "y": 192,
+          "width": 64,
+          "height": 32,
+          "tokens": 2,
+          "color": "#9a6324"
+        },
+        {
+          "id": 13,
+          "x": 64,
+          "y": 192,
+          "width": 64,
+          "height": 32,
+          "tokens": 2,
+          "color": "#fffac8"
+        },
+        {
+          "id": 14,
+          "x": 128,
+          "y": 192,
+          "width": 64,
+          "height": 32,
+          "tokens": 2,
+          "color": "#800000"
+        },
+        {
+          "id": 15,
+          "x": 192,
+          "y": 192,
+          "width": 32,
+          "height": 32,
+          "tokens": 1,
+          "color": "#aaffc3"
+        }
+      ],
+      "token_counts": [
+        4,
+        4,
+        4,
+        2,
+        4,
+        4,
+        4,
+        2,
+        4,
+        4,
+        4,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "display_boundaries": [
+        64,
+        128,
+        192
+      ]
+    }
+  },
+  "overlay_alpha": 0.18,
+  "input_pixels": [
+    224,
+    224
+  ],
+  "native_input_pixels_modified": false,
+  "source_file_bytes_modified": false,
+  "new_inference": false,
+  "new_training": false,
+  "graph_edges_shown": false,
+  "model_predictions_shown": false,
+  "image_level_labels_are_not_spatial_annotations": true,
+  "semantic_quality_metrics": null,
+  "page_size_points": [
+    510.23622047244095,
+    720
+  ],
+  "page_size_mm": [
+    180.0,
+    254.0
+  ],
+  "pdf": "ben_grid3_grid4_cases.pdf",
+  "pdf_sha256": "eb4bd725f1e933583e2aee3c13a34d05e44cea74544452af28eafdd91ea95d74",
+  "builder_sha256": "7453474d448ac303c9b88d8a22c397ced488b4b0efd5c59586dc4cb2cd718538",
+  "cases": [
+    {
+      "row": 97389,
+      "source_png": ".worktrees/sparse-hybrid-4n-top2/results/evidence/pair44_feedback_k_7ehbne/case_sheet_return_20260919/row_97389.png",
+      "source_json": ".worktrees/sparse-hybrid-4n-top2/results/evidence/pair44_feedback_k_7ehbne/case_sheet_return_20260919/row_97389.json",
+      "png_sha256": "1375fde77fff8652dc24db7d380d4c7c453db07a3d13dcbe150ee7d025c815ca",
+      "json_sha256": "5dbefe16e52efdf96322bd6da8ff8c63977492266e01342ff07c810743ac8e17",
+      "pixel_sha256": "dcff7d2a34ceccfbec30edde0ed8034a6f5381609df5c90d0ee9c2101f3dbc33",
+      "patch_path": "/home/featurize/data/BigEarthNet-S2/S2B_MSIL2A_20180421T100029_N9999_R122_T33TWN/S2B_MSIL2A_20180421T100029_N9999_R122_T33TWN_34_20",
+      "labels": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "captured_K16_membership_matches": true,
+      "svg": "row_97389_grid3_grid4.svg",
+      "svg_sha256": "7b869b9381488e45dc688b89a9e9d238951eb588d93640349440b4d2613b19af"
+    },
+    {
+      "row": 14680,
+      "source_png": ".worktrees/sparse-hybrid-4n-top2/results/evidence/pair44_feedback_k_7ehbne/case_sheet_return_20260919/row_14680.png",
+      "source_json": ".worktrees/sparse-hybrid-4n-top2/results/evidence/pair44_feedback_k_7ehbne/case_sheet_return_20260919/row_14680.json",
+      "png_sha256": "10775d7f03c50e9d12626bd727432e77c26e28730f91c39e6cbb84452e9a051c",
+      "json_sha256": "464ad06ad4044f3d42951b09843abc5a4d121ff6fd60d3629f9fa0d976ee3def",
+      "pixel_sha256": "157d93f73bc85dd2a0f212aaa8868913b283a6c93fa8eae913ed56d8ad7ae47f",
+      "patch_path": "/home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170818T103021_N9999_R108_T32TMT/S2A_MSIL2A_20170818T103021_N9999_R108_T32TMT_51_73",
+      "labels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "captured_K16_membership_matches": true,
+      "svg": "row_14680_grid3_grid4.svg",
+      "svg_sha256": "2c5d22c9caa0013910f6752088ee17d3b8b2d1f006b33b593f9052cb2f59c3e7"
+    },
+    {
+      "row": 28450,
+      "source_png": ".worktrees/sparse-hybrid-4n-top2/results/evidence/pair44_feedback_k_7ehbne/case_sheet_return_20260919/row_28450.png",
+      "source_json": ".worktrees/sparse-hybrid-4n-top2/results/evidence/pair44_feedback_k_7ehbne/case_sheet_return_20260919/row_28450.json",
+      "png_sha256": "fcdd058ea7a82087b3f9abd807a2a76868a8907f7179ae9f1b8a1e35ea828d10",
+      "json_sha256": "3b4eaac48690ac6557a48a45876fd513eac1dfd4b1d38e52f8ff533c0f1e6c8d",
+      "pixel_sha256": "8010e15eb2e7928d4849d413f08af3a1e076918f3ba495c826f0eb48a0406d91",
+      "patch_path": "/home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20171201T112431_N9999_R037_T29SNB/S2A_MSIL2A_20171201T112431_N9999_R037_T29SNB_15_25",
+      "labels": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "captured_K16_membership_matches": true,
+      "svg": "row_28450_grid3_grid4.svg",
+      "svg_sha256": "cecb6c2962d72373a9e0688ca5f7de1e592b4d58e329558e02656a8719ffb111"
+    },
+    {
+      "row": 4439,
+      "source_png": ".worktrees/sparse-hybrid-4n-top2/results/evidence/pair44_feedback_k_7ehbne/case_sheet_return_20260919/row_4439.png",
+      "source_json": ".worktrees/sparse-hybrid-4n-top2/results/evidence/pair44_feedback_k_7ehbne/case_sheet_return_20260919/row_4439.json",
+      "png_sha256": "e767525e19cb9ce2f94676286358d170a41339264ecec5f7ec023fd553935b78",
+      "json_sha256": "ae5edf0d52ba90b28f61cc4c3514fa8954491314adee2a76dbb70c6b69f50b64",
+      "pixel_sha256": "8358082572eab3590c79efd4bad33f0e2738159669dc1038d350b4013dcee543",
+      "patch_path": "/home/featurize/data/BigEarthNet-S2/S2A_MSIL2A_20170617T113321_N9999_R080_T29UPU/S2A_MSIL2A_20170617T113321_N9999_R080_T29UPU_75_60",
+      "labels": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "captured_K16_membership_matches": true,
+      "svg": "row_4439_grid3_grid4.svg",
+      "svg_sha256": "d9fe907da6d366a05be501b3f3d2c130e6704172b2559ba41f412f374bb3549d"
+    }
+  ],
+  "pdf_placements": [
+    {
+      "row": 97389,
+      "column": 0,
+      "pdf_box": [
+        25.618110236220474,
+        527,
+        145,
+        145
+      ]
+    },
+    {
+      "row": 97389,
+      "column": 1,
+      "pdf_box": [
+        182.61811023622047,
+        527,
+        145,
+        145
+      ]
+    },
+    {
+      "row": 97389,
+      "column": 2,
+      "pdf_box": [
+        339.61811023622045,
+        527,
+        145,
+        145
+      ]
+    },
+    {
+      "row": 14680,
+      "column": 0,
+      "pdf_box": [
+        25.618110236220474,
+        362,
+        145,
+        145
+      ]
+    },
+    {
+      "row": 14680,
+      "column": 1,
+      "pdf_box": [
+        182.61811023622047,
+        362,
+        145,
+        145
+      ]
+    },
+    {
+      "row": 14680,
+      "column": 2,
+      "pdf_box": [
+        339.61811023622045,
+        362,
+        145,
+        145
+      ]
+    },
+    {
+      "row": 28450,
+      "column": 0,
+      "pdf_box": [
+        25.618110236220474,
+        197,
+        145,
+        145
+      ]
+    },
+    {
+      "row": 28450,
+      "column": 1,
+      "pdf_box": [
+        182.61811023622047,
+        197,
+        145,
+        145
+      ]
+    },
+    {
+      "row": 28450,
+      "column": 2,
+      "pdf_box": [
+        339.61811023622045,
+        197,
+        145,
+        145
+      ]
+    },
+    {
+      "row": 4439,
+      "column": 0,
+      "pdf_box": [
+        25.618110236220474,
+        32,
+        145,
+        145
+      ]
+    },
+    {
+      "row": 4439,
+      "column": 1,
+      "pdf_box": [
+        182.61811023622047,
+        32,
+        145,
+        145
+      ]
+    },
+    {
+      "row": 4439,
+      "column": 2,
+      "pdf_box": [
+        339.61811023622045,
+        32,
+        145,
+        145
+      ]
+    }
+  ]
+}

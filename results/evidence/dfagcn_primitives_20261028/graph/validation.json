@@ -1,0 +1,53 @@
+{
+  "scope": "Independently implemented DFAGCN graph primitives, not a full model or a performance reproduction",
+  "torch_version": "2.2.2",
+  "device": "cpu",
+  "command": "/private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest discover -s tests -p test_dfagcn_graph.py -v",
+  "red": {
+    "exit_code": 1,
+    "test_methods": 25,
+    "failing_cases": 78,
+    "cause": "graph module absent; explicit AssertionError from lazy import"
+  },
+  "engineering_choices": [
+    "Required euclidean/cosine distance argument; paper metric unresolved",
+    "Self-neighbors excluded; exact distance ties use increasing target-node index",
+    "Half and bfloat16 promoted only for distance calculation",
+    "GCN layer uses Xavier uniform initial weights and optional post-propagation bias; no implicit activation/depth/dropout"
+  ],
+  "not_validated": [
+    "Full GCN branch architecture",
+    "Paper pooling target",
+    "Pretrained extraction or MatConvNet parity",
+    "GPU execution or efficiency",
+    "Training or accuracy"
+  ],
+  "sha256": {
+    "external_baselines/dfagcn/graph.py": "dcae20bd209b84a6b6dd2a43bc11081b43707073276e94287f9c5d1659a71b27",
+    "tests/test_dfagcn_graph.py": "a96bb57851ace4556d1ae6f1160a691c6f0d845ca86f58b78ea04c6978d92be7",
+    "results/evidence/dfagcn_primitives_20261028/graph/red.log": "5d4b4f0bd1cf11a934fb79816594f116910d744e504b6d60d89452277de83c07",
+    "results/evidence/dfagcn_primitives_20261028/graph/green.log": "816b9c502618805ed93eb121fed2e6956a173ac71b3bdb88cf8f5e82c8ed9b17",
+    "results/evidence/dfagcn_primitives_20261028/graph/norm_overflow_red.log": "bb843d83fcb6dceb1b504fcdd78947d54c89075d25bd682ef4edf67204d87fa5",
+    "results/evidence/dfagcn_primitives_20261028/graph/norm_overflow_green.log": "993ca00be0d33b4310c5fceb8c6e74f59d795fb5fbcdbee6ac43f3f50b7372a9"
+  },
+  "initial_green": {
+    "exit_code": 0,
+    "test_methods": 25,
+    "case_expansions": 78,
+    "elapsed_seconds_reported": 0.023
+  },
+  "final_green": {
+    "exit_code": 0,
+    "test_methods": 26,
+    "case_expansions": 79,
+    "elapsed_seconds_reported": 0.011,
+    "log": "results/evidence/dfagcn_primitives_20261028/graph/norm_overflow_green.log"
+  },
+  "regression": {
+    "name": "test_cosine_knn_rejects_overflowed_norms_of_finite_features",
+    "red_exit": 1,
+    "red_failure": "ValueError not raised",
+    "green_exit": 0,
+    "fix": "Reject nonfinite cosine norms before division; otherwise finite large features can silently form a bogus graph."
+  }
+}

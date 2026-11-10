@@ -1,0 +1,1633 @@
+{
+  "date": "2026-10-13",
+  "requested_reporting_seeds": [
+    42,
+    43,
+    46,
+    47
+  ],
+  "source_files": [
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/evidence/nwpu_refit_test42_20260929/test_pairs_server_summary.json",
+      "sha256": "1ac38babefc66f55044748176d77a7a8c3f7b3a87bd95b826d199b1247bd9c1a"
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/evidence/nwpu_regions_review_20260929/gallery_inventory.json",
+      "sha256": "b9e7163a80a8ad8262231a8a5fba0718a6424573afb0b4e73582d6da0bfa76c5"
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/bigearth_seed43_three_model_per_class.csv",
+      "sha256": "f9e507a954c865202cbc5c42d8a1fc14f7cc43802a2ae7f9cd77b9de0c636e15"
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/bigearth_four_seed_per_class_comparison.csv",
+      "sha256": "2651da9ad54329ddc46172733e53cf15fefe0978d7230f6d4cc5a0e40c4af0b4"
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/aid_seed42_per_class_analysis.json",
+      "sha256": "88645d1a7b5553a17dc18e8fba15da4fcf85eab47dda972f44236e89951ebeaf"
+    },
+    {
+      "path": "/Users/patrick/Projects/GAViT_Project/.worktrees/sparse-hybrid-4n-top2/results/aid_seed43_per_class_analysis.json",
+      "sha256": "b42712a2ef1108022055ffadef2bc91d3cefdbeccaca4b5c3d56438ff55063e5"
+    }
+  ],
+  "coverage_limits": [
+    "seed46/47 per-class results not returned; cannot establish selected-four-seed class trends",
+    "NWPU43 full per-class/predictions not returned",
+    "NWPU42 extremes are partial45-class coverage",
+    "NWPU gallery uses calibration validation weights, not refit test",
+    "BEN43 controls rounded one decimal; execution/code/hardware confounders retained",
+    "AID42/43 metrics are class accuracy, not AP; no AID soft evaluation"
+  ],
+  "NWPU42_test_class_extremes": [
+    {
+      "class": "church",
+      "support": 560,
+      "base_correct": 454,
+      "candidate_correct": 470,
+      "net_correct": 16,
+      "comparison": "fixed_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 81.07142857142857,
+      "candidate_class_accuracy_percent": 83.92857142857143,
+      "delta_class_accuracy_pp": 2.857142857142857,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "palace",
+      "support": 560,
+      "base_correct": 409,
+      "candidate_correct": 423,
+      "net_correct": 14,
+      "comparison": "fixed_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 73.03571428571429,
+      "candidate_class_accuracy_percent": 75.53571428571429,
+      "delta_class_accuracy_pp": 2.5,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "wetland",
+      "support": 560,
+      "base_correct": 481,
+      "candidate_correct": 493,
+      "net_correct": 12,
+      "comparison": "fixed_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 85.89285714285714,
+      "candidate_class_accuracy_percent": 88.03571428571429,
+      "delta_class_accuracy_pp": 2.142857142857143,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "roundabout",
+      "support": 560,
+      "base_correct": 538,
+      "candidate_correct": 550,
+      "net_correct": 12,
+      "comparison": "fixed_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 96.07142857142857,
+      "candidate_class_accuracy_percent": 98.21428571428571,
+      "delta_class_accuracy_pp": 2.142857142857143,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "commercial_area",
+      "support": 560,
+      "base_correct": 501,
+      "candidate_correct": 478,
+      "net_correct": -23,
+      "comparison": "fixed_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 89.46428571428571,
+      "candidate_class_accuracy_percent": 85.35714285714286,
+      "delta_class_accuracy_pp": -4.107142857142857,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "overpass",
+      "support": 560,
+      "base_correct": 548,
+      "candidate_correct": 529,
+      "net_correct": -19,
+      "comparison": "fixed_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 97.85714285714286,
+      "candidate_class_accuracy_percent": 94.46428571428571,
+      "delta_class_accuracy_pp": -3.392857142857143,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "industrial_area",
+      "support": 560,
+      "base_correct": 507,
+      "candidate_correct": 495,
+      "net_correct": -12,
+      "comparison": "fixed_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 90.53571428571429,
+      "candidate_class_accuracy_percent": 88.39285714285714,
+      "delta_class_accuracy_pp": -2.142857142857143,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "intersection",
+      "support": 560,
+      "base_correct": 550,
+      "candidate_correct": 541,
+      "net_correct": -9,
+      "comparison": "fixed_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 98.21428571428571,
+      "candidate_class_accuracy_percent": 96.60714285714286,
+      "delta_class_accuracy_pp": -1.6071428571428572,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "industrial_area",
+      "support": 560,
+      "base_correct": 495,
+      "candidate_correct": 509,
+      "net_correct": 14,
+      "comparison": "soft_vs_fixed",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 88.39285714285714,
+      "candidate_class_accuracy_percent": 90.89285714285714,
+      "delta_class_accuracy_pp": 2.5,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "sparse_residential",
+      "support": 560,
+      "base_correct": 519,
+      "candidate_correct": 532,
+      "net_correct": 13,
+      "comparison": "soft_vs_fixed",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 92.67857142857143,
+      "candidate_class_accuracy_percent": 95.0,
+      "delta_class_accuracy_pp": 2.3214285714285716,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "tennis_court",
+      "support": 560,
+      "base_correct": 533,
+      "candidate_correct": 544,
+      "net_correct": 11,
+      "comparison": "soft_vs_fixed",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 95.17857142857143,
+      "candidate_class_accuracy_percent": 97.14285714285714,
+      "delta_class_accuracy_pp": 1.9642857142857142,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "runway",
+      "support": 560,
+      "base_correct": 528,
+      "candidate_correct": 539,
+      "net_correct": 11,
+      "comparison": "soft_vs_fixed",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 94.28571428571429,
+      "candidate_class_accuracy_percent": 96.25,
+      "delta_class_accuracy_pp": 1.9642857142857142,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "dense_residential",
+      "support": 560,
+      "base_correct": 521,
+      "candidate_correct": 503,
+      "net_correct": -18,
+      "comparison": "soft_vs_fixed",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 93.03571428571429,
+      "candidate_class_accuracy_percent": 89.82142857142857,
+      "delta_class_accuracy_pp": -3.2142857142857144,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "railway_station",
+      "support": 560,
+      "base_correct": 499,
+      "candidate_correct": 482,
+      "net_correct": -17,
+      "comparison": "soft_vs_fixed",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 89.10714285714286,
+      "candidate_class_accuracy_percent": 86.07142857142857,
+      "delta_class_accuracy_pp": -3.0357142857142856,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "church",
+      "support": 560,
+      "base_correct": 470,
+      "candidate_correct": 457,
+      "net_correct": -13,
+      "comparison": "soft_vs_fixed",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 83.92857142857143,
+      "candidate_class_accuracy_percent": 81.60714285714286,
+      "delta_class_accuracy_pp": -2.3214285714285716,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "desert",
+      "support": 560,
+      "base_correct": 538,
+      "candidate_correct": 525,
+      "net_correct": -13,
+      "comparison": "soft_vs_fixed",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 96.07142857142857,
+      "candidate_class_accuracy_percent": 93.75,
+      "delta_class_accuracy_pp": -2.3214285714285716,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "palace",
+      "support": 560,
+      "base_correct": 409,
+      "candidate_correct": 426,
+      "net_correct": 17,
+      "comparison": "soft_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 73.03571428571429,
+      "candidate_class_accuracy_percent": 76.07142857142857,
+      "delta_class_accuracy_pp": 3.0357142857142856,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "medium_residential",
+      "support": 560,
+      "base_correct": 492,
+      "candidate_correct": 504,
+      "net_correct": 12,
+      "comparison": "soft_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 87.85714285714286,
+      "candidate_class_accuracy_percent": 90.0,
+      "delta_class_accuracy_pp": 2.142857142857143,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "ground_track_field",
+      "support": 560,
+      "base_correct": 533,
+      "candidate_correct": 544,
+      "net_correct": 11,
+      "comparison": "soft_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 95.17857142857143,
+      "candidate_class_accuracy_percent": 97.14285714285714,
+      "delta_class_accuracy_pp": 1.9642857142857142,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "golf_course",
+      "support": 560,
+      "base_correct": 529,
+      "candidate_correct": 540,
+      "net_correct": 11,
+      "comparison": "soft_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 94.46428571428571,
+      "candidate_class_accuracy_percent": 96.42857142857143,
+      "delta_class_accuracy_pp": 1.9642857142857142,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "overpass",
+      "support": 560,
+      "base_correct": 548,
+      "candidate_correct": 529,
+      "net_correct": -19,
+      "comparison": "soft_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 97.85714285714286,
+      "candidate_class_accuracy_percent": 94.46428571428571,
+      "delta_class_accuracy_pp": -3.392857142857143,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "commercial_area",
+      "support": 560,
+      "base_correct": 501,
+      "candidate_correct": 483,
+      "net_correct": -18,
+      "comparison": "soft_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 89.46428571428571,
+      "candidate_class_accuracy_percent": 86.25,
+      "delta_class_accuracy_pp": -3.2142857142857144,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "intersection",
+      "support": 560,
+      "base_correct": 550,
+      "candidate_correct": 535,
+      "net_correct": -15,
+      "comparison": "soft_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 98.21428571428571,
+      "candidate_class_accuracy_percent": 95.53571428571429,
+      "delta_class_accuracy_pp": -2.6785714285714284,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    },
+    {
+      "class": "stadium",
+      "support": 560,
+      "base_correct": 541,
+      "candidate_correct": 530,
+      "net_correct": -11,
+      "comparison": "soft_vs_swin",
+      "seed": 42,
+      "split": "refit_test",
+      "base_class_accuracy_percent": 96.60714285714286,
+      "candidate_class_accuracy_percent": 94.64285714285714,
+      "delta_class_accuracy_pp": -1.9642857142857142,
+      "coverage": "reported top four gains and four losses, not complete45 classes"
+    }
+  ],
+  "NWPU42_gallery_outcomes": [
+    {
+      "index": 15,
+      "path": "church/church_063.jpg",
+      "label": "church",
+      "fixed_prediction": "palace",
+      "soft_prediction": "church",
+      "fixed_correct": false,
+      "soft_correct": true,
+      "displayed_argmax_changed_tokens": 19,
+      "shared_directed_feature_edges": 10,
+      "soft_argmax_regions_present": 16,
+      "input_png_sha256": "f8e304a5a95edacdd02a0932a0c8cb0df87063bb28d569bbb4fee69e46f8f9cf",
+      "outcome": "prediction_correction",
+      "scope": "seed42 calibration-best validation; two fixed cases per class"
+    },
+    {
+      "index": 27,
+      "path": "forest/forest_006.jpg",
+      "label": "forest",
+      "fixed_prediction": "wetland",
+      "soft_prediction": "wetland",
+      "fixed_correct": false,
+      "soft_correct": false,
+      "displayed_argmax_changed_tokens": 26,
+      "shared_directed_feature_edges": 10,
+      "soft_argmax_regions_present": 16,
+      "input_png_sha256": "eb86fd1a3959499fb312ea3135175d2d8449d1b7fa8e15e9f53b1ea29c68ffd8",
+      "outcome": "joint_error",
+      "scope": "seed42 calibration-best validation; two fixed cases per class"
+    },
+    {
+      "index": 28,
+      "path": "freeway/freeway_189.jpg",
+      "label": "freeway",
+      "fixed_prediction": "industrial_area",
+      "soft_prediction": "industrial_area",
+      "fixed_correct": false,
+      "soft_correct": false,
+      "displayed_argmax_changed_tokens": 19,
+      "shared_directed_feature_edges": 19,
+      "soft_argmax_regions_present": 16,
+      "input_png_sha256": "79286b41bf789872764973f2b8478c71c3430c4f35e0f51010f1e0de1b2a8e9a",
+      "outcome": "joint_error",
+      "scope": "seed42 calibration-best validation; two fixed cases per class"
+    },
+    {
+      "index": 46,
+      "path": "medium_residential/medium_residential_005.jpg",
+      "label": "medium_residential",
+      "fixed_prediction": "sparse_residential",
+      "soft_prediction": "medium_residential",
+      "fixed_correct": false,
+      "soft_correct": true,
+      "displayed_argmax_changed_tokens": 26,
+      "shared_directed_feature_edges": 17,
+      "soft_argmax_regions_present": 16,
+      "input_png_sha256": "c7a849403bbdeb3abf334a4b247227720800441632157ce0280a5df42bf13fc8",
+      "outcome": "prediction_correction",
+      "scope": "seed42 calibration-best validation; two fixed cases per class"
+    },
+    {
+      "index": 54,
+      "path": "palace/palace_016.jpg",
+      "label": "palace",
+      "fixed_prediction": "church",
+      "soft_prediction": "church",
+      "fixed_correct": false,
+      "soft_correct": false,
+      "displayed_argmax_changed_tokens": 15,
+      "shared_directed_feature_edges": 10,
+      "soft_argmax_regions_present": 16,
+      "input_png_sha256": "e58ce3fa4fe431a74f8f2eb3fe56c59a939858eca211a8e0f824572679b4d980",
+      "outcome": "joint_error",
+      "scope": "seed42 calibration-best validation; two fixed cases per class"
+    },
+    {
+      "index": 60,
+      "path": "railway_station/railway_station_016.jpg",
+      "label": "railway_station",
+      "fixed_prediction": "commercial_area",
+      "soft_prediction": "railway_station",
+      "fixed_correct": false,
+      "soft_correct": true,
+      "displayed_argmax_changed_tokens": 24,
+      "shared_directed_feature_edges": 10,
+      "soft_argmax_regions_present": 16,
+      "input_png_sha256": "b56b286be373224960de3f671c98051de83aecff7a17c63d0a780a4aa569e192",
+      "outcome": "prediction_correction",
+      "scope": "seed42 calibration-best validation; two fixed cases per class"
+    },
+    {
+      "index": 64,
+      "path": "river/river_043.jpg",
+      "label": "river",
+      "fixed_prediction": "golf_course",
+      "soft_prediction": "baseball_diamond",
+      "fixed_correct": false,
+      "soft_correct": false,
+      "displayed_argmax_changed_tokens": 21,
+      "shared_directed_feature_edges": 13,
+      "soft_argmax_regions_present": 15,
+      "input_png_sha256": "59c503180ba5d1d7c7007036f455d6d21214ef6e1896dca11548d0c1502780c2",
+      "outcome": "joint_error",
+      "scope": "seed42 calibration-best validation; two fixed cases per class"
+    },
+    {
+      "index": 68,
+      "path": "runway/runway_025.jpg",
+      "label": "runway",
+      "fixed_prediction": "airport",
+      "soft_prediction": "airport",
+      "fixed_correct": false,
+      "soft_correct": false,
+      "displayed_argmax_changed_tokens": 19,
+      "shared_directed_feature_edges": 19,
+      "soft_argmax_regions_present": 16,
+      "input_png_sha256": "160c8bf325405f0ea8f3d03a90f2f3b7172becf8a222038ed515b0534551cef2",
+      "outcome": "joint_error",
+      "scope": "seed42 calibration-best validation; two fixed cases per class"
+    }
+  ],
+  "BEN43_all19_class_comparison": [
+    {
+      "class": "Urban fabric",
+      "swin_AP_percent_printed": 85.9,
+      "fixed_AP_percent_printed": 86.5,
+      "soft_AP_percent": 86.90412749223422,
+      "fixed_minus_swin_pp_approx": 0.6,
+      "soft_minus_fixed_pp_approx": 0.40412749223422,
+      "soft_minus_swin_pp_approx": 1.00412749223422,
+      "soft_minus_fixed_pp_interval": [
+        0.35412749223422,
+        0.45412749223422
+      ],
+      "direction_soft_vs_fixed": "up",
+      "direction_soft_vs_swin": "up",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Industrial or commercial units",
+      "swin_AP_percent_printed": 50.2,
+      "fixed_AP_percent_printed": 50.8,
+      "soft_AP_percent": 49.81336195915655,
+      "fixed_minus_swin_pp_approx": 0.6,
+      "soft_minus_fixed_pp_approx": -0.98663804084345,
+      "soft_minus_swin_pp_approx": -0.38663804084345,
+      "soft_minus_fixed_pp_interval": [
+        -1.03663804084345,
+        -0.93663804084345
+      ],
+      "direction_soft_vs_fixed": "down",
+      "direction_soft_vs_swin": "down",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Arable land",
+      "swin_AP_percent_printed": 93.5,
+      "fixed_AP_percent_printed": 93.3,
+      "soft_AP_percent": 93.61706167535287,
+      "fixed_minus_swin_pp_approx": -0.2,
+      "soft_minus_fixed_pp_approx": 0.31706167535287,
+      "soft_minus_swin_pp_approx": 0.11706167535287,
+      "soft_minus_fixed_pp_interval": [
+        0.26706167535287,
+        0.36706167535287
+      ],
+      "direction_soft_vs_fixed": "up",
+      "direction_soft_vs_swin": "up",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Permanent crops",
+      "swin_AP_percent_printed": 60.0,
+      "fixed_AP_percent_printed": 63.3,
+      "soft_AP_percent": 64.69772332306674,
+      "fixed_minus_swin_pp_approx": 3.3,
+      "soft_minus_fixed_pp_approx": 1.39772332306674,
+      "soft_minus_swin_pp_approx": 4.69772332306674,
+      "soft_minus_fixed_pp_interval": [
+        1.34772332306674,
+        1.44772332306674
+      ],
+      "direction_soft_vs_fixed": "up",
+      "direction_soft_vs_swin": "up",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Pastures",
+      "swin_AP_percent_printed": 86.4,
+      "fixed_AP_percent_printed": 86.3,
+      "soft_AP_percent": 86.19617659467306,
+      "fixed_minus_swin_pp_approx": -0.1,
+      "soft_minus_fixed_pp_approx": -0.10382340532694,
+      "soft_minus_swin_pp_approx": -0.20382340532694,
+      "soft_minus_fixed_pp_interval": [
+        -0.15382340532694,
+        -0.05382340532694
+      ],
+      "direction_soft_vs_fixed": "down",
+      "direction_soft_vs_swin": "down",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Complex cultivation patterns",
+      "swin_AP_percent_printed": 69.4,
+      "fixed_AP_percent_printed": 69.0,
+      "soft_AP_percent": 68.38043079497643,
+      "fixed_minus_swin_pp_approx": -0.4,
+      "soft_minus_fixed_pp_approx": -0.61956920502357,
+      "soft_minus_swin_pp_approx": -1.01956920502357,
+      "soft_minus_fixed_pp_interval": [
+        -0.66956920502357,
+        -0.56956920502357
+      ],
+      "direction_soft_vs_fixed": "down",
+      "direction_soft_vs_swin": "down",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+      "swin_AP_percent_printed": 72.4,
+      "fixed_AP_percent_printed": 72.6,
+      "soft_AP_percent": 72.60580110578749,
+      "fixed_minus_swin_pp_approx": 0.2,
+      "soft_minus_fixed_pp_approx": 0.00580110578749,
+      "soft_minus_swin_pp_approx": 0.20580110578749,
+      "soft_minus_fixed_pp_interval": [
+        -0.04419889421251,
+        0.05580110578749
+      ],
+      "direction_soft_vs_fixed": "unresolved_at_reference_rounding",
+      "direction_soft_vs_swin": "up",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Agro-forestry areas",
+      "swin_AP_percent_printed": 87.0,
+      "fixed_AP_percent_printed": 87.0,
+      "soft_AP_percent": 87.56101008698272,
+      "fixed_minus_swin_pp_approx": 0.0,
+      "soft_minus_fixed_pp_approx": 0.56101008698272,
+      "soft_minus_swin_pp_approx": 0.56101008698272,
+      "soft_minus_fixed_pp_interval": [
+        0.51101008698272,
+        0.61101008698272
+      ],
+      "direction_soft_vs_fixed": "up",
+      "direction_soft_vs_swin": "up",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Broad-leaved forest",
+      "swin_AP_percent_printed": 85.8,
+      "fixed_AP_percent_printed": 85.7,
+      "soft_AP_percent": 86.06064969452527,
+      "fixed_minus_swin_pp_approx": -0.1,
+      "soft_minus_fixed_pp_approx": 0.36064969452527,
+      "soft_minus_swin_pp_approx": 0.26064969452527,
+      "soft_minus_fixed_pp_interval": [
+        0.31064969452527,
+        0.41064969452527
+      ],
+      "direction_soft_vs_fixed": "up",
+      "direction_soft_vs_swin": "up",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Coniferous forest",
+      "swin_AP_percent_printed": 93.7,
+      "fixed_AP_percent_printed": 93.4,
+      "soft_AP_percent": 93.37999171286387,
+      "fixed_minus_swin_pp_approx": -0.3,
+      "soft_minus_fixed_pp_approx": -0.02000828713613,
+      "soft_minus_swin_pp_approx": -0.32000828713613,
+      "soft_minus_fixed_pp_interval": [
+        -0.07000828713613,
+        0.02999171286387
+      ],
+      "direction_soft_vs_fixed": "unresolved_at_reference_rounding",
+      "direction_soft_vs_swin": "down",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Mixed forest",
+      "swin_AP_percent_printed": 89.0,
+      "fixed_AP_percent_printed": 89.9,
+      "soft_AP_percent": 89.60883457152102,
+      "fixed_minus_swin_pp_approx": 0.9,
+      "soft_minus_fixed_pp_approx": -0.29116542847898,
+      "soft_minus_swin_pp_approx": 0.60883457152102,
+      "soft_minus_fixed_pp_interval": [
+        -0.34116542847898,
+        -0.24116542847898
+      ],
+      "direction_soft_vs_fixed": "down",
+      "direction_soft_vs_swin": "up",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Natural grassland and sparsely vegetated areas",
+      "swin_AP_percent_printed": 47.2,
+      "fixed_AP_percent_printed": 48.5,
+      "soft_AP_percent": 45.88227402959922,
+      "fixed_minus_swin_pp_approx": 1.3,
+      "soft_minus_fixed_pp_approx": -2.61772597040078,
+      "soft_minus_swin_pp_approx": -1.31772597040078,
+      "soft_minus_fixed_pp_interval": [
+        -2.66772597040078,
+        -2.56772597040078
+      ],
+      "direction_soft_vs_fixed": "down",
+      "direction_soft_vs_swin": "down",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Moors, heathland and sclerophyllous vegetation",
+      "swin_AP_percent_printed": 56.4,
+      "fixed_AP_percent_printed": 60.6,
+      "soft_AP_percent": 60.989909708927534,
+      "fixed_minus_swin_pp_approx": 4.2,
+      "soft_minus_fixed_pp_approx": 0.389909708927534,
+      "soft_minus_swin_pp_approx": 4.589909708927534,
+      "soft_minus_fixed_pp_interval": [
+        0.339909708927534,
+        0.439909708927534
+      ],
+      "direction_soft_vs_fixed": "up",
+      "direction_soft_vs_swin": "up",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Transitional woodland, shrub",
+      "swin_AP_percent_printed": 78.6,
+      "fixed_AP_percent_printed": 78.9,
+      "soft_AP_percent": 78.58765428689567,
+      "fixed_minus_swin_pp_approx": 0.3,
+      "soft_minus_fixed_pp_approx": -0.31234571310433,
+      "soft_minus_swin_pp_approx": -0.01234571310433,
+      "soft_minus_fixed_pp_interval": [
+        -0.36234571310433,
+        -0.26234571310433
+      ],
+      "direction_soft_vs_fixed": "down",
+      "direction_soft_vs_swin": "unresolved_at_reference_rounding",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Beaches, dunes, sands",
+      "swin_AP_percent_printed": 11.3,
+      "fixed_AP_percent_printed": 8.6,
+      "soft_AP_percent": 23.773897508570297,
+      "fixed_minus_swin_pp_approx": -2.7,
+      "soft_minus_fixed_pp_approx": 15.173897508570297,
+      "soft_minus_swin_pp_approx": 12.473897508570298,
+      "soft_minus_fixed_pp_interval": [
+        15.123897508570296,
+        15.223897508570298
+      ],
+      "direction_soft_vs_fixed": "up",
+      "direction_soft_vs_swin": "up",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Inland wetlands",
+      "swin_AP_percent_printed": 60.2,
+      "fixed_AP_percent_printed": 63.1,
+      "soft_AP_percent": 62.84234311307374,
+      "fixed_minus_swin_pp_approx": 2.9,
+      "soft_minus_fixed_pp_approx": -0.25765688692626,
+      "soft_minus_swin_pp_approx": 2.64234311307374,
+      "soft_minus_fixed_pp_interval": [
+        -0.30765688692626,
+        -0.20765688692626
+      ],
+      "direction_soft_vs_fixed": "down",
+      "direction_soft_vs_swin": "up",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Coastal wetlands",
+      "swin_AP_percent_printed": 32.8,
+      "fixed_AP_percent_printed": 34.4,
+      "soft_AP_percent": 42.61340595488735,
+      "fixed_minus_swin_pp_approx": 1.6,
+      "soft_minus_fixed_pp_approx": 8.21340595488735,
+      "soft_minus_swin_pp_approx": 9.81340595488735,
+      "soft_minus_fixed_pp_interval": [
+        8.16340595488735,
+        8.26340595488735
+      ],
+      "direction_soft_vs_fixed": "up",
+      "direction_soft_vs_swin": "up",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Inland waters",
+      "swin_AP_percent_printed": 91.6,
+      "fixed_AP_percent_printed": 91.5,
+      "soft_AP_percent": 91.38628018657404,
+      "fixed_minus_swin_pp_approx": -0.1,
+      "soft_minus_fixed_pp_approx": -0.11371981342596,
+      "soft_minus_swin_pp_approx": -0.21371981342596,
+      "soft_minus_fixed_pp_interval": [
+        -0.16371981342596,
+        -0.06371981342596
+      ],
+      "direction_soft_vs_fixed": "down",
+      "direction_soft_vs_swin": "down",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    },
+    {
+      "class": "Marine waters",
+      "swin_AP_percent_printed": 99.7,
+      "fixed_AP_percent_printed": 99.6,
+      "soft_AP_percent": 99.58291236253619,
+      "fixed_minus_swin_pp_approx": -0.1,
+      "soft_minus_fixed_pp_approx": -0.01708763746381,
+      "soft_minus_swin_pp_approx": -0.11708763746381,
+      "soft_minus_fixed_pp_interval": [
+        -0.06708763746381,
+        0.03291236253619
+      ],
+      "direction_soft_vs_fixed": "unresolved_at_reference_rounding",
+      "direction_soft_vs_swin": "down",
+      "seed": 43,
+      "split": "best_validation_checkpoint_test",
+      "limits": "fixed saved21 epochs vs soft full30; historical code/hardware differ; references rounded one decimal"
+    }
+  ],
+  "BEN43_soft_vs_fixed_directions": {
+    "up": 8,
+    "down": 8,
+    "unresolved_at_reference_rounding": 3
+  },
+  "BEN42_43_fixed_vs_swin_class_deltas": [
+    {
+      "class": "Urban fabric",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        -0.2,
+        0.6
+      ],
+      "printed_direction": "mixed_or_tied",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Industrial or commercial units",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        -1.3,
+        0.6
+      ],
+      "printed_direction": "mixed_or_tied",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Arable land",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        0.5,
+        -0.2
+      ],
+      "printed_direction": "mixed_or_tied",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Permanent crops",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        2.4,
+        3.3
+      ],
+      "printed_direction": "both_printed_up",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Pastures",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        -0.4,
+        -0.1
+      ],
+      "printed_direction": "both_printed_down",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Complex cultivation patterns",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        2.1,
+        -0.4
+      ],
+      "printed_direction": "mixed_or_tied",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Land principally occupied by agriculture, with significant areas of natural vegetation",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        0.7,
+        0.2
+      ],
+      "printed_direction": "both_printed_up",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Agro-forestry areas",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        -0.2,
+        0.0
+      ],
+      "printed_direction": "mixed_or_tied",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Broad-leaved forest",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        0.9,
+        -0.1
+      ],
+      "printed_direction": "mixed_or_tied",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Coniferous forest",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        0.0,
+        -0.3
+      ],
+      "printed_direction": "mixed_or_tied",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Mixed forest",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        0.5,
+        0.9
+      ],
+      "printed_direction": "both_printed_up",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Natural grassland and sparsely vegetated areas",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        -0.8,
+        1.3
+      ],
+      "printed_direction": "mixed_or_tied",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Moors, heathland and sclerophyllous vegetation",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        5.0,
+        4.2
+      ],
+      "printed_direction": "both_printed_up",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Transitional woodland, shrub",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        0.5,
+        0.3
+      ],
+      "printed_direction": "both_printed_up",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Beaches, dunes, sands",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        3.5,
+        -2.7
+      ],
+      "printed_direction": "mixed_or_tied",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Inland wetlands",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        1.4,
+        2.9
+      ],
+      "printed_direction": "both_printed_up",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Coastal wetlands",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        4.4,
+        1.6
+      ],
+      "printed_direction": "both_printed_up",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Inland waters",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        0.8,
+        -0.1
+      ],
+      "printed_direction": "mixed_or_tied",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    },
+    {
+      "class": "Marine waters",
+      "seeds": [
+        42,
+        43
+      ],
+      "delta_AP_pp_printed": [
+        0.1,
+        -0.1
+      ],
+      "printed_direction": "mixed_or_tied",
+      "difference_rounding_uncertainty_pp": 0.1,
+      "not_four_seed_class_stability": true
+    }
+  ],
+  "AID42_43_fixed_vs_swin_class_deltas": [
+    {
+      "class": "Airport",
+      "support_each_seed": 180,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        1,
+        3
+      ],
+      "delta_class_accuracy_pp": [
+        0.5555555555555556,
+        1.6666666666666667
+      ],
+      "direction": "both_up"
+    },
+    {
+      "class": "BareLand",
+      "support_each_seed": 155,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        -2,
+        3
+      ],
+      "delta_class_accuracy_pp": [
+        -1.2903225806451613,
+        1.935483870967742
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "BaseballField",
+      "support_each_seed": 110,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        1,
+        0
+      ],
+      "delta_class_accuracy_pp": [
+        0.9090909090909091,
+        0.0
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "Beach",
+      "support_each_seed": 200,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        0,
+        0
+      ],
+      "delta_class_accuracy_pp": [
+        0.0,
+        0.0
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "Bridge",
+      "support_each_seed": 180,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        2,
+        4
+      ],
+      "delta_class_accuracy_pp": [
+        1.1111111111111112,
+        2.2222222222222223
+      ],
+      "direction": "both_up"
+    },
+    {
+      "class": "Center",
+      "support_each_seed": 130,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        1,
+        4
+      ],
+      "delta_class_accuracy_pp": [
+        0.7692307692307693,
+        3.076923076923077
+      ],
+      "direction": "both_up"
+    },
+    {
+      "class": "Church",
+      "support_each_seed": 120,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        1,
+        0
+      ],
+      "delta_class_accuracy_pp": [
+        0.8333333333333334,
+        0.0
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "Commercial",
+      "support_each_seed": 175,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        23,
+        3
+      ],
+      "delta_class_accuracy_pp": [
+        13.142857142857142,
+        1.7142857142857142
+      ],
+      "direction": "both_up"
+    },
+    {
+      "class": "DenseResidential",
+      "support_each_seed": 205,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        -2,
+        3
+      ],
+      "delta_class_accuracy_pp": [
+        -0.975609756097561,
+        1.4634146341463414
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "Desert",
+      "support_each_seed": 150,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        1,
+        1
+      ],
+      "delta_class_accuracy_pp": [
+        0.6666666666666666,
+        0.6666666666666666
+      ],
+      "direction": "both_up"
+    },
+    {
+      "class": "Farmland",
+      "support_each_seed": 185,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        0,
+        1
+      ],
+      "delta_class_accuracy_pp": [
+        0.0,
+        0.5405405405405406
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "Forest",
+      "support_each_seed": 125,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        0,
+        0
+      ],
+      "delta_class_accuracy_pp": [
+        0.0,
+        0.0
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "Industrial",
+      "support_each_seed": 195,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        -6,
+        -1
+      ],
+      "delta_class_accuracy_pp": [
+        -3.076923076923077,
+        -0.5128205128205128
+      ],
+      "direction": "both_down"
+    },
+    {
+      "class": "Meadow",
+      "support_each_seed": 140,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        2,
+        -1
+      ],
+      "delta_class_accuracy_pp": [
+        1.4285714285714286,
+        -0.7142857142857143
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "MediumResidential",
+      "support_each_seed": 145,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        1,
+        -2
+      ],
+      "delta_class_accuracy_pp": [
+        0.6896551724137931,
+        -1.3793103448275863
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "Mountain",
+      "support_each_seed": 170,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        2,
+        -1
+      ],
+      "delta_class_accuracy_pp": [
+        1.1764705882352942,
+        -0.5882352941176471
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "Park",
+      "support_each_seed": 175,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        7,
+        -1
+      ],
+      "delta_class_accuracy_pp": [
+        4.0,
+        -0.5714285714285714
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "Parking",
+      "support_each_seed": 195,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        0,
+        0
+      ],
+      "delta_class_accuracy_pp": [
+        0.0,
+        0.0
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "Playground",
+      "support_each_seed": 185,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        0,
+        0
+      ],
+      "delta_class_accuracy_pp": [
+        0.0,
+        0.0
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "Pond",
+      "support_each_seed": 210,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        1,
+        1
+      ],
+      "delta_class_accuracy_pp": [
+        0.47619047619047616,
+        0.47619047619047616
+      ],
+      "direction": "both_up"
+    },
+    {
+      "class": "Port",
+      "support_each_seed": 190,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        0,
+        3
+      ],
+      "delta_class_accuracy_pp": [
+        0.0,
+        1.5789473684210527
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "RailwayStation",
+      "support_each_seed": 130,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        2,
+        3
+      ],
+      "delta_class_accuracy_pp": [
+        1.5384615384615385,
+        2.3076923076923075
+      ],
+      "direction": "both_up"
+    },
+    {
+      "class": "Resort",
+      "support_each_seed": 145,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        -5,
+        0
+      ],
+      "delta_class_accuracy_pp": [
+        -3.4482758620689653,
+        0.0
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "River",
+      "support_each_seed": 205,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        2,
+        0
+      ],
+      "delta_class_accuracy_pp": [
+        0.975609756097561,
+        0.0
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "School",
+      "support_each_seed": 150,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        -2,
+        0
+      ],
+      "delta_class_accuracy_pp": [
+        -1.3333333333333333,
+        0.0
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "SparseResidential",
+      "support_each_seed": 150,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        2,
+        1
+      ],
+      "delta_class_accuracy_pp": [
+        1.3333333333333333,
+        0.6666666666666666
+      ],
+      "direction": "both_up"
+    },
+    {
+      "class": "Square",
+      "support_each_seed": 165,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        -3,
+        -4
+      ],
+      "delta_class_accuracy_pp": [
+        -1.8181818181818181,
+        -2.4242424242424243
+      ],
+      "direction": "both_down"
+    },
+    {
+      "class": "Stadium",
+      "support_each_seed": 145,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        1,
+        -3
+      ],
+      "delta_class_accuracy_pp": [
+        0.6896551724137931,
+        -2.0689655172413794
+      ],
+      "direction": "mixed_or_tied"
+    },
+    {
+      "class": "StorageTanks",
+      "support_each_seed": 180,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        -1,
+        -2
+      ],
+      "delta_class_accuracy_pp": [
+        -0.5555555555555556,
+        -1.1111111111111112
+      ],
+      "direction": "both_down"
+    },
+    {
+      "class": "Viaduct",
+      "support_each_seed": 210,
+      "seeds": [
+        42,
+        43
+      ],
+      "net_correct": [
+        1,
+        0
+      ],
+      "delta_class_accuracy_pp": [
+        0.47619047619047616,
+        0.0
+      ],
+      "direction": "mixed_or_tied"
+    }
+  ],
+  "mechanism_conclusion": "class-specific gains/losses are descriptive outcomes, not graph-edge or semantic-quality causal proof"
+}

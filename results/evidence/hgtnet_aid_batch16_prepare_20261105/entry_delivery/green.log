@@ -1,0 +1,20 @@
+..HGTNET_AID_BATCH16_PROBE_PROGRESS {"optimizer_step_completed": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 24889, "post_update_checks_passed": false, "samples_seen": 16, "stage": "first_optimizer_step", "step_index": 1, "training_started": true}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_batch_probe.py", line 239, in run_probe
+    engine=_run_model(torch,cfg,args.data_root,records,args.weights,args.output,progress)
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1176, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1180, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/unittest/mock.py", line 1247, in _execute_mock_call
+    result = effect(*args, **kwargs)
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_batch_probe_entry.py", line 80, in failed
+    raise ValueError('post update diagnostic failed')
+ValueError: post update diagnostic failed
+.........
+----------------------------------------------------------------------
+Ran 11 tests in 0.426s
+
+OK

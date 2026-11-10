@@ -1,0 +1,464 @@
+======================================================================
+FAIL: test_config_load_binds_full_disclosed_recipe_and_rejects_changes (tests.test_hgtnet_aid_formal_protocol.AidFormalProtocolTests.test_config_load_binds_full_disclosed_recipe_and_rejects_changes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 12, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_formal_protocol')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_protocol'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 72, in test_config_load_binds_full_disclosed_recipe_and_rejects_changes
+    p = api(); root = Path(__file__).resolve().parents[1]
+        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 14, in api
+    raise AssertionError('AID formal protocol interface must be implemented') from exc
+AssertionError: AID formal protocol interface must be implemented
+
+======================================================================
+FAIL: test_cpu_fixture_accepts_thirty_classes_and_returns_owned_snapshot (tests.test_hgtnet_aid_formal_protocol.AidFormalProtocolTests.test_cpu_fixture_accepts_thirty_classes_and_returns_owned_snapshot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 12, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_formal_protocol')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_protocol'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 31, in test_cpu_fixture_accepts_thirty_classes_and_returns_owned_snapshot
+    value = binding(); checked = api().validate_binding(value)
+            ^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 18, in binding
+    p = api()
+        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 14, in api
+    raise AssertionError('AID formal protocol interface must be implemented') from exc
+AssertionError: AID formal protocol interface must be implemented
+
+======================================================================
+FAIL: test_old_scope_wrong_classes_recipe_and_cpu_bounds_fail_closed (tests.test_hgtnet_aid_formal_protocol.AidFormalProtocolTests.test_old_scope_wrong_classes_recipe_and_cpu_bounds_fail_closed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 12, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_formal_protocol')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_protocol'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 40, in test_old_scope_wrong_classes_recipe_and_cpu_bounds_fail_closed
+    bad = binding(); bad[key] = value
+          ^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 18, in binding
+    p = api()
+        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 14, in api
+    raise AssertionError('AID formal protocol interface must be implemented') from exc
+AssertionError: AID formal protocol interface must be implemented
+
+======================================================================
+FAIL: test_ordered_evaluation_rejects_overlap_unsafe_paths_and_invalid_labels (tests.test_hgtnet_aid_formal_protocol.AidFormalProtocolTests.test_ordered_evaluation_rejects_overlap_unsafe_paths_and_invalid_labels)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 12, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_formal_protocol')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_protocol'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 64, in test_ordered_evaluation_rejects_overlap_unsafe_paths_and_invalid_labels
+    value = binding()
+            ^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 18, in binding
+    p = api()
+        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 14, in api
+    raise AssertionError('AID formal protocol interface must be implemented') from exc
+AssertionError: AID formal protocol interface must be implemented
+
+======================================================================
+FAIL: test_real_aid_requires_frozen_full_counts_and_input_identities (tests.test_hgtnet_aid_formal_protocol.AidFormalProtocolTests.test_real_aid_requires_frozen_full_counts_and_input_identities)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 12, in api
+    return importlib.import_module('external_baselines.hgtnet.aid_formal_protocol')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_protocol'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 48, in test_real_aid_requires_frozen_full_counts_and_input_identities
+    p = api(); value = binding(); value.update(input_scope='real_aid', recipe=copy.deepcopy(p.RECIPE),
+        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_protocol.py", line 14, in api
+    raise AssertionError('AID formal protocol interface must be implemented') from exc
+AssertionError: AID formal protocol interface must be implemented
+
+======================================================================
+FAIL: test_decoder_consumes_the_identical_hashed_bytes (tests.test_hgtnet_aid_formal_data.AidFormalDataTests.test_decoder_consumes_the_identical_hashed_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 19, in api
+    try: return importlib.import_module('external_baselines.hgtnet.aid_formal_data')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 114, in test_decoder_consumes_the_identical_hashed_bytes
+    path,row=self.image();dataset=api().make_dataset(self.root,[row]);real=Image.open
+                                  ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 20, in api
+    except ModuleNotFoundError as exc: raise AssertionError('AID formal data interface must be implemented') from exc
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AID formal data interface must be implemented
+
+======================================================================
+FAIL: test_eval_matches_bilinear256_center224_and_owns_records (tests.test_hgtnet_aid_formal_data.AidFormalDataTests.test_eval_matches_bilinear256_center224_and_owns_records)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 19, in api
+    try: return importlib.import_module('external_baselines.hgtnet.aid_formal_data')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 92, in test_eval_matches_bilinear256_center224_and_owns_records
+    path,row=self.image(); rows=[copy.deepcopy(row)]; dataset=api().make_dataset(self.root,rows)
+                                                              ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 20, in api
+    except ModuleNotFoundError as exc: raise AssertionError('AID formal data interface must be implemented') from exc
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AID formal data interface must be implemented
+
+======================================================================
+FAIL: test_full_metadata_and_byte_checks_are_stdlib_only (tests.test_hgtnet_aid_formal_data.AidFormalDataTests.test_full_metadata_and_byte_checks_are_stdlib_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 124, in test_full_metadata_and_byte_checks_are_stdlib_only
+    self.assertEqual(result.returncode,0,result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+ImportError: cannot import name 'aid_formal_data' from 'external_baselines.hgtnet' (/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/__init__.py)
+
+
+======================================================================
+FAIL: test_manifest_sha_strict_json_and_original_metadata_are_required (tests.test_hgtnet_aid_formal_data.AidFormalDataTests.test_manifest_sha_strict_json_and_original_metadata_are_required)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 19, in api
+    try: return importlib.import_module('external_baselines.hgtnet.aid_formal_data')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 59, in test_manifest_sha_strict_json_and_original_metadata_are_required
+    with self.assertRaises(ValueError): api().prepare_inputs(path)
+                                        ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 20, in api
+    except ModuleNotFoundError as exc: raise AssertionError('AID formal data interface must be implemented') from exc
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AID formal data interface must be implemented
+
+======================================================================
+FAIL: test_selects_all_original_assignments_with_unequal_counts_and_duplicate_group (tests.test_hgtnet_aid_formal_data.AidFormalDataTests.test_selects_all_original_assignments_with_unequal_counts_and_duplicate_group)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 19, in api
+    try: return importlib.import_module('external_baselines.hgtnet.aid_formal_data')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 47, in test_selects_all_original_assignments_with_unequal_counts_and_duplicate_group
+    prepared=self.prepare(value); selected=prepared['selected']
+             ^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 31, in prepare
+    return api().prepare_inputs(path, expected_sha256=hashlib.sha256(raw).hexdigest())
+           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 20, in api
+    except ModuleNotFoundError as exc: raise AssertionError('AID formal data interface must be implemented') from exc
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AID formal data interface must be implemented
+
+======================================================================
+FAIL: test_test_bytes_require_explicit_gate_and_can_never_enter_training (tests.test_hgtnet_aid_formal_data.AidFormalDataTests.test_test_bytes_require_explicit_gate_and_can_never_enter_training)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 19, in api
+    try: return importlib.import_module('external_baselines.hgtnet.aid_formal_data')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 71, in test_test_bytes_require_explicit_gate_and_can_never_enter_training
+    with mock.patch.object(api().inspector,'open_regular_readonly',side_effect=AssertionError('test opened before gate')):
+                           ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 20, in api
+    except ModuleNotFoundError as exc: raise AssertionError('AID formal data interface must be implemented') from exc
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AID formal data interface must be implemented
+
+======================================================================
+FAIL: test_training_uses_seeded_crop_flip_and_rejects_non_rgb600 (tests.test_hgtnet_aid_formal_data.AidFormalDataTests.test_training_uses_seeded_crop_flip_and_rejects_non_rgb600)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 19, in api
+    try: return importlib.import_module('external_baselines.hgtnet.aid_formal_data')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 104, in test_training_uses_seeded_crop_flip_and_rejects_non_rgb600
+    _,row=self.image();dataset=api().make_dataset(self.root,[row],training=True)
+                               ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 20, in api
+    except ModuleNotFoundError as exc: raise AssertionError('AID formal data interface must be implemented') from exc
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AID formal data interface must be implemented
+
+======================================================================
+FAIL: test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail (tests.test_hgtnet_aid_formal_data.AidFormalDataTests.test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail) (relative='../a.png')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 19, in api
+    try: return importlib.import_module('external_baselines.hgtnet.aid_formal_data')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 80, in test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail
+    with self.subTest(relative=relative),self.assertRaises(ValueError):api().validate_selected(self.root,[dict(row,path=relative)])
+                                                                       ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 20, in api
+    except ModuleNotFoundError as exc: raise AssertionError('AID formal data interface must be implemented') from exc
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AID formal data interface must be implemented
+
+======================================================================
+FAIL: test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail (tests.test_hgtnet_aid_formal_data.AidFormalDataTests.test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail) (relative='/a.png')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 19, in api
+    try: return importlib.import_module('external_baselines.hgtnet.aid_formal_data')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 80, in test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail
+    with self.subTest(relative=relative),self.assertRaises(ValueError):api().validate_selected(self.root,[dict(row,path=relative)])
+                                                                       ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 20, in api
+    except ModuleNotFoundError as exc: raise AssertionError('AID formal data interface must be implemented') from exc
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AID formal data interface must be implemented
+
+======================================================================
+FAIL: test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail (tests.test_hgtnet_aid_formal_data.AidFormalDataTests.test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail) (relative='Airport//pattern.png')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 19, in api
+    try: return importlib.import_module('external_baselines.hgtnet.aid_formal_data')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 80, in test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail
+    with self.subTest(relative=relative),self.assertRaises(ValueError):api().validate_selected(self.root,[dict(row,path=relative)])
+                                                                       ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 20, in api
+    except ModuleNotFoundError as exc: raise AssertionError('AID formal data interface must be implemented') from exc
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AID formal data interface must be implemented
+
+======================================================================
+FAIL: test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail (tests.test_hgtnet_aid_formal_data.AidFormalDataTests.test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail) (relative='Airport/./pattern.png')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 19, in api
+    try: return importlib.import_module('external_baselines.hgtnet.aid_formal_data')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 80, in test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail
+    with self.subTest(relative=relative),self.assertRaises(ValueError):api().validate_selected(self.root,[dict(row,path=relative)])
+                                                                       ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 20, in api
+    except ModuleNotFoundError as exc: raise AssertionError('AID formal data interface must be implemented') from exc
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AID formal data interface must be implemented
+
+======================================================================
+FAIL: test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail (tests.test_hgtnet_aid_formal_data.AidFormalDataTests.test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail) (relative='Airport\\pattern.png')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 19, in api
+    try: return importlib.import_module('external_baselines.hgtnet.aid_formal_data')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 80, in test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail
+    with self.subTest(relative=relative),self.assertRaises(ValueError):api().validate_selected(self.root,[dict(row,path=relative)])
+                                                                       ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 20, in api
+    except ModuleNotFoundError as exc: raise AssertionError('AID formal data interface must be implemented') from exc
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AID formal data interface must be implemented
+
+======================================================================
+FAIL: test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail (tests.test_hgtnet_aid_formal_data.AidFormalDataTests.test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 19, in api
+    try: return importlib.import_module('external_baselines.hgtnet.aid_formal_data')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'external_baselines.hgtnet.aid_formal_data'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 81, in test_unsafe_paths_symlinks_changed_bytes_and_cross_split_pixels_fail
+    with self.assertRaises(ValueError):api()._records([row,dict(row,path='Airport/b.png',split='val')])
+                                       ^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_data.py", line 20, in api
+    except ModuleNotFoundError as exc: raise AssertionError('AID formal data interface must be implemented') from exc
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AID formal data interface must be implemented
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.835s
+
+FAILED (failures=18)

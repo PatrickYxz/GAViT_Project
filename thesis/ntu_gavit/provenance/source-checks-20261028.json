@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "unresolved_citations": [],
+    "unused_entries": [],
+    "unresolved_labels": [],
+    "duplicate_labels": [],
+    "duplicate_keys": [],
+    "missing_inputs": []
+  },
+  "references": 50,
+  "source_word_estimate": {
+    "01-introduction.tex": 1122,
+    "02-literature-review.tex": 3857,
+    "03-method.tex": 1893,
+    "04-experimental-setup.tex": 1916
+  }
+}

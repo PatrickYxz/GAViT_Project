@@ -1,0 +1,17 @@
+test_approved_bytes_are_decoded_even_if_path_changes_after_the_read (test_hgtnet_formal_data.FormalDataTests.test_approved_bytes_are_decoded_even_if_path_changes_after_the_read) ... ok
+test_archive_unsafe_ambiguous_or_image_hash_mismatch_has_no_complete_receipt (test_hgtnet_formal_data.FormalDataTests.test_archive_unsafe_ambiguous_or_image_hash_mismatch_has_no_complete_receipt) ... ok
+test_dataset_owns_snapshot_and_checks_same_read_bytes_before_decode (test_hgtnet_formal_data.FormalDataTests.test_dataset_owns_snapshot_and_checks_same_read_bytes_before_decode) ... ok
+test_eval_exact_bilinear256_center224_imagenet_and_test_order (test_hgtnet_formal_data.FormalDataTests.test_eval_exact_bilinear256_center224_imagenet_and_test_order) ... ok
+test_full_manifest_counts_disjoint_sorted_copies (test_hgtnet_formal_data.FormalDataTests.test_full_manifest_counts_disjoint_sorted_copies) ... ok
+test_manifest_frozen_sha_and_structural_failures (test_hgtnet_formal_data.FormalDataTests.test_manifest_frozen_sha_and_structural_failures) ... ok
+test_only_selected_test_recovery_truthful_receipt_and_explicit_resume (test_hgtnet_formal_data.FormalDataTests.test_only_selected_test_recovery_truthful_receipt_and_explicit_resume) ... ok
+test_preparation_recovery_and_validation_never_import_ml (test_hgtnet_formal_data.FormalDataTests.test_preparation_recovery_and_validation_never_import_ml) ... ok
+test_recovery_resume_rejects_foreign_directory_and_symlink_receipt (test_hgtnet_formal_data.FormalDataTests.test_recovery_resume_rejects_foreign_directory_and_symlink_receipt) ... ok
+test_resume_rejects_foreign_or_changed_selection_receipt (test_hgtnet_formal_data.FormalDataTests.test_resume_rejects_foreign_or_changed_selection_receipt) ... ok
+test_test_rows_allowed_but_duplicate_invalid_label_and_symlink_rejected (test_hgtnet_formal_data.FormalDataTests.test_test_rows_allowed_but_duplicate_invalid_label_and_symlink_rejected) ... ok
+test_training_transform_seeded_random_crop_flip_real_tensor (test_hgtnet_formal_data.FormalDataTests.test_training_transform_seeded_random_crop_flip_real_tensor) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.588s
+
+OK

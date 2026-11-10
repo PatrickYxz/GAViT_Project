@@ -1,0 +1,30 @@
+{
+  "red_exit_code": 1,
+  "red_failures": 7,
+  "red_reason": "adapter module absent; AssertionError from lazy import",
+  "green_exit_code": 0,
+  "green_test_methods": 7,
+  "runtime_python": "Python 3.12.13",
+  "verified": [
+    "actual official train/predict CLI multiclass fixture",
+    "feature dimension retained when last column is zero",
+    "class indices unchanged",
+    "model SHA and header/width checks before prediction",
+    "exclusive outputs and failed command preservation",
+    "invalid labels/features/hyperparameters rejected"
+  ],
+  "implementation_choices": {
+    "solver": 2,
+    "C": "supplied by caller; no internal selection",
+    "bias": 1.0,
+    "bias_regularized": true,
+    "termination_tolerance": 0.01,
+    "feature_normalization": "none inside wrapper",
+    "printed_prediction_accuracy": "ignored because dummy labels supplied"
+  },
+  "sha256": {
+    "external_baselines/dfagcn/linear.py": "8644f8b3b311e73a6082555cc27399926c1dac1e8e440adc27cd35a2557fa941",
+    "tests/test_dfagcn_linear.py": "61b8d55da91d645cad6b5ff0972d15ce1b9cf591479d60c32ff1ab6bed119594"
+  },
+  "green_binary_location": "persistent evidence bin, with GAVIT_LIBLINEAR_ROOT override"
+}

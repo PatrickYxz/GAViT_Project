@@ -1,0 +1,10 @@
+{
+  "source_attachment": "/Users/patrick/.codex/attachments/d99f83b1-7028-4679-aa04-c74acb4346c8/\u5df2\u7c98\u8d34\u7684\u6587\u672c.txt",
+  "source_sha256": "7b99b996506b9380c713b69d914c91da1712ce4035dcd37b7037d1b2f05e8561",
+  "delivered_v1_controller_sha256": "2c7d7365c4722b6fd25973e6d54b385535db7a64b78011bfc5f40d4409b749b8",
+  "stdout_and_cat_summary_equal": true,
+  "inner_run_exit_marker": "exit_code=0",
+  "outer_command_exit_code": null,
+  "outer_command_traceback_observed": true,
+  "root_cause": "Controller reads run.exit before interpreter shutdown runs the registered atexit writer."
+}

@@ -1,0 +1,50 @@
+BEN_GRID3_42_INSTALLED /home/featurize/work/ben_grid3_seed42_20261018_01
+{
+  "status": "BEN_GRID3_42_DISPATCHED",
+  "pid": 3599,
+  "output": "/home/featurize/work/ben_grid3_seed42_20261018_01",
+  "training_start_verified": false,
+  "sequence": [
+    "preflight",
+    "smoke",
+    "train30",
+    "best_test"
+  ]
+}
+(base) ➜ ~ tail -n 35 /home/featurize/work/ben_grid3_seed42_20261018_01/run.log
+START preflight
+RGB CHECK train: 10000/237871; 0.9s
+RGB CHECK train: 20000/237871; 1.7s
+RGB CHECK train: 30000/237871; 2.6s
+RGB CHECK train: 40000/237871; 3.5s
+RGB CHECK train: 50000/237871; 4.3s
+RGB CHECK train: 60000/237871; 5.2s
+RGB CHECK train: 70000/237871; 6.0s
+RGB CHECK train: 80000/237871; 6.8s
+RGB CHECK train: 90000/237871; 7.5s
+RGB CHECK train: 100000/237871; 8.3s
+RGB CHECK train: 110000/237871; 9.0s
+RGB CHECK train: 120000/237871; 9.8s
+RGB CHECK train: 130000/237871; 10.5s
+RGB CHECK train: 140000/237871; 11.2s
+RGB CHECK train: 150000/237871; 12.0s
+RGB CHECK train: 160000/237871; 12.7s
+RGB CHECK train: 170000/237871; 13.4s
+RGB CHECK train: 180000/237871; 14.2s
+RGB CHECK train: 190000/237871; 14.8s
+RGB CHECK train: 200000/237871; 15.5s
+RGB CHECK train: 210000/237871; 16.1s
+RGB CHECK train: 220000/237871; 16.7s
+RGB CHECK train: 230000/237871; 17.4s
+RGB CHECK val: 10000/122342; 0.8s
+RGB CHECK val: 20000/122342; 1.6s
+RGB CHECK val: 30000/122342; 2.4s
+RGB CHECK val: 40000/122342; 3.2s
+RGB CHECK val: 50000/122342; 3.9s
+RGB CHECK val: 60000/122342; 4.7s
+RGB CHECK val: 70000/122342; 5.4s
+RGB CHECK val: 80000/122342; 6.1s
+RGB CHECK val: 90000/122342; 6.9s
+RGB CHECK val: 100000/122342; 7.6s
+RGB CHECK val: 110000/122342; 8.3s
+(base) ➜ ~

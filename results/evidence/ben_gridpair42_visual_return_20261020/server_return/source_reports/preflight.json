@@ -1,0 +1,260 @@
+{
+  "status": "BEN_GRID3_42_PREFLIGHT_PASS",
+  "seed": 42,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "cuda": "12.1",
+    "cudnn": 8902,
+    "threads": 8,
+    "python": "3.11.8 (main, Feb 26 2024, 21:39:34) [GCC 11.2.0]",
+    "packages": {
+      "torch": "2.2.2",
+      "torchvision": "0.17.2",
+      "timm": "1.0.27",
+      "torch-geometric": "2.8.0",
+      "numpy": "1.26.4",
+      "scikit-learn": "1.9.0",
+      "pillow": "10.3.0"
+    },
+    "gpu_identity": "GPU-8734427f-061f-9fdb-97eb-fe9190a11225, NVIDIA GeForce RTX 4090, 610.57.04"
+  },
+  "precision": {
+    "dtype": "torch.float32",
+    "matmul_tf32": false,
+    "cudnn_tf32": true,
+    "amp": false
+  },
+  "splits": {
+    "train": {
+      "count": 237871,
+      "sha256": "25734fd9e8dc7fd78fb259e768ae91fe11b297e1caa50a2d57b74b0296413d8f"
+    },
+    "val": {
+      "count": 122342,
+      "sha256": "1c6627cb48e33588538c4e411e4f1b94560827f27d59fb7aeb0ea2b5d30c2a45"
+    },
+    "test": {
+      "count": 119825,
+      "sha256": "cea165a6443fc5ee44de0a3c55f53ce70505c4e25aba9ca8b52d76634df77204"
+    }
+  },
+  "control": {
+    "checkpoint": "/home/featurize/work/GAViT_Project/checkpoints/best_bigearth_gavit_sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654.pth",
+    "checkpoint_sha256": "9b9acb76d93fa8799e979a227ce1d2496573da937b9329ab0ce3ca1c3f29859e",
+    "test_log": "/home/featurize/work/GAViT_Project/logs/sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654_test_rtx3060_20260817_114017.log",
+    "test_log_sha256": "e2105d38c87720b344d3da92c84ac67e73734e717367c99d703dd800d0e48184",
+    "metadata": {
+      "model": "gavit",
+      "dataset": "BigEarthNet-19",
+      "architecture": {
+        "num_classes": 19,
+        "num_regions": 16,
+        "knn_k": 5,
+        "gat_hidden": 256,
+        "gat_heads": 4,
+        "gat_layers": 2,
+        "dropout": 0.1,
+        "grouping": "attentive_spatial",
+        "edge_type": "sparse_hybrid",
+        "integration": "token_feedback"
+      },
+      "graph_topology": {
+        "name": "sparse_hybrid_4n_top2",
+        "spatial_connectivity": 4,
+        "feature_k": 2,
+        "spatial_directed_edges": 48,
+        "feature_directed_edges": 32,
+        "total_directed_edges": 80,
+        "message_direction": "neighbor_to_query",
+        "cosine_role": "topology_only"
+      },
+      "training": {
+        "seed": 42,
+        "epochs": 30,
+        "batch_size": 32,
+        "lr": 0.0003,
+        "weight_decay": 0.0001,
+        "optimizer": "AdamW",
+        "scheduler": "CosineAnnealingLR",
+        "loss": "BCEWithLogitsLoss",
+        "f1_threshold": 0.5
+      },
+      "execution": {
+        "run_stage": "formal",
+        "run_tag": "sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654"
+      },
+      "best": {
+        "metric": "val_mAP",
+        "value": 79.2087,
+        "epoch": 13
+      },
+      "checkpoint_sha256": "9b9acb76d93fa8799e979a227ce1d2496573da937b9329ab0ce3ca1c3f29859e",
+      "git": {
+        "commit": "cd39be9",
+        "dirty": false
+      },
+      "checkpoint_path": "checkpoints/best_bigearth_gavit_sparse_hybrid_4n_top2_cd39be9_formal_seed42_20260814_134654.pth",
+      "saved_at": "2026-08-14T16:41:40+00:00"
+    },
+    "metrics_printed": {
+      "mAP_percent": 72.0,
+      "macro_f1_percent": 66.0,
+      "micro_f1_percent": 76.7
+    },
+    "limitations": "Historical4090 training/3060 test; new K9 uses current4090. Same seed and frozen base do not remove physical-GPU/software-batch confounding. Historical mAP printed to one decimal."
+  },
+  "tensor_checks": {
+    "status": "pass",
+    "checks": [
+      "K9_budget_direction_batch_ties",
+      "K16_budget_direction_batch_ties",
+      "K9_feature_cosine_selection",
+      "K16_exact_graph_tensor_equivalence_to_cd39",
+      "K16_full_forward_equivalence_to_cd39_graph_within_1e-5",
+      "K9_actual_model_forward_and_parameters"
+    ],
+    "k16_max_logit_diff": 2.086162567138672e-07,
+    "k16_logit_tolerance": 1e-05,
+    "k9_capture": {
+      "actual_forward_checked": true,
+      "num_regions": 9,
+      "batch_size": 2,
+      "spatial_edges": 24,
+      "feature_edges": 18,
+      "edges_per_image": 42,
+      "first_image_edge_index": [
+        [
+          1,
+          3,
+          0,
+          2,
+          4,
+          1,
+          5,
+          0,
+          4,
+          6,
+          1,
+          3,
+          5,
+          7,
+          2,
+          4,
+          8,
+          3,
+          7,
+          4,
+          6,
+          8,
+          5,
+          7,
+          6,
+          2,
+          6,
+          8,
+          0,
+          7,
+          2,
+          5,
+          0,
+          2,
+          0,
+          7,
+          0,
+          4,
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          5,
+          5,
+          5,
+          6,
+          6,
+          7,
+          7,
+          7,
+          8,
+          8,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4,
+          4,
+          5,
+          5,
+          6,
+          6,
+          7,
+          7,
+          8,
+          8
+        ]
+      ],
+      "scope": "first actual model forward in this worker"
+    },
+    "pretrained": false,
+    "scope": "graph tensors and random-initialized full forwards; training/reload follow in independent smoke stage"
+  },
+  "source": {
+    "base_commit": "cd39be91a013bcf98099808c451300f87d3898b7",
+    "patch_sha256": "f4211a77768909f1b2b22614926a0793354d38cf6edac1373b85094c3000d2c6",
+    "original_files": {
+      "experiment_identity.py": "0e9530454ae7d2f159329710a430acc7a75c586739844c22c673f9ff899d5d9b",
+      "utils.py": "818d7863859bd3e391b66184e4d99194126b46b40f20e85fd224cb1817ea58d7",
+      "train_bigearth.py": "1a194b1d23b3922a0fa05104c36453c3c6ef7fc15d06d0124e94bd97e49b501d",
+      "test_bigearth.py": "fc9839abf6b2aa7bec4e4814f28968e24eae3b3d668d869d2e9c5bf9daf1125a",
+      "models/__init__.py": "8815c8fde7ff63701a246e4a198d690e9777be18ac061672b5c3619ccb792436",
+      "models/bigearth_dataset.py": "1cb83ffc299f3927318f5bcef1694cdd33683a8d1ba5b1a87721d02fc67e281a",
+      "models/gavit.py": "dbc1704f36129c12c1d8f86836e64658f8b9af8d5de6a35e55a37be67f9a8822",
+      "models/graph_construction.py": "a0c36ceaf7a2f73b857c0eaac50df4abfb9c5617a4952f333a0dc514900dd8cc",
+      "models/graph_reasoning.py": "895825a417f627594fda8407cf1e980f8bcef398201c233e1c20d900ec9046da",
+      "models/region_grouping.py": "89cb8bb8a7e2ca76633a5a101285283e3275c95b1d77c442837c2e4159ecaca7",
+      "models/swin_backbone.py": "5046f36ab76556f8426fd096cae270b7dab0d24fa6e2c432839a3eb9f3cb1479",
+      "models/swin_features.py": "a4fa88cdf6ff811a2b6b51b512a99a01f6f53df3d57514458c4b0e7e25b9b06f",
+      "models/swin_region_only.py": "68d0c7ee95fa4a88c5a5b929e1e573195a7a9b1fe40a32480d64165c24c2d0c6"
+    },
+    "files": {
+      "experiment_identity.py": "4233a173d57e0304f0df46d494948d1093f873ca26cd1520bb5748d04d52b7b3",
+      "utils.py": "818d7863859bd3e391b66184e4d99194126b46b40f20e85fd224cb1817ea58d7",
+      "train_bigearth.py": "af2b5216370b6fcea2d01583a0cfd92c8f302f311ae5629f97df54407b85b4c2",
+      "test_bigearth.py": "fe59c990b527991088a6484e04a595e53148c0541ad881d772a86f811aec4481",
+      "models/__init__.py": "8815c8fde7ff63701a246e4a198d690e9777be18ac061672b5c3619ccb792436",
+      "models/bigearth_dataset.py": "1cb83ffc299f3927318f5bcef1694cdd33683a8d1ba5b1a87721d02fc67e281a",
+      "models/gavit.py": "d293e579192468107b4ac7d17b7592af0c676d9dbdefd2e920b6c867c51ddb31",
+      "models/graph_construction.py": "9ee50208529e9a246b6865892a18dc679de63e514c6c9a4e45ea1f91857d06f6",
+      "models/graph_reasoning.py": "895825a417f627594fda8407cf1e980f8bcef398201c233e1c20d900ec9046da",
+      "models/region_grouping.py": "89cb8bb8a7e2ca76633a5a101285283e3275c95b1d77c442837c2e4159ecaca7",
+      "models/swin_backbone.py": "5046f36ab76556f8426fd096cae270b7dab0d24fa6e2c432839a3eb9f3cb1479",
+      "models/swin_features.py": "a4fa88cdf6ff811a2b6b51b512a99a01f6f53df3d57514458c4b0e7e25b9b06f",
+      "models/swin_region_only.py": "68d0c7ee95fa4a88c5a5b929e1e573195a7a9b1fe40a32480d64165c24c2d0c6"
+    },
+    "snapshot_sha256": "f82d37a9cc1d18920a553fa1e4fd516e9d9ebda9d9abddb6595e12a69a944f58"
+  },
+  "training_started": false,
+  "smoke_split_sha256": {
+    "train": "55ae41fd9d638981e4b941a7cc3abc06a2203c90fa28f3c919240f11359f0e88",
+    "val": "eaf21790cbd941093e8629a606fd86fe251f99f63048c199067653fd6a0ff290"
+  }
+}

@@ -1,0 +1,209 @@
+test_incompatible_state_or_nan_never_copied (test_hgtnet_formal_checkpoints.FormalCheckpointTests.test_incompatible_state_or_nan_never_copied) ... ok
+test_model_real_tensor_roundtrip_and_bad_sha_binding_rejected (test_hgtnet_formal_checkpoints.FormalCheckpointTests.test_model_real_tensor_roundtrip_and_bad_sha_binding_rejected) ... ok
+test_recipe_and_binding_reject_unfrozen_real_values (test_hgtnet_formal_checkpoints.FormalCheckpointTests.test_recipe_and_binding_reject_unfrozen_real_values) ... ok
+test_recipe_boolean_flags_cannot_be_replaced_by_equal_integer (test_hgtnet_formal_checkpoints.FormalCheckpointTests.test_recipe_boolean_flags_cannot_be_replaced_by_equal_integer) ... ok
+test_restored_adam_moment_shape_must_match_parameter (test_hgtnet_formal_checkpoints.FormalCheckpointTests.test_restored_adam_moment_shape_must_match_parameter) ... ok
+test_snapshot_rejects_out_of_budget_epoch_and_optimizer_policy (test_hgtnet_formal_checkpoints.FormalCheckpointTests.test_snapshot_rejects_out_of_budget_epoch_and_optimizer_policy) ... ok
+test_two_slots_preserve_previous_when_newest_bytes_corrupt (test_hgtnet_formal_checkpoints.FormalCheckpointTests.test_two_slots_preserve_previous_when_newest_bytes_corrupt) ... ok
+test_approved_bytes_are_decoded_even_if_path_changes_after_the_read (test_hgtnet_formal_data.FormalDataTests.test_approved_bytes_are_decoded_even_if_path_changes_after_the_read) ... ok
+test_archive_unsafe_ambiguous_or_image_hash_mismatch_has_no_complete_receipt (test_hgtnet_formal_data.FormalDataTests.test_archive_unsafe_ambiguous_or_image_hash_mismatch_has_no_complete_receipt) ... ok
+test_dataset_owns_snapshot_and_checks_same_read_bytes_before_decode (test_hgtnet_formal_data.FormalDataTests.test_dataset_owns_snapshot_and_checks_same_read_bytes_before_decode) ... ok
+test_eval_exact_bilinear256_center224_imagenet_and_test_order (test_hgtnet_formal_data.FormalDataTests.test_eval_exact_bilinear256_center224_imagenet_and_test_order) ... ok
+test_full_manifest_counts_disjoint_sorted_copies (test_hgtnet_formal_data.FormalDataTests.test_full_manifest_counts_disjoint_sorted_copies) ... ok
+test_manifest_frozen_sha_and_structural_failures (test_hgtnet_formal_data.FormalDataTests.test_manifest_frozen_sha_and_structural_failures) ... ok
+test_only_selected_test_recovery_truthful_receipt_and_explicit_resume (test_hgtnet_formal_data.FormalDataTests.test_only_selected_test_recovery_truthful_receipt_and_explicit_resume) ... ok
+test_preparation_recovery_and_validation_never_import_ml (test_hgtnet_formal_data.FormalDataTests.test_preparation_recovery_and_validation_never_import_ml) ... ok
+test_recovery_resume_rejects_foreign_directory_and_symlink_receipt (test_hgtnet_formal_data.FormalDataTests.test_recovery_resume_rejects_foreign_directory_and_symlink_receipt) ... ok
+test_resume_rejects_foreign_or_changed_selection_receipt (test_hgtnet_formal_data.FormalDataTests.test_resume_rejects_foreign_or_changed_selection_receipt) ... ok
+test_test_rows_allowed_but_duplicate_invalid_label_and_symlink_rejected (test_hgtnet_formal_data.FormalDataTests.test_test_rows_allowed_but_duplicate_invalid_label_and_symlink_rejected) ... ok
+test_training_transform_seeded_random_crop_flip_real_tensor (test_hgtnet_formal_data.FormalDataTests.test_training_transform_seeded_random_crop_flip_real_tensor) ... ok
+test_actual_formal_zipapp_resume_reaches_parser (test_hgtnet_formal_delivery.FormalDeliveryTests.test_actual_formal_zipapp_resume_reaches_parser) ... ok
+test_existing_default_runner_does_not_gain_formal_recipe (test_hgtnet_formal_delivery.FormalDeliveryTests.test_existing_default_runner_does_not_gain_formal_recipe) ... ok
+test_formal_registered_runner_contains_exact_recipe (test_hgtnet_formal_delivery.FormalDeliveryTests.test_formal_registered_runner_contains_exact_recipe) ... ok
+test_formal_runner_wrong_gpu_rejected (test_hgtnet_formal_delivery.FormalDeliveryTests.test_formal_runner_wrong_gpu_rejected) ... ok
+test_bad_numeric_reload_prevents_first_test_loader (test_hgtnet_formal_engine.FormalEngineTests.test_bad_numeric_reload_prevents_first_test_loader) ... ok
+test_completed_epoch_resume_matches_uninterrupted_model_and_selection (test_hgtnet_formal_engine.FormalEngineTests.test_completed_epoch_resume_matches_uninterrupted_model_and_selection) ... ok
+test_earliest_tie_fresh_refit_and_complete_metrics_without_early_test (test_hgtnet_formal_engine.FormalEngineTests.test_earliest_tie_fresh_refit_and_complete_metrics_without_early_test) ... ok
+test_existing_model_file_cannot_be_overwritten_by_direct_engine_call (test_hgtnet_formal_engine.FormalEngineTests.test_existing_model_file_cannot_be_overwritten_by_direct_engine_call) ... ok
+test_existing_training_artifacts_require_explicit_resume (test_hgtnet_formal_engine.FormalEngineTests.test_existing_training_artifacts_require_explicit_resume) ... ok
+test_post_update_failure_retains_successful_update_receipt (test_hgtnet_formal_engine.FormalEngineTests.test_post_update_failure_retains_successful_update_receipt) ... ok
+test_real_binding_cannot_be_executed_as_cpu_fixture (test_hgtnet_formal_engine.FormalEngineTests.test_real_binding_cannot_be_executed_as_cpu_fixture) ... ok
+test_recovery_selection_metadata_cannot_change_validation_winner (test_hgtnet_formal_engine.FormalEngineTests.test_recovery_selection_metadata_cannot_change_validation_winner) ... ok
+test_replacement_sampler_rejected_before_first_update (test_hgtnet_formal_engine.FormalEngineTests.test_replacement_sampler_rejected_before_first_update) ... ok
+test_resume_at_phase_transition_restarts_refit_from_equal_initial_state (test_hgtnet_formal_engine.FormalEngineTests.test_resume_at_phase_transition_restarts_refit_from_equal_initial_state) ... ok
+test_unequal_initialization_rejects_refit_before_pool_or_test (test_hgtnet_formal_engine.FormalEngineTests.test_unequal_initialization_rejects_refit_before_pool_or_test) ... ok
+test_validation_failure_preserves_every_completed_training_update (test_hgtnet_formal_engine.FormalEngineTests.test_validation_failure_preserves_every_completed_training_update) ... ok
+test_validation_order_failure_prevents_refit_and_test (test_hgtnet_formal_engine.FormalEngineTests.test_validation_order_failure_prevents_refit_and_test) ... ok
+test_before_test_input_mutation_is_rejected_and_first_step_retained (test_hgtnet_formal_entry.FormalEntryTests.test_before_test_input_mutation_is_rejected_and_first_step_retained) ... HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 90193, "stage": "first_optimizer_step", "training_started": true}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 240, in run_formal_entry
+    result.update(_run_model(args,torch,runtime,inputs,binding,progress,args.resume))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 113, in mutate
+    p(dict(stage='before_test',optimizer_steps=1));reached.append('test')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 235, in progress
+    if value.get('stage')=='before_test':_assert_unchanged(args,inputs,binding);args._test_authorized=True
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 149, in _assert_unchanged
+    raise ValueError('Formal source/config/recipe/manifest/initial weights changed')
+ValueError: Formal source/config/recipe/manifest/initial weights changed
+ok
+test_command_honors_delivery_entry_and_resume_action (test_hgtnet_formal_entry.FormalEntryTests.test_command_honors_delivery_entry_and_resume_action) ... ok
+test_failure_after_update_preserves_training_and_never_completes (test_hgtnet_formal_entry.FormalEntryTests.test_failure_after_update_preserves_training_and_never_completes) ... HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 90193, "stage": "first_optimizer_step", "training_started": true}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 240, in run_formal_entry
+    result.update(_run_model(args,torch,runtime,inputs,binding,progress,args.resume))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 74, in fail
+    def fail(a,t,r,i,b,p,resume):self.first(p);raise RuntimeError('fixture later failure')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: fixture later failure
+ok
+test_formal_entry_api_and_fullcounts_readiness (test_hgtnet_formal_entry.FormalEntryTests.test_formal_entry_api_and_fullcounts_readiness) ... ok
+test_inspect_and_status_never_import_ml (test_hgtnet_formal_entry.FormalEntryTests.test_inspect_and_status_never_import_ml) ... ok
+test_resume_after_partial_pool_recovery_uses_new_attempt_destination (test_hgtnet_formal_entry.FormalEntryTests.test_resume_after_partial_pool_recovery_uses_new_attempt_destination) ... HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 90193, "stage": "first_optimizer_step", "training_started": true}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 240, in run_formal_entry
+    result.update(_run_model(args,torch,runtime,inputs,binding,progress,args.resume))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 74, in fail
+    def fail(a,t,r,i,b,p,resume):self.first(p);raise RuntimeError('fixture later failure')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: fixture later failure
+HGTNET_FORMAL_PROGRESS {"attempt": 2, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 90193, "stage": "first_optimizer_step", "training_started": true}
+HGTNET_FORMAL_PROGRESS {"attempt": 2, "formal_training_started": true, "optimizer_steps": 2, "pid": 90193, "stage": "before_test", "training_started": true}
+HGTNET_FORMAL_PROGRESS {"attempt": 2, "completed": true, "formal_training_started": true, "optimizer_steps": 2, "pid": 90193, "stage": "complete", "training_started": true}
+HGTNET_NWPU_FORMAL_COMPLETE /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpjd_m50tv/output/summary.json
+ok
+test_resume_preserves_prior_attempt_and_changes_only_owned_results (test_hgtnet_formal_entry.FormalEntryTests.test_resume_preserves_prior_attempt_and_changes_only_owned_results) ... HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 90193, "stage": "first_optimizer_step", "training_started": true}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 240, in run_formal_entry
+    result.update(_run_model(args,torch,runtime,inputs,binding,progress,args.resume))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 74, in fail
+    def fail(a,t,r,i,b,p,resume):self.first(p);raise RuntimeError('fixture later failure')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: fixture later failure
+HGTNET_FORMAL_PROGRESS {"attempt": 2, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 90193, "stage": "first_optimizer_step", "training_started": true}
+HGTNET_FORMAL_PROGRESS {"attempt": 2, "formal_training_started": true, "optimizer_steps": 2, "pid": 90193, "stage": "before_test", "training_started": true}
+HGTNET_FORMAL_PROGRESS {"attempt": 2, "completed": true, "formal_training_started": true, "optimizer_steps": 2, "pid": 90193, "stage": "complete", "training_started": true}
+HGTNET_NWPU_FORMAL_COMPLETE /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpcjb6t0zb/output/summary.json
+ok
+test_resume_rejects_changed_scratch_ownership (test_hgtnet_formal_entry.FormalEntryTests.test_resume_rejects_changed_scratch_ownership) ... HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 90193, "stage": "first_optimizer_step", "training_started": true}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 240, in run_formal_entry
+    result.update(_run_model(args,torch,runtime,inputs,binding,progress,args.resume))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 74, in fail
+    def fail(a,t,r,i,b,p,resume):self.first(p);raise RuntimeError('fixture later failure')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: fixture later failure
+ok
+test_resume_requires_owned_matching_binding_and_valid_snapshot_sha (test_hgtnet_formal_entry.FormalEntryTests.test_resume_requires_owned_matching_binding_and_valid_snapshot_sha) ... HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 90193, "stage": "first_optimizer_step", "training_started": true}
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 240, in run_formal_entry
+    result.update(_run_model(args,torch,runtime,inputs,binding,progress,args.resume))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_formal_entry.py", line 74, in fail
+    def fail(a,t,r,i,b,p,resume):self.first(p);raise RuntimeError('fixture later failure')
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: fixture later failure
+ok
+test_run_requires_uuid_and_independent_new_paths (test_hgtnet_formal_entry.FormalEntryTests.test_run_requires_uuid_and_independent_new_paths) ... ok
+test_runtime_failure_records_no_training_and_no_scratch (test_hgtnet_formal_entry.FormalEntryTests.test_runtime_failure_records_no_training_and_no_scratch) ... Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/formal_entry.py", line 218, in run_formal_entry
+    torch,runtime=COMMON._runtime_and_torch(args,preflight['selected_gpu']);_write(args._attempt/'runtime.json',runtime)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/patrick/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+ValueError: CUDA mismatch
+ok
+test_short_status_keeps_metrics_without_large_prediction_or_confusion_arrays (test_hgtnet_formal_entry.FormalEntryTests.test_short_status_keeps_metrics_without_large_prediction_or_confusion_arrays) ... ok
+test_status_requires_exact_completion_marker_and_exit_zero (test_hgtnet_formal_entry.FormalEntryTests.test_status_requires_exact_completion_marker_and_exit_zero) ... ok
+test_success_requires_engine_and_final_inputs_then_marker (test_hgtnet_formal_entry.FormalEntryTests.test_success_requires_engine_and_final_inputs_then_marker) ... HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_step_succeeded": true, "optimizer_steps": 1, "pid": 90193, "stage": "first_optimizer_step", "training_started": true}
+HGTNET_FORMAL_PROGRESS {"attempt": 1, "formal_training_started": true, "optimizer_steps": 2, "pid": 90193, "stage": "before_test", "training_started": true}
+HGTNET_FORMAL_PROGRESS {"attempt": 1, "completed": true, "formal_training_started": true, "optimizer_steps": 2, "pid": 90193, "stage": "complete", "training_started": true}
+HGTNET_NWPU_FORMAL_COMPLETE /private/var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmpgzcq35b4/output/summary.json
+ok
+
+----------------------------------------------------------------------
+Ran 50 tests in 34.158s
+
+OK
+{
+  "errors": 0,
+  "failures": 0,
+  "passed": true,
+  "scope": "independent formal-module focused CPU/stdlib suite; no GPU or real NWPU claim",
+  "skipped": 0,
+  "source_hashes": {
+    "external_baselines/hgtnet/formal_checkpoints.py": "dd504dcdcbf1a2e3683b4434e89c84cab30b7c37df57ead1f68e2395a27f95d2",
+    "external_baselines/hgtnet/formal_data.py": "d8edc4893c60c171dbeafaafc92209bcec5137966fd15b1f31957e24f570f56a",
+    "external_baselines/hgtnet/formal_engine.py": "bd63adcaf43a46fbcfafdbf2da5385b6f1cf60caaff0b51ec771f8bdb9586704",
+    "external_baselines/hgtnet/formal_entry.py": "dd29907ae37d9c01393797ed9e7eed18eebaf7697a8a8b40c60c6b90261da0d0",
+    "external_baselines/hgtnet/formal_protocol.py": "90a1ff5ba73961e772c80417cf29a31200d8ab6a465214e1cb71283b962e27f8"
+  },
+  "source_unchanged_during_run": true,
+  "tests": 50
+}

@@ -1,0 +1,93 @@
+{
+  "boundaries": [
+    "OA correct counts are arithmetic implied by the summary, not independently counted predictions",
+    "macroF1 not recomputed from per-image results",
+    "300MB model and original remote runtime/checkpoint/test files have not been directly retrieved",
+    "single seed and four-correct-image gap do not establish stable superiority, statistical significance or individual graph-module causality",
+    "different backbones/pretraining/recipes/budgets/hardware prevent an isolated efficiency or module claim"
+  ],
+  "checks": {
+    "1173_correct_val_arithmetic": true,
+    "23718_correct_test_arithmetic": true,
+    "68930_budget": true,
+    "all74619858_parameters_trainable": true,
+    "all_baselines_same_manifest_seed_count": true,
+    "checkpoint_reference_hash_formats": true,
+    "complete_progress_matches": true,
+    "final_refit_matches_reload": true,
+    "four_correct_difference_vs_fixed": true,
+    "fresh_initialization_equal": true,
+    "numeric_reload_zero": true,
+    "positive_ordered_allocator_peaks": true,
+    "reload_selected95": true,
+    "reported_metrics_finite_in_range": true,
+    "reported_metrics_scopes": true,
+    "summary_attempt": true,
+    "summary_batch_size": true,
+    "summary_best_epoch": true,
+    "summary_completed": true,
+    "summary_config_sha256": true,
+    "summary_counts": true,
+    "summary_exit_code": true,
+    "summary_final_epoch": true,
+    "summary_formal_training_started": true,
+    "summary_input_scope": true,
+    "summary_manifest_sha256": true,
+    "summary_optimizer_steps": true,
+    "summary_physical_gpu_uuid": true,
+    "summary_recipe_sha256": true,
+    "summary_refit_epochs": true,
+    "summary_schema": true,
+    "summary_selected_epoch": true,
+    "summary_state": true,
+    "summary_target_gpu": true,
+    "summary_training_started": true,
+    "summary_weights_sha256": true,
+    "test_reference_hash_format": true,
+    "test_reference_path": true,
+    "wall_scope_order": true
+  },
+  "checks_count": 39,
+  "derived": {
+    "allocated_gib": 4.409456729888916,
+    "baseline_rows_at_read": 4,
+    "deltas": {
+      "DFAGCN independent v1": {
+        "delta_correct_arithmetic": 1912,
+        "delta_macro_f1_pp": 7.64638298269962,
+        "delta_oa_pp": 7.587301587301582
+      },
+      "GAViT fixed4x4": {
+        "delta_correct_arithmetic": 4,
+        "delta_macro_f1_pp": 0.015358266532871312,
+        "delta_oa_pp": 0.015873015873012264
+      },
+      "GAViT local soft": {
+        "delta_correct_arithmetic": 63,
+        "delta_macro_f1_pp": 0.2503045099498422,
+        "delta_oa_pp": 0.25
+      },
+      "Swin-T": {
+        "delta_correct_arithmetic": 47,
+        "delta_macro_f1_pp": 0.19614626110889333,
+        "delta_oa_pp": 0.18650793650793673
+      }
+    },
+    "four_samples_delta_pp": 0.015873015873015872,
+    "reserved_gib": 4.783203125,
+    "setup_and_final_wrapper_seconds": 132.69133737500306,
+    "test_correct_arithmetic": 23718,
+    "test_errors_arithmetic": 1482,
+    "val_correct_arithmetic": 1173,
+    "wall_hms": [
+      6,
+      40,
+      32.617371428001206
+    ],
+    "wall_hours": 6.6757270476188895
+  },
+  "disposition": "server-reported real formal completion accepted with matching identities; per-image independent recomputation pending",
+  "passed": true,
+  "schema": "hgtnet-formal-status-independent-review-v1",
+  "status_sha256": "0c3cdb23056655060668438e5456dda3ead3604357badf9a811a1f125c6f3434"
+}

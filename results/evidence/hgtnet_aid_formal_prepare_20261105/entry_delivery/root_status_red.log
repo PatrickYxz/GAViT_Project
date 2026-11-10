@@ -1,0 +1,70 @@
+======================================================================
+ERROR: test_capacity_is_sha_pinned_status_only_same_current_uuid (tests.test_hgtnet_aid_formal_entry.EntryTests.test_capacity_is_sha_pinned_status_only_same_current_uuid)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 35, in test_capacity_is_sha_pinned_status_only_same_current_uuid
+    e=api();args=e.parser().parse_args(['inspect'])
+                 ^^^^^^^^
+AttributeError: module 'external_baselines.hgtnet.aid_formal_entry' has no attribute 'parser'
+
+======================================================================
+ERROR: test_exclusive_lock_and_owned_output (tests.test_hgtnet_aid_formal_entry.EntryTests.test_exclusive_lock_and_owned_output)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 26, in test_exclusive_lock_and_owned_output
+    with e._run_lock(output):
+         ~~~~~~~~~~~^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.6/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_formal_entry.py", line 81, in _run_lock
+    path=_safe_path(output)
+  File "/Users/patrick/Projects/GAViT_Project/external_baselines/hgtnet/aid_formal_entry.py", line 56, in _safe_path
+    if any(p.is_symlink() for p in (path,*path.parents)):raise ValueError('Symbolic links are forbidden: '+str(path))
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Symbolic links are forbidden: /var/folders/n9/nmtljc_545j2k_kvp0tzmrj40000gn/T/tmp_qki4mfp/run
+
+======================================================================
+ERROR: test_explicit_actions_new_sources_and_no_scratch (tests.test_hgtnet_aid_formal_entry.EntryTests.test_explicit_actions_new_sources_and_no_scratch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 16, in test_explicit_actions_new_sources_and_no_scratch
+    e=api();args=e.parser().parse_args(['inspect'])
+                 ^^^^^^^^
+AttributeError: module 'external_baselines.hgtnet.aid_formal_entry' has no attribute 'parser'
+
+======================================================================
+ERROR: test_metrics_are_pure_python_and_correct (tests.test_hgtnet_aid_formal_entry.EntryTests.test_metrics_are_pure_python_and_correct)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 50, in test_metrics_are_pure_python_and_correct
+    metric=api()._metrics([0,0,1],[0,1,1],['a','b'])
+           ^^^^^^^^^^^^^^
+AttributeError: module 'external_baselines.hgtnet.aid_formal_entry' has no attribute '_metrics'
+
+======================================================================
+ERROR: test_skeletal_complete_is_rejected (tests.test_hgtnet_aid_formal_entry.EntryTests.test_skeletal_complete_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 59, in test_skeletal_complete_is_rejected
+    self.assertFalse(e.status(p)['completed'])
+                     ^^^^^^^^
+AttributeError: module 'external_baselines.hgtnet.aid_formal_entry' has no attribute 'status'
+
+======================================================================
+FAIL: test_importguard_status_and_inspect (tests.test_hgtnet_aid_formal_entry.EntryTests.test_importguard_status_and_inspect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/patrick/Projects/GAViT_Project/tests/test_hgtnet_aid_formal_entry.py", line 63, in test_importguard_status_and_inspect
+    self.assertEqual(p.returncode,0,p.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 8, in <module>
+    a=e.parser().parse_args(["inspect","--output","/tmp/no_aid_formal_fixture"])
+      ^^^^^^^^
+AttributeError: module 'external_baselines.hgtnet.aid_formal_entry' has no attribute 'parser'
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.074s
+
+FAILED (failures=1, errors=5)

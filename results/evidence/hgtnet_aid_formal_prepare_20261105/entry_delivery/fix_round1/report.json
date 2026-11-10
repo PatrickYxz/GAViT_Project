@@ -1,0 +1,10 @@
+{
+  "scope": "local stdlib receipt and mocked-wrapper regressions only; no GPU/ML/training",
+  "command": "python3 -m unittest tests.test_hgtnet_aid_formal_resume_entry tests.test_hgtnet_aid_formal_status tests.test_hgtnet_aid_formal_entry",
+  "result": "14 tests passed",
+  "changes": [
+    "archive rolled-back root first-step receipts by exact-byte rename on resumed callback",
+    "derive formal-started from durable positive observed steps for validated real_aid binding",
+    "expose delivered build provenance without Git or ML imports"
+  ]
+}

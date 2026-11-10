@@ -1,0 +1,11 @@
+test_bad_input_cannot_leave_a_successful_first_step (test_hgtnet_nwpu_engine.EngineTests.test_bad_input_cannot_leave_a_successful_first_step) ... ok
+test_existing_artifacts_are_preserved (test_hgtnet_nwpu_engine.EngineTests.test_existing_artifacts_are_preserved) ... ok
+test_fixture_cannot_claim_real_gpu_scope_or_test_usage (test_hgtnet_nwpu_engine.EngineTests.test_fixture_cannot_claim_real_gpu_scope_or_test_usage) ... ok
+test_real_cpu_step_val_and_independent_reload (test_hgtnet_nwpu_engine.EngineTests.test_real_cpu_step_val_and_independent_reload) ... ok
+test_safe_checkpoint_requires_exact_sha_metadata_and_all_shapes_before_copy (test_hgtnet_nwpu_engine.EngineTests.test_safe_checkpoint_requires_exact_sha_metadata_and_all_shapes_before_copy) ... ok
+test_val_order_or_counts_do_not_silently_change_metrics (test_hgtnet_nwpu_engine.EngineTests.test_val_order_or_counts_do_not_silently_change_metrics) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.426s
+
+OK

@@ -1,0 +1,288 @@
+{
+  "date": "2026-10-18",
+  "scope": "Local standard-library, source, package, and fixture checks only; real torch/PyG/CUDA checks pending server",
+  "new_tests_passed": 11,
+  "full_suite": {
+    "tests_run": 190,
+    "errors": 21,
+    "failed_assertions": 0,
+    "error_causes": {
+      "No module named 'torch'": 8,
+      "No module named 'pytest'": 13
+    },
+    "error_tests": [
+      {
+        "test": "test_worker_records_exact_metrics_without_changing_save_return (test_bigearth_seed45.Seed45Tests.test_worker_records_exact_metrics_without_changing_save_return)",
+        "reason": "No module named 'torch'"
+      },
+      {
+        "test": "test_actual_assignment_and_graph_snapshots_and_corruptions (test_bigearth_soft45.Soft45Tests.test_actual_assignment_and_graph_snapshots_and_corruptions)",
+        "reason": "No module named 'torch'"
+      },
+      {
+        "test": "test_recording_preserves_save_return_and_training_rng (test_bigearth_soft45.Soft45Tests.test_recording_preserves_save_return_and_training_rng)",
+        "reason": "No module named 'torch'"
+      },
+      {
+        "test": "test_checkpoint_roundtrip (unittest.loader._FailedTest.test_checkpoint_roundtrip)",
+        "reason": "No module named 'torch'"
+      },
+      {
+        "test": "test_graph_construction (unittest.loader._FailedTest.test_graph_construction)",
+        "reason": "No module named 'torch'"
+      },
+      {
+        "test": "test_metadata_resolution_preserves_new_identity_and_rejects_fallback (test_grouping_identity.GroupingIdentityTests.test_metadata_resolution_preserves_new_identity_and_rejects_fallback)",
+        "reason": "No module named 'torch'"
+      },
+      {
+        "test": "test_nwpu_assignment_cache (unittest.loader._FailedTest.test_nwpu_assignment_cache)",
+        "reason": "No module named 'pytest'"
+      },
+      {
+        "test": "test_nwpu_feedback_sensitivity (unittest.loader._FailedTest.test_nwpu_feedback_sensitivity)",
+        "reason": "No module named 'pytest'"
+      },
+      {
+        "test": "test_nwpu_neighbors (unittest.loader._FailedTest.test_nwpu_neighbors)",
+        "reason": "No module named 'pytest'"
+      },
+      {
+        "test": "test_nwpu_pooling_probe (unittest.loader._FailedTest.test_nwpu_pooling_probe)",
+        "reason": "No module named 'pytest'"
+      },
+      {
+        "test": "test_nwpu_region_visualization (unittest.loader._FailedTest.test_nwpu_region_visualization)",
+        "reason": "No module named 'pytest'"
+      },
+      {
+        "test": "test_scene_runtime (unittest.loader._FailedTest.test_scene_runtime)",
+        "reason": "No module named 'torch'"
+      },
+      {
+        "test": "test_soft_assignment_diagnostics (unittest.loader._FailedTest.test_soft_assignment_diagnostics)",
+        "reason": "No module named 'pytest'"
+      },
+      {
+        "test": "test_soft_entrypoints (unittest.loader._FailedTest.test_soft_entrypoints)",
+        "reason": "No module named 'pytest'"
+      },
+      {
+        "test": "test_soft_gavit (unittest.loader._FailedTest.test_soft_gavit)",
+        "reason": "No module named 'pytest'"
+      },
+      {
+        "test": "test_soft_region_grouping (unittest.loader._FailedTest.test_soft_region_grouping)",
+        "reason": "No module named 'pytest'"
+      },
+      {
+        "test": "test_sparse_hybrid_model (unittest.loader._FailedTest.test_sparse_hybrid_model)",
+        "reason": "No module named 'torch'"
+      },
+      {
+        "test": "test_spatial_prior_grouping (unittest.loader._FailedTest.test_spatial_prior_grouping)",
+        "reason": "No module named 'pytest'"
+      },
+      {
+        "test": "test_spatial_prior_runtime (unittest.loader._FailedTest.test_spatial_prior_runtime)",
+        "reason": "No module named 'pytest'"
+      },
+      {
+        "test": "test_token_refinement (unittest.loader._FailedTest.test_token_refinement)",
+        "reason": "No module named 'pytest'"
+      },
+      {
+        "test": "test_token_refinement_runtime (unittest.loader._FailedTest.test_token_refinement_runtime)",
+        "reason": "No module named 'pytest'"
+      }
+    ],
+    "result": "NOT_PASSED_missing_local_torch_and_pytest",
+    "log": "full_unittest.log"
+  },
+  "tdd_red_observed": [
+    "new supplement modules absent",
+    "installer absent",
+    "CUDA rounding tolerance validator absent"
+  ],
+  "independent_review": "review.json",
+  "review_fix_regression": "test_cuda_forward_gate_accepts_roundoff_but_rejects_large_or_nonfinite_error",
+  "server_tensor_checks_executed": false,
+  "server_smoke_executed": false,
+  "server_training_started": false,
+  "formal_test_metrics": null,
+  "checks": [
+    {
+      "check": "full_suite_executed",
+      "passed": true
+    },
+    {
+      "check": "all21_full_suite_errors_are_missing_dependencies",
+      "passed": true
+    },
+    {
+      "check": "all11_new_tests_passed_in_final_full_run",
+      "passed": true
+    },
+    {
+      "check": "helper_hash:.worktrees/sparse-hybrid-4n-top2/tools/ben_grid42_patch.py",
+      "passed": true
+    },
+    {
+      "check": "helper_hash:results/evidence/ben_grid3_seed42_prepare_20261018/ben_grid42_patch.py",
+      "passed": true
+    },
+    {
+      "check": "helper_hash:.worktrees/sparse-hybrid-4n-top2/tools/run_ben_grid42.py",
+      "passed": true
+    },
+    {
+      "check": "helper_hash:results/evidence/ben_grid3_seed42_prepare_20261018/run_ben_grid42.py",
+      "passed": true
+    },
+    {
+      "check": "helper_hash:.worktrees/sparse-hybrid-4n-top2/tools/ben_grid42_tensor_checks.py",
+      "passed": true
+    },
+    {
+      "check": "helper_hash:results/evidence/ben_grid3_seed42_prepare_20261018/ben_grid42_tensor_checks.py",
+      "passed": true
+    },
+    {
+      "check": "helper_hash:.worktrees/sparse-hybrid-4n-top2/tools/install_ben_grid42.py",
+      "passed": true
+    },
+    {
+      "check": "helper_hash:results/evidence/ben_grid3_seed42_prepare_20261018/install_ben_grid42.py",
+      "passed": true
+    },
+    {
+      "check": "frozen_snapshot_json_same",
+      "passed": true
+    },
+    {
+      "check": "snapshot_file:experiment_identity.py",
+      "passed": true
+    },
+    {
+      "check": "snapshot_file:utils.py",
+      "passed": true
+    },
+    {
+      "check": "snapshot_file:train_bigearth.py",
+      "passed": true
+    },
+    {
+      "check": "snapshot_file:test_bigearth.py",
+      "passed": true
+    },
+    {
+      "check": "snapshot_file:models/__init__.py",
+      "passed": true
+    },
+    {
+      "check": "snapshot_file:models/bigearth_dataset.py",
+      "passed": true
+    },
+    {
+      "check": "snapshot_file:models/gavit.py",
+      "passed": true
+    },
+    {
+      "check": "snapshot_file:models/graph_construction.py",
+      "passed": true
+    },
+    {
+      "check": "snapshot_file:models/graph_reasoning.py",
+      "passed": true
+    },
+    {
+      "check": "snapshot_file:models/region_grouping.py",
+      "passed": true
+    },
+    {
+      "check": "snapshot_file:models/swin_backbone.py",
+      "passed": true
+    },
+    {
+      "check": "snapshot_file:models/swin_features.py",
+      "passed": true
+    },
+    {
+      "check": "snapshot_file:models/swin_region_only.py",
+      "passed": true
+    },
+    {
+      "check": "single_line_command",
+      "passed": true
+    },
+    {
+      "check": "command_digest",
+      "passed": true
+    },
+    {
+      "check": "installer_payload_hash",
+      "passed": true
+    },
+    {
+      "check": "installer_source_retained",
+      "passed": true
+    },
+    {
+      "check": "actual_local_install_and_duplicate_refusal",
+      "passed": true
+    },
+    {
+      "check": "no_fixture_gpu_execution",
+      "passed": true
+    },
+    {
+      "check": "bash_syntax",
+      "passed": true
+    },
+    {
+      "check": "zsh_syntax",
+      "passed": true
+    },
+    {
+      "check": "historical_source_unchanged:results/comparison_table.csv",
+      "passed": true
+    },
+    {
+      "check": "historical_source_unchanged:results/ablation_study.csv",
+      "passed": true
+    },
+    {
+      "check": "historical_source_unchanged:results/bigearth_comparison.csv",
+      "passed": true
+    },
+    {
+      "check": "historical_source_unchanged:.worktrees/sparse-hybrid-4n-top2/results/bigearth_comparison.csv",
+      "passed": true
+    },
+    {
+      "check": "historical_source_unchanged:results/multiseed_test_results.csv",
+      "passed": true
+    },
+    {
+      "check": "historical_source_unchanged:results/evidence/bigearth_soft42_preflight_20261016/server_return.json",
+      "passed": true
+    },
+    {
+      "check": "historical_source_unchanged:.worktrees/sparse-hybrid-4n-top2/models/gavit.py",
+      "passed": true
+    },
+    {
+      "check": "historical_source_unchanged:.worktrees/sparse-hybrid-4n-top2/models/graph_construction.py",
+      "passed": true
+    },
+    {
+      "check": "server_state_pending",
+      "passed": true
+    },
+    {
+      "check": "one_new_k9_only",
+      "passed": true
+    }
+  ],
+  "passed": 43
+}

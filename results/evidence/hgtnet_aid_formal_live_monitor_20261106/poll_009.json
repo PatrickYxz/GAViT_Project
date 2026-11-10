@@ -1,0 +1,107 @@
+{
+  "local_checked_at": "2026-11-06T10:40:57.553520+08:00",
+  "ssh_exit_code": 0,
+  "ssh_stderr": "",
+  "remote": {
+    "observed_at_utc": "2026-11-06T02:41:11.264721+00:00",
+    "status_command_exit_code": 0,
+    "status_stderr": "",
+    "status": {
+      "action": "status",
+      "attempt": 2,
+      "batch_size": 16,
+      "completed": false,
+      "completion_evidence_valid": false,
+      "config_sha256": "f313abb893b29d674ace281d8d2905670ee65db131f4240640079123e783589b",
+      "counts": {
+        "pool": 5000,
+        "test": 5000,
+        "train": 4000,
+        "val": 1000
+      },
+      "exit_code": null,
+      "formal_training_started": true,
+      "input_scope": "real_aid",
+      "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+      "optimizer_steps": 53796,
+      "optimizer_steps_scope": "accepted calibration/refit trajectory; prior discarded partial updates retained in attempts",
+      "output": "/home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01",
+      "progress": {
+        "attempt": 2,
+        "completed": false,
+        "epoch": 92,
+        "epoch_optimizer_steps": 313,
+        "formal_training_started": true,
+        "optimizer_step_completed": true,
+        "optimizer_step_succeeded": true,
+        "optimizer_steps": 53796,
+        "phase": "refit",
+        "pid": 3136,
+        "post_update_checks_passed": true,
+        "samples_seen": 5000,
+        "stage": "training_epoch_complete",
+        "train_seconds": 223.27756450200013,
+        "training_started": true
+      },
+      "recipe_sha256": "b4b007a30f3e96c68e777b1ce7115779c80fa21f104c65cd74009260a115584d",
+      "schema": "hgtnet-aid-formal-v1",
+      "source_identity_matches": true,
+      "state": "incomplete",
+      "target_gpu": "3060",
+      "training_started": true,
+      "weights_sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893"
+    },
+    "process": {
+      "exit_code": 0,
+      "stdout": "3136 /environment/miniconda3/bin/python /home/featurize/work/hgtnet_aid_formal_3060_20261105_v1.pyz resume --capacity-output /home/featurize/work/hgtnet_aid_batch16_probe_3060_20261105/runs/batch16_seed42_gpu91a8cd0f_01\n",
+      "stderr": ""
+    },
+    "gpu": {
+      "exit_code": 0,
+      "stdout": "NVIDIA GeForce RTX 3060, GPU-91a8cd0f-e755-4d15-863a-8a5bdd741ed4, 12288 MiB, 5111 MiB, 0 %\n",
+      "stderr": ""
+    },
+    "gpu_process": {
+      "exit_code": 0,
+      "stdout": "3136, /environment/miniconda3/bin/python, 5102 MiB\n",
+      "stderr": ""
+    },
+    "last_epoch_complete": {
+      "attempt": 2,
+      "completed": false,
+      "epoch": 91,
+      "epoch_wall_seconds": 229.93933630300035,
+      "estimate_scope": "running completed-epoch mean for current phase only; recovered last commit may use precommit time excluding snapshot IO; excludes other phases/startup/final test/billing; not guaranteed",
+      "estimated_remaining_phase_seconds": 1164.2489860070316,
+      "formal_training_started": true,
+      "observed_epoch_wall_mean_seconds": 232.84979720140632,
+      "optimizer_steps": 53483,
+      "phase": "refit",
+      "pid": 3136,
+      "selected_epoch": 96,
+      "stage": "epoch_complete",
+      "train_accuracy_percent": 100.0,
+      "train_images_per_second": 25.282689909444294,
+      "train_loss": 0.0001975471668120008,
+      "train_seconds": 197.7637671429993,
+      "training_started": true
+    },
+    "latest_log_progress": {
+      "attempt": 2,
+      "completed": false,
+      "epoch": 92,
+      "epoch_optimizer_steps": 313,
+      "formal_training_started": true,
+      "optimizer_step_completed": true,
+      "optimizer_step_succeeded": true,
+      "optimizer_steps": 53796,
+      "phase": "refit",
+      "pid": 3136,
+      "post_update_checks_passed": true,
+      "samples_seen": 5000,
+      "stage": "training_epoch_complete",
+      "train_seconds": 223.27756450200013,
+      "training_started": true
+    }
+  }
+}

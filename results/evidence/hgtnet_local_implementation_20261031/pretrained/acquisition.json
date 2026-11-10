@@ -1,0 +1,22 @@
+{
+  "candidate": "torchvision.Swin_B_Weights.IMAGENET1K_V1",
+  "is_original_hgtnet_weights": false,
+  "started_utc": "2026-10-31T13:30:33.350797+00:00",
+  "attempts": [
+    {
+      "url": "https://download.pytorch.org/models/swin_b-68c6b09e.pth",
+      "exit_code": 28,
+      "bytes": 37065378,
+      "log": "results/evidence/hgtnet_local_implementation_20261031/pretrained/download_attempt1.log"
+    },
+    {
+      "url": "https://download-r2.pytorch.org/models/swin_b-68c6b09e.pth",
+      "exit_code": 28,
+      "bytes": 39669377,
+      "log": "results/evidence/hgtnet_local_implementation_20261031/pretrained/download_attempt2.log"
+    }
+  ],
+  "status": "pending_official_candidate_acquisition",
+  "elapsed_seconds": 280.04276850027964,
+  "ended_utc": "2026-10-31T13:35:13.382403+00:00"
+}

@@ -1,0 +1,242 @@
+{
+  "date": "2026-11-06",
+  "state": "COMPLETE_VERIFIED",
+  "source": "Direct authenticated read-only SSH status and process/GPU/log inspection using project-only physical-interface connection.",
+  "raw_transcription_sha256": "3a9bb6a37730bc4193b1ae5a77139a5d627db23970ff22da7013efa7a5c3ddf0",
+  "reported_status": {
+    "action": "status",
+    "attempt": 1,
+    "batch_size": 16,
+    "completed": false,
+    "completion_evidence_valid": false,
+    "config_sha256": "f313abb893b29d674ace281d8d2905670ee65db131f4240640079123e783589b",
+    "counts": {
+      "pool": 5000,
+      "test": 5000,
+      "train": 4000,
+      "val": 1000
+    },
+    "exit_code": null,
+    "formal_training_started": true,
+    "input_scope": "real_aid",
+    "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+    "optimizer_steps": 48655,
+    "optimizer_steps_scope": "accepted calibration/refit trajectory; prior discarded partial updates retained in attempts",
+    "output": "/home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01",
+    "progress": {
+      "attempt": 1,
+      "completed": false,
+      "epoch": 76,
+      "formal_training_started": true,
+      "optimizer_step_completed": true,
+      "optimizer_step_succeeded": true,
+      "optimizer_steps": 48655,
+      "phase": "refit",
+      "pid": 9450,
+      "samples_seen": 2880,
+      "stage": "training",
+      "training_started": true
+    },
+    "recipe_sha256": "b4b007a30f3e96c68e777b1ce7115779c80fa21f104c65cd74009260a115584d",
+    "schema": "hgtnet-aid-formal-v1",
+    "source_identity_matches": true,
+    "state": "incomplete",
+    "target_gpu": "3060",
+    "training_started": true,
+    "weights_sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893"
+  },
+  "checks": "Schema/counts/input IDs/source flag and 25000+75*313+180=48655 arithmetic agree with current frozen source.",
+  "inference_from_normal_source_path": {
+    "calibration_epochs_completed": 100,
+    "refit_epochs_completed": 96,
+    "current_refit_epoch": null,
+    "current_epoch_samples_seen": null,
+    "expected_final_optimizer_steps": 55048
+  },
+  "selected_epoch": 96,
+  "current_process_alive": false,
+  "final_test_metrics": {
+    "accuracy_percent": 96.92,
+    "macro_f1_percent": 96.77286814931982,
+    "scope": "formal_test"
+  },
+  "formal_total_wall_seconds": null,
+  "formal_peak_memory": null,
+  "next_read_only_commands": [
+    "ssh -F /Users/patrick/Projects/GAViT_Project/output/featurize_gavit_ssh_20261106.conf featurize-gavit /environment/miniconda3/bin/python /home/featurize/work/hgtnet_aid_formal_3060_20261105_v1.pyz status"
+  ],
+  "limits": "Single seed independent frozen recipe; not official-author reproduction, unified backbone comparison or multi-seed stability evidence.",
+  "gpu_compute_processes_reported": [],
+  "last_completed_refit_epoch": 96,
+  "process_evidence": "results/evidence/hgtnet_aid_formal_process_return_20261106/reported_output.txt",
+  "recovery_triage": "results/evidence/hgtnet_aid_formal_process_return_20261106/triage.json",
+  "verified_recovery_snapshot": {
+    "binding_sha256": "662ceee356d72644ff513e7e5fc9f9fdef1cb20110e911b32253ccdad2f49599",
+    "bytes": 897033192,
+    "epoch": 75,
+    "generation": 175,
+    "path": "/home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01/recovery/slot1.pt",
+    "phase": "refit",
+    "sha256": "bb7c8bb4f2115bd1b384f9a86f47688cf96fada39b3e3ad3ad27ad347be5cefc"
+  },
+  "termination_cause": null,
+  "current_process_alive_scope": "Completed strong status plus direct pgrep no process and no GPU compute process at2026-11-06T03:00:49Z.",
+  "checkpoint_tensor_validation_pending": false,
+  "current_gpu_uuid": "GPU-91a8cd0f-e755-4d15-863a-8a5bdd741ed4",
+  "old_instance_closed_user_confirmed": true,
+  "recovery_plan": "results/evidence/hgtnet_aid_formal_resume_inspect_return_20261106/triage.json",
+  "data_restore_pending": false,
+  "current_gpu_capacity_probe_pending": false,
+  "actual_formal_resume_started": true,
+  "data_zip_restoration_and_train16_probe_reported": true,
+  "current_gpu_probe_complete_reported": true,
+  "actual_formal_resume_started_basis": "Attempt2 resumed at refit75/48475 followed by valid cuda first update48476, full epoch76/48788 and matching CPU/GPU PID3136.",
+  "resume_launch_report": "results/evidence/hgtnet_aid_formal_resume_launch_return_20261106/triage.json",
+  "resume_launch_liveness": true,
+  "historical_inference_before_instance_replacement": {
+    "calibration_epochs_completed": 100,
+    "refit_epochs_completed": 75,
+    "current_refit_epoch": 76,
+    "current_epoch_samples_seen": 2880,
+    "current_epoch_remaining_samples": 2120,
+    "current_epoch_completed_batches": 180,
+    "current_epoch_remaining_batches": 133
+  },
+  "reported_status_scope": "Historical attempt1 status preceding instance replacement. Current attempt2 progress is under latest_reported_progress.",
+  "latest_evidence": "/Users/patrick/Projects/GAViT_Project/results/evidence/hgtnet_aid_formal_complete_20261106/root_audit.json",
+  "latest_raw_transcription_sha256": "e48ee8d0d201adb98f7e37548c5c59e8a1afcea2a6d911fa1afcdd02ae808d57",
+  "latest_reported_progress": {
+    "attempt": 2,
+    "completed": true,
+    "formal_training_started": true,
+    "optimizer_steps": 55048,
+    "pid": 3136,
+    "stage": "complete",
+    "training_started": true
+  },
+  "checkpoint_validation_scope": "Engine stage=resumed plus finite first replay update confirms payload/model/Adam acceptance under frozen source; no independent snapshot download.",
+  "data_restoration_scope": "Full pool5000 passed resume preflight and epoch76 training; test bytes not separately returned.",
+  "accepted_optimizer_steps": 55048,
+  "remaining_refit_epochs": 0,
+  "remaining_refit_optimizer_steps": 0,
+  "expected_final_optimizer_steps": 55048,
+  "refit_phase_eta_seconds": 0,
+  "eta_scope": "running completed-epoch mean for current phase only; recovered last commit may use precommit time excluding snapshot IO; excludes other phases/startup/final test/billing; not guaranteed",
+  "direct_access_evidence": "results/evidence/featurize_ssh_connect_20261106/connection_check.json",
+  "direct_access_observed_at_utc": "2026-11-06T02:53:53.099999+00:00",
+  "latest_reported_status": {
+    "action": "status",
+    "attempt": 2,
+    "batch_size": 16,
+    "best_epoch": 96,
+    "best_val_metrics": {
+      "accuracy_percent": 97.2,
+      "macro_f1_percent": 97.0745569519779,
+      "scope": "formal_validation"
+    },
+    "checkpoint_reload": {
+      "loaded": true,
+      "metadata": {
+        "epoch": 96,
+        "initial_state_sha256": "d0f23cc48d95df83f394501382d3b93470750419c8136160c2920b88c1279202",
+        "phase": "refit",
+        "selected_epoch": 96
+      },
+      "reload_max_abs_error": 0.0,
+      "reload_tolerance": 1e-06,
+      "sha256": "4de7bdfbbc6afdf91ee3dc59b0c084b36d0161a07d1457b0c9f56cd6e0504aa2",
+      "state_sha256": "655795e1e9a92466a1f4a06d0b3644914ccf234ba50b0fe7c2cf72377470ef31"
+    },
+    "checkpoints": {
+      "best_calibration": {
+        "bytes": 299322496,
+        "path": "/home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01/best_calibration.pt",
+        "sha256": "aa0ac40bbe7a5b3d2070b649311978243b6a1e4169d1ccf873decb8a0728351c"
+      },
+      "final_calibration": {
+        "bytes": 299322496,
+        "path": "/home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01/final_calibration.pt",
+        "sha256": "1e0c202f60a526d0db2b6173de6c26ae7052d950e56e9d88a931bc4e604a8640"
+      },
+      "final_refit": {
+        "bytes": 299322624,
+        "path": "/home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01/final_refit.pt",
+        "sha256": "4de7bdfbbc6afdf91ee3dc59b0c084b36d0161a07d1457b0c9f56cd6e0504aa2"
+      }
+    },
+    "completed": true,
+    "completion_evidence_valid": true,
+    "config_sha256": "f313abb893b29d674ace281d8d2905670ee65db131f4240640079123e783589b",
+    "counts": {
+      "pool": 5000,
+      "test": 5000,
+      "train": 4000,
+      "val": 1000
+    },
+    "cuda_peak_allocated_bytes": 4731174400,
+    "cuda_peak_reserved_bytes": 5175771136,
+    "discarded_partial_optimizer_steps": 180,
+    "engine_wall_seconds": 4966.95534983,
+    "exit_code": 0,
+    "final_epoch": 100,
+    "formal_training_started": true,
+    "initial_state_sha256": "d0f23cc48d95df83f394501382d3b93470750419c8136160c2920b88c1279202",
+    "input_scope": "real_aid",
+    "manifest_sha256": "30ac5760bf0c002c9a7fe788a0d19fc4caf0b6f7cccb7d71d959ee0d2903aa22",
+    "memory_scope": "whole current engine invocation including diagnostics/checkpoint reload; resumed sessions separate",
+    "optimizer_steps": 55048,
+    "optimizer_steps_scope": "accepted calibration/refit trajectory; prior discarded partial updates retained in attempts",
+    "output": "/home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01",
+    "parameters": {
+      "groups": {
+        "dual_attention": 44077,
+        "graph": 14066432,
+        "head": 15390,
+        "patch_embed": 6528,
+        "transformer": 60479736
+      },
+      "total": 74612163,
+      "trainable": 74612163
+    },
+    "physical_gpu_uuid": "GPU-91a8cd0f-e755-4d15-863a-8a5bdd741ed4",
+    "progress": {
+      "attempt": 2,
+      "completed": true,
+      "formal_training_started": true,
+      "optimizer_steps": 55048,
+      "pid": 3136,
+      "stage": "complete",
+      "training_started": true
+    },
+    "recipe_sha256": "b4b007a30f3e96c68e777b1ce7115779c80fa21f104c65cd74009260a115584d",
+    "refit_epochs": 96,
+    "refit_initial_state_sha256": "d0f23cc48d95df83f394501382d3b93470750419c8136160c2920b88c1279202",
+    "schema": "hgtnet-aid-formal-v1",
+    "selected_epoch": 96,
+    "source_identity_matches": true,
+    "state": "complete",
+    "target_gpu": "3060",
+    "test_metrics": {
+      "accuracy_percent": 96.92,
+      "macro_f1_percent": 96.77286814931982,
+      "scope": "formal_test"
+    },
+    "test_path": "/home/featurize/work/hgtnet_aid_formal_3060_20261105_v1/runs/aid_seed42_01/test.json",
+    "test_reused": false,
+    "test_sha256": "6d35db2feaef0864c0f3181002164e8e999c84685f01064af3cd83c6306e7a0b",
+    "timing_scope": "epoch train includes reads/augmentation/transfer/diagnostics/updates; epoch wall also validation/checkpoint/history IO; not billed time",
+    "training_started": true,
+    "wall_seconds": 4986.588285893,
+    "weights_sha256": "68c6b09e73c66f27db19af59df563497fac4fc7889e42d82a0858b32c451a893"
+  },
+  "remaining_refit_epochs_scope": "Includes current partial epoch.",
+  "live_monitor_pid": null,
+  "live_monitor_session_id": null,
+  "heartbeat_id": "hgtnet-aid",
+  "heartbeat_status": "PAUSED",
+  "last_transient_ssh_error": "poll_011 timeout; immediate authenticated reconnect succeeded at refit93/54006.",
+  "last_reconnect_evidence": "results/evidence/hgtnet_aid_formal_live_monitor_20261106/reconnect_status.json",
+  "formal_resource_scope": "Only current resumed-attempt wall/peaks available; see final result record.",
+  "live_monitor_state": "COMPLETED",
+  "result_record": "/Users/patrick/Projects/GAViT_Project/results/hgtnet_aid_seed42_20261106.json"
+}

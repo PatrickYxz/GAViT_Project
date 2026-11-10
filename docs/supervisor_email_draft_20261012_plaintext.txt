@@ -1,0 +1,34 @@
+导师邮件草稿（2026-11-08更新）
+
+草稿供审阅和复制发送，本次未发送。完整数据及历史统计见进度汇报（supervisor_progress_report_20261012.md）。
+
+Subject: GAViT update: completed supplementary external-method comparisons
+
+Dear Professor Wang,
+
+I have completed the three requested external-method measurements at training seed 42: HGTNet on NWPU-RESISC45 and AID, and DFAGCN on NWPU-RESISC45. These are independent project implementations with disclosed engineering choices, rather than the authors' official implementations or verified reproductions of their published scores. The runs use our original frozen partitions, validation-only selection and fresh fitting on the full training pool before testing.
+
+Dataset: NWPU-RESISC45
+Test images: 25,200
+HGTNet: OA 94.1190%; macro-F1 94.1053%; 23,718 correct
+DFAGCN: OA 86.5317%; macro-F1 86.4589%; 21,806 correct
+Fixed-grid GAViT reference: OA 94.1032%; macro-F1 94.0899%; 23,714 correct
+
+Dataset: AID
+Test images: 5,000
+HGTNet: OA 96.92%; macro-F1 96.7729%; 4,846 correct
+Fixed-grid GAViT: OA 96.94%; macro-F1 96.7811%; 4,847 correct
+Swin-T: OA 96.34%; macro-F1 96.2209%; 4,817 correct
+
+I recovered the original AID Swin-T and GAViT evaluation records and independently recomputed their metrics. After verifying all test paths and labels against the HGTNet predictions, I completed the sample-level comparisons without rerunning model evaluation. Relative to fixed-grid GAViT, HGTNet corrects 75 errors but introduces 76, with 4,771 images correct for both and 78 wrong for both. Relative to Swin-T, it corrects 108 errors and introduces 79, a net increase of 29 correct predictions. The close aggregate scores therefore contain changes in both directions; they do not establish a stable ranking or statistical equivalence.
+
+For AID HGTNet, the complete 100-epoch calibration history selects epoch 96 using validation only, followed by a fresh 96-epoch fit on the 5,000-image training pool. I have retained the final calibration epoch as well as the selected epoch, all 30 class metrics, the full confusion matrix and error records. The corresponding NWPU prediction and history analyses are also complete.
+
+The same partitions do not imply the same training recipe. HGTNet uses partial Swin-B initialisation, crop-based preprocessing and a 100-epoch Adam calibration budget; the internal models use Swin-T and a 30-epoch AdamW budget. DFAGCN uses frozen VGG16 features, graph branches and LIBLINEAR. Hardware also differs. Fixed GAViT has approximately 57.95% fewer neural parameters than HGTNet on AID and 57.94% fewer on NWPU, but these records do not support a same-device speed or cost advantage, or a causal claim about an individual graph module. Compared with its own AID Swin-T reference, fixed GAViT adds approximately 13.91% parameters; its extra complexity still needs assessment using the core multi-seed results and matched efficiency measurements.
+
+I have kept these measurements in a separate supplementary comparison. The remaining external-comparison requirement is an explicitly unified training/evaluation protocol with multiple completed seeds and mean/sample-standard-deviation reporting. Complete internal results, ablations and the integrated thesis discussion also remain to be incorporated.
+
+I would appreciate your guidance on the preferred common protocol and whether this supplementary presentation is suitable before I undertake further runs.
+
+Best regards,
+Xingze

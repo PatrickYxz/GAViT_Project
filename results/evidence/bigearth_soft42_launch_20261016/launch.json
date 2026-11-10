@@ -1,0 +1,7 @@
+{
+  "status": "BIGEARTH_SOFT42_LAUNCH_DISPATCHED",
+  "pid": 5807,
+  "output": "/home/featurize/work/bigearth_soft42_20261013_01",
+  "training_start_verified": false,
+  "next_action": "Check GPU and gavit_train.process.log for first training batch"
+}

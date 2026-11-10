@@ -1,0 +1,19 @@
+{
+  "checks_passed": 29,
+  "four_model_metric_arithmetic": true,
+  "two_advisor_drafts_internal_sections_2_to_5_unchanged": true,
+  "local_markdown_links_checked": 65,
+  "all_evidence_json_parse": true,
+  "protected_legacy_metrics_unchanged": 19,
+  "protected_legacy_entrypoints_unchanged": 12,
+  "new_training_or_model_code_changes": false,
+  "artifact_sha256": {
+    "results/dfagcn_nwpu_seed42_20261030.md": "95dd860b98b847e6eda6026afd41894902dff67ce15b7278ab19d8d2621d745e",
+    "results/evidence/dfagcn_formal_3080_return_20261030/README.md": "6cbbe622e0024a4eb378368e023962783ee02da8bdd85973337e9299e9909eb0",
+    "docs/external_baselines_20261027/README.md": "42ae7f2e3b3b42dfbfed11ccd6adfdcd0b81f784856212d4b9aa505163872eba",
+    "docs/supervisor_progress_report_20261012.md": "c2c84087b54fa2a72f97047e654f3dcf93cd7931e9a0e36b59a2a032dcc8d9c2",
+    "docs/supervisor_progress_report_20261012_plaintext.txt": "891187062e3db6b9e7e6a3a23c2b020747efb19125d346bf24d2b1e3b587fd7a",
+    "results/external_baselines_nwpu_seed42_20261030.csv": "e20665a3846241c25540541d4ac9f4486e4f76395e0f1c655277837f8dfe18f0",
+    "results/dfagcn_nwpu_seed42_20261030.json": "b8f6e30d815bcef95f28825915a163e5b206c481e28f2ab78bb71574e70ff88c"
+  }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "source": "results/figures/hgtnet_aid_seed42_20261106/hgtnet_aid_seed42_training_history.png",
+    "copy": "thesis/ntu_gavit/images/external_aid_20261106/hgtnet_aid_seed42_training_history.png",
+    "sha256": "53d066d0effd6e9cd4a4ce96379adc5bd5c132c1b85131a08a75808da097909b"
+  },
+  {
+    "source": "results/figures/hgtnet_aid_seed42_20261106/hgtnet_aid_seed42_confusion_matrix.png",
+    "copy": "thesis/ntu_gavit/images/external_aid_20261106/hgtnet_aid_seed42_confusion_matrix.png",
+    "sha256": "add9a13f7420172b893faab40b4e423ac4d12827b84bfd1a2be7adf45ddc4c52"
+  }
+]

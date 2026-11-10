@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-29",
+  "status": "OFFLINE_READY_INSTANCE_OFF_REAL_NWPU_GPU_PENDING",
+  "instance_running": false,
+  "instance_state_source": "direct user reply \u5b9e\u4f8b\u6ca1\u5f00\u542f",
+  "remote_access_performed": false,
+  "gpu_training_started": false,
+  "real_nwpu_smoke_run": false,
+  "package_test_methods": 105,
+  "package_tests_passed": true,
+  "weights": {
+    "schema": "dfagcn-official-vgg16-file-v1",
+    "filename": "vgg16-397923af.pth",
+    "sha256": "397923af8e79cdbb6a7127f12361acd7a2f83e06b05044ddf496e83de57a5bf0",
+    "bytes": 553433881,
+    "local_path": "/Users/patrick/Projects/GAViT_Project/checkpoints/dfagcn_pretrained_20261029/vgg16-397923af.pth",
+    "source_url": "https://download.pytorch.org/models/vgg16-397923af.pth",
+    "download_url": "https://download-r2.pytorch.org/models/vgg16-397923af.pth",
+    "source_evidence": "installed torchvision.models.vgg.VGG16_Weights.IMAGENET1K_V1 URL",
+    "official_sha256_prefix": "397923af",
+    "tls_verification_disabled": false,
+    "complete_file_and_range_copy_sha_match": true,
+    "range_chunks": 66,
+    "not_matconvnet": true
+  },
+  "pretrained_cpu_reference_max_abs_errors": {
+    "fc": 0.0,
+    "conv3": 0.0,
+    "conv4": 0.0,
+    "conv5": 0.0
+  },
+  "bundle": {
+    "path": "/Users/patrick/Projects/GAViT_Project/output/dfagcn_nwpu_smoke_20261029.pyz",
+    "bytes": 134156,
+    "sha256": "f7ff678be35517aca7edc3a181862a56d739cc0be1a7496a5c63dac4b269daca",
+    "bundle_id": "bc17e78dbc83f38bd153ec7e5bb363bcc58451f71b1533e87681272748cc6359"
+  },
+  "whole_repository_green": false,
+  "whole_repository_summary": [
+    "Ran 204 tests in 7.827s",
+    "FAILED (failures=9, errors=9)"
+  ],
+  "protected_metrics_unchanged": 19,
+  "protected_entrypoint_source_unchanged": 12,
+  "review_scope": "Root reviewed independently authored runner and installer; CUDA fresh-context/recipe identity fixes verified RED to GREEN. No target Linux/CUDA execution claimed.",
+  "git_commit_or_push": false
+}

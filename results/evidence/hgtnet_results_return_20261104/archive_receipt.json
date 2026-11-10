@@ -1,0 +1,44 @@
+{
+  "bytes": 544296,
+  "detected_format": "gzip-compressed tar",
+  "members": [
+    {
+      "bytes": 1364244,
+      "path": "test.json",
+      "sha256": "869986974e4801f2234fd2fa3bace383af2f092fd20359fbe1a252d4af7e37ae"
+    },
+    {
+      "bytes": 4184117,
+      "path": "history.json",
+      "sha256": "1246c1befc8564a259874d71d58095213076c1400f2f3c8c096e9a567c68e550"
+    },
+    {
+      "bytes": 4289342,
+      "path": "summary.json",
+      "sha256": "3c05a61000951d07968bc95008ca6afaaef466e19994392b19c8d6bfbe93e80a"
+    },
+    {
+      "bytes": 2283319,
+      "path": "binding.json",
+      "sha256": "96c328cc7915c9cfb0696e49473a3e311b6a242ad9d4a9853350760484802f66"
+    },
+    {
+      "bytes": 240,
+      "path": "initialization.json",
+      "sha256": "26cc42af44c4a062b0ae75bb30579e973495ed5135fdb78fcb7a876e790e2c65"
+    },
+    {
+      "bytes": 428,
+      "path": "checkpoint_reload.json",
+      "sha256": "5f8086222f6c5da94f0cab0998ff8c62d0a77b16a9b2f0ddf0bbb0f048e70d38"
+    },
+    {
+      "bytes": 1121,
+      "path": "attempts/0001/runtime.json",
+      "sha256": "654d8489241e116d8ba216c42df458d6e01723b2395793b7cc5c3c2333239c61"
+    }
+  ],
+  "sha256": "4fc4d51cec3aac5900ac94cdde919818ba58cd0f76add625867623f54d052477",
+  "source": "/Users/patrick/Downloads/hgtnet_seed42_results_20261103.tar.tar",
+  "supplied_extension": ".tar.tar"
+}

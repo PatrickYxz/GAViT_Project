@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-29",
+  "scope": "Independent pooled VGG frozen feature extraction and actual numeric file cache",
+  "command": "OMP_NUM_THREADS=1 /private/tmp/gavit-dfagcn-cpu-20261027/bin/python -m unittest discover -s tests -p test_dfagcn_cache_extract.py -v",
+  "red": {
+    "exit_code": 1,
+    "methods": 9,
+    "reason": "cache/extraction interfaces absent; explicit assertion failures"
+  },
+  "green": {
+    "exit_code": 0,
+    "methods": 10,
+    "reported_elapsed_seconds": 4.158
+  },
+  "regression": {
+    "name": "source image changes after preflight before decoding",
+    "red_exit_code": 1,
+    "red_reason": "ValueError not raised",
+    "green_exit_code": 0,
+    "fix": "Read and SHA exact byte payload immediately before decode from BytesIO"
+  },
+  "verified": [
+    "numeric .npy memmap cache with exact declared sample count and pool/channel dimensions",
+    "SHA256 and expected ordered identity checks on reopen",
+    "incomplete writes retain partial directory without final index",
+    "copied tensors do not mutate read-only mapped arrays",
+    "real CPU VGG16 FC6 plus 448 convolution outputs pool/cache",
+    "real random VGG state file save/load preserves CPU FC6 exactly",
+    "weight-file SHA mismatch rejected before deserialization"
+  ],
+  "not_verified": [
+    "official pretrained ImageNet/MatConvNet checkpoint or preprocessing parity",
+    "GPU behavior",
+    "real NWPU image extraction",
+    "complete training and classifier integration"
+  ],
+  "environment_note": "Two initial test process launches aborted before unittest with intermittent libomp #179 shared-memory startup error; subsequent OMP_NUM_THREADS=1 runs passed. Error logs retained; this is not an operator RED.",
+  "sha256": {
+    "external_baselines/dfagcn/cache.py": "abe24274c615b303eef7000a533c3902e56a2fc9ee904fda795a0248197d6a80",
+    "external_baselines/dfagcn/extraction.py": "819d69decc9853c32df70bca71ee34603420bdae5d04ddd8c65c941b13607178",
+    "tests/test_dfagcn_cache_extract.py": "d5bd1047a630d4234c4eddc7369497debf5fc08b05fd9cb37323b4b7940351cf",
+    "results/evidence/dfagcn_pipeline_20261029/cache/green.log": "58c125b4b46d9dbadcbfd8fdc61cf3e622de25acb93eb82812a764e6cb4743de",
+    "results/evidence/dfagcn_pipeline_20261029/cache/red.log": "091582e3b9bef0cb79c0b0c96d537309ad822e6cfbcb4eaa7ec8c3489563e45a",
+    "results/evidence/dfagcn_pipeline_20261029/cache/source_race_red.log": "a6be94bec07b938d0ce469cdc242081fd373e79131fcba0a8b07700e60ce26d9",
+    "results/evidence/dfagcn_pipeline_20261029/cache/source_race_red_retry.log": "ac36ee96b91c4dff49c4284f7084b689e14376627ace751bf0858e8037f9203c"
+  }
+}

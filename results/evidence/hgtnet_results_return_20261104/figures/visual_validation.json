@@ -1,0 +1,88 @@
+{
+  "checks": {
+    "all45_matrix_labels_text": true,
+    "all45_perclass_text": true,
+    "artifact_sha:hgtnet_seed42_all_class_performance.pdf": true,
+    "artifact_sha:hgtnet_seed42_all_class_performance.png": true,
+    "artifact_sha:hgtnet_seed42_all_class_performance.svg": true,
+    "artifact_sha:hgtnet_seed42_confusion_matrix.pdf": true,
+    "artifact_sha:hgtnet_seed42_confusion_matrix.png": true,
+    "artifact_sha:hgtnet_seed42_confusion_matrix.svg": true,
+    "artifact_sha:hgtnet_seed42_top10_bidirectional_confusions.pdf": true,
+    "artifact_sha:hgtnet_seed42_top10_bidirectional_confusions.png": true,
+    "artifact_sha:hgtnet_seed42_top10_bidirectional_confusions.svg": true,
+    "artifact_sha:hgtnet_seed42_training_history.pdf": true,
+    "artifact_sha:hgtnet_seed42_training_history.png": true,
+    "artifact_sha:hgtnet_seed42_training_history.svg": true,
+    "best_and_final_labels": true,
+    "both_top_pair_counts": true,
+    "four_final_pdfs": true,
+    "one_page:hgtnet_seed42_all_class_performance": true,
+    "one_page:hgtnet_seed42_confusion_matrix": true,
+    "one_page:hgtnet_seed42_top10_bidirectional_confusions": true,
+    "one_page:hgtnet_seed42_training_history": true,
+    "render_exists:hgtnet_seed42_all_class_performance": true,
+    "render_exists:hgtnet_seed42_confusion_matrix": true,
+    "render_exists:hgtnet_seed42_top10_bidirectional_confusions": true,
+    "render_exists:hgtnet_seed42_training_history": true,
+    "script_hash": true
+  },
+  "count": 26,
+  "passed": true,
+  "records": [
+    {
+      "clipping_or_overlap_found": false,
+      "pages": 1,
+      "pdf": "hgtnet_seed42_training_history.pdf",
+      "pdf_sha256": "1822038ed995566cdf2c613777e4ed00888dff6be517e91cde138ea434d7f6fc",
+      "render": "results/evidence/hgtnet_results_return_20261104/figures/rendered/training_history.png",
+      "render_dimensions": [
+        1900,
+        1313
+      ],
+      "render_sha256": "3f44c397ded9319e1b28271a36739499faf9e0af9468e2ed4769a9eefcc83cda",
+      "visually_inspected": true
+    },
+    {
+      "clipping_or_overlap_found": false,
+      "pages": 1,
+      "pdf": "hgtnet_seed42_all_class_performance.pdf",
+      "pdf_sha256": "a77d5905a3a252f43daf4529d378dbd9f5a91fa4c4e3089f5fe2add852fb73da",
+      "render": "results/evidence/hgtnet_results_return_20261104/figures/rendered/all_class_performance.png",
+      "render_dimensions": [
+        1474,
+        1900
+      ],
+      "render_sha256": "346ab896acf2d165adcb6ee30fb7df928d5a914124fa1fb304d7aac7a781d0fe",
+      "visually_inspected": true
+    },
+    {
+      "clipping_or_overlap_found": false,
+      "pages": 1,
+      "pdf": "hgtnet_seed42_confusion_matrix.pdf",
+      "pdf_sha256": "8fd04bf2dfb924553ccc49d598cc427f60f52963cae7145639746c946948e3e9",
+      "render": "results/evidence/hgtnet_results_return_20261104/figures/rendered/confusion_matrix.png",
+      "render_dimensions": [
+        1900,
+        1870
+      ],
+      "render_sha256": "78d9f4250c8045990fff7fdbc60d4ec384b47e6c07530178931faea1fbed32b5",
+      "visually_inspected": true
+    },
+    {
+      "clipping_or_overlap_found": false,
+      "pages": 1,
+      "pdf": "hgtnet_seed42_top10_bidirectional_confusions.pdf",
+      "pdf_sha256": "767094b27b86655d54180d8d0e45a2f30c51a15463edcc12ea4842432e67c061",
+      "render": "results/evidence/hgtnet_results_return_20261104/figures/rendered/top10_bidirectional_confusions.png",
+      "render_dimensions": [
+        1900,
+        1091
+      ],
+      "render_sha256": "6e1050b0f49513ccea16674c14f4457cf043ab2d37ef942705c1cc08e4e8a3d2",
+      "visually_inspected": true
+    }
+  ],
+  "renderer": "Poppler pdftoppm26.05.0 -scale-to1900 -png -singlefile",
+  "visual_scope": "AllfourfinalPDFsrerenderedandinspected; perclassnumber/F1overlapfixed; initialdraftretained"
+}

@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-29",
+  "checks": {
+    "unresolved_citations": [],
+    "unused_entries": [],
+    "unresolved_labels": [],
+    "duplicate_labels": [],
+    "duplicate_keys": [],
+    "missing_inputs": []
+  },
+  "actually_cited_references": 50,
+  "source_word_estimate": {
+    "01-introduction.tex": 1132,
+    "02-literature-review.tex": 3872,
+    "03-method.tex": 1893,
+    "04-experimental-setup.tex": 1916
+  },
+  "existing_method_setup_unchanged": true,
+  "source_sha256": {
+    "main.tex": "5fb459d82db6540af380f47a08fec29953531459ed01694375a1bed4431774d8",
+    "chapters/01-introduction.tex": "8617239b73028ed0ef8ee1657285514e6d418ec1e5af38272ea5557a96762132",
+    "chapters/02-literature-review.tex": "77d5073aa7dfd07b4f4c7e286af76838c5eb6d269ec5e722999b25d4b572072b",
+    "chapters/03-method.tex": "e036fa93a09be0ff86facb4ca0c2f84c74d243c23318eda2f436fb125d44115f",
+    "chapters/04-experimental-setup.tex": "f38ff2213118e028f3039faff9028048992cd72a508d36626e4639e339637629",
+    "references.bib": "fadee6936a8d4b91043a0c6fa9c2794aee595bb072e4861990d70246a4a9997f"
+  }
+}

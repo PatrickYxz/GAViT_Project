@@ -1,0 +1,30 @@
+{
+  "actual_final_bundle_stdlib_importguard": {
+    "inspect_exit": 0,
+    "local_ready": false,
+    "local_state": "not_started",
+    "ml_imports": false,
+    "status_exit": 0
+  },
+  "bundle": "/Users/patrick/Projects/GAViT_Project/output/hgtnet_aid_batch16_probe_3060_20261105.pyz",
+  "bundle_id": "f07b8d6744acbd4ee25a16c170a90fa913011e1ed668c6a035837dc4c494662e",
+  "bytes": 67224,
+  "formal_aid_training_started": false,
+  "git_mutation": false,
+  "independent_review": "PASS_SPEC_AND_QUALITY_NO_ACTIONABLE_FINDINGS",
+  "new_delivery_stdlib_tests": 6,
+  "new_entry_stdlib_tests": 8,
+  "note": "Test counts are distinct scoped invocations, not one project-wide suite. Corrected runner pattern and macOS symlink-path rejection retained in integration/runner_selection_note.json.",
+  "numerical_cpu_tests": 12,
+  "old_aid_delivery_baseline_tests": 6,
+  "old_aid_entry_baseline_tests": 15,
+  "payload_files": 19,
+  "protected_hashes_unchanged": true,
+  "protected_old_files": 35,
+  "real_gpu_capacity_or_timing_verified": false,
+  "sha256": "fd54b4c1a21db1731d1addb0808c49104c11113b610883b79b2c6af456fc80f5",
+  "source_files": 18,
+  "source_payload_matches_current": true,
+  "state": "LOCAL_AID_BATCH16_BUNDLE_READY_ACTUAL3060_PENDING",
+  "zip_members": 21
+}
